@@ -20,8 +20,10 @@
 
 Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover dados de outro armazenamento de dados para a Tabela do Azure e mover dados da Tabela do Azure para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
-O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Armazenamento de Tabelas do Azure e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+## Assistente de cópia de dados
+A maneira mais fácil de criar um pipeline que copia dados de/para o Armazenamento de Tabela do Azure é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
+Os exemplos a seguir fornecem as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Armazenamento de Tabela do Azure e o Banco de Dados de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
 
 ## Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
 
@@ -29,7 +31,7 @@ O exemplo a seguir mostra:
 
 1.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para a tabela e o blob).
 2.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#azure-table-dataset-type-properties).
-3.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 3.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
@@ -402,7 +404,7 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 azureTableDefaultPartitionKeyValue | Valor de chave de partição padrão que pode ser utilizado pelo coletor. | Um valor de cadeia de caracteres. | Não 
 azureTablePartitionKeyName | Nome de coluna do usuário especificado, cujos valores de coluna são utilizados como chave de partição. Se não especificado, AzureTableDefaultPartitionKeyValue será utilizado como a chave da partição. | Um nome de coluna. | Não |
 azureTableRowKeyName | Nome de coluna especificado pelo usuário, cujos valores de coluna são utilizados como chave de linha. Se não especificado, um GUID é usado para cada linha. | Um nome de coluna. | Não  
-azureTableInsertType | O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Consulte os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) para saber mais sobre como essas configurações (mescla e substituição) funcionam. <br/><br> Observe que essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existem na entrada. | mesclar (padrão)<br/>substituir | Não 
+azureTableInsertType | O modo para inserir dados na tabela do Azure.<br/><br/>Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Veja os tópicos [Inserir ou Mesclar Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Inserir ou Substituir Entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) para saber mais sobre como essas configurações (mescla e substituição) funcionam. <br/><br> Observe que essa configuração se aplica ao nível de linha e não ao nível de tabela e nenhuma das opções excluirá as linhas na tabela de saída que não existirem na entrada. | mesclar (padrão)<br/>substituir | Não 
 writeBatchSize | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido. | Inteiro (número de linhas)| Não (padrão: 10000) 
 writeBatchTimeout | Insere dados na tabela do Azure quando o writeBatchSize ou writeBatchTimeout for atingido | TimeSpan<br/><br/>Exemplo: "00:20:00" (20 minutos) | Não (padrão para 90 seg. de valor de tempo padrão de cliente de armazenamento)
 
@@ -527,6 +529,6 @@ Nesse caso, a fábrica dados fará automaticamente as conversões de tipo, inclu
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

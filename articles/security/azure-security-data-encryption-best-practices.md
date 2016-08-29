@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/16/2016"
    ms.author="yuridio"/>
 
 #Práticas Recomendadas de Segurança de Dados e Criptografia do Azure
@@ -163,4 +163,4 @@ As organizações que não priorizam [a classificação de dados](http://downloa
 
 Você pode aprender mais sobre o Azure RMS lendo o artigo [Introdução ao Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

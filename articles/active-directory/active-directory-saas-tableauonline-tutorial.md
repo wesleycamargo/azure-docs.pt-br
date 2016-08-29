@@ -177,11 +177,11 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
  
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_05.png)
 
@@ -189,7 +189,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -203,7 +203,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -241,8 +241,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 **Para atribuir Brenda Fernandes ao Tableau Online, execute as seguintes etapas:**
 
-1. No portal clássico, para abrir o modo de exibição de aplicativos, no
-2. modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -295,4 +294,4 @@ Ao clicar no bloco Tableau Online no Painel de Acesso, você deverá ser conecta
 [204]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Usando a Área de Trabalho Remota com as funções do Azure
@@ -75,4 +75,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
 
 1. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

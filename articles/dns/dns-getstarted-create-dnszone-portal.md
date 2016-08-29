@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Criar uma zona DNS no portal do Azure
@@ -78,7 +78,7 @@ Criar uma zona DNS também cria os seguintes registros:
 
 Você pode exibir os registros no Portal do Azure
 
-1. Na folha **Zona DNS**, clique em **Todas as configurações** para abrir a folha **Configurações** da zona DNS. 
+1. Na folha **Zona DNS**, clique em **Todas as configurações** para abrir a folha **Configurações** da zona DNS.
 
 	![zona](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -126,4 +126,4 @@ Você pode excluir a zona DNS diretamente no portal. Antes de excluir uma zona D
 
 Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset-portal.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

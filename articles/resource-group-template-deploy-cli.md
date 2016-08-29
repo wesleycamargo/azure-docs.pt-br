@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Implantar recursos com modelos do Resource Manager e a CLI do Azure
@@ -53,7 +53,7 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
 
 Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recursos, consulte [Usando a CLI do Azure para Mac, Linux e Windows e Windows com o Gerenciamento de Recursos do Azure](xplat-cli-azure-resource-manager.md).
 
-1. Faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará o resultado do seu logon.
+1. Faça logon na sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará o resultado do seu logon.
 
         azure login
   
@@ -70,7 +70,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
    
         info:     New mode is arm
 
-4. Se você não tiver um grupo de recursos existente, crie um novo grupo de recursos. Forneça o nome do grupo de recursos e o local necessários para sua solução. Um resumo do novo grupo de recursos é retornado.
+4. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o nome do grupo de recursos e o local necessários para sua solução. Um resumo do novo grupo de recursos é retornado.
 
         azure group create -n ExampleResourceGroup -l "West US"
    
@@ -90,7 +90,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Para criar uma nova implantação para seu grupo de recursos, execute o comando a seguir e ofereça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário.
+5. Para implantar recursos em seu grupo de recursos, execute o comando a seguir e ofereça os parâmetros necessários. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário.
    
      Você tem as três opções a seguir para fornecer valores de parâmetro:
 
@@ -132,11 +132,11 @@ Você pode adicionar seus modelos a uma conta de armazenamento e vinculá-los du
 
 As etapas a seguir configuram uma conta de armazenamento para os modelos:
 
-1. Criar um novo grupo de recursos.
+1. Crie um grupos de recursos.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Criar uma nova conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo no Azure, então forneça seu próprio nome para a conta.
+2. Criar uma conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo no Azure, então forneça seu próprio nome para a conta.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
@@ -145,7 +145,7 @@ As etapas a seguir configuram uma conta de armazenamento para os modelos:
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Criar um novo contêiner. A permissão é definida como **Desativada**, o que significa que o contêiner está acessível apenas para o proprietário.
+4. Criar um contêiner. A permissão é definida como **Desativada**, o que significa que o contêiner está acessível apenas para o proprietário.
 
         azure storage container create --container templates -p Off 
         
@@ -176,4 +176,4 @@ Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

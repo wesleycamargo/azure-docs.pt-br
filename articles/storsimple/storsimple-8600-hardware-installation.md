@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
@@ -302,4 +302,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

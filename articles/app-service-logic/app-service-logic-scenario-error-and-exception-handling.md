@@ -1,58 +1,57 @@
-<properties 
-    pageTitle="Tratamento de logs e de erros nos Aplicativos Lógicos | Microsoft Azure" 
-    description="Exibir um caso de uso real de tratamento e registro em log avançados de erros com Aplicativos Lógicos" 
+<properties
+    pageTitle="Tratamento de logs e de erros nos Aplicativos Lógicos | Microsoft Azure"
+    description="Exibir um caso de uso real de tratamento e registro em log avançados de erros com Aplicativos Lógicos"
     keywords=""
-    services="logic-apps" 
-    authors="hedidin" 
-    manager="" 
-    editor="" 
+    services="logic-apps"
+    authors="hedidin"
+    manager=""
+    editor=""
     documentationCenter=""/>
-    
-<tags 
-    ms.service="logic-apps" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/29/2016" 
+
+<tags
+    ms.service="logic-apps"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/29/2016"
     ms.author="b-hoedid"/>
-    
-# Registro em log e tratamento de erros nos Aplicativos Lógicos 
 
-Este artigo apresenta detalhes sobre como você pode estender um aplicativo lógico para dar um suporte melhor ao tratamento de exceções. É um caso de uso real e nossa resposta à pergunta **Os Aplicativos Lógicos oferecem suporte ao tratamento de exceções e de erros?**
+# Registro em log e tratamento de erros nos Aplicativos Lógicos
 
->[AZURE.NOTE] A versão atual de Aplicativos Lógicos fornece um modelo padrão para respostas de ação. Isso inclui validação interna e respostas de erro retornadas de um Aplicativo de API.
+Este artigo descreve como você pode estender um aplicativo lógico para dar um suporte melhor ao tratamento de exceções. É um caso de uso real e nossa resposta à pergunta “Os Aplicativos Lógicos dão suporte ao tratamento de exceções e de erros”?
+
+>[AZURE.NOTE] A versão atual do recurso Aplicativos Lógicos do Serviço de Aplicativo do Microsoft Azure fornece um modelo padrão para respostas de ação. Isso inclui validação interna e respostas de erro retornadas de um aplicativo de API.
 
 ## Visão geral do cenário e do caso de uso
 
-A história a seguir é o caso de uso para este artigo.
+A história a seguir é o caso de uso para este artigo. Uma organização de saúde conhecida nos pediu para desenvolver uma solução do Azure que criasse um portal de paciente usando o Microsoft Dynamics CRM Online. Ela precisava enviar registros de consultas entre o portal de pacientes do Dynamics CRM Online e o Salesforce. Foi solicitado que usássemos o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
 
-> Uma organização de saúde bem conhecida solicitou a criação de uma solução do Azure para criar um portal de pacientes usando o CRMOL (Dynamics CRM Online). Naquele momento, eles estavam utilizando o Salesforce e precisávamos enviar os registros de consulta entre o portal de pacientes do CRMOL e o Salesforce. Foi solicitado que usássemos o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
+O projeto tinha dois requisitos principais:
 
-> Havia dois requisitos principais que precisávamos incluir:
-> -  Log de registros enviados do Portal do CRMOL
-> -  Eles precisavam de uma maneira de exibir os erros ocorridos no fluxo de trabalho.
+ -  Um método para registrar em log os registros enviados do portal do Dynamics CRM Online
+ -  Uma maneira de exibir os erros ocorridos no fluxo de trabalho
 
 
 ## Como solucionamos o problema
 
->[AZURE.TIP] Você pode exibir um vídeo de alto nível no [Grupo de Usuários de Integração](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Grupo de usuários de integração")
+>[AZURE.TIP] Você pode exibir um vídeo de alto nível do projeto no [Grupo de Usuários de Integração](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Grupo de usuários de integração").
 
-Decidimos usar o **[Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/ "Banco de Dados de Documentos do Azure")** como um repositório para os registros de log e de erros. (Banco de Dados de Documentos refere-se aos registros como documentos). Como os Aplicativos Lógicos têm um modelo padrão para todas as respostas, não seria necessário criar um esquema personalizado. Nós poderíamos criar um Aplicativo de API para Inserir e Consultar registros de Erro e de Log. Também poderíamos definir um esquema para cada um deles no Aplicativo de API.
+Escolhemos o [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/ "Banco de Dados de Documentos do Azure") como um repositório para os registros de log e de erros (O Banco de Dados de Documentos trata os registros como documentos). Como os Aplicativos Lógicos têm um modelo padrão para todas as respostas, não seria necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.
 
-Nós tínhamos outros requisitos para eliminar registros após uma determinada data. O Banco de Dados de Documentos tem uma propriedade [Time-To-Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida Útil") (ttl), que nos permitiu definir um valor **Time-to-Live** para cada registro ou em uma coleção inteira. Isso elimina a necessidade de excluir manualmente os registros do Banco de Dados de Documentos.
+Outro requisito era eliminar registros após determinada data. O Banco de Dados de Documentos tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida Útil") (Time-To-Live), que nos permitiu definir um valor **Time-to-Live** para cada registro ou coleção. Isso elimina a necessidade de excluir manualmente os registros do Banco de Dados de Documentos.
 
-### Nossa abordagem
+### Criação do aplicativo lógico
 
-A primeira etapa também é criar nosso Aplicativo Lógico e carregá-lo no designer. Neste exemplo, estamos usando Aplicativos Lógicos Pai--Filho. Vamos supor que já tenhamos criado o pai. Vamos criar um aplicativo lógico filho.
+A primeira etapa é criar o aplicativo lógico e carregá-lo no designer. Neste exemplo, estamos usando aplicativos lógicos pai-filho. Vamos supor que nós criamos o pai e vamos criar um aplicativo lógico filho.
 
-Já que vamos registrar em log o registro vindo do CRMOL, começaremos da parte superior. Precisamos usar um Gatilho de Solicitação, já que o aplicativo lógico pai irá disparar esse filho.
+Já que vamos registrar em log o registro vindo do Dynamics CRM Online, começaremos do início. Precisamos usar um gatilho Solicitação, já que o aplicativo lógico pai irá disparar esse filho.
 
-> [AZURE.IMPORTANT] Para concluir este tutorial, você precisará criar um Banco de Dados de Documentos e duas Coleções (Registro em Log e de Erros)
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisará criar um Banco de Dados de Documentos e duas coleções (Registro em Log e de Erros).
 
-### Gatilho de Aplicativo Lógico 
+### Gatilho de aplicativo lógico
 
-**Estamos usando um Gatilho de Solicitação como mostrado abaixo**
+Estamos usando um gatilho Solicitação, conforme mostrado no exemplo a seguir.
 
 ```` json
 "triggers": {
@@ -90,35 +89,35 @@ Já que vamos registrar em log o registro vindo do CRMOL, começaremos da parte 
 ````
 
 
-### Etapas 
+### Etapas
 
-Vamos começar com o registro em log. É necessário registrar a origem (Solicitação) do registro de paciente do Portal do CRMOL.
+Precisamos registrar a origem (solicitação) do registro do paciente do portal do Dynamics CRM Online.
 
-1. Primeiro, precisamos **Obter um novo registro de consulta** do CRMOL. O gatilho proveniente do CRM fornecerá a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. A SalesforceId pode ser nula, uma vez que é usada somente para uma Atualização. Obteremos o registro do CRM usando a PatientID do CRM e o tipo de registro.
-1. Em seguida, precisamos adicionar a operação **InsertLogEntry** do nosso Aplicativo de API do Banco de Dados de Documentos como mostrado nas figuras a seguir:
+1. Precisamos obter um novo registro de consulta do Dynamics CRM Online. O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização. Obteremos o registro do CRM usando a **PatientID** do CRM e o **tipo de registro**.
+1. Em seguida, precisamos adicionar a operação **InsertLogEntry** do nosso aplicativo de API do Banco de Dados de Documentos como mostrado nas figuras a seguir.
 
 
-#### Inserir Entrada de Log no Modo de Exibição de Designer
+#### Inserir entrada de log no modo de exibição de designer
 
 ![Inserir Entrada de Log](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
-#### Inserir Entrada de Erro no Modo de Exibição de Designer
+#### Inserir entrada de erro no modo de exibição de designer
 ![Inserir Entrada de Log](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### Condição - verificação de falha em Criar Registro 
+#### Verificar falha em criar registro
 
 ![Condição](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
 
-## Código-fonte do Aplicativo Lógico 
+## Código-fonte do aplicativo lógico
 
->[AZURE.NOTE]  A seguir, mostraremos exemplos apenas. Devido à natureza de que o tutorial se baseia em uma implementação real atualmente em produção, o valor de um **nó de origem** não pode exibir as propriedades relacionadas ao agendamento de uma consulta.
+>[AZURE.NOTE]  A seguir, mostraremos exemplos apenas. Como o tutorial se baseia em uma implementação atualmente em produção, o valor de um **Nó de Origem** não pode exibir as propriedades relacionadas ao agendamento de uma consulta.
 
 ### Registro em log
-O exemplo de código de aplicativo de lógica a seguir mostra como lidar com registros em log
+O exemplo de código de aplicativo lógico a seguir mostra como lidar com registros em log.
 
-#### Inserir entrada de log
-Este é o código-fonte do aplicativo lógico para a inserção de uma entrada de log
+#### Entrada de log
+Este é o código-fonte do aplicativo lógico para a inserção de uma entrada de log.
 
 ``` json
 "InsertLogEntry": {
@@ -146,7 +145,7 @@ Este é o código-fonte do aplicativo lógico para a inserção de uma entrada d
 
 #### Solicitação de log
 
-Esta é a mensagem de solicitação de log postada para o Aplicativo de API
+Essa é a mensagem de solicitação de log postada para o aplicativo de API.
 
 ``` json
     {
@@ -160,13 +159,13 @@ Esta é a mensagem de solicitação de log postada para o Aplicativo de API
 	    "source": "{"Pragma":"no-cache","x-ms-request-id":"e750c9a9-bd48-44c4-bbba-1688b6f8a132","OData-Version":"4.0","Cache-Control":"no-cache","Date":"Fri, 10 Jun 2016 22:31:56 GMT","Set-Cookie":"ARRAffinity=785f4334b5e64d2db0b84edcc1b84f1bf37319679aefce206b51510e56fd9770;Path=/;Domain=127.0.0.1","Server":"Microsoft-IIS/8.0,Microsoft-HTTPAPI/2.0","X-AspNet-Version":"4.0.30319","X-Powered-By":"ASP.NET","Content-Length":"1935","Content-Type":"application/json; odata.metadata=minimal; odata.streaming=true","Expires":"-1"}"
     	}
     }
-    
+
 ```
 
 
 #### Resposta de log
 
-Esta é a mensagem de resposta de log postada para o Aplicativo de API
+Essa é a mensagem de resposta de log postada para o aplicativo de API.
 
 ``` json
 {
@@ -197,20 +196,19 @@ Esta é a mensagem de resposta de log postada para o Aplicativo de API
 	    "expired": false
     }
 }
-    
+
 ```
 
-Agora vejamos as etapas de tratamento de erros:
+Agora vejamos as etapas de tratamento de erros.
 
-----------    
-    
+
 ### Tratamento de erros
 
-O exemplo de código de aplicativo de lógica a seguir mostra como você pode implementar o tratamento de erros.
+O exemplo de código de aplicativos lógicos a seguir mostra como você pode implementar o tratamento de erros.
 
 #### Criar registro de erro
 
-Este é o código-fonte do Aplicativo Lógico para a criação de um registro de erro.
+Este é o código-fonte dos Aplicativos Lógicos para a criação de um registro de erro.
 
 ``` json
 "actions": {
@@ -237,7 +235,7 @@ Este é o código-fonte do Aplicativo Lógico para a criação de um registro de
         "method": "post",
         "uri": "https://.../api/CrMtoSfError"
         },
-        "runAfter": 
+        "runAfter":
         {
             "Create_NewPatientRecord": ["Failed" ]
         }
@@ -248,7 +246,7 @@ Este é o código-fonte do Aplicativo Lógico para a criação de um registro de
 #### Inserir erro no Banco de Dados de Documentos - solicitação
 
 ``` json
-  
+
 {
     "uri": "https://.../api/CrMtoSfError",
     "method": "post",
@@ -334,7 +332,7 @@ Este é o código-fonte do Aplicativo Lógico para a criação de um registro de
         "errors": []
     }
 }
-    
+
 ```
 
 ### Retornar a resposta ao aplicativo lógico pai
@@ -345,7 +343,7 @@ Assim que você tiver a resposta, poderá passá-la para o aplicativo lógico pa
 
 ``` json
 "SuccessResponse": {
-    "runAfter": 
+    "runAfter":
         {
             "UpdateNew_CRMPatientResponse": ["Succeeded"]
         },
@@ -383,56 +381,56 @@ Assim que você tiver a resposta, poderá passá-la para o aplicativo lógico pa
     },
     "type": "Response"
 }
-  
+
 ```
 
-----------
-  
+
 ## Repositório e portal do Banco de Dados de Documentos
 
-Nossa solução adicionou outros recursos com o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb)
+Nossa solução adicionou outros recursos com o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb).
 
 ### Portal de gerenciamento de erros
 
-Para exibir os erros, você pode criar um Aplicativo Web do MVC para exibir os registros de erro do Banco de Dados de Documentos. Para a versão atual, as operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas.
+Para exibir os erros, você pode criar um aplicativo Web do MVC para exibir os registros de erro do Banco de Dados de Documentos. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
 
-> [AZURE.NOTE] Operação Editar: o Banco de Dados de Documentos faz uma substituição de todo o documento. Os registros mostrados nos modos de exibição de Listar e de Detalhe são apenas exemplos. Eles não são registros reais de consultas de pacientes
-        
-A seguir, exemplos de detalhes do nosso Aplicativo MVC usando a abordagem acima.
+> [AZURE.NOTE] Operação Editar: o Banco de Dados de Documentos faz uma substituição de todo o documento. Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
+
+A seguir, temos exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
 #### Lista de gerenciamento de erros
 
 ![Lista de Erros](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
-        
+
 #### Modo de exibição de detalhes do gerenciamento de erros
 
 ![Detalhes do Erro](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
 ### Portal de gerenciamento de logs
 
-Para exibir os logs, também criamos um aplicativo Web do MVC. A seguir, exemplos de detalhes do nosso Aplicativo MVC usando a abordagem acima.
+Para exibir os logs, também criamos um aplicativo Web do MVC. A seguir, temos exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
 #### Modo de exibição de detalhes de log de exemplo
 
 ![Modo de Exibição de Detalhes de Log](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
-    
-### Detalhes do Aplicativo de API
+
+### Detalhes do aplicativo de API
 
 #### API de gerenciamento de exceções de Aplicativos Lógicos
 
-Nosso Aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos de software livre forneceu a funcionalidade a seguir.
+Nosso aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos de software livre forneceu a funcionalidade a seguir.
 
-Há dois controladores
-- ErrorController insere um registro de erro (documento) em uma coleção do Banco de Dados de Documentos
-- LogController insere um registro de log (documento) em uma coleção do Banco de Dados de Documentos
+Há dois controladores:
+
+- **ErrorController** insere um registro de erro (documento) em uma coleção do Banco de Dados de Documentos.
+- **LogController** insere um registro de log (documento) em uma coleção do Banco de Dados de Documentos.
 
 > [AZURE.TIP] Ambos os controladores usam operações `async Task<dynamic>`. Isso permite que as operações sejam resolvidas em tempo de execução, de forma que possamos criar o esquema do Banco de Dados de Documentos no corpo da operação.
 
 Todos os documentos do Banco de Dados de Documentos devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Nós o truncamos para remover o valor fracionário.
 
-Você pode exibir o código-fonte da nossa API de controlador de erros [do GitHub aqui](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)
+Você pode exibir o código-fonte da nossa API de controlador de erros [do GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-Vamos chamar a API de um aplicativo lógico usando a seguinte sintaxe:
+Vamos chamar a API de um aplicativo lógico usando a sintaxe a seguir.
 
 ``` json
  "actions": {
@@ -465,21 +463,21 @@ Vamos chamar a API de um aplicativo lógico usando a seguinte sintaxe:
  }
 ```
 
-A expressão no exemplo de código acima está verificando o status de *Create\_NewPatientRecord*, que é **Falha**
+A expressão no exemplo de código anterior está verificando o status de *Create\_NewPatientRecord*, que é **Falha**.
 
-## Resumo 
+## Resumo
 
 - Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
-- Você pode aproveitar o Banco de Dados de Documentos como o repositório de registros de log e de erros (documentos)
+- Você pode usar o Banco de Dados de Documentos como o repositório de registros de log e de erros (documentos).
 - Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
 
 ### Código-fonte
-O código-fonte para o Aplicativo de API de Gerenciamento de Exceções de Aplicativos Lógicos está disponível neste [Repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de Gerenciamento de Exceções de Aplicativos Lógicos").
+O código-fonte para o aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de Gerenciamento de Exceções de Aplicativos Lógicos").
 
 
-## Próximas etapas 
+## Próximas etapas
 - [Exibir mais exemplos e cenários dos Aplicativos Lógicos](app-service-logic-examples-and-scenarios.md)
 - [Saiba mais sobre ferramentas de monitoramento de Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md)
 - [Criar um modelo de implantação de Aplicativos Lógicos](app-service-logic-create-deploy-template.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

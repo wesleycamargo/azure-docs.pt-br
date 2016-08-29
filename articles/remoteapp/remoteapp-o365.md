@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Usando o Office com o RemoteApp do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Você tem duas opções para hospedar aplicativos do Office no RemoteApp do Azure: Office 365 ProPlus ou Office 2013 Professional Plus Trial.
 
@@ -49,4 +52,4 @@ Quando você ativar sua conta, isso afetará todas as coleções de RemoteApp em
 
 Se você não fizer a transição para o modo de produção até a expiração da sua avaliação, as coleções de RemoteApp serão desabilitadas. Não se preocupe – suas configurações e dados de usuários serão salvas por outros 90 dias para que você ainda possa ativar o serviço e alternar para o modo de produção sem qualquer perda de dados.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

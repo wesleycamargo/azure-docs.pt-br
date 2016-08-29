@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Gerenciar funções nos projetos de serviços de nuvem do Azure com o Visual Studio
@@ -58,4 +58,4 @@ Por exemplo, você pode remover uma função de serviço Web e decidir posterior
 
 Saiba como configurar funções no Visual Studio lendo [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md),
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Criar uma aplicativo Web Hello World para o Azure no Eclipse
@@ -133,7 +133,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
       * Na caixa de texto **Nome**, especifique um nome para o novo Plano do Serviço de Aplicativo.
 
-      * No menu suspenso **Localização**, selecione a localização do data center do Azure apropriada ao plano.
+      * No menu suspenso **Local**, selecione o local do data center do Azure apropriado ao plano.
 
       * No menu suspenso **Tipo de Preço**, selecione o preço apropriado ao plano. Para fins de teste, é possível escolher **Gratuito**.
 
@@ -189,7 +189,8 @@ Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas 
 1. Expanda o nó **Azure**.
 2. Expanda o nó **Aplicativos Web**.
 3. Clique com botão direito do mouse no Aplicativo Web desejado.
-5. Quando o menu de contexto for exibido, clique em **Parar**.![][13]
+5. Quando o menu de contexto for exibido, clique em **Parar**.
+![][13]
 
 ## Próximas etapas
 
@@ -214,7 +215,7 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 
 [Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Criar uma aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
 [Instalação do Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-installation.md
@@ -243,4 +244,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

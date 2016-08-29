@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -48,7 +48,7 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
 Todos os logotipos carregados no Portal de Publicação devem seguir as diretrizes abaixo:
 
 - O design do Azure tem uma paleta de cores simples. Mantenha um baixo número de cores primárias e secundárias no seu logotipo.
-- As cores do tema do portal do Azure são branco e preto. Portanto, evite usar essas cores como a cor de fundo dos seus logotipos. Use uma cor que destaque seus logotipos no portal do Azure. É recomendável usar cores primárias simples. **Se estiver usando um plano de fundo transparente, certifique-se de que os logotipos/o texto não sejam preto ou branco.**
+- As cores do tema do portal do Azure são branco e preto. Portanto, evite usar essas cores como a cor de fundo dos seus logotipos. Use uma cor que destaque seus logotipos no portal do Azure. É recomendável usar cores primárias simples. **Se estiver usando um plano de fundo transparente, certifique-se de que os logotipos/o texto não sejam preto, branco ou azul.**
 - Não use uma tela de fundo gradiente no logotipo.
 - Evite colocar texto, até mesmo o nome ou marca da sua empresa, no logotipo. A aparência do seu logotipo deve ser “simples” e deve evitar usar gradientes.
 - O logotipo não deve ser estendido.
@@ -125,7 +125,7 @@ Para ofertas de Máquina Virtual, depois que uma oferta/SKU é listada no Azure 
 | Serviço do desenvolvedor | Sim | Sim | Sim |
 
 ### 2\.1. Definir seus preços da VM
-No momento, para as máquinas virtuais, temos os ** três tipos de modelos de cobrança a seguir:**
+No momento, para as máquinas virtuais, temos os **três tipos de modelos de cobrança a seguir:**
 
 - **Por hora:** os clientes são cobrados por hora com base nas taxas definidas pelos editores nos tamanhos da VM. No caso do modelo de **cobrança por hora** dos SKUs, o preço total será a soma do custo do software cobrado pelo editor e do custo da infraestrutura cobrado pela Microsoft. Esse custo total será exibido para o cliente como um preço por hora e mensal quando ele estiver considerando a compra (consulte a captura de tela abaixo). **O editor recebe 80% do custo de software cobrado.** Portanto, faça o cálculo adequadamente antes de definir preços para seus SKUs.
 
@@ -277,4 +277,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

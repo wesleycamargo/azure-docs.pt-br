@@ -1,14 +1,14 @@
 <properties
-    pageTitle="Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores usando um modelo do Azure Resource Manager | Microsoft Azure"
-    description="Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores usando um modelo do Azure Resource Manager"
-    services="service-bus"
+    pageTitle="Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager | Microsoft Azure"
+    description="Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager"
+    services="event-hubs"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus"
+    ms.service="event-hubs"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
@@ -18,7 +18,7 @@
 
 # Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores usando um modelo do Azure Resource Manager
 
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace Hub de Evento com um Hub de Evento e grupo de consumidores. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Hub de Evento com um Hub de Eventos e um grupo de consumidores. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][].
 
@@ -166,4 +166,4 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Modelo de grupo de consumo e do Hub de Eventos do Barramento de Serviço]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

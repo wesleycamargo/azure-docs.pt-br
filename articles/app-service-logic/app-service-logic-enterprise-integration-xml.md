@@ -26,8 +26,12 @@ O Enterprise Integration Pack facilita a validação e o processamento dos docum
 - [Codificação e decodificação de arquivos simples](./app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre a codificação/decodificação de arquivos simples") -A codificação/decodificação de arquivos simples fornece a capacidade de codificar ou decodificar um arquivo simples.
 - [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Fornece a capacidade de aprimorar uma mensagem e extrair propriedades específicas dela. As propriedades extraídas podem ser usadas para rotear a mensagem a um destino ou a um ponto de extremidade intermediário.
 
+## Experimente
+
+Por que não experimentá-lo? Clique [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) para implantar um aplicativo lógico seu totalmente operacional usando os recursos XML dos Aplicativos Lógicos
+
 ## Saiba mais
 
 [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Solucionar problemas na criação de coleções em nuvem do RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Se você estiver tendo problemas ao criar uma coleção de nuvem, confira as informações a seguir.
 
@@ -42,4 +45,4 @@ Se você estiver usando uma das imagens Microsoft incluídas em sua assinatura, 
 
 Se você receber esse erro, isso geralmente significa que você atualizou para uma conta paga, mas está tentando usar uma imagem fornecido pela Microsoft que é válida somente durante o modo de avaliação do serviço. Nesse caso, tente criar novamente sua coleção de nuvem, mas não se esqueça de especificar a imagem correta.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

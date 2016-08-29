@@ -56,8 +56,8 @@ As credenciais de administrador corporativo serão necessárias, já que é nece
 
 Descrição:
 
-- Se não existente, ele cria e configura novos contêineres e objetos em CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- Se não existente, ele cria e configura novos contêineres e objetos em CN=RegisteredDevices,[domain-dn]. Objetos de dispositivo serão criados neste contêiner.
+- Se ainda não existirem, ele criará e configurará novos contêineres e objetos em CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- Se não existir, cria e configura novos contêineres e objetos em CN=RegisteredDevices,[domain-dn]. Objetos de dispositivo serão criados neste contêiner.
 - Define as permissões necessárias na conta do Azure AD Connector para gerenciar dispositivos em seu Active Directory.
 - Só precisa ser executado em uma floresta, mesmo que o Azure AD Connect esteja instalado em várias florestas.
 
@@ -130,4 +130,4 @@ Verifique a configuração no Active Directory:
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

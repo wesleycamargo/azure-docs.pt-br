@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Usando o redirecionamento no RemoteApp do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 O redirecionamento de dispositivo permite que os usuários interajam com aplicativos remotos usando os dispositivos conectados ao seu computador local, telefone ou tablet. Por exemplo, se você tiver fornecido o Skype por meio do RemoteApp do Azure, o usuário precisará da câmera instalada no PC para trabalhar com o Skype. Isso também é verdadeiro para impressoras, alto-falantes, monitores e uma variedade de periféricos conectados por USB.
 
@@ -40,7 +43,7 @@ Duas opções de redirecionamento estão desabilitadas por padrão:
 - Redirecionamento de USB: você pode usar os dispositivos USB conectados ao computador local na sessão remota.
 
 ## Alterar as configurações de redirecionamento no RemoteApp
-Você pode alterar as configurações de redirecionamento de dispositivos para uma coleção usando o PowerShell do Microsoft Azure com o SDK. Depois de instalar o novo PowerShell e o SDK, primeiro configure-o para gerenciar sua assinatura, como descrito em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Você pode alterar as configurações de redirecionamento de dispositivos para uma coleção usando o PowerShell do Microsoft Azure com o SDK. Depois de instalar o novo PowerShell e o SDK, primeiro configure-o para gerenciar sua assinatura, como descrito em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 Em seguida, use um comando semelhante ao seguinte para definir as propriedades personalizadas de RDP:
 
@@ -102,6 +105,6 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 5. Abra **Configuração do Computador\\Políticas\\Modelos Administrativos\\Componentes do Windows\\Serviços da Área de Trabalho Remota\\Cliente de Conexão da Área de Trabalho Remota\\Redirecionamento de Dispositivo USB RemoteFX**.
 6. Clique duas vezes em **Permitir redirecionamento de RDP de outros dispositivos USB RemoteFX com suporte deste computador**.
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
-8. Clique em **OK**.  
+8. Clique em **OK**.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

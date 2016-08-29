@@ -35,7 +35,7 @@ Neste artigo, percorreremos trabalhos de exemplo que você pode criar com o Agen
 
 ## Cenários com suporte
 
-Muitos exemplos neste tópico ilustram a variedade de cenários com suporte do Agendador do Azure. No geral, esses exemplos ilustram como criar agendamentos para vários padrões de comportamento, incluindo estes abaixo:
+Os vários exemplos neste tópico ilustram a variedade de cenários com suporte no Agendador do Azure. No geral, esses exemplos ilustram como criar agendamentos para vários padrões de comportamento, incluindo estes abaixo:
 
 -	Executar uma vez em uma determinada data e hora
 -	Executar e repetir um número de vezes específico
@@ -145,36 +145,36 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 |**Exemplo**|**Descrição**|
 |:---|:---|
 |<code>{"horas":[5]}</code>|Executar às 5h da manhã todos os dias. O Agendador do Azure corresponde a cada valor em "horas" com cada valor em "minutos", um a um, para criar uma lista de todos os horários em que o trabalho deve ser executado.|
-|<code>{"minutos":[15], "horas":[5]}</code>|Executar às 5:15 todos os dias|
-|<code>{"minutos":[15], "horas":[5,17]}</code>|Executar às 5:15 e 17:15 todos os dias|
-|<code>{"minutos":[15,45], "horas":[5,17]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 todos os dias|
+|<code>{"minutes":[15], "hours":[5]}</code>|Executar às 5:15 todos os dias|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Executar às 5:15 e 17:15 todos os dias|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 todos os dias|
 |<code>{"minutos": [0,15,30,45]}</code>|Executar a cada 15 minutos|
-|<code>{horas": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Executar a cada hora. Esse trabalho é executado a cada hora. O minuto é controlado pela _startTime_, se for especificado ou não no momento da criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 00:25, o trabalho será executado às 00:25, 01:25, 02:25, …, 23:25. O agendamento é equivalente a ter um trabalho com _frequência_ de "hora", _intervalo_ de 1 e sem _agendamento_. A diferença é que esse agendamento pode ser usado com diferentes _frequências_ e _intervalos_ para também criar outros trabalhos. Por exemplo, se a _frequência_ fosse "mês", o agendamento seria executado somente uma vez por mês, em vez de todos os dias com a _frequência_ sendo "dia"|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Executar a cada hora. Esse trabalho é executado a cada hora. O minuto é controlado pela _startTime_, se for especificado ou não no momento da criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 00:25, o trabalho será executado às 00:25, 01:25, 02:25, …, 23:25. O agendamento é equivalente a ter um trabalho com _frequência_ de "hora", _intervalo_ de 1 e sem _agendamento_. A diferença é que esse agendamento pode ser usado com diferentes _frequências_ e _intervalos_ para também criar outros trabalhos. Por exemplo, se a _frequência_ fosse "mês", o agendamento seria executado somente uma vez por mês, em vez de todos os dias com a _frequência_ sendo "dia"|
 |<code>{minutos: [0]}</code>|Execute a cada hora em hora exata. Esse trabalho também é executado a cada hora, mas na hora exata (por exemplo, 00:00, 1:00, 2:00, etc.) Isso equivale a um trabalho com frequência de "hora", startTime com zero minutos e sem agendamento se a frequência fosse "dia", mas, sendo a frequência "semana" ou "mês", o agendamento deve executar apenas uma vez por semana ou por mês, respectivamente.|
 |<code>{"minutos": [15]}</code>|Executar 15 minutos após a hora exata a cada hora. É executado a cada hora, começando em 00:15, 1:15, 2:15, etc. e terminando às 22:15 e 23:15.|
-|<code>{"horas":[17], "dias da semana": ["sábado"]}</code>|Executar às 17h aos sábados toda semana|
-|<code>{horas":[17],"dias da semana": ["segunda-feira","quarta-feira","sexta-feira"]}</code>|Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
-|<code>{"minutos":[15,45], "horas":[17], "dias da semana": ["segunda-feira", "quarta-feira", "sexta-feira"]}</code>|Executar às 17:15 e 17:45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
-|<code>{"horas":[5,17], "dias da semana": ["segunda-feira", "quarta-feira", "sexta-feira"]}</code>|Executar às 5h e às 17h toda semana às segundas-feiras, quartas-feiras e sextas-feiras|
-|<code>{"minutos":[15,45], "horas":[5,17], "dias da semana": ["segunda-feira", "quarta-feira", "sexta-feira"]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
-|<code>{"minutos":[0,15,30,45], "dias da semana": ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"]}</code>|Executar a cada 15 minutos em dias da semana|
-|<code>{"minutos":[0,15,30,45], "horas": [9, 10, 11, 12, 13, 14, 15, 16] "dias da semana": ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"]}</code>|Executar a cada 15 minutos nos dias úteis entre 9:00 e 16:45|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Executar às 17h aos sábados toda semana|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Executar às 17:15 e 17:45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Executar às 5h e às 17h toda semana às segundas-feiras, quartas-feiras e sextas-feiras|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Executar a cada 15 minutos em dias da semana|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Executar a cada 15 minutos nos dias úteis entre 9:00 e 16:45|
 |<code>{"dias da semana":["domingo"]}</code>|Executar aos domingos na hora de início|
 |<code>{"dias da semana":["terça-feira", "quinta-feira"]}</code>|Executar às terças e quintas-feiras na hora de início|
-|<code>{"minutos":[0], "horas":[6], "dias mês":[28]}</code>|Executar às 6h no 28º dia de cada mês (supondo a frequência do mês)|
-|<code>{"minutos":[0], "horas":[6], "dias mês":[-1]}</code>|Executar às 6h no último dia do mês. Se você quiser executar um trabalho no último dia de um mês, use -1 em vez de dia 28, 29, 30 ou 31.|
-|<code>{"minutos":[0], "horas":[6], "dias mês": [1, -1]}</code>|Executar às 6h no primeiro e no último dia de cada mês|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Executar às 6h no 28º dia de cada mês (supondo a frequência do mês)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Executar às 6h no último dia do mês. Se você quiser executar um trabalho no último dia de um mês, use -1 em vez de dia 28, 29, 30 ou 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Executar às 6h no primeiro e no último dia de cada mês|
 |<code>{dias mês":[1, -1]}</code>|Executar no primeiro e no último dia de cada mês na hora de início|
 |<code>{dias mês": [1,14]}</code>|Executar no primeiro e no décimo quarto dia de cada mês na hora de início|
 |<code>{dias mês": [2]}</code>|Executar no segundo dia do mês na hora de início|
-|<code>{"minutos": [0], "horas": [5], "monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": 1}]}</code>|Executar na primeira sexta-feira de cada mês às 5h|
-|<code>{"monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": 1}]}</code>|: Executar na primeira sexta-feira de cada mês na hora de início|
-|<code>{"monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": -3}]}</code>|Executar na terceira sexta-feira do final do mês, todo mês, na hora de início|
-|<code>{"minutos": 15, "horas": [5], "monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": 1}, {"dia": "sexta-feira", "ocorrência": -1}]}</code>|Executar na primeira e na última sexta-feira de cada mês às 5:15|
-|<code>{"monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": 1}, {"dia": "sexta-feira", "ocorrência": -1}]}</code>|Executar na primeira e na última sexta-feira de cada mês na hora de início|
-|<code>{"monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": 5}]}</code>|Executar na quinta sexta-feira de cada mês na hora de início. Se não houver nenhuma quinta sexta-feira em um mês, ele não é executado, uma vez que está agendado para executar apenas nas quintas sextas-feiras. Considere o uso de -1 em vez de 5 na ocorrência se você quiser executar o trabalho na última sexta-feira do mês.|
-|<code>{"minutos": [0,15,30,45] "monthlyOccurrences": [{"dia": "sexta-feira", "ocorrência": -1}]}</code>|Executar a cada 15 minutos na última sexta-feira do mês|
-|<code>{"minutos": [15,45] "horas": [5,17] "monthlyOccurrences": [{"dia": "quarta-feira", "ocorrência": 3}]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Executar na primeira sexta-feira de cada mês às 5h|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Executar na primeira sexta-feira de cada mês na hora de início|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Executar na terceira sexta-feira do final do mês, todo mês, na hora de início|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Executar na primeira e na última sexta-feira de cada mês às 5:15|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Executar na primeira e na última sexta-feira de cada mês na hora de início|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Executar na quinta sexta-feira de cada mês na hora de início. Se não houver nenhuma quinta sexta-feira em um mês, ele não é executado, uma vez que está agendado para executar apenas nas quintas sextas-feiras. Considere o uso de -1 em vez de 5 na ocorrência se você quiser executar o trabalho na última sexta-feira do mês.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Executar a cada 15 minutos na última sexta-feira do mês|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês|
 
 ## Consulte também
 
@@ -197,4 +197,4 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

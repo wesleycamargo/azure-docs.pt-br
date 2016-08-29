@@ -18,7 +18,6 @@ Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
 
 | **Tamanho do circuito** | **Número de links da Rede Virtual para padrão** | **Número de Links da Rede Virtual com complemento Premium** |
 |---|---|---|
-| 10 Mbps | 10 | Sem suporte |
 | 50 Mbps | 10 | 20 |
 | 100 Mbps | 10 | 25 |
 | 200 Mbps | 10 | 25 |
@@ -28,4 +27,4 @@ Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
 | 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0817_2016-->

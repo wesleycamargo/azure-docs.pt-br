@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -111,7 +111,7 @@ Aqui estão os links aos seis exemplos abordados neste tópico:
  * <a href="#Scenario3">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente e compartilhado junto com os dados serializados por meio de um arquivo contêiner de objetos do Avro.
  * <a href="#Scenario4">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente antes da serialização e compartilhado junto com os dados por meio de um arquivo contêiner de objetos do Avro.
  * <a href="#Scenario5">**Serialização usando arquivos contêiner de objetos com um codec de compactação personalizado**</a>: o exemplo mostra como criar um arquivo contêiner de objetos do Avro com uma implementação .NET personalizada do codec de compactação dos dados Deflate.
- * <a href="#Scenario6">**Usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight**</a>: o exemplo ilustra como a serialização do Avro interage com o serviço do HDInsight. Você precisa de uma assinatura ativa do Azure e acesso a um cluster Microsoft Azure HDInsight para executar este exemplo.
+ * <a href="#Scenario6">**Usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight**</a>: o exemplo ilustra como a serialização do Avro interage com o serviço do HDInsight. Você precisa de uma assinatura ativa do Azure e acesso a um cluster Azure HDInsight para executar este exemplo.
 
 ###<a name="Scenario1"></a>Exemplo 1: Serialização com reflexão
 
@@ -368,7 +368,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
 
 Este exemplo é semelhante ao cenário do <a href="#Scenario1"> primeiro exemplo</a>, cujo esquema é especificado implicitamente com reflexão. A diferença é que, aqui, não presumimos que o esquema seja conhecido do leitor que o desserializa. Os objetos **SensorData** a serem serializados e seu esquema especificado implicitamente são armazenados em um arquivo contêiner de objetos Avro representado pela classe [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
 
-Os dados neste exemplo são serializados com [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) e desserializados com [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). O resultado é, então, comparado com as instâncias iniciais para garantir a identidade.
+Os dados são serializados neste exemplo com [**SequentialWriter <SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) e desserializados com [**SequentialReader <SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). O resultado é, então, comparado com as instâncias iniciais para garantir a identidade.
 
 Os dados no arquivo contêiner de objetos são compactados pelo codec de compactação padrão [**Deflate**][deflate-100] do .NET Framework 4. Consulte o <a href="#Scenario5"> quinto exemplo</a> neste tópico para aprender a usar uma versão mais recente e superior do codec de compactação [**Deflate**][deflate-110], disponível no .NET Framework 4.5.
 
@@ -1392,7 +1392,7 @@ Todas as informações dos pré-requisitos devem ser inseridas no arquivo de con
 * Editar o arquivo app.config no diretório raiz do exemplo e compilar o exemplo
 * Primeiro compilar o exemplo e, depois, editar o AvroHDISample.exe.config no diretório de compilação
 
-Nos dois casos, todas as edições devem ser realizadas na seção de configurações **<appSettings>**. Siga os comentários no arquivo. O exemplo é executado na linha de comando pela execução do seguinte comando (presume-se que o arquivo .zip com o exemplo tenha sido extraído para C:\\AvroHDISample; caso contrário, use o caminho de arquivo relevante):
+Em ambos os casos, todas as edições devem ser feitas na seção de configurações **<appSettings>**. Siga os comentários no arquivo. O exemplo é executado na linha de comando pela execução do seguinte comando (presume-se que o arquivo .zip com o exemplo tenha sido extraído para C:\\AvroHDISample; caso contrário, use o caminho de arquivo relevante):
 
     AvroHDISample run C:\AvroHDISample\Data
 
@@ -1403,4 +1403,4 @@ Para limpar o cluster, execute este comando:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

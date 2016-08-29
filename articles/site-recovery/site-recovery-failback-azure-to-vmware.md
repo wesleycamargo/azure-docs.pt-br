@@ -57,9 +57,9 @@ Veja a seguir como o failback funciona:
 Se você realizou o failover de uma VM do VMware, poderá realizar o failback para a mesma VM de origem, caso ela ainda exista no local. Nessa situação, apenas as alterações delta passarão por failback. Observe que:
 
 - Se você realizou o failover de servidores físicos, o failback sempre ocorrerá para uma nova VM do VMware.
-	- Antes de realizar failback em uma máquina física, observe que
-	- A máquina física protegida voltará como uma máquina virtual após o failover do Azure para o VMware
-	- Certifique-se de descobrir, pelo menos, um servidor de Destino Mestre juntamente com os hosts ESX/ESXi necessários para os quais você precisa fazer failback.
+	- Antes de realizar failback em um computador físico, observe que:
+		- A máquina física protegida voltará como uma máquina virtual após o failover do Azure para o VMware
+		- Certifique-se de descobrir, pelo menos, um servidor de Destino Mestre juntamente com os hosts ESX/ESXi necessários para os quais você precisa fazer failback.
 - Se você realizar o failback para a VM original, precisará do seguinte:
 	- Se a VM for gerenciada por um servidor vCenter, o host do ESX de Destino Mestre deve ter acesso ao repositório de dados das máquinas virtuais.
 	- Se a VM estiver em um host ESX, mas não for gerenciada pelo vCenter, o disco rígido da VM deverá estar em um repositório de dados acessível ao host do MT.
@@ -76,7 +76,7 @@ Se você realizou o failover de uma VM do VMware, poderá realizar o failback pa
 - Se as VMs para as quais você deseja realizar o failback forem gerenciadas por um servidor vCenter, você precisará das permissões necessárias para a descoberta das VMs nos servidores vCenter. [Leia mais](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 - Se houver instantâneos em uma VM, a nova proteção falhará. Você pode excluir os instantâneos ou os discos.
 - Antes de realizar failback, será necessário criar diversos componentes:
-	- **Crie um servidor em processo no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
+	- **Crie um servidor de processos no Azure**. Esse servidor de processos é uma VM do Azure que você precisará criar e manter em execução durante o failback. Você pode excluir a máquina após a conclusão do failback.
 	- **Criar um servidor de destino mestre**: o servidor de destino mestre envia e recebe dados do failback. O servidor de gerenciamento criado no local tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
 	- Se você quiser criar um servidor de destino mestre adicional em execução no Linux, será necessário configurar a VM do Linux antes de instalar o servidor de destino mestre, conforme descrito abaixo.
 - O servidor de configuração é necessário localmente para fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados de servidor de configuração. Caso contrário, o failback não será bem-sucedido. Sendo assim, certifique-se de fazer o backup agendado regular de seu servidor. Em caso de desastre, você precisará restaurá-lo com o mesmo endereço IP para que o failback funcione.
@@ -96,11 +96,11 @@ Para replicar de volta para local, você precisará de uma política de failback
 
 Se você protegeu os computadores como recursos clássicos (ou seja, a VM recuperada no Azure é uma VM clássica), você precisará de um servidor em processo clássico no Azure. Se você recuperou os computadores como um tipo de implantação do gerenciador de recursos, você precisará de um servidor em processo de um tipo de implantação do gerenciador de recursos. O tipo é selecionado pela rede virtual do Azure na qual o servidor em processo foi implantado.
 
-1.  Em Cofre > Configurações > Gerenciar Infraestrutura da Recuperação de Site > **Servidores de Configuração** sob o cabeçalho Para o VMware e as Máquinas Físicas, selecione o servidor de configuração. Clique em + Servidor em processo
+1.  Em Cofre > Configurações > Infraestrutura da Recuperação de Site (no cabeçalho “Gerenciar”) > **Servidores de Configuração** (no cabeçalho “Para VMware e Máquinas Físicas”), selecione o servidor de configuração. Clique em “+ Servidor de processo”, realçado em amarelo na imagem de exemplo abaixo.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 
-2. Opte por implantar o servidor em processo como “Implantar um servidor em processo de failback no Azure”
+2. Opte por implantar o servidor em processo como “Implantar um servidor em processo de failback no Azure”.
 
 3. Selecione a assinatura na qual você recuperou os computadores.
 
@@ -108,11 +108,11 @@ Se você protegeu os computadores como recursos clássicos (ou seja, a VM recupe
 
 5. Se você selecionou uma rede de *implantação clássica*, será necessário criar uma nova VM por meio da galeria do Azure e instalar o servidor em processo nela.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
+	![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 	
 	1. O nome da imagem é *Servidor em processo V2 do Microsoft Azure Site Recovery*. Verifique se você selecionou *Clássico* como o modelo de implantação.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
 	
 	2. Instalar o Servidor em processo de acordo com as etapas [fornecidas aqui](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server)
 	
@@ -126,15 +126,15 @@ Se você protegeu os computadores como recursos clássicos (ou seja, a VM recupe
 	
 	4. Escolha a conta de armazenamento na qual você deseja implantar o servidor
 	
-	5. Escolha a Sub-rede específica e a Interface de Rede que será usada para conectá-la. Observação: você precisa criar sua própria [NIC](../virtual-network/virtual-networks-multiple-nics.md) (Interface de rede) e selecioná-la durante a implantação.
+	5. Escolha a Sub-rede específica e a Interface de Rede que será usada para conectá-la. Observação: você precisa criar sua própria [NIC](../virtual-network/virtual-networks-multiple-nics.md) (Adaptador de rede) e selecioná-la durante a implantação.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 	
 	6. Clique em OK. Isso disparará um trabalho que vai criar uma máquina virtual do tipo de implantação do Gerenciador de Recursos com a instalação do servidor em processo. É necessário executar a instalação na VM para registrar o servidor no servidor de configuração. É possível fazer isso seguindo [essas etapas](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
 	7. Ocorrerá o disparo de um trabalho de implantação do servidor de processo.
 
-7. No final, o servidor em processo deverá estar listado na página de servidores de configuração, na seção de servidores associados, sob a guia Servidores em processo.![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
+7. No final, o servidor em processo deverá estar listado na página de servidores de configuração, na seção de servidores associados, sob a guia Servidores em Processo. ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
 		
 	>[AZURE.NOTE] O servidor não ficará visível nas **Propriedades da VM**. Ele ficará visível apenas na guia **Servidores**, no servidor de gerenciamento no qual foi registrado. Pode demorar de 10 a 15 minutos para que o servidor de processo apareça.
@@ -156,7 +156,7 @@ Para configurar o servidor de gerenciamento que executa o servidor de destino me
 #### Instalar o CentOS 6.6
 
 1.	Instale o sistema operacional mínimo CentOS 6.6 na VM do servidor de gerenciamento. Mantenha o ISO em uma unidade de DVD e inicialize o sistema. Ignore o teste de mídia, escolha Português (Brasil) como idioma, escolha **Dispositivos de Armazenamento Básico**, verifique se o disco rígido não tem dados importantes e clique em **Sim**, descartando quaisquer dados. Insira o nome do host do servidor de gerenciamento e escolha o adaptador de rede do servidor. Na caixa de diálogo **Sistema de Edição**, escolha **Conectar automaticamente** e adicione um endereço IP estático, a rede e as configurações de DNS. Especifique um fuso horário e uma senha raiz para acessar o servidor de gerenciamento.
-2.	Quando receber uma solicitação pelo tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **Tipo FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
+2.	Quando receber uma solicitação do tipo de instalação desejado, escolha **Criar Layout Personalizado** como a partição. Depois de clicar em **Avançar**, escolha **Gratuito** e clique em Criar. Crie as partições **/**, **/var/crash** e **/home** com **Tipo FS:** **ext4**. Crie a partição de troca como **Tipo FS: troca**.
 3.	Se algum dispositivo pré-existente for encontrado, uma mensagem de aviso será exibida. Clique em **Formatar** para formatar a unidade com as configurações de partição. Clique em **Gravar alteração no disco** para aplicar as alterações à partição.
 4.	Escolha **Instalar carregador de inicialização** > **Avançar** para instalar o carregador de inicialização na partição raiz.
 5.	Após a conclusão da instalação, clique em **Reiniciar**.
@@ -167,7 +167,7 @@ Para configurar o servidor de gerenciamento que executa o servidor de destino me
 1. Após a instalação, recupere as IDs de SCSI de cada disco SCSI na VM. Para fazer isso, desligue a VM do servidor de gerenciamento; nas propriedades da VM no VMware, clique com o botão direito do mouse na entrada da VM > **Editar Configurações** > **Opções**.
 2. Escolha **Avançado** > **Item geral** e clique em **Parâmetros de Configuração**. Essa opção será desativada quando a máquina estiver em execução. Para torná-la ativa, a máquina deve ser desligada.
 3. Se a linha **disk.EnableUUID** existir, defina seu valor como **True** (diferencia maiúsculas de minúsculas). Se já estiver definida como True, cancele e teste o comando SCSI dentro do sistema operacional convidado após a inicialização.
-4.	Se a linha não existir, clique em **Adicionar Linha** e adicione-a com o valor **True**. Não use aspas duplas.
+4. Se a linha não existir, clique em **Adicionar Linha** e adicione-a com o valor **True**. Não use aspas duplas.
 
 #### Instalar pacotes adicionais
 
@@ -188,8 +188,8 @@ Será necessário baixar e instalar alguns pacotes adicionais.
 
 Faça o seguinte para aplicar as alterações personalizadas após a conclusão das etapas pós-instalação e após a instalação dos pacotes:
 
-1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar -zxvf <Nome do arquivo>**
-2.	Execute este comando para dar permissões: # **chmod 755 ./ApplyCustomChanges.sh**
+1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar –zxvf <nome do arquivo>**
+2.	Execute esse comando para conceder permissões: **# chmod 755 ./ApplyCustomChanges.sh**
 3.	Execute o script: **# ./ApplyCustomChanges.sh**. Você só deve executar o script uma vez. Reinicie o servidor após a execução bem-sucedida do script.
 
 
@@ -219,7 +219,7 @@ Também é possível proteger novamente em um nível do plano de recuperação. 
 
 Após a nova proteção da VM, é possível iniciar um failover do Azure para o local.
 
-1.	Na página Itens replicados, selecione a máquina virtual que contém a opção de clicar com o botão direito do mouse **Failover Não Planejado**.
+1.	Na página Itens replicados, selecione a máquina virtual e clique com o botão direito do mouse para selecionar **Failover Não Planejado**.
 2.	Em **Confirmar Failover**, verifique a direção do failover (para o Azure) e selecione o ponto de recuperação que você deseja usar para o failover (o mais recente, ou um que seja consistente com o aplicativo mais recente). O ponto consistente com o aplicativo seria atrás do último ponto no tempo e causará a perda de alguns dados.
 3.	Durante o failover, a Recuperação de Site desligará as VMs do Azure. Depois de verificar se o failback foi concluído conforme o esperado, você pode verificar se as VMs do Azure foram desligadas conforme o esperado.
 
@@ -252,4 +252,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!------HONumber=AcomDC_0713_2016---->
+<!---HONumber=AcomDC_0817_2016---->

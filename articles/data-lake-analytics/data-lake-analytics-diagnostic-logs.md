@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -32,7 +32,7 @@ As organizações podem habilitar o log de diagnóstico para sua conta do Azure 
 - **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md#signup).
 - **Conta do Azure Data Lake Analytics**. Siga as instruções em [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
 
-## Habilitar o log de diagnóstico em sua conta do Data Lake Analytics
+## Habilitar o registro em log
 
 1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ As organizações podem habilitar o log de diagnóstico para sua conta do Azure 
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico**.
 
-## Veja os logs de diagnóstico em sua conta do Data Lake Analytics
+## Exibir logs
 
 Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
 
@@ -108,7 +108,7 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Compreenda a estrutura dos dados de log
+## Estrutura de log
 
 Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, examinaremos a estrutura do JSON nos logs de solicitação e auditoria.
 
@@ -225,13 +225,13 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ e __Paralelism__ fornecem informações sobre uma operação e só conterão um valor se uma operação tiver sido iniciada ou concluída. Por exemplo, __SubmitTime__ conterá um valor depois que __operationName__ indicar __JobSubmitted__.
 
-## Exemplos para processar os dados do log
+## Processar os dados de log
 
 O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Confira também
+## Próximas etapas
 
 - [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,7 @@
+
 <properties
 	pageTitle="Obtendo recomendações em lotes: API de recomendações do Aprendizado de Máquina | Microsoft Azure"
-	description="Recomendações do Aprendizado de Máquina do Azure – obtendo recomendações EM LOTES"
+	description="Recomendações do aprendizado de máquina do Azure – obtendo recomendações em lotes"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -16,32 +17,38 @@
 	ms.date="05/24/2016"
 	ms.author="luisca"/>
 
-# Obtendo recomendações em lotes
+# Obter recomendações em lotes
 
->[AZURE.NOTE] Obter recomendações em lotes é mais complicado do que obter resultados de uma recomendação, um a um. Verifique as APIs para obter recomendações para uma única solicitação aqui:<br> [Item-to-Item Recoomendations (Recomendações de item para item)](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [User-to-Item Recommendations (Recomendações de usuário para item)](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+>[AZURE.NOTE] Obter recomendações em lotes é mais complicado do que obter recomendações uma a uma. Verifique as APIs para obter informações sobre como obter as recomendações para uma única solicitação:
+
+> [Recomendações Item a Item](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br> [Recomendações de Item e Usuário](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> A pontuação do lote funciona apenas para compilações criadas após 21 de julho de 2016
+> A pontuação do lote funciona apenas para as compilações criadas após 21 de julho de 2016.
 
 
-Há situações em que você precisa obter recomendações para mais de um item por vez. Por exemplo, talvez você esteja interessado em criar um cache de recomendações ou, até mesmo, fazer uma análise nos tipos de recomendação que está obtendo.
+Há situações nas quais você precisa obter recomendações para mais de um item por vez. Por exemplo, você pode estar interessado em criar um cache de recomendações ou, até mesmo, analisar os tipos de recomendações que está obtendo.
 
-As operações de pontuação do lote, como as chamamos, são operações assíncronas. Você precisa enviar a solicitação, aguardar até que ela seja concluída e coletar os resultados. Para ser mais preciso, estas são as etapas a serem seguidas:
+As operações de pontuação do lote, como as chamamos, são operações assíncronas. Você precisa enviar a solicitação, aguardar que a operação termine e coletar os resultados.
 
-1.	Crie um Contêiner de Armazenamento do Azure, caso ainda não tenha um.
-2.	Carregue um arquivo de entrada que descreva cada uma das solicitações de recomendação no Armazenamento de Blobs do Azure.
+Para ser mais preciso, estas são as etapas a serem seguidas:
+
+1.	Crie um contêiner de Armazenamento do Azure, caso ainda não tenha um.
+2.	Carregue um arquivo de entrada que descreva cada uma das solicitações de recomendação no armazenamento de Blobs do Azure.
 3.	Inicie o trabalho em lote de pontuação.
 4.	Aguarde a conclusão da operação assíncrona.
-5.	Assim que estiver concluída, colete os resultados no Armazenamento de Blobs do Azure.
+5.	Quando a operação for concluída, reúna os resultados do armazenamento de Blobs.
 
 Vamos examinar cada uma dessas etapas.
 
-## Criar um Contêiner de Armazenamento do Azure, caso ainda não tenha um
+## Crie um contêiner de Armazenamento, caso ainda não tenha um
 
-Vá para o [Portal de Gerenciamento do Azure](https://portal.azure.com) e crie uma nova conta de armazenamento, caso ainda não tenha uma, navegando até *+Novo* > *Dados* + *Armazenamento* > *Conta de Armazenamento*.
+Vá para o [portal do Azure](https://portal.azure.com) e crie uma nova conta de armazenamento se você ainda não tiver uma. Para fazer isso, navegue até **Novo** > **Dados** + **Armazenamento** > **Conta de Armazenamento**.
 
 Com uma conta de armazenamento, você precisa criar os contêineres de blobs onde armazenará a entrada e a saída da execução do lote.
 
-Carregue um arquivo de entrada que descreva cada uma das solicitações de recomendação nos Blobs do Azure – aqui, vamos chamá-lo de input.json. Quando tiver um contêiner, você precisará carregar um arquivo que descreva cada uma das solicitações que precisa executar no serviço de recomendações. Um determinado lote pode executar apenas um tipo de solicitação de uma compilação específica. Explicaremos como definir essas informações na próxima seção. Por enquanto, vamos supor que executaremos recomendações de item fora de uma compilação específica. O arquivo de entrada contém as informações de entrada (nesse caso, os itens de propagação) de cada uma das solicitações.
+Carregue um arquivo de entrada que descreva cada uma das solicitações de recomendação no armazenamento de Blobs – aqui, vamos chamar o arquivo de input.json. Com um contêiner, você precisa carregar um arquivo que descreva cada uma das solicitações necessárias para executar a partir do serviço de recomendações.
+
+Um lote pode executar apenas um tipo de solicitação a partir uma compilação específica. Explicaremos como definir essas informações na próxima seção. Por enquanto, iremos supor que executaremos as recomendações do item fora de uma compilação específica. O arquivo de entrada contém as informações de entrada (nesse caso, os itens de propagação) de cada uma das solicitações.
 
 Este é um exemplo da aparência do arquivo input.json:
 
@@ -57,14 +64,14 @@ Este é um exemplo da aparência do arquivo input.json:
       { "SeedItems": [ "C9A-69320" ] }
       ]
     }
-    
-Como você pode ver, trata-se de um arquivo JSON, em que cada uma das solicitações tem as informações necessárias para enviar uma solicitação de recomendações. Crie um arquivo JSON semelhante para as solicitações que você precisa preencher e copie-o para o contêiner que acabou de criar no armazenamento de blobs.
+
+Como você pode ver, é um arquivo JSON, em que cada uma das solicitações tem as informações necessárias para enviar uma solicitação de recomendações. Crie um arquivo JSON semelhante para as solicitações que você precisa preencher e copie-o para o contêiner que você acabou de criar no armazenamento de Blobs.
 
 ## Iniciar o trabalho em lote de pontuação
 
-A próxima etapa é enviar um novo trabalho em lote. Verifique a referência da API [aqui](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
+A próxima etapa é enviar um novo trabalho em lote. Para obter mais informações, consulte a [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-O corpo da solicitação da API precisa definir os locais onde os arquivos de entrada, saída e erro precisam ser armazenados, bem como as credenciais necessárias para acessar esses locais. Além disso, é preciso especificar alguns parâmetros que se aplicam a todo o lote (o tipo de recomendação para solicitação, o modelo/compilação a ser usado, o número de resultados por chamada, etc.)
+O corpo da solicitação da API precisa definir os locais onde os arquivos de entrada, saída e erro precisam ser armazenados. Também precisa definir as credenciais necessárias para acessar esses locais. Além disso, é preciso especificar alguns parâmetros que se aplicam ao lote inteiro (o tipo de recomendação a solicitar, modelo/compilação a usar, número de resultados por chamada etc.)
 
 Este é um exemplo de como o corpo da solicitação deve se parecer:
 
@@ -97,21 +104,23 @@ Este é um exemplo de como o corpo da solicitação deve se parecer:
       }
     }
 
-Elementos a serem observados:
+Há dois aspectos importantes a observar:
 
--	Atualmente, o AuthenticationType deve sempre ser definido como PublicOrSas.
--	Você precisa obter um token SAS (Assinatura de Acesso Compartilhado) para permitir que a API de Recomendações leia e grave na conta de armazenamento de blobs. Mais informações sobre como gerar tokens SAS podem ser encontradas [aqui](../storage/storage-dotnet-shared-access-signature-part-1.md)
--	Atualmente, "ItemRecommend" é o único *apiName* permitido, que é usado para recomendações de Item para Item. As recomendações de Usuário para Item não são permitidas para envio de lote no momento.
+-	Atualmente, **authenticationType** sempre deve ser definido para **PublicOrSas**.
 
-## Aguarde a conclusão da operação assíncrona.
+-	Você precisa obter um token SAS (Assinatura de Acesso Compartilhado) para permitir que a API de Recomendações leia e grave de/em sua conta de armazenamento de Blobs. Mais informações sobre como gerar os tokens SAS podem ser encontradas na [página da API de Recomendações](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
-Quando você inicia a operação em lote, a resposta retornará o cabeçalho Operação-Local que fornecerá as informações necessárias para rastrear a operação. Você controla a operação usando a [API Recuperar Status da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), exatamente como faria para rastrear a operação de uma operação de compilação.
+-	No momento, o único **apiName** suportado é **ItemRecommend**, que é usado para as recomendações Item a Item. Atualmente, o lote não oferece suporte para as recomendações de Item e Usuário.
+
+## Aguardar a conclusão da operação assíncrona
+
+Quando você inicia a operação em lote, a resposta retorna o cabeçalho Operation-Location que fornece as informações necessárias para rastrear a operação. Você controla a operação usando a [API para Recuperar Status da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), exatamente como faria para rastrear a operação de uma operação de compilação.
 
 ## Obter os resultados
 
-Assim que a operação for concluída, e supondo que não houve erros na operação, você poderá coletar os resultados do armazenamento de blobs de saída.
+Depois da operação ser concluída, e supondo que não houve erros, você pode coletar os resultados do armazenamento de Blobs de saída.
 
-O exemplo a seguir mostra o exemplo de uma saída. Para fins pragmáticos, no exemplo, mostramos os resultados para um lote com duas solicitações.
+O exemplo a seguir mostra como fica a saída. Neste exemplo, podemos mostrar os resultados de um lote com apenas duas solicitações (para abreviar).
 
     {
       "results":
@@ -184,9 +193,9 @@ O exemplo a seguir mostra o exemplo de uma saída. Para fins pragmáticos, no ex
     ]}
 
 
-## Limitações
+## Saiba mais sobre as limitações
 
--	Apenas um trabalho em lote por vez pode ser chamado por assinatura.
+-	Apenas um trabalho em lote pode ser chamado por assinatura e por vez.
 -	Um arquivo de entrada do trabalho em lote não pode ter mais de 2 MB.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

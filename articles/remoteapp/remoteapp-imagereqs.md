@@ -13,15 +13,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Requisitos para as imagens do Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+
 O Azure RemoteApp usa uma imagem do Windows Server 2012 R2 para hospedar todos os programas que deseja compartilhar com os seus usuários. Para criar uma imagem personalizada, você pode iniciar com uma imagem existente ou [criar uma nova](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP] Você sabia que a sua assinatura do RemoteApp do Azure fornece acesso a uma imagem do Windows Server 2012 R2 na galeria de VM do Azure que você pode usar para criar a sua própria imagem de modelo? [Confira](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP] Você sabia que a sua assinatura do Azure RemoteApp fornece acesso a uma imagem do Windows Server 2012 R2 na galeria de VM do Azure que você pode usar para criar a sua própria imagem de modelo? [Confira](remoteapp-image-on-azurevm.md).
 
 
 Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azure são:
@@ -29,7 +33,7 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 
 - Aplicativos personalizados não armazenam dados localmente na imagem. Essas imagens são sem monitoração de estado e devem conter apenas aplicativos.
 - A imagem não contém dados que podem ser perdidos.
-- O tamanho da imagem deve ser um múltiplo de MBs. Se você tentar carregar uma imagem que não é um múltiplo exato, o carregamento falhará.
+- O tamanho da imagem dever ser um múltiplo de MBs. Se você tentar carregar uma imagem que não é um múltiplo exato, o carregamento falhará.
 - O tamanho da imagem deve ser de 127 GB ou menor.
 - Deve estar em um arquivo VHD (arquivos VHDX atualmente não têm suporte).
 - O VHD não deve ser uma máquina virtual de geração 2.
@@ -44,4 +48,4 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 
 Consulte [Criar uma imagem do RemoteApp do Azure](remoteapp-imageoptions.md) para obter mais informações sobre a criação de imagens para o RemoteApp do Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

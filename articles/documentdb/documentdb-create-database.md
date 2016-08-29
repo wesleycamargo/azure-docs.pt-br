@@ -14,22 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mimig"/>
 
 # Como criar um banco de dados para o Banco de Dados de Documentos usando o portal do Azure
 
-Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um banco de dados, uma coleção e documentos. Este tópico descreve como criar um banco de dados para o Banco de Dados de Documentos no portal do Microsoft Azure. Para saber mais sobre como criar um banco de dados usando um dos SDKs, veja [Outras maneiras de criar um banco de dados do Banco de Dados de Documentos](#other-ways-to-create-a-documentdb-database).
+Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um banco de dados, uma coleção e documentos. Este tópico descreve como criar um banco de dados para o Banco de Dados de Documentos no Portal do Microsoft Azure. Para saber mais sobre como criar um banco de dados usando um dos SDKs, veja [Outras maneiras de criar um banco de dados do Banco de Dados de Documentos](#other-ways-to-create-a-documentdb-database).
 
-![Captura de tela que mostra como criar um banco de dados e realça Contas do Banco de Dados de Documentos na folha Procurar e uma conta do Banco de Dados de Documentos na folha Contas do Banco de Dados de Documentos](./media/documentdb-create-database/docdb-database-creation-1-2.png)
+1.  No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Mais Serviços** e clique em **Contas do Banco de Dados de Documentos**.
 
-1.  No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e então clique em **Contas do Banco de Dados de Documentos**.
+
+    ![Captura de tela que mostra como criar um banco de dados e realça Contas do Banco de Dados de Documentos na folha Procurar e uma conta do Banco de Dados de Documentos na folha Contas do Banco de Dados de Documentos](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
 2.  Na folha **Contas do Banco de Dados de Documentos**, selecione a conta na qual você deseja adicionar um banco de dados NoSQL do Banco de Dados de Documentos. Se você não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 
-    ![Captura de tela que mostra como criar um banco de dados e realça o botão Adicionar Banco de Dados, a caixa ID e o botão OK](./media/documentdb-create-database/docdb-database-creation-3-5.png)
-
 3. Na folha **Conta do Banco de Dados de Documentos**, clique em **Adicionar Banco de Dados**.
+
+    ![Captura de tela que mostra como criar um banco de dados e realça o botão Adicionar Banco de Dados, a caixa ID e o botão OK](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
 4. Na folha **Adicionar banco de dados**, insira a ID do novo banco de dados. Quando o nome for validado, uma marca de seleção verde será exibida na caixa **ID**.
 
@@ -51,4 +52,4 @@ Depois de criar sua coleção, você pode [adicionar documentos JSON](documentdb
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-sql-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no Portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

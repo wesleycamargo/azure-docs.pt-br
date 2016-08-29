@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
@@ -103,7 +103,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
 	A IU da Web do Storm está disponível no cluster HDInsight:
 
-	![hdinsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
 
@@ -172,7 +172,7 @@ O script do Powershell a seguir demonstra como obter o nome da conta de armazena
 
 ##Encontrar o grupo de recursos
 
-No modo ARM, cada cluster HDInsight pertence a um grupo de recursos do Azure. Encontrar o grupo de recursos:
+No modo do Gerenciador de Recursos, cada cluster HDInsight pertence a um grupo de recursos do Azure. Encontrar o grupo de recursos:
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ Consulte [Carregar dados no HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

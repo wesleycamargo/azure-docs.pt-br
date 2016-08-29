@@ -110,6 +110,20 @@ A declaração `alg` indica o algoritmo que foi usado para assinar o token, enqu
 
 Em qualquer ponto no tempo, o AD do Azure pode assinar um id\_token usando qualquer um de um determinado conjunto de pares de chaves públicas-privadas. O AD do Azure gira o possível conjunto de chaves em intervalos periódicos, de modo que o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD é a cada 24 horas.
 
+Você pode adquirir os dados de chave de assinatura necessários para validar a assinatura usando o documento de metadados do OpenID Connect localizado em:
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] Experimente essa URL em um navegador!
+
+Esse documento de metadados é um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade exigidos para execução da autenticação do OpenID Connect.
+
+Ele também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Assim, ele pode executar a validação da assinatura usando a chave pública correta e o algoritmo indicado.
+
+Executar a validação da assinatura está fora do escopo deste documento — há muitas bibliotecas de software livre disponíveis para ajudar você a fazer isso, caso seja necessário.
+
 #### Validação das declarações
 
 Quando o aplicativo recebe um id\_token na conexão do usuário, ele também deve fazer algumas verificações nas declarações no id\_token. Elas incluem, mas sem limitação:
@@ -275,4 +289,4 @@ Este é um exemplo de um típico JWT (token Web JSON) usado em um fluxo de conce
      acr: "1"
     }.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

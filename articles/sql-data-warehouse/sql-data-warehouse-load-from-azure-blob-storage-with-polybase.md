@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 
 
 ## Antes de começar
-Para executar este tutorial, você precisa de uma conta do Azure que já tenha um banco de dados do SQL Data Warehouse. Se você ainda não tem uma, consulte [Criar um SQL Data Warehouse][].
+Para executar este tutorial, você precisa de uma conta do Azure que já tenha um banco de dados do SQL Data Warehouse. Se você ainda não tiver uma, consulte [Criar um SQL Data Warehouse][].
 
 ## 1\. Configurar a fonte de dados
 
@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. Carregar os dados em novas tabelas
 
-Para carregar dados de um armazenamento de blobs do Azure e salvá-lo em uma tabela no banco de dados, use a instrução de T-SQL (CTAS) [CREATE TABLE AS SELECT][]. Carregar com o CTAS utiliza as tabelas externas fortemente tipadas que você acabou de criar. Para carregar os dados em novas tabelas, use uma instrução [CTAS][] por tabela.
+Para carregar dados de um Armazenamento de Blobs do Azure e salvá-los em uma tabela no banco de dados, use a instrução [CREATE TABLE AS SELECT (Transact-SQL)][]. Carregamento com CTAS utiliza as tabelas externas fortemente tipadas que você acabou de criar. Para carregar os dados em novas tabelas, use uma instrução [CTAS][] por tabela.
 
 O CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.
 
@@ -346,22 +346,23 @@ GROUP BY p.[BrandName]
 Continue explorando com o SQL Data Warehouse.
 
 ## Próximas etapas
-Para carregar os dados Data Warehouse de Varejo da Contoso, use o script em Para obter mais dicas de desenvolvimento e consulte a [Visão geral de desenvolvimento do SQL Data Warehouse][].
+Para carregar todos os dados do Data Warehouse de Varejo da Contoso, use o script em Para obter mais dicas de desenvolvimento, consulte a [Visão geral de desenvolvimento do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Criar um SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Gerenciar índices columnstore]: ./sql-data-warehouse-tables-index.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[label]: ./sql-data-warehouse-develop-label.md
+[Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[Visão geral de desenvolvimento do SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Gerenciar índices columnstore]: sql-data-warehouse-tables-index.md
+[Estatísticas]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/pt-BR/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/pt-BR/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
@@ -369,4 +370,4 @@ Para carregar os dados Data Warehouse de Varejo da Contoso, use o script em Para
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Carregar o Data Warehouse de Varejo completo da Contoso]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
 	description="Este artigo mostra como clonar uma única Máquina Virtual clássica para o Azure Resource Manager usando scripts do PowerShell"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -50,7 +50,7 @@ A próxima etapa é importar o módulo para sua sessão do PowerShell. Isso pode
 Import-Module .\asm2arm.psd1
 ```
 
-## Autenticar com as assinaturas do modelo de implantação Clássico e com as assinaturas do Azure Resource Manager
+## Autenticar com assinaturas do modelo de implantação Clássico e com assinaturas do Azure Resource Manager
 
 Antes que você possa clonar sua Máquina Virtual clássica, será necessário autenticar sua sessão do PowerShell para as pilhas do Modelo de Implantação Clássico e do Azure Resource Manager. Isso pode ser feito usando os cmdlets a seguir
 
@@ -112,7 +112,7 @@ O modelo cria arquivos dependendo da existência de extensões do agente da Máq
 4.  `<ServiceName>-<VMName>-setextensions<optional timestamp>.json`: um conjunto de cmdlets do PowerShell a serem executados para a definição das extensões do agente de Máquina Virtual.
 4.  `<ServiceName>-<VMName>-copydisks<optional timestamp>.json`: um conjunto de cmdlets do PowerShell a serem executados para a cópia de blobs de disco, caso a opção CopyDisks seja especificada.
 
-Se o sinalizador -Deploy estiver definido, após a geração dos arquivos, o cmdlet implantará o modelo <ServiceName>-<VMName>-setup.json, copiará os blobs de disco da Máquina Virtual de origem caso o parâmetro DiskAction esteja definido como CopyDisks e então implantará o modelo <ServiceName>-<VMName>-deploy.json usando o arquivo <ServiceName>-<VMName>-parameters.json para parâmetros. Após a conclusão da implantação da Máquina Virtual, se houver um script obrigatório (para extensões do Agente de máquina Virtual) ou um script para a cópia dos discos, eles serão executados.
+Se o sinalizador -Deploy estiver definido, após a geração dos arquivos, o cmdlet implantará o modelo <NomeDoServiço>-<NomeDaVM>-setup.json, copiará os blobs de disco da Máquina Virtual de origem caso o parâmetro DiskAction esteja definido como CopyDisks e então implantará o modelo <NomeDoServiço>-<NomeDaVM>-deploy.json usando o arquivo <NomeDoServiço>-<NomeDaVM>-parameters.json para parâmetros. Após a conclusão da implantação da Máquina Virtual, se houver um script obrigatório (para extensões do Agente de máquina Virtual) ou um script para a cópia dos discos, eles serão executados.
 
 ### Detalhes de rede
 A intenção do cmdlet não é clonar as configurações da rede clássica para o Resource Manager. Ele utiliza os recursos de rede da forma mais conveniente para clonar a Máquina Virtual em si. Veja o que acontece em condições diferentes:
@@ -150,7 +150,7 @@ Há algumas diferenças entre a abordagem atual de clonagem versus a migração 
 
 **A seguir, os cenários que não estão no escopo dos scripts de clonagem**
 
- 1. Parar uma Máquina Virtual em execução 
+ 1. Parar uma Máquina Virtual em execução
  2. Alterar seus dados/discos
  3. Clonar VMs em execução
  4. Clonar automaticamente várias VMs em um cenário complexo
@@ -185,4 +185,4 @@ O cmdlet _Add-AzureSMVmToRM_ foi validado com os seguintes casos de teste:
 ## Observações
 1. Se várias VMs forem clonadas uma após a outra com pequenos intervalos entre elas, poderá haver conflitos de nome DNS para os endereços IP públicos, devido ao tempo de atualização de cache do DNS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

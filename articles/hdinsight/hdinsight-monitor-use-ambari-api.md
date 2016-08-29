@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Monitorar clusters do Hadoop no HDInsight usando a API do Ambari | Microsoft Azure"
-	description="Use as APIs do Apache Ambari para provisionar, gerenciar e monitorar clusters do Hadoop. As APIs e ferramentas intuitivas do operador do ocultam a complexidade do Hadoop."
+	description="Use as APIs do Apache Ambari para criar, gerenciar e monitorar clusters do Hadoop. As APIs e ferramentas intuitivas do operador do ocultam a complexidade do Hadoop."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Monitorar clusters Hadoop no HDInsight usando a API da Ambari
 
-Saiba como monitorar os clusters do HDInsight versões 3.1 e 2.1 usando APIs da Ambari.
+Saiba como monitorar os clusters HDInsight por meio de APIs do Ambari.
 
 > [AZURE.NOTE] As informações neste artigo são principalmente para clusters do HDInsight baseados no Windows, que fornecem uma versão somente leitura da API REST do Ambari. Para clusters baseados em Linux, consulte [Gerenciar clusters do Hadoop usando Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -27,9 +27,7 @@ Saiba como monitorar os clusters do HDInsight versões 3.1 e 2.1 usando APIs da 
 
 A [Apache Ambari][ambari-home] é usada para provisionar, gerenciar e monitorar clusters do Apache Hadoop. Inclui uma coleção de ferramentas intuitivas para operador e um conjunto abrangente de APIs que ocultam a complexidade do Hadoop, simplificando a operação de clusters. Para obter mais informações sobre as APIs, consulte [Referência de API da Ambari][ambari-api-reference].
 
-
 Atualmente, o HDInsight dá suporte apenas ao recurso de monitoramento da Ambari. A API da Ambari v1.0 tem suporte pelos clusters HDInsight versões 3.0 e 2.1. Este artigo aborda o acesso às APIs da Ambari em clusters do HDInsight versões 3.1 e 2.1. A principal diferença entre os dois é que alguns dos componentes foram alterados com a introdução de novos recursos (como o Servidor de histórico de trabalho).
-
 
 **Pré-requisitos**
 
@@ -48,7 +46,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     Propriedade do cluster|Nome de variável do PowerShell do Azure|Valor|Descrição
     ---|---|---|---
     Nome do cluster HDInsight|$clusterName||O nome do seu cluster HDInsight.
-    Nome de usuário do cluster|$clusterUsername||Nome de usuário do cluster especificado no provisionamento.
+    Nome de usuário do cluster|$clusterUsername||Nome de usuário do cluster especificado quando o cluster foi criado.
     Senha do cluster|$clusterPassword||Senha do usuário do cluster.
 
     >[AZURE.NOTE] Preencha os valores na tabela. Isso poderá ser útil para percorrer este tutorial.
@@ -174,4 +172,4 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

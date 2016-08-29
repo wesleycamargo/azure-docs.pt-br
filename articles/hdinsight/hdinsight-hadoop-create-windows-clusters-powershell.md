@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/10/2016"
    ms.author="jgao"/>
 
 # Crie clusters Hadoop baseados no Windows no HDInsight usando o Azure PowerShell
@@ -30,7 +30,7 @@ Saiba como criar clusters do HDInsight usando o Azure PowerShell. O Azure PowerS
 
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
-- do Microsoft Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - PowerShell do Azure.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -158,4 +158,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Substitua o módulo de bateria de backup no dispositivo StorSimple
@@ -23,7 +23,7 @@ O módulo de energia e refrigeração (PCM) do compartimento primário no dispos
 
 Este tutorial explica como:
 
-- Remover o módulo de bateria de backup 
+- Remover o módulo de bateria de backup
 - Instalar um novo módulo de bateria de backup
 - Realizar manutenção no módulo de bateria de backup
 
@@ -115,4 +115,4 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple ](storsimple-hardware-component-replacement.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->

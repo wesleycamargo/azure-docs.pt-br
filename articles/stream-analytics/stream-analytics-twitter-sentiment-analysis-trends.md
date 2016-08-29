@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,16 +22,16 @@
 
 Aprenda a compilar uma solução de análise de sentimento para análise de mídia social colocando os eventos em tempo real do Twitter nos Hubs de Eventos. Você escreverá uma consulta do Stream Analytics para analisar os dados e, em seguida, armazenar os resultados para uma leitura minuciosa posterior ou usar um painel para fornecer percepções em tempo real usando o [Power BI](https://powerbi.com/).
 
-Ferramentas de análise de mídias sociais ajudam as organizações a compreender tópicos tendências, assuntos significados e atitudes com um alto volume de postagens em mídia social. Análise de sentimento - também chamado de "mineração opinião" - usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante. A análise de tendência do Twitter em tempo real é um ótimo exemplo porque o modelo de assinatura com hashtag permite que você ouça palavras-chave em particular e desenvolva a análise de sentimento no feed.
+As ferramentas de análise de mídias sociais ajudam as organizações a compreender os tópicos mais comentados, os assuntos relevantes e as atitudes com uma alta quantidade de postagens em mídias sociais. Análise de sentimento - também chamado de "mineração opinião" - usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante. A análise de tendência do Twitter em tempo real é um ótimo exemplo porque o modelo de assinatura com hashtag permite que você ouça palavras-chave específicas e desenvolva a análise de sentimento no feed.
 
 ## Cenário - análise de sentimento em tempo real
 
-Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais. Então, essencialmente eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
+Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam a análise de mídia social sobre os tópicos relevantes para seus leitores, fazendo uma análise de sentimento em tempo real nos dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam da análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais. Então, essencialmente eles precisam de um mecanismo de análise para análise de sentimento baseado nesse feed de mídia social.
 
 ## Pré-requisitos
 1.	Conta do Twitter e [token de acesso do OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) do Centro de Download da Microsoft
-3.	Opcional: código-fonte do cliente do Twitter do [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
+3.	Opcional: código-fonte do cliente do Twitter do [GitHub](https://aka.ms/azure-stream-analytics-twitterclient)
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
@@ -92,9 +92,9 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 3.	Selecione o **HUB DE EVENTOS** e, em seguida, clique no botão à direita
 4.	Digite ou selecione os seguintes valores na terceira página:
 
-	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione o namespace em que o hub de eventos está.
+	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
 
-		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para ** NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
+		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente as informações para o **NAMESPACE DO BARRAMENTO DE SERVIÇO**, o **NOME DO HUB DE EVENTOS**, o **NOME DA POLÍTICA DO HUB DE EVENTOS**, a **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e a **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
 
 	* **NOME DO HUB DE EVENTOS**: selecione o nome do Hub de Eventos
 	* **NOME DE POLÍTICA DO HUB DE EVENTOS**: selecione a política de hub de eventos criada anteriormente neste tutorial.
@@ -137,7 +137,7 @@ Para começar, faremos uma consulta de passagem simples que projeta todos os cam
 
 #### Contagem de tweets por tópico: janela em cascata com agregação
 
-Para comparar o número de menções entre tópicos, vamos usar uma [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de menções por tópico a cada cinco segundos.
+Para comparar o número de menções entre tópicos, usaremos uma [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de menções por tópico a cada cinco segundos.
 
 1.	Altere a consulta no editor de código para:
 
@@ -153,7 +153,7 @@ Para comparar o número de menções entre tópicos, vamos usar uma [TumblingWin
 
 #### Identificando os tópicos mais populares: janela deslizante
 
-Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassam um valor limite de menções em determinado período de tempo. Neste tutorial, vamos verificar tópicos mencionados mais de 20 vezes nos últimos cinco segundos usando uma [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassam um valor limite de menções em determinado período de tempo. Neste tutorial, verificaremos os tópicos mencionados mais de 20 vezes nos últimos cinco segundos usando uma [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Altere a consulta no editor de código para:
 
@@ -198,7 +198,7 @@ Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se 
 3.	Digite ou selecione os seguintes valores na terceira página:
 
 	* **ALIAS DE SAÍDA**: insira um nome amigável para essa saída de trabalho
-	* **ASSINATURA**: se o Armazenamento de Blob que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para **CONTA DE ARMAZENAMENTO**, **CHAVE DA CONTA DE ARMAZENAMENTO** e **CONTÊINER**.
+	* **ASSINATURA**: se o Armazenamento de Blobs que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para a **CONTA DE ARMAZENAMENTO**, a **CHAVE DE CONTA DE ARMAZENAMENTO** e o **CONTÊINER**.
 	* **CONTA DE ARMAZENAMENTO**: selecione o nome da Conta de Armazenamento
 	* **CONTÊINER**: selecione o nome do Contêiner
 	* **PREFIXO DE NOME DE ARQUIVO**: digite um prefixo de arquivo a ser usado durante a gravação da saída do blob
@@ -236,4 +236,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

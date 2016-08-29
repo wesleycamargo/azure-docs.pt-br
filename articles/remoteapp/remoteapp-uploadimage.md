@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="ericor" />
 
 
 
 # Carregar uma imagem personalizada para o RemoteApp do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as alterações, é preciso carregar a imagem para a biblioteca de imagens do Azure RemoteApp. Siga estas etapas.
 
@@ -51,4 +54,4 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 - Nunca altere o script, as validações existem para sua conveniência.
 - Se o arquivo vhd for bloqueado durante o carregamento, copie o arquivo ou mova-o para um novo local e tente novamente. Pode haver algum processo do Windows impedindo o carregamento.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

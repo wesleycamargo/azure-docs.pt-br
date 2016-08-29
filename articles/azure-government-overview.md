@@ -1,7 +1,8 @@
 <properties 
    pageTitle="Visão geral do Azure Governamental | Microsoft Azure" 
    description="Este artigo fornece uma visão geral de como os recursos da Nuvem de Governo do Azure e o design e a segurança confiável são usados para oferecer suporte a conformidade aplicável a órgãos do governo federal, estadual e local e seus parceiros. " 
-   services="Azure-Government" 
+   services="Azure-Government"
+   cloud="gov" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
@@ -117,4 +118,4 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

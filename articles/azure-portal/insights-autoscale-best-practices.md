@@ -103,18 +103,19 @@ Da mesma forma, quando o dimensionamento automático alternar de volta para o pe
 Há casos em que talvez você precise definir várias regras em um perfil. O seguinte conjunto de regras de dimensionamento automático é usado por serviços quando várias regras são definidas.
 
 Em *escalar horizontalmente*, o dimensionamento automático será executado se nenhuma regra for atendida. Em *reduzir horizontalmente*, o dimensionamento automático exige que todas as regras sejam atendidas.
- 
+
 Para ilustrar, suponha que você tenha as seguintes 4 regras de dimensionamento automático:
- 
+
 - Se CPU < 30%, reduza horizontalmente por 1
-- ​Se Memória < 50%, reduza horizontalmente por 1
-- ​Se CPU > 75%, escalehorizontalmente por 1
-- ​Se Memória < 75, escale horizontalmente por 1
+- Se Memória < 50%, reduza horizontalmente por 1
+- Se CPU > 75%, escalehorizontalmente por 1
+- Se Memória < 75, escale horizontalmente por 1
 
 Em seguida, ocorrerá o seguinte:
+
 - Se a CPU for 76% e a Memória 50%, escalaremos horizontalmente.
 - Se a CPU for 50% e a Memória 76%, escalaremos horizontalmente.
- 
+
 Por outro lado, se a CPU é 25% e a memória é 51%, dimensionamento automático **não** será reduzido horizontalmente. Para reduzir horizontalmente, a CPU deve ser 29% e memória 49%.
 
 ### Sempre selecione uma contagem de instância de segurança padrão
@@ -126,4 +127,4 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 - As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 - As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala. Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

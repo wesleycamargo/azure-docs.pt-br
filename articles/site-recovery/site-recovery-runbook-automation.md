@@ -87,7 +87,7 @@ Você pode identificar o nome de sua assinatura na página Configurações de su
 
 ### Adicionar uma credencial de logon do Azure como ativo
 
-A Automação do Azure usa o PowerShell do Azure para se conectar à assinatura e opera nos artefatos a partir de lá. Para isso, você precisa autenticar usando sua conta da Microsoft ou uma conta corporativa ou de estudante. Você pode armazenar as credenciais da conta em um ativo que será usado com segurança pelo runbook.
+A Automação do Azure usa o Azure PowerShell para se conectar à assinatura e opera nos artefatos de lá. Para isso, você precisa autenticar usando sua conta da Microsoft ou uma conta corporativa ou de estudante. Você pode armazenar as credenciais da conta em um ativo que será usado com segurança pelo runbook.
 
 1.  Adicione uma nova configuração ![](media/site-recovery-runbook-automation/04.png) nos Ativos de Automação do Azure e selecione ![](media/site-recovery-runbook-automation/09.png)
 
@@ -103,7 +103,7 @@ Agora, essas duas configurações estão disponíveis em seus ativos.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Para saber mais sobre como se conectar à sua assinatura por meio do powershell clique [aqui](../powershell-install-configure.md).
+Para saber mais sobre como se conectar à sua assinatura por meio do PowerShell clique [aqui](../powershell-install-configure.md).
 
 Em seguida, você criará um runbook na Automação do Azure que pode adicionar um ponto de extremidade à máquina virtual front-end após o failover.
 
@@ -266,8 +266,7 @@ O script completo é fornecido abaixo para sua referência
 
 Quando o script estiver pronto, você poderá adicioná-lo ao plano de recuperação criado anteriormente.
 
-1.  No plano de recuperação que você criou, escolha adicionar um script após o grupo 2.
-![](media/site-recovery-runbook-automation/15.png)
+1.  No plano de recuperação que você criou, escolha adicionar um script após o grupo 2. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  Especifique um nome de script. Esse é apenas um nome amigável para mostrar o script no Plano de recuperação.
 
@@ -309,4 +308,4 @@ Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normal
 
 [Exemplos de scripts da Automação do Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemplos de scripts da Automação do Azure")
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
 # Como usar o Armazenamento de fila do Ruby
 
-[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Visão geral
 
@@ -31,7 +31,7 @@ Este guia mostra como executar cenários comuns usando o serviço de Armazenamen
 
 ## Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para obter instruções, veja [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Crie um aplicativo Ruby. Para ver as instruções, confira [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -159,7 +159,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 - Visite o [Blog da Equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
 
-Para fazer uma comparação entre o Serviço Fila do Azure discutido neste artigo e as ilas do Barramento de Serviço do Azure discutidas no artigo [Como usar o Barramento de Serviço](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas do Barramento de Serviço do Azure discutidas no artigo [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) (Como usar o Barramento de Serviço), confira [Filas do Azure e filas do Barramento de Serviço — comparações e contrastes](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

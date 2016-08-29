@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Constrói um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 
 O Socket.IO fornece comunicação em tempo real entre seu servidor e clientes do node.js. Este tutorial explica como hospedar um aplicativo de chat baseado em socket.IO no Microsoft Azure. Para mais informações sobre o Socket.IO, veja <http://socket.io/>.
 
-A seguinte é uma captura de tela do aplicativo concluído:
+Abaixo, uma captura de tela do aplicativo concluído:
 
 ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]
 
@@ -139,7 +139,7 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
 
 Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagens de chat entre diferentes clientes usando o Socket.IO.
 
-> [AZURE.NOTE] Para simplificar, este exemplo é limitado a chat entre usuários conectados à mesma instância. Isso significa que se o serviço de nuvem criar duas instâncias de função de trabalho, os usuários só poderão conversar com outros usuários conectados à mesma instância de função de trabalho. Para dimensionar o aplicativo para trabalhar com várias instâncias de função, você pode usar uma tecnologia, como o Service Bus para compartilhar o estado do armazenamento do Socket.IO entre instâncias. Para obter exemplos, consulte os exemplos de uso de Tópicos e filas do Service Bus em [SDK do Azure para o repositório Node.js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node).
+> [AZURE.NOTE] Para simplificar, este exemplo é limitado a chat entre usuários conectados à mesma instância. Isso significa que se o serviço de nuvem criar duas instâncias de função de trabalho, os usuários só poderão conversar com outros usuários conectados à mesma instância de função de trabalho. Para dimensionar o aplicativo para trabalhar com várias instâncias de função, você pode usar uma tecnologia, como o Service Bus para compartilhar o estado do armazenamento do Socket.IO entre instâncias. Para obter exemplos, consulte os exemplos de uso dos Tópicos e Filas do Barramento de Serviço em [SDK do Azure para o repositório Node.js GitHub](https://github.com/WindowsAzure/azure-sdk-for-node).
 
 ##Próximas etapas
 
@@ -170,4 +170,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
   
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

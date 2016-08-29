@@ -203,7 +203,7 @@ Suponha que os dados no SQL do Azure são como demonstrado a seguir:
 
 Ao implantar o pipeline acima, o Blob do Azure será populado da seguinte maneira:
 
-1.	Arquivo mypath/2015/1/1/8/Data.<Guid>.txt com dados 
+1.	Arquivo mypath/2015/1/1/8/Data.<Guid>.txt com dados
 
 		10002345,334,2,2015-01-01 08:24:00.3130000
 		10002345,347,15,2015-01-01 08:24:00.6570000
@@ -228,7 +228,7 @@ Com fatias de dados com fundo preenchido, é possível configurá-las para que s
 
 ## Executar novamente fatias de dados com falha e rastreamento automático de dependências de dados
 
-Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Confira **Monitorando e gerenciando pipelines usando** [folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
+Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Confira **Monitorando e gerenciando pipelines usando** [folhas do Portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um conjunto de dados de série temporal com fatias como saída, que é consumida como entrada pela Atividade2 para produzir o conjunto de dados de série temporal final de saída.
 
@@ -239,7 +239,7 @@ Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um
 O diagrama acima mostra que, de 3 fatias recentes, houve uma falha ao produzir a fatia de 9-10h para **Dataset2**. O data factory controla automaticamente a dependência para conjunto de dados de série temporal e, como resultado, atrasa o início da execução da atividade para a fatia downstream de 9-10h.
 
 
-Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico para a fatia com falha localizar facilmente a causa raiz do problema e corrigi-lo. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais detalhes sobre como iniciar reexecuções e compreender as transições de estado para fatias de dados, confira **Monitorando e gerenciando pipelines usando** [folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
+Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico para a fatia com falha localizar facilmente a causa raiz do problema e corrigi-lo. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais detalhes sobre como iniciar novas execuções e compreender as transições de estado para fatias de dados, confira **Monitorando e gerenciando pipelines usando** [folhas do Portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Depois que você iniciar a reexecução e a fatia de 9h-10h para o dataset2 estiver pronta, o data factory inicia a execução da fatia dependente de 9h-10h no conjunto de dados final, conforme mostrado no diagrama abaixo.
 
@@ -282,8 +282,8 @@ CopyActivity2: Entradas: Dataset3, Dataset2 Saída: Dataset4
 
 Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria executando apenas quando as seguintes condições fossem atendidas:
 
-- CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
-- Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
+- CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não será usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.
+- Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.
 
 
 
@@ -382,7 +382,7 @@ O script do hive recebe as informações de data e hora apropriadas como parâme
 		                "scriptPath": "adftutorial\\hivequery.hql",
 		                "scriptLinkedService": "StorageLinkedService",
 		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
 		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
 		                }
@@ -534,7 +534,7 @@ A atividade de hive usa as 2 entradas e produz uma fatia de saída todos os dias
 	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+	            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
 	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
 	          }
@@ -626,7 +626,7 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
 
 ## Pipeline Onetime
-Você pode criar e agendar um pipeline para ser executado periodicamente (horário, diariamente, etc.) dentro dos horários inicial e final que você especificar na definição do pipeline. Consulte [Agendando atividades](#scheduling-and-execution) para obter detalhes. Você também pode criar um pipeline que executa apenas uma vez. Para fazer isso, defina a propriedade **pipelineMode** na definição do pipeline para **onetime** conforme mostrado no exemplo de JSON abaixo. O valor padrão dessa propriedade é **scheduled**.
+Você pode criar e agendar um pipeline para ser executado periodicamente (horário, diariamente, etc.) dentro dos horários inicial e final que você especificar na definição do pipeline. Veja [Agendando atividades](#scheduling-and-execution) para obter detalhes. Você também pode criar um pipeline que executa apenas uma vez. Para fazer isso, defina a propriedade **pipelineMode** na definição do pipeline para **onetime** conforme mostrado no exemplo de JSON abaixo. O valor padrão dessa propriedade é **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -664,10 +664,10 @@ Você pode criar e agendar um pipeline para ser executado periodicamente (horár
 
 Observe o seguinte:
  
-- Não é necessário especificar os horários **inicial** e **final** para o pipeline. 
-- Você precisa especificar a disponibilidade de conjuntos de dados de entrada e saídas (frequência e intervalo) neste momento, embora os valores não sejam usados pelo Data Factory.  
-- A exibição de diagrama não mostra pipelines únicos. Esse comportamento é intencional. 
-- Pipelines únicos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro. 
+- Não é necessário especificar os horários **inicial** e **final** para o pipeline.
+- Você precisa especificar a disponibilidade de conjuntos de dados de entrada e saídas (frequência e intervalo) neste momento, embora os valores não sejam usados pelo Data Factory.
+- A exibição de diagrama não mostra pipelines únicos. Esse comportamento é intencional.
+- Pipelines únicos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
 
   
 
@@ -702,4 +702,4 @@ Observe o seguinte:
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/15/2016"
 	ms.author="juliako"/>
 
 #Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay 
@@ -23,10 +23,6 @@ Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de 
 - **Chave não criptografada de envelope do AES-128** - A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
 
 - **Apple FairPlay** - As amostras de áudio e vídeo individuais são criptografadas usando o modo **AES-128 CBC**. O **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface de EME (Extensões de Mídia Criptografada).
-
-	>[AZURE.NOTE]
-	O uso do AMS para fornecer HLS criptografado com o FairPlay está em preview no momento.
-
 
 A imagem a seguir mostra o fluxo de trabalho da "criptografia dinâmica do FairPlay".
 
@@ -47,7 +43,7 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 	- SDK do .NET dos Serviços de Mídia do Azure na versão **3.6.0** ou posterior.
 
 - Os seguintes itens devem ser definidos no lado de distribuição de chaves do AMS:
-	- **Certificado de Aplicativo (AC)** - o arquivo.pfx que contém a chave privada. Esse arquivo é criado pelo cliente e criptografado com uma senha pelo mesmo cliente.
+	- **Certificado de Aplicativo (AC)** – o arquivo.pfx que contém a chave privada. Esse arquivo é criado pelo cliente e criptografado com uma senha pelo mesmo cliente.
 		
 	 	Ao configurar a política de distribuição de chaves, o cliente deverá fornecer essa senha e o .pfx no formato base64.
 
@@ -65,22 +61,22 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 		
 			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
 		
-	- **Senha do Certificado de Aplicativo** - a senha do cliente para criar o arquivo.pfx.
-	- **ID da senha do Certificado de Aplicativo** - O cliente deverá carregar a senha de maneira semelhante a como carrega outras chaves do AMS e usando o valor de enumeração **ContentKeyType.FairPlayPfxPassword**. No resultado, o cliente obterá a ID do AMS. Isso é o que ele precisa para usar na opção de política de distribuição de chaves.
-	- **iv** - um valor aleatório de 16 bytes, que deve coincidir com o iv na política de distribuição de ativos. O cliente gera o IV e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves.
-	- **ASK** - A ASK (Chave Secreta do Aplicativo) é recebida quando você gera a certificação usando o portal do desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia do Azure posteriormente.
-	-  **ID da ASK** - é obtida quando o cliente carrega a ASK no AMS. O cliente deve carregar a ASK usando o valor de enumeração **ContentKeyType.FairPlayASk**. Como resultado, a ID do AMS será retornada e ela que deve ser usada ao configurar a opção de política de distribuição de chaves.
+	- **Senha do Certificado de Aplicativo** – a senha do cliente para criar o arquivo.pfx.
+	- **ID da senha do Certificado de Aplicativo** – O cliente deverá carregar a senha de maneira semelhante a como carrega outras chaves do AMS e usando o valor de enumeração **ContentKeyType.FairPlayPfxPassword**. Como resultado, o cliente obterá a ID do AMS. Isso é o que ele precisa para usar na opção de política de distribuição de chaves.
+	- **iv** – um valor aleatório de 16 bytes, que deve coincidir com o iv na política de distribuição de ativos. O cliente gera o IV e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves.
+	- **ASK** – a ASK (Chave Secreta do Aplicativo) é recebida quando você gera a certificação usando o portal do desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia do Azure posteriormente.
+	-  **ID da ASK** – é obtida quando o cliente carrega a ASK no AMS. O cliente deve carregar a ASK usando o valor de enumeração **ContentKeyType.FairPlayASk**. Como resultado, a ID do AMS retorna, e ela que deve ser usada ao configurar a opção de política de distribuição de chaves.
 
 - Os seguintes itens devem ser definidos pelo lado do cliente FPS:
- 	- **Certificado de Aplicativo (AC)** - o arquivo .cer/.der contendo a chave pública que o sistema operacional usa para criptografar uma carga. O AMS precisa dessa informação porque ela é necessária para o player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
+ 	- **Certificado de Aplicativo (AC)** – o arquivo .cer/.der contendo a chave pública que o sistema operacional usa para criptografar uma carga. O AMS precisa dessa informação porque ela é necessária para o player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
 
-- Para reproduzir uma transmissão criptografada do FairPlay, você precisa obter a ASK real primeiro e, em seguida, gerar um certificado real. Esse processo criará todas as três partes:
+- Para reproduzir uma transmissão criptografada do FairPlay, você precisa obter a ASK real primeiro e, em seguida, gerar um certificado real. Este processo cria todas as três partes:
 
 	-  .der,
 	-  .pfx e
 	-  a senha para o .pfx.
  
-- Clientes compatíveis com o HLS com criptografia **AES-128 CBC**: Safari no OS X, Apple TV e iOS.
+- Clientes compatíveis com o HLS com criptografia **AES-128 CBC**: Safari no OS X, Apple TV, iOS.
 
 ##Etapas para configurar a criptografia dinâmica do FairPlay e os serviços de distribuição de licenças
 
@@ -94,7 +90,7 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 	- o método de entrega (nesse caso, o FairPlay),
 	- a configuração de opções de política do FairPlay. Para obter detalhes sobre como configurar o FairPlay, confira o método ConfigureFairPlayPolicyOptions() no exemplo abaixo.
 	
-		>[AZURE.NOTE] Na maioria dos casos, convém configurar as opções de política do FairPlay apenas uma vez, visto que você terá apenas um conjunto de certificação e ASK.
+		>[AZURE.NOTE] Normalmente, convém configurar as opções de política do FairPlay apenas uma vez, visto que você terá apenas um conjunto de certificação e ASK.
 	- restrições (abertas ou token),
 	- e informações específicas sobre o tipo de distribuição de chave que define como a chave é entregue ao cliente.
 	
@@ -113,7 +109,7 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 
 ##Usando a entrega de chaves do FairPlay por aplicativos de player/cliente
 
-Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licenças não é especificado pela Apple; cada aplicativo deverá decidir como enviar as solicitações de entrega de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada por URL de formato www da seguinte forma:
+Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licença não é especificado pela Apple. Depende de cada aplicativo o modo de enviar solicitações de distribuição de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada por URL de formato www da seguinte forma:
 
 	spc=<Base64 encoded SPC>
 
@@ -128,7 +124,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 	PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
-1. Crie um novo projeto de console.
+1. Crie um projeto de Console.
 1. Use o NuGet para instalar e adicionar o SDK do .NET dos Serviços de Mídia do Azure.
 2. Adicione outras referências: System.Configuration.
 2. Adicione o arquivo de configuração que contém o nome da conta e as informações de chave:
@@ -554,4 +550,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

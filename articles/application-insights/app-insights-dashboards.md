@@ -77,6 +77,10 @@ Quando estiver vendo uma folha ou conjunto de gráficos que é particularmente i
 
 Observe que os gráficos são agrupados em blocos: um bloco pode conter mais de um gráfico. O bloco inteiro é fixado no painel.
 
+### Gráficos de análise
+
+Você também pode [fixar gráficos do Analytics](app-insights-analytics-using.md#pin-to-dashboard) a um painel [compartilhado](#share-dashboards-with-your-team). Isso permite que você adicione gráficos de qualquer consulta arbitrária junto com as métricas padrão.
+
 ## Ajustar um bloco no painel
 
 Quando um bloco estiver no painel, você poderá ajustá-lo.
@@ -111,7 +115,6 @@ No painel, uma folha é exibida como um bloco: clique nele para ir para a folha.
 
 Quando você tiver criado um painel, poderá compartilhá-lo com outros usuários.
 
-
 ![No cabeçalho do painel de controle, clique em Compartilhar](./media/app-insights-dashboards/41.png)
 
 Saiba mais sobre [Funções e controle de acesso](app-insights-resources-roles-access-control.md).
@@ -140,7 +143,7 @@ O botão Configurações na folha de visão geral não se trata apenas de config
 * [**Itens de trabalho**](app-insights-diagnostic-search.md#create-work-item) - conecte-se a um sistema de controle do trabalho de forma que você possa criar bugs enquanto inspeciona a telemetria.
 * [**Usuários**](app-insights-resources-roles-access-control.md) - gerencie quem tem acesso ao recurso de aplicativo.
 * [**Funções**](app-insights-resources-roles-access-control.md) - gerencie o que os usuários podem fazer.
-* [**Marcações**](..\resource-group-using-tags.md) - organize os recursos do Azure.
+* [**Marcas**](..\resource-group-using-tags.md) - organize os recursos do Azure.
 * [**Bloqueios**](..\resource-group-lock-resources.md) - bloqueie recursos do Azure
 * [**Exportar modelo**](app-insights-powershell.md) - exporte uma definição do recurso do Azure para que você possa usá-la como modelo para criar novos recursos.
 
@@ -152,4 +155,4 @@ O botão Configurações na folha de visão geral não se trata apenas de config
 |[Pesquisa de diagnóstico](app-insights-diagnostic-search.md)<br/>Localize e inspecione eventos, eventos relacionados e crie bugs |![Exemplo de pesquisa](./media/app-insights-dashboards/61.png)
 |[Análise](app-insights-analytics.md)<br/>Linguagem de consulta poderosa| ![Exemplo de pesquisa](./media/app-insights-dashboards/63.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

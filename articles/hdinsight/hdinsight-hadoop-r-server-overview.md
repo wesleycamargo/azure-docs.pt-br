@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/01/2016"
+   ms.date="08/17/2016"
    ms.author="jeffstok"/>
 
 
@@ -63,9 +63,10 @@ Para pontuar no HDInsight, escreva uma função R que chame seu modelo para faze
 
 ### Pontuação no Aprendizado de Máquina do Azure
 
-Para pontuar usando um serviço Web do Aprendizado de Máquina do Azure, use o [pacote R do Aprendizado de Máquina do Azure de software livre](http://www.inside-r.org/blogs/2015/11/18/enhancements-azureml-package-connect-r-azureml-studio) para [publicar seu modelo como um serviço Web do Azure](http://www.r-bloggers.com/deploying-a-car-price-model-using-r-and-azureml/). Em seguida, use os recursos no Aprendizado de Máquina para criar uma interface de usuário para o serviço Web e chame o serviço Web conforme necessidade para pontuação.
+Para pontuar usando um serviço Web do Aprendizado de Máquina do Azure, use o pacote R do Aprendizado de Máquina do Azure de software livre conhecido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) para publicar seu modelo como um serviço Web do Azure. Para sua conveniência, este pacote é pré-instalado no nó de borda. Em seguida, use os recursos no Aprendizado de Máquina para criar uma interface de usuário para o serviço Web e chame o serviço Web conforme necessidade para pontuação.
 
 Se você escolher essa opção, será preciso converter qualquer objeto de modelo do ScaleR em objeto de modelo de software livre equivalente para uso com o serviço Web. Isso pode ser feito usando as funções de coerção do ScaleR, como `as.randomForest()` para modelos baseados em união.
+
 
 ### Pontuação local
 
@@ -79,13 +80,13 @@ A maioria dos pacotes R que você usa será exigida no nó de borda, uma vez que
 
 Na maioria dos casos, você não precisa instalar pacotes R adicionais em nós de dados se estiver usando apenas rotinas da biblioteca do ScaleR pelo cluster. No entanto, talvez você precise de pacotes adicionais para permitir o uso da execução de **rxExec** ou de **RxDataStep** em nós de dados.
 
-Nesses casos, os pacotes adicionais devem ser especificados por meio do uso de uma ação de script depois que você cria o cluster. Para saber mais, confira [Criando um cluster HDInsight com o Servidor R](hdinsight-hadoop-r-server-get-started.md).
+Nesses casos, os pacotes adicionais devem ser especificados por meio do uso de uma ação de script depois que você cria o cluster. Para saber mais, confira [Criando um cluster HDInsight com o R Server](hdinsight-hadoop-r-server-get-started.md).
 
 ### Alterar as configurações de memória do Hadoop Map Reduce
 
 Um cluster pode ser modificado para alterar a quantidade de memória disponível para o Servidor R quando ele está executando um trabalho do Map Reduce. Para modificar um cluster, use a interface de usuário do Apache Ambari que está disponível por meio da folha Portal do Azure do seu cluster. Para obter instruções sobre como acessar a interface de usuário do Ambari para seu cluster, confira [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
 
-Também é possível alterar a quantidade de memória disponível para o Servidor R usando opções do Hadoop na chamada para **RxHadoopMR**, como se segue:
+Também é possível alterar a quantidade de memória disponível para o R Server usando opções do Hadoop na chamada para **RxHadoopMR**, como se segue:
 
 	hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
 
@@ -101,7 +102,7 @@ Como os nós de cabeçalho são redundantes e nem todos os nós de dados são af
 
 ## Saiba mais sobre opções de IDE para o Servidor R em um cluster HDInsight
 
-O nó de borda do Linux de um cluster HDInsight Premium é a zona de aterrissagem para análises baseadas em R. Depois de se conectar ao cluster, você poderá iniciar a interface do console para o Servidor R, digite **R** no prompt de comando do Linux. O uso da interface do console será aprimorado se você executar um editor de texto para o desenvolvimento de scripts R em outra janela, e recortar e colar seções do seu script no console R, conforme necessário.
+O nó de borda do Linux de um cluster HDInsight Premium é a zona de aterrissagem para análises baseadas em R. Depois de se conectar ao cluster, você poderá iniciar a interface do console para o R Server, digite **R** no prompt de comando do Linux. O uso da interface do console será aprimorado se você executar um editor de texto para o desenvolvimento de scripts R em outra janela, e recortar e colar seções do seu script no console R, conforme necessário.
 
 Uma ferramenta mais sofisticada para o desenvolvimento do script R é o IDE baseado em R para uso no desktop, como as [Ferramentas R para Visual Studio](https://www.visualstudio.com/pt-BR/features/rtvs-vs.aspx) (RTVS) recentemente anunciadas pela Microsoft. Essa é uma família de ferramentas de desktop e servidor do [RStudio](https://www.rstudio.com/products/rstudio-server/). Você também pode usar o [StatET](http://www.walware.de/goto/statet) baseado no Eclipse da Walware.
 
@@ -123,4 +124,4 @@ Siga os links abaixo para ler mais sobre como usar o Servidor R com clusters HDI
 
 - [Opções de Armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

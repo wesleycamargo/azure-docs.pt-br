@@ -28,7 +28,12 @@ Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-mo
 
 Embora você possa instalar o gateway no mesmo computador local ou instância VM de nuvem que o SQL Server, é recomendável instalá-los em computadores separados ou na VM de nuvem, para obter melhor desempenho e evitar contenção de recursos.
 
-Os exemplos a seguir mostram como copiar dados entre o SQL Server e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+
+
+## Assistente de cópia de dados
+A maneira mais fácil de criar um pipeline que copie dados de um banco de dados SQL Server para qualquer um dos repositórios de dados compatíveis é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos a seguir mostram como copiar dados entre o SQL Server e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
 
 ## Exemplo: copiar dados do SQL Server para Blob do Azure
 
@@ -37,12 +42,12 @@ O exemplo a seguir mostra:
 1.	Um serviço vinculado do tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	O [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia a cada hora dados pertencentes a uma série temporal de uma tabela no banco de dados do SQL Server para um blob. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Serviço vinculado do SQL Server**
 
@@ -207,7 +212,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	}
 
 
-No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros). Observe que sqlReaderQuery pode fazer referência a várias tabelas no banco de dados referenciado pelo conjunto de dados de entrada; ele não é limitado a apenas a tabela definida como typeProperty de tableName do conjunto de dados.
+No exemplo acima, **sqlReaderQuery** é especificado para o SqlSource. A Atividade de Cópia executa essa consulta na fonte do Banco de Dados do SQL Server para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros). Observe que sqlReaderQuery pode fazer referência a várias tabelas no banco de dados referenciado pelo conjunto de dados de entrada; ele não é limitado a apenas a tabela definida como typeProperty de tableName do conjunto de dados.
 
 
 Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON serão usadas para criar uma consulta (selecione column1, column2 de mytable) que será executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
@@ -340,7 +345,7 @@ O exemplo copia dados para uma tabela chamada "MyTable" no SQL Server. Você dev
 
 **Pipeline com Atividade de cópia**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -469,11 +474,11 @@ No caso da atividade de Cópia, quando a fonte é do tipo **SqlSource**, as segu
 
 Se **sqlReaderQuery** for especificado para SqlSource, a Atividade de Cópia executará essa consulta na fonte do Banco do SQL Server para obter os dados.
 
-Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usar parâmetros).
+Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
 
 Se você não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas definidas na seção de estrutura do conjunto de dados JSON serão usadas para criar uma consulta (selecione column1, column2 de mytable) que será executada no Banco de Dados SQL Server. Se a definição de conjunto de dados não tem a estrutura, todas as colunas serão selecionadas da tabela.
 
-> [AZURE.NOTE] Quando você usa **sqlReaderStoredProcedureName**, ainda será necessário especificar um valor para a propriedade **tableName** no conjunto de dados JSON. Esta é uma limitação do produto no momento. Contudo, não há nenhuma validação executada nessa tabela.
+> [AZURE.NOTE] Quando você usa **sqlReaderStoredProcedureName**, ainda é necessário especificar um valor para a propriedade **tableName** no conjunto de dados JSON. Esta é uma limitação do produto no momento. Contudo, não há nenhuma validação executada nessa tabela.
 
 ### SqlSink
 
@@ -496,21 +501,21 @@ O **SqlSink** dá suporte às seguintes propriedades:
 
 	![Habilitar conexões remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
-	Consulte [Configurar a Opção de Configuração do Servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter as etapas detalhadas.
+	Veja [Configurar a Opção de Configuração do Servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx) para obter as etapas detalhadas.
 2. Inicie o **SQL Server Configuration Manager** (Gerenciador de Configuração do SQL Server). Expanda a **Configuração de Rede do SQL Server** para a instância que você deseja e selecione os **Protocolos para MSSQLSERVER**. Você deve ver os protocolos no painel à direita. Habilite o TCP/IP clicando com o botão direito do mouse em **TCP/IP** e, em seguida, clicando em **Habilitar**.
 
 	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
-	Consulte [Habilitar ou Desabilitar um Protocolo de Rede do Servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver detalhes e formas alternativas de habilitar um protocolo TCP/IP.
+	Veja [Habilitar ou Desabilitar um Protocolo de Rede do Servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver detalhes e formas alternativas de habilitar um protocolo TCP/IP.
 3. Na mesma janela, clique duas vezes em **TCP/IP** para inicializar a janela **Propriedades de TCP/IP**.
 4. Alterne para a guia **Endereços IP**. Role para baixo para ver a seção **IPAll**. Anote a **Porta TCP** (o padrão é **1433**).
 5. Crie uma **regra para o Firewall do Windows** no computador para permitir a entrada de tráfego por essa porta.
 6. **Verifique a conexão**: use o SQL Server Management Studio de um computador diferente para conectar-se ao SQL Server usando um nome totalmente qualificado. Por exemplo: <computador>.<domínio>.corp.<empresa>.com, 1433.
 
 	> [AZURE.IMPORTANT]
-	Consulte [Considerações de Portas e de Segurança](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para ver informações detalhadas.
+	Veja [Considerações de Portas e de Segurança](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para ver informações detalhadas.
 	>   
-	> Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
+	> Veja [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## Colunas de identidade no banco de dados de destino
 Esta seção fornece um exemplo para copiar dados de uma tabela de origem sem uma coluna de identidade para uma tabela de destino com uma coluna de identidade.
@@ -646,4 +651,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

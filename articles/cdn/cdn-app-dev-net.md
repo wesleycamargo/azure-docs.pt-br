@@ -22,9 +22,9 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-Você pode usar a [Biblioteca do Azure CDN para .NET](https://msdn.microsoft.com/library/mt657769.aspx) para automatizar a criação e o gerenciamento de perfis CDN e de pontos de extremidade. Este tutorial o orientará na criação de um aplicativo de console simples do .NET, que demonstra várias das operações disponíveis. Este tutorial não pretende descrever todos os aspectos da biblioteca do Azure CDN para o .NET em detalhes.
+Você pode usar a [Biblioteca do Azure CDN para .NET](https://msdn.microsoft.com/library/mt657769.aspx) para automatizar a criação e o gerenciamento de perfis CDN e de pontos de extremidade. Este tutorial o orientará na criação de um aplicativo de console simples do .NET, que demonstra várias operações disponíveis. Este tutorial não pretende descrever todos os aspectos da biblioteca do Azure CDN para o .NET em detalhes.
 
-Você precisará do Visual Studio 2015 para concluir este tutorial. O [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponível gratuitamente para download.
+Você precisa do Visual Studio 2015 para concluir este tutorial. O [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponível gratuitamente para download.
 
 > [AZURE.TIP] O [projeto concluído deste tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) está disponível para download no MSDN.
 
@@ -287,7 +287,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade. Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do Portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como um perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`; assim, ele será bem-sucedido. No entanto, o perfil **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
+>[AZURE.NOTE] No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade. Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como um perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`; assim, ele será bem-sucedido. No entanto, o perfil **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
 
 ## Excluir perfis CDN e pontos de extremidade
 
@@ -323,7 +323,7 @@ Agora podemos compilar e executar o programa clicando no botão **Iniciar** no V
 
 ![Programa em execução](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-Quando o programa atingir o prompt acima, você poderá retornar ao seu grupo de recursos no Portal do Azure e ver que o perfil foi criado.
+Quando o programa atingir o prompt acima, você poderá retornar a seu grupo de recursos no portal do Azure e ver que o perfil foi criado.
 
 ![Sucesso!](./media/cdn-app-dev-net/cdn-success.png)
 
@@ -337,4 +337,6 @@ Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://cod
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+Gerencie seus recursos CDN com o [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

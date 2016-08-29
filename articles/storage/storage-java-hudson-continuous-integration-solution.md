@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
@@ -37,7 +37,7 @@ Alguns dos benefícios de usar o serviço Blob para hospedar seus artefatos de c
 - Alta disponibilidade de seus artefatos de compilação e/ou dependências baixáveis.
 - O desempenho quando sua solução Hudson CI carrega seus artefatos de compilação.
 - Desempenho quando seus clientes e parceiros baixam seus artefatos de compilação.
-- O controle sobre as políticas de acesso do usuário, com uma opção entre acesso anônimo, acesso de assinatura de acesso compartilhado com base em expiração, acesso de assinatura, acesso particular, etc.
+- O controle sobre as políticas de acesso do usuário, com uma opção entre acesso anônimo, acesso compartilhado com base em expiração, acesso de assinatura, acesso particular, etc.
 
 ## Pré-requisitos ##
 
@@ -182,5 +182,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
-
+<!---HONumber=AcomDC_0817_2016-->

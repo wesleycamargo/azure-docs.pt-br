@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 
 <tags 
     ms.service="active-directory" 
@@ -12,14 +12,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/19/2016" 
+    ms.date="08/12/2016" 
     ms.author="jeedes" />
 
 
 #Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce. As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce. Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce.  
+As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.  
+Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -96,11 +98,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 7.  No painel de navegação à esquerda, clique em **Controles de Segurança** e clique em **Configurações de Logon Único**.
 
-    ![Configurações de Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "Configurações de logon único")
+    ![Configurações de Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "Configurações de Logon Único")
 
 8.  Na seção de Configurações de Logon Único, execute as seguintes etapas:
 
-    ![Configurações de logon único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Configurações de Logon Único")
+    ![Configurações de Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Configurações de Logon Único")
 
     a. Selecione **SAML Habilitado**.
     
@@ -116,7 +118,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     
     c. Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade**, digite a **URL de Logon** que deve estar no seguinte formato: `http://company.my.salesforce.com`
     
-    d. Clique em **Procurar** para carregar o certificado baixado.
+    	d. Clique em **Procurar** para carregar o certificado baixado.
     
     e. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
     
@@ -214,4 +216,4 @@ Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

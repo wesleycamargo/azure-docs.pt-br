@@ -29,6 +29,8 @@ Este artigo mostra como usar o Azure PowerShell para criar uma imagem generaliza
 
 - Você precisa ter a versão 1.0.x do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para ver as etapas de instalação.
 
+- Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 ## Preparar a VM de origem 
 
 Esta seção mostra como generalizar a máquina virtual do Windows para que ela possa ser usada como uma imagem.
@@ -93,7 +95,7 @@ Esta seção mostra como generalizar a máquina virtual do Windows para que ela 
 
 1. Copie a imagem da máquina virtual para o contêiner de armazenamento de destino usando este comando. A imagem é criada na mesma conta de armazenamento que a máquina virtual original. A variável `-Path` salva uma cópia do modelo JSON localmente. A variável `-DestinationContainerName` é o nome do contêiner em que você quer manter as imagens. Se o contêiner não existir, ele será criado para você.
 
-		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
+		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -Name YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
 	Você pode obter a URL da imagem no modelo do arquivo JSON. Vá para a seção **recursos** > **storageProfile** > **osDisk** > **imagem** > **uri** para obter o caminho completo da imagem. A URL da imagem parece com esta: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
@@ -116,7 +118,7 @@ Crie a rede virtual e a sub-rede da [rede virtual](../virtual-network/virtual-ne
         $subnetName = "<subNetName>"
         $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
         
-2. Substitua o valor de **$vnetName** por um nome de rede virtual. Forneça o prefixo do endereço da rede virtual no formato CIDR. Crie a variável e a rede virtual com a sub-rede.
+2. Substitua o valor de **$vnetName** por um nome para a rede virtual. Forneça o prefixo do endereço da rede virtual no formato CIDR. Crie a variável e a rede virtual com a sub-rede.
 
         $vnetName = "<vnetName>"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
@@ -126,12 +128,12 @@ Crie a rede virtual e a sub-rede da [rede virtual](../virtual-network/virtual-ne
 
 Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
 
-1. Substitua o valor de **$ipName** por um nome de endereço IP público. Criar a variável e o endereço IP público.
+1. Substitua o valor de **$ipName** pelo nome do endereço IP público. Criar a variável e o endereço IP público.
 
         $ipName = "<ipName>"
         $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
         
-2. Substitua o valor de **$nicName** por um nome de adaptador de rede. Crie a variável e a interface de rede.
+2. Substitua o valor de **$nicName** pelo nome do adaptador de rede. Crie a variável e a interface de rede.
 
         $nicName = "<nicName>"
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
@@ -198,7 +200,7 @@ O script do PowerShell a seguir mostra como definir as configurações da máqui
 
 
 
-Ao concluir, a VM recém-criada deverá aparecer no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas virtuais** ou usando os seguintes comandos do PowerShell:
+Ao concluir, a nova VM criada deverá aparecer no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas Virtuais** ou usando os seguintes comandos do PowerShell:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -208,4 +210,4 @@ Ao concluir, a VM recém-criada deverá aparecer no [Portal do Azure](https://po
 
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, confira [Gerenciar máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

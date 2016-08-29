@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança, glossário"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Glossário do Azure Active Directory Identity Protection 
@@ -160,8 +160,8 @@ Usuários que têm eventos de risco ativos ou corrigidos
 Uma configuração ou condição no Azure Active Directory que torna o diretório suscetível a vulnerabilidades e ameaças.
 
 
-## Consulte também
+## Confira também
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

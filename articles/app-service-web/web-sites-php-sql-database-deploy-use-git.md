@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
@@ -23,7 +23,7 @@ Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicat
 > [AZURE.NOTE]
 É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
-Você aprenderá a:
+Você aprenderá:
 
 * Como criar um aplicativo Web do Azure e um banco de dados SQL usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos Aplicativos Web do Serviço de Aplicativo por padrão, não é necessário nada de especial para executar seu código PHP.
 * Como publicar e publicar novamente o aplicativo no Azure usando o Git.
@@ -76,7 +76,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
 
 6. Em **Configurações**, clique em **Propriedades** para ver a URL remota do Git que você precisa usar para implantar seu aplicativo PHP posteriormente.
 
-##Obter informações da conexão de Banco de Dados SQL
+##Obter informações da conexão do Banco de Dados SQL
 
 Para se conectar à instância do banco de dados SQL que está vinculada a seu aplicativo Web, você precisa das informações de conexão, que especificou ao criar o banco de dados. Para obter informações sobre a conexão do Banco de Dados SQL, siga estas etapas:
 
@@ -237,7 +237,7 @@ Agora você pode navegar até **http://localhost:8000/index.php** para testar o 
 
 ##Publicar seu aplicativo
 
-Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão de banco de dados no aplicativo. Usando as informações de conexão do banco de dados obtidas previamente (na seção **Obter informações de conexão do banco de dados SQL**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
+Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão do banco de dados no aplicativo. Usando as informações de conexão do banco de dados obtidas previamente (na seção **Obter informações de conexão do banco de dados SQL**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -298,4 +298,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

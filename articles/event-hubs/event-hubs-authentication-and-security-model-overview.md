@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/03/2016"
+    ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
 # Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
@@ -37,7 +37,7 @@ Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens s
 
 ### Criar a chave SAS
 
-Ao criar um namespace, o Barramento de Serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você nomeou esta chave `EventHubSendKey`.
+Ao criar um namespace de Hubs de Eventos, os Hubs de Eventos do Azure geram uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave `EventHubSendKey`.
 
 O exemplo a seguir cria uma chave somente de envio ao criar o Hub de Eventos:
 
@@ -105,7 +105,7 @@ Na ausência de autenticação SAS para grupos de consumidores individuais, voc�
 
 O ACS dá suporte a várias maneiras de criar identidades de serviço, terceiras partes confiáveis e regras, mas a maneira mais fácil de fazer isso é usando o [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Por exemplo:
 
-1. Crie uma identidade de serviço para um **EventHubSender**. Isso retorna o nome da identidade de serviço que foi criada e sua chave:
+1. Crie uma identidade de serviço para um **EventHubSender**. Essa operação retorna o nome da identidade de serviço que foi criada e sua chave:
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
@@ -143,7 +143,7 @@ O ACS dá suporte a várias maneiras de criar identidades de serviço, terceiras
 
 ## Próximas etapas
 
-Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
+Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 - [Visão geral de Hubs de Evento]
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento].
@@ -154,4 +154,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

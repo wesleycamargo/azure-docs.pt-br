@@ -6,14 +6,14 @@
 	 authors="ganganarayanan"
 	 manager="scotthit"
 	 editor=""/>
-	 
+
 <tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/24/2016"
+	 ms.date="07/25/2016"
 	 ms.author="gangan"/>
 
 # Como criar uma solicitação de suporte do Azure
@@ -43,7 +43,7 @@ Vamos ver um exemplo: Você está com dificuldades técnicas em sua máquina vir
 
 ![Folha de Noções básicas](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] O Azure fornece suporte ilimitado para gerenciamento de assinatura (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+>[AZURE.NOTE] O Azure fornece suporte ilimitado para o gerenciamento das assinaturas (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
 
 ## Problema
 A segunda etapa do assistente coleta detalhes adicionais sobre o problema. Fornecer detalhes precisos nesta etapa nos permite encaminhar seu caso para o melhor engenheiro de suporte e começar a diagnosticar o problema assim que possível.
@@ -85,4 +85,4 @@ Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](
 ## Saiba mais
 [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0817_2016-->
