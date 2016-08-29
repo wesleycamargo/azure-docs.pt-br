@@ -24,13 +24,13 @@
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
-A experiência de Nó/JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de associações.
+A experiência de Node/JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de bindings.
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
 ## Exportando uma função
 
-Todas as funções do JavaScript devem exportar um único `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context`.
+Todas as funções JavaScript devem exportar uma única `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -46,17 +46,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-As associações de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
+As bindings de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
 
 Os argumentos sempre são passados para a função na ordem em que ocorrem em *function.json*, mesmo se você não especificá-los na sua instrução de exportações. Por exemplo, se tiver `function(context, a, b)` e alterá-lo para `function(context, a)`, você ainda poderá obter o valor de `b` no código de função, fazendo referência ao `arguments[3]`.
 
-Todas as associações, independentemente da direção, também são transmitidas por todo o objeto `context` (veja abaixo).
+Todas os bindings, independentemente da direção, também são transmitidas por todo o objeto `context` (veja abaixo).
 
 ## objeto de contexto
 
-O tempo de execução usa um objeto `context` para passar dados de e para sua função e permitir que você se comunique com o tempo de execução.
+O tempo de execução usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o tempo de execução.
 
-O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto que você quiser (ou seja, `ctx` ou `c`).
+O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto como você quiser (por exemplo, `ctx` ou `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -67,7 +67,7 @@ module.exports = function(context) {
 
 ## context.bindings
 
-O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` da associação. Por exemplo, dada a seguinte definição de associação *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
+O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de associação *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
 
 ```json
     {
@@ -89,7 +89,7 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução ainda não saberá que a função foi concluída.
+A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução não saberá que a função foi concluída.
 
 A função `context.done` permite que você passe um erro definido pelo usuário de volta para o tempo de execução, bem como um recipiente de propriedades que substituirá as propriedades no objeto `context.bindings`.
 
@@ -113,7 +113,7 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-O método `context.log` dá suporte ao mesmo formato de parâmetro que o Nó [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Desta forma, por exemplo, um código como este:
+O método `context.log` dá suporte ao mesmo formato de parâmetro que o Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Desta forma, por exemplo, um código como este:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -129,7 +129,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ## Gatilhos HTTP: context.req e context.res
 
-No caso de gatilhos de HTTP, como é um padrão comum usar `req` e `res` para os objetos de solicitação e de resposta HTTP, decidimos facilitar o acesso àqueles no objeto de contexto, em vez de forçá-lo a usar todo o padrão de `context.bindings.name` completo.
+No caso de gatilhos de HTTP, como é um padrão comum usar `req` e `res` para os objetos de solicitação e de resposta HTTP, decidimos facilitar o acesso a eles no objeto de contexto, em vez de forçá-lo a usar todo o padrão de `context.bindings.name` completo.
 
 ```javascript
 // You can access your http request off of the context ...
@@ -138,11 +138,11 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## Versão de nó e gerenciamento de pacote
+## Versão do Node e gerenciamento de pacote
 
-A versão do nó está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões torná-la configurável.
+A versão do Node está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões e torná-las configuráveis.
 
-Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **How to update function app files** (Como atualizar os arquivos de aplicativo de funções) do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
+Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
 Você também pode usar `npm install` na interface de linha de comando do aplicativo de funções SCM (Kudu):
 
