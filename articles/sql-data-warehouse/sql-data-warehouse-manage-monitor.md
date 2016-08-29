@@ -147,7 +147,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta estiver ativamente aguardando recursos de outra consulta, o estado será **AcquireResources**. Se a consulta tiver todos os recursos necessários, o estado será **Concedido**.
 
 ## Próximas etapas
-Para obter mais informações sobre as DMVs (Exibição de Gerenciamento Dinâmico), consulte [Exibições do sistema][]. Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [Visão geral do gerenciamento][]. Para ver as práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
+Para obter mais informações sobre as DMVs (Exibição de Gerenciamento Dinâmico), consulte [Exibições do sistema][].  
+Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [Visão geral do gerenciamento][].  
+Para ver as práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 

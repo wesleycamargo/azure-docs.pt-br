@@ -95,7 +95,7 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-: ./media/api-management-howto-create-or-invite-developers/.png
+[]: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
