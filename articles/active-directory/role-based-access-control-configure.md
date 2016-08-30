@@ -70,4 +70,4 @@ Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure
 - Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 - Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->
