@@ -52,4 +52,4 @@ A [visão geral do Azure AD Privileged Identity Management](active-directory-pri
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->
