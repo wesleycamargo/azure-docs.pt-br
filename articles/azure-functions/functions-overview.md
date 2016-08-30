@@ -25,9 +25,9 @@ O Azure Functions é uma solução para executar facilmente pequenos trechos de 
 
 Este tópico fornece uma visão geral de alto nível do Azure Functions. Se você quiser começar a usar imediatamente o Azure Functions, comece com [Criar sua primeira função](functions-create-first-azure-function.md). Se você estiver procurando informações mais técnicas sobre o Functions, confira a [referência do desenvolvedor](functions-reference.md).
 
-## Características
+## Recursos
 
-Aqui estão algumas das principais características do Azure Functions:
+Aqui estão alguns dos principais recursos do Azure Functions:
     
 * **Opção de linguagem** - escreva funções usando C#, Node.js, Python, F#, PHP, batch, bash, Java ou qualquer executável.  
 * **Modelo de preços de pagamento por uso** - pague somente o tempo gasto na execução de seu código. Consulte a opção Plano de Serviço de Aplicativo Dinâmico na [seção Preço](#pricing) abaixo.  
