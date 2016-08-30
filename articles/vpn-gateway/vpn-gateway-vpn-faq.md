@@ -42,17 +42,15 @@ Há suporte para as seguintes conexões entre locais:
 
 - [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
 
-Para obter mais informações sobre conexões entre locais, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
+Para saber mais sobre conexões, veja [Diagramas de conexão de Gateway de VPN](vpn-gateway-topology.md).
 
 ### Qual é a diferença entre uma conexão site a site e uma ponto a site?
 
-As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você precisará ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
+As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você deverá ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
 
 As conexões de **ponto a site** permitem que você se conecte de um único computador em qualquer lugar para qualquer item localizado em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
 
 Você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um tipo de VPN com base em rota para seu gateway. Tipos de VPN baseados em rota são chamados de gateways dinâmicos no modelo de implantação clássica.
-
-Para obter mais informações, consulte [Sobre a conectividade entre locais segura para redes virtuais](vpn-gateway-cross-premises-options.md).
 
 ### O que é Rota Expressa?
 
@@ -283,4 +281,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

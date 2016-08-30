@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
@@ -30,7 +30,7 @@ O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8
 | Modelo do dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacidade máxima** | 30 TB | 64 TB |
-| **VM do Azure** | Standard_A3 (4 núcleos, 7 GB de memória) | Standard_DS3 (4 núcleos, 14 GB de memória) |
+| **VM do Azure** | Standard\_A3 (4 núcleos, 7 GB de memória) | Standard\_DS3 (4 núcleos, 14 GB de memória) |
 | **Compatibilidade de versão** | Versões com pré-Atualização 2 ou posterior | Versões com Atualização 2 ou posterior |
 | **Disponibilidade de região** | Todas as regiões do Azure | Regiões do Azure que dão suporte ao Armazenamento Premium<br></br>Para obter uma lista de regiões, veja [regiões com suporte para 8020](#supported-regions-for-8020) |
 | **Tipo de armazenamento** | Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
@@ -60,7 +60,7 @@ As regiões de armazenamento Premium que atualmente têm suporte para 8020 estã
 | 12 | Ásia Oriental* |
 | 13 | Centro-Sul dos EUA* |
 
-**O armazenamento Premium foi lançado recentemente nessas áreas geográficas.
+*O armazenamento Premium foi lançado recentemente nessas áreas geográficas.
 
 Este artigo descreve o processo passo a passo de implantação de um dispositivo virtual do StorSimple no Azure. Depois de ler este artigo, você irá:
 
@@ -100,8 +100,8 @@ Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes 
 
 - Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. Para saber mais sobre [regiões que atualmente têm suporte para 8020](#supported-regions-for-8020).
 - É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido ou se o servidor DNS não conseguir resolver endereços IP corretamente, a criação do dispositivo virtual falhará.
-- Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados. 
-- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos: 							
+- Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados.
+- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos:
 	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado.
 	- Estar em execução na mesma rede virtual que o dispositivo virtual.
 	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual.
@@ -144,8 +144,7 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados do serviço foi criada quando você configurou o primeiro dispositivo StorSimple e foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
-Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple
-[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple [AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
 
@@ -280,4 +279,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
  
 - Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

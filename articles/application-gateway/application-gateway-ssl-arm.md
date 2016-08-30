@@ -38,7 +38,7 @@
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 - **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS; essas configurações diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *básica*. A regra *basic* é a distribuição de carga round robin.
+- **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic*. A regra *básica* é a distribuição de carga round robin.
 
 **Observações adicionais sobre a configuração**
 
@@ -85,14 +85,14 @@ Você deve se autenticar com suas credenciais.<BR>
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Etapa 4
 
 Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Essa configuração é usada como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
 
@@ -115,7 +115,7 @@ Isso cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" p
 
 ### Etapa 3
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 Isso atribui o objeto de sub-rede à variável $subnet para as próximas etapas.
 
@@ -183,7 +183,7 @@ Isso cria a regra de roteamento do balanceador de carga chamada "rule01", que co
 
 Isso configura o tamanho da instância do gateway de aplicativo.
 
->[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Médio. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
+>[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
 ## Criar um gateway de aplicativo usando New-AzureApplicationGateway
 
@@ -200,4 +200,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

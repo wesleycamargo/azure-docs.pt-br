@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET"
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando o .NET | Azure"
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando .NET."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="07/18/2016"
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 
@@ -101,7 +101,7 @@ Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
-Para alterar o número de unidades de streaming reservadas, faça o seguinte:
+Para alterar o número de unidades reservadas para streaming, faça o seguinte:
 
 1. No [portal](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
 
@@ -453,4 +453,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="rachelap"/>
 
 # Visão geral de Aplicativos de API
@@ -63,4 +63,4 @@ Para começar a usar os Aplicativos de API implantando código de exemplo em um 
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

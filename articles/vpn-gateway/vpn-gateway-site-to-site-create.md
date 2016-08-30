@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="08/23/2016"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o portal clássico do Azure
@@ -27,21 +27,16 @@
 
 Este artigo o orientará na criação de uma rede virtual e uma conexão VPN site a site para sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure. No momento, você não pode criar uma configuração Site a Site de ponta a ponta para o modelo de implantação clássico usando o portal do Azure.
 
+![Diagrama Site a Site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-**Sobre modelos de implantação do Azure**
+
+### Modelos de implantação e ferramentas para conexões Site a Site
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Diagrama de conexão
- 
-![Diagrama Site a Site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
-
-**Modelos de implantação e ferramentas para conexões Site a Site**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Se você quiser conectar as VNets, mas não estiver criando uma conexão com uma instalação local, consulte [Configurar uma conexão VNet a VNet para o modelo de implantação clássico](virtual-networks-configure-vnet-to-vnet-connection.md). Se você estiver procurando um tipo diferente de configuração da conexão, consulte o artigo [Topologias de conexão do Gateway de VPN](vpn-gateway-topology.md).
-
+Se você quiser conectar as Redes Virtuais, veja [Configurar uma conexão de Rede Virtual para Rede Virtual para o modelo de implantação clássico](virtual-networks-configure-vnet-to-vnet-connection.md).
  
 ## Antes de começar
 
@@ -49,7 +44,7 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 - Um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 
--  Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
+- Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 
 - Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -75,7 +70,7 @@ Insira as informações a seguir e, em seguida, clique na seta de avanço no can
 
 - **Servidores DNS**: insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu de atalho. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes dessa rede virtual.
 - **Configurar VPN Site a Site**: marque a caixa de seleção **Configurar uma VPN site a site**.
-- **Rede Local**: uma rede local representa sua localização física no local. Você pode selecionar uma rede local já criada anteriormente ou pode criar uma nova rede local. No entanto, se você optar por usar uma rede local criada anteriormente, vai querer acessar a página de configuração **Redes Locais** e garantir que o endereço IP do Dispositivo VPN (endereço IPv4 voltado para o público) para o dispositivo VPN usado nesta conexão seja preciso.
+- **Rede Local**: uma rede local representa sua localização física no local. Você pode selecionar uma rede local já criada anteriormente ou pode criar uma nova rede local. No entanto, se você optar por usar uma rede local criada anteriormente, acesse a página de configuração **Redes Locais** e verifique se o endereço IP do Dispositivo VPN (endereço IPv4 voltado para o público) para o dispositivo VPN seja preciso.
 
 ## Página Conectividade Site a Site
 
@@ -84,15 +79,15 @@ Se estiver criando uma nova rede local, você verá a página **Conectividade Si
 Insira as informações a seguir e, em seguida, clique na seta de avanço.
 
 - 	**Nome**: o nome que você deseja dar ao site de rede local.
-- 	**Endereço IP do Dispositivo VPN**: é o endereço IPv4 voltado para o público do dispositivo VPN local que você usará para conectar o Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
-- 	**Espaço de Endereço**: inclua o IP Inicial e a Contagem de Endereços (CIDR). É o local onde você especifica o(s) intervalo(s) de endereços que deseja que seja(m) enviado(s) por meio do gateway de rede virtual para o local. Se um endereço IP de destino estiver dentro dos intervalos especificados aqui, ele será roteado por meio do gateway de rede virtual.
-- 	**Adicionar espaço de endereço**: se você tiver vários intervalos de endereço que deseja enviar pelo gateway da rede virtual, aqui será onde especificará cada intervalo de endereço adicional. Você poderá adicionar ou remover intervalos posteriormente na página **Rede Local**.
+- 	**Endereço IP do Dispositivo VPN**: o endereço IPv4 voltado para o público do dispositivo VPN local que você usa para se conectar ao Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
+- 	**Espaço de Endereço**: inclua o IP Inicial e a Contagem de Endereços (CIDR). Você especifica o(s) intervalo(s) de endereços que deseja que seja(m) enviado(s) por meio do gateway de rede virtual para o local. Se um endereço IP de destino estiver dentro dos intervalos especificados aqui, ele será roteado por meio do gateway de rede virtual.
+- 	**Adicionar espaço de endereço**: se você tiver vários intervalos de endereço que deseja enviar pelo gateway da rede virtual, especifique cada intervalo de endereço adicional. Você poderá adicionar ou remover intervalos posteriormente na página **Rede Local**.
 
 ## Página Espaços de endereço de rede virtual
 
 Especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual.
 
-É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará coordenar com o administrador da rede. Talvez seu administrador da rede precise reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
+É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisa coordenar com o administrador da rede. Talvez seu administrador da rede precise reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
 
 Insira as informações a seguir e clique na marca de seleção no canto inferior direito para configurar sua rede.
 
@@ -106,10 +101,10 @@ Clique na marca de seleção na parte inferior da página e sua rede virtual com
 
 ## Configurar seu Gateway de Rede Virtual
 
-Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar um gateway da rede virtual no portal clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md).
+Configure o gateway de rede virtual para criar uma conexão site a site segura. Consulte [Configurar um gateway da rede virtual no portal clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Próximas etapas
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

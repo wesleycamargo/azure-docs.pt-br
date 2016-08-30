@@ -47,6 +47,10 @@ Existem dois tipos de servidores DNS:
 - Um servidor DNS _autoritativo_ hospeda zonas DNS. Ele responde a consultas DNS apenas para registros nessas zonas.
 - Um servidor DNS _recursivo_ não hospeda zonas DNS. Ele responde a todas as consultas DNS chamando os servidores DNS autoritativos para coletar os dados de que precisa.
 
+>[AZURE.NOTE] O Azure DNS fornece um serviço DNS autoritativo. Ele não fornece um serviço DNS recursivo.
+
+> Serviços de Nuvem e VMs no Azure são automaticamente configurados para usar os serviços DNS recursivos que são fornecidos separadamente como parte da infraestrutura do Azure. Para obter informações sobre como alterar essas configurações de DNS, confira [Resolução de nomes no Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+
 Os clientes DNS em PCs ou dispositivos móveis normalmente chamam um servidor DNS recursivo para executar consultas DNS das quais os aplicativos cliente precisam.
 
 Quando um servidor DNS recursivo recebe uma consulta para um registro DNS como “www.contoso.com”, ele precisa localizar o servidor de nomes que hospeda a zona para o domínio “contoso.com”. Para fazer isso, ele começa em servidores-raiz de nomes e daí localiza os servidores de nomes que hospeda a zona “com”. Em seguida, ele consulta os servidores de nomes “com” para localizar os servidores de nomes que hospedam a zona “contoso.com”. Finalmente, é possível consultar esses servidores de nomes para “www.contoso.com”.
@@ -201,4 +205,4 @@ Você pode verificar se tudo está configurado corretamente examinando o registr
 
 [Gerenciar registros DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -38,7 +38,7 @@ O artigo [Comparação do Hub IoT com os Hubs de Eventos][lnk-compare] descreve 
 O Hub IoT e as bibliotecas de dispositivo ajudam a enfrentar os desafios de como conectar dispositivos de maneira confiável e segura ao back-end da solução. Dispositivos IoT:
 
 - Com frequência, são sistemas internos sem operadores humanos.
-- Podem estar em locais remotos, onde o acesso físico é muito caro.
+- Podem estar em locais remotos, onde o acesso físico é caro.
 - Só podem ser acessados por meio do back-end da solução.
 - Podem ter recursos de energia e de processamento limitados.
 - Podem ter conectividade de rede intermitente, lenta ou cara.
@@ -51,9 +51,9 @@ Além dos requisitos acima, todas as soluções IoT também deverão oferecer es
 
 O Hub IoT do Azure enfrenta os desafios de conectividade do dispositivo das seguintes maneiras:
 
--   **Autenticação por dispositivo e conectividade segura**. Você pode fornecer a cada dispositivo sua própria [chave de segurança][lnk-devguide-security] para permitir que ele se conecte ao Hub IoT. O [registro de identidades do Hub IoT][lnk-devguide-identityregistry] armazena as identidades e as chaves dos dispositivos em uma solução. Um back-end da solução pode incluir dispositivos individuais em listas brancas e listas negras, o que permite um controle completo do acesso a dispositivos.
+-   **Autenticação por dispositivo e conectividade segura**. Você pode fornecer a cada dispositivo sua própria [chave de segurança][lnk-devguide-security] para permitir que ele se conecte ao Hub IoT. O [registro de identidades do Hub IoT][lnk-devguide-identityregistry] armazena as identidades e as chaves dos dispositivos em uma solução. Um back-end da solução pode adicionar dispositivos individuais para permitir ou negar listas para habilitar o controle completo sobre o acesso ao dispositivo.
 
--   **Monitoramento das operações de conectividade do dispositivo**. Você pode receber os logs de operação detalhados sobre operações de gerenciamento de identidade do dispositivo e eventos de conectividade do dispositivo. Isso permite que sua solução de IoT identifique facilmente os problemas de conectividade, como os dispositivos que tentam se conectar com as credenciais erradas, envio de mensagens com muita frequência ou rejeição de todas as mensagens da nuvem para o dispositivo.
+-   **Monitoramento das operações de conectividade do dispositivo**. Você pode receber os logs de operação detalhados sobre operações de gerenciamento de identidade do dispositivo e eventos de conectividade do dispositivo. Esse recurso de monitoramento permite que sua solução de IoT identifique facilmente os problemas de conectividade, como os dispositivos que tentam se conectar com as credenciais erradas, envio de mensagens com muita frequência ou rejeição de todas as mensagens da nuvem para o dispositivo.
 
 -   **Um amplo conjunto de bibliotecas de dispositivos**. [Os SDKs do dispositivo IoT do Azure][lnk-device-sdks] estão disponíveis e têm suporte para várias linguagens e plataformas: C para muitas distribuições Linux, Windows e sistemas operacionais em tempo real. Os SDKs de dispositivo IoT do Azure também oferecem suporte a linguagens gerenciadas, como C#, Java e JavaScript.
 
@@ -68,15 +68,15 @@ Esses benefícios são genéricos para vários padrões de comunicação. No mom
 
 -   **Ingestão de dispositivo para nuvem baseada em evento.** O Hub IoT pode receber de modo confiável milhões de eventos por segundo dos seus dispositivos. Assim, ele pode processá-los no respectivo afunilamento usando um mecanismo processador de eventos. Ele também pode armazená-los em seu caminho expandido para análise. O Hub IoT retém os dados de eventos por até sete dias para garantir o processamento confiável e para absorver picos na carga.
 
--   **Mensagens confiáveis da nuvem para o dispositivo (ou *comandos*).** O back-end da solução pode usar o Hub IoT para enviar mensagens com uma garantia de entrega de pelo menos uma vez para dispositivos individuais. Cada mensagem tem uma configuração de vida útil individual, e o back-end pode solicitar recibos de entrega e de expiração. Isso garante visibilidade completa do ciclo de vida de uma mensagem da nuvem para o dispositivo. Desse modo, você pode implementar lógica de negócios que inclua operações executadas nos dispositivos.
+-   **Mensagens confiáveis da nuvem para o dispositivo (ou *comandos*).** O back-end da solução pode usar o Hub IoT para enviar mensagens com uma garantia de entrega de pelo menos uma vez para dispositivos individuais. Cada mensagem tem uma configuração de vida útil individual, e o back-end pode solicitar recibos de entrega e de expiração. Essas confirmações garantem visibilidade completa do ciclo de vida de uma mensagem da nuvem para o dispositivo. Desse modo, você pode implementar lógica de negócios que inclua operações executadas nos dispositivos.
 
 -   **Carregue arquivos e dados do sensor em cache para a nuvem.** Os dispositivos podem carregar arquivos para o Armazenamento do Azure usando URIs SAS gerenciados para você pelo Hub IoT. O Hub IoT poderá gerar notificações quando os arquivos chegarem na nuvem para permitir que o back-end os processe.
 
 ## Gateways
 
-Um gateway em uma solução IoT geralmente é um [gateway de protocolo][lnk-gateway] que é implantado na nuvem ou um [gateway de campo][lnk-field-gateway] que é implantado localmente com seus dispositivos. Um gateway de protocolo executa a conversão do protocolo, por exemplo, de MQTT para AMQP. Um gateway de campo pode executar análises na borda, tomar decisões baseadas em tempo que podem reduzir a latência, fornecer serviços de gerenciamento de dispositivo, impor restrições de privacidade e segurança e também executar a conversão de protocolo. Ambos os tipos de gateway atuam como intermediários entre os seus dispositivos e o Hub IoT.
+Um gateway em uma solução IoT geralmente é um [gateway de protocolo][lnk-gateway] que é implantado na nuvem ou um [gateway de campo][lnk-field-gateway] que é implantado localmente com seus dispositivos. Um gateway de protocolo executa a conversão do protocolo, por exemplo, de MQTT para AMQP. Um gateway de campo pode executar análises na borda, tomar decisões baseadas em tempo para reduzir a latência, fornecer serviços de gerenciamento de dispositivo, impor restrições de privacidade e segurança e também executar a conversão de protocolo. Ambos os tipos de gateway atuam como intermediários entre os seus dispositivos e o Hub IoT.
 
-Um gateway de campo é diferente de um dispositivo de roteamento de tráfego simples (como um dispositivo NAT [conversão de endereços de rede] ou firewall), pois geralmente ele executa uma função ativa no gerenciamento de acesso e no fluxo de informações da solução.
+Um gateway de campo é diferente de um dispositivo de roteamento de tráfego simples (como um dispositivo conversão de endereços de rede ou firewall), pois geralmente ele executa uma função ativa no gerenciamento de acesso e no fluxo de informações da solução.
 
 A mesma solução pode incluir gateways de protocolo e de campo.
 
@@ -123,4 +123,4 @@ Para começar a escrever código e executar alguns exemplos, confira o tutorial 
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

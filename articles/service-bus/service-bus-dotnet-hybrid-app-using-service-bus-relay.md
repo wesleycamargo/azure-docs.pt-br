@@ -22,7 +22,7 @@
 
 Este artigo descreve como compilar um aplicativo de nuvem híbrido com o Microsoft Azure e o Visual Studio. Este tutorial pressupõe que você não tem uma experiência anterior com o Azure. Em menos de 30 minutos, você terá um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
 
-Você aprenderá a:
+Você aprenderá:
 
 -   Criar ou adaptar um serviço Web existente para consumo por uma solução de Web.
 -   Usar a Retransmissão do Barramento de Serviço para compartilhar dados entre um aplicativo do Azure e um serviço Web hospedado em outro lugar.
@@ -67,47 +67,11 @@ Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e c
 
 Para começar a usar os recursos de Barramento de Serviço no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-1.  Entre no [portal clássico do Azure][].
-
-2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
-
-3.  No painel inferior do portal, clique em **Criar**.
-
-    ![][5]
-
-4.  Na caixa de diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![][6]
-
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
-
-    > [AZURE.IMPORTANT] Selecione a *mesma região* que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
-
-6.	Deixe os outros campos na caixa de diálogo com seus valores padrão, então, clique na marca de seleção OK. O sistema cria seu namespace e habilita-o. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
-
-O namespace criado aparecerá no portal, embora possa levar um tempo para ser ativado. Aguarde até que o status seja **Ativo** antes de prosseguir.
-
-## Obter as credenciais de gerenciamento padrão do namespace
-
-Para executar operações de gerenciamento no novo namespace, como a criação de entidades de mensagens, você precisa obter as credenciais para o namespace.
-
-1.  Na janela principal, clique no namespace criado na etapa anterior.
-
-2.  Na parte inferior da página, clique em **Informações da Conexão**.
-
-3.  No painel **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave.
-
-	![][45]
-
-4.  Copie a cadeia de conexão e cole-a em algum lugar para usar mais tarde neste tutorial.
-
-5. Na mesma página do portal, clique na guia **Configurar** na parte superior da página.
-
-6. Copie a chave primária da política **RootManageSharedAccessKey** para a área de transferência ou cole-a no Bloco de notas. Você usará este valor posteriormente neste tutorial.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Criar um servidor local
 
-Primeiro você criará um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
+Primeiro você irá criar um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
 
 Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) para incluir as bibliotecas do Barramento de Serviço e as definições da configuração.
 
@@ -127,7 +91,7 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
 
 7.  No Gerenciador de Soluções, clique com o botão direito no projeto **ProductsServer** e clique em **Gerenciar Pacotes NuGet**.
 
-8.  Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
+8.  Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
 
     ![][13]
 
@@ -229,7 +193,7 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
 	}
 	```
 
-13. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior do elemento**&lt;system.ServiceModel&gt;** (mas ainda em &lt;system.ServiceModel&gt;), adicione o seguinte código XML. Substitua *seuNamespaceServiço* pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
+13. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior do elemento**&lt;system.ServiceModel&gt;** (mas ainda em &lt;system.ServiceModel&gt;), adicione o seguinte código XML. Substitua *seuNamespaceDeServiço* pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
 
     ```
     <system.serviceModel>
@@ -252,7 +216,7 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
       </behaviors>
     </system.serviceModel>
     ```
-14. Ainda em App.config, no elemento **&lt;appSettings&gt;**, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal. 
+14. Ainda em App.config, no elemento **&lt;appSettings&gt;**, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal.
 
 	```
 	<appSettings>
@@ -288,7 +252,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 
 	![][18]
 
-6. 	Na seção **Microsoft Azure** da caixa de diálogo **Novo Projeto ASP.NET**, verifique se **Host na nuvem** está selecionado e se **Serviço de Aplicativo** está selecionado na lista suspensa.
+6. 	Na seção **Microsoft Azure** da caixa de diálogo **Novo Projeto ASP.NET**, certifique-se de que **Host na nuvem** está selecionado e que **Serviço de Aplicativo** está selecionado na lista suspensa.
 
 	![][19]
 
@@ -466,7 +430,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
       ![][25]
 
-11. Ainda na caixa de diálogo **Propriedades**, clique em **ProjectDependencies** no lado esquerdo.
+11. Ainda na caixa de diálogo **Propriedades**, clique em **Dependências do Projeto** no lado esquerdo.
 
 12. Na lista **Projetos**, clique em **ProductsServer**. Confirme se **ProductsPortal** não **está** selecionado.
 
@@ -513,7 +477,7 @@ Antes de executar o aplicativo na nuvem, você deve garantir que **ProductsPorta
 
 ## Executar o aplicativo
 
-2.  Pressione F5 para compilar e executar o aplicativo. O servidor local (o aplicativo de console **ProductsServer**) deve iniciar primeiro, em seguida, o aplicativo **ProductsPortal** deve iniciar em uma janela do navegador, como mostrado na captura de tela a seguir. Observe novamente que o inventário de produtos lista os dados recuperados no sistema local do serviço de produto e exibe os dados em um aplicativo Web. Verifique a URL para saber se **ProductsPortal** está em execução na nuvem, como um aplicativo Web do Azure. 
+2.  Pressione F5 para compilar e executar o aplicativo. O servidor local (o aplicativo de console **ProductsServer**) deve iniciar primeiro, em seguida, o aplicativo **ProductsPortal** deve iniciar em uma janela do navegador, como mostrado na captura de tela a seguir. Observe novamente que o inventário de produtos lista os dados recuperados no sistema local do serviço de produto e exibe os dados em um aplicativo Web. Verifique a URL para saber se **ProductsPortal** está em execução na nuvem, como um aplicativo Web do Azure.
 
     ![][1]
 
@@ -529,8 +493,8 @@ Antes de executar o aplicativo na nuvem, você deve garantir que **ProductsPorta
 
 Para obter mais informações sobre o Barramento de Serviço, consulte os seguintes recursos:
 
-* [Barramento de Serviço do Azure][sbwacom]  
-* [Como usar as filas do Barramento de Serviço][sbwacomqhowto]  
+* [Barramento de Serviço do Azure][sbwacom]
+* [Como usar as filas do Barramento de Serviço][sbwacomqhowto]
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -538,11 +502,6 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [Obter ferramentas e SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [portal clássico do Azure]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -564,10 +523,9 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

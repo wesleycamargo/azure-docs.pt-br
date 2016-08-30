@@ -12,7 +12,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 	![][8]
 
-	Ele faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacote NuGet de biblioteca do Barramento de Serviço do Azure</a>.
+	O Visual Studio faz o download, instala e adiciona uma referência ao [pacote NuGet de biblioteca do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs**:
 
@@ -54,7 +54,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 	}
 	```
 
-	Esse método envia continuamente os eventos ao seu hub de eventos com um atraso de 200 ms.
+	Este método envia continuamente os eventos ao seu hub de eventos com um atraso de 200 ms.
 
 7. Por fim, adicione as seguintes linhas ao método **Principal**:
 
@@ -69,3 +69,5 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+
+<!---HONumber=AcomDC_0824_2016-->

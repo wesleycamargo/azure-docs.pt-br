@@ -3,7 +3,7 @@
    description="Este artigo ajudará você a criar, desabilitar, habilitar, excluir e exibir o histórico de um perfil do Gerenciador de Tráfego do Azure."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Gerenciar um perfil de Gerenciador de tráfego do Azure
 
@@ -32,7 +32,7 @@ Você pode criar rapidamente um perfil do Gerenciador de Tráfego usando a Cria�
 4. **Selecione a assinatura.** Selecione a assinatura do Azure apropriada. Cada perfil está associado uma única assinatura. Se você tiver apenas uma assinatura, esta opção não aparecerá.
 5. **Selecione o método de roteamento de tráfego.** Selecione o método de roteamento de tráfego em **Política de roteamento de tráfego**. Para obter mais informações sobre os métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 6. **Clique em "Criar" para criar seu novo perfil**. Quando a configuração do perfil for concluída, você poderá localizar seu perfil no painel do Gerenciador de Tráfego, no portal clássico do Azure.
-7. **Configure pontos de extremidade, monitoramento e configurações adicionais no portal clássico do Azure.** Como você só pode definir configurações básicas usando a Criação Rápida, é necessário definir configurações adicionais, como a lista de pontos de extremidade e a ordem de failover do ponto de extremidade, para concluir a configuração desejada. 
+7. **Configure pontos de extremidade, monitoramento e configurações adicionais no portal clássico do Azure.** Como você só pode definir configurações básicas usando a Criação Rápida, é necessário definir configurações adicionais, como a lista de pontos de extremidade e a ordem de failover do ponto de extremidade, para concluir a configuração desejada.
 
 
 ## Desabilitar, habilitar ou excluir um perfil
@@ -85,4 +85,4 @@ Você pode exibir o histórico de alterações para o perfil do Gerenciador de T
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

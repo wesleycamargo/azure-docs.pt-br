@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Definir sua estratégia do Mobile Engagement
@@ -122,8 +122,8 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 - Visite [Conceitos do Mobile Engagement] para saber mais sobre os conceitos básicos do Mobile Engagement.
 - Visite [Criar um aplicativo do Mobile Engagement](mobile-engagement-create.md) para criar uma nova Coleção de Aplicativos do Mobile Engagement no Azure e começar a gerenciar seus aplicativos com o portal do Mobile Engagement.
 - Visite [Práticas recomendadas](mobile-engagement-getting-started-best-practices.md) para conhecer os detalhes.
-- Visite o [cenário de Aplicativo de Jogos](mobile-engagement-gaming-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de jogos de exemplo. 
-- Visite o [cenário de Aplicativo de Mídia](mobile-engagement-media-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de mídia de exemplo. 
+- Visite o [cenário de Aplicativo de Jogos](mobile-engagement-gaming-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de jogos de exemplo.
+- Visite o [cenário de Aplicativo de Mídia](mobile-engagement-media-scenario.md) para saber mais sobre a implementação do Mobile Engagement com um aplicativo de mídia de exemplo.
 - Visite os [Tutoriais] para saber mais sobre a implementação.
 
 <!-- Images. -->
@@ -134,4 +134,4 @@ As *Informações do aplicativo* são dados que permitem confirmar o status do a
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->
