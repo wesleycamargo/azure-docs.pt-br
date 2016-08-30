@@ -23,7 +23,11 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 1. Abra o aplicativo lógico no portal do Azure
 2. Clique em Atualizar Esquema:
 
- ![Ícone de API][step1] A página Atualizar Esquema exibe e fornece um link para um documento que fornece detalhes sobre os aperfeiçoamentos no novo esquema: ![Ícone de API][step2]
+![Ícone de API][step1]
+
+A página Atualizar Esquema exibe e fornece um link para um documento que fornece detalhes sobre os aperfeiçoamentos no novo esquema:
+
+![Ícone de API][step2]
 
 >[AZURE.NOTE] Quando você seleciona **Atualizar Esquema**, executamos automaticamente as etapas de migração e lhe fornecemos o código de saída. Você pode usar isso para atualizar sua definição. No entanto, siga as práticas recomendadas de codificação, como as descritas na seção **Práticas recomendadas** abaixo.
 

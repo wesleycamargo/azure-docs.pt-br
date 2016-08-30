@@ -164,7 +164,7 @@ Você estará pronto para alternar do DirSync para o Azure AD quando concluir es
 
 ### Desinstalar o DirSync (servidor antigo)
 
-- Em **Programas e recursos**, localize a **ferramenta de sincronização do Windows Azure Active Directory**
+- Em **Programas e recursos**, localize a **ferramenta de sincronização do Microsoft Azure Active Directory**
 - Desinstale a **Ferramenta de sincronização do Microsoft Azure Active Directory**
 - A desinstalação pode levar até 15 minutos para ser concluída.
 
