@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
 # Criar uma VM do Linux no Azure usando a CLI
 
-> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação de VMs do Linux do Azure, respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
 
-Este artigo mostra como implantar rapidamente uma nova Máquina Virtual do Linux no Azure usando o comando `azure vm quick-create` da CLI do Azure. O comando `quick-create` implanta uma Máquina Virtual cercada de uma infraestrutura básica que você pode usar para criar um protótipo ou testar um conceito muito rapidamente (pense nisso como a maneira mais rápida para um shell de bash Linux). O artigo requer uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e [a CLI do Azure](../xplat-cli-install.md) conectada (`azure login`) e no modo do gerenciador de recursos (`azure config mode arm`). Você também pode implantar rapidamente uma VM do Linux usando o [Portal do Azure](virtual-machines-linux-quick-create-portal.md).
+Este artigo mostra como implantar rapidamente uma nova Máquina Virtual do Linux no Azure usando o comando `azure vm quick-create` da CLI do Azure. O comando `quick-create` implanta uma Máquina Virtual cercada de uma infraestrutura básica que você pode usar para criar um protótipo ou testar um conceito rapidamente. O artigo requer uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e [a CLI do Azure](../xplat-cli-install.md) conectada (`azure login`) e no modo do gerenciador de recursos (`azure config mode arm`). Você também pode implantar rapidamente uma VM do Linux usando o [portal do Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumo rápido do comando
 
@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Implantar a VM do Linux
 
-Usando o mesmo comando acima, o seguinte mostra cada prompt junto com a saída esperada, mas usa o alias RHEL para criar uma VM do RedHat Enteprise Linux 7.2.
+Agora, vamos percorrer o comando e explicar cada etapa usando o RedHat Enterprise Linux 7.2.
 
 ## Usar um alias ImageURN
 
@@ -46,14 +46,13 @@ O comando `quick-create` da CLI do Azure tem aliases mapeados para as distribui�
 | Debian | credativ | Debian | 8 | mais recente |
 | openSUSE | SUSE | openSUSE | 13\.2 | mais recente |
 | RHEL | Redhat | RHEL | 7,2 | mais recente |
-| SLES | SLES | SLES | 12-SP1 | mais recente |
 | UbuntuLTS | Canônico | UbuntuServer | 14\.04.4-LTS | mais recente |
 
 
 
-Para a opção **ImageURN** (`-Q`) usaremos `RHEL` para implantar uma VM do RedHat Enterprise Linux 7.2. (Esses sete aliases representam uma pequena parte do sistema operacional disponível no Azure; encontre mais imagens no Marketplace [procurando uma imagem](virtual-machines-linux-cli-ps-findimage.md), ou você pode [carregar sua própria imagem personalizada](virtual-machines-linux-create-upload-generic.md)).
+Para a opção **ImageURN** (`-Q`) usaremos `RHEL` para implantar uma VM do RedHat Enterprise Linux 7.2. Esses aliases do `quick-create` representam uma pequena parte do sistema operacional disponível no Azure. Veja mais imagens no Marketplace ao [pesquisar uma imagem](virtual-machines-linux-cli-ps-findimage.md) ou [carregar sua própria imagem personalizada](virtual-machines-linux-create-upload-generic.md).
 
-No passo a passo do comando a seguir, substitua os prompts pelos valores de seu próprio ambiente; usamos valores de "exemplo".
+No passo a passo do comando a seguir, substitua os prompts pelos valores de seu próprio ambiente.
 
 Siga os prompts e digite seus próprios nomes
 
@@ -147,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Agora, você pode usar o SSH em sua VM na porta SSH 22 padrão, e o FQDN (nome de domínio totalmente qualificado) listado na saída acima. (Você também pode usar o endereço IP listado).
+O SSH em sua VM na porta 22 e o endereço IP público listado na saída. (Você também pode usar o FQDN listado).
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -165,12 +164,10 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Próximas etapas
 
-O `azure vm quick-create` é a maneira de implantar rapidamente uma VM para que você possa fazer logon em um shell bash e começar a trabalhar. O uso de `vm quick-create` não oferece os benefícios adicionais de um ambiente complexo. Para implantar uma VM do Linux personalizada para sua infraestrutura, você pode seguir qualquer um dos artigos abaixo.
+O `azure vm quick-create` é a maneira de implantar rapidamente uma VM para que você possa fazer logon em um shell bash e começar a trabalhar. O uso de `vm quick-create` não oferece os benefícios adicionais de um ambiente complexo. Para implantar uma VM do Linux personalizada para sua infraestrutura, você pode seguir qualquer um destes artigos.
 
 - [Usar um modelo do Azure Resource Manager para criar uma implantação específica](virtual-machines-linux-cli-deploy-templates.md)
 - [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md).
 - [Criar uma VM do Linux Protegida por SSH no Azure usando Modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

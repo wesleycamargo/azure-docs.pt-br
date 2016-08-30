@@ -97,4 +97,8 @@ Após a conclusão da operação de dimensionamento, você verá várias instân
 
 - [Trabalhar com DC/SO e a API do Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Aprofunde seus conhecimentos sobre o Serviço de Contêiner do Azure com o Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

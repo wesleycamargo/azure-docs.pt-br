@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="08/17/2016"
 	ms.author="sstein;carlrab" />
 
 # Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL
@@ -25,26 +25,23 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Este artigo mostra como conectar-se a um Banco de Dados SQL do Azure usando a versão mais recente do SQL Server Management Studio (SSMS) e executar uma consulta simples com instruções Transact-SQL.
-
-[AZURE.INCLUDE [Entrar](../../includes/azure-getting-started-portal-login.md)]
+Este artigo mostra como se conectar a um banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS). Depois de nos conectarmos com êxito, executamos uma consulta Transact-SQL (T-SQL) simples para verificar a comunicação com o banco de dados.
 
 [AZURE.INCLUDE [Instalação do SSMS](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [Conexão SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Para saber mais sobre regras de firewall, confira [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Executar consultas de exemplo
 
-Depois que se conectar ao servidor lógico, você pode se conectar a um banco de dados e executar uma consulta de exemplo.
+Depois que se conectar ao servidor lógico, você poderá se conectar a um banco de dados e executar uma consulta de exemplo. Se você for inexperiente na gravação de consultas, veja [Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx).
 
-1. Em **Pesquisador de Objetos**, navegue até um banco de dados no servidor ao qual você tem permissão, como o exemplo de banco de dados **AdventureWorks**.
-2. Clique com o botão direito do mouse no banco de dados e selecione **Nova consulta**.
+1. Em **Pesquisador de Objetos**, navegue até um banco de dados no servidor, como o exemplo de banco de dados **AdventureWorks**.
+2. Clique com o botão direito do mouse no banco de dados e selecione **Nova Consulta**:
 
 	![Nova consulta. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. Na janela de consulta, copie e cole o código a seguir.
+3. Na janela de consulta, copie e cole o seguinte:
 
 		SELECT
 		CustomerId
@@ -54,7 +51,7 @@ Depois que se conectar ao servidor lógico, você pode se conectar a um banco de
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Clique no botão **Executar**. A captura de tela a seguir mostra uma consulta bem-sucedida.
+4. Clique no botão **Executar**:
 
 	![Sucesso. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -66,4 +63,6 @@ Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruç�
 
 Para começar a criação de usuários de banco de dados e administradores de usuários de banco de dados, confira [Introdução à segurança do Banco de Dados SQL](sql-database-get-started-security.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+
+<!---HONumber=AcomDC_0824_2016-->

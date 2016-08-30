@@ -14,9 +14,9 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.author="jotaub"/>
 
-# Introdução aos Hubs de Evento
+# Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
@@ -26,7 +26,7 @@ Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de
 
 Este tutorial mostra como usar o portal clássico do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do Host do Processador de Eventos em Java.
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir esse tutorial, você precisará do seguinte:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
@@ -71,4 +71,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

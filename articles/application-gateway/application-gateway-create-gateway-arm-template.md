@@ -121,7 +121,7 @@ Se você nunca usou o Azure PowerShell, confira [Como instalar e configurar o Az
 
 ### Etapa 1
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -129,7 +129,7 @@ Se você nunca usou o Azure PowerShell, confira [Como instalar e configurar o Az
 
 Verificar as assinaturas da conta.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 Você deve se autenticar com suas credenciais.<BR>
 
@@ -138,7 +138,7 @@ Você deve se autenticar com suas credenciais.<BR>
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Etapa 4
@@ -146,7 +146,7 @@ Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 Se necessário, crie um grupo de recursos usando o cmdlet **New-AzureResourceGroup**. No exemplo abaixo, você cria um novo grupo de recursos chamado AppgatewayRG no local Leste dos EUA.
 
-	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -163,29 +163,29 @@ Se necessário, crie um grupo de recursos usando o cmdlet **New-AzureResourceGro
 
 Execute o cmdlet **New-AzureRmResourceGroupDeployment** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro anteriores que você baixou e modificou.
 
-		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+ 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 A saída gerada pela linha de comando é a seguinte:
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+	DeploymentName    : testappgatewaydeployment
+	ResourceGroupName : appgatewayRG
+	ProvisioningState : Succeeded
+	Timestamp         : 9/19/2015 1:49:41 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+				Name             Type                       Value
+				===============  =========================  ==========
+				location         String                     East US
+				addressPrefix    String                     10.0.0.0/16
+				subnetPrefix     String                     10.0.0.0/24
+				skuName          String                     Standard_Small
+				capacity         Int                        2
+				backendIpAddress1  String                     10.0.1.10
+				backendIpAddress2  String                     10.0.1.11
 
-		Outputs           :
+	Outputs           :
 
 
 ## Implantar o modelo do Gerenciador de Recursos do Azure usando a CLI do Azure
@@ -293,4 +293,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

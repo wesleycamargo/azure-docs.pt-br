@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Introdução às Filas do Barramento de Serviço
@@ -62,7 +62,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
 
 ### Adicionar o pacote NuGet do Barramento de Serviço
 
-1. Clique com o botão direito no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
+1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
 
 2. Clique na guia **Procurar**, em seguida, pesquise "Barramento de Serviço do Microsoft Azure" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
 
@@ -111,13 +111,13 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
     }
     ```
   
-3. Execute o programa e verifique o portal clássico do Azure. Observe que agora o valor **Comprimento da Fila** deve ser 1.
+3. Execute o programa e verifique o portal do Azure. Clique no nome da fila na folha **Visão geral** do namespace. Observe que agora o valor de **Contagem de mensagens ativas** deve ser 1.
     
-      ![Comprimento da fila][queue-length-send]
+      ![Contagem de mensagens][queue-message]
     
 ## 4\. Receber mensagens da fila
 
-1. Crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio acima.
+1. Crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio anterior.
 
 2. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
   
@@ -173,7 +173,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
   
 4. Execute o programa e verifique o portal. Observe que agora o valor **Comprimento da Fila** deve ser 0.
 
-    ![Comprimento da fila][queue-length-receive]
+    ![Comprimento da fila][queue-message-receive]
   
 Parabéns! Agora, você criou uma fila, enviou uma mensagem e recebeu uma mensagem.
 
@@ -184,12 +184,12 @@ Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Sample
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -34,10 +34,9 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 
 O Web Platform Installer oferece três configurações para o desenvolvimento do Service Fabric:
 
-- [Instalar a execução do Service Fabric, SDK e ferramentas para Visual Studio 2015 Atualização 2][full-bundle-vs2015]
+- [Instalar a execução do Service Fabric, SDK e ferramentas para Visual Studio 2015 Atualização 2 ou mais recente][full-bundle-vs2015]
 - [Instalar o Service Fabric Runtime, o SDK e as ferramentas para a Visualização do Visual Studio “15”][full-bundle-dev15]
 - [Instalar somente o Service Fabric Runtime e o SDK (sem ferramentas para Visual Studio)][core-sdk]
-
 
 ## Habilitar a execução de script do PowerShell
 
@@ -64,4 +63,4 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Link do WebPI do SDK principal"
 [powershell5-download]: https://www.microsoft.com/pt-BR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: criar um pipeline com Atividade de Cópia usando a API REST" 
+	pageTitle="Tutorial: criar um pipeline com Atividade de Cópia usando a API REST | Microsoft Azure" 
 	description="Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando a REST API." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,11 +23,12 @@
 - [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Como usar o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Usando a API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 Este tutorial mostra como criar e monitorar um data factory do Azure usando a API REST. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
 
-A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e é capacitada por um serviço globalmente disponível que pode copiar dados entre vários armazenamentos de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
+A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
 > [AZURE.NOTE] 
 Este artigo não cobre todas as APIs REST do Data Factory. Confira [Referência de API REST do Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
@@ -57,7 +58,7 @@ Este artigo não cobre todas as APIs REST do Data Factory. Confira [Referência 
 
 			New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-		Se o grupo de recursos já existe, especifique se deseja atualizá-lo (S) ou mantê-lo como está (N).
+		Se o grupo de recursos já existe, especifique se deseja atualizá-lo (S) ou mantê-lo como (N).
 
 		Algumas das etapas neste tutorial supõem que você utilize o grupo de recursos denominado ADFTutorialResourceGroup. Se você utilizar um grupo de recursos diferente, precisará usar o nome do seu grupo de recursos no lugar de ADFTutorialResourceGroup neste tutorial.
   
@@ -142,7 +143,7 @@ A definição JSON acima define um conjunto de dados chamado **AzureBlobInput**,
 - **folderPath** é definido como o contêiner **adftutorial** e **fileName** é definido como **emp.txt**.
 - O **type** de formato é definido como **TextFormat**
 - Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)
-- A **disponibilidade** é definida como **por hora** (a frequência é definida como hora e o intervalo é definido como 1 ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
+- A **availability** é definida como **hourly** (frequency é definida como hour e interval é definido como 1). Portanto, o Data Factory procurará dados de entrada a cada hora na pasta raiz do contêiner de blob especificado (**adftutorial**).
 
 Se você não especificar um **fileName** para um conjunto de dados de entrada, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada.
 
@@ -196,7 +197,7 @@ Observe o seguinte:
 - O **tipo** do conjunto de dados foi definido como **AzureSQLTable**.
 - **linkedServiceName** é definido como **AzureSqlLinkedService**.
 - **tablename** está definido como **emp**.
-- Há três colunas – **ID**, **FirstName** e **LastName** – na tabela emp no banco de dados, mas ID é uma coluna de identidade, portanto, você precisa especificar somente **FirstName** e **LastName**.
+- Há três colunas (**ID**, **FirstName** e **LastName**) na tabela emp no banco de dados. ID é uma coluna de identidade. Portanto, você precisa especificar somente **FirstName** e **LastName** aqui.
 - A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
 ### pipeline.json
@@ -238,8 +239,8 @@ Observe o seguinte:
 	        }
 	      }
 	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
+	    "start": "2016-08-12T00:00:00Z",
+	    "end": "2016-08-13T00:00:00Z"
 	  }
 	}
 
@@ -256,7 +257,7 @@ Ambos os valores de data/hora de início e de término devem estar no [formato I
 
 Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**.
 
-No exemplo acima, como cada fatia de dados é produzida por hora, existem 24 fatias de dados.
+No exemplo, como cada fatia de dados é produzida por hora, existem 24 fatias de dados.
 	
 > [AZURE.NOTE] Confira [Anatomia de um Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para obter detalhes sobre as propriedades JSON usadas no exemplo acima.
 
@@ -285,7 +286,7 @@ Execute o comando a seguir para autenticar com o AAD (Azure Active Directory).
 
 ## Criar um data factory
 
-Nesta etapa, você criará um Azure Data Factory chamado **ADFCopyTutorialDF**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar os dados de entrada em dados de saída do produto. Execute os seguintes comandos para criar o data factory:
+Nesta etapa, você criará um Azure Data Factory chamado **ADFCopyTutorialDF**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma atividade de cópia para copiar dados de uma fonte para um armazenamento de dados de destino. Dados de saída de uma atividade de Hive do HDInsight para executar o script Hive e transformar dados de entrada do produto. Execute os seguintes comandos para criar o data factory:
 
 1. Atribua o comando à variável chamada **cmd**.
 
@@ -320,7 +321,7 @@ Observe o seguinte:
 			Get-AzureRmResourceProvider
 	- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
 
-Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro, você cria serviços vinculados para vincular armazenamentos de dados de origem e de destino ao seu armazenamento de dados, definir conjuntos de dados de entrada e de saída para representar os dados em armazenamentos de dados vinculados e criar o pipeline com uma atividade que utilize esses conjuntos de dados.
+Antes de criar um pipeline, primeiro você precisará criar algumas entidades do Data Factory. Primeiro, você cria serviços vinculados para vincular os repositórios de dados de origem e de destino a seu repositório de dados. Em seguida, defina conjuntos de dados de entrada e saída para representar dados em repositórios de dados vinculados. Finalmente, crie o pipeline com uma atividade que usa esses conjuntos de dados.
 
 ## Criar serviços vinculados
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Um repositório de dados pode ser um armazenamento do Azure, Banco de Dados SQL do Azure ou um banco de dados SQL Server local que contém os dados de entrada ou armazena dados de saída para um pipeline de Data Factory. Um serviço de computação é o serviço que processa os dados de entrada e gera dados de saída.
@@ -357,7 +358,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory. Neste 
 
 Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedService** e **AzureSqlLinkedService** para vincular uma conta de armazenamento do Azure e o banco de dados SQL do Azure ao data factory: **ADFTutorialDataFactoryIDF**. Nesta etapa, você cria conjuntos de dados que representam os dados de entrada e saída da Atividade de Cópia no pipeline criado na próxima etapa.
 
-O conjunto de dados de entrada neste tutorial refere-se a um contêiner de blob no Armazenamento do Azure apontado pelo AzureStorageLinkedService, enquanto a tabela de saída refere-se a uma tabela SQL no banco de dados SQL do Azure para o qual aponta AzureSqlLinkedService.
+O conjunto de dados de entrada neste tutorial refere-se a um contêiner de blob no Armazenamento do Azure para o qual AzureStorageLinkedService aponta. O conjunto de dados de saída se refere a uma tabela SQL no banco de dados SQL do Azure para o qual AzureSqlLinkedService aponta.
 
 ### Preparar o armazenamento de blobs do Azure e o banco de dados SQL do Azure para o tutorial
 Você precisa realizar as etapas a seguir a fim de preparar seu armazenamento de blobs do Azure e o banco de dados SQL do Azure para este tutorial.
@@ -390,7 +391,7 @@ Você precisa realizar as etapas a seguir a fim de preparar seu armazenamento de
 
 	Se você tiver o SQL Server 2014 instalado no computador: siga as instruções da [Etapa 2: Conectar-se ao Banco de Dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao servidor SQL do Azure e executar o script SQL.
 
-	Se você tem o Visual Studio 2013 instalado no computador: no portal do Azure ([http://portal.azure.com](http://portal.sazure.com)), clique no hub **PROCURAR** à esquerda, clique em **Servidores SQL**, selecione o banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para se conectar ao seu servidor SQL do Azure e executar o script. Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para obter as etapas para configurar o firewall para o SQL Server do Azure.
+	Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Veja [este artigo](../sql-database/sql-database-configure-firewall-settings.md) para obter as etapas para configurar o firewall para o SQL Server do Azure.
 		
 ### Criar conjunto de dados de entrada 
 Nesta etapa, você criará um conjunto de dados denominado **AzureBlobInput** que aponta para um contêiner de blob no Armazenamento do Azure representado pelo serviço vinculado **AzureStorageLinkedService**. Esse contêiner de blob (**adftutorial**) contém os dados de entrada no arquivo: **emp.txt**.
@@ -406,7 +407,7 @@ Nesta etapa, você criará um conjunto de dados denominado **AzureBlobInput** qu
 		$results
 
 ### Criar conjunto de dados de saída
-Nesta parte da etapa, você cria uma tabela de saída chamada **AzureSqlOutput** que aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure, representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
+Nesta etapa, você cria uma tabela de saída denominada **AzureSqlOutput**. Esse conjunto de dados aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure representado por **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
 
 1. Atribua o comando à variável chamada **cmd**.
  
@@ -492,4 +493,4 @@ Neste tutorial, você usou uma API REST para criar um data factory do Azure e co
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

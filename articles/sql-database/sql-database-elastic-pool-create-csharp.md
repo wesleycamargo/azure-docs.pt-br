@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Criar um Pool de Banco de Dados Elástico com o C&#x23;
@@ -28,11 +28,11 @@ Saiba como criar um [pool de banco de dados elástico](sql-database-elastic-pool
 
 Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
-Os exemplos a seguir usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), portanto, você precisará instalar essa biblioteca antes de continuar se ela ainda não estiver instalada. É possível instalar a biblioteca executando o seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
+Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) e, portanto, se ainda não estiver instalada, você precisará instalar essa biblioteca antes de continuar se ela ainda não estiver instalada. É possível instalar a biblioteca executando o seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Criar um novo pool
+## Criar um pool
 
 Crie uma instância [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) usando valores do [Azure Active Directory](sql-database-client-id-keys.md). Crie uma instância [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) e chame o método [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate). Os valores de eDTU por pool e Dtus mínimo e máximo são restringidos pelo valor da camada de serviço (basic, standard ou premium). Confira [Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -52,7 +52,7 @@ Crie uma instância [SqlManagementClient](https://msdn.microsoft.com/library/mic
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Criar um novo servidor de banco de dados em um pool
+## Criar um servidor de banco de dados em um pool
 
 Crie uma instância [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) e defina as propriedades do novo banco de dados. Chame o método CreateOrUpdate com o grupo de recursos, o nome do servidor e o novo nome do banco de dados.
 
@@ -76,20 +76,20 @@ Para mover um banco de dados existente para um pool, confira [Mover um banco de 
 
 ## Exemplo: criar um pool usando C&#x23;
 
-Esse exemplo cria um novo grupo de recursos do Azure, uma nova instância do SQL Server do Azure e um novo pool elástico.
+Esse exemplo cria um grupo de recursos do Azure, uma instância do SQL Server do Azure e um pool elástico.
  
 
 As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando os comandos a seguir no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md) (Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL). Use o cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) para recuperar o valor de subscriptionId.
+Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, crie um aplicativo nativo usando este artigo: [Obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -241,7 +241,7 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 ## Próximas etapas
 
 - [Gerenciar o pool](sql-database-elastic-pool-manage-csharp.md)
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md): os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md): os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados em um pool.
 - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): usar ferramentas de banco de dados Elástico para escalar horizontalmente.
 
 ## Recursos adicionais
@@ -249,4 +249,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

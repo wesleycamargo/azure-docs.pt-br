@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Criar sua primeira Função do Azure
+#Criar sua primeira Função do Azure
 
 ##Visão geral
 As Funções do Azure consistem em uma experiência de computação sob demanda controlada por eventos que estende a plataforma de aplicativos existente do Azure com recursos para implementar código disparado por eventos ocorrendo em outros serviços do Azure, produtos de SaaS e sistemas locais. Com as Funções do Azure, seus aplicativos são dimensionados sob demanda e você paga apenas pelos recursos que consome. O Azure Functions permite que você crie unidades de código agendadas ou disparadas, que serão implementadas em uma variedade de linguagens de programação. Para saber mais sobre o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
@@ -59,9 +59,9 @@ Este início rápido demonstra uma execução muito simples de uma função bás
 
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para a codificação de funções e a definição de gatilhos e de associações.
 + [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como dimensionar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo. 
-+ [O que é o Serviço de Aplicativo do Azure?](../app-service/app-service-value-prop-what-is.md) O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
++ [Como dimensionar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.
++ [O que é o Serviço de Aplicativo do Azure?](../app-service/app-service-value-prop-what-is.md) O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico.
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

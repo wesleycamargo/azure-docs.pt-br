@@ -156,4 +156,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

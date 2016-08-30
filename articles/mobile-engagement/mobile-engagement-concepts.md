@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Conceitos do Azure Mobile Engagement
@@ -85,4 +85,4 @@ A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No ent
 - [SDK do iOS para o Mobile Engagement do Azure](mobile-engagement-ios-sdk-overview.md)
 - [SDK do Android do Mobile Engagement do Azure](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->
