@@ -18,7 +18,7 @@
 
 # Identificar bancos de dados e tabelas do Banco de Dados de Stretch executando o Supervisor do Banco de Dados de Stretch
 
-Para identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch, baixe o Supervisor de Atualização do SQL Server 2016 e execute o Supervisor do Banco de Dados de Stretch. O Supervisor do Banco de Dados de Stretch também identifica os problemas de bloqueio.
+Para identificar os bancos de dados e tabelas que são candidatos ao Stretch Database, baixe o Supervisor de Atualização do SQL Server 2016 e execute o Supervisor do Stretch Database. O Supervisor do Banco de Dados de Stretch também identifica os problemas de bloqueio.
 
 ## Baixe e instale o Supervisor de Atualização
 Baixe e instale o Supervisor de Atualização [aqui](http://go.microsoft.com/fwlink/?LinkID=613421). Essa ferramenta não está incluída na mídia de instalação do SQL Server.
@@ -56,7 +56,7 @@ Habilite o Banco de Dados de Stretch.
 
 -   Para habilitar o Stretch Database em outra **tabela**, quando o Stretch já estiver habilitado no banco de dados, confira [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) (Habilitar o Stretch Database para uma tabela).
 
-## Consulte também
+## Confira também
 
 [Limitações do Stretch Database](sql-server-stretch-database-limitations.md)
 
@@ -64,4 +64,6 @@ Habilite o Banco de Dados de Stretch.
 
 [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+[Todos os tópicos do serviço SQL Server Stretch Database do Azure](sql-server-stretch-database-index-all-articles.md)
+
+<!---HONumber=AcomDC_0817_2016-->

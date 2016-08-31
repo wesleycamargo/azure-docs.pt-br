@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Você também pode criar uma zona DNS usando o PowerShell.
@@ -57,9 +57,9 @@ O PowerShell do DNS do Azure dá suporte a marcas em zonas e conjuntos de regist
 
 Antes de começar a configurar, verifique se você tem os itens a seguir.
 	
-- Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+- Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ## Etapa 1: Entrar
 
@@ -88,14 +88,14 @@ Você pode ignorar esta etapa se está usando um grupo de recursos existente.
 
 ## Etapa 3 - Registrar
 
-O serviço de DNS do Azure é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o DNS do Azure. Essa operação deve ser executa apenas uma vez para cada assinatura.
+O serviço de DNS do Azure é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o DNS do Azure. Essa operação deve ser executada apenas uma vez para cada assinatura.
 
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 ## Etapa 4: Criar uma zona DNS
 
-Uma zona DNS é criada usando o cmdlet `New-AzureRmDnsZone`. Há exemplos abaixo para criar uma zona DNS com ou sem marcas. Para obter mais informações sobre marcas, consulte a seção sobre [marcas](#tags) neste artigo.
+Uma zona DNS é criada usando o cmdlet `New-AzureRmDnsZone`. Há exemplos abaixo para criar uma zona DNS com ou sem marcas. Para obter mais informações sobre marcas, veja a seção sobre [marcas](#tags) neste artigo.
 
 >[AZURE.NOTE] No Azure DNS, os nomes de zona devem ser especificados sem terminar em **'.'**. Por exemplo, como "**contoso.com**", em vez de "**contoso.com.**".
 
@@ -115,9 +115,9 @@ O exemplo a seguir mostra como criar uma zona DNS com duas marcas, *project = de
 
 Criar uma zona DNS também cria os seguintes registros DNS:
 
-- O registro *SOA “Start of Authority”, Início de Autoridade*. Ele está presente na raiz de cada zona DNS.
+- O registro SOA (*Start of Authority*, Início de Autoridade). Ele está presente na raiz de cada zona DNS.
 
-- Os registros NS (name server, servidor de nomes) autoritativos. Eles mostram quais servidores de nome estão hospedando a zona. DNS do Azure usa um pool de servidores de nomes; dessa forma servidores de nomes diferentes podem ser atribuídos a diferentes zonas no DNS do Azure. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter mais informações.
+- Os registros NS (name server, servidor de nomes) autoritativos. Eles mostram quais servidores de nome estão hospedando a zona. DNS do Azure usa um pool de servidores de nomes; dessa forma servidores de nomes diferentes podem ser atribuídos a diferentes zonas no DNS do Azure. Veja [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter mais informações.
 
 Para exibir esses registros, use `Get-AzureRmDnsRecordSet`:
 
@@ -174,4 +174,4 @@ Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, 
 
 Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

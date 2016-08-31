@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
+   ms.date="08/11/2016"
    ms.author="jehollan"/>
 
 # Exemplos de Aplicativos Lógicos e Cenários Comuns
 
 Esse documento detalha cenários e exemplos comuns para ajudá-lo a entender algumas das maneiras que você pode usar os aplicativos Lógicos para automatizar processos de negócios.
 
-## Gatilhos e ações
+## Disparadores e ações personalizados
 
-Há várias maneiras que você pode disparar um aplicativo Lógico de outro aplicativo. Estas são algumas das maneiras:
+Há várias maneiras que você pode disparar um aplicativo Lógico de outro aplicativo. Eis alguns exemplos comuns:
 
 - [Criando um gatilho ou uma ação personalizados](app-service-logic-create-api-app.md)
 - [Ações de longa execução](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@ Há várias maneiras que você pode disparar um aplicativo Lógico de outro apli
 ### Cenários
 
 - [Solicitar resposta síncrona](app-service-logic-http-endpoint.md)
+- [Resposta de solicitação com SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Registro em log e tratamento de erros
 
+- [Tratamento de erros e exceções](app-service-logic-exception-handling.md)
 - [Configurar alertas e diagnóstico do Azure](app-service-logic-monitor-your-logic-apps.md)
 
 ### Cenários
@@ -77,4 +79,4 @@ A [linguagem de definição do fluxo de trabalho](http://aka.ms/logicappsdocs) d
 
 Continuaremos adicionando cenários e exemplos a esse documento. Use a seção de comentários abaixo para nos informar sobre quais exemplos ou cenários você gostaria de ver aqui.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/25/2016"
+   ms.date="08/10/2016"
    ms.author="seanmck"/>
 
 # Recuperação de desastre no Azure Service Fabric
 
-Uma parte essencial do fornecimento de um aplicativo em nuvem de alta disponibilidade é garantir que ele possa sobreviver a todos os diferentes tipos de falhas, incluindo aquelas que estão completamente fora do seu controle. Este artigo descreve o layout físico de um cluster do Azure Service Fabric no contexto de desastres potenciais e oferece orientação sobre como lidar com tais desastres para limitar ou eliminar o risco de tempo de inatividade ou de perda de dados.
+Uma parte essencial do fornecimento de um aplicativo em nuvem de alta disponibilidade é garantir que ele possa sobreviver a todos os diferentes tipos de falhas, incluindo aquelas que estão fora do seu controle. Este artigo descreve o layout físico de um cluster do Azure Service Fabric no contexto de desastres potenciais e oferece orientação sobre como lidar com tais desastres para limitar ou eliminar o risco de tempo de inatividade ou de perda de dados.
 
 ## Layout físico dos clusters do Service Fabric no Azure
 
@@ -38,7 +38,7 @@ Você pode visualizar o layout do seu cluster em domínios de falha usando o map
 
 ### Distribuição geográfica
 
-No momento, existem [25 regiões do Azure no mundo][azure-regions], com várias outras já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
+No momento, existem [26 regiões do Azure no mundo][azure-regions], com várias outras já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
 
 ## Lidando com falhas
 
@@ -46,7 +46,7 @@ Há vários tipos de falhas que podem afetar seu cluster, cada uma com sua próp
 
 ### Falhas individuais de computador
 
-Como mencionado, as falhas individuais de computadores, dentro da VM ou no hardware ou no software que a hospedam em um domínio de falha, não apresentam risco. O Service Fabric normalmente detectará a falha em segundos e responderá adequadamente com base no estado do cluster. Por exemplo, se o nó estivesse hospedando as réplicas primárias de uma partição, um novo primário será eleito a partir das réplicas secundárias da partição. Quando o Azure restaura a máquina que falhou, a faz reingressar no cluster de forma automática e ela assume novamente sua cota da carga de trabalho.
+Como mencionado, as falhas individuais de computadores, dentro da VM ou no hardware ou no software que a hospedam em um domínio de falha, não apresentam risco. O Service Fabric normalmente detectará a falha em segundos e responderá adequadamente com base no estado do cluster. Por exemplo, se o nó estivesse hospedando as réplicas primárias de uma partição, um novo primário seria eleito entre as réplicas secundárias da partição. Quando o Azure restaura a máquina que falhou, a faz reingressar no cluster de forma automática e ela assume novamente sua cota da carga de trabalho.
 
 ### Várias falhas simultâneas de máquina
 
@@ -56,7 +56,9 @@ Em geral, contanto que a maioria dos nós permaneça disponível, o cluster cont
 
 #### Perda de quorum
 
-Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric irá parar, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanecerá na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando a [API Repair-ServiceFabricPartition][repair-partition-ps]. A execução dessa ação quando a réplica primária estiver inoperante resultará em perda de dados.
+Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric parará, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanece na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando a [API Repair-ServiceFabricPartition][repair-partition-ps].
+
+>[AZURE.WARNING] Executar uma ação de reparação quando a réplica primária está inoperante resultará em perda de dados.
 
 Os serviços do sistema também podem sofrer perda de quorum, e o impacto será específico para o serviço em questão. Por exemplo, a perda de quorum no serviço de nomenclatura afetará a resolução de nomes, ao passo que a perda de quorum no serviço gerenciador de failover bloqueará os failovers e a criação de novos serviços. Observe que, diferentemente dos seus próprios serviços, a tentativa de reparar os serviços do sistema *não* é recomendada. Em vez disso, é preferível simplesmente aguardar até que as réplicas desativadas voltem.
 
@@ -108,4 +110,4 @@ Os defeitos de código de serviços, os erros humanos operacionais e as violaç�
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

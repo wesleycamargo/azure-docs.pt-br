@@ -25,8 +25,6 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 
 Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com um cluster HDInsight.
 
-> [AZURE.NOTE] As informações deste artigo só se aplicam a clusters HDInsight baseados em Linux. Para clusters de HDInsight baseados no Windows, apenas o monitoramento pela API REST do Ambari está disponível. Consulte [Monitorar Hadoop baseado em Windows no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
-
 ##<a id="whatis"></a>O que é o Ambari?
 
 O <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando as <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>.
@@ -224,4 +222,4 @@ As Exibições do Ambari permitem que os desenvolvedores conectem elementos de i
 * Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Exibição do Tez: a Exibição do Tez permite que você entenda melhor e otimize trabalhos exibindo informações sobre como trabalhos do Tez são executados e quais recursos são usados pelo trabalho.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
-# Como exibir o SAML retornado pelo Serviço de Controle de Acesso do Azure
+# Como exibir o SAML retornado pelo Access Control Service do Azure
 
 Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo ACS (Serviço de Controle de Acesso) do Azure. O guia se baseia no tópico [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse][], fornecendo um código que exibe as informações de SAML. O aplicativo concluído será semelhante ao seguinte.
 
@@ -43,7 +43,7 @@ Adicione a biblioteca que contém a classe **javax.servlet.jsp.JspWriter** ao ca
 6. Selecione a biblioteca apropriada e clique em **Concluir**.
 7. Clique em **OK** para fechar a caixa de diálogo **Propriedades de MyACSHelloWorld**.
 
-## Modificar o arquivo JSP para exibir o SAML
+## Modificar o arquivo JSP para exibir o XAML
 
 Modifique o **index.jsp** para usar o código a seguir.
 
@@ -196,4 +196,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofis
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

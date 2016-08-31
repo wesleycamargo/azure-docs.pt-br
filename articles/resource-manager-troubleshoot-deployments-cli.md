@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Exibir operações de implantação com a CLI do Azure
@@ -41,7 +41,7 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 
         azure group log show ExampleGroup --last-deployment
 
-2. O comando **azure group log show** pode retornar muitas informações. Na solução de problemas, normalmente você se concentra nas operações que falharam. O script a seguir usa a opção **--json** e o utilitário [jq](https://stedolan.github.io/jq/) do JSON para pesquisar o log em busca de falhas na implantação.
+2. O comando **azure group log show** retorna muitas informações. Na solução de problemas, normalmente você se concentra nas operações que falharam. O script a seguir usa a opção **--json** e o utilitário [jq](https://stedolan.github.io/jq/) do JSON para pesquisar o log em busca de falhas na implantação.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -121,6 +121,6 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 
 - Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
-- Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
+- Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

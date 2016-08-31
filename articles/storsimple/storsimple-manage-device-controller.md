@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Gerenciar controladores de dispositivo StorSimple
@@ -37,7 +37,7 @@ Depois de ler este tutorial, você poderá:
 
 ## Reiniciar ou desligar um único controlador
 
-Uma reinicialização de controlador ou o desligamento não é necessário como parte da operação normal do sistema. As operações de desligamento para um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware de dispositivo com falha requer substituição. Uma reinicialização de controlador também pode ser necessária em uma situação em que o desempenho é afetado pelo uso excessivo de memória ou controlador com defeito. Se você deseja ativar e testar o controlador substituído também convém reiniciar um controlador após a sua substituição com êxito.
+Uma reinicialização ou um desligamento de controlador não é necessário como parte da operação normal do sistema. As operações de desligamento para um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware de dispositivo com falha requer substituição. Uma reinicialização de controlador também pode ser necessária em uma situação em que o desempenho é afetado pelo uso excessivo de memória ou controlador com defeito. Se você deseja ativar e testar o controlador substituído também convém reiniciar um controlador após a sua substituição com êxito.
 
 Reiniciar um dispositivo que não é interrompido para os iniciadores conectados, supondo que o controlador passivo está disponível. Se um controlador passivo não está disponível ou está desligado, reiniciar o controlador ativo pode resultar na interrupção do serviço e em tempo de inatividade.
 
@@ -187,7 +187,7 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - **Desligar um controlador ativo** – você será notificado de que continuar a operação resultará em tempo de inatividade e que você precisa pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Será solicitada a sua confirmação.
 
-**P.** Quando o desligamento ou reinicialização do controlador falharia durante a execução?
+**P.** Quando o desligamento ou reinicialização do controlador falha durante a execução?
 
 **A.** Reiniciar ou desligar um controlador pode falhar se:
 
@@ -203,7 +203,7 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 **P.** Há algum impacto sobre as E/Ss como resultado de failover do controlador?
 
-**A.** As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre iniciadores e o dispositivo no decorrer desta operação.
+**A.** As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
 
 **P.** Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
 
@@ -215,4 +215,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 - Para saber mais sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
@@ -135,11 +135,11 @@ Antes de configurar o dispositivo, verifique se:
 Antes de começar, verifique se:
 
 - As portas no firewall do seu datacenter são abertas para permitir tráfego de nuvem e iSCSI, conforme descrito em [Requisitos de rede para o dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-- O dispositivo no seu datacenter pode se conectar à rede externa. Execute os cmdlets do [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) a seguir (tabulados abaixo) para validar a conectividade com a rede externa. Execute essa validação em um computador (na rede do datacenter) que tenha conectividade com o Azure e em que você implantará seu dispositivo StorSimple.  
+- O dispositivo no seu datacenter pode se conectar à rede externa. Execute os cmdlets do [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) a seguir (tabulados abaixo) para validar a conectividade com a rede externa. Execute essa validação em um computador (na rede do datacenter) que tenha conectividade com o Azure e em que você implantará seu dispositivo StorSimple.
 
 | Para este parâmetro... | Para verificar a validade... | Execute estes comandos/cmdlets. |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **IP**</br>**Sub-rede**</br>**Gateway** | É um endereço IPv4 ou IPv6 válido?</br>É uma sub-rede válida?</br>É um gateway válido?</br>Este é um IP duplicado na rede? | `ping ip`</br>`arp -a`</br>Os comandos `ping` e `arp` devem falhar indicando que não há nenhum dispositivo na rede do datacenter usando esse IP.
+| **IP**</br>**Subnet**</br>**Gateway** | É um endereço IPv4 ou IPv6 válido?</br>É uma sub-rede válida?</br>É um gateway válido?</br>Este é um IP duplicado na rede? | `ping ip`</br>`arp -a`</br>Os comandos `ping` e `arp` devem falhar indicando que não há nenhum dispositivo na rede do datacenter usando esse IP.
 | | | |
 | **DNS** | É um DNS válido e pode resolver URLs do Azure? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>`</br>Um comando alternativo que pode ser usado é:</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
 | | Verifique se a porta 53 está aberta. Isso é aplicável somente se você estiver usando um DNS externo para o seu dispositivo. O DNS interno deve resolver automaticamente as URLs externas. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Mais informações sobre esse cmdlet](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
@@ -167,8 +167,7 @@ Execute as seguintes etapas para criar uma nova instância do serviço StorSimpl
 
 > [AZURE.IMPORTANT] Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
-> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
+> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
 
 ## Etapa 2: Obter a chave de registro do serviço
 
@@ -264,7 +263,7 @@ Atualizar seu dispositivo pode levar de 1 a 4 horas. Execute as etapas a seguir 
 > [AZURE.NOTE] Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá para **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.
 
 #### Para atualizar seu dispositivo
-1.	Na página **Início Rápido** do dispositivo, clique em **Dispositivos**. Selecione o dispositivo físico, clique em **Manutenção** e em **Verificar Atualizações**.  
+1.	Na página **Início Rápido** do dispositivo, clique em **Dispositivos**. Selecione o dispositivo físico, clique em **Manutenção** e em **Verificar Atualizações**.
 2.	É criado um trabalho para verificar se há atualizações disponíveis. Se houver atualizações disponíveis, **Verificar Atualizações** muda para **Instalar Atualizações**. Clique em **Instalar Atualizações**. Pode ser solicitado que você desabilite a Data 2 e a Data 3 antes de instalar as atualizações. Você deve desabilitar essas interfaces de rede ou as atualizações podem falhar.
 3.	Será criado um trabalho de atualização. Monitore o status da sua atualização navegando até **Trabalhos**.
 
@@ -294,4 +293,4 @@ Execute as etapas a seguir no portal clássico do Azure para criar um backup man
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

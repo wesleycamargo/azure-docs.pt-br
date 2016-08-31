@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
@@ -26,7 +26,7 @@ Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de comp
 
 Este tutorial supõe que você sabe como criar aplicativos de console Java, pode importar bibliotecas para o seu aplicativo Java e pode gerar um arquivo Java (JAR). Nenhum conhecimento do Microsoft Azure é assumido.
 
-Você aprenderá a:
+Você aprenderá:
 
 * Como criar uma máquina virtual que já tenha um JDK (Java Development Kit) instalado.
 * Fazer logon remotamente na máquina virtual.
@@ -57,7 +57,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
     2. Especifique o tamanho a ser usado para a máquina virtual.
     3. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha que você digitará a seguir, você irá usá-los ao fazer logon remotamente na máquina virtual.
     4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
-    5. Clique em **Próximo**.
+    5. Clique em **Avançar**.
 5. Na próxima caixa de diálogo **Configuração da máquina virtual**:
     1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
     2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
@@ -87,7 +87,7 @@ Para criar um namespace de serviço:
 
 1.  Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 2.  No painel de navegação esquerdo inferior do portal clássico do Azure, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
-3.  No painel superior esquerdo do portal clássico do Azure, clique no nó de **barramento de serviço** e, em seguida, clique no botão **novo**.![Captura de tela do nó do Barramento de Serviço][svc_bus_node]
+3.  No painel superior esquerdo do portal clássico do Azure, clique no nó de **barramento de serviço** e, em seguida, clique no botão **novo**.![Captura de tela do nó do Service Bus][svc_bus_node]
 4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para verificar se ele é exclusivo, clique no botão **Verificar Disponibilidade**.![Criar uma captura de tela do novo Namespace][create_namespace]
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace**.
 
@@ -521,4 +521,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

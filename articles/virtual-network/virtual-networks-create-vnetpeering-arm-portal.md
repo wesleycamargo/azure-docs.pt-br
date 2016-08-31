@@ -3,7 +3,7 @@
    description="Saiba como criar uma rede virtual usando o Portal do Azure no Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -95,7 +95,7 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 6. Faça logon no portal como UserA, navegue até a folha VNET3, clique em Emparelhamento, marque a caixa de seleção “Sei minha ID de recurso" e digite a ID de recurso para VNET5 no formato abaixo.
 
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<nome da VNET>
+    /subscriptions/<ID-Assinatura>/resourceGroups/<NomeDoGrupoDeRecursos>/providers/Microsoft.Network/VirtualNetwork/<Nome da Rede Virtual>
 
     ![ID de Recurso](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
@@ -130,4 +130,4 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 4. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos a remoção dos dois links antes de recriar o emparelhamento VNet.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

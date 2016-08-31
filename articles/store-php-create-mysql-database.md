@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Criar e conectar-se a um banco de dados MySQL no Azure
@@ -37,10 +37,10 @@ Para criar um banco de dados MySQL no Portal do Azure, faça o seguinte:
 
 	- **Nome do Banco de Dados**: digite um nome que possa ser identificado de forma exclusiva
 	- **Assinatura**: escolha a assinatura a ser usada
-	- **Tipo de Banco de Dados**: escolha **Compartilhado** para os tipos de baixo custo ou gratuito, ou **Dedicado** para obter recursos dedicados. 
+	- **Tipo de Banco de Dados**: escolha **Compartilhado** para os tipos de baixo custo ou gratuito, ou **Dedicado** para obter recursos dedicados.
 	- **Grupo de recursos**: adicione o banco de dados MySQL a um [grupo de recursos](../resource-group-overview.md) existente ou coloque-o em um novo. Os recursos no mesmo grupo podem ser gerenciados juntos com facilidade.
 	- **Local**: escolha um local perto de você. Ao adicionar a um grupo de recursos existente, você fica bloqueado no local do grupo de recursos.
-	- **Tipo de Preço**: clique em **Tipo de Preço** e escolha uma opção de preço (o tipo **Mercury** é gratuito) e clique em **Selecionar**. 
+	- **Tipo de Preço**: clique em **Tipo de Preço** e escolha uma opção de preço (o tipo **Mercury** é gratuito) e clique em **Selecionar**.
 	- **Termos Legais**: clique em **Termos Legais**, examine os detalhes da compra e clique em **Comprar**.
 	- **Fixar no painel**: selecione se você quiser acessá-lo diretamente do painel. Isso é especialmente útil se você ainda não estiver familiarizado com a navegação do portal.
 	
@@ -139,4 +139,4 @@ Vamos suporte que você concluiu o tutorial [Criar, configurar e implantar um ap
 
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

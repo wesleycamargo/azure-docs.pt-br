@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio) | Microsoft Azure"
+	pageTitle="O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio) | Microsoft Azure "
 	description="Descreve o que acontece ao seu projeto do MVC quando você se conecta ao AD do Azure usando os serviços conectados do Visual Studio"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
@@ -73,7 +73,7 @@ As entradas de configuração a seguir foram adicionadas.
 	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
 	</appSettings>
 
-### Um aplicativo do Azure Active Directory (AD) foi criado
+### Foi criado um aplicativo do Azure Active Directory (AD)
 Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 ##Se eu marquei *Desabilitar autenticação de Contas de usuários individuais*, quais alterações adicionais foram feitas ao meu projeto?
@@ -171,4 +171,4 @@ Seu Aplicativo do Active Directory do Azure foi atualizado para incluir a permis
 
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

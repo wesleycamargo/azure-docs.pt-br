@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Visão geral de API de Hubs de Eventos
@@ -23,7 +23,7 @@ Os cenários de monitoramento abrangem tanto o gerenciamento quanto o tempo de e
 
 ## APIs de gerenciamento
 
-Para executar as seguintes operações de gerenciamento, você deve ter permissões para **Gerenciar** no namespace de Barramento de Serviço:
+Para executar as seguintes operações de gerenciamento, você deve ter permissões para **Gerenciar** no namespace de Hubs de Eventos:
 
 ### Criar
 
@@ -47,7 +47,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
-### Excluir
+### Exclusão
 
 ```
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
@@ -189,4 +189,4 @@ As referências de API .NET estão aqui:
 - [Referências da API do .NET de Hubs de Eventos e do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

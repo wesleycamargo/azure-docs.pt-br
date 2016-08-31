@@ -197,7 +197,7 @@ De volta à folha **Trazer Domínios Externos** no portal do Azure (consulte a [
 
 6.  Clique em **Salvar**.
 
-7.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. Agora, você deve ver seu aplicativo em execução e seu personalizado
+7.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
 <a name="verify"></a>
 ## Verificar propagação de DNS
@@ -219,4 +219,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

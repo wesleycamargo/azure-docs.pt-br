@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/17/2016"
 	ms.author="pehteh"/>
 
 # Bibliotecas de conexão para Banco de Dados SQL e SQL Server
@@ -30,4 +30,4 @@ Este tópico lista cada biblioteca/driver que os programas clientes podem usar a
 | Python | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

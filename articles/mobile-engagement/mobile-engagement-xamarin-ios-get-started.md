@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introdução ao Azure Mobile Engagement para aplicativos Xamarin.iOS
@@ -24,7 +24,7 @@ Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do a
 
 Este tutorial exige o seguinte:
 
-+ [Xamarin Studio](http://xamarin.com/studio) Você também pode usar o Visual Studio com Xamarin, mas este tutorial usa o Xamarin Studio. Para obter instruções de instalação, confira [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) 
++ [Xamarin Studio](http://xamarin.com/studio) Você também pode usar o Visual Studio com Xamarin, mas este tutorial usa o Xamarin Studio. Para obter instruções de instalação, confira [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx)
 + [SDK do Xamarin do Mobile Engagement](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
@@ -41,7 +41,7 @@ Criaremos um aplicativo básico com o Xamarin.iOS para demonstrar a integração
 
 ###Criar um novo projeto do Xamarin.iOS
 
-1. Inicie o Xamarin Studio. Acesse **Arquivo** -> **Novo** -> **Solução** 
+1. Inicie o Xamarin Studio. Acesse **Arquivo** -> **Novo** -> **Solução**
 
     ![][1]
 
@@ -168,4 +168,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

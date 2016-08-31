@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/20/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Que tipo de coleção é necessária para o Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 O Azure RemoteApp permite que você compartilhe aplicativos e recursos com usuários em qualquer dispositivo. Fazemos isso criando coleções para manter os aplicativos e os recursos e, em seguida, e você compartilha essas coleções com os usuários. Há duas opções diferentes de coleção, com opções de rede e de autenticação – qual é a ideal para você?
 
@@ -74,7 +77,7 @@ Com coleções de nuvem, você pode usar contas da Microsoft, contas do AD do Az
 
 Não há nenhum requisito específico para o uso das contas da Microsoft.
 
-Se desejar usar contas do AD do Azure , você precisa se certificar de que seu locatário do AD do Azure corresponde ao associado à sua assinatura. Quando você criou sua assinatura do Azure RemoteApp, o locatário do AD do Azure que você estava usando foi automaticamente associado à sua assinatura. Qualquer usuário do AD do Azure ao qual você forneça permissão precisa ser esse mesmo locatário. Se necessário, é possível [alterar o locatário do AD do Azure](remoteapp-changetenant.md) associado à sua assinatura.
+Se desejar usar contas do Azure AD, você precisará verificar se seu locatário do Azure AD corresponde ao associado à sua assinatura. Quando você criou sua assinatura do Azure RemoteApp, o locatário do Azure AD que você estava usando foi automaticamente associado à sua assinatura. Qualquer usuário do AD do Azure ao qual você forneça permissão precisa ser esse mesmo locatário. Se necessário, será possível [alterar o locatário do Azure AD](remoteapp-changetenant.md) associado à sua assinatura.
  
 ### Híbrido (ou nuvem + AD do Azure + AD)
 
@@ -91,4 +94,4 @@ OK, acho que desvendamos tudo agora. Há apenas uma coisa que resta fazer: criar
 
 [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md) ou [criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) – basta começar a criar.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

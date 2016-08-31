@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/15/2016" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção na nuvem do Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Há dois tipos de coleções do [Azure RemoteApp](remoteapp-collections.md):
 
@@ -84,11 +87,11 @@ Um aplicativo do Azure RemoteApp é o aplicativo ou programa fornecido aos usuá
 
 Antes que os usuários possam acessar aplicativos, você precisa publicá-los – os aplicativos de publicação permitem que os usuários acessem os aplicativos por meio do cliente da Área de Trabalho Remota.
  
-Você pode publicar vários aplicativos em sua coleção do RemoteApp. Na página de publicação, clique em **Publicar** para adicionar um programa. É possível publicar no menu **Iniciar** da imagem do modelo ou especificar o caminho na imagem do modelo do aplicativo. Se você optar por adicionar por meio menu **Iniciar**, escolha o aplicativo a ser publicado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
+Você pode publicar vários aplicativos em sua coleção do RemoteApp. Na página de publicação, clique em **Publicar** para adicionar um programa. É possível publicar por meio do menu **Iniciar** da imagem do modelo ou especificando o caminho na imagem do modelo do aplicativo. Se você optar por adicionar por meio menu **Iniciar**, escolha o aplicativo a ser publicado. Se você optar por fornecer o caminho para o aplicativo, forneça um nome para o aplicativo e o caminho para onde ele está instalado na imagem do modelo.
 
 ## Etapa 4: Configurar o acesso do usuário ##
 
-Agora que você criou sua coleção, precisa adicionar os usuários que você quer que usem seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que têm acesso liberado precisam existir no locatário do Active Directory, associado à assinatura usada para criar esta coleção.
+Agora que você criou sua coleção, precisa adicionar os usuários que você quer que usem seus recursos remotos. Se estiver usando o Active Directory, os usuários ou grupos que têm acesso liberado precisarão existir no locatário do Active Directory, associado à assinatura usada para criar esta coleção.
 
 1.	Na página Início Rápido, clique em **Configurar o acesso do usuário**.
 2.	Insira a conta de trabalho (a partir do Active Directory) ou a conta da Microsoft para a qual você deseja conceder acesso.
@@ -107,6 +110,6 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 É isso – sua implantação na nuvem do Azure RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL do cliente na página Início Rápido do Azure RemoteApp. Em seguida, os usuários podem fazer o logon no cliente e acessar os aplicativos que você publicou.
 
 ### Ajude-nos a ajudar você 
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

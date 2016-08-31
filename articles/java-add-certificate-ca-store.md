@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Adicionar um certificado ao repositório de certificados Java CA
-As etapas a seguir mostram como adicionar um certificado de autoridade de certificado (CA) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado da CA para o Service Bus do Azure.
+As etapas a seguir mostram como adicionar um certificado de autoridade de certificado (CA) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado de autoridade de certificação para o Barramento de Serviço do Azure.
 
 Você pode usar o keytool para adicionar o certificado de autoridade de certificação antes de compactar seu JDK e adicionar a sua pasta **approot** do projeto do Azure ou executar uma tarefa de inicialização do Azure que usa keytool para adicionar o certificado. Este exemplo assume que você irá adicionar um certificado de autoridade de certificação antes do JDK ser compactado. Além disso, um certificado de autoridade de certificação específico será usado no exemplo, mas as etapas para obter um certificado de autoridade de certificação diferente e importar no repositório cacerts seriam semelhantes.
 
@@ -56,4 +56,4 @@ Para obter mais informações sobre os certificados raiz usados pelo Azure, cons
 
 Para obter mais informações sobre Java, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -28,11 +28,11 @@ Esse artigo mostra como carregar sua própria imagem de VM generalizada como um 
 
 Este artigo supõe que você tem:
 
-1. **Uma assinatura do Azure** - se você não tiver uma, você poderá [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F).
+- **Uma assinatura do Azure** - se não tiver uma, você poderá [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-2. **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - você tem o módulo do Microsoft Azure PowerShell instalado e configurado para usar sua assinatura.
 
-3. **Um arquivo .VHD** - sistema operacional Windows para o qual há suporte, armazenado em um arquivo .vhd e anexado a uma máquina virtual.
+- **Um arquivo .VHD** - sistema operacional Windows para o qual há suporte, armazenado em um arquivo .vhd e anexado a uma máquina virtual. Você também deverá verificar se as funções de servidor em execução no VHD são compatíveis com sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [AZURE.IMPORTANT] Não há suporte para o formato VHDX no Microsoft Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o [cmdlet convert-vhd](http://technet.microsoft.com/library/hh848454.aspx). Consulte esta [publicação de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx) para obter detalhes.
 
@@ -104,4 +104,4 @@ Use o cmdlet [Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.asp
 
 Agora você pode [criar uma VM personalizada](virtual-machines-windows-classic-createportal.md) usando a imagem carregada.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

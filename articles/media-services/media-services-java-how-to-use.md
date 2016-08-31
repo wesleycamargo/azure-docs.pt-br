@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar os Serviços de Mídia do Azure com o Java" 
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando Java | Microsoft Azure" 
 	description="Descreve como usar os Serviços de Mídia do Azure para executar tarefas comuns, incluindo codificação, criptografia e recursos de streaming." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#Como usar os Serviços de Mídia com o Java
+# Introdução ao fornecimento de conteúdo sob demanda usando Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -37,9 +37,9 @@ Esta seção contém os pré-requisitos gerais para desenvolvimento de Serviços
 
 O código a seguir mostra como criar um ativo, carregar um arquivo de mídia para o ativo, executar um trabalho com uma tarefa para transformar o ativo e criar um localizador para transmitir seu vídeo.
 
-Você precisará configurar uma conta de Serviços de Mídia para usar esse código. Para obter informações sobre como configurar uma conta, consulte [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
+Você precisa configurar uma conta de Serviços de Mídia para usar esse código. Para obter informações sobre como configurar uma conta, consulte [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
 
-Substitua os valores pelas variáveis `clientId` e `clientSecret`. O código também depende de um arquivo armazenado localmente. Você precisará fornecer seu próprio arquivo a ser usado.
+Substitua seus valores pelas variáveis 'clientId' e 'clientSecret'. O código também depende de um arquivo armazenado localmente. Você precisará fornecer seu próprio arquivo a ser usado.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -276,4 +276,4 @@ Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Docu
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

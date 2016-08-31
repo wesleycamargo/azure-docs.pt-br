@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Criando um projeto do Azure com o Visual Studio
@@ -62,4 +62,4 @@ Uma solução de serviço de nuvem do Azure contém os seguintes tipos de projet
 
 1. Para renomear uma função que você adicionou ao seu projeto, passe o mouse sobre a função na caixa de diálogo **Novo projeto do Azure** e escolha o ícone **Renomear** à direita da função. Você também pode renomear uma função em sua solução após ela ter sido adicionada.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o armazenamento de Blob do Node.js | Microsoft Azure"
-	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
+	description="Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 
 # Como usar o armazenamento de Blob do Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Visão geral
 
@@ -32,7 +32,7 @@ Este artigo mostra como executar cenários comuns usando o Armazenamento de Blob
 
 ## Criar um aplicativo do Node.js
 
-Para obter instruções sobre como criar um aplicativo do Node.js, consulte [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure], [Compilar e implantar um aplicativo Node.js em um serviço de nuvem do Azure] usando o Windows PowerShell ou [Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix].
+Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] \(Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -67,7 +67,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do Azure lerá as variáveis do ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` ou `AZURE_STORAGE_CONNECTION_STRING`, a fim de obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createBlobService**.
 
-Para obter um exemplo de como configurar as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um aplicativo Web do Azure, consulte [Aplicativo web do Node.js usando o serviço de tabela do Azure].
+Para obter um exemplo de como configurar as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um aplicativo Web do Azure, confira [Aplicativo Web Node.js com o Serviço Tabela do Azure].
 
 ## Criar um contêiner
 
@@ -89,7 +89,7 @@ Para criar um novo contêiner, use **createContainerIfNotExists**. O exemplo de 
 	    }
 	});
 
-Se o contêiner tiver sido criado recentemente, `result.created` será verdadeiro. Se o contêiner já existir, `result.created` será falso. `response` contém informações sobre a operação, incluindo as informações de ETag do contêiner.
+Se o contêiner tiver sido criado recentemente, `result.created` será verdadeiro. Se o contêiner já existir, `result.created` será falso. `response` contém informações sobre a operação, incluindo as informações de Etag do contêiner.
 
 ### Segurança do contêiner
 
@@ -119,7 +119,7 @@ O resultado contém informações sobre a operação, incluindo o **ETag** atual
 
 ### Filtros
 
-Você pode aplicar operações de filtragem opcionais às operações executadas usando o **BlobService**. As operações de filtragem podem incluir registro em log, repetição automática etc. Os filtros são objetos que implementam um método com a assinatura:
+Você pode aplicar operações de filtragem opcionais às operações executadas usando o **BlobService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 	function handle (requestOptions, next)
 
@@ -136,7 +136,7 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 ## Carregar um blob em um contêiner
 
-Há três tipos de blobs: blob de blocos, blob de páginas e blob de anexo. Blobs de bloco permitem que você carregue grandes volumes de dados com mais eficiência. Blobs de anexo otimizados para operações de acréscimo. Blobs de página são otimizados para operações de leitura/gravação. Para saber mais, confira [Entendendo Blobs de Bloco, Blobs de Acréscimo e Blobs de Página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Há três tipos de blobs: blob de blocos, blob de páginas e blob de anexo. Blobs de bloco permitem que você carregue grandes volumes de dados com mais eficiência. Blobs de anexo otimizados para operações de acréscimo. Blobs de página são otimizados para operações de leitura/gravação. Para saber mais, confira [Noções básicas sobre Blobs de bloco, Blobs de acréscimo e Blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Blobs de bloco
 
@@ -166,11 +166,11 @@ Para carregar dados para um novo blob de acréscimo, use o seguinte:
 
 * **createAppendBlobFromLocalFile** – cria um novo blob de acréscimo e carrega o conteúdo de um arquivo
 
-* **createAppendBlobFromStream** – cria um novo blob de acréscimo e carrega o conteúdo de um fluxo
+* **createAppendBlobFromStream** – cria um novo blob de acréscimo e carrega o conteúdo de uma transmissão
 
 * **createAppendBlobFromText** – cria um novo blob de acréscimo e carrega o conteúdo de uma cadeia de caracteres
 
-* **createWriteStreamToNewAppendBlob** – cria um novo blob de acréscimo e, em seguida, fornece um fluxo para gravar nele
+* **createWriteStreamToNewAppendBlob** – cria um novo blob de acréscimo e, então, fornece uma transmissão para gravar nela
 
 O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **myappendblob**.
 
@@ -182,15 +182,15 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 
 Para acrescentar um bloco em um blob de acréscimo existente, use o seguinte:
 
-* **appendFromLocalFile** - acrescentar o conteúdo de um arquivo para um blob de acréscimo
+* **appendFromLocalFile** – acrescentar o conteúdo de um arquivo para um blob de acréscimo
 
-* **appendFromStream** - acrescentar o conteúdo de um fluxo para um blob de acréscimo existente
+* **appendFromStream** – acrescentar o conteúdo de uma transmissão para um blob de acréscimo existente
 
-* **appendFromText** - acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
+* **appendFromText** – acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
 
-* **appendBlockFromStream** - acrescentar o conteúdo de um fluxo para um blob de acréscimo existente
+* **appendBlockFromStream** – acrescentar o conteúdo de uma transmissão para um blob de acréscimo existente
 
-* **appendBlockFromText** - acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
+* **appendBlockFromText** – acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
 
 > [AZURE.NOTE] As APIs appendFromXXX farão uma validação do lado do cliente falha rápida evitar a chamada de servidor desnecessária. appendBlockFromXXX não fará isso.
 
@@ -215,7 +215,7 @@ Para carregar dados para um blob de página, use o seguinte:
 
 * **createWriteStreamToExistingPageBlob** – fornece um fluxo de gravação para um blob de páginas
 
-* **createWriteStreamToNewPageBlob** – cria um novo blob de páginas e, em seguida, fornece um fluxo para gravar nele
+* **createWriteStreamToNewPageBlob** – cria um novo blob de páginas e, então, fornece uma transmissão para gravar nela
 
 O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **mypageblob**.
 
@@ -405,14 +405,14 @@ Para saber mais, consulte os recursos a seguir.
 
 [Repositório do ]: https://github.com/Azure/azure-storage-node
 
-[Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicativo web do Node.js usando o serviço de tabela do Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
+[Aplicativo Web Node.js com o Serviço Tabela do Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Compilar e implantar um aplicativo Node.js em um serviço de nuvem do Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

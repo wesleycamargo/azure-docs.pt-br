@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Especificações técnicas e conformidade para o dispositivo StorSimple
@@ -62,7 +62,7 @@ A tabela a seguir lista os dados de consumo de energia típicos (os valores reai
 Seu dispositivo StorSimple oferece suporte a até 12 unidades de disco SAS (Serial Attached SCSI) fator forma de 3,5 polegadas. As unidades reais podem ser uma combinação de unidades de estado sólido (SSDs) ou de unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Elas sempre serão HDDs.
 
 ## Especificações do armazenamento
-Os dispositivos StorSimple tem uma mistura de unidades de disco rígido e de estado sólido para o 8100 e o 8600. A capacidade utilizável total para o 8100 e 8600 é cerca de 15 TB e 38 TB, respectivamente. A tabela a seguir documenta os detalhes da SSD, da HDD e da capacidade de nuvem no contexto da capacidade da solução StorSimple.
+Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de estado sólido para o 8100 e o 8600. A capacidade utilizável total para o 8100 e 8600 é cerca de 15 TB e 38 TB, respectivamente. A tabela a seguir documenta os detalhes da SSD, da HDD e da capacidade de nuvem no contexto da capacidade da solução StorSimple.
 
 | Modelo/capacidade do dispositivo | 8100 | 8600 |
 |------------------------------------------------|---------------------------------------------------------|---------------------------------------------------------|
@@ -77,7 +77,7 @@ Os dispositivos StorSimple tem uma mistura de unidades de disco rígido e de est
 | Capacidade máxima da solução (incluindo a nuvem) | 200 TB | 500 TB |
 
 
-<sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para buffers, dados e metadados.*
+<sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para dados, metadados e buffers.*
 
 ## Dimensões do compartimento e especificações de peso  
 
@@ -135,16 +135,16 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 ## Conformidade com padrões internacionais
 O dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes padrões internacionais:
 
-- CE - EN 60950 - 1  
-- Relatório CB para IEC 60950-1  
-- UL e cUL para UL 60950-1  
+- CE - EN 60950 - 1
+- Relatório CB para IEC 60950-1
+- UL e cUL para UL 60950-1
 
 ## Conformidade de segurança  
 
 O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:
 
-- Aprovação do tipo de produto do sistema: UL, cUL, CE  
-- Conformidade de segurança: UL 60950, IEC 60950, EN 60950  
+- Aprovação do tipo de produto do sistema: UL, cUL, CE
+- Conformidade de segurança: UL 60950, IEC 60950, EN 60950
 
 ## Conformidade com EMC 
 
@@ -154,8 +154,8 @@ O dispositivo Microsoft Azure StorSimple atende às classificações EMC a segui
 
 O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.
 
-- Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A  
-- Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A   
+- Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
+- Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
 
 ### Harmônicas e cintilação  
 
@@ -191,4 +191,4 @@ Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulo
 
 Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

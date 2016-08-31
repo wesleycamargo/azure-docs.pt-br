@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Habilitar a depuração remota ao utilizar a entrega contínua para publicar no Azure
@@ -40,7 +40,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 2. Na [página do portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), exiba o painel da máquina virtual para conferir a **IMPRESSÃO DIGITAL DO CERTIFICADO RDP** da máquina virtual. Esse valor é usado como o valor de `ServerThumbprint` na configuração da extensão.
 3. Crie um certificado cliente conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md) (mantenha o .pfx e a impressão digital do certificado RDP).
 4. Instale e configure o Azure PowerShell (versão 0.7.4 ou posterior) conforme descrito em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md)
-5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e dados pessoais pelos seus dados, como seu nome de inscrição, nome de serviço e impressão digital.
+5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e os dados pessoais por seus dados, como seu nome da assinatura, nome do serviço e impressão digital.
 
 	>[AZURE.NOTE] Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013, modifique as atribuições `$referenceName` e `$extensionName` abaixo para usar `RemoteDebugVS2013` (em vez de `RemoteDebugVS2015`).
 
@@ -91,4 +91,4 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Decisões de design e técnicas de codificação para o SQL Data Warehouse
@@ -52,7 +52,7 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 
 <!--Article references-->
 [simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
-[conexões]: ./sql-data-warehouse-develop-connections.md
+[conexões]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL dinâmico]: ./sql-data-warehouse-develop-dynamic-sql.md
 [agrupar por opções]: ./sql-data-warehouse-develop-group-by-options.md
@@ -75,4 +75,4 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

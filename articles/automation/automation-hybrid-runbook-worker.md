@@ -12,26 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/20/2016"
+   ms.date="08/10/2016"
    ms.author="bwren" />
 
 # Runbook Workers Híbridos da Automação do Azure
 
 Os Runbooks na Automação do Azure não podem acessar recursos no seu data center local, já que eles são executados na nuvem do Azure. O recurso Runbook Worker Híbrido da Automação do Azure permite executar runbooks em máquinas localizadas no seu data center para gerenciar recursos locais. Os runbooks são armazenados e gerenciados na Automação do Azure e entregues a uma ou mais máquinas locais.
 
-Essa funcionalidade está ilustrada na imagem a seguir.
+Essa funcionalidade está ilustrada na imagem a seguir.<br>
 
 ![Visão geral do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
 Você pode designar um ou mais computadores no seu data center para atuar como um Runbook Worker Híbrido e executar runbooks da Automação do Azure. Cada trabalho exige o Agente de Gerenciamento da Microsoft com uma conexão ao Microsoft Operations Management Suite e o ambiente de runbook da Automação do Azure. O Operations Management Suite é usado somente para instalar e manter o agente de gerenciamento, bem como para monitorar a funcionalidade do trabalho. A entrega de runbooks e as instruções para executá-los são desempenhadas pela Automação do Azure.
 
-![Componentes do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
+![Componentes do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components_b.png)
 
 >[AZURE.NOTE] O Insights Operacionais está no processo de integração ao Operations Management Suite, e você poderá ver um dos dois nomes usado no portal e na documentação.
 
 Não há nenhum requisito de firewall de entrada para dar suporte a Runbook Workers Híbridos. O agente no computador local inicia todas as comunicações com a Automação do Azure na nuvem. Quando um runbook é iniciado, a Automação do Azure cria uma instrução que é recuperada pelo agente. O agente então puxa o runbook e todos os parâmetros antes de executá-lo. Ele também vai recuperar os [ativos](http://msdn.microsoft.com/library/dn939988.aspx) usados pelo runbook da Automação do Azure.
 
->[AZURE.NOTE] Atualmente, não há suporte para a compilação de [Configurações da DSC](automation-dsc-overview.md) na DSC de Automação em Hybrid Runbook Workers.
+>[AZURE.NOTE] Atualmente, os Hybrid Runbook Workers não dão suporte às [configurações DSC](automation-dsc-overview.md).
+
 
 ## Grupos de Runbook Worker Híbrido
 
@@ -49,42 +50,68 @@ Você deve designar pelo menos um computador local para executar trabalhos de ru
 
 Considere as seguintes recomendações para hybrid workers:
 
-- Designe vários hybrid workers em cada grupo para alta disponibilidade.  
+- Designe vários hybrid workers em cada grupo para alta disponibilidade.
 - Hybrid workers podem coexistir com os servidores de runbook do Service Management Automation ou do System Center Orchestrator.
-- Pense na possibilidade de usar um computador fisicamente localizado ou próximo da região da sua conta de automação, uma vez que os dados do trabalho são enviados de volta à Automação do Azure quando um trabalho é concluído.
+- Pense na possibilidade de usar um computador fisicamente localizado ou próximo da região da sua Conta de automação, uma vez que os dados do trabalho são enviados de volta à Automação do Azure quando um trabalho é concluído.
 
-Requisitos de firewall:
 
-- O computador local que executa o Hybrid Runbook Worker deve ter acesso de saída a *.cloudapp.net nas portas 443, 9354 e 30000-30199.
+>[AZURE.NOTE] O Hybrid Runbook Worker versão 7.2.11136.0 atualmente dá suporte apenas a comunicação por meio de servidor proxy com scripts do PowerShell. O suporte a scripts de fluxo de trabalho do PowerShell estará disponível em uma versão futura.
 
->[AZURE.NOTE] Não é recomendável instalar o recurso Hybrid Runbook Worker em um controlador de domínio em seu ambiente.
+### Configurar o proxy e as definições do firewall
+
+Para que o Hybrid Runbook Worker local se conecte e se registre no serviço OMS (Microsoft Operations Management Suite), ele deve ter acesso ao número da porta e às URLs descritas abaixo. Isso é além das [portas e URLs necessárias para que o Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent) se conecte ao OMS. Se você usar um servidor proxy para comunicação entre o agente e o serviço do OMS, será necessário garantir que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso.
+
+As informações a seguir listam a porta e as URLs que são necessárias para que o Hybrid Runbook Worker se comunique com a Automação.
+
+- Porta: somente a TCP 443 é necessária para acesso de Internet de saída
+- URL global: *.azure-automation.net
+
+Se você tem uma conta de Automação definida para uma região específica e deseja restringir a comunicação com o datacenter regional, a tabela a seguir fornece o registro de DNS para cada região.
+
+|**Região**|**Registro DNS**|
+|--------------|--------------|
+|Centro-Sul dos Estados Unidos|scus-jobruntimedata-prod-su1.azure-automation.net|
+|Leste dos EUA 2|eus2-jobruntimedata-prod-su1.azure-automation.net|
+|Europa Ocidental|we-jobruntimedata-prod-su1.azure-automation.net|
+|Norte da Europa|ne-jobruntimedata-prod-su1.azure-automation.net|
+|Canadá Central|cc-jobruntimedata-prod-su1.azure-automation.net|
+|Sudeste da Ásia|sea-jobruntimedata-prod-su1.azure-automation.net|
+|Índia Central|cid-jobruntimedata-prod-su1.azure-automation.net|
+|Leste do Japão|jpe-jobruntimedata-prod-su1.azure-automation.net|
+|Sudeste da Austrália|ase-jobruntimedata-prod-su1.azure-automation.net|
+
 
 ## Instalando o Runbook Worker Híbrido
+
 O procedimento abaixo descreve como instalar e configurar o Hybrid Runbook Worker. Execute as duas primeiras etapas uma vez para seu ambiente de Automação e depois repita as etapas restantes para cada computador de trabalho.
 
 ### 1\. Criar o espaço de trabalho do Operations Management Suite
+
 Se você ainda não tiver um espaço de trabalho do Operations Management Suite, crie um usando as instruções em [Configurar seu espaço de trabalho](https://technet.microsoft.com/library/mt484119.aspx). Você pode usar um espaço de trabalho existente se já tiver um.
 
 ### 2\. Adicionar solução de Automação ao espaço de trabalho do Operations Management Suite
+
 As soluções adicionam funcionalidade ao Operations Management Suite. A solução de Automação adiciona a funcionalidade da Automação do Azure, incluindo o suporte ao Hybrid Runbook Worker. Quando você adicionar a solução ao espaço de trabalho, ele enviará automaticamente os componentes de trabalho ao computador do agente que você instalará na próxima etapa.
 
-Siga as instruções em [Para adicionar uma solução usando a Galeria de Soluções](https://technet.microsoft.com/library/mt674635.aspx) para adicionar a solução **Automação** ao espaço de trabalho do Operations Management Suite.
+Siga as instruções em [Para adicionar uma solução usando a Galeria de Soluções](../log-analytics/log-analytics-add-solutions.md) para adicionar a solução **Automação** ao espaço de trabalho do Operations Management Suite.
 
-### 3\. Instale o Agente de Gerenciamento da Microsoft
-O Agente de Gerenciamento da Microsoft conecta os computadores ao Operations Management Suite. Quando você instala o agente no computador local e o conecta ao espaço de trabalho, ele baixa automaticamente os componentes necessários para o Hybrid Runbook Worker.
+### 3\. Instalar o Microsoft Monitoring Agent
 
-Siga as instruções em [Conectar computadores diretamente ao Insights Operacionais](https://technet.microsoft.com/library/mt484108.aspx) para instalar o agente no computador local. Você poderá repetir esse processo em vários computadores para adicionar vários trabalhos ao ambiente.
+O Microsoft Monitoring Agent conecta os computadores ao Operations Management Suite. Quando você instala o agente no computador local e o conecta ao espaço de trabalho, ele baixa automaticamente os componentes necessários para o Hybrid Runbook Worker.
 
-Quando o agente tiver se conectado com êxito ao Operations Management Suite, ele será listado na guia **Fontes Conectadas** do painel **Configurações** do Operations Management Suite. Você pode verificar se o agente baixou corretamente a solução de Automação quando ele tiver uma pasta chamada **AzureAutomationFiles** em C:\\Arquivos de Programas\\Microsoft Monitoring Agent\\Agent.
+Siga as instruções em [Conectar computadores com Windows ao Log Analytics](../log-analytics/log-analytics-windows-agents.md) para instalar o agente no computador local. Você poderá repetir esse processo em vários computadores para adicionar vários trabalhos ao ambiente.
+
+Quando o agente tiver se conectado com êxito ao Operations Management Suite, ele será listado na guia **Fontes Conectadas** do painel **Configurações** do Operations Management Suite. Você pode verificar se o agente baixou corretamente a solução de Automação quando ele tiver uma pasta chamada **AzureAutomationFiles** em C:\\Arquivos de Programas\\Microsoft Monitoring Agent\\Agent. Para confirmar a versão do Hybrid Runbook Worker, você pode navegar até C:\\Arquivos de Programa\\Microsoft Monitoring Agent\\Agent\\AzureAutomation\\ e anotar a subpasta da \*versão*.
+
 
 ### 4\. Instalar o ambiente de runbook e conectá-lo à Automação do Azure
+
 Quando você adiciona um agente ao Operations Management Suite, a solução de Automação envia por push o módulo **HybridRegistration** do PowerShell que contém o cmdlet **Add-HybridRunbookWorker**. Você pode usar esse cmdlet para instalar o ambiente de runbook no computador e registrá-lo na Automação do Azure.
 
 Abra uma sessão do PowerShell no modo de Administrador e execute os comandos a seguir para importar o módulo.
 
 	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
-	Import-Module .\HybridRegistration.psd1
-
+	Import-Module HybridRegistration.psd1
 
 Em seguida, execute o cmdlet **Add-HybridRunbookWorker** usando a seguinte sintaxe:
 
@@ -96,11 +123,12 @@ Você pode obter as informações necessárias para esse cmdlet na folha **Geren
 
 - **Name** é o nome do Grupo de Runbook Worker Híbrido. Quando esse grupo já existe na conta de automação, o computador atual é adicionado a ele. Se ele não existir, será adicionado.
 - **EndPoint** é o campo **URL** na folha **Gerenciar Chaves**.
-- **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**.  
+- **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**.
 
 Use a opção **-Verbose** com **Add-HybridRunbookWorker** para receber informações detalhadas sobre a instalação.
 
 ### 5\. Instalar módulos do PowerShell
+
 Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure. No entanto, esses módulos não são implantados automaticamente em computadores locais, portanto, você deve instalá-los manualmente. A exceção é o módulo do Azure que é instalado por padrão, fornecendo acesso a cmdlets a todos os serviços e atividades do Azure da Automação do Azure.
 
 Como a principal finalidade do recurso Runbook Worker Híbrido é gerenciar recursos locais, você provavelmente precisará instalar os módulos que dão suporte a esses recursos. Veja [Instalar Módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.
@@ -117,7 +145,7 @@ Ao iniciar um runbook no portal do Azure, a opção **Executar em** ficará disp
 
 Use o parâmetro **RunOn**. Você poderia usar o comando a seguir para iniciar um runbook denominado Runbook de Teste em um Grupo de Runbook Worker Híbrido chamado MyHybridGroup usando o Windows PowerShell.
 
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+	Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE] O parâmetro **RunOn** foi adicionado ao cmdlet **Start-AzureAutomationRunbook** na versão 0.9.1 do Microsoft Azure PowerShell. Você deve [baixar a versão mais recente](https://azure.microsoft.com/downloads/) se tiver uma anterior instalada. Você só precisa instalar essa versão em uma estação de trabalho em que vá iniciar o runbook do Windows PowerShell. Você não precisa instalá-lo no computador de trabalho, a menos que pretenda iniciar runbooks desse computador. Atualmente, você não pode iniciar um runbook em um Runbook Worker Híbrido de outro runbook, pois isso exigiria que a versão mais recente do Powershell do Azure estivesse instalada em sua Conta de automação. A versão mais recente será automaticamente atualizada na Automação do Azure e enviada aos trabalhadores em breve.
 
@@ -131,10 +159,10 @@ Por padrão, os runbooks serão executados no contexto da conta de Sistema local
 
 Você pode usar ativos de [Credencial](http://msdn.microsoft.com/library/dn940015.aspx) e [Certificado](http://msdn.microsoft.com/library/dn940013.aspx) no runbook com cmdlets que permitem a especificação das credenciais para autenticar com recursos diferentes. O exemplo a seguir mostra uma parte de um runbook que reinicia um computador. Ele recupera as credenciais de um ativo de credencial e o nome do computador de um ativo variável, para então usar esses valores com o cmdlet Restart-Computer.
 
-	$Cred = Get-AutomationCredential "MyCredential"
-	$Computer = Get-AutomationVariable "ComputerName"
+	$Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
+	$Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
 
-	Restart-Computer -ComputerName $Computer  -Credential $Cred
+	Restart-Computer -ComputerName $Computer -Credential $Cred
 
 Você também pode aproveitar o [InlineScript](automation-powershell-workflow.md#inline-script), que permitirá a execução de blocos de código em outro computador com as credenciais especificadas pelo [parâmetro comum PSCredential](http://technet.microsoft.com/library/jj129719.aspx).
 
@@ -144,7 +172,7 @@ Em vez de os runbooks fornecerem sua própria autenticação aos recursos locais
 
 O nome de usuário da credencial deve estar em um dos seguintes formatos:
 
-- domínio\\nome de usuário 
+- domínio\\nome de usuário
 - username@domain
 - nome de usuário (para contas locais da máquina local)
 
@@ -175,7 +203,7 @@ Se seus runbooks não forem concluídos com êxito e o resumo do trabalho mostra
 
 ## Relação com o Service Management Automation
 
-O [Service Management Automation (SMA)](https://technet.microsoft.com/library/dn469260.aspx) é um componente do Microsoft Azure Pack que permite que você execute os mesmos runbooks com suporte da Automação do Azure em seu data center local. Ao contrário da Automação do Azure, o SMA exige uma instalação local que inclui o Portal de Gerenciamento do Microsoft Azure Pack e um banco de dados para manter a configuração do SMA e runbooks. A Automação do Azure fornece esses serviços na nuvem e requer apenas que você mantenha os Runbook Workers Híbridos no seu ambiente local.
+O [SMA (Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx) é um componente do Microsoft Azure Pack que permite que você execute os mesmos runbooks com suporte da Automação do Azure em seu data center local. Ao contrário da Automação do Azure, o SMA exige uma instalação local que inclui o Portal de Gerenciamento do Microsoft Azure Pack e um banco de dados para manter a configuração do SMA e runbooks. A Automação do Azure fornece esses serviços na nuvem e requer apenas que você mantenha os Runbook Workers Híbridos no seu ambiente local.
 
 Se você for um usuário existente do SMA, pode mover seus runbooks para a Automação do Azure para serem usados com o Runbook Worker Híbrido sem alterações, supondo que eles executem sua própria autenticação aos recursos, como descrito em [Criar runbooks para Runbook Worker Híbrido](#creating-runbooks-for-hybrid-runbook-worker). Os runbooks em SMA são executados no contexto da conta de serviço no servidor trabalhador que pode fornecer a autenticação para os runbooks.
 
@@ -195,4 +223,4 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

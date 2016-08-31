@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-unity-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introdução ao Azure Mobile Engagement para implantação do Unity para iOS
@@ -38,7 +38,7 @@ Este tutorial exige o seguinte:
 
 ###Importar o pacote do Unity
 
-1. Baixe o [pacote do Unity do Mobile Engagement](https://aka.ms/azmeunitysdk) e salve-o em seu computador local. 
+1. Baixe o [pacote do Unity do Mobile Engagement](https://aka.ms/azmeunitysdk) e salve-o em seu computador local.
 
 2. Vá para **Ativos -> Importar Pacote -> Pacote Personalizado** e selecione o pacote que você baixou na etapa anterior.
 
@@ -54,7 +54,7 @@ Este tutorial exige o seguinte:
 
 ###Atualizar o EngagementConfiguration
 
-1. Abra o arquivo de script **EngagementConfiguration** na pasta do SDK e atualize **IOS\_CONNECTION\_STRING** com a cadeia de conexão que você obteve anteriormente no portal do Azure.  
+1. Abra o arquivo de script **EngagementConfiguration** na pasta do SDK e atualize **IOS\_CONNECTION\_STRING** com a cadeia de conexão que você obteve anteriormente no portal do Azure.
 
 	![][73]
 
@@ -62,7 +62,7 @@ Este tutorial exige o seguinte:
 
 ###Configurar o aplicativo para o acompanhamento básico
 
-1. Abra o script **PlayerController** anexado ao objeto Player para edição. 
+1. Abra o script **PlayerController** anexado ao objeto Player para edição.
 
 2. Adicione a seguinte instrução usando:
 
@@ -75,7 +75,7 @@ Este tutorial exige o seguinte:
 
 ###Implantar e executar o aplicativo
 
-1. Conecte um dispositivo iOS a seu computador. 
+1. Conecte um dispositivo iOS a seu computador.
 
 2. Abra **Arquivo -> Configurações de Compilação**
 
@@ -131,4 +131,4 @@ O Mobile Engagement permite interagir com seus usuários e o REACH com notifica�
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

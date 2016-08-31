@@ -57,7 +57,7 @@ O Diagnóstico do Azure sempre envia logs e métricas, por padrão, a uma conta 
 </SinksConfig>
 ```
 
-Neste exemplo, a URL do Hub de Eventos é definida no namespace totalmente qualificado do Hub de Eventos: namespace Barramento de Serviço + "/" + nome do Hub de Eventos.
+Neste exemplo, a URL do Hub de Eventos é definida no namespace totalmente qualificado do Hub de Eventos: namespace de Hub de Eventos + "/" + nome do Hub de Eventos.
 
 A URL do Hub de Eventos é exibida no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), no painel Hubs de Eventos.
 
@@ -74,7 +74,7 @@ O coletor do Hubs de Eventos também deve ser declarado e definido na seção **
 </PrivateConfig>
 ```
 
-O valor `SharedAccessKeyName` deve ser compatível com uma chave de SAS (Assinatura de Acesso Compartilhado) e com uma política definida no namespace **Barramento de Serviço/Hubs de Eventos**. Navegue até o painel Hubs de Eventos no [Portal do Azure](https://manage.windowsazure.com), clique na guia **Configurar** e configure uma política nomeada (por exemplo, "SendRule") que tenha permissões de *Envio*. A **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, o que é um sinal de que um ativo de downstream definirá os valores. Por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* define as chaves e os nomes apropriados do ambiente.
+O valor `SharedAccessKeyName` deve ser compatível com uma chave de SAS (Assinatura de Acesso Compartilhado) e com uma política definida no namespace **Hubs de Eventos**. Navegue até o painel Hubs de Eventos no [Portal do Azure](https://manage.windowsazure.com), clique na guia **Configurar** e configure uma política nomeada (por exemplo, "SendRule") que tenha permissões de *Envio*. A **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, o que é um sinal de que um ativo de downstream definirá os valores. Por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* define as chaves e os nomes apropriados do ambiente.
 
 > [AZURE.WARNING] A chave de SAS dos Hubs de Eventos é armazenada em texto sem formatação no arquivo *.wadcfgx*. Muitas vezes, essa chave é verificada no controle do código-fonte ou está disponível como um ativo no servidor de build e, portanto, você deve protegê-la de maneira apropriada. É recomendável usar uma chave de SAS com permissões do tipo *Somente envio*, de forma que um usuário mal-intencionado possa gravar no Hub de Eventos, mas não escutar nele nem gerenciá-lo.
 
@@ -319,4 +319,4 @@ O *ServiceConfiguration.Cloud.cscfg* complementar para este exemplo se parece co
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

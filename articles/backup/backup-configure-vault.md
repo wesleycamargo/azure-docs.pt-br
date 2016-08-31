@@ -17,7 +17,7 @@
 	ms.date="08/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Fazer backup de um cliente ou servidor do Windows Azure usando o modelo de implantação do Gerenciador de Recursos
+# Fazer backup de um cliente ou servidor do Microsoft Azure usando o modelo de implantação do Gerenciador de Recursos
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](backup-configure-vault.md)
@@ -134,6 +134,32 @@ Agora que você criou um cofre, prepare a sua infraestrutura para fazer backup d
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
+### Confirmar a instalação
+
+Para confirmar que o agente foi instalado e registrado corretamente, você poderá verificar os itens de backup na seção **Servidor de Produção** do portal de gerenciamento. Para fazer isso:
+
+1. Entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
+
+2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofres dos Serviços de Recuperação**.
+
+    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    A lista de cofres dos Serviços de Recuperação é exibida.
+
+2. Selecione o nome do cofre que você criou.
+
+    A folha de painel do cofre dos Serviços de Recuperação é aberta.
+
+    ![painel do cofre dos serviços de recuperação](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Clique no botão **Configurações** na parte superior da página.
+
+4. Clique em **Infraestrutura do Backup > Servidores de Produção**.
+
+    ![Servidores de produção](./media/backup-configure-vault/production-server-verification.png)
+
+Se você vir os servidores na lista, terá a confirmação de que o agente foi instalado e registrado corretamente.
+
 ## Etapa 4: Completar o backup inicial.
 
 O backup inicial inclui duas tarefas principais:
@@ -159,7 +185,7 @@ Para concluir o backup inicial, você deve usar o agente de backup do Microsoft 
 
 5. Selecione os arquivos e pastas dos quais você deseja fazer backup e clique em **Ok**.
 
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 
 7. Na tela **Especificar Agendamento de Backup**, especifique o **agendamento de backup** e clique em **Avançar**.
 
@@ -213,7 +239,7 @@ O agente de backup fornece limitação de rede. A limitação controles como a l
 
 3. Clique em **Fechar** para fechar o assistente. Se você fizer isso antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 
-Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console do backup.
+Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
 ![IR completo](./media/backup-configure-vault/ircomplete.png)
 
@@ -226,4 +252,4 @@ Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, 
 - Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 - Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

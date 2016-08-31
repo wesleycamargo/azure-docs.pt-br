@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/15/2016"
 	ms.author="elizapo"/>
 
 # Como criar uma coleção híbrida para o Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+
 Há dois tipos de coleções do Azure RemoteApp:
 
 - Nuvem: reside completamente no Azure. Você pode optar por salvar todos os dados na nuvem (para uma coleção somente da nuvem) ou conectar sua coleção a uma VNET e salvar os dados lá.
-- Híbrido: inclui uma rede virtual para acesso local - isso requer o uso do AD do Azure e um ambiente do Active Directory local.
+- Híbrido: inclui uma rede virtual para acesso local - isso requer o uso do Azure AD e um ambiente do Active Directory local.
 
 Não sabe o que precisa? Confira [Que tipo de coleção é necessária para o Azure RemoteApp](remoteapp-collections.md)
 
@@ -104,7 +107,7 @@ Uma imagem do modelo do Azure RemoteApp contém programas que você quer compart
 
 Se estiver fazendo o upload da nova imagem, será necessário inserir o nome e escolher o local para a imagem. Na próxima página do assistente, você verá um conjunto de cmdlets do PowerShell - copie e execute esses cmdlets em um prompt elevado do Windows PowerShell para fazer o upload da imagem específica.
 
-Se estiver conectando-se a uma imagem do modelo existente, especifique o nome da imagem, o local e a assinatura do zure associada.
+Se estiver se conectando a uma imagem do modelo existente, especifique o nome da imagem, a localização e a assinatura do Azure associada.
 
 
 
@@ -149,4 +152,4 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
 ### Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

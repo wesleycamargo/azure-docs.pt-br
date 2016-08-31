@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -85,17 +85,17 @@ Consulte [Notas de versão do HDInsight](hdinsight-release-notes.md) para ver no
 A tabela a seguir lista as versões do HDInsight disponíveis no momento, as versões correspondentes do Hortonworks Data Platform que elas usam e suas datas de lançamento. Quando conhecidas, suas datas de vencimento e reprovação também são fornecidas. Observe o seguinte:
 
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1 e superiores. Eles não estão disponíveis para clusters HDInsight 1.6.
-* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo Portal do Azure. A tabela a seguir indica quais versões estão disponíveis no Portal Clássico do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até sua data de substituição.
+* Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo portal do Azure. A tabela a seguir indica quais versões estão disponíveis no Portal Clássico do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até sua data de substituição.
 
-Versão do HDInsight|Versão do HDP|Alta Disponibilidade|Data do lançamento|Disponível no Portal do Azure|Data de validade do suporte|Data de reprovação
----|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Sim|29/03/2016|Sim||
-HDI 3.3|HDP 2.3|Sim|02/12/2015|Sim||
-HDI 3.2|HDP 2.2|Sim|18/02/2015|Sim||
-HDI 3,1|HDP 2,1|Sim|24/06/2014|Sim||
-HDI 3,0|HDP 2,0|Sim|11/02/2014|Sim|17/09/2014|30/06/2015
-HDI 2,1|HDP 1,3|Sim|28/10/2013|Sim|12/05/2014|31/05/2015
-HDI 1.6|HDP 1.1|Não|28/10/2013|Sim|26/04/2014|31/05/2015
+Versão do HDInsight|Versão do HDP|SO da VM|Alta disponibilidade|Data do lançamento|Disponível no Portal do Azure|Data de validade do suporte|Data de reprovação
+---|---|---|---|---|---|---|---
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Sim|29/03/2016|Sim||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 2012R2 LTS ou Windows Server|Sim|02/12/2015|Sim||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS ou Windows Server 2012R2|Sim|18/02/2015|Sim||
+HDI 3,1|HDP 2,1|Windows Server 2012R2|Sim|24/06/2014|Sim||
+HDI 3,0|HDP 2,0|Windows Server 2012R2|Sim|11/02/2014|Sim|17/09/2014|30/06/2015
+HDI 2,1|HDP 1,3|Windows Server 2012R2|Sim|28/10/2013|Sim|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1||Não|28/10/2013|Sim|26/04/2014|31/05/2015
 
 **Implantação de clusters não padrão**
 
@@ -156,4 +156,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

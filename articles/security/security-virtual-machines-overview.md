@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Visão geral de segurança de máquinas virtuais do Azure
@@ -66,7 +66,7 @@ Quando você implanta e habilita o Microsoft Antimalware, os seguintes recursos 
 
 Saiba mais: para saber mais sobre o software antimalware para proteger as máquinas virtuais, consulte:
 
-- [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../azure-security-antimalware.md)
+- [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../security/azure-security-antimalware.md)
 - [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
@@ -92,7 +92,7 @@ A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar 
 Saiba mais:
 
 - [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-- [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/) (Azure Disk Encryption para máquinas virtuais Windows e Linux)
+- [Azure Disk Encryption for Linux and Windows Virtual Machines (Azure Disk Encryption para máquinas virtuais Windows e Linux)](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 - [Criptografar uma máquina virtual](../security-center/security-center-disk-encryption.md)
 
 ## Backup de máquinas virtuais
@@ -131,7 +131,7 @@ Saiba mais:
 
 - [Azure Network Security Overview (Visão geral da segurança de rede do Azure)](security-network-overview.md)
 - [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
-- [Networking features and partnerships for Enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/) (Recursos de rede e parcerias para cenários empresariais)
+- [Networking features and partnerships for Enterprise scenarios (Recursos de rede e parcerias para cenários empresariais)](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## Gerenciamento de política de segurança e emissão de relatórios
 
@@ -154,7 +154,7 @@ As Máquinas Virtuais do Azure são certificados para FISMA, FedRAMP, HIPAA, PCI
 
 Saiba mais:
 
-- [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) (Central de Confiabilidade da Microsoft: conformidade)
-- [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf) (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)
+- [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+- [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Proteger aplicativos e recursos no Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 O Azure RemoteApp fornece aos usuários acesso aos aplicativos do Windows gerenciados centralmente, o que permite a você controlar o que os usuários podem e não podem fazer. Isso é especialmente útil quando o usuário está se conectando de um dispositivo não gerenciado (como o Macbook pessoal) e você deseja controlar o acesso ou a experiência do usuário.
 
@@ -46,4 +49,4 @@ Outro exemplo é se você quiser bloquear o acesso à Internet para um aplicativ
 - [Políticas do Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 - [Políticas do Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluindo [como personalizar a barra de ferramentas do Office](https://technet.microsoft.com/library/cc179143.aspx)).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

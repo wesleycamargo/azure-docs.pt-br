@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -105,11 +105,13 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 - [Quais tipos de aplicativos têm suporte](active-directory-conditional-access-supported-apps.md)
 
 
-### Políticas de dispositivo
+### Acesso condicional com base em dispositivo
 
 - [Como definir a política de acesso condicional com base no dispositivo para controle de acesso de aplicativos conectados no Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
 
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Correção de usuário ao acessar aplicativos protegidos com acesso condicional baseado em dispositivos do Azure AD](active-directory-conditional-access-device-remediation.md)
 
 - [Ajudar a proteger os dados que exigem o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
@@ -123,4 +125,4 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 - [Perguntas frequentes sobre acesso condicional](active-directory-conditional-faqs.md)
 - [Referência técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="08/08/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
@@ -37,7 +37,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 
 ## Configuração da indexação de blob
 
-Para instalar e configurar um indexador do Armazenamento de Blobs do Azure, você pode usar a API REST da Pesquisa do Azure para criar e gerenciar **indexadores** e **fontes de dados**, conforme descrito [neste artigo](https://msdn.microsoft.com/library/azure/dn946891.aspx). No futuro, o suporte para a indexação de blob será adicionado ao SDK .NET da Pesquisa do Azure e ao Portal do Azure.
+Para instalar e configurar um indexador do Armazenamento de Blobs do Azure, você pode usar a API REST da Pesquisa do Azure para criar e gerenciar **indexadores** e **fontes de dados**, conforme descrito [neste artigo](https://msdn.microsoft.com/library/azure/dn946891.aspx). Você também pode usar a [versão 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) do SDK do .NET. No futuro, o suporte para a indexação de blob será adicionado ao Portal do Azure.
 
 Para configurar um indexador, siga estas três etapas: crie uma fonte de dados, crie um índice, configure o indexador.
 
@@ -303,4 +303,4 @@ Se você precisar extrair todos os metadados, mas ignorar a extração de conte�
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

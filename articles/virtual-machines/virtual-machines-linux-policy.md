@@ -3,7 +3,7 @@
 	description="Como aplicar uma política a uma Máquina Virtual Windows Linux do Azure Resource Manager"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -106,4 +106,4 @@ Depois de criar a política, você precisará aplicá-la a um escopo definido. O
 
 * [Criando uma política](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

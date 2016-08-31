@@ -128,4 +128,4 @@ Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstr
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de. No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

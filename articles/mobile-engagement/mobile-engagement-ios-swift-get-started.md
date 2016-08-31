@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Introdução ao Azure Mobile Engagement para Aplicativos iOS em Swift
@@ -112,7 +112,7 @@ Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você
 
 ##<a id="integrate-push"></a>Habilitar Notificações por Push e mensagens no aplicativo
 
-O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com Notificações por Push e Mensagens no Aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement. As seções a seguir irão configurar seu aplicativo para recebê-las.
+O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com Notificações por Push e Mensagens no Aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement. As seções a seguir irão configurar o aplicativo para recebê-los.
 
 ### Habilitar seu aplicativo para receber Notificações por push silenciosas
 
@@ -204,4 +204,4 @@ O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

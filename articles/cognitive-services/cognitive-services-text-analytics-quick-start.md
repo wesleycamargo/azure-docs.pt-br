@@ -16,11 +16,11 @@
 	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
-# Introdução às APIs de Análise de Texto para detectar o sentimento, as frases-chave, os tópicos e o idioma
+# Introdução às APIs de Análise de Texto para detectar o sentimento, senhas, tópicos e idioma
 
 <a name="HOLTop"></a>
 
-Este documento descreve como integrar seu serviço ou aplicativo para usar as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711). Você pode usar essas APIs para detectar o sentimento, as frases-chave, os tópicos e o idioma de seu texto. [Clique aqui para ver uma demonstração interativa da experiência.](//go.microsoft.com/fwlink/?LinkID=759712)
+Este documento descreve como integrar seu serviço ou aplicativo para usar as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711). Você pode usar essas APIs para detectar o sentimento, senhas, tópicos e idioma de seu texto. [Clique aqui para ver uma demonstração interativa da experiência.](//go.microsoft.com/fwlink/?LinkID=759712)
 
 Confira as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
@@ -82,7 +82,7 @@ Observe que os idiomas com suporte são os seguintes:
 		Content-Type: application/json
 		Accept: application/json
 
-1. Em seguida, formate as linhas de entrada em JSON. O formato é o mesmo para sentimento, frases-chave e idioma. Observe que cada ID deve ser exclusiva e será a ID retornada pelo sistema. O tamanho máximo de um único documento que pode ser enviado é 10 KB, e o tamanho máximo total da entrada enviada é de 1 MB. Podem ser enviados no máximo 1.000 documentos em uma chamada. O idioma é um parâmetro opcional que deve ser especificado se estiver analisando um texto que não está em inglês. Veja abaixo um exemplo de entrada, onde o parâmetro opcional `language` para análise de sentimento ou a extração de expressão chave está incluído:
+1. Em seguida, formate as linhas de entrada em JSON. O formato é o mesmo para sentimento, frases-chave e idioma. Observe que cada ID deve ser exclusiva e será a ID retornada pelo sistema. O tamanho máximo de um único documento que pode ser enviado é 10 KB, e o tamanho máximo total da entrada enviada é de 1 MB. Podem ser enviados no máximo 1.000 documentos em uma chamada. A limitação da taxa existe em uma taxa de 100 chamadas por minuto, portanto, recomendamos que você envie grandes quantidades de documentos em uma única chamada. O idioma é um parâmetro opcional que deve ser especificado se estiver analisando um texto que não está em inglês. Veja abaixo um exemplo de entrada, onde o parâmetro opcional `language` para análise de sentimento ou a extração de expressão chave está incluído:
 
 		{
 			"documents": [
@@ -166,18 +166,18 @@ Observe que os idiomas com suporte são os seguintes:
 		}
 
 
-## Tarefa 3 - detectar tópicos em um corpus de texto ####
+## Tarefa 3 - detectar tópicos no corpo de texto ####
 
-Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
+Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
-Essa API requer o envio de **no mínimo, 100 registros de texto** mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos a tópicos. Para a detecção de tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB, e o tamanho máximo total da entrada enviada é de 30 MB.
+Essa API requer o envio de **,no mínimo, 100 registros de texto**, mas foi projetada para detectar os tópicos em centenas ou milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos aos tópicos. Para a detecção dos tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB e o tamanho máximo total da entrada enviada é de 30 MB. A detecção do tópico tem uma taxa limitada a cinco envios a cada 5 minutos.
 
 Há mais dois parâmetros de entrada **opcionais** que podem ajudar a melhorar a qualidade dos resultados:
 
-- **Palavras irrelevantes.** Essas palavras e suas formas aproximadas (por exemplo, plurais) serão excluídas de todo o pipeline de detecção de tópicos. Use esse recurso para palavras comuns (por exemplo, "problema", "erro" e "usuário" podem ser opções apropriadas para reclamações do cliente sobre o software). Cada cadeia de caracteres deve ser uma única palavra.
-- **Frases irrelevantes** - essas frases serão excluídas da lista de tópicos retornados. Use esse recurso para excluir tópicos genéricos que você não deseja ver nos resultados. Por exemplo, "Microsoft" e "Azure" seriam opções adequadas para os tópicos a serem excluídos. As cadeias de caracteres podem conter várias palavras.
+- **Palavras irrelevantes.** Essas palavras e suas formas aproximadas (por exemplo, plurais) serão excluídas do pipeline inteiro de detecção de tópicos. Use esse recurso para palavras comuns (por exemplo, "problema", "erro" e "usuário" podem ser opções apropriadas para reclamações do cliente sobre o software). Cada cadeia de caracteres deve ser uma única palavra.
+- **Frases irrelevantes** - essas frases serão excluídas da lista de tópicos retornados. Use esse recurso para excluir os tópicos genéricos que você não deseja ver nos resultados. Por exemplo, "Microsoft" e "Azure" seriam opções adequadas para os tópicos a excluir. As cadeias de caracteres podem conter várias palavras.
 
-Siga estas etapas para detectar tópicos no texto.
+Siga estas etapas para detectar os tópicos no texto.
 
 1. Formate a entrada em JSON. Dessa vez, você pode definir palavras irrelevantes e frases irrelevantes.
 
@@ -201,11 +201,11 @@ Siga estas etapas para detectar tópicos no texto.
 			]
 		}
 
-1. Usando os mesmos cabeçalhos que foram definidos na Tarefa 2, faça uma chamada **POST** para o ponto de extremidade de tópicos:
+1. Usando os mesmos cabeçalhos definidos na Tarefa 2, faça uma chamada **POST** para o ponto de extremidade de tópicos:
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
-1. Isso retornará um `operation-location` como o cabeçalho na resposta, em que o valor é a URL para consultar os tópicos resultantes:
+1. Isso retornará um `operation-location` como o cabeçalho na resposta, no qual o valor é a URL para consultar os tópicos resultantes:
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
@@ -247,7 +247,7 @@ Siga estas etapas para detectar tópicos no texto.
 			}
 		}
 
-Observe que a resposta bem-sucedida para tópicos do ponto de extremidade `operations` terá o esquema a seguir:
+Observe que a resposta bem-sucedida para os tópicos a partir do ponto de extremidade `operations` terá o esquema a seguir:
 
 	{
     		"topics" : [{
@@ -281,8 +281,8 @@ Explicações de cada parte da resposta são as seguintes:
 | Chave | Descrição |
 |:-----|:----|
 | documentId | Identificador do documento. É igual à ID incluída na entrada. |
-| topicId | A ID do tópico a que o documento foi atribuído. |
-| distância | Pontuação de afiliação de documento a tópico entre 0 e 1. Quanto menor a pontuação de distância, mais forte é a afiliação de tópico. |
+| topicId | A ID do tópico à qual o documento foi atribuído. |
+| distância | Pontuação de afiliação do documento ao tópico entre 0 e 1. Quanto menor a pontuação de distância, mais forte é a afiliação do tópico. |
 
 **erros**
 
@@ -297,4 +297,4 @@ Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convé
 
 Para ver como os recursos de Análise de Texto, como o sentimento, podem ser usados como parte de um bot, consulte o exemplo de [Bot Emocional](http://docs.botframework.com/pt-BR/bot-intelligence/language/#example-emotional-bot) no site da Estrutura de Bot.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

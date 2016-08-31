@@ -3,8 +3,8 @@
 	description="Como implementar a atribuição de usuários para aplicativos do Azure."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
+	authors="femila"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="08/15/2015"
 	ms.author="inhenk"/>
 
 # Aplicativos do Azure AD: atribuindo usuários a um aplicativo
@@ -33,4 +33,4 @@ Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atr
 ## Próximas etapas
 [AZURE.INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0817_2016-->

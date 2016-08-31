@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte" />
 
 # Hybrid Runbook Worker : um trabalho de runbook termina com o status Suspenso
@@ -33,7 +33,7 @@ Falha na execução de runbook e o erro retornado é "a ação do trabalho 'Acti
 Há várias causas possíveis para o erro:
 
   1. O Hybrid Worker está usando um proxy ou firewall
-  2. O computador em que o Hybrid Worker está em execução tem menos que os [requisitos](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) mínimos de hardware 
+  2. O computador em que o Hybrid Worker está em execução tem menos que os [requisitos](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-requirements) mínimos de hardware
   3. Os runbooks não podem ser autenticados com recursos locais
 
 
@@ -57,9 +57,9 @@ Confirme se o computador designado para executar o recurso Hybrid Runbook Worker
 
 ### Solução
 
-Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*. A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker. Examine as [permissões de Runbook](automation-hybrid-runbook-worker#runbook-permissions) para confirmar que você configurou corretamente a autenticação para seus runbooks.
+Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondente com descrição *Processo Win32 Encerrado com o código [4294967295]*. A causa desse erro é que você ainda não configurou a autenticação em seus runbooks ou especificou as credenciais Executar como para o grupo do Hybrid Worker. Examine as [permissões de Runbook](automation-hybrid-runbook-worker.md#runbook-permissions) para confirmar que você configurou corretamente a autenticação para seus runbooks.
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

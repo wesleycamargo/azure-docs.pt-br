@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Como parar de ser cobrado pelo Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Enquanto que você tiver coleções do Azure RemoteApp, mesmo sem qualquer usuário atribuído, você será cobrado pelo RemoteApp. Para interromper esse cobrança, exclua todas as suas coleções.
 
@@ -30,4 +33,4 @@ Para excluir sua coleção:
 
 Pode demorar alguns minutos para excluir cada coleção.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

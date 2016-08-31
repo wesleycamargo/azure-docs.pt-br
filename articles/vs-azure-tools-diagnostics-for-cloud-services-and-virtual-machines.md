@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais
@@ -215,7 +215,8 @@ Além disso, você pode capturar logs de qualquer pasta. Basta especificar o cam
 
 ### Logs do ETW
 
-Se você usar [Rastreamento de Eventos para Windows] (https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) e desejar capturar logs de ETW, selecione a caixa de seleção **Habilitar transferência de logs de ETW**. Você pode aumentar ou diminuir o número de minutos quando os logs de eventos são transferidos para sua conta de armazenamento alterando o valor do **Período de transferência (min)**.
+Se você usar [Rastreamento de Eventos para Windows
+https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) e desejar capturar logs de ETW, selecione a caixa de seleção **Habilitar transferência de logs de ETW**. Você pode aumentar ou diminuir o número de minutos quando os logs de eventos são transferidos para sua conta de armazenamento alterando o valor do **Período de transferência (min)**.
 
 Os eventos são capturados das origens de eventos e manifestos de evento que você especificar. Para especificar uma origem de evento, insira um nome na seção **Origens de evento** e, em seguida, escolha o botão **Adicionar origem de evento**. Da mesma forma, você pode especificar um manifesto de evento na seção **Manifestos de eventos** e, em seguida, escolha o botão **Adicionar manifesto de evento**.
 
@@ -357,4 +358,4 @@ Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório
 
 Para saber mais sobre o diagnóstico do log no Azure, consulte [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

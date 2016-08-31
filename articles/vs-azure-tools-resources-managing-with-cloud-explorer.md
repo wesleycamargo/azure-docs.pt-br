@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Gerenciando recursos do Azure com o Cloud Explorer
@@ -21,7 +21,7 @@
 
 O Cloud Explorer foi projetado para permitir que você procure e gerencie os recursos do Azure de modo mais fácil e rápido no IDE do Visual Studio. Por exemplo, você pode usá-lo para abrir um aplicativo Web no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou em um navegador ou anexar um depurador a ele, ou então, você pode exibir as propriedades de um contêiner de blob e abri-lo no Editor de Contêiner de Blob.
 
-O Cloud Explorer é criado na pilha do Azure Resource Manager, exatamente como o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Ele compreende recursos como grupos de recursos do Azure e serviços do Azure como Aplicativos Lógicos e Aplicativos de API; além disso, ele dá suporte a RBAC [(controle de acesso baseado em função)](../role-based-access-control-configure/). Para ver os recursos do Azure que foram adicionados ou alterados, escolha o botão **Atualizar** na barra de ferramentas do Cloud Explorer.
+O Cloud Explorer é criado na pilha do Azure Resource Manager, exatamente como o [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Ele compreende recursos como grupos de recursos do Azure e serviços do Azure como Aplicativos Lógicos e Aplicativos de API; além disso, ele dá suporte a RBAC [(controle de acesso baseado em função)](./active-directory/role-based-access-control-configure.md). Para ver os recursos do Azure que foram adicionados ou alterados, escolha o botão **Atualizar** na barra de ferramentas do Cloud Explorer.
 
 O Cloud Explorer é instalado como parte das Ferramentas do Visual Studio para o SDK do Azure 2.7.
 
@@ -46,11 +46,11 @@ Se você não usou o Azure antes ou não adicionou as contas necessárias ao Vis
 
 1. Escolha o link **Adicionar uma conta**. Faça logon na conta do Azure cujos recursos você deseja procurar. A conta que você acabou de adicionar deve ser selecionada na lista suspensa seletora de conta. As assinaturas para essa conta aparecem sob a entrada de conta.
 
-    ![Adicionando assinaturas do Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
+    ![Como adicionar assinaturas do Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819514.png)
 
-    ![Escolhendo assinaturas do Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
+    ![Como escolher assinaturas do Azure](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC819515.png)
 
-1. Marque as caixas de seleção para as assinaturas de conta que você deseja procurar e, em seguida, escolha o botão **Aplicar**.
+1. Marque as caixas de seleção para as assinaturas de conta que você deseja procurar e escolha o botão **Aplicar**.
 
     Os recursos do Azure para as assinaturas selecionadas aparecem no Cloud Explorer.
 
@@ -95,4 +95,4 @@ Para localizar recursos com um nome específico em assinaturas de sua conta do A
 
 Conforme você insere caracteres na caixa de Pesquisa, apenas os recursos que correspondem a esses caracteres são exibidos na árvore de recursos.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

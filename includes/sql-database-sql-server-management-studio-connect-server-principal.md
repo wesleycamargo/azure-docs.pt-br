@@ -1,42 +1,44 @@
 
 
-## Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor
+## Conectar-se ao Banco de Dados SQL do Azure usando a autenticação do SQL Server
 
-Use as etapas a seguir para se conectar ao Banco de Dados SQL do Azure com SSMS usando o logon de entidade no nível do servidor.
+As etapas a seguir mostram como se conectar a um servidor SQL do Azure e ao banco de dados com o SSMS. Se você não tiver um servidor e um banco de dados, veja [Criar um banco de dados SQL em minutos](../articles/sql-database/sql-database-get-started.md) para criar um.
 
-1. Digite "Microsoft SQL Server Management Studio" na caixa de pesquisa do Windows e clique no aplicativo de área de trabalho para iniciar o SSMS.
 
-2. Na janela Conectar ao Servidor, insira as informações a seguir:
+1. Inicie o SSMS ao digitar **Microsoft SQL Server Management Studio** na caixa de pesquisa do Windows e clique no aplicativo de área de trabalho.
+
+2. Na janela **Conectar ao Servidor**, insira as informações a seguir (se o SSMS já estiver em execução, clique em **Conectar > Mecanismo de Banco de Dados** para abrir a janela **Conectar ao Servidor**):
 
  - **Tipo de servidor**: o padrão é o mecanismo de banco de dados; não altere esse valor.
- - **Nome do servidor**: digite o nome do servidor que hospeda seu banco de dados SQL no seguinte formato: *&lt;servername>*.**database.windows.net**
- - **Tipo de autenticação**: se você acabou de começar, selecione a Autenticação SQL. Se você tiver habilitado o Active Directory para seu servidor lógico do Banco de Dados SQL, selecione a Autenticação de Senha do Active Directory ou a Autenticação Integrada do Active Directory.
- - **Nome de usuário**: se você selecionou a Autenticação do SQL ou a Autenticação de Senha do Active Directory, digite o nome de um usuário com acesso ao banco de dados no servidor.
- - **Senha**: se você selecionou a Autenticação do SQL ou a Autenticação de Senha do Active Directory, digite a senha para o usuário especificado.
+ - **Nome do servidor**: insira o nome totalmente qualificado do seu servidor de Banco de Dados SQL do Azure no seguinte formato: *&lt;nomedoservidor>*.**database.windows.net**
+ - **Tipo de autenticação**: este artigo mostra como se conectar usando a **Autenticação do SQL Server**. Para obter detalhes sobre a conexão com o Azure Active Directory, veja [Conectar-se usando a autenticação integrada do Active Directory](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Conectar-se usando a autenticação de senha do Active Directory](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication) e [Conectar-se usando a autenticação do Active Directory Universal](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **Nome de usuário**: insira o nome de um usuário com acesso ao banco de dados no servidor (por exemplo, o *administrador do servidor* que você configura ao criar o servidor).
+ - **Senha**: insira a senha para o usuário especificado (por exemplo, a *senha* que você configura ao criar o servidor).
    
-       ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
+       ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
 3. Clique em **Conectar**.
  
-4. Se o endereço IP de seu cliente não tiver acesso ao servidor lógico do Banco de Dados SQL, você receberá uma solicitação para entrar em uma conta do Azure e criar uma regra de firewall no nível do servidor. Se você for um administrador de assinatura do Azure, clique em **Entrar** para criar uma regra de firewall no nível do servidor. Caso contrário, peça que um administrador do Azure crie uma regra de firewall no nível do servidor.
- 
-      ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
- 
-1. Se você for um administrador de assinaturas do Azure e precisar entrar, quando a página de entrada aparecer, forneça as credenciais de sua assinatura e faça logon.
+4. Por padrão, os novos servidores não têm [regras de firewall](../articles/sql-database/sql-database-firewall-configure.md) definidas para clientes e, portanto, estão inicialmente impedidos de se conectar. Se o servidor ainda não tiver uma regra de firewall que permita que seu endereço IP específico se conecte, o SSMS solicitará que você crie uma regra de firewall no nível do servidor.
 
-      ![entrar](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+    Clique em **Entrar** e crie uma regra de firewall no nível do servidor. Você deve ser um administrador do Azure para criar uma regra de firewall no nível do servidor.
  
-1. Após o logon bem-sucedida no Azure, examine a regra de firewall proposta no nível de servidor (você pode modificá-la para permitir um intervalo de endereços IP) e clique em **OK** para criar a regra de firewall e concluir a conexão com o Banco de Dados SQL.
+       ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
-      ![novo firewall no nível do servidor](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
- 
-5. Se suas credenciais concederem a você o acesso, o Pesquisador de Objetos será aberto e você poderá executar tarefas administrativas ou consultar dados.
+
+5. Depois de se conectar ao banco de dados SQL do Azure, o **Pesquisador de Objetos** será aberto e você poderá acessar seu banco de dados para [executar tarefas administrativas ou consultar dados](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
      ![novo firewall no nível do servidor](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
 ## Solucionar falhas de conexão
 
-O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança.
+Os motivos mais comuns para falhas de conexão são erros no nome do servidor e problemas de conectividade de rede. Lembre-se, <*nomedoservidor*> é o nome do servidor, e não do banco de dados, e você precisa fornecer o nome totalmente qualificado do servidor: `<servername>.database.windows.net`
 
-<!---HONumber=AcomDC_0803_2016-->
+Além disso, verifique se o nome de usuário e a senha não contém erros de digitação ou espaços extras (os nomes de usuário não diferenciam maiúsculas de minúsculas, mas as senhas sim).
+
+Você também pode definir explicitamente o número de porta e o protocolo com o nome do servidor desta forma: `tcp:servername.database.windows.net,1433`
+
+Os problemas de conectividade de rede também podem causar erros de conexão e de tempo limite. Simplesmente tentar reconectar (quando você souber que o nome do servidor, as credenciais e as regras de firewall estão corretos) poderá resultar em êxito.
+
+<!---HONumber=AcomDC_0824_2016-->

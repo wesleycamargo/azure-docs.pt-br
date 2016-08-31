@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone
@@ -33,7 +33,7 @@ O endereço de email no perfil do administrador da conta é usado pela Microsoft
 
 ## Como alterar suas informações de perfil
 
-1.	Entre no [Centro de Contas do Azure](https://account.windowsazure.com/) como o administrador da conta e clique em **Perfil**. Ou apenas acesse https://account.windowsazure.com/Profile.
+1.	Entre no [Centro de Contas do Azure](https://account.windowsazure.com/) como o administrador da conta e clique em **Perfil**. Ou vá para https://account.windowsazure.com/Profile.
 
 2.	Selecione o botão **Editar detalhes** e, em seguida, atualize as informações de **Perfil**.
 
@@ -61,4 +61,4 @@ Devido a restrições técnicas, não podemos alterar o país em uma conta exist
 
 Se você se inscrever para o novo recurso de visualização de Alertas de Cobrança do Azure, receberá o email de Alertas de Cobrança do Azure no endereço especificado, independentemente de se você tiver alterado o endereço de email do administrador da conta.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0817_2016-->

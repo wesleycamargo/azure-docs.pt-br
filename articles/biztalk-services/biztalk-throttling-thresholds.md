@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 
 # Serviços BizTalk: limitação
 
-Os Serviços BizTalk do Azure implementam a limitação do serviço com base em duas condições: uso de memória e número de mensagens simultâneas em processamento. Este tópico lista as limitações e descreve o comportamento em tempo de execução quando ocorre uma condição de limitação.
+Os Serviços BizTalk do Azure implementam a limitação do serviço com base em duas condições: uso de memória e número de mensagens simultâneas em processamento. Este tópico lista as limitações e descreve o comportamento da Execução quando ocorre uma condição de limitação.
 
 ## Limites da limitação
 
@@ -42,7 +42,7 @@ Os Serviços BizTalk do Azure acompanham o status da limitação (estado normal 
 
 Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte ocorre:
 
-- A limitação ocorre por instância de função. Por exemplo:<br/>InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na InstânciadeFunçãoA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/> 
+- A limitação ocorre por instância de função. Por exemplo:<br/>InstânciadeFunçãoA está limitada. A InstânciadeFunçãoB não está limitada. Nesta situação, as mensagens da InstânciadeFunçãoB são processadas conforme o esperado. As mensagens na InstânciadeFunçãoA são descartadas e ocorre uma falha com o seguinte erro:<br/><br/>
 **O servidor está ocupado. Tente novamente.**<br/><br/>
 - Nenhuma origem de pull pode pesquisar ou baixar uma mensagem. Por exemplo:<br/> um pipeline puxa as mensagens de uma origem de FTP externa. A instância de função que faz puxa entra em estado de limitação. Nessa situação, o pipeline interrompe o download de mensagens adicionais até que a instância de função saia da limitação.
 - Uma resposta é enviada ao cliente para que ele reenvie a mensagem.
@@ -54,7 +54,7 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 - A limitação é implementada em todo o sistema.
 - O Servidor de Banco de Dados SQL do Azure também tem uma limitação interna.
 
-## Tópicos adicionais sobre Serviços do BizTalk do Azure
+## Tópicos adicionais dos Serviços BizTalk do Azure
 
 -  [Instalando o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [Tutoriais: Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
@@ -70,4 +70,4 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 - [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

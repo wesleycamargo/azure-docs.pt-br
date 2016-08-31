@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Lista de conectores
 
-Selecione um ícone para saber como aproveitar rapidamente esses conectores para criar fluxos de trabalho que chamam esses serviços.
+Selecione um conector para saber como criar fluxos de trabalho rapidamente.
 
 ## Conectores padrão
 
@@ -46,8 +46,9 @@ Use os conectores do EIP para criar aplicativos Lógicos para cenários B2B que 
  
 |Conectores EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Ícone de API][as2icon]<br/>**Codificar/decodificar</br>AS2**][as2doc]|[![Ícone de API][x12icon]<br/>**Codificar/decodificar</br>X12**][x12Doc]|[![Ícone de API][xmlvalidateicon]<br/>**Validação de<br/>XML**][xmlvalidatedoc]|[![Ícone de API][xmltransformicon]<br/>**Transformação<br/> XML**][xmltransformdoc]|
-|[![Ícone de API][flatfileicon]<br/>**Codificar</br>**arquivo simples][flatfiledoc]|[![Ícone de API][flatfiledecodeicon]<br/>**Decodificar</br>arquivo simples**][flatfiledecodedoc]|||
+|[![Ícone de API][xmlvalidateicon]<br/>**Validação de<br/>XML**][xmlvalidatedoc]|[![Ícone de API][xmltransformicon]<br/>**Transformação<br/> XML**][xmltransformdoc]|[![Ícone de API][flatfileicon]<br/>**Codificar</br>**arquivo simples][flatfiledoc]|[![Ícone de API][flatfiledecodeicon]<br/>**Decodificar</br>arquivo simples**][flatfiledecodedoc]|
+|[![Ícone de API][as2icon]<br/>**AS2</br>decodificar**][as2decode]|[![Ícone de API][as2icon]<br/>**AS2</br>codificar**][as2encode]|[![Ícone de API][x12icon]<br/>**X12</br>decodificar**][x12decode]|[![Ícone de API][x12icon]<br/>**X12</br>codificar**][x12encode]|
+|[![Ícone de API][x12icon]<br/>**EDIFACT</br>decodificar**][EDIFACTdecode]|[![Ícone de API][x12icon]<br/>**EDIFACT</br>codificar**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Os conectores podem ser gatilhos
@@ -56,7 +57,7 @@ Vários conectores fornecem gatilhos que podem notificar seu aplicativo quando e
 Há dois tipos de gatilhos:
 
 * Gatilhos de Pesquisa: esses gatilhos pesquisam seu serviço de interesse a uma frequência especificada para verificar se há novos dados. Quando novos dados estão disponíveis, uma nova instância do seu aplicativo é executada com os dados como entrada. O gatilho pode limpar os dados já lidos e transmitidos para seu aplicativo para impedir que os mesmos dados sejam consumidos várias vezes.
-* Gatilhos Push: esses gatilhos escutam em busca de dados em um ponto de extremidade ou da ocorrência de eventos. Em seguida, ele dispara uma nova instância do seu aplicativo. O conector do twitter é um exemplo.
+* Gatilhos push: esses gatilhos escutam dados em um ponto de extremidade ou a ocorrência de eventos e disparam uma nova instância de seu aplicativo. O conector do twitter é um exemplo.
 
 ### Os conectores podem ser ações
 Os conectores também podem ser usados como ações em seus aplicativos. Ações são úteis para pesquisar dados no que podem então ser usados na execução do seu aplicativo. Por exemplo, talvez seja necessário pesquisar dados de um cliente de um banco de dados SQL durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em uma tabela de destino. Você pode fazer isso usando as ações fornecidas pelos conectores. As ações são mapeadas para as operações que são definidas nos metadados do Swagger.
@@ -105,6 +106,12 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Saiba mais sobre a validação de XML de integração corporativa."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Saiba mais sobre as transformações de integração corporativa."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Saiba mais sobre a decodificação AS2 de integração corporativa"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Saiba mais sobre a codificação AS2 de integração corporativa"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Saiba mais sobre a decodificação X12 de integração corporativa"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Saiba mais sobre a codificação X12 de integração corporativa"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Saiba mais sobre a decodificação EDIFACT de integração corporativa"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Saiba mais sobre a codificação EDIFACT de integração corporativa"
 [httpdoc]: ./connectors-native-http.md "Conector HTTP para fazer chamadas HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Ações de solicitação e resposta."
 [http~responsedoc]: ./connectors-native-reqres.md "Ações de solicitação e resposta."
@@ -183,4 +190,4 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

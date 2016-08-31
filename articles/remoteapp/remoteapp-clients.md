@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Acessando seus aplicativos no Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Uma das vantagens do RemoteApp do Azure é que você pode acessar os aplicativos de qualquer um dos seus dispositivos. Melhor ainda, você pode começar a trabalhar em um dispositivo e transitar sem problemas para um segundo dispositivo e selecioná-lo bem onde parou. Para começar você precisa baixar o cliente apropriado para seu dispositivo e entrar no serviço.
 
@@ -207,4 +210,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 	![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

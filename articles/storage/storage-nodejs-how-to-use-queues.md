@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Como usar o Armazenamento de Fila do Node.js
 
-[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço Fila do Microsoft Azure. As amostras são gravadas usando a API do Node.js. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+Este guia mostra como executar cenários comuns usando o serviço Fila do Microsoft Azure. Os exemplos são escritos usando a API do Node.js. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
 [AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -31,7 +31,7 @@ Este guia mostra como executar cenários comuns usando o serviço Fila do Micros
 
 ## Criar um aplicativo Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, consulte [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure], [Compilar e implantar um aplicativo Node.js em um serviço de nuvem do Azure] usando o Windows PowerShell ou [Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] (Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -54,7 +54,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 		+-- xml2js@0.2.7 (sax@0.5.2)
 		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
+3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
 ### Importar o pacote
 
@@ -66,7 +66,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
-Para obter um exemplo de como definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um site do Azure, consulte [Aplicativo Web do Node.js usando o serviço de tabela do Azure].
+Para obter um exemplo de como definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um site do Azure, confira [Aplicativo Web Node.js com o Serviço Tabela do Azure].
 
 ## Como criar uma fila
 
@@ -310,9 +310,9 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [SDK de armazenamento do Azure para nó]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Portal]: https://portal.azure.com
-  [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Web do Node.js usando o serviço de tabela do Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Aplicativo Web Node.js com o Serviço Tabela do Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -321,8 +321,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 
 
 
-  [Compilar e implantar um aplicativo Node.js em um serviço de nuvem do Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
+  [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

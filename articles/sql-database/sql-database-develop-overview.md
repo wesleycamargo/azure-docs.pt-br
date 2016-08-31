@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 # Visão geral do desenvolvimento de Banco de Dados SQL
@@ -37,12 +37,12 @@ O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger o
 
 ## Autenticação
 * O Banco de Dados SQL do Azure permite logons e usuários da autenticação do SQL Server, bem como usuários e logons da [autenticação do Azure Active Directory](sql-database-aad-authentication.md).
-* Você precisará especificar um determinado banco de dados, em vez de padronizar para o banco de dados *mestre*.
+* Você precisa especificar um determinado banco de dados, em vez de padronizar para o banco de dados *mestre*.
 * Não é possível usar a instrução **USE myDatabaseName;** do Transact-SQL no Banco de Dados SQL para alternar para outro banco de dados.
 * Mais informações: [segurança do Banco de Dados SQL: gerenciar o acesso ao banco de dados e a segurança de logon](sql-database-manage-logins.md)
 
 ## Resiliência
-Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá repetir a chamada. Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue desnecessariamente o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo.
+Quando ocorre um erro transitório ao se conectar ao Banco de Dados SQL, seu código deverá repetir a chamada. Recomendamos que a lógica de repetição use a lógica de retirada, de modo que ela não sobrecarregue o Banco de Dados SQL com vários clientes realizando novas tentativas ao mesmo tempo.
 
 * Exemplos de código: para obter exemplos de código que ilustram a lógica de repetição, confira os exemplos para o idioma de sua preferência em: [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 * Mais informações: [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
@@ -67,4 +67,4 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 
 Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

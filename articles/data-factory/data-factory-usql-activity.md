@@ -53,7 +53,7 @@ Tipo | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**.
 accountName | Nome da conta da Análise Azure Data Lake. | Sim
 dataLakeAnalyticsUri | URI da Análise Azure Data Lake. | Não 
 autorização | O código de autorização é recuperado automaticamente depois de clicar no botão **Autorizar** no Editor do Data Factory e concluir o logon OAuth. | Sim 
-subscriptionId | ID de assinatura do Azure | Não (se não for especificado, a assinatura do Data Factory é usada). 
+subscriptionId | Id de assinatura do Azure | Não (se não for especificado, a assinatura do Data Factory é usada). 
 resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos do Data Factory é usado).
 sessionId | ID da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usado somente uma vez. Isso é gerado automaticamente no Editor Data Factory. | Sim
 
@@ -93,7 +93,7 @@ Para evitar/resolver este erro, você precisará autorizar novamente usando o bo
         }
     }
 
-Consulte os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
+Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) para obter detalhes sobre as classes do Data Factory usadas no código. Você precisa adicionar uma referência a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para a classe WindowsFormsWebAuthenticationDialog.
  
  
 ## Atividade do U-SQL da Análise Data Lake 
@@ -165,9 +165,9 @@ parameters | Parâmetros do script U-SQL | Não
 
 Consulte [Definição do Script SearchLogProcessing.txt](#script-definition) para ver a definição do script.
 
-### Conjuntos de dados de entrada e saída de exemplo
+## Conjuntos de dados de entrada e saída de exemplo
 
-#### Conjunto de dados de entrada
+### Conjunto de dados de entrada
 Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (arquivo SearchLog.tsv na pasta datalake/input).
 
 	{
@@ -191,7 +191,7 @@ Neste exemplo, os dados de entrada residem em um Repositório Azure Data Lake (a
     	}
 	}	
 
-#### Conjunto de dados de saída
+### Conjunto de dados de saída
 Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados em um Repositório Azure Data Lake (pasta datalake/output).
 
 	{
@@ -209,7 +209,7 @@ Neste exemplo, os dados de saída produzidos pelo script U-SQL são armazenados 
 	    }
 	}
 
-#### Exemplo de serviço vinculado do Repositório Azure Data Lake
+### Exemplo de serviço vinculado do Data Lake Store
 Veja a definição de exemplo de serviço vinculado do Repositório Azure Data Lake usado pelos conjuntos de dados de entrada/saída acima.
 
 	{
@@ -226,7 +226,7 @@ Veja a definição de exemplo de serviço vinculado do Repositório Azure Data L
 
 Veja [Mover dados para e do Repositório Azure Data Lake](data-factory-azure-datalake-connector.md) para obter descrições das propriedades JSON no serviço vinculado do Repositório Azure Data Lake acima e trechos de código JSON de conjunto de dados.
 
-### Definição do Script
+## Exemplo de script U-SQL 
 
 	@searchlog =
 	    EXTRACT UserId          int,
@@ -257,4 +257,21 @@ Os valores dos parâmetros **@in** e **@out** no script U-SQL acima são transmi
 
 Você pode especificar outras propriedades viz. degreeOfParallelism, prioridade, etc., bem como em sua definição de pipeline para os trabalhos executados no serviço de Análise Azure Data Lake.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Parâmetros dinâmicos
+Na definição de pipeline de exemplo acima, os parâmetros in e out são atribuídos com valores embutidos em código.
+
+    "parameters": {
+        "in": "/datalake/input/SearchLog.tsv",
+        "out": "/datalake/output/Result.tsv"
+    }
+
+É possível usar parâmetros dinâmicos em vez disso. Por exemplo:
+
+    "parameters": {
+        "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
+        "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    }
+
+Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e os arquivos de saída são gerados na pasta /datalake/output, mas os nomes de arquivo são dinâmicos com base na hora de início da fatia.
+
+<!---HONumber=AcomDC_0817_2016-->

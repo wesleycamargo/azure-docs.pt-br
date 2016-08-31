@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/26/2016" 
 	ms.author="danha"/>
 
 
@@ -26,9 +26,11 @@
 
 ## Abrir Análise
 
-Do recurso de página inicial do seu aplicativo no Application Insights, clique em Análise. p ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-using/001.png)
+Do recurso de página inicial do seu aplicativo no Application Insights, clique em Análise.
 
-O tutorial embutido fornecerá algumas ideias sobre o que você pode fazer.
+![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-using/001.png)
+
+O tutorial embutido oferece algumas ideias sobre o que você pode fazer.
 
 Há um [tour mais extenso aqui](app-insights-analytics-tour.md).
 
@@ -36,9 +38,9 @@ Há um [tour mais extenso aqui](app-insights-analytics-tour.md).
 
 ### Escreva uma consulta
 
-![](./media/app-insights-analytics-using/150.png)
+![Exibição de esquema](./media/app-insights-analytics-using/150.png)
 
-Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators). O IntelliSense solicitará os operadores e alguns dos elementos de expressão que você pode usar.
+Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators). O IntelliSense mostrará os operadores e alguns dos elementos de expressão que você pode usar.
 
 Confira a [Visão geral da linguagem do Analytics](app-insights-analytics-tour.md) e a [referência da linguagem](app-insights-analytics-reference.md).
 
@@ -62,7 +64,7 @@ Confira a [Visão geral da linguagem do Analytics](app-insights-analytics-tour.m
 
 ## Confierir os detalhes
 
-Expanda qualquer linha nos resultados para ver a lista completa das propriedades. Você pode expandir qualquer propriedade que seja um valor estruturado, por exemplo, dimensões personalizadas ou a pilha de listagem em uma exceção.
+Expanda qualquer linha nos resultados para ver a lista completa das propriedades. Você pode expandir qualquer propriedade que seja um valor estruturado; por exemplo, dimensões personalizadas ou a pilha de listagem em uma exceção.
 
 ![Expandindo uma linha](./media/app-insights-analytics-using/070.png)
 
@@ -100,7 +102,7 @@ Para classificar por mais de uma coluna, use o agrupamento. Primeiro habilite-o 
 
 ### Faltando alguns resultados?
 
-Há um limite de 10 mil linhas nos resultados retornados do portal. Um aviso será exibido se você ultrapassar o limite. Se isso acontecer, os resultados na tabela de classificação não mostrarão sempre todos os primeiros ou últimos resultados reais.
+Há um limite de 10 mil linhas nos resultados retornados do portal. Será exibido um aviso se você ultrapassar o limite. Se isso acontecer, os resultados na tabela de classificação não mostrarão sempre todos os primeiros ou últimos resultados reais.
 
 É recomendável evitar atingir o limite. Use operadores como:
 
@@ -115,13 +117,44 @@ Há um limite de 10 mil linhas nos resultados retornados do portal. Um aviso ser
 
 Selecione o tipo de diagrama que você deseja:
 
-![](./media/app-insights-analytics-using/230.png)
+![Selecionar um tipo de diagrama](./media/app-insights-analytics-using/230.png)
 
 Se você tiver várias colunas dos tipos corretos, você poderá escolher os eixos x e y, e uma coluna de dimensões pelas quais dividir os resultados.
 
 Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [diretiva de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
 
-Você pode fixar um diagrama para um dos seus [painéis compartilhados](app-insights-dashboards.md), basta clicar no pin. (Disponível somente para aplicativos em um tipo de preço pago.)
+## Fixar no painel
+
+Você pode fixar um diagrama em um dos seus [painéis compartilhados](app-insights-dashboards.md), basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso).
+
+![Clicar no marcador](./media/app-insights-analytics-using/pin-01.png)
+
+Isso significa que, quando você monta um painel para ajudar a monitorar o desempenho ou o uso de seus serviços Web, pode incluir análise bastante complexa juntamente com outras métricas.
+
+#### Atualização do painel
+
+O gráfico fixado no painel é atualizado de forma automática ao executar novamente a consulta aproximadamente a cada meia hora.
+
+#### Simplificações automáticas
+
+Em alguns casos, certas simplificações são aplicadas a um gráfico quando ele é fixado em um painel.
+
+Quando você fixa um gráfico que exibe o pin muitos compartimentos (normalmente um gráfico de barras), os compartimentos menos ocupados são automaticamente agrupados em um único compartimento do tipo "outros". Por exemplo, esta consulta:
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+tem esta aparência no Analytics:
+
+
+![Gráfico de cauda longa](./media/app-insights-analytics-using/pin-07.png)
+
+mas quando você a fixa a um painel, ela fica assim:
+
+
+![Gráfico com compartimentos limitados](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Exportar para o Excel
 
@@ -150,4 +183,4 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

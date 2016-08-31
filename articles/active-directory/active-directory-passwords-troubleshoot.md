@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # Como solucionar problemas de gerenciamento de senha
@@ -45,7 +45,7 @@ Se você não conseguir solucionar seu problema com as orientações abaixo, pod
 
     ![][001]
 
- - **ID de usuário**: qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
+ - **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
  - **Informações sobre o usuário**: o usuário era federado, a senha era sincronizada com hash, somente na nuvem? O usuário tinha uma licença AAD Premium ou AAD básica atribuída?
  - **Log de eventos do aplicativo**: se você estiver usando o write-back de senha e o erro estiver em sua infraestrutura local, compacte uma cópia do log e eventos do aplicativo do servidor do seu servidor Azure AD Connect AD e envie junto com sua solicitação.
 
@@ -456,7 +456,21 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Durante a reinicialização do serviço ADSync, se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, nós simplesmente registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o write-back de senha de ponto de extremidade não foi iniciado. Os detalhes do log de eventos para esse evento (6800) e as entradas do log de eventos para gerar o componente PasswordResetService indicarão por que o ponto de extremidade não pôde ser inicializado. Revise esses erros do log de eventos e tente reiniciar o Azure AD Connect se o Write-back de senha não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.</p>
             </td>
           </tr>
-          <tr>
+					<tr>
+            <td>
+              <p>Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. Além disso, você vê um evento no log de eventos do Azure AD Connect contendo: "O mecanismo de sincronização retornou um erro hr=800700CE, message=O nome de arquivo ou a extensão é muito longo" após a operação de desbloqueio ocorrer.
+							</p>
+            </td>
+            <td>
+              <p>Isso poderá ocorrer se você tiver atualizado de versões anteriores do Azure AD Connect ou DirSync. Atualizar para versões mais antigas do Azure AD Connect define uma senha de 254 caracteres para a conta do agente de gerenciamento do Azure AD (versões mais recentes definirão uma senha com comprimento de 127 caracteres). Essas senhas longas funcionam para operações de Importação e Exportação de Conector do AD, mas não têm suporte da operação de Desbloqueio.
+							</p>
+            </td>
+            <td>
+              <p>[Localize a conta do Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com no máximo 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
+							</p>
+            </td>
+          </tr>
+					<tr>
             <td>
               <p>Erro ao configurar o write-back durante a instalação do Azure AD Connect.</p>
             </td>
@@ -1501,4 +1515,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

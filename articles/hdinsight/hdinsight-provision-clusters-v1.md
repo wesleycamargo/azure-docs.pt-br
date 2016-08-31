@@ -51,7 +51,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
 	Você pode provisionar clusters HDInsight em um dos dois sistemas operacionais a seguir:
 	- **HDInsight no Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight no Linux (Ubuntu 12.04 LTS para Linux)**: o HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight no Linux**: o HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, migre de uma solução Hadoop baseada em Linux existente ou deseja fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versão do HDInsight**
@@ -105,7 +105,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 	Os clientes são cobrados pelo uso desses nós pela duração da vida útil do cluster. A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído (clusters não podem ser desalocados ou colocados em espera). O tamanho do cluster afeta seu preço. Para fins de aprendizado, é recomendável usar 1 nó de dados. Para obter mais informações sobre os preços do HDInsight, confira [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
-	>[AZURE.NOTE] O limite de tamanho do cluster varia segundo as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.
+	>[AZURE.NOTE] O limite de tamanho do cluster varia entre as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.
 	
 - **Rede virtual/região (ou seja, o local)**
 
@@ -238,7 +238,7 @@ Para obter informações sobre como usar o HDInsight com uma Rede Virtual, inclu
 ## Ferramentas de provisionamento
 
 - O Portal Clássico do Azure
-- PowerShell do Azure
+- Azure PowerShell
 - SDK .NET
 - CLI
 
@@ -480,7 +480,7 @@ Execute os seguintes procedimentos para configurar seu computador Linux para usa
 
 **Para conectar-se à sua assinatura do Azure**
 
-Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
+Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são usadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
 
 > [AZURE.NOTE] O arquivo de configurações de publicação contém informações confidenciais. A Microsoft recomenda excluir o arquivo ou executar etapas adicionais para criptografar a pasta do usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use Criptografia de Unidade de Disco BitLocker.
 
@@ -539,7 +539,7 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para baixar e importar as configurações de publicação**
 
-Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
+Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são usadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
 
 > [AZURE.NOTE] O arquivo de configurações de publicação contém informações confidenciais. A Microsoft recomenda excluir o arquivo ou executar etapas adicionais para criptografar a pasta do usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use o BitLocker.
 
@@ -815,4 +815,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

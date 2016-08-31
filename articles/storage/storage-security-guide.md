@@ -20,7 +20,7 @@
 
 ##Visão geral
 
-O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. A conta de armazenamento pode ser protegida usando o Controle de Acesso Baseado em Função e o Azure Active Directory. Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure usando a [Criptografia do cliente](storage-client-side-encryption.md), HTTPS ou SMB 3.0. Os dados podem ser definidos para serem criptografados automaticamente quando gravados no Armazenamento do Azure usando a [SSE (Criptografia do Serviço de Armazenamento)](storage-service-encryption.md). Os discos do sistema operacional e de dados usados pelas máquinas virtuais podem ser definidos para serem criptografados usando o [Azure Disk Encryption](../azure-security-disk-encryption.md). O acesso delegado aos objetos de dados no Armazenamento do Azure pode ser concedido usando [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md).
+O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. A conta de armazenamento pode ser protegida usando o Controle de Acesso Baseado em Função e o Azure Active Directory. Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure usando a [Criptografia do cliente](storage-client-side-encryption.md), HTTPS ou SMB 3.0. Os dados podem ser definidos para serem criptografados automaticamente quando gravados no Armazenamento do Azure usando a [SSE (Criptografia do Serviço de Armazenamento)](storage-service-encryption.md). Os discos do sistema operacional e de dados usados pelas máquinas virtuais podem ser definidos para serem criptografados usando o [Azure Disk Encryption](../security/azure-security-disk-encryption.md). O acesso delegado aos objetos de dados no Armazenamento do Azure pode ser concedido usando [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md).
 
 Este artigo apresentará uma visão geral de cada um desses recursos de segurança que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que darão detalhes de cada recurso, para que você possa investigar mais cada tópico mais aprofundadamente.
 
@@ -634,4 +634,4 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
 	Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

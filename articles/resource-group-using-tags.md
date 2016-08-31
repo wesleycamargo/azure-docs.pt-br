@@ -4,8 +4,8 @@
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/16/2016"
 	ms.author="tomfitz"/>
 
 
@@ -88,104 +88,7 @@ Atualmente, o Gerenciador de Recursos não dá suporte ao processamento de um ob
 
 ## PowerShell
 
-Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, basta obter um recurso ou grupo de recursos com **Get-AzureRmResource** ou **Get-AzureRmResourceGroup**. Vamos começar com um grupo de recursos.
-
-    Get-AzureRmResourceGroup -Name tag-demo-group
-
-Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluindo quais marcas foram aplicadas, se houver.
-
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name         Value
-                    ===========  ==========
-                    Dept         Finance
-                    Environment  Production
-
-Ao obter metadados para um recurso, as marcas não serão exibidas diretamente.
-
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
-
-Você verá nos resultados que as marcações são exibidas apenas como objeto Hashtable.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-Você pode exibir as marcações reais recuperando a propriedade **Tags**.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Ela retorna resultados formatados:
-    
-    Dept: Finance
-    Environment: Production
-
-Em vez de exibir as marcações de um determinado recurso ou grupo de recursos, você geralmente vai preferir recuperar todos os recursos ou grupos de recursos com uma determinada marcação e valor. Para obter os grupos de recursos com uma marca específica, use o cmdlet **Find-AzureRmResourceGroup** com o parâmetro **-Tag**.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
-Isso retorna os nomes dos grupos de recursos com esse valor de marcação.
-   
-    tag-demo-group
-    web-demo-group
-
-Para obter todos os recursos com uma determinada marcação e valor, use o cmdlet **Find-AzureRmResource**.
-
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
-    
-Ele retorna os nomes dos recursos com esse valor de marcação.
-    
-    tfsqlserver
-    tfsqldatabase
-
-Para adicionar uma marcação a um grupo de recursos sem marcações existentes, basta usar o comando **Set-AzureRmResourceGroup** e especificar um objeto de marcação.
-
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-
-Ele retorna o grupo de recursos com seus novos valores de marcação.
-
-    ResourceGroupName : test-group
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name          Value
-                    =======       =====
-                    Dept          IT
-                    Environment   Test
-                    
-Você pode adicionar marcações a um recurso sem marcações existentes usando o comando **Set-AzureRmResource**
-
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
-
-Marcações são atualizadas como um todo. Para adicionar uma marcação a um recurso que tem outras marcações, use uma matriz com todas as marcações que você deseja manter. Primeiro, selecione as marcações existentes, adicione uma a esse conjunto e reaplique todas as marcações.
-
-    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
-    Set-AzureRmResourceGroup -Name test-group -Tag $tags
-
-Para remover uma ou mais marcas, apenas salve a matriz sem aquela(s) que deseja remover.
-
-O processo é o mesmo para os recursos, exceto que você usa os cmdlets **Get-AzureRmResource** e **Set-AzureRmResource**.
-
-Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag**.
-
-    Get-AzureRmTag
-    Name                      Count
-    ----                      ------
-    env                       8
-    project                   1
-
-Você pode ver as marcas que começam com "hidden-" e "link:". Elas são marcações internas, que você deve ignorar e evitar alterar.
-
-Use o cmdlet **New-AzureRmTag** para adicionar novas marcas à taxonomia. Essas marcações estão incluídas no preenchimento automático, mesmo que elas ainda não tenham sido aplicadas a nenhum recurso ou grupo de recursos. Para remover um nome/valor de uma marca, primeiramente remova a marca de todos os recursos com os quais ela pode ser usada e, em seguida, use o cmdlet **Remove-AzureRmTag** para removê-la da taxonomia.
+[AZURE.INCLUDE [resource-manager-tag-resources](../includes/resource-manager-tag-resources-powershell.md)]
 
 ## CLI do Azure
 
@@ -281,4 +184,4 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 - Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 - Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

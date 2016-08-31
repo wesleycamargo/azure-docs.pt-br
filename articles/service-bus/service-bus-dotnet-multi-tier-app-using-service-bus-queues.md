@@ -43,7 +43,7 @@ Para enviar um pedido para processamento, o componente de UI de front-end, execu
 
 Usar o sistema de mensagens agenciado entre as camadas intermediárias e a Web separa os dois componentes. Ao contrário das mensagens diretas (isto é, TCP ou HTTP), a camada da Web não se conecta com a camada intermediária diretamente; em vez disso, envia unidades de trabalho, como mensagens, para o Barramento de Serviço, que mantém confiável até a camada intermediária estar pronta para os consumir e processar.
 
-O Barramento de Serviço fornece duas entidades para dar suporte ao sistema de mensagens agenciado: filas e tópicos. Com filas, cada mensagem enviada para a fila é consumida por um único destinatário. Tópicos dão suporte ao padrão de publicação/assinatura em que cada mensagem publicada é disponibilizada para uma assinatura registrada com o tópico. Cada assinatura mantém logicamente sua própria fila de mensagens. As assinaturas também podem ser configuradas com as regras de filtro que restringem o conjunto de mensagens passado para a fila de assinatura para aquelas que correspondem ao filtro. O exemplo a seguir usa filas do barramento de serviço.
+O Barramento de Serviço fornece duas entidades para dar suporte ao sistema de mensagens agenciado: filas e tópicos. Com filas, cada mensagem enviada para a fila é consumida por um único destinatário. Os tópicos dão suporte ao padrão de publicação/assinatura em que cada mensagem publicada é disponibilizada para uma assinatura registrada com o tópico. Cada assinatura mantém logicamente sua própria fila de mensagens. As assinaturas também podem ser configuradas com as regras de filtro que restringem o conjunto de mensagens passado para a fila de assinatura para aquelas que correspondem ao filtro. O exemplo a seguir usa filas do barramento de serviço.
 
 ![][1]
 
@@ -73,45 +73,11 @@ Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e c
 
 6.  Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
 
-## Criar um namespace do Barramento de Serviço
+## Criar um namespace
 
-A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS será gerada pelo sistema quando um namespace de serviço for criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
-### Configurar o namespace usando o portal clássico do Azure
-
-1.  Entre no [portal clássico do Azure][].
-
-2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
-
-3.  No painel inferior do portal, clique em **Criar**.
-
-    ![][6]
-
-4.  Na página **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
-
-    ![][7]
-
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação). Além disso, certifique-se de selecionar **Sistema de mensagens** no campo do namespace **Tipo** e **Padrão** no campo **Camada de mensagens**.
-
-    > [AZURE.IMPORTANT] Selecione a **mesma região** que pretende escolher para implantar o aplicativo. Isso lhe dará o melhor desempenho.
-
-6.  Clique na marca de seleção OK. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
-
-7.  Na janela principal, clique no nome do seu namespace de serviço.
-
-8. Clique em **Informações de Conexão**.
-
-9.  No painel **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave.
-
-    ![][35]
-
-10.  Anote estas credenciais ou copie-as para a área de transferência.
-
-11. Na mesma página do portal, clique na guia **Configurar** na parte superior da página.
-
-12. Copie a chave primária da política **RootManageSharedAccessKey** para a área de transferência ou cole-a no Bloco de notas. Você usará este valor posteriormente neste tutorial.
-
-	![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Criar uma função Web
 
@@ -147,7 +113,7 @@ Nesta seção, você compila o front-end de seu aplicativo. Primeiro, você cria
 
 6.  No **Gerenciador de Soluções**, no projeto **FrontendWebRole**, clique com botão direito em **Referências**, em seguida, clique em **Gerenciar Pacotes NuGet**.
 
-7.  Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
+7.  Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
 
     ![][13]
 
@@ -245,7 +211,7 @@ Nesta seção, você cria várias páginas que exibem seu aplicativo.
 
 7.  Clique em **Adicionar**.
 
-8.  Agora, altere o nome exibido do seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\_Layout.cshtml** para abrir no editor do Visual Studio.
+8.  Agora, você alterará o nome exibido de seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\_Layout.cshtml** para abrir no editor do Visual Studio.
 
 9.  Altere todas as ocorrências de **Meu aplicativo ASP.NET** para **Produtos da LITWARE**.
 
@@ -271,7 +237,7 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
 
 2.  Nomeie a classe **QueueConnector.cs**. Clique em **Adicionar** para criar a classe.
 
-3.  Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Substitua todo o conteúdo de QueueConnector.cs pelo código a seguir e insira valores para `your Service Bus namespace` (nome do namespace) e `yourKey`, que é a **chave primária** obtida anteriormente no [portal clássico do Azure][] na etapa 12 da seção "Criar um namespace do Barramento de Serviço".
+3.  Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Substitua todo o conteúdo de QueueConnector.cs pelo código a seguir e insira valores para `your Service Bus namespace` (nome do namespace) e `yourKey`, que é a **chave primária** obtida anteriormente no portal do Azure.
 
 	```
 	using System;
@@ -448,13 +414,13 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 
 Para obter mais informações sobre o Barramento de Serviço, consulte os seguintes recursos:
 
-* [Barramento de Serviço do Azure][sbmsdn]  
-* [Página de serviço do Barramento de Serviço][sbwacom]  
-* [Como usar as filas do Barramento de Serviço][sbwacomqhowto]  
+* [Barramento de Serviço do Azure][sbmsdn]
+* [Página de serviço do Barramento de Serviço][sbwacom]
+* [Como usar as filas do Barramento de Serviço][sbwacomqhowto]
 
 Para saber mais sobre os cenários com várias camadas, consulte:
 
-* [Aplicativo de várias camadas .NET usando tabelas de armazenamento, filas e blobs][mutitierstorage]  
+* [Aplicativo de várias camadas .NET usando tabelas de armazenamento, filas e blobs][mutitierstorage]
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -472,9 +438,6 @@ Para saber mais sobre os cenários com várias camadas, consulte:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [portal clássico do Azure]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -492,8 +455,6 @@ Para saber mais sobre os cenários com várias camadas, consulte:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -501,4 +462,4 @@ Para saber mais sobre os cenários com várias camadas, consulte:
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

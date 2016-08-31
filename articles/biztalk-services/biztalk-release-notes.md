@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/15/2016"
 	ms.author="deonhe"/>
 
 # Notas de versão dos Serviços BizTalk do Azure
@@ -29,7 +29,7 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 
 * Suporte para contas organizacionais:  
  * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta da Microsoft (como user@live.com). Nesse cenário, somente usuários com Contas da Microsoft podem gerenciar o Serviços BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta organizacional.  
- * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta organizacional no Active Directory do Azure (como user@fabrikam.com ou user@contoso.com). Nesse cenário, somente usuários do Active Directory do Azure dentro da mesma organização podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta da Microsoft.  
+ * **Cenário**: você registrou uma implantação do Serviço BizTalk usando uma conta organizacional em um Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Nesse cenário, somente usuários do Active Directory do Azure dentro da mesma organização podem gerenciar o Serviço BizTalk usando o portal dos Serviços BizTalk. Não é possível usar uma conta da Microsoft.
 * Ao criar um Serviço BizTalk no portal clássico do Azure, você é registrado automaticamente no Portal dos Serviços BizTalk .
  * **Cenário**: você entra no portal clássico do Azure, cria um Serviço BizTalk e seleciona **Gerenciar** pela primeira vez. Quando abre o portal dos Serviços BizTalk, o Serviço BizTalk é registrado automaticamente e está pronto para as suas implantações. Confira [Registrar e atualizar uma implantação do Serviço BizTalk no portal dos Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
@@ -54,8 +54,8 @@ Considere as seguintes situações com um projeto dos Serviços BizTalk em uma s
 * Na mesma solução do Visual Studio, há um projeto dos Serviços BizTalk e um projeto de associação personalizada. O projeto do Serviço BizTalk tem uma referência a esse arquivo do projeto de associação personalizada. 
 * O projeto do Serviço BizTalk tem uma referência a uma DLL de associação/comportamento personalizado.
 
-Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Recompila' ou 'Limpa' a solução. Depois disso, quando você recompila ou limpa novamente, ocorre o seguinte erro:  
-  não é possível copiar o arquivo <Path to DLL> para "bin\\Debug\\FileName.dll".O processo não pode acessar o arquivo 'bin\\Debug\\FileName.dll' porque ele está sendo usado por outro processo.
+Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Recompila' ou 'Limpa' a solução. Depois disso, quando você recompilar ou limpar novamente, ocorrerá o seguinte erro: 
+Não é possível copiar o arquivo <Caminho para DLL> para “bin\\Debug\\FileName.dll”. O processo não pode acessar o arquivo 'bin\\Debug\\FileName.dll' porque ele está sendo usado por outro processo.
 
 #### Solução alternativa
 * Se o [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) for instalado, você terá as duas opções a seguir:
@@ -98,7 +98,7 @@ Considere um cenário na seguinte ordem:
 
 * Abra o arquivo .bcs novamente no Gerenciador de Soluções.  
 Você observará que enquanto o arquivo .bridgeconfig associado tem o novo nome especificado, o nome da entidade na superfície de design ainda é o nome antigo. Ao tentar abrir a Configuração da Ponte clicando duas vezes no componente da ponte, você receberá o seguinte erro:  
-  '<old name>' O arquivo associado '<old name>.bridgeconfig' não existe.  
+‘<antigo nome>’ O arquivo associado ‘<antigo nome>.bridgeconfig’ da entidade não existe. 
 Para evitar este cenário, salve as alterações depois de renomear as entidades em um projeto do Serviço BizTalk.
 ### O projeto do Serviço BizTalk é compilado com êxito mesmo que um artefato tenha sido excluído de um projeto do Visual Studio
 Considere um cenário onde você adiciona um artefato (por exemplo, um arquivo XSD) a um projeto do Serviço BizTalk, inclui esse artefato na Configuração da Ponte (por exemplo, especificando-o como um tipo de mensagem de Solicitação) e exclui-o do projeto do Visual Studio. Nesse caso, a compilação do projeto não fornecerá nenhum erro desde que o artefato excluído esteja disponível no disco no mesmo local de onde foi incluído no projeto do Visual Studio.
@@ -120,7 +120,7 @@ Os adaptadores do BizTalk Adapter Pack dentro do recurso do Serviço do Adaptado
 > [AZURE.IMPORTANT] É recomendável usar o GACUtil.exe para instalar um arquivo no Cache de Assembly Global. O GACUtil.exe mostra como usar essa ferramenta e as opções de linha de comando do Visual Studio.
 
 ### Reiniciar o Site do Serviço do Adaptador do BizTalk
-Instalar o **Tempo de Execução do Serviço do Adaptador do BizTalk*** cria o site **Serviço do Adaptador do BizTalk** no IIS que contém o aplicativo **BAService**. O aplicativo **BAService** usa associação de retransmissão internamente para estender o alcance do ponto de extremidade de serviço local para a nuvem. Para um serviço hospedado localmente, o ponto de extremidade de retransmissão correspondente será registrado no Barramento de Serviço somente quando o serviço local for iniciado.
+Instalar a **Execução do Serviço do Adaptador do BizTalk*** cria o site da Web **Serviço do Adaptador do BizTalk** no IIS que contém o aplicativo **BAService**. O aplicativo **BAService** usa associação de retransmissão internamente para estender o alcance do ponto de extremidade do serviço local para a nuvem. Para um serviço hospedado localmente, o ponto de extremidade de retransmissão correspondente será registrado no Barramento de Serviço somente quando o serviço local for iniciado.
 
 Se você interromper e iniciar um aplicativo, a configuração para iniciar automaticamente um aplicativo não será respeitada. Portanto, quando o **BAService** é interrompido, você sempre deve reiniciar o site do **Serviço do Adaptador do BizTalk**. Não inicie ou interrompa o aplicativo **BAService**.
 ### Caracteres especiais não devem ser usados para nomes de endereços e entidades de componentes LOB
@@ -177,7 +177,7 @@ Há um Contrato AS2 ou EDI com lotes ativos. Quando o Serviço BizTalk for atual
 ### ATUALIZAÇÃO: a caixa de ferramentas mostra os ícones de ponte antigos depois de atualizar o SDK dos Serviços BizTalk
 Depois de atualizar uma versão anterior do SDK dos Serviços BizTalk, que tinha ícones antigos representando as pontes, a caixa de ferramentas continua mostrando os ícones antigos das pontes. No entanto, se você adicionar uma ponte à superfície de designer de projeto do Serviço BizTalk, a superfície mostrará o novo ícone.
 
-**Solução alternativa**. Você pode contornar esse problema excluindo os arquivos .tbd em <system drive>:\\Users<usuário>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
+**Solução alternativa**. Você pode contornar esse problema excluindo os arquivos .tbd em <unidade sistema drive>:\\Users<usuário>\\AppData\\Local\\Microsoft\\VisualStudio\\11.0.
 
 ### ATUALIZAÇÃO: a atualização do Portal do BizTalk da Visualização para a GA pode mostrar um erro indicando que a capacidade do EDI não está disponível
 Se você estiver conectado ao Portal dos Serviços BizTalk quando os Serviços BizTalk forem atualizados da Visualização para a GA, poderá obter o seguinte erro no portal:
@@ -186,7 +186,7 @@ Este recurso não está disponível como parte desta edição dos Serviços BizT
 
 **Resolução**: saia do portal, feche e abra o navegador e faça logon no portal.
 ### ATUALIZAÇÃO: os novos dados de rastreamento não aparecem depois que os Serviços BizTalk são atualizados para a GA
-Imagine um cenário onde você tem uma ponte XML implantada na assinatura de Visualização dos Serviços BizTalk. Você envia mensagens à ponte e o controle de dados correspondente está disponível no Portal dos Serviços BizTalk. Agora, se os bits de tempo de execução do Portal dos Serviços BizTalk e os Serviços BizTalk forem atualizados para a GA e você enviar uma mensagem para o mesmo ponto de extremidade de ponte implantado anteriormente, os dados de rastreamento não aparecerão para mensagens enviadas depois da atualização.
+Imagine um cenário no qual você tem uma ponte XML implantada na assinatura de Visualização dos Serviços BizTalk. Você envia mensagens à ponte e o controle de dados correspondente está disponível no Portal dos Serviços BizTalk. Agora, se os bits de tempo de execução do Portal dos Serviços BizTalk e os Serviços BizTalk forem atualizados para a GA e você enviar uma mensagem para o mesmo ponto de extremidade de ponte implantado anteriormente, os dados de rastreamento não aparecerão para mensagens enviadas depois da atualização.
 
 ### Pipelines vs. Pontes
 Ao longo deste documento, os termos 'pipelines' e 'pontes' são usados de forma intercambiável. Ambos significam essencialmente a mesma coisa, isto é, uma unidade de processamento de mensagens implantada nos Serviços BizTalk.
@@ -195,4 +195,4 @@ Ao longo deste documento, os termos 'pipelines' e 'pontes' são usados de forma 
 
 [Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

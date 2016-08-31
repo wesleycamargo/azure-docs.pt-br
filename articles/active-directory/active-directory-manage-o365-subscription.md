@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Gerenciar o diretório para sua assinatura do Office 365 no Azure
@@ -59,6 +59,6 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 3.	Adicionar Brenda Fernandes como coadministradora da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite **JohnDoe@Contoso.com**.
 
 ## Próximas etapas
-Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
+Para obter mais informações sobre a relação entre assinaturas e diretórios, confira [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

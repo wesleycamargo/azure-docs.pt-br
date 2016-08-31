@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrar seus dados
@@ -24,13 +24,13 @@ Em primeiro lugar, este artigo descreve os cenários de migração simples por C
 ## Cópia do ADF (Azure Data Factory)
 A [Cópia do ADF][] faz parte do [Azure Data Factory][]. Você pode usar a Cópia do ADF para exportar dados para arquivos simples que residem no armazenamento local, arquivos simples remotos mantidos no armazenamento de blob do Azure ou diretamente no SQL Data Warehouse.
 
-Se seus dados começam em arquivos simples, você precisará transferi-los para o blob de armazenamento antes de carregá-los no SQL Data Warehouse. Depois que os dados são transferidos para o armazenamento de blob do Azure, você poderá optar por usar a [Cópia do ADF][] novamente para enviar os dados ao SQL Data Warehouse.
+Se seus dados começam em arquivos simples, você precisará transferi-los para o blob de armazenamento antes de carregá-los no SQL Data Warehouse. Depois que os dados são transferidos para o armazenamento de blobs do Azure, você poderá optar por usar a [Cópia do ADF][] novamente para enviar os dados por push ao SQL Data Warehouse.
 
 O PolyBase também fornece uma opção de desempenho bastante alto para carregamento dos dados. No entanto, isso significa usar duas ferramentas em vez de uma. Se precisar de melhor desempenho, use o PolyBase. Se deseja uma experiência de ferramenta única (e os dados não forem pesados), o ADF é a melhor opção.
 
 > [AZURE.NOTE] O PolyBase exige que os arquivos de dados estejam em UTF-8. Essa é a codificação padrão da Cópia do ADF; sendo assim, nada precisa ser alterado. Este é apenas um lembrete para não mudar o comportamento padrão da Cópia do ADF.
 
-Acesse o seguinte artigo para ver alguns ótimos [exemplos de Cópia do ADF][].
+Acesse o seguinte artigo para ver alguns ótimos [exemplos de ADF][].
 
 ## Serviços de integração ##
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.
@@ -173,9 +173,9 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[Cópia do ADF]: ../data-factory/data-factory-copy-activity.md
-[exemplos de Cópia do ADF]: ../data-factory/data-factory-copy-activity-examples.md
-[Visão geral de desenvolvimento]: sql-data-warehouse-develop-overview.md
+[exemplos de ADF]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[Visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
 [Migrar sua solução para o SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Usar o bcp para carregar dados no SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
@@ -194,4 +194,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

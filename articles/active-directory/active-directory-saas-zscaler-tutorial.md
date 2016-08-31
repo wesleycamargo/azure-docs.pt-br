@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/25/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zscaler
@@ -85,7 +85,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Zscaler**, realize as seguintes etapas:
 
-    ![Configurar logon único](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-zscaler-tutorial/IC769232.png "Configurar o logon único")
 
     1.  Clique em **Baixar certificado** e salve o certificado localmente como **c:\\Zscaler.cer**.
     2.  Copie a **URL de solicitação de autenticação** na área de transferência.
@@ -125,7 +125,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configurar logon único](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configurar o logon único")
 
 ##Definindo as configurações de proxy
 
@@ -186,7 +186,7 @@ Para permitir que os usuários do AD do Azure façam logon no ZScaler, eles deve
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao ZScaler, execute as seguintes etapas:
 
@@ -200,6 +200,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

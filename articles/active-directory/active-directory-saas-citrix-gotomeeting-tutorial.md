@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Citrix GoToMeeting  
@@ -79,7 +79,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 2.  Na página **Como você deseja que os usuários façam logon no Citrix GoToMeeting**, selecione **Logon Único do AD do Microsoft Azure**.
 
-    ![Configurar o logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Configurar o logon único")
 
 
 3. Na página **Definir Configurações de Aplicativo** clique em **Próximo**.
@@ -88,7 +88,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Citrix GoToMeeting**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configurar o logon único")
 
 5.  Em uma janela de navegador diferente, faça logon no seu Citrix Organization Center ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/)).
 
@@ -115,7 +115,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 6.  No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configurar o logon único")
 
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**.
@@ -146,7 +146,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 	b. Na caixa de texto **Senha do Administrador do Citrix GoToMeeting**, digite a senha do administrador.
 
     
-	c. Clique em **Próximo**.
+	c. Clique em **Avançar**.
 
 3.  Em seguida, na página **Confirmação**, clique na marca de seleção para salvar sua configuração.
 
@@ -155,7 +155,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 ##Atribuindo usuários
 
-Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Citrix GoToMeeting, execute as seguintes etapas:
 
@@ -183,4 +183,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 
 Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->
