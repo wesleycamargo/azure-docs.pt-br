@@ -97,6 +97,9 @@ Oeste do Japão | Leste do Japão
 Sul do Brasil | Sul do Brasil
 Leste da Austrália | Leste da Austrália
 Sudeste da Austrália | Sudeste da Austrália
+Índia Central | Índia Central
+Sul da Índia | Índia Central
+Índia Ocidental | Índia Central
 
 
 > [AZURE.NOTE] Se a região do repositório de dados de destino não estiver na lista acima, a Atividade de Cópia falhará em vez de passar por uma região alternativa.
@@ -185,4 +188,4 @@ Você pode encontrar o mapeamento para um determinado sistema de tipo nativo par
 - Confira [Mover dados entre repositórios de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre como mover dados de um repositório de dados local para um repositório de dados na nuvem.
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

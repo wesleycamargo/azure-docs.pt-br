@@ -58,8 +58,8 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
     Propriedade|Descrição
     ---|---
     Nome da fonte de dados|Forneça um nome para a sua fonte de dados
-    Host|Insira <HDInsightClusterName>.azurehdinsight.net. Por exemplo, meu\_Cluster\_HDI.azurehdinsight.net
-    Porta|Use <strong>443</strong>. (Essa porta foi alterada de 563 para 443.)
+    Host|Digite &lt;HDInsightClusterName>.azurehdinsight.net. Por exemplo, meu\_Cluster\_HDI.azurehdinsight.net
+    Port|Use <strong>443</strong>. (Essa porta foi alterada de 563 para 443.)
     Banco de dados|Use <strong>Padrão</strong>.
     Tipo de servidor Hive|Selecione <strong>Servidor Hive 2</strong>
     Mecanismo|Selecione <strong>Serviço do Azure HDInsight</strong>
@@ -131,4 +131,4 @@ Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recupera
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

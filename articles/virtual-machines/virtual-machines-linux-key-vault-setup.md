@@ -3,7 +3,7 @@
 	description="Como configurar um Cofre de Chaves para uso com uma máquina virtual do Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="rothja"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -49,4 +49,4 @@ Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` co
 
 Para encontrar outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chaves](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

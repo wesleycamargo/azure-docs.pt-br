@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/27/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
     
 # Largura de banda de rede do Azure RemoteApp - diretrizes gerais (se não puder testar a sua)
 
-Se você não tiver tempo ou capacidade de executar os [testes de largura de banda de rede](remoteapp-bandwidthtests.md) para o Azure RemoteApp, aqui estão algumas diretrizes bastante genéricas que poderão ajudá-lo a estimar a largura de banda de rede por usuário.
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+
+Caso você não tenha tempo nem capacidade de executar os [testes de largura de banda de rede](remoteapp-bandwidthtests.md) para o Azure RemoteApp, aqui estão algumas diretrizes bastante genéricas que poderão ajudá-lo a estimar a largura de banda de rede por usuário.
 
 Caso você tenha uma combinação desses cenários, nós não recomendamos nada menor que (ou igual a) 10 MB/s, como a largura de banda de rede MÍNIMA para aplicativos modernos conectados à Internet em um ambiente remoto. (Embora, conforme discutido, isso não assegure uma experiência de usuário acima da média.)
 
@@ -43,4 +46,4 @@ Esse é um cenário de uso de baixa largura de banda. A 256 KB/s fornecemos uma 
 
 - [Azure RemoteApp - testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

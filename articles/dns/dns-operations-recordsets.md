@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Gerenciar registros DNS e conjuntos de registros usando o PowerShell
@@ -151,7 +151,7 @@ Neste exemplo, adicionamos dois registros MX adicionais ao conjunto de registros
 
 ## Remover um registro em um conjunto de registros existente
 
-Os registros podem ser removidos de um conjunto de registros usando `Remove-AzureRmDnsRecordConfig`. Observe que o registro que está sendo removido deve ser uma correspondência exata com um registro existente em todos os parâmetros. As alterações devem ser confirmadas usando `Set-AzureRmDnsRecordSet`.
+Os registros podem ser removidos de um conjunto de registros usando `Remove-AzureRmDnsRecordConfig`. O registro que está sendo removido deve ser uma correspondência exata com um registro existente, em todos os parâmetros. As alterações devem ser confirmadas usando `Set-AzureRmDnsRecordSet`.
 
 Remover o último registro de um conjunto de registros não exclui o conjunto de registros. Consulte [Excluir um conjunto de registros](#delete-a-record-set) abaixo para saber mais.
 
@@ -237,4 +237,4 @@ Para obter mais informações sobre o DNS do Azure, consulte [Visão geral do DN
 
 Para obter mais informações sobre os registros DNS reversos, consulte [Como gerenciar os registros DNS reversos para seus serviços usando o PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

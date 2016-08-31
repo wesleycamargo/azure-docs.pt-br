@@ -12,23 +12,26 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="05/20/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus comentários. Aqui estão as linhas de tempo aproximadas para disponibilidade futura de recursos.
 
 |Recurso|Abril-junho de 2016|Julho/set de 2016|
 |-----------|-------|-------|
-|Aplicativo Remoto do Azure disponível no [Portal Clássico do Azure](http://manage.windowsazure.com) e no [Portal do Azure](https://portal.azure.com) - Visualização privada|X | |
-|Capacidade de publicar aplicativos individuais para usuários específicos – Visualização privada ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
-|Pacote MSI redistribuível do cliente do Windows ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - Visualização privada| X| |
-|Suporte do ARM (Gerenciador de Recursos do Azure)||X|
-|Suporte a recurso v2 do Azure| |X|
-|Programa do CSP (Provedor de Soluções na Nuvem)||X|
-|Disponibilidade na região da Índia||X|
-|Disponibilidade na região do Reino Unido||X|
+|Aplicativo Remoto do Azure disponível no [Portal Clássico do Azure](http://manage.windowsazure.com) e no [Portal do Azure](https://portal.azure.com) - Visualização privada| | |
+|Capacidade de publicar aplicativos individuais para usuários específicos – Visualização privada ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))| | |
+|Pacote MSI redistribuível do cliente do Windows ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - Visualização privada| | |
+|Suporte do ARM (Gerenciador de Recursos do Azure)|||
+|Suporte a recurso v2 do Azure| ||
+|Programa do CSP (Provedor de Soluções na Nuvem)|||
+|Disponibilidade na região da Índia|||
+|Disponibilidade na região do Reino Unido|||
 
 
 Outros aperfeiçoamentos adicionados no início deste ano:
@@ -47,4 +50,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

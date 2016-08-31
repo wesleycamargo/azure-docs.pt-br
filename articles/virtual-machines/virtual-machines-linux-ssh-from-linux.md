@@ -23,9 +23,14 @@
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
+
 Este tópico descreve como usar **ssh-keygen** e **openssl** em Linux e Mac para criar e usar arquivos no formato **ssh-rsa** e no formato **.pem** a fim de proteger a comunicação com VMs do Azure baseadas em Linux. A criação e Máquinas virtuais do Azure baseadas em Linux usando o modelo de implantação do Gerenciador de Recursos é recomendada para novas implantações e utiliza um arquivo ou cadeia de caracteres de chave pública do tipo *ssh-rsa* (dependendo do cliente de implantação). No momento, o [portal do Azure](https://portal.azure.com) aceita apenas as cadeias de caracteres no formato **ssh-rsa** para implantações clássicas ou do Gerenciador de Recursos.
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Para criar esses tipos de arquivos e usá-los em um computador com Windows para comunicar-se com segurança com VMs Linux no Azure, consulte [Usar chaves SSH no Windows](virtual-machines-linux-ssh-from-windows.md).
+
+> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Para criar esses tipos de arquivos e usá-los em um computador com Windows para comunicar-se com segurança com VMs Linux no Azure, consulte [Usar chaves SSH no Windows](virtual-machines-linux-ssh-from-windows.md).
 
 ## De quais arquivos você precisa?
 
@@ -33,8 +38,8 @@ Uma configuração ssh básica para o Azure inclui um par de chaves **ssh-rsa** 
 
 Estes são os cenários de implantação e os tipos de arquivo que você usa em cada um deles:
 
-1. As chaves **ssh-rsa** são necessárias para qualquer implantação que usa o [portal do Azure](https://portal.azure.com), independentemente do modelo de implantação.
-2. O arquivo .pem é necessário para criar VMs usando o [portal clássico](https://manage.windowsazure.com). Arquivos .pem também recebem suporte em implantações clássicas que usam a [CLI do Azure](../xplat-cli-install.md). 
+1. As chaves **ssh-rsa** são necessárias para qualquer implantação que usa o [Portal do Azure](https://portal.azure.com), independentemente do modelo de implantação.
+2. O arquivo .pem é necessário para criar VMs usando o [portal clássico](https://manage.windowsazure.com). Arquivos .pem também recebem suporte em implantações clássicas que usam a [CLI do Azure](../xplat-cli-install.md).
 
 ## Criar chaves para uso com SSH
 
@@ -42,7 +47,7 @@ Se você já tiver essas chaves SSH, passe o arquivo de chave pública ao criar 
 
 Se você precisar criar os arquivos:
 
-1. Verifique se sua implementação de **ssh-keygen** e **openssl** está atualizada. Isso varia de acordo com a plataforma. 
+1. Verifique se sua implementação de **ssh-keygen** e **openssl** está atualizada. Isso varia de acordo com a plataforma.
 
 	- Para Mac, visite o [site de Segurança de produtos da Apple](https://support.apple.com/HT201222) e escolha as atualizações adequadas, se for necessário.
 	- Para distribuições Linux com base em Debian, como Ubuntu, Debian, Mint etc:
@@ -81,7 +86,7 @@ Depois de criar os arquivos necessários, há muitas maneiras de criar uma VM co
 
 ### Exemplo: criando uma VM com o arquivo id\_rsa.pub
 
-O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa.pub`) para o comando `azure vm create`. (Os outros argumentos, como conta de armazenamento e grupo de recursos, foram criados anteriormente.). Este exemplo usa o método de implantação do Resource Manager, portanto, garanta que a CLI do Azure esteja configurada adequadamente com `azure config mode arm`:
+O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa.pub`) para o comando `azure vm create`. (Os outros argumentos, como conta de armazenamento e grupo de recursos, foram criados anteriormente.). Este exemplo usa o método de implantação do Gerenciador de Recursos, portanto, verifique se a CLI do Azure está configurada adequadamente com `azure config mode arm`:
 
 	azure vm create \
 	--nic-name testnic \
@@ -134,7 +139,7 @@ O próximo exemplo mostra o uso do formato **ssh-rsa** com um modelo do Gerencia
 
 ### Exemplo: criando uma VM com um arquivo .pem
 
-Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo de implantação clássico (`azure config mode asm`) e `azure vm create`, conforme o exemplo a seguir:
+Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo de implantação clássico (`azure config mode asm`) e `azure vm create`, conforme no exemplo a seguir:
 
 	azure vm create \
 	-l "West US" -n testpemasm \
@@ -251,7 +256,7 @@ Se você não usou a porta SSH padrão 22 ao criar a máquina virtual, será pos
 
 ### Exemplo: saída da sessão SSH usando chaves .pem e a implantação clássica
 
-Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.ssh/id_rsa`, poderá direcionar o ssh para essa VM. Observe que quando você faz isso, o handshake de certificado usará sua chave privada em `~/.ssh/id_rsa`. (O processo de criação de VM calcula a chave pública do .pem e coloca o formulário ssh-rsa da chave pública no `~/.ssh/authorized_users`.) A conexão deverá parecer com o exemplo a seguir:
+Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.ssh/id_rsa`, poderá direcionar o ssh para essa VM. Observe que quando você faz isso, o handshake de certificado usará sua chave privada em `~/.ssh/id_rsa`. (O processo de criação da VM calcula a chave pública do .pem e coloca o formulário ssh-rsa da chave pública no `~/.ssh/authorized_users`.) A conexão deverá parecer com o exemplo a seguir:
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
@@ -293,4 +298,4 @@ Leia as sugestões em [Solucionando problemas de conexões SSH](virtual-machines
  
 Agora que você conectou-se à sua VM, atualize sua distribuição escolhida antes de continuar a usá-la.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

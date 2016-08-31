@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Criar uma solução IOT usando o Stream Analytics | Microsoft Azure" 
 	description="introdução ao tutorial para a solução de iot do Stream Analytics de um cenário de pedágio"
-	keywords=""
+	keywords="solução de iot, funções da janela"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -42,7 +42,7 @@ Você terá os seguintes pré-requisitos para concluir este tutorial com êxito.
 -   [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilégios administrativos no computador
 -   Baixar [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) do Centro de Download da Microsoft
--   Opcional: código-fonte do gerador de evento TollApp no [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
+-   Opcional: código-fonte do gerador de evento TollApp no [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Introdução ao cenário - “Olá, pedágio!”
 
@@ -58,8 +58,8 @@ Trabalharemos com dois fluxos de dados que são produzidos por sensores instalad
 ### Transmissão de dados de entrada
 
 A transmissão de dados de entrada contém informações sobre carros que estão entrando nas estações de pedágio.
-  
-  
+
+
 | ID de pedágio | EntryTime | PlacaDeCarro | Estado | Faça | Modelo | Tipo de veículo | Peso do veículo | Pedágio | Marca |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1 | 2014-09-10 12:01:00.000 | JNB 7001 | NOVA IORQUE | Honda | CRV | 1 | 0 | 7 | |
@@ -68,11 +68,11 @@ A transmissão de dados de entrada contém informações sobre carros que estão
 | 2 | 2014-09-10 12:03:00.000 | 1003 XYZ | CT | Toyota | Corolla | 1 | 0 | 4 | |
 | 1 | 2014-09-10 12:03:00.000 | 1007 BNJ | NOVA IORQUE | Honda | CRV | 1 | 0 | 5 | 789123456 |
 | 2 | 2014-09-10 12:05:00.000 | CDE 1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |
-  
+
 
 Aqui está uma breve descrição das colunas:
-  
-  
+
+
 | TollID | A ID da cabine de pedágio identifica exclusivamente uma cabine de pedágio |
 |--------------|----------------------------------------------------------------|
 | EntryTime | A data e hora da entrada do veículo na cabine de pedágio em UTC |
@@ -89,8 +89,8 @@ Aqui está uma breve descrição das colunas:
 ### Transmissão de dados de saída
 
 A transmissão de dados de saída contém informações sobre os carros que estão saindo da estação de pedágio.
-  
-  
+
+
 | **TollId** | **ExitTime** | **PlacaDeCarro** |
 |------------|------------------------------|------------------|
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB 7001 |
@@ -101,8 +101,8 @@ A transmissão de dados de saída contém informações sobre os carros que est�
 | 2 | 2014-09-10T12:07:00.0000000Z | CDE 1007 |
 
 Aqui está uma breve descrição das colunas:
-  
-  
+
+
 | Coluna | Descrição |
 |--------------|-----------------------------------------------------------------|
 | TollID | A ID da cabine de pedágio identifica exclusivamente uma cabine de pedágio |
@@ -112,8 +112,8 @@ Aqui está uma breve descrição das colunas:
 ### Dados de registro de veículo comercial
 
 Usaremos um instantâneo estático do banco de dados de registro de veículo comercial.
-  
-  
+
+
 | PlacaDeCarro | RegistrationId | Expirado |
 |--------------|----------------|---------|
 | SVT 6023 | 285429838 | 1 |
@@ -121,11 +121,11 @@ Usaremos um instantâneo estático do banco de dados de registro de veículo com
 | BAC 1005 | 876133137 | 1 |
 | RIV 8632 | 992711956 | 0 |
 | SNY 7188 | 592133890 | 0 |
-| ELH 9896 | 678427724 | 1 |                      
+| ELH 9896 | 678427724 | 1 |
 
 Aqui está uma breve descrição das colunas:
-  
-  
+
+
 | Coluna | Descrição |
 |--------------|-----------------------------------------------------------------|
 | PlacaDeCarro | Número da placa de licença do veículo |
@@ -213,7 +213,7 @@ Clique no contêiner “tolldata” para ver o arquivo JSON carregado com os dad
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image13.png)
 
-### Banco de Dados SQL do Azure
+### Banco de Dados SQL Azure
 
 Clique no item de menu “bancos de dados SQL” no lado esquerdo do Portal de Gerenciamento do Azure para ver o banco de dados SQL que será usado no laboratório.
 
@@ -246,22 +246,22 @@ Conecte-se ao banco de dados (o destino) do Azure do Visual Studio:
 6) Escolha TollDataDB como o banco de dados
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
-    
+
 7) Clique em OK.
 
 8) Abra o Gerenciador de Servidores
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-  
+
 9) Confira quatro tabelas criadas no banco de dados TollDataDB.
-  
+
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
-  
+
 ## Gerador de evento - projeto de exemplo TollApp
 
 O script do PowerShell inicia automaticamente o envio de eventos usando o programa TollApp do aplicativo de exemplo. Você não precisa executar nenhuma etapa adicional.
 
-No entanto, se estiver interessado nos detalhes da implementação, você encontrará o código-fonte do aplicativo TollApp no GitHub [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp)
+No entanto, se estiver interessado nos detalhes da implementação, você encontrará o código-fonte do aplicativo TollApp no GitHub [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source)
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -376,9 +376,7 @@ Digamos que precisamos contar o número de veículos que entram em uma cabine pe
 
 Vamos analisar a consulta do Stream Analytics do Azure ao responder essa pergunta:
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count FROM EntryStream TIMESTAMP BY EntryTime GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 Como você pode ver, o Stream Analytics do Azure está usando uma linguagem de consulta do tipo SQL com algumas extensões adicionais para habilitar, especificando os aspectos relacionados ao tempo da consulta.
 
@@ -418,11 +416,7 @@ Queremos localizar o tempo médio necessário para o carro passar pelo pedágio 
 
 Para isso, precisamos associar a transmissão contendo EntryTime com a transmissão contendo ExitTime. Uniremos os fluxos nas colunas TollId e LicencePlate. O operador JOIN exige a especificação de um espaço de manobra temporal descrevendo a diferença de tempo aceitável entre os eventos associados. Usaremos a função DATEDIFF para especificar que os eventos não devem ter um intervalo maior de 15 minutos entre si. Também aplicaremos a função DATEDIFF nas horas de Entrada e Saída para computar o tempo real que um carro gasta em um pedágio. Observe a diferença do uso da DATEDIFF quando usada em uma instrução SELECT em comparação com uma condição JOIN.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes FROM EntryStream TIMESTAMP BY EntryTime JOIN ExitStream TIMESTAMP BY ExitTime ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate) AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 Para testar essa consulta, atualize a consulta na guia de consulta do trabalho:
 
@@ -442,11 +436,7 @@ O Stream Analytics do Azure pode usar instantâneos estáticos de dados para se 
 
 Se um veículo comercial é registrado com a Empresa de Pedágio, ele pode passar pelo pedágio sem ser parado para inspeção. Usaremos a tabela de pesquisa de Registro de Veículo Comercial para identificar todos os veículos comerciais com o registro expirado.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId FROM EntryStream TIMESTAMP BY EntryTime JOIN Registration ON EntryStream.LicensePlate = Registration.LicensePlate WHERE Registration.Expired = '1'
 
 Observe que testar uma consulta com Dados de Referência requer que uma fonte de entrada para os Dados de Referência seja definida, o que fizemos na etapa 5.
 
@@ -485,9 +475,7 @@ Abra o Gerenciador de Servidores do Visual Studio e clique com o botão direito 
 
 O Stream Analytics do Azure foi projetado para dimensionar elasticidade e ser capaz de lidar com a alta carga de dados. A consulta do Stream Analytics do Azure pode usar uma cláusula **PARTITION BY** para informar ao sistema que esta etapa será escalável horizontalmente. PartitionId é uma coluna especial adicionada pelo sistema que corresponde à ID da partição de entrada (Hub de Eventos)
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 Interromper o trabalho atual, atualizar a consulta no guia de consulta e abrir a guia Escala.
 
@@ -535,4 +523,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

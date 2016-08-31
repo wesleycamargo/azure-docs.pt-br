@@ -87,9 +87,9 @@ Baixe e extraia o appender apropriado, em seguida adicione a biblioteca apropria
 
 Agente | Baixar | Biblioteca
 ----|----|----
-Logback|[SDK com appender de Logback](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK com appender de Log4J v2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK com appender de Log4J v1.2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[SDK com appender de Logback](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J v2.0|[SDK com appender de Log4J v2](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK com appender de Log4J v1.2](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -151,4 +151,4 @@ Agora que você configurou o projeto para enviar os rastreamentos para Applicati
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

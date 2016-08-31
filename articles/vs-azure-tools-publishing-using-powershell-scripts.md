@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste
@@ -322,7 +322,7 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 |Find-AzureVM|Obtém a máquina virtual especificada do Azure.|
 |Format-DevTestMessageWithTime|Anexa data e hora a uma mensagem. Essa função destina-se a mensagens gravadas em fluxos de erro e detalhes.|
 |Get-AzureSQLDatabaseConnectionString|Monta uma cadeia de conexão para se conectar a um banco de dados SQL do Azure.|
-|Get-AzureVMStorage|Retorna o nome da primeira conta de armazenamento com o nome padrão "devtest *" (não diferencia maiúsculas de minúsculas) no local especificado ou grupo de afinidades. Se a conta de armazenamento "devtest*" não corresponder ao local ou grupo de afinidades, a função a ignorará. Você deve especificar um local ou um grupo de afinidades.|
+|Get-AzureVMStorage|Retorna o nome da primeira conta de armazenamento com o nome padrão "devtest*" (não diferencia maiúsculas de minúsculas) no local especificado ou grupo de afinidades. Se a conta de armazenamento "devtest*" não corresponder ao local ou grupo de afinidades, a função a ignorará. Você deve especificar um local ou um grupo de afinidades.|
 |Get-MSDeployCmd|Retorna um comando para executar a ferramenta MsDeploy.exe.|
 |New-AzureVMEnvironment|Encontra ou cria uma máquina virtual na assinatura que corresponde aos valores no arquivo de configuração JSON.|
 |Publish-WebPackage|Usa MsDeploy.exe e um arquivo .zip para implantar recursos em um site. Essa função não gera nenhuma saída. Se a chamada para MSDeploy.exe falhar, a função gerará uma exceção. Para obter uma saída mais detalhada, use a opção **-Verbose**.|
@@ -351,4 +351,4 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

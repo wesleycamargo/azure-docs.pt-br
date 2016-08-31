@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o armazenamento de Tabela do Azure por meio do Node.js | Microsoft Azure"
-	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um armazenamento de dados NoSQL."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="micurd"/>
 
 
 # Como usar o armazenamento de Tabela do Azure por meio do Node.js
 
-[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
-
+[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Visão geral
 
-Este tópico mostra como executar cenários comuns usando o serviço Tabela do Azure em um aplicativo Node.js.
+Este tópico mostra como executar cenários comuns usando o serviço Tabela do Azure em um aplicativo do Node.js.
 
-Os exemplos de código neste tópico pressupõem que você já tenha um aplicativo Node.js. Para obter informações sobre como criar um aplicativo do Node.js no Azure, confira um destes tópicos:
+Os exemplos de código neste tópico pressupõem que você já tenha um aplicativo do Node.js. Para obter informações sobre como criar um aplicativo do Node.js no Azure, confira um destes tópicos:
 
 - [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
 - [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
@@ -59,7 +58,7 @@ Para usar o Armazenamento do Azure, você precisa do SDK do Armazenamento do Azu
 		+-- xml2js@0.2.7 (sax@0.5.2)
 		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
+3.  Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
 ### Importar o pacote
 
@@ -71,7 +70,7 @@ Adicione o código a seguir à parte superior do arquivo **server.js** em seu ap
 
 O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **TableService**.
 
-Para obter um exemplo de como definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um site do Azure, consulte [Aplicativo Web do Node.js usando o serviço de tabela do Azure].
+Para obter um exemplo de como definir as variáveis de ambiente no [Portal do Azure](https://portal.azure.com) para um site do Azure, confira [Aplicativo Web Node.js com o Serviço Tabela do Azure].
 
 ## Criar uma tabela
 
@@ -159,7 +158,7 @@ Resposta de exemplo:
 
 Há vários métodos disponíveis para atualizar uma entidade existente:
 
-* **eplaceEntity** – atualiza uma entidade existente substituindo-a
+* **replaceEntity** – atualiza uma entidade existente ao substituí-la
 
 * **mergeEntity** – atualiza uma entidade existente mesclando novos valores de propriedade à entidade existente
 
@@ -424,7 +423,7 @@ Uma vez que a ACL foi definida, você pode criar uma SAS com base na ID de uma p
 
 ## Próximas etapas
 
-Para obter mais informações, veja os recursos a seguir.
+Para saber mais, consulte os recursos a seguir.
 
 -   [Blog da Equipe do Armazenamento do Azure][].
 -   Repositório do [SDK do Armazenamento do Azure para Node][] no GitHub.
@@ -439,7 +438,7 @@ Para obter mais informações, veja os recursos a seguir.
   [Blog da Equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicativo Web do Node.js usando o serviço de tabela do Azure]: ../storage-nodejs-use-table-storage-web-site.md
+  [Aplicativo Web Node.js com o Serviço Tabela do Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

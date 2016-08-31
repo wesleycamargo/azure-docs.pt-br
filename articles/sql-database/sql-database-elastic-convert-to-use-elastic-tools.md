@@ -3,7 +3,7 @@
    description="Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um gerenciador de mapa de fragmentos"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Migrar bancos de dados existentes para escala horizontal
 
@@ -25,7 +25,7 @@ Para migrar um banco de dados fragmentado existente:
 
 1. Prepare o [banco de dados do gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 2. Criar o mapa de fragmentos.
-3. Preparar os fragmentos individuais.  
+3. Preparar os fragmentos individuais.
 2. Adicione os mapeamentos ao mapa de fragmentos.
 
 Essas técnicas podem ser implementadas usando a [biblioteca de cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
@@ -62,7 +62,7 @@ Após a criação, você pode recuperar o gerenciador de mapa de fragmentos com 
 
 Você deve selecionar o tipo do mapa de fragmentos a criar. A escolha depende da arquitetura do banco de dados:
 
-1. Um locatário único por banco de dados (para termos, consulte o [glossário](sql-database-elastic-scale-glossary.md).) 
+1. Um locatário único por banco de dados (para termos, consulte o [glossário](sql-database-elastic-scale-glossary.md).)
 2. Vários locatários por banco de dados (dois tipos):
 	3. Mapeamento de lista
 	4. Mapeamento de intervalo
@@ -187,4 +187,4 @@ Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](h
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

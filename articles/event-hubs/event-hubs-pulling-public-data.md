@@ -24,16 +24,16 @@ Observe que o código neste exemplo mostra apenas como extrair dados de feeds t�
 
 ## Estrutura de aplicativo
 
-O aplicativo é escrito em C# e a [descrição do exemplo](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contém todas as informações necessárias para modificar, compilar e publicar o aplicativo. As seções a seguir fornecem uma visão geral de alto nível do que o aplicativo faz.
+O aplicativo é escrito em C# e a [descrição do exemplo](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contém todas as informações necessárias para modificar, compilar e publicar o aplicativo. As seções a seguir fornecem uma visão geral do que o aplicativo faz.
 
 Vamos começar com a suposição de que você tenha acesso a um feed de dados. Por exemplo, talvez você queira extrair os dados de tráfego do Departamento de transporte de Washington, ou os dados meteorológicos do NOAA, para exibir relatórios personalizados ou para combinar esses dados com outros dados em seu aplicativo. Você também precisará configurar um Hub de Eventos do Azure e conhecer a cadeia de conexão necessária para acessá-lo.
 
 Quando a solução GenericWebToEH é iniciada, ela lê um arquivo de configuração (App.config) para obter diversas coisas:
 
-1. A URL, ou uma lista de URLs, do site de publicação dos dados. Idealmente, esse é um site que publica dados em JSON, como aqueles citados pelo WSDOT [aqui](http://www.wsdot.wa.gov/Traffic/api/). 
+1. A URL, ou uma lista de URLs, do site de publicação dos dados. Idealmente, esse é um site que publica dados em JSON, como aqueles citados pelo WSDOT [aqui](http://www.wsdot.wa.gov/Traffic/api/).
 2. Credenciais para a URL, se forem necessárias. Muitas fontes públicas não precisam de credenciais, ou você pode colocar as credenciais na cadeia de caracteres da URL. Outras exigem que você as forneça separadamente. (Observe que você pode especificar apenas um conjunto de credenciais nesse aplicativo e, portanto, isso só funcionará se você especificar somente uma URL, não uma lista de URLs).
-3. A cadeia de conexão do Barramento de Serviço e o nome do Hub de Eventos no namespace desse Barramento de Serviço, ao qual você enviará os dados por push. Você pode encontrar essas informações no portal clássico do Azure.
-4. Um intervalo de suspensão, em milissegundos, para o intervalo entre a sondagem do site de dados públicos. Essa configuração exige um pouco de criatividade. Se você realizar sondagens com muito pouca frequência, poderá perder dados. Por outro lado, se você realizar sondagens com muita frequência, poderá obter muitos dados repetitivos ou, pior ainda, poderá ser bloqueado como um bot perigoso. Considere a frequência de atualização da fonte de dados; os dados meteorológicos ou de tráfego podem ser atualizados a cada 15 minutos, mas talvez as cotações de ações sejam atualizadas em intervalos de segundos, dependendo de onde você as obtêm. 
+3. A cadeia de conexão e o nome do Hub de Eventos no namespace de Hubs de Eventos, ao qual você enviará os dados. Você pode encontrar essas informações no Portal do Azure.
+4. Um intervalo de suspensão, em milissegundos, para o intervalo entre a sondagem do site de dados públicos. Essa configuração exige um pouco de criatividade. Se você realizar sondagens com muito pouca frequência, poderá perder dados. Por outro lado, se você realizar sondagens com muita frequência, poderá obter muitos dados repetitivos ou, pior ainda, poderá ser bloqueado como um bot perigoso. Considere a frequência de atualização da fonte de dados; os dados meteorológicos ou de tráfego podem ser atualizados a cada 15 minutos, mas talvez as cotações de ações sejam atualizadas em intervalos de segundos, dependendo de onde você as obtêm.
 5. Um sinalizador para informar ao aplicativo se os dados são coletados como XML ou JSON. Como você precisa enviar os dados para um Hub de Eventos, o aplicativo tem um módulo para converter XML em JSON antes de enviar.
 
 Depois de ler o arquivo de configuração, o aplicativo entra em um loop, acessando o site público, convertendo os dados, se for necessário, gravando-os em seu Hub de Eventos e aguardando o intervalo de suspensão antes de fazer tudo isso novamente. Especificamente:
@@ -47,4 +47,4 @@ Para implantar a solução, clone ou baixe o aplicativo [GenericWebToEH](https:/
 
 Veja mais exemplos de Hubs de Eventos na [galeria de exemplos do Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e no [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

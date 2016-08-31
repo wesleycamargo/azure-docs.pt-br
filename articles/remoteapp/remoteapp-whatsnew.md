@@ -13,17 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # O que há de novo no Azure RemoteApp?
 
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+
 Uma das vantagens do Azure RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
 
 ## Atualizações futuras
-Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais para o blog do RDS? Você pode ver não apenas o que mudou no RemoteApp do Azure, mas também outras informações sobre como usar o RDS. Confira o blog [Blog de Serviços de Área de Trabalho Remota](https://blogs.msdn.microsoft.com/rds/) para obter informações. Por exemplo, duas semanas atrás, eles postaram uma entrada sobre [levantar e mudar cargas de trabalho com o RemoteApp do Azure e o Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais para o blog do RDS? Você pode ver não apenas o que mudou no RemoteApp do Azure, mas também outras informações sobre como usar o RDS. Confira o [Blog de Serviços de Área de Trabalho Remota](https://blogs.msdn.microsoft.com/rds/) para obter informações. Por exemplo, duas semanas atrás, eles postaram uma entrada sobre [levantar e mudar cargas de trabalho com o Azure RemoteApp e o Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
 ## Setembro de 2015
 - O Infopath foi adicionado à imagem da galeria e ao modelo do Microsoft Office 365. Para compartilhar o Infopath, atualize suas coleções com a imagem mais recente.
@@ -85,6 +88,6 @@ Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
 
 ### Ajude-nos a ajudar você
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
+Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

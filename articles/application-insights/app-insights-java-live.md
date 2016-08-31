@@ -40,7 +40,7 @@ Você precisará de uma assinatura do [Microsoft Azure](https://azure.com).
 
 ## 2\. Baixar o SDK
 
-1. Baixe o [SDK do Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
+1. Baixe o [SDK do Application Insights para Java](https://aka.ms/aijavasdk).
 2. No servidor, extraia o conteúdo do SDK para o diretório por meio do qual os binários do projeto são carregados. Se você estiver usando o Tomcat, isso normalmente estaria em `webapps<your_app_name>\WEB-INF\lib`
 
 
@@ -139,4 +139,4 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Níveis de consistência no Banco de Dados de Documentos
@@ -87,15 +87,12 @@ A tabela a seguir captura várias garantias de consistência correspondentes aos
 
 2. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
 
-3. Na folha da conta, se a folha **Todas as Configurações** ainda não estiver aberta, clique no ícone **Configurações** na barra de comandos superior.
+3. Na folha da conta, clique em **Consistência Padrão**.
 
-4. Na folha **Todas as Configurações**, clique na entrada **Consistência Padrão** em **Recurso**.
+
+4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**.
 
 	![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**.
-
-	![Captura de tela realçando o nível Consistência e o botão OK](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Níveis de consistência para consultas
 
@@ -122,4 +119,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

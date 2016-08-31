@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 O objetivo deste tutorial é mostrar como integrar o QuickHelp ao Azure AD (Azure Active Directory). A integração do QuickHelp ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure quem tem acesso ao QuickHelp 
+- Você pode controlar no AD do Azure quem tem acesso ao QuickHelp
 - Você pode habilitar seus usuários a fazerem logon automaticamente no QuickHelp (logon único) com suas contas do AD do Azure
 - Gerenciar suas contas em um único local: o Portal clássico do Azure
 
@@ -41,13 +41,13 @@ Para configurar a integração do AD do Azure ao QuickHelp, você precisa dos se
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar QuickHelp a partir da galeria 
+1. Adicionar QuickHelp a partir da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
@@ -56,7 +56,7 @@ Para configurar a integração do QuickHelp ao AD do Azure, você precisa adicio
 
 **Para adicionar o QuickHelp a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -83,7 +83,7 @@ Para configurar a integração do QuickHelp ao AD do Azure, você precisa adicio
 	![Aplicativos][500]
 
 
-##  Configurar e testar o logon único do AD do Azure
+##  configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o QuickHelp, com base em um usuário de teste chamado "Brenda Fernandes".
 
 
@@ -118,7 +118,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
      > [AZURE.NOTE] Entre em contato com sua equipe de suporte do QuickHelp se você não souber o valor da URL do logon.
 
-     b. Clique em **Próximo**.
+     b. Clique em **Avançar**.
 
  
 4. Na página **Configurar logon único no QuickHelp**, execute as seguintes etapas: clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
@@ -202,7 +202,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -220,7 +220,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png)
  
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png)
   
@@ -316,4 +316,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -336,7 +336,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProcessD2CInteractiveMessages** e clique em **Gerenciar Pacotes NuGet**. Isso faz com que a janela **Gerenciador de Pacotes NuGet** seja exibida.
 
-3. Pesquise por **WindowsAzure.Service Bus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) com todas as dependências.
+3. Pesquise por **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) com todas as dependências.
 
 4. Adicione a seguinte instrução **using** à parte superior do arquivo **Program.cs**:
 
@@ -446,4 +446,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

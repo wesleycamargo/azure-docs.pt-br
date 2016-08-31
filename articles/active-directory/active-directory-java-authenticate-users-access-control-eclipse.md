@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm" />
 
 # Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
@@ -76,7 +76,7 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 - Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 - Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 - Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
-- Uma assinatura do Azure, a qual pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
+- Uma assinatura do Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
 - O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
 - Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -93,7 +93,7 @@ Para começar a usar o ACS (Access Control Service) no Azure, você deve criar u
 6. Se você tiver mais de uma assinatura, selecione a assinatura que você deseja usar para o namespace do ACS.
 7. Clique em **Criar**.
 
-O Microsoft Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
+O Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar.
 
 ## Adicionar provedores de identidade
 
@@ -156,7 +156,7 @@ Você pode encontrar todas as informações e o código necessário para configu
 2.  Na página **Integração de Aplicativos**, clique em **Páginas de Logon**.
 3.  Na página **Integração da Página de Logon**, clique em **Aplicativo Web do Azure**.
 
-Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL listada na **Opção 1: Link para uma página de logon hospedada pelo ACS** será usada em seu aplicativo web Java. Você precisará desse valor ao adicionar a biblioteca de Filtros de Serviços de Controle de Acesso a seu aplicativo Java.
+Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL listada na **Opção 1: Link para uma página de logon hospedada pelo ACS** será usada em seu aplicativo web Java. Você precisará desse valor ao adicionar a biblioteca de Filtros de Serviços do Controle de Acesso para seu aplicativo Java.
 
 ## Criar um aplicativo web Java
 1. No Eclipse, no menu, clique em **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo**, **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.) Para fins deste tutorial, nomeie o projeto **MyACSHelloWorld**. (Certifique-se de usar esse nome, as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyACSHelloWorld). Sua tela será semelhante à seguinte:
@@ -169,7 +169,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
 
     ![Adicionar um arquivo JSP para exemplo do ACS][add_jsp_file_acs]
 
-    Clique em **Próximo**.
+    Clique em **Avançar**.
 
 4. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP (html)** e clique em **Concluir**.
 5. Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir **Hello ACS World!** no elemento `<body>` existente. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
@@ -311,4 +311,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

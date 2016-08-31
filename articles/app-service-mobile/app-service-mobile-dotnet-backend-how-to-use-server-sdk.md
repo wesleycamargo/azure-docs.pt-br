@@ -465,7 +465,7 @@ Verifique se seu aplicativo tem o [Microsoft.Azure.Mobile.Server.Authentication]
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
 			ValidAudiences = new[] { ConfigurationManager.AppSettings["authAudience"] },
 			ValidIssuers = new[] { ConfigurationManager.AppSettings["authIssuer"] },
-			TokenHandler = config.GetMobileAppTokenHandler()
+			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
 No exemplo acima, você deve definir as configurações de aplicativo _authAudience_ e _authIssuer_ no arquivo Web.config para que cada uma seja a URL da raiz do aplicativo usando o esquema HTTPS. Da mesma forma, você deve definir _authSigningKey_ como o valor da chave de autenticação de seu aplicativo. Esse é um valor confidencial que nunca deve ser compartilhado ou incluído em um cliente. Para obtê-lo, navegue até o aplicativo no [portal do Azure] e clique em **Ferramentas**. Em seguida, selecione **Kudu** e clique em **Ir**. Você será levado até o ponto de extremidade de gerenciamento Kudu de seu site. Clique em **Ambiente** e encontre o valor em _WEBSITE\_AUTH\_SIGNING\_KEY_. Esse é o valor que você deve usar para _authSigningKey_ em sua configuração de aplicativo local.
@@ -481,4 +481,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

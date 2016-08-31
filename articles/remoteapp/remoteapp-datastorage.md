@@ -13,11 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/27/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Nunca armazene dados confidenciais em imagens personalizadas
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Ao hospedar seu aplicativo no Azure RemoteApp, a primeira etapa é criar uma imagem personalizada. Usamos essa imagem personalizada para criar instâncias de VM que fornecem seus aplicativos para seus usuários. A imagem personalizada deve conter APENAS aplicativos e nunca dados confidenciais que podem ser perdidos, como Bancos de Dados SQL, arquivos de pessoal ou arquivos de dados especiais, como arquivos da empresa do QuickBooks. Todos os dados confidenciais devem residir externamente ao Azure RemoteApp em um servidor de arquivos, outra VM do Azure ou no SQL Azure. A imagem deve hospedar apenas o aplicativo que se conecta à fonte de dados e apresenta os dados. Releia os [Requisitos para as imagens do Azure RemoteApp](remoteapp-imagereqs.md) para obter mais informações.
 
@@ -42,4 +45,4 @@ Pontos principais:
 - Dados confidenciais sempre devem residir em um servidor de arquivos separado, VM do Azure separada, na nuvem e sempre externos às instâncias de VM que hospedam seus aplicativos no Azure RemoteApp.
 - Os dados de usuário são salvos e persistem no UPD (disco de perfil do usuário)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

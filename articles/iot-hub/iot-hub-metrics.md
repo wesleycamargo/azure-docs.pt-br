@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/06/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introdução às métricas de diagnóstico
 
-As métricas de diagnóstico lhe fornecem melhores dados sobre o estado dos recursos do Azure em sua assinatura. As métricas permitem que um usuário avalie a integridade geral do serviço e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam o usuário a ver o que está acontecendo com o Hub IoT e ajudam com os problemas de causa raiz sem precisar contatar o suporte do Azure.
+As métricas de diagnóstico fornecem melhores dados sobre o estado dos recursos do Azure na sua assinatura. As métricas permitem a você avaliar a integridade geral do serviço e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam você a ver o que está acontecendo com o Hub IoT e com os problemas de causa raiz sem precisar contatar o suporte do Azure.
 
 Você pode habilitar as métricas de diagnóstico no portal do Azure.
 
@@ -26,15 +26,15 @@ Você pode habilitar as métricas de diagnóstico no portal do Azure.
 
 1. Crie um Hub IoT. Você pode encontrar instruções sobre como criar um Hub IoT no guia de [Introdução][lnk-get-started].
 
-2. Abra a folha do seu Hub IoT. Nela, clique em **Todas as configurações** e em **Diagnóstico**.
+2. Abra a folha do seu Hub IoT. Nela, clique em **Diagnóstico**.
 
     ![][1]
 
-3. Configure o diagnóstico definindo o status para **Ativado** e selecionando uma conta de armazenamento para armazenar os dados de diagnóstico. Marque a caixa de seleção de métricas e pressione **Salvar**. Observe que a conta de armazenamento deve ser criada antecipadamente e que você será cobrado separadamente pelo armazenamento.
+3. Configure o diagnóstico definindo o status para **Ativado** e escolhendo uma conta de armazenamento para armazenar os dados de diagnóstico. Verifique **Métricas** e pressione **Salvar**. Observe que a conta de armazenamento deve ser criada antecipadamente e que você será cobrado separadamente pelo armazenamento. Você pode optar por enviar os dados de diagnóstico para um ponto de extremidade de Hubs de eventos.
 
     ![][2]
 
-4. Depois de configurar o diagnóstico, retorne para a folha principal do Hub IoT. As informações sobre métricas são populadas na seção **Monitoramento** da folha. Clicar no gráfico abre o painel de métricas, no qual você pode exibir um resumo das informações das métricas do seu Hub IoT e editar a seleção das métricas mostradas no gráfico. Também é possível configurar alertas com base nos valores de métrica.
+4. Depois de configurar o diagnóstico, retorne para a folha do Hub IoT **Visão geral**. As informações sobre métricas são preenchidas na seção **Monitoramento** da folha. Clicar no gráfico abre o painel de métricas, no qual você pode exibir um resumo das informações das métricas do seu Hub IoT e editar a seleção das métricas mostradas no gráfico. Também é possível configurar alertas com base nos valores de métrica.
 
     ![][3]
 
@@ -84,4 +84,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

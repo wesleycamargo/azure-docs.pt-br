@@ -4,7 +4,7 @@
    description="Saiba mais sobre o emparelhamento VNet no Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor="tysonn" />
 <tags
@@ -88,4 +88,4 @@ O Emparelhamento VNet será gratuito durante o período de análise. Após a lib
 - Saiba mais sobre [NSGs](virtual-networks-nsg.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

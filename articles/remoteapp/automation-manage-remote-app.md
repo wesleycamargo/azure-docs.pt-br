@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/15/2016"
 	ms.author="magoedte;csand"/>
 
 #Gerenciando o Azure RemoteApp usando a Automação do Azure
+
+> [AZURE.IMPORTANT]
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento do Azure RemoteApp.
 
@@ -40,4 +43,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 * Confira o [Guia de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

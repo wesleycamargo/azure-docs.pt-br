@@ -120,4 +120,4 @@ Comece testando seus aplicativos e serviços usando os [cenários de teste](serv
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

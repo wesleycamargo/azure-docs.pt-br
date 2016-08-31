@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Tutorial: criar um Hub IoT usando um programa em C# e a API REST
@@ -36,13 +36,13 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Preparar seu projeto do Visual Studio
 
-1. No Visual Studio, crie um novo projeto do Windows do Visual C# usando o modelo de projeto de **Aplicativo do Console**. Nomeie o projeto **CreateIoTHubREST**.
+1. No Visual Studio, crie um projeto Windows do Visual C# usando o modelo de projeto de **Aplicativo do Console**. Nomeie o projeto **CreateIoTHubREST**.
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Gerenciar Pacotes NuGet**.
 
-3. No Gerenciador de Pacotes NuGet, marque a opção **Incluir pré-lançamento** e procure **Microsoft.Azure.Management.ResourceManager**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar as licenças.
+3. No Gerenciador de Pacotes Nuget, marque **Incluir pré-lançamento** e procure **Microsoft.Azure.Management.ResourceManager**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar as licenças.
 
-4. No Gerenciador de Pacotes do NuGet, pesquise por **Microsoft.IdentityModel.Clients.ActiveDirectory**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar a licença.
+4. No Gerenciador de Pacotes do Nuget, procure **Microsoft.IdentityModel.Clients.ActiveDirectory**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar a licença.
 
 6. Em Program.cs, substitua as instruções **using** existentes pelo seguinte:
 
@@ -58,14 +58,13 @@ Para concluir este tutorial, você precisará do seguinte:
     using Microsoft.Rest;
     using System.Linq;
     using System.Threading;
-    using Newtonsoft.Json;
     ```
     
-7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usará ao criar o hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você criará, por exemplo **MyIoTHub** (observe que esse nome precisa ser globalmente exclusivo e, por isso, deve incluir seu nome e suas iniciais). **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
+7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usa ao criar o Hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você cria, por exemplo **MyIoTHub** (esse nome precisa ser globalmente exclusivo e, por isso, deve incluir seu nome ou suas iniciais). **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
     
@@ -77,7 +76,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## Use a API REST para criar um hub IoT
 
-Use a [API REST do Hub de IoT][lnk-rest-api] para criar um novo Hub IoT em seu grupo de recursos. Você também pode usar a API REST para fazer alterações em um Hub IoT existente.
+Use a [API REST do Hub IoT][lnk-rest-api] para criar um Hub IoT em seu grupo de recursos. Você também pode usar a API REST para fazer alterações em um Hub IoT existente.
 
 1. Adicione o seguinte método ao Program.cs:
     
@@ -88,7 +87,7 @@ Use a [API REST do Hub de IoT][lnk-rest-api] para criar um novo Hub IoT em seu g
     }
     ```
 
-2. Adicione o seguinte código ao método **CreateIoTHub** para criar um **HttpClient** com um token de autenticação nos cabeçalhos:
+2. Adicione o seguinte código ao método **CreateIoTHub** para criar um objeto **HttpClient** com um token de autenticação nos cabeçalhos:
 
     ```
     HttpClient client = new HttpClient();
@@ -138,7 +137,7 @@ Use a [API REST do Hub de IoT][lnk-rest-api] para criar um novo Hub IoT em seu g
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{"Status":"Running"}");
+    } while (body == "{"status":"Running"}");
     ```
 
 6. Adicione o seguinte código ao final do método **CreateIoTHub** para recuperar as chaves do Hub IoT criado e imprimi-las no console:
@@ -167,7 +166,7 @@ Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** ante
 
 4. Você pode verificar se o seu aplicativo adicionou o novo hub IoT visitando o [portal][lnk-azure-portal] e exibindo sua lista de recursos ou usando o cmdlet **Get-AzureRmResource** do PowerShell.
 
-> [AZURE.NOTE] Este aplicativo de exemplo adiciona um IoT Hub de padrão S1 pelo qual você será cobrado. É possível excluir o hub IoT por meio do [portal][lnk-azure-portal] ou usando o cmdlet **Remove-AzureRmResource** do PowerShell quando tiver terminado.
+> [AZURE.NOTE] Este aplicativo de exemplo adiciona um Hub IoT Standard S1 pelo qual você será cobrado. Ao concluir, é possível excluir o Hub IoT por meio do [portal][lnk-azure-portal] ou usando o cmdlet **Remove-AzureRmResource** do PowerShell quando tiver terminado.
 
 ## Próximas etapas
 
@@ -203,4 +202,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

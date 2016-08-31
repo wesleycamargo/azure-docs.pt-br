@@ -36,13 +36,13 @@ Se a propriedade PreferredLocations não estiver definida, todas as solicitaçõ
 
 
 ## SDK .NET
-O SDK pode ser usado sem qualquer mudança de código. Nesse caso, o SDK direcionará automaticamente as leituras e gravações para a região de gravação atual.
+O SDK pode ser usado sem qualquer mudança de código. Nesse caso, o SDK direciona automaticamente as leituras e gravações para a região de gravação atual.
 
 Na versão 1.8 e posteriores do SDK para .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade chamada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Essa propriedade é do tipo `<string>` de Coleção e deve conter uma lista de nomes de região. Os valores de cadeia de caracteres são formatados de acordo com a coluna Nome da Região na página [Regiões do Azure][regions], sem espaços antes ou depois do primeiro e último caracteres, respectivamente.
 
 Os pontos de extremidade atuais de gravação e leitura estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint, respectivamente.
 
-> [AZURE.NOTE] As URLs para os pontos de extremidade não devem ser consideradas como constantes de vida longa. O serviço pode atualizá-las a qualquer momento. O SDK tratará dessa mudança automaticamente.
+> [AZURE.NOTE] As URLs para os pontos de extremidade não devem ser consideradas como constantes de vida longa. O serviço pode atualizá-las a qualquer momento. O SDK lida com essa alteração automaticamente.
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -128,7 +128,7 @@ Exemplo de resposta
 
 
 -	Todas as solicitações All PUT, POST e DELETE devem ir para o URI de gravação indicado
--	Todas as solicitações GET e outras somente leitura (por ex.: Consultas) podem ir para qualquer ponto de extremidade de escolha do cliente
+-	Todas as solicitações GET e outras somente leitura (por exemplo: consultas) podem ir para qualquer ponto de extremidade de escolha do cliente
 
 As solicitações de gravação para regiões somente leitura falharão com o código de erro 403 de HTTP ("Proibido").
 
@@ -141,8 +141,8 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 - [Distribute data globally with DocumentDBs (Distribuir dados globalmente com o Banco de Dados de Documentos)](documentdb-distribute-data-globally.md)
 - [Níveis de consistência](documentdb-consistency-levels.md)
 - [How throughput works with multiple regions (Como a produtividade funciona com várias regiões)](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Adicionar regiões usando o portal do Azure](documentdb-manage-account.md#addregion)
+- [Adicionar regiões usando o portal do Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

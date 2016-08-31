@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="brjohnst"/>
 
 # Versões de API na Pesquisa do Azure
@@ -31,11 +31,12 @@ Veja abaixo um instantâneo das versões atuais de todas as interfaces de progra
 Interfaces|Versão principal mais recente|Status
 ----------|-------------------------|------
 [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1,1|Disponível, liberado em fevereiro de 2016
+[Preview do SDK do .NET](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2\.0-preview|Preview, lançada em agosto de 2016
 [API REST do Serviço](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Disponível
 [Preview da API REST do Serviço](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Visualização
 [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Disponível
 
-Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso facilita direcionar uma versão específica, como uma API de preview. O exemplo a seguir ilustra como o parâmetro `api-version` é especificado:
+Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso facilita direcionar uma versão específica, como uma API de preview. O seguinte exemplo ilustra como o parâmetro `api-version` é especificado:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2015-02-28
 
@@ -54,12 +55,12 @@ Agora, o SDK do .NET está disponível e já estamos trabalhando na próxima ver
 Versão do SDK do .NET|Versão da API REST|Recursos|ETA
 ----------------|----------------|--------|---
 1,1|2015-02-28|Sintaxe de consulta Lucene|Fevereiro de 2016
-2\.x-preview|2015-02-28-Preview|Analisadores personalizados, indexador do Blob do Azure, Mapeamentos de campo, ETags|Os recursos começarão a ser fornecidos no T1 de 2016
-2\. x|Nova versão GA de API|Igual à 2.x-preview|Logo após a conclusão da 2.x-preview
+2\.0-preview|2015-02-28-Preview|Analisadores personalizados, indexadores de Blobs e Tabelas do Azure, mapeamentos de campo, ETags|Agosto de 2016
+2\. x|Nova versão GA de API|Igual ao 2.0-preview|Início de 4T de 2016
 
 ##Sobre versões Prévias e Disponíveis para o Público em Geral
 
-A Pesquisa do Azure sempre faz o pré-lançamento de recursos experimentais por meio da API REST primeiro, e, então, por meio de versões de pré-lançamento do SDK do .NET. Uma lista dos recursos de visualização pode ser encontrada em [Novidades na Pesquisa do Azure](search-latest-updates.md).
+A Pesquisa do Azure sempre faz o pré-lançamento de recursos experimentais por meio da API REST primeiro, e, então, por meio de versões de pré-lançamento do SDK do .NET.
 
 Não há nenhuma garantia de que os recursos de visualização serão migrados para uma versão GA. Enquanto os recursos em uma versão GA são considerados estáveis e não têm a probabilidade de ser alterados, com a exceção de pequenas melhorias e correções de compatibilidade com versões anteriores, os recursos de visualização estão disponíveis para teste e experimento, com o objetivo de coletar comentários sobre o design e a implementação do recurso.
 
@@ -69,4 +70,4 @@ Para o SDK do .NET: diretrizes para a migração de código podem ser encontrada
 
 Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada aos termos do Contrato de Nível de Serviço (SLA). O SLA pode ser encontrado em [Contratos de Nível de Serviço da Pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

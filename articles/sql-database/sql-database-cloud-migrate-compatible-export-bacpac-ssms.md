@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="carlrab"/>
 
 # Exportar um banco de dados do SQL Server para um arquivo BACPAC usando o SQL Server Management Studio
@@ -51,7 +51,7 @@ Este artigo mostra como exportar um banco de dados do SQL Server para um arquivo
 - [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Importar um BACPAC para o Banco de Dados SQL do Azure usando o SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [Importar um BACPAC para o SqlPackage do Banco de Dados SQL do Azure](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Importar um BACPAC para o Portal do Azure, Banco de Dados SQL do Azure](sql-database-import.md)
+- [Importar um BACPAC para o Portal do Azure do Banco de Dados SQL do Azure](sql-database-import.md)
 - [Importar um BACPAC para o PowerShell do Banco de Dados SQL do Azure](sql-database-import-powershell.md)
 
 ## Recursos adicionais
@@ -60,4 +60,4 @@ Este artigo mostra como exportar um banco de dados do SQL Server para um arquivo
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

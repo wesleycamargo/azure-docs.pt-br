@@ -18,11 +18,13 @@
 
 	![][4]
 
-Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos. 
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[portal clássico do Azure]: https://manage.windowsazure.com/
 
+<!---HONumber=AcomDC_0824_2016-->

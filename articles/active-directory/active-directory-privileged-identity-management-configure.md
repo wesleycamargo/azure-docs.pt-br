@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="08/11/2016"
 	ms.author="kgremban"/>
 
 # Gerenciamento de identidades com privilégios do AD do Azure
 
-O Azure AD (Active Directory) Privileged Identity Management permite gerenciar, controlar e monitorar o acesso a recursos no Azure AD e em outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o Privileged Identity Management do Azure Active Directory (AD), você pode gerenciar, controlar e monitorar o acesso em sua organização. Isso inclui o acesso a recursos no Azure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
 
 As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um usuário mal-intencionado obter esse tipo de acesso. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure, Office 365 ou SaaS. No final, o trabalho tem que ser feito, então as organizações dão aos usuários acesso privilegiado no Azure AD sem monitorar o que esses usuários estão fazendo com seus privilégios de administrador. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
 
@@ -39,29 +39,29 @@ O Azure AD Privileged Identity Management pode gerenciar as funções organizaci
 
 ## Administrador de acesso just in time
 
-Historicamente, você pode atribuir um usuário a uma função de administrador por meio do Portal de Gerenciamento ou do Windows PowerShell. Como resultado, esse usuário se torna **administrador permanente**, sempre ativo na função a ele atribuída. O Azure AD Privileged Identity Management introduz o conceito de um **administrador elegíveis**. Administradores elegíveis devem ser usuários que precisam de acesso privilegiado às vezes, mas não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
+Historicamente, você pode atribuir um usuário a uma função de administrador por meio do portal clássico do Azure ou do Windows PowerShell. Como resultado, esse usuário se torna **administrador permanente**, sempre ativo na função a ele atribuída. O Azure AD Privileged Identity Management introduz o conceito de um **administrador elegíveis**. Administradores elegíveis devem ser usuários que precisam de acesso privilegiado às vezes, mas não todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado.
 
 ## Habilitar o Privileged Identity Management para seu diretório
 
 Você pode começar a usar o Azure AD Privileged Identity Management acessando o [Portal do Azure](https://portal.azure.com/).
 
->[AZURE.NOTE] Você deve ser um administrador global com uma conta organizacional (por exemplo, @seudominio.com), e não uma conta da Microsoft (por exemplo, @outlook.com), para habilitar o Azure AD Privileged Identity Management para um diretório.
+>[AZURE.NOTE] Você deve ser um administrador global com uma conta organizacional (por exemplo, @seudominio.com) e não uma conta da Microsoft (por exemplo, @outlook.com), para habilitar o Azure AD Privileged Identity Management para um diretório.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
-2. Se sua organização tiver mais de um diretório, clique em seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório no qual você usará o Azure AD Privileged Identity Management.
+2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito do portal do Azure. Selecione o diretório em que você usará o Privileged Identity Management do Azure AD.
 3. Selecione **Novo** > **Segurança + Identidade** > **Azure AD Privileged Identity Management**.
 
 	![Habilitar o PIM no portal][1]
 
-4. Marque a opção **Fixar no painel** e clique no botão **Criar**. O Painel Privileged Identity Management será aberto.
+4. Marque a opção **Fixar no painel** e clique no botão **Criar**. O Painel Privileged Identity Management é aberto.
 
-Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) lhe guiará pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e um **administrador com função com privilégios** do diretório.
+Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) o guia pela experiência de atribuição inicial. Depois disso, você se torna automaticamente o primeiro **Administrador de segurança** e um **administrador de função com privilégios** do diretório.
 
 Somente um administrador com função com privilégios pode gerenciar o acesso de outros administradores. Você pode [conceder a outros usuários a capacidade de gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## Painel de gerenciamento de identidades com privilégios
 
-O gerenciador de identidades com privilégios do AD do Azure oferece um painel que fornece informações importantes, como:
+O Privileged Identity Manager do Azure AD oferece um painel que fornece informações importantes, como:
 
 - Alertas que indicam oportunidades para melhorar a segurança
 - O número de usuários atribuídos a cada função com privilégios
@@ -94,9 +94,9 @@ Para ativar uma função, um administrador elegíveis deve solicitar uma "ativa�
 
 Um administrador que deseja ativar uma função precisa inicializar o Gerenciamento de identidades com privilégios do AD do Azure no Portal do Azure.
 
-Qualquer tipo de administrador pode usar o Gerenciamento de identidades com privilégios do AD do Azure para ativar sua própria função.
+Qualquer tipo de administrador pode usar o Privileged Identity Management do Azure AD para ativar sua própria função.
 
-A ativação de função tem um limite de tempo. Nas configurações de Ativação de Função, você pode definir a duração da ativação, bem como as informações necessárias que o administrador precisa fornecer para ativar a função.
+A ativação de função é personalizável. Nas configurações do PIM, você pode determinar o comprimento de ativação e as informações que o administrador precisa fornecer para ativar a função.
 
 ![ativação da função de solicitação do administrador do PIM - captura de tela][5]
 
@@ -118,4 +118,4 @@ Usando o Privileged Identity Management do AD do Azure, também é possível con
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

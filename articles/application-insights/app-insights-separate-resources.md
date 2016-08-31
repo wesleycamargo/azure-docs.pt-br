@@ -21,7 +21,7 @@ A telemetria de diferentes componentes e versões do seu aplicativo deve ser env
 
 Primeiro, vamos entender a pergunta. Os dados recebidos do aplicativo são armazenados e processados pelo Application Insights em um *recurso* do Microsoft Azure. Cada recurso é identificado por uma *chave de instrumentação* (iKey). Em seu aplicativo, a chave é fornecida ao SDK do Application Insights para que ele possa enviar os dados coletados ao recurso certo. A chave pode ser fornecida no código ou no ApplicationInsights.config. Ao alterar a chave no SDK, você pode direcionar os dados para diferentes recursos.
 
-Em um caso simples, quando você cria o código para um novo aplicativo, também criar um novo recurso no Application Insights. No Visual Studio, a caixa de diálogo *novo projeto* fará isso para você.
+Em um caso simples, quando você cria o código para um novo aplicativo, também criar um novo recurso no Application Insights. No Visual Studio, o diálogo *novo projeto* faz isso para você.
 
 Se for um site de alto volume, ele poderá ser implantado em mais de uma instância de servidor.
 
@@ -37,7 +37,7 @@ Estas são algumas diretrizes gerais:
  - Manter telemetria de baixo volume separado daquela de alto volume, para que a limitação, cotas e amostragem em um fluxo não afete os outros.
  - Configurações de alertas, exportação e itens de trabalho separados.
  - Distribuir [limites](app-insights-pricing.md#limits-summary) como cota de telemetria, limitação e contagem de teste da Web.
- - Código em desenvolvimento e teste deve enviar para uma iKey separada do carimbo de produção.  
+ - Código em desenvolvimento e teste deve enviar para uma iKey separada do carimbo de produção.
 
 Muitas experiências do portal do Application Insights são criadas com essas diretrizes em mente. Por exemplo, os servidores exibem segmentos na instância do servidor, supondo que a telemetria sobre um componente lógico possa vir de várias instâncias do servidor.
 
@@ -45,7 +45,7 @@ Muitas experiências do portal do Application Insights são criadas com essas di
 
 Onde você envia telemetria de vários componentes para um único iKey:
 
-* Adicione uma propriedade para toda telemetria que permite segmentar e filtrar a identidade do componente. Isso ocorre automaticamente com instâncias de função de servidor, mas em outros casos você pode usar um [inicializador de telemetria](app-insights-api-filtering-sampling.md#add-properties) para adicionar a propriedade.
+* Adicione uma propriedade para toda telemetria que permite segmentar e filtrar a identidade do componente. A ID da função é automaticamente adicionada à telemetria das instâncias de função de servidor, mas em outros casos você pode usar um [inicializador de telemetria](app-insights-api-filtering-sampling.md#add-properties) para adicionar a propriedade.
 * Atualize os SDKs do Application Insights nos diferentes componentes ao mesmo tempo. A telemetria para uma iKey deve originar-se com a mesma versão do SDK.
 
 ## iKeys separado
@@ -53,7 +53,7 @@ Onde você envia telemetria de vários componentes para um único iKey:
 Onde você tem várias iKeys para diferentes componentes do aplicativo:
 
 * Crie um [painel](app-insights-dashboards.md) para uma exibição da telemetria-chave do seu aplicativo lógico, combinada de diferentes componentes de aplicativo. Painéis podem ser compartilhados, por isso um único modo de exibição do sistema lógico pode ser usado por equipes diferentes.
-* Organizar [grupos de recursos](app-insights-resources-roles-access-control.md) no nível de equipe. Permissões de acesso são atribuídas por grupo de recursos, incluindo permissões para configurar alertas. 
+* Organizar [grupos de recursos](app-insights-resources-roles-access-control.md) no nível de equipe. Permissões de acesso são atribuídas por grupo de recursos, incluindo permissões para configurar alertas.
 * Use os [Modelos do Azure Resource Manager e do Powershell](app-insights-powershell.md) para ajudar a gerenciar artefatos como regras de alerta e testes da Web.
 
 
@@ -107,8 +107,8 @@ No [portal.azure.com](https://portal.azure.com), adicione um recurso do Applicat
 * O **tipo de aplicativo** afeta o que você vê na folha de visão geral e as propriedades disponíveis no [explorador de métricas](app-insights-metrics-explorer.md). Se você não vir o tipo de aplicativo, escolha um dos tipos da Web para páginas da Web.
 * O **grupo de recursos** é uma conveniência para o gerenciamento de propriedades, como [controle de acesso](app-insights-resources-roles-access-control.md). Você pode usar grupos de recursos separados para desenvolvimento, teste e produção.
 * **Assinatura** é a sua conta de pagamento no Azure.
-* **Local** é onde podemos manter seus dados. Atualmente ele não pode ser alterado. 
-* **Adicionar ao painel** coloca um bloco de acesso rápido para o recurso em sua Página Inicial do Azure. 
+* **Local** é onde podemos manter seus dados. Atualmente ele não pode ser alterado.
+* **Adicionar ao painel** coloca um bloco de acesso rápido para o recurso em sua Página Inicial do Azure.
 
 A criação do recurso leva alguns segundos. Quando estiver pronto, você verá um alerta.
 
@@ -124,6 +124,7 @@ A chave de instrumentação identifica o recurso que você criou.
 Você precisará das chaves de instrumentação de todos os recursos aos quais seu aplicativo enviará dados.
 
 
+
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

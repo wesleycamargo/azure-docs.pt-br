@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="05/05/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação usando o Baidu
@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-O envio de nuvem Baidu é um serviço na nuvem chinês que você pode usar para enviar notificações por push para dispositivos móveis. Esse serviço é particularmente útil na China, onde a entrega de notificações por push para o Android é complexa devido à presença de diferentes lojas de aplicativos e serviços de notificações por push, bem como a disponibilidade dos dispositivos Android que não estão normalmente conectados ao GCM (Google Cloud Messaging).
+Envio de nuvem Baidu é um serviço de nuvem chinês que você pode usar para enviar notificações por push para dispositivos móveis. Esse serviço é particularmente útil na China, onde a entrega de notificações por push para o Android é complexa devido à presença de diferentes lojas de aplicativos e serviços de notificações por push, bem como a disponibilidade dos dispositivos Android que não estão normalmente conectados ao GCM (Google Cloud Messaging).
 
 ##Pré-requisitos
 
@@ -79,7 +79,7 @@ Depois de ativar uma conta do Baidu, faça logon no [portal do Baidu].
 
   	![][9]
 
-6. Em seguida, você deve receber uma mensagem de texto com um número de verificação, conforme mostrado no exemplo a seguir:
+6. Em seguida, você deverá receber uma mensagem de texto com um número de verificação, conforme mostrado no exemplo a seguir:
 
   	![][10]
 
@@ -91,7 +91,7 @@ Depois de ativar uma conta do Baidu, faça logon no [portal do Baidu].
 
 ##Criar um projeto de envio na nuvem Baidu
 
-Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de aplicativo, chave API e a chave secreta.
+Quando você cria um projeto por push do Baidu, recebe a ID do aplicativo, a chave de API e uma chave secreta.
 
 1. Depois de fazer logon no [portal do Baidu], clique em **更多>>** (**mais**).
 
@@ -504,4 +504,4 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

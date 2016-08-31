@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
@@ -64,7 +64,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
     - Desejo a proteção de curto prazo usando Disco.
     - Desejo a proteção online.
 
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 
 7. Escolha a opção **Executar Eseutil para verificar a integridade dos dados** se você quiser verificar a integridade dos bancos de dados do Exchange Server.
 
@@ -72,7 +72,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
 
     >[AZURE.NOTE] Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe no diretório C:\\Arquivos de Programas\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin no servidor DPM. Caso contrário, o seguinte erro será disparado: ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
-8. Clique em **Próximo**.
+8. Clique em **Avançar**.
 
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
 
@@ -132,4 +132,4 @@ Há cinco tipos de recuperação para os pontos de recuperação online:
 
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

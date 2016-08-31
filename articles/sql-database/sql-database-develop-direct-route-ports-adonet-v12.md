@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 
@@ -93,7 +93,7 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 #### Banco de Dados SQL V11 e V12
 
 
-As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são realçadas neste tópico.
+As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são destacadas neste tópico.
 
 
 *Observação:* a instrução Transact-SQL `SELECT @@version;` retorna um valor que começa com um número como “11” ou “12”. Esses números correspondem aos nossos nomes de versão V11 e V12 do Banco de Dados SQL.
@@ -120,4 +120,4 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

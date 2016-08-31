@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/15/2016"
    ms.author="kipandya"/>
    
    
@@ -26,7 +26,7 @@ O Banco de Dados de Documentos foi desenvolvido para atender às necessidades de
   
 ## Configurando contas de várias regiões
 
-A configuração da conta do Banco de Dados de Documentos para escalar no nível mundial pode ser realizada em menos de um minuto pelo Portal do Azure. Tudo o que você precisa fazer é selecionar o nível certo de consistência entre os diversos níveis de consistência bem definidos compatíveis, bem como associar qualquer número de regiões do Azure à sua conta de banco de dados. Os níveis de consistência do Banco de Dados de Documentos fornecem claras compensações entre garantia de consistência específica e desempenho.
+A configuração da conta do Banco de Dados de Documentos para escalar no nível mundial pode ser realizada em menos de um minuto pelo [Portal do Azure](documentdb-portal-global-replication.md). Tudo o que você precisa fazer é selecionar o nível certo de consistência entre os diversos níveis de consistência bem definidos compatíveis, bem como associar qualquer número de regiões do Azure à sua conta de banco de dados. Os níveis de consistência do Banco de Dados de Documentos fornecem claras compensações entre garantia de consistência específica e desempenho.
 
 ![O Banco de Dados de Documentos oferece várias opções de modelos de consistência bem definidos (flexíveis) para sua escolha][1]
 
@@ -54,7 +54,7 @@ Por fim, uma vez que o Banco de Dados de Documentos é completamente [independen
 
 ## Habilitando a distribuição global 
 
-Você pode optar por tornar os dados local ou globalmente distribuídos associando uma ou mais regiões do Azure a uma conta do banco de dados do Banco de Dados de Documentos. Você pode adicionar ou remover regiões à sua conta de banco de dados a qualquer momento.
+Você pode optar por tornar os dados local ou globalmente distribuídos associando uma ou mais regiões do Azure a uma conta do banco de dados do Banco de Dados de Documentos. Você pode adicionar ou remover regiões à sua conta de banco de dados a qualquer momento. Para habilitar a distribuição global usando o portal, veja [Como executar a replicação global de banco de dados do Banco de Dados de Documentos usando o Portal do Azure](documentdb-portal-global-replication.md). Para habilitar a distribuição global de forma programática, veja [Desenvolver com contas do Banco de Dados de Documentos de várias regiões](documentdb-developing-with-multiple-regions.md).
 
 ## Próximas etapas
 
@@ -70,21 +70,20 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
-[developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
-[createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
-[manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
-[manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
-[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[throughputandstorage]: documentdb-manage.md
+[arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-[sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
+[sqlqueries]: documentdb-sql-query.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

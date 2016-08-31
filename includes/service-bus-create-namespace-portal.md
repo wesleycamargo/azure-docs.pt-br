@@ -1,52 +1,42 @@
-1. Faça logon no portal clássico do Azure.
+1. Faça logon no [portal do Azure][].
 
-2. No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
+2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 
-3. No painel inferior do portal, clique em **Criar**.
+4. Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 
-    ![Selecionar Criar][select-create]
-   
-4. No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+5. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
 
-    ![Nome do namespace][namespace-name]
-  
-5. Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve ser hospedado.
+7. No campo **Assinatura**, escolha uma assinatura do Azure na qual criar o namespace.
 
-6. Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção OK. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+9. No campo **Grupo de Recursos**, escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.
+
+8. Em **Local**, escolha o país ou região no qual o namespace deve ser hospedado.
+
+	![Criar um namespace][create-namespace]
+
+6. Selecione o botão **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
  
-    ![Criado com êxito][created-successfully]
+### Obter as credenciais de gerenciamento
 
-###Obter as credenciais
-1. No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:
+1. Na lista de namespaces, clique no nome do namespace recém-criado.
  
-    ![Selecionar barramento de serviço][select-service-bus]
-  
-2. Selecione o namespace que você acabou de criar na lista abaixo:
- 
-    ![Selecionar namespace][select-namespace]
- 
-3. Clique em **Informações de Conexão**.
+3. Na folha **Namespace do Barramento de Serviço**, clique em **Políticas de acesso compartilhado**.
 
-    ![Informações da conexão][connection-information]
-  
-4. No painel **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave.
+4. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
 
-    ![Acessar informações de conexão][access-connection-information]
-  
-5. Anote a chave ou copie-a na área de transferência.
+	![connection-info][connection-info]
+
+5. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior.
+
+	![connection-string][connection-string]
 
 <!--Image references-->
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
-
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

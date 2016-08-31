@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Executando Cassandra com Linux no Azure e acessando-a do Node.js 
@@ -138,7 +138,7 @@ Insira as seguintes informações na tela #1 "Configuração da máquina virtual
 <tr><th>NOME DO CAMPO              </td><td>       VALOR DO CAMPO               </td><td>         COMENTÁRIOS                </td><tr>
 <tr><td>DATA DE LANÇAMENTO DA VERSÃO    </td><td> Selecione uma data no menu suspenso</td><td></td><tr>
 <tr><td>NOME DA MÁQUINA VIRTUAL    </td><td> cass-template	               </td><td> Este é o nome do organizador da MV </td><tr>
-<tr><td>CAMADA	                 </td><td> PADRÃO	                       </td><td> Deixar o padrão              </td><tr>
+<tr><td>CAMADA	                 </td><td> STANDARD	                       </td><td> Deixar o padrão              </td><tr>
 <tr><td>TAMANHO adequado	                 </td><td> A1                              </td><td>Selecione a VM com base nas necessidades de E/S; para esta finalidade, deixe o valor padrão </td><tr>
 <tr><td> NOVO NOME DE USUÁRIO	         </td><td> localadmin	                   </td><td> "admin" é um nome de usuário reservado no Ubuntu 12.xx e depois</td><tr>
 <tr><td> AUTENTICAÇÃO	     </td><td> Clique na caixa de seleção                 </td><td>Verifique se você deseja proteger com uma chave SSH </td><tr>
@@ -424,7 +424,7 @@ Faça logon em um dos nós (por exemplo, hk-c1-west-us) e execute o seguinte com
 Você deverá ver uma tela semelhante à seguinte para um cluster de 8 nós:
 
 <table>
-<tr><th>Status</th></th>Endereço	</th><th>Carga	</th><th>Tokens	</th><th>Possui </th><th>ID do host	</th><th>Rack</th></tr>
+<tr><th>Status</th></th>Endereço	</th><th>Carregar	</th><th>Tokens	</th><th>Possui </th><th>ID do host	</th><th>Rack</th></tr>
 <tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38,0%	</td><td>Guid (removido)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68.9%	</td><td>Guid (removido)</td><td>rack1</td></tr>
 <tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>Guid (removido)</td><td>rack2</td></tr>
@@ -469,7 +469,7 @@ Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributo
 
 <table>
 <tr><th>Nome do atributo    </th><th>Valor	</th><th>Comentários</th></tr>
-<tr><td>Nome	</td><td>vnet-cass-east-us</td><td></td></tr>	
+<tr><td>Name	</td><td>vnet-cass-east-us</td><td></td></tr>	
 <tr><td>Região	</td><td>Leste dos EUA</td><td></td></tr>	
 <tr><td>Servidores DNS		</td><td></td><td>Ignore isso, pois não estamos usando um servidor DNS</td></tr>
 <tr><td>Configurar uma VPN ponto a site</td><td></td><td>		Ignore isso</td></tr>
@@ -481,7 +481,7 @@ Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributo
 
 Adicione as seguintes sub-redes:
 <table>
-<tr><th>Nome    </th><th>IP Inicial	</th><th>CIDR	</th><th>Comentários</th></tr>
+<tr><th>Name    </th><th>IP Inicial	</th><th>CIDR	</th><th>Comentários</th></tr>
 <tr><td>web	</td><td>10.2.1.0	</td><td>/24 (251)	</td><td>Sub-rede para a web farm</td></tr>
 <tr><td>data	</td><td>10.2.2.0	</td><td>/24 (251)	</td><td>Sub-rede para os nós do banco de dados</td></tr>
 </table>
@@ -705,4 +705,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 - [http://www.datastax.com](http://www.datastax.com)
 - [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

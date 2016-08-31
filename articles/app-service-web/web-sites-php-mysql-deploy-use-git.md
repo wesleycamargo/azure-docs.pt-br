@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
-#Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
+# Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
 
 Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
 
-Você aprenderá a:
+Você aprenderá:
 
 * Como criar um aplicativo Web e um banco de dados MySQL usando o [Portal do Azure][management-portal]. Já que o PHP está habilitado nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) por padrão, não é necessário nada de especial para executar seu código PHP.
 * Como publicar e publicar novamente o aplicativo no Azure usando o Git.
@@ -31,7 +31,7 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 
 ![Site PHP do Azure][running-app]
 
-##Configurar o ambiente de desenvolvimento
+## Configurar o ambiente de desenvolvimento
 
 O tutorial presume que você usa o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador.
 
@@ -75,7 +75,7 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 	![Criar credenciais de publicação][credentials]
 
 
-##Obter informações da conexão MySQL remota
+## Obter informações da conexão MySQL remota
 
 Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos Web, você precisará das informações da conexão. Para obter informações sobre a conexão MySQL, siga estas etapas:
 
@@ -91,7 +91,7 @@ Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos
 
     ![Anotar propriedades][note-properties]
 
-##Compilar e testar o aplicativo localmente
+## Compilar e testar o aplicativo localmente
 
 Agora que criou um aplicativo Web, você pode desenvolvê-lo localmente e então implantá-lo após o teste.
 
@@ -209,12 +209,12 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 Agora você pode navegar até **http://localhost:8000/** para testar o aplicativo.
 
 
-##Publicar seu aplicativo
+## Publicar seu aplicativo
 
 Depois de testar seu aplicativo localmente, você poderá publicá-lo para aplicativos Web usando Git. Você inicializara seu repositório local do Git e publicará o aplicativo.
 
-
-> [AZURE.NOTE]Estas são as mesmas etapas mostradas no Portal do Azure no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
+> [AZURE.NOTE]
+Estas são as mesmas etapas mostradas no Portal do Azure no final da seção Criar um aplicativo Web e Configurar a publicação Git, apresentada acima.
 
 1. (Opcional) Se você tiver esquecido a URL de seu repositório Git remoto, navegue até as propriedades do aplicativo Web no Portal do Azure.
 
@@ -236,7 +236,7 @@ Depois de testar seu aplicativo localmente, você poderá publicá-lo para aplic
 
 Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo.
 
-##Publicar alterações em seu aplicativo
+## Publicar alterações em seu aplicativo
 
 Para publicar alterações em seu aplicativo, siga essas etapas:
 
@@ -319,4 +319,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

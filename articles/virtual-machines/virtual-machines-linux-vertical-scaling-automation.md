@@ -3,7 +3,7 @@
 	description="Como dimensionar verticalmente uma Máquina Virtual do Linux em resposta a alertas de monitoramento com a Automação do Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -27,7 +27,7 @@ A escala vertical é o processo de aumentar ou diminuir os recursos de um comput
 Veja abaixo a descrição das etapas para fazer isso
 
 1. Configurar a Automação do Azure para acessar suas máquinas virtuais
-2. Importar os Runbooks de Escala Vertical da Automação do Azure para sua assinatura
+2. Importar os runbooks de Escala Vertical da Automação do Azure para sua assinatura
 3. Adicionar um webhook ao seu Runbook
 4. Adicionar um alerta à sua máquina virtual
 
@@ -55,7 +55,7 @@ A primeira coisa que você precisa fazer é criar uma conta de Automação do Az
 
 * [Autenticar runbooks com uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-## Importar os Runbooks de Escala Vertical da Automação do Azure para sua assinatura
+## Importar os runbooks de Escala Vertical da Automação do Azure para sua assinatura
 
 Os Runbooks necessários para dimensionar verticalmente a sua máquina virtual já estão publicados na Galeria de Runbook da Automação do Azure. Você precisará importá-los para sua assinatura. Saiba como importar Runbooks lendo o seguinte artigo:
 
@@ -88,4 +88,4 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 
 ![Adicionar alerta à máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

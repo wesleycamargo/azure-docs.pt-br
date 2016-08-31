@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Criar registros DNS personalizados para um aplicativo Web | Microsoft Azure" 
+   pageTitle="Criar registros DNS personalizados para um aplicativo Web | Microsoft Azure " 
    description="Como criar registros DNS de domínio personalizado para o aplicativo Web usando o DNS do Azure." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Criar registros DNS para um aplicativo Web em um domínio personalizado
@@ -31,8 +31,8 @@ Tenha em mente que, se você criar um registro A para um aplicativo Web no Azure
 
 Antes de começar, primeiro você deve criar uma zona DNS no DNS do Azure e delegar a zona no registrador para o DNS do Azure.
  
-1. Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](dns-getstarted-create-dnszone.md). 
-2. Para delegar o DNS ao DNS do Azure, siga as etapas em [Delegação de domínio DNS](dns-domain-delegation.md). 
+1. Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](dns-getstarted-create-dnszone.md).
+2. Para delegar o DNS ao DNS do Azure, siga as etapas em [Delegação de domínio DNS](dns-domain-delegation.md).
 
 Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros para seu domínio personalizado.
 
@@ -179,4 +179,4 @@ Siga as etapas em [Configurar um nome de domínio personalizado para o serviço 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

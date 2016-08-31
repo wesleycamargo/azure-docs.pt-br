@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -25,7 +25,7 @@
 
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico. Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express][] que fornece uma estrutura MVC para criar aplicativos web do Node.js.
 
-A seguinte é uma captura de tela do aplicativo concluído:
+Abaixo, uma captura de tela do aplicativo concluído:
 
 ![Um navegador da web exibindo Bem-vindo ao Express no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
@@ -138,4 +138,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js]
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

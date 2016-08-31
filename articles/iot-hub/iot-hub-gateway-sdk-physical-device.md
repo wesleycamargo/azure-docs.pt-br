@@ -78,10 +78,10 @@ Este tutorial presume que você esteja usando um dispositivo [Texas Instruments 
 
 Antes de começar, você deve se certificar de que pode conectar seu dispositivo Edison à sua rede sem fio. Para configurar seu dispositivo Edison, você precisa se conectar a um computador host. A Intel fornece guias de introdução para os seguintes sistemas operacionais:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introdução à placa Intel® Edison no Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introdução à placa Intel® Edison no Linux).
 
 Para configurar seu dispositivo Edison e se familiarizar com ele, você deve concluir todas as etapas nesses artigos de “Introdução” exceto a última etapa "Choose IDE" (Escolher a IDE), que não é necessária para o tutorial atual. No final do processo de configuração da placa Edison, você:
 
@@ -368,7 +368,7 @@ Ao executar o exemplo, você pode usar a ferramenta do [iothub-explorer ou o Ger
 
 ## Envie mensagens da nuvem para o dispositivo
 
-O módulo BLE também dá suporte ao envio de instruções do Hub IoT do Azure para o dispositivo. Você pode usar o [Gerenciador de Dispositivos do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou o [Gerenciador de Hub IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar as mensagens JSON que o módulo de gateway BLE passa para o dispositivo BLE. Por exemplo, se você estiver usando o dispositivo Texas Instruments SensorTag, poderá enviar as mensagens JSON a seguir para o dispositivo do Hub IoT.
+O módulo BLE também dá suporte ao envio de instruções do Hub IoT do Azure para o dispositivo. Você pode usar o [Gerenciador de Dispositivos do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou o [Gerenciador de Hub IoT](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar as mensagens JSON que o módulo de gateway BLE passa para o dispositivo BLE. Por exemplo, se você estiver usando o dispositivo Texas Instruments SensorTag, poderá enviar as mensagens JSON a seguir para o dispositivo do Hub IoT.
 
 - Redefinir todos os LEDs e a campainha (desativá-los)
 
@@ -458,4 +458,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

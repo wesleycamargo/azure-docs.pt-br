@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Experiências de entrada com a proteção de identidade do Azure AD
@@ -59,7 +59,7 @@ A melhor experiência do usuário para ambos, o fluxo de recuperação de conta 
 
 Os administradores podem:
 
-- definir uma política que exige que os usuários configurem suas contas para verificação de segurança adicional. 
+- definir uma política que exige que os usuários configurem suas contas para verificação de segurança adicional.
 - permitir que o registro de autenticação multifator seja ignorado por até 30 dias, caso desejem oferecer um período de carência antes de registrar-se.
 
 **O registro na autenticação multifator tem três etapas:**
@@ -120,7 +120,7 @@ Após configurar uma política de segurança de risco do usuário, os usuários 
 
 <br> ![Correção](./media/active-directory-identityprotection-flows/101.png "Correção") <br>
 
-2.	O usuário precisa provar sua identidade resolvendo um desafio de segurança. Se o usuário estiver registrado para autenticação multifator, ele pode recuperar-se automaticamente do comprometimento. Eles precisarão fazer uma viagem de ida e volta de um código de segurança para o número de telefone. 
+2.	O usuário precisa provar sua identidade resolvendo um desafio de segurança. Se o usuário estiver registrado para autenticação multifator, ele pode recuperar-se automaticamente do comprometimento. Eles precisarão fazer uma viagem de ida e volta de um código de segurança para o número de telefone.
 
 <br> ![Correção](./media/active-directory-identityprotection-flows/110.png "Correção") <br>
 
@@ -154,8 +154,8 @@ Caso os usuários comprometidos sejam impedidos de entrar, um administrador pode
 
  
 
-## Consulte também
+## Confira também
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

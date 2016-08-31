@@ -82,10 +82,10 @@ Provedor de recursos | Recurso
 ---------- | ------------
 Computação | Discos de máquina virtual não associados.
 Computação | Imagens de máquinas virtuais.
-Rede | IPs reservados não associados (se não anexados a uma VM). Há suporte para IPs reservados anexados a VMs.
-Rede | Grupos de segurança de rede não associados (se não anexados a uma rede virtual ou a uma interface de rede). Há suporte para NSGs referenciados pelas redes virtuais.
 Rede | ACLs de ponto de extremidade.
-Rede | Gateways de rede virtual (site a site, Rota Expressa do Azure, ponto a site).
+Rede | Gateways de rede virtual (site a site, Rota Expressa do Azure, Application Gateway, ponto a site).
+Rede | Redes virtuais usando Emparelhamento VNet. (Migrar a VNet para o ARM e emparelhar) Saiba mais sobre o [Emparelhamento VNet](../virtual-network/virtual-network-peering-overview.md).
+Rede | Perfis do Gerenciador de Tráfego.
 
 ### Configurações sem suporte
 
@@ -141,7 +141,7 @@ Você selecionará a rede virtual ou o serviço hospedado (se não for uma rede 
 
 Em seguida, a plataforma iniciará a migração de metadados do clássico para o Gerenciador de Recursos para os recursos em migração.
 
-Assim que a operação de preparação for concluída, você terá a opção de visualizar os recursos no clássico e no Gerenciador de Recursos. Para todos os serviço de nuvem no modelo de implantação clássica, criaremos um nome de grupo de recursos que tem o padrão `cloud-service-name>-migrated`.
+Assim que a operação de preparação for concluída, você terá a opção de visualizar os recursos no clássico e no Gerenciador de Recursos. Para todos os serviços de nuvem no modelo de implantação clássica, criaremos um nome de grupo de recursos com o padrão `cloud-service-name>-migrated`.
 
 >[AZURE.NOTE] Máquinas Virtuais que não estão em uma Rede Virtual clássica serão interrompidas e desalocadas nesta fase da migração.
 
@@ -235,4 +235,4 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 - [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

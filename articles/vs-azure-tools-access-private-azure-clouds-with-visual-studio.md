@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Acessando nuvens privadas do Azure com o Visual Studio
@@ -43,4 +43,4 @@ Por padrão, o Visual Studio dá suporte a pontos de extremidade REST de nuvem p
 
 [Como baixar e importar informações de assinatura e configurações de publicação] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

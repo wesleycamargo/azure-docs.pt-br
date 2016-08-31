@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # Erro na Detecção da Autenticação
@@ -49,9 +49,9 @@ Além disso, o assistente verifica qualquer uma das configurações a seguir em 
 
 Por fim, o assistente tenta detectar versões do código de autenticação que foram configuradas com versões anteriores do Visual Studio. Se você recebeu esse erro, significa que seu projeto contém um tipo de autenticação incompatível. O assistente detecta os seguintes tipos de autenticação de versões anteriores do Visual Studio:
 
-* Autenticação do Windows 
-* Contas Individuais de Usuário 
-* Contas organizacionais 
+* Autenticação do Windows
+* Contas Individuais de Usuário
+* Contas organizacionais
  
 
 Para detectar a Autenticação do Windows em um projeto MVC, o assistente procura pelo elemento `authentication` de seu arquivo **web.config**.
@@ -96,4 +96,4 @@ Para alterar o tipo de autenticação, remova o tipo de autenticação incompat�
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

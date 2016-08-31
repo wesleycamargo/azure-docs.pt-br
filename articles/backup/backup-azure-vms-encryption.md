@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Lidando com discos criptografados durante o backup da VM
 
-Para empresas que desejam criptografar seus dados de VM no Azure, a solução é usar a [Azure Disk Encryption](../azure-security-disk-encryption.md) ou o Bitlocker no Windows e dmcrypt em máquinas Linux.
+Para empresas que desejam criptografar seus dados de VM no Azure, a solução é usar a [Azure Disk Encryption](../security/azure-security-disk-encryption.md) ou o Bitlocker no Windows e dmcrypt em máquinas Linux.
 
 > [AZURE.NOTE]  O Backup do Azure dá suporte a backup e restauração de VMs criptografados usando ADE (Azure Disk Encryption). <br>
 1. Isso tem suporte usando o PowerShell se a VM é criptografada usando BEK e KEK. <br>
@@ -77,4 +77,4 @@ Quando você precisar substituir ou alterar as chaves para as VMs que têm backu
 - [Guia de implantação - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implantando e usando o SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

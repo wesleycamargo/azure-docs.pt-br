@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/18/2016" 
+	ms.date="08/17/2016" 
 	ms.author="naziml"/>
 
 # Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
@@ -32,16 +32,16 @@ Neste documento, vamos configurar nosso Ambiente do Serviço de Aplicativo por t
 Para configurar um Ambiente de Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
 
 ## Configurando o Serviço de Nuvem Barracuda WAF ##
-O Barracuda tem um [artigo detalhado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre como implantar seu WAF em uma máquina virtual no Azure. Mas como queremos redundância, e não introduzir um único ponto de falha, você quer implantar pelo menos 2 VMs da instância WAF no mesmo Serviço de Nuvem ao seguir estas instruções.
+O Barracuda tem um [artigo detalhado](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) sobre como implantar seu WAF em uma máquina virtual no Azure. Mas como queremos redundância, e não introduzir um único ponto de falha, você quer implantar pelo menos 2 VMs da instância WAF no mesmo Serviço de Nuvem ao seguir estas instruções.
 
 ### Adicionando pontos de extremidade ao Serviço de Nuvem ###
-Depois que você tiver 2 ou mais instâncias da VM WAF no seu Serviço de Nuvem, será possível usar o [Portal do Azure](https://portal.azure.com/) para adicionar pontos de extremidade HTTP e HTTPS, que são usados pelo seu aplicativo, conforme mostrado na imagem abaixo.
+Depois que você tiver 2 ou mais instâncias da VM WAF no seu Serviço de Nuvem, será possível usar o [portal do Azure](https://portal.azure.com/) para adicionar pontos de extremidade HTTP e HTTPS, que são usados pelo seu aplicativo, conforme mostrado na imagem abaixo.
 
 ![Configurar ponto de extremidade][ConfigureEndpoint]
 
 Se seus aplicativos usam outros pontos de extremidade, não se esqueça de adicioná-los à essa lista também.
 
-### Configurando o Barracuda WAF pelo respectivo Portal de Gerenciamento ###
+### Configuração do Barracuda WAF por meio do Portal de Gerenciamento ###
 O Barracuda WAF usa a porta TCP 8000 para configuração por meio do respectivo portal de gerenciamento. Uma vez que temos várias instâncias das VMs WAF, você precisará repetir as etapas para cada instância da VM.
 
 
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

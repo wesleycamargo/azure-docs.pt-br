@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="07/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## SO convidado de agosto 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Atualização de segurança cumulativa do Internet Explorer | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-097 | [3177393] | Atualização de Segurança do Componente Gráfico da Microsoft | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-098 | [3178466] | Atualização de Segurança para os Drivers do Modo Kernel do Windows | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-100 | [3179577] | Atualização de Segurança da Inicialização Segura | 4\.35, 3.42 | 9 de agosto de 2016 |
+| MS16-101 | [3178465] | Atualização de Segurança para os Métodos de Autenticação do Windows | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| MS16-102 | [3182248] | Atualização de Segurança para a Biblioteca PDF do Microsoft Windows | 4\.35, 3.42 | 9 de agosto de 2016 |
+| Relançamento - MS16-077 | [3165191] | Atualização de Segurança para WPAD (Descoberta Automática de Proxy da Web) | 4\.35, 3.42, 2.54 | 9 de agosto de 2016 |
+| | [3172605] | Atualização cumulativa de julho de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 | 2\.54 | 9 de agosto de 2016 |
+| | [3172615] | Atualização cumulativa de julho de 2016 para o Windows Server 2012 | 3\.42 | 9 de agosto de 2016 |
+| | [3172614] | Atualização cumulativa de julho de 2016 para o Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 | 4\.35 | 9 de agosto de 2016 |
 
 ## SO convidado - julho 
 
@@ -299,7 +314,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | MS15-014 | [3004361][3004361] | Vulnerabilidade no SMB poderia permitir a não utilização de recurso de segurança | 4\.17, 3.24, 2.36 | N/D |
 | MS15-015 | [3031432][3031432] | Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégio | 4\.17, 3.24, 2.36 | N/D |
 | MS15-016 | [3029944][3029944] | Vulnerabilidade no componente gráfico da Microsoft poderia permitir a divulgação de informações | 4\.17, 3.24, 2.36 | N/D |
-| N/D | [3004375][3004375] | Atualização para melhorar a auditoria de linha de comando do Windows<p/>**Observação**: ela é instalada, mas a chave do Registro para habilitá-la está desativada | 4\.17, 3.24, 2.36 | N/D |
+| N/D | [3004375][3004375] | Atualização para Melhorar a Auditoria da Linha de Comando do Windows<p/>**Observação**: ela é instalada, mas a chave de registro para habilitá-la está desativada | 4\.17, 3.24, 2.36 | N/D |
  
 
 ## SO convidado de janeiro
@@ -334,6 +349,17 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
 
 [3169991]: http://support.microsoft.com/kb/3169991
 [3170005]: http://support.microsoft.com/kb/3170005
@@ -576,4 +602,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

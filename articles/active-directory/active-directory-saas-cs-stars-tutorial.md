@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,7 +21,7 @@
 
 O objetivo deste tutorial é mostrar como integrar o CS Stars ao Azure AD (Azure Active Directory). A integração do CS Stars ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao CS Stars 
+- Você pode controlar no Azure AD quem tem acesso ao CS Stars
 - Você pode habilitar seus usuários a fazerem logon automaticamente no CS Stars (logon único) com suas contas do Azure AD
 - Gerenciar suas contas em um único local: o Portal clássico do Azure
 
@@ -32,7 +32,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao CS Stars, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do CS Stars
+- Uma assinatura do CS Stars habilitada para logon único
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -41,14 +41,14 @@ Para configurar a integração do Azure AD ao CS Stars, você precisa dos seguin
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando CS Stars da galeria 
-2. Configurar e testar o logon único do Azure AD
+1. Adicionando CS Stars da galeria
+2. configurar e testar o logon único do AD do Azure
 
 
 ## Adicionando CS Stars da galeria
@@ -56,7 +56,7 @@ Para configurar a integração do CS Stars ao Azure AD, você precisa adicionar 
 
 **Para adicionar o CS Stars da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -84,7 +84,7 @@ Para configurar a integração do CS Stars ao Azure AD, você precisa adicionar 
 
 
 
-##  Configurar e testar o logon único do AD do Azure
+##  configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do Azure AD com o CS Stars, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do CS Stars é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do CS Stars. Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **nome de usuário** no CS Stars.
@@ -119,7 +119,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
      > [AZURE.NOTE] Se você não souber qual é o valor correto, contate o seu representante Marsh ClearSight.
 
-     3\.2. Clique em **Próximo**.
+     3\.2. Clique em **Avançar**.
  
 4. Na página **Configurar logon único no CS Stars**, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)
 
@@ -168,9 +168,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-	c. Clique em **Próximo**.
+	c. Clique em **Avançar**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)
 
@@ -182,7 +182,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
   
 	d. Na lista **Função**, selecione **Usuário**.
   
-	e. Clique em **Próximo**.
+	e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -268,4 +268,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

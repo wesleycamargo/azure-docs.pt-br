@@ -1,271 +1,278 @@
 <properties
-pageTitle="Adicionar o conector do Dynamic CRM Online no PowerApps Enterprise ou para seus aplicativos lógicos | Microsoft Azure"
-description="Visão geral do conector do CRM Online com os parâmetros de API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor="" tags="connectors" />
+	pageTitle="Adicionar o conector do Dynamics CRM Online aos seus Aplicativos Lógicos | Microsoft Azure"
+	description="Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O Provedor de Conexão do Dynamics CRM Online fornece uma API para trabalhar com as entidades no Dynamics CRM Online."
+	services="logic-apps"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor="" 
+	tags="connectors" />
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
-ms.author="deonhe"/>
+ms.date="08/15/2016"
+ms.author="mandia"/>
 
-# Introdução ao conector do CRM
-Conecte-se ao Dynamics CRM Online para criar um novo registro, atualizar um item e muito mais. O conector do CRM Online pode ser usado por meio de:
+# Introdução ao conector do Dynamics CRM Online
+Conecte-se ao Dynamics CRM Online para criar um novo registro, atualizar um item e muito mais. Com o CRM Online, você pode:
 
-- Aplicativos lógicos
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-crmonline.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
-
-Com o CRM Online, você pode:
-
-- Compilar seu fluxo de negócios baseado nos dados que obtém do CRM Online. 
+- Compilar seu fluxo de negócios baseado nos dados que obtém do CRM Online.
 - Usar ações que excluem um registro, obtêm entidades e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no CRM, você pode enviar um email usando o Office 365.
 
+Este tópico mostra como usar o conector do Dynamics CRM Online em um aplicativo lógico e também lista os gatilhos e as ações.
 
-Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+>[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte [O que são aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Gatilhos e ações
-O Conector do CRM inclui as ações a seguir. Não há nenhum gatilho.
+## Conector o Dynamics CRM Online
 
-| Gatilhos | Ações|
-| --- | --- |
-|Nenhum| <ul><li>Criar um novo registro</li><li>Obtém registros</li><li>Excluir um registro</li><li>Obtém um registro</li><li>Obtém entidades</li><li>Atualizar um item</li></ul>
+Antes do aplicativo lógico poder acessar qualquer serviço, primeiro crie uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para conectar o Dynamics, primeiro é necessário uma *conexão* do Dynamics CRM Online. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual deseja conectar-se. Assim, com o Dynamics, insira as credenciais de sua conta do Dynamics CRM Online para criar a conexão.
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
-## Criar uma conexão com o CRM Online
+### Criar a conexão
 
-Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar no Dynamic CRM Online. Siga estas etapas para entrar no CRM online e concluir a configuração da **conexão** em seu aplicativo lógico:
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Provedor de Conexão do Dynamics CRM Online](../../includes/connectors-create-api-crmonline.md)]
 
-1. Em seu aplicativo lógico, selecione **Adicionar uma ação**: ![Configurar o CRM Online][13]
-4. Insira CRM na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com CRM no nome.
-5. Selecione **Dynamics CRM Online - Criar um novo registro**.
-6. Selecione **Entrar no Dynamics CRM Online**: ![Configurar o CRM Online][14]
-7. Forneça suas credenciais do CRM Online para entrar e autorizar o aplicativo: ![Configurar o CRM Online][15]  
-8. Depois de entrar, retorne ao aplicativo lógico para concluí-lo adicionando outros gatilhos e outras ações necessárias.
-9. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
+## Usar um gatilho
 
-Depois de criar a conexão, insira as propriedades do CRM Online, como a tabela ou conjunto de dados. A **referência da API REST** neste tópico descreve essas propriedades.
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Gatilhos "sondam" o serviço no intervalo e na frequência desejados. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
+1. No aplicativo lógico, digite "dynamics" para obter uma lista de gatilhos:
 
-## Referência da API REST do Swagger
-Aplica-se à versão: 1.0.
+	![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 
-### Criar um novo registro 
-Crie um novo registro em uma entidade.```POST: /datasets/{dataset}/tables/{table}/items```
+2. Selecione **Dynamics CRM Online - Quando um registro é criado**. Se já existir uma conexão, selecione uma organização e a entidade na lista suspensa.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-|tabela|string|sim|path|nenhum|O nome da entidade|
-|item| |sim|corpo|nenhum|Registro para criação|
+	![](./media/connectors-create-api-crmonline/select-organization.png)
 
-#### Resposta
+	Se você for solicitado a entrar, insira os detalhes do logon para criar a conexão. [Criar a conexão](connectors-create-api-crmonline.md#create-the-connection) neste tópico lista as etapas.
+
+	> [AZURE.NOTE] Neste exemplo, o aplicativo lógico é executado quando um registro é criado. Para ver os resultados deste gatilho, adicione outra ação que envia um email. Por exemplo, adicione a ação *Enviar um email* do Office 365 que envia um email para você quando um registro é adicionado.
+
+3. Selecione o botão **Editar** e defina os valores **Frequência** e **Intervalo**. Por exemplo, se você quiser que o gatilho faça uma sondagem a cada 15 minutos, defina a **Frequência** para **Minuto** e **Intervalo** para **15**.
+
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
+
+4. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+
+
+## Usar uma ação
+
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **Adicionar uma condição** ou uma das opções **Mais**.
+
+	![](./media/connectors-create-api-crmonline/add-action.png)
+
+2. Escolha **Adicionar uma ação**.
+
+3. Na caixa de texto, digite "dynamics" para obter uma lista de todas as ações disponíveis.
+
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+
+4. Em nosso exemplo, escolha **Dynamics CRM Online - Atualizar um registro**. Se já existir uma conexão, escolha **Nome da Organização**, **Nome da Entidade** e outras propriedades:
+
+	![](./media/connectors-create-api-crmonline/sample-action.png)
+
+	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-crmonline.md#create-the-connection) neste tópico descreve estas propriedades.
+
+	> [AZURE.NOTE] Neste exemplo, atualizamos um registro existente no CRM Online. Você pode usar a saída de outro gatilho para atualizar o registro. Por exemplo, adicione o gatilho *Quando um item existente é modificado* do SharePoint. Em seguida, adicione a ação *Atualizar um registro* do CRM Online que usa os campos do SharePoint para atualizar o registro existente no CRM Online.
+
+5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+
+
+## Detalhes técnicos
+
+## Gatilhos
+
+|Gatilho | Descrição|
+|--- | ---|
+|[Quando um registro é criado](connectors-create-api-crmonline.md#when-a-record-is-created)|Dispara um fluxo quando um objeto é criado no CRM.|
+|[Quando um registro é atualizado](connectors-create-api-crmonline.md#when-a-record-is-updated)|Dispara um fluxo quando um objeto é modificado no CRM.|
+|[Quando um registro é excluído](connectors-create-api-crmonline.md#when-a-record-is-deleted)|Dispara um fluxo quando um objeto é excluído no CRM.|
+
+
+## Ações
+
+|Ação|Descrição|
+|--- | ---|
+|[Listar registros](connectors-create-api-crmonline.md#list-records)|Esta operação obtém os registros de uma entidade.|
+|[Criar um novo registro](connectors-create-api-crmonline.md#create-a-new-record)|Esta operação cria um novo registro de uma entidade.|
+|[Obter registro](connectors-create-api-crmonline.md#get-record)|Esta operação obtém o registro específico de uma entidade.|
+|[Excluir um registro](connectors-create-api-crmonline.md#delete-a-record)|Essa operação exclui um registro de uma coleção de entidades.|
+|[Atualizar um registro](connectors-create-api-crmonline.md#update-a-record)|Esta operação atualiza um registro existente de uma entidade.|
+
+### Detalhes de gatilho e ação
+
+Nesta seção, consulte os detalhes específicos sobre cada gatilho e ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
+
+#### Quando um registro é criado
+Dispara um fluxo quando um objeto é criado no CRM.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a obter (padrão = 256)|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+ItemsList
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+#### Quando um registro é atualizado
+Dispara um fluxo quando um objeto é modificado no CRM.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a obter (padrão = 256)|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+ItemsList
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+#### Quando um registro é excluído
+Dispara um fluxo quando um objeto é excluído no CRM.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a obter (padrão = 256)|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+ItemsList
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+#### Listar registros
+Esta operação obtém os registros de uma entidade.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|$skip|Ignorar contagem|Número de entradas a serem ignoradas (padrão = 0)|
+|$top|Obter Contagem Máxima|Número máximo de entradas a obter (padrão = 256)|
+|$filter|Consulta de filtro|Uma consulta de filtro ODATA para restringir as entradas retornadas|
+|$orderby|Ordenar por|Uma consulta orderBy do ODATA para especificar a ordem das entradas|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+ItemsList
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|
+|value|array|
+
+
+#### Criar um novo registro
+Esta operação cria um novo registro de uma entidade.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+Nenhuma.
+
+
+#### Obter registro
+Esta operação obtém o registro específico de uma entidade.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|id*|Identificador do item|Especificar o Identificador do registro|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+Nenhuma.
+
+
+#### Excluir um registro
+Essa operação exclui um registro de uma coleção de entidades.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|id*|Identificador do item|Especificar o identificador do registro|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+
+#### Atualizar um registro
+Esta operação atualiza um registro existente de uma entidade.
+
+|Nome da propriedade| Nome de exibição|Descrição|
+| ---|---|---|
+|dataset*|Nome da Organização|Nome da organização do CRM, como Contoso|
+|table*|Nome da entidade|O nome da entidade|
+|id*|Identificador do registro|Especificar o identificador do registro|
+
+Um asterisco (*) significa que a propriedade obrigatória.
+
+##### Detalhes da Saída
+Nenhuma.
+
+
+## Respostas HTTP
+
+As ações e os gatilhos podem retornar um ou mais dos seguintes códigos de status HTTP:
+
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
-
-
-### Obter registros 
- Obtenha registros para uma entidade.```GET: /datasets/{dataset}/tables/{table}/items```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-|tabela|string|sim|path|nenhum|O nome da entidade|
-|$skip|inteiro|não|query|nenhum|Número de entradas para ignorar. O padrão é 0.|
-|$top|inteiro|não|query|nenhum|Número máximo de entradas para buscar. O padrão é 100.|
-|$filter|string|não|query|nenhum|Consulta de filtro ODATA para restringir o número de entradas.|
-|$orderby|string|não|query|nenhum|Consulta orderBy ODATA para especificar a ordem das entradas.|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-
-
-### Retornar os conjuntos de dados 
- Retorne os conjuntos de dados.```GET: /datasets```
-
-Não há parâmetros para esta chamada.
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-
-### Obter um item de tabela 
-Usado para obter um registro específico presente para uma entidade do CRM.```GET: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-|tabela|string|sim|path|nenhum|O nome da entidade|
-|ID|string|sim|path|nenhum|Identificador do registro|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-### Excluir um item de uma lista 
-Excluir um Item de uma Lista.```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-|tabela|string|sim|path|nenhum|O nome da entidade|
-|ID|string|sim|path|nenhum|Identificador do registro|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-
-
-### Corrigir um item de tabela existente 
-Usado para atualizar parcialmente um registro existente para uma entidade do CRM.```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-|tabela|string|sim|path|nenhum|O nome da entidade|
-|ID|string|sim|path|nenhum|Identificador do registro|
-|item| |sim|corpo|nenhum|Registro para atualização|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
-|padrão|Falha na operação.|
-
-### Obter entidades 
-Usado para obter a lista de entidades presentes em uma instância do CRM.```GET: /datasets/{dataset}/tables```
-
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
-| ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|Nome exclusivo da organização CRM contoso.crm|
-
-#### Resposta
-|Nome|Descrição|
-|---|---|
-|200|OK|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido.|
 |padrão|Falha na Operação.|
-
-
-## Definições de objeto
-
-#### DataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados | Obrigatório|
-|---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
-
-#### TabularDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
-
-#### BlobDataSetsMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-
-
-#### TableMetadata
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|name|string|não|
-|título|string|não|
-|x-ms-permission|string|não|
-|schema|não definido|não|
-
-#### DataSetsList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|value|array|não|
-
-#### DataSet
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
-
-
-#### Tabela
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
-
-#### Item
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|ItemInternalId|string|não|
-
-#### ItemsList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|value|array|não|
-
-
-#### TablesList
-
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
-|---|---|---|
-|value|array|não|
 
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-Volte para a [Lista de APIs](apis-list.md).
-
-
-[9]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-appinfo.png
-[10]: ./media/connectors-create-api-crmonline/aad-tenant-applications-add-app-properties.png
-[12]: ./media/connectors-create-api-crmonline/contoso-aad-app-configure.png
-[13]: ./media/connectors-create-api-crmonline/crmconfig1.png
-[14]: ./media/connectors-create-api-crmonline/crmconfig2.png
-[15]: ./media/connectors-create-api-crmonline/crmconfig3.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

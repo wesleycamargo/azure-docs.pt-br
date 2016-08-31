@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como habilitar o SSO entre aplicativos no iOS usando a ADAL | Microsoft Azure"
-	description="Como usar os recursos do SDK do ADAL para habilitar o Logon Único em seus aplicativos."
+	description="Como usar os recursos do SDK do ADAL para habilitar o Logon Único em seus aplicativos. "
 	services="active-directory"
 	documentationCenter=""
 	authors="brandwe"
@@ -33,6 +33,7 @@ Este passo a passo se aplica a:
 * Azure Active Directory
 * Active Directory B2C do Azure
 * Azure Active Directory B2B
+* Acesso condicional ao Azure Active Directory
 
 
 Observe que o documento a seguir pressupõe que você tem conhecimento de como [provisionar aplicativos no portal herdado para o Azure Active Directory](active-directory-how-to-integrate.md), e que você também integrou seu aplicativo ao [SDK do Microsoft Identity para iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
@@ -59,7 +60,7 @@ Os logons assistidos por não agentes são experiências de logon que ocorrem em
 Esses logons têm os seguintes benefícios:
 
 -  A experiência de usuário existe totalmente dentro do aplicativo.
--  As credenciais podem ser compartilhadas entre aplicativos assinados com o mesmo certificado, fornecendo uma experiência de logon único para o pacote de aplicativos. 
+-  As credenciais podem ser compartilhadas entre aplicativos assinados com o mesmo certificado, fornecendo uma experiência de logon único para o pacote de aplicativos.
 -  O controle sobre a experiência de logon é fornecido para o aplicativo antes e depois da entrada.
 
 Esses logons têm as seguintes desvantagens:
@@ -154,7 +155,7 @@ Para SSO assistido por não agente entre aplicativos, os SDKs do Microsoft Ident
 
 Para habilitar o SSO entre aplicativos que você possui, é necessário fazer o seguinte:
 
-1. Certifique-se de que todos os seus aplicativos usem a mesma ID de Cliente ou de Aplicativo. 
+1. Certifique-se de que todos os seus aplicativos usem a mesma ID de Cliente ou de Aplicativo.
 * Certifique-se de que todos os aplicativos compartilhem o mesmo certificado de assinatura da Apple para que você possa compartilhar os conjuntos de chaves.
 * Solicite o mesmo direito de conjunto de chaves para cada um dos seus aplicativos.
 * Informe aos SDKs do Microsoft Identity sobre o conjunto de chaves compartilhado que você deseja usar.
@@ -298,7 +299,7 @@ Para oferecer suporte à autenticação baseada em certificado, é necessário r
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-Por exemplo: **msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+Por exemplo: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 
 #### Etapa 4: iOS9: adicionar um parâmetro de configuração ao seu aplicativo
@@ -311,4 +312,4 @@ O ADAL usa – canOpenURL: para verificar se o agente está instalado no disposi
 
 Agora, o SDK do Microsoft Identity compartilhará automaticamente as credenciais em seus aplicativos e invocará o agente se ele estiver presente em seu dispositivo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

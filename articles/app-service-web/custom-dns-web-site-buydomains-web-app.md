@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.
@@ -39,7 +39,7 @@ Para um aplicativo Web de produção, é bem provável que você queira que os u
 
 ## Visão geral
 
-> [AZURE.NOTE] Não tente adquirir um domínio usando uma assinatura que não tem um cartão de crédito ativo associado a ela. Isso pode resultar na desabilitação de sua assinatura.
+> [AZURE.NOTE] Não tente adquirir um domínio usando uma assinatura que não tem um Cartão de Crédito Ativo associado. Isso pode resultar na desabilitação de sua assinatura.
 
 Se você não tiver um nome de domínio para seu aplicativo web, poderá comprar um facilmente no [Portal do Azure](https://portal.azure.com/). Durante o processo de compra você pode optar para que os registros DNS do domínio raiz e WWW sejam mapeados automaticamente para seu aplicativo da web. Também é possível gerenciar seu direito de domínio dentro do Portal do Azure.
 
@@ -91,7 +91,7 @@ Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplic
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
-> [AZURE.NOTE] É possível "Cancelar compra" no prazo de 5 dias para obter reembolso total. Após 5 dias, não será mais possível "Cancelar comprar" e, em vez disso, você verá uma opção para "Excluir" o domínio. A exclusão do domínio resultará em sua liberação de sua assinatura sem reembolso e ele se tornará um domínio disponível.
+> [AZURE.NOTE] É possível "Cancelar compra" no prazo de 5 dias para obter reembolso total. Após 5 dias, não será mais possível "Cancelar comprar" e, em vez disso, você verá uma opção para "Excluir" o domínio. A exclusão do domínio resultará em sua liberação da assinatura sem reembolso e ele se tornará um domínio disponível.
 
 Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **Vínculos de Hostname** de seu aplicativo Web.
 
@@ -99,11 +99,11 @@ Nesse ponto, você deve poder inserir o nome de domínio personalizado no navega
  
 ## O que acontece com o domínio personalizado que você comprou
 
-O domínio personalizado adquirido nas folhas dos **Domínios personalizados e SSL** está vinculado à assinatura do Azure. Como um recurso do Azure, esse domínio personalizado é separado e independente do Aplicativo do Serviço de Aplicativo para o qual você comprou o domínio. Isso significa que:
+O domínio personalizado adquirido na folha **Domínios personalizados e SSL** está vinculado à assinatura do Azure. Como um recurso do Azure, esse domínio personalizado é separado e independente do Aplicativo do Serviço de Aplicativo para o qual você comprou o domínio. Isso significa que:
 
 - No Portal do Azure, você pode usar o domínio personalizado que você comprou para mais de um aplicativo de Serviço de Aplicativo e não apenas para o aplicativo para o qual você adquiriu o domínio personalizado.
-- Você pode gerenciar todos os domínios personalizados comprados na assinatura do Azure indo para as folhas **Domínios personalizados e SSL** de *qualquer* aplicativo de Serviço de Aplicativo naquela assinatura.
-- Você pode atribuir qualquer aplicativo de Serviço de Aplicativo da mesma assinatura do Azure a um subdomínio deste domínio personalizado.
+- Você pode gerenciar todos os domínios personalizados comprados na assinatura do Azure indo para a folha **Domínios personalizados e SSL** de *qualquer* aplicativo do Serviço de Aplicativo naquela assinatura.
+- Você pode atribuir qualquer aplicativo do Serviço de Aplicativo a partir da mesma assinatura do Azure a um subdomínio nesse domínio personalizado.
 - Se você decidir excluir um aplicativo do Serviço de Aplicativo, você pode optar por não excluir o domínio personalizado ao qual ele está vinculado se quiser continuar usando o domínio para outros aplicativos.
 
 ## Se não conseguir ver o domínio personalizado que você comprou
@@ -114,6 +114,6 @@ Se você comprou o domínio personalizado a partir da folha **Domínios personal
 - A criação de domínio personalizado pode ter falhado por algum motivo. Verifique o sino de notificação na parte superior do Portal do Azure para ver o andamento.
 - O criação do domínio personalizado pode ter sido bem-sucedida, mas a folha pode não ter sido atualizada. Tente abrir a folha **domínios personalizados e SSL**.
 - Você pode ter excluído o domínio personalizado em algum momento. Verifique os logs de auditoria clicando em **Configurações** > **Logs de auditoria** a partir da folha principal do seu aplicativo.
-- A folha **domínios personalizados e SSL** que você está procurando pode pertencer a um aplicativo que é criado em uma assinatura diferente do Azure. Alterne para outro aplicativo em uma assinatura diferente e verifique sua folha de **domínios personalizados e SSL** . No portal, você não conseguirá ver ou gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, se você clicar em **Gerenciamento avançado** na folha do domínio **Gerenciar domínio**, você será redirecionado para o domínio do site do provedor, onde você poderá [Configurar manualmente o seu domínio personalizado como qualquer domínio personalizado externo](web-sites-custom-domain-name.md) para aplicativos criados em uma assinatura do Azure diferente.
+- A folha **Domínios personalizados e SSL** que você está procurando pode pertencer a um aplicativo criado em uma assinatura diferente do Azure. Alterne para outro aplicativo em uma assinatura diferente e verifique sua folha **Domínios personalizados e SSL** . No portal, você não conseguirá ver nem gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, se você clicar em **Gerenciamento avançado** na folha do domínio **Gerenciar domínio**, será redirecionado para o site do provedor do domínio, onde poderá [configurar manualmente seu domínio personalizado como qualquer domínio personalizado externo](web-sites-custom-domain-name.md) para os aplicativos criados em uma assinatura diferente do Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->
