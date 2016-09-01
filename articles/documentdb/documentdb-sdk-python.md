@@ -93,6 +93,12 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python an
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1.9.0](#1.9.0) | 07 de julho de 2016 |---
+| [1.8.0](#1.8.0) | 14 de julho de 2016 |---
+| [1.7.0](#1.7.0) | 26 de abril de 2016 |---
+| [1.6.1](#1.6.1) | 08 de abril de 2016 |---
+| [1.6.0](#1.6.0) | 29 de março de 2016 |---
+| [1.5.0](#1.5.0) | 03 de janeiro de 2016 |---
 | [1\.4.2](#1.4.2) | 06 de outubro de 2015 |---
 | [1\.4.1](#1.4.1) | 06 de outubro de 2015 |---
 | [1\.2.0](#1.2.0) | 06 de agosto de 2015 |---
