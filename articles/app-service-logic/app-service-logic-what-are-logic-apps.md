@@ -43,7 +43,7 @@ Cenários como esses podem ser configurados inteiramente por meio do designer vi
 
 ## Por que aplicativos lógicos?
 
-Os Aplicativos Lógicos proporcionam velocidade e escalabilidade ao espaço de integração empresarial. A facilidade de uso do designer, a variedade de disparadores e ações disponíveis e as ferramentas de gerenciamento poderosas simplificam mais do que nunca a centralização das APIs. À medida que as empresas adotam a digitalização, os Aplicativos Lógicos permitem a conexão entre sistemas legados e inovadores.
+Os Aplicativos Lógicos proporcionam velocidade e escalabilidade ao espaço de integração empresarial. A facilidade de uso do designer, a variedade de disparadores e ações disponíveis e as ferramentas de gerenciamento poderosas simplificam mais do que nunca a centralização das APIs. À medida que as empresas adotam a digitalização, os Aplicativos Lógicos permitem a conexão entre sistemas herdados e inovadores.
 
 Além disso, com a [conta do Enterprise Integration][biztalk], você pode dimensionar para cenários de integração desenvolvidos com a capacidade de [mensagens XML][xml], [gerenciamento de parceiros comerciais][tpm] e muito mais.
 
