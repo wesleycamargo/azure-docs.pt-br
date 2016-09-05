@@ -39,7 +39,7 @@ Use essa arquitetura quando o servidor de processo é local e você está usando
 
 Use essa arquitetura quando o servidor de processo está no Azure e você tem uma VPN ou uma conexão de Rota Expressa.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Para ver a lista completa de portas e o diagrama da arquitetura de failback, consulte a imagem abaixo.
 

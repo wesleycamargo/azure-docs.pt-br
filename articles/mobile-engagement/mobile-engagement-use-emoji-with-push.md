@@ -40,7 +40,9 @@ Você pode incluir emoticons Emoji em notificações por push em algumas etapas 
 
 7. Quando você executar um teste ou ativar o anúncio, verá uma notificação com o emoticon conforme especificado.
 
-	![][3] ![][4] ![][5]
+	![][3]
+	![][4]
+	![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png

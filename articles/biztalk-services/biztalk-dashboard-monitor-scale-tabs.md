@@ -233,14 +233,17 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 
 ##### Para remover ou exibir métricas no gráfico:
 1. Selecione a guia **Processo**.
-2. Selecione **Adicionar Métricas** na barra de tarefas: ![Selecione Adicionar Métricas][AddMetrics]
+2. Selecione **Adicionar Métricas** na barra de tarefas:  
+![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento**.
 5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.
 
-	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico: ![A métrica Uso de CPU fica esmaecida][GrayedMetric]
+	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
+![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
 
-	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico: ![A métrica Uso de CPU está habilitada][EnabledMetric]
+	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico:  
+![A métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 

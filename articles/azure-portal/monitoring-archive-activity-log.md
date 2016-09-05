@@ -46,7 +46,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Propriedade | Obrigatório | Descrição |
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | Não | A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| Locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/pt-BR/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| Locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | RetentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazena os logs indefinidamente. |
 | Categorias | Sim | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 ## Arquivar o Log de Atividades por meio da CLI
@@ -58,7 +58,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | Sim | Nome de seu perfil de log. |
 | storageId | Não | A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/pt-BR/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
 | retentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazenará os logs indefinidamente. |
 | categorias | Sim | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 

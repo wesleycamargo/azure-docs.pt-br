@@ -497,7 +497,8 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte:
+	HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 

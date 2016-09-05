@@ -74,7 +74,8 @@ storedProcedureParameters | Especifique valores para parâmetros de procedimento
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada. ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
+	ID é a única identificada e a coluna datetimestamp é a data e a hora em que a ID correspondente é gerada.
+	![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. Crie o seguinte **procedimento armazenado** que insere dados na **tabeladeexemplo**.
 

@@ -73,7 +73,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 A seção de informações da conta identifica informações pertinentes relacionadas ao seu uso e perfil.
 
-![cabeçalho](./media/billing-understand-your-bill/Header.png)
+	![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 | Termo | Descrição |
 |---------------------|-----------------------------------------------------------------------------------------------------|
@@ -205,7 +205,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
     
     - Máquinas Virtuais
     

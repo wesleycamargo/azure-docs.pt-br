@@ -79,7 +79,7 @@ Observação: as SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 
 | Plataforma servidor | Versão | Cabeçalho de versão aceito |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nenhum cabeçalho de versão ** |
+| .NET | [WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Nenhum cabeçalho de versão**|
 | Node.js | (em breve) | **Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->

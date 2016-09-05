@@ -76,7 +76,7 @@ Há dois tipos de políticas de senha que são afetadas ao habilitar a sincroniz
 
 > [AZURE.NOTE] Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
 
-**Política de expiração de senha** Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem será definida como "*Nunca Expirar*". Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
+**Política de expiração de senha** Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem será definida como " *Nunca Expirar* ". Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
 ### Substituindo senhas sincronizadas
 Um administrador pode redefinir sua senha manualmente usando o Windows PowerShell.
@@ -158,7 +158,7 @@ Se o script mostrar que não há nenhuma pulsação, execute o script em [Dispar
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Microsoft Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
