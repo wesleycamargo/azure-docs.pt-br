@@ -3,8 +3,8 @@
    description="Este artigo o ajudará a testar as configurações do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Testando as configurações do Gerenciador de Tráfego
 
@@ -59,4 +59,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md) [Gerenciador de Tráfego](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

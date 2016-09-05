@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guia de solução de problemas de API
@@ -29,11 +29,11 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 
 - Problemas de sintaxe:
     - Verifique a sintaxe da API específica que você está usando para confirmar se a opção está disponível.
-    - Um problema comum com o uso da API é confundir a API de Alcance e a API de Envio por Push (a maioria das tarefas deve ser executada com a API de Alcance em vez da API de Envio por Push). 
+    - Um problema comum com o uso da API é confundir a API de Alcance e a API de Envio por Push (a maioria das tarefas deve ser executada com a API de Alcance em vez da API de Envio por Push).
     - Outro problema comum com a integração do SDK e o uso da API é confundir a Chave do SDK e a Chave de API.
     - Os scripts que se conectam às APIs precisam enviar dados pelo menos a cada 10 minutos ou a conexão atingirá o tempo limite (comum especialmente em scripts de API do Monitor aguardando dados). Para evitar atingir o tempo limite, faça seu script enviar um ping XMPP a cada 10 minutos para manter ativa a sessão com o servidor.
 
-### Consulte também
+### Confira também
  
 - [Documentação da API][Link 4]
 - [Informações do protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
@@ -47,7 +47,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 
 - A confirmação de que você pode executar a mesma ação da interface do usuário do Mobile Engagement do Azure mostra que esse recurso do Mobile Engagement do Azure foi corretamente integrado ao SDK.
 
-### Consulte também
+### Confira também
  
 - [Documentação da Interface do Usuário][Link 1]
  
@@ -80,7 +80,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### Consulte também
+### Confira também
 
 - [Documentação da API - erros detalhados sobre cada API específica][Link 4]
  
@@ -94,7 +94,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 - Muitos itens serão desabilitados na interface do usuário do Mobile Engagement do Azure caso não tenham sido integrados corretamente, mas falharão de forma silenciosa a partir da API; dessa forma, lembre-se de testar a mesma funcionalidade da interface do usuário para ver se ela funciona.
 - O Mobile Engagement do Azure e muitos recursos avançados do Mobile Engagement do Azure que você está tentando usar precisarão ser individualmente integrados ao seu aplicativo com o SDK em etapas distintas antes que você possa usá-los.
 
-### Consulte também
+### Confira também
 
 - [Guia de solução de problemas - SDK][Link 25]
  
@@ -130,4 +130,4 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

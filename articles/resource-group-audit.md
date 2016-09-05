@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Operações de auditoria com o Gerenciador de Recursos | Microsoft Azure"
-	description="Use o log de auditoria no Gerenciador de Recursos para analisar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST."
+	description="Use o log de atividade no Gerenciador de Recursos para examinar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST."
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="08/22/2016"
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
 
-Com os logs de auditoria, você pode determinar:
+Com os logs de atividade, você pode determinar:
 
 - quais operações foram executadas nos recursos em sua assinatura
 - quem iniciou a operação (embora as operações iniciadas por um serviço de back-end não retornem um usuário como o chamador)
@@ -28,39 +28,35 @@ Com os logs de auditoria, você pode determinar:
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Este tópico concentra-se na auditoria de operações. Para saber mais sobre como usar os logs de auditoria para solucionar problemas, confira [Solução de problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
+Este tópico concentra-se na auditoria de operações. Para saber mais sobre como usar os logs de atividade para solucionar problemas de uma implantação, confira [Solução de problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-Você pode recuperar informações dos logs de auditoria por meio do Portal do Azure, do Azure PowerShell, da CLI do Azure, API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+Você pode recuperar informações dos logs de atividade por meio do Portal, do PowerShell, da CLI do Azure, da API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## Portal para exibir os logs de auditoria
+## Portal para exibir os logs de atividade
 
-1. Para exibir os logs de auditoria no portal, escolha **Procurar** e **Logs de Auditoria**.
+1. Para exibir os logs de atividade por meio do portal, selecione **Mais Serviços** e **Logs de Atividade**.
 
-    ![selecionar logs de auditoria](./media/resource-group-audit/select-audit-logs.png)
+    ![selecionar logs de atividade](./media/resource-group-audit/select-audit-logs.png)
 
-2. Na folha **Logs de Auditoria**, você verá um resumo das operações recentes para todos os grupos de recursos em sua assinatura. Ele incluirá uma representação gráfica do tempo e do status das operações, bem como uma lista das operações.
+2. Na folha **Logs de Atividade**, você verá um resumo das operações recentes de todos os grupos de recursos em sua assinatura. Ele inclui uma lista das operações recentes.
 
     ![mostrar ações](./media/resource-group-audit/audit-summary.png)
 
-3. Para procurar um tipos específico de ação, você pode filtrar quais operações são exibidas na folha de logs de auditoria. Escolha **Filtrar**, na parte superior da folha.
-
-    ![filtrar logs](./media/resource-group-audit/filter-logs.png)
-
-4. Na folha **Filtro**, você pode selecionar várias condições diferentes para restringir o número de operações exibidas. Por exemplo, você pode ver todas as ações executadas por um usuário específico na semana passada.
+3. Para restringir o número de operações exibidas, selecione condições diferentes. Por exemplo, a imagem a seguir mostra os campos **Intervalo de tempo** e **Evento iniciado por** alterados para exibir as ações realizadas por um determinado usuário ou aplicativo no mês passado.
 
     ![definir opções de filtragem](./media/resource-group-audit/set-filter.png)
 
-Depois de atualizar a exibição dos logs de auditoria, você verá somente as operações que atendem à condição especificada. Essas configurações serão mantidas na próxima vez que você exibir os logs de auditoria. Portanto, talvez seja necessário alterar esses valores para ampliar a exibição das operações.
+4. Selecione **Aplicar** para exibir os resultados da consulta.
 
-Também é possível filtrar automaticamente um determinado recurso, selecionando os logs de auditoria na folha desse recurso. No portal, escolha o recurso de auditoria e selecione **Logs de auditoria**.
+5. Se você precisar executar a consulta novamente mais tarde, selecione **Salvar** e nomeie a consulta.
 
-![recursos de auditoria](./media/resource-group-audit/audit-by-resource.png)
+    ![salvar consulta](./media/resource-group-audit/save-query.png)
 
-Observe que o log de auditoria é automaticamente filtrado pelo recurso selecionado da semana passada.
+6. Para filtrar automaticamente para um determinado recurso ou grupo de recursos, selecione **Log de atividades** da folha desse recurso. Observe que o log de atividades é automaticamente filtrado pelo recurso selecionado.
 
-![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
+    ![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
 
-## PowerShell para exibir os logs de auditoria
+## PowerShell para exibir os logs de atividade
 
 1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog**. Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas da última hora retornarão. Por exemplo, para recuperar as operações de um grupo de recursos durante a execução na última hora:
 
@@ -100,7 +96,7 @@ Observe que o log de auditoria é automaticamente filtrado pelo recurso selecion
 
         Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-## CLI do Azure para exibir os logs de auditoria
+## CLI do Azure para exibir os logs de atividade
 
 1. Para recuperar as entradas de log, execute o comando **azure group log show**.
 
@@ -116,13 +112,13 @@ Observe que o log de auditoria é automaticamente filtrado pelo recurso selecion
 
 ## API REST para exibir os logs de auditoria
 
-As operações REST para trabalhar com o log de auditoria fazem parte da [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar os eventos de log de auditoria, veja [Listar os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+As operações de REST para trabalhar com o log de atividade fazem parte da [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar os eventos de log de atividade, confira [Listar os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Próximas etapas
 
-- Os logs de auditoria do Azure podem ser usados com o Power BI para obter mais informações sobre as ações em sua assinatura. Consulte [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+- Os logs de atividade do Azure podem ser usados com o Power BI para obter mais informações sobre as ações em sua assinatura. Confira [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Exibir e analisar logs de atividade do Azure no Power BI e muito mais).
 - Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
-- Para saber mais sobre os comandos para solucionar problemas de implantações, consulte [Solucionando problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
-- Para saber como impedir exclusões em um recurso para todos os usuários, consulte [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+- Para saber mais sobre os comandos para solucionar problemas de implantações, confira [Solucionando problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Para saber como impedir exclusões em um recurso para todos os usuários, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

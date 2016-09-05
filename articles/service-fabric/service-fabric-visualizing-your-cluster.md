@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="08/22/2016"
    ms.author="seanmck"/>
 
 # Visualizando o cluster com o Explorador do Service Fabric
@@ -24,7 +24,7 @@ O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar
 
 Se você seguiu as instruções para [preparar o seu ambiente de desenvolvimento](service-fabric-get-started.md), pode iniciar o Explorador do Service Fabric no cluster local navegando para http://localhost:19080/Explorer.
 
->[AZURE.NOTE] Se estiver usando o Internet Explorer com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do Internet Explorer. Vá para **Ferramentas** -> **Configurações de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet na Exibição de Compatibilidade** para garantir que todas as informações sejam carregadas corretamente.
+>[AZURE.NOTE] Se estiver usando o Internet Explorer com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do Internet Explorer. Vá para **Ferramentas** > **Configurações do Modo de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet no Modo de Exibição de Compatibilidade** para garantir que todas as informações sejam carregadas corretamente.
 
 ## Entender o layout do Explorador do Service Fabric
 
@@ -64,7 +64,7 @@ Por exemplo, para excluir uma instância do aplicativo, basta escolher o aplicat
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
->[AZURE.TIP] As mesmas ações podem ser executadas na exibição em árvore clicando no botão de reticências ao lado de cada elemento.
+>[AZURE.TIP] Você pode executar as mesmas ações clicando nas reticências ao lado de cada elemento.
 
 A tabela a seguir lista as ações disponíveis para cada entidade:
 
@@ -74,7 +74,7 @@ A tabela a seguir lista as ações disponíveis para cada entidade:
 | Aplicativo | Excluir aplicativo | Exclua o aplicativo, incluindo todos os seus serviços e o estado (se houver). |
 | O Barramento de | Excluir serviço | Exclua o serviço e seu estado (se houver). |
 | Nó | Ativar | Ative o nó. |
-|| Desativar (pausa) | Pause o nó em seu estado atual. Os serviços continuarão sendo executados, mas o Service Fabric não moverá nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. |
+|| Desativar (pausa) | Pause o nó em seu estado atual. Os serviços continuam sendo executados, mas o Service Fabric não move nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. |
 || Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. |
 || Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. |
 || Remover o estado do nó | Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. |
@@ -83,7 +83,11 @@ Como muitas ações são destrutivas, talvez seja necessário confirmar sua inte
 
 >[AZURE.TIP] Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
 
+Você também pode usar o Service Fabric Explorer para criar novas instâncias de aplicativo para um determinado tipo e versão de aplicativo. Escolha o tipo de aplicativo no modo de exibição de árvore, clique no link **Create app instance (Criar instância de aplicativo)** ao lado da versão desejada no painel da direita.
 
+![Criar uma instância de aplicativo no Service Fabric Explorer][sfx-create-app-instance]
+
+>[AZURE.NOTE] Instâncias de aplicativos criadas por meio do Service Fabric Explorer no momento não podem ser parametrizadas. Elas são criadas usando os valores de parâmetro padrão.
 
 ## Conectar a um cluster remoto do Service Fabric
 
@@ -99,9 +103,9 @@ A URL completa também está disponível no painel essencial do cluster do porta
 
 ### Conectar a um cluster seguro
 
-Você pode controlar o acesso do cliente ao cluster do Service Fabric com [certificados](service-fabric-cluster-security.md) ou usando o [AAD (Azure Active Directory)](service-fabric-cluster-security-client-auth-with-aad.md).
+Você pode controlar o acesso do cliente ao cluster do Service Fabric com certificados ou usando o AAD (Azure Active Directory).
 
-Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, precisará apresentar um certificado de cliente ou fazer logon usando o AAD, dependendo do tipo de segurança configurado para pontos de extremidade de gerenciamento do cluster.
+Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, precisará apresentar um certificado do cliente ou fazer logon usando o AAD, dependendo da configuração do cluster.
 
 ## Próximas etapas
 
@@ -115,5 +119,6 @@ Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, pre
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

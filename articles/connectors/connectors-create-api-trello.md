@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do Trello
 
-
-
-O conector do Trello pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
+O Trello lhe dá uma perspectiva de todos os seus projetos, no trabalho e em casa. É uma maneira fácil, gratuita, flexível e visual de gerenciar seus projetos e organizar qualquer coisa. Conectar ao Trello para gerenciar seus quadros, listas e cartões.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -65,7 +59,7 @@ Para criar Aplicativos Lógicos com o Trello, primeiro, você deve criar uma **c
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do Trello|
+|Token|Sim|Fornecer as credenciais do Trello|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o Trello](../../includes/connectors-create-api-trello.md)]
@@ -129,12 +123,12 @@ Listar cartões no quadro: lista os cartões no quadro
 | ---|---|---|---|---|---|
 |board\_id|string|sim|path|nenhum|ID do quadro no qual todos os cartões serão buscados|
 |actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|attachments|booleano|não|query|nenhum|Mostra anexos|
+|attachments|Booliano|não|query|nenhum|Mostra anexos|
 |attachment\_fields|string|não|query|nenhum|Lista os campos de anexo a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|stickers|booleano|não|query|nenhum|Mostra os adesivos|
-|membros|booleano|não|query|nenhum|Mostra os membros|
+|stickers|Booliano|não|query|nenhum|Mostra os adesivos|
+|membros|Booliano|não|query|nenhum|Mostra os membros|
 |member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|CheckItemStates|booleano|não|query|nenhum|Retorna os estados de cartão|
+|CheckItemStates|Booliano|não|query|nenhum|Retorna os estados de cartão|
 |Checklists|string|não|query|nenhum|Mostra as listas de verificação|
 |limite|inteiro|não|query|nenhum|O número máximo de resultados a serem retornados, entre 1 e 1000|
 |since|string|não|query|nenhum|Busca todos os cartões após essa data|
@@ -165,26 +159,26 @@ Obter cartão por ID: obtém um cartão por ID
 |board\_id|string|sim|query|nenhum|ID do quadro no qual os cartões serão buscados|
 |card\_id|string|sim|path|nenhum|ID do cartão a ser buscado|
 |actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|actions\_entities|booleano|não|query|nenhum|Retorna as entidades de ação|
-|actions\_display|booleano|não|query|nenhum|Retorna as exibições de ação|
+|actions\_entities|Booliano|não|query|nenhum|Retorna as entidades de ação|
+|actions\_display|Booliano|não|query|nenhum|Retorna as exibições de ação|
 |actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
 |action\_fields|string|não|query|nenhum|Lista de campos de ação a serem retornados para cada ação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |action\_memberCreator\_fields|string|não|query|nenhum|Lista de campos de criador de membro de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|attachments|booleano|não|query|nenhum|Retorna os anexos|
+|attachments|Booliano|não|query|nenhum|Retorna os anexos|
 |attachement\_fields|string|não|query|nenhum|Lista de campos de anexo a serem retornados para cada anexo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membros|booleano|não|query|nenhum|Retorna os membros|
+|membros|Booliano|não|query|nenhum|Retorna os membros|
 |member\_fields|string|não|query|nenhum|Lista de campos de membro a serem retornados para cada membro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membersVoted|booleano|não|query|nenhum|Retorna os membros votados|
+|membersVoted|Booliano|não|query|nenhum|Retorna os membros votados|
 |memberVoted\_fields|string|não|query|nenhum|Lista de campos de membro votados a serem retornados para cada membro votado. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|checkItemStates|booleano|não|query|nenhum|Retorna os estados de cartão|
+|checkItemStates|Booliano|não|query|nenhum|Retorna os estados de cartão|
 |checkItemState\_fields|string|não|query|nenhum|Lista de campos de estado a serem retornados para cada estado do item de cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |checklists|string|não|query|nenhum|Retorna as listas de verificação|
 |checklist\_fields|string|não|query|nenhum|Lista de campos de lista de verificação a serem retornados para cada lista de verificação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|board|booleano|não|query|nenhum|Retorna o quadro ao qual pertence o cartão|
+|board|Booliano|não|query|nenhum|Retorna o quadro ao qual pertence o cartão|
 |board\_fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|list|booleano|não|query|nenhum|Retorna a lista à qual pertence o cartão|
+|list|Booliano|não|query|nenhum|Retorna a lista à qual pertence o cartão|
 |list\_fields|string|não|query|nenhum|Lista os campos de lista a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|stickers|booleano|não|query|nenhum|Retorna os adesivos|
+|stickers|Booliano|não|query|nenhum|Retorna os adesivos|
 |sticker\_fields|string|não|query|nenhum|Lista os campos de adesivo a serem retornados para cada adesivo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |fields|string|não|query|nenhum|Lista os campos de cartão a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 
@@ -281,13 +275,13 @@ Listar quadros: lista os quadros
 |filtro|string|não|query|nenhum|Lista os filtros a serem aplicados aos resultados do quadro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |actions|string|não|query|nenhum|Lista os campos de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|actions\_entities|booleano|não|query|nenhum|Retorna as entidades de ação|
+|actions\_entities|Booliano|não|query|nenhum|Retorna as entidades de ação|
 |actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
 |actions\_format|string|não|query|nenhum|Especificar o formato das ações a serem retornadas|
 |actions\_since|string|não|query|nenhum|Retorna as ações após a data especificada|
 |action\_fields|string|não|query|nenhum|Lista os campos da ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |memberships|string|não|query|nenhum|Especifica as informações de associação a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|organization|booleano|não|query|nenhum|Especifica o retorno das informações sobre a organização|
+|organization|Booliano|não|query|nenhum|Especifica o retorno das informações sobre a organização|
 |organization\_fields|string|não|query|nenhum|Lista os campos de organização a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |lists|string|não|query|nenhum|Especifica se as listas que pertencem ao quadro serão retornadas|
 
@@ -313,22 +307,22 @@ Obter quadro por ID: obtém quadro por ID
 | ---|---|---|---|---|---|
 |board\_id|string|sim|path|nenhum|ID exclusiva do quadro a ser obtido|
 |actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_entities|booleano|não|query|nenhum|Especifica se as entidades de ação serão retornadas|
-|actions\_display|booleano|não|query|nenhum|Especifica se a exibição de ações será retornada|
+|action\_entities|Booliano|não|query|nenhum|Especifica se as entidades de ação serão retornadas|
+|actions\_display|Booliano|não|query|nenhum|Especifica se a exibição de ações será retornada|
 |actions\_format|string|não|query|nenhum|Especificar o formato das ações a serem retornadas|
 |actions\_since|string|não|query|nenhum|Retorna somente as ações após esta data|
 |actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
 |action\_fields|string|não|query|nenhum|Lista os campos a serem retornados com cada campo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_member|booleano|não|query|nenhum|Especifica se os membros de ação serão retornados|
+|action\_member|Booliano|não|query|nenhum|Especifica se os membros de ação serão retornados|
 |action\_member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados com cada membro de ação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_memberCreator|booleano|não|query|nenhum|Especifica se o criador de membro de ação será retornado|
+|action\_memberCreator|Booliano|não|query|nenhum|Especifica se o criador de membro de ação será retornado|
 |action\_memberCreator\_fields|string|não|query|nenhum|Lista os campos de criador de membro de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |cards|string|não|query|nenhum|Especifica os cartões a serem retornados|
 |card\_fields|string|não|query|nenhum|Lista os campos a serem retornados para cada cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|card\_attachments|booleano|sim|query|nenhum|Especifica se os anexos nos cartões serão retornados|
+|card\_attachments|Booliano|sim|query|nenhum|Especifica se os anexos nos cartões serão retornados|
 |card\_attachment\_fields|string|não|query|nenhum|Lista os campos de anexo a serem retornados para cada anexo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |card\_checklists|string|não|query|nenhum|Especifica as listas de verificação a serem retornadas para cada cartão|
-|card\_stickers|booleano|não|query|nenhum|Especifica se os adesivos de cartão serão retornados|
+|card\_stickers|Booliano|não|query|nenhum|Especifica se os adesivos de cartão serão retornados|
 |boardStarts|string|não|query|nenhum|Especifica as estrelas de quadro a serem retornadas|
 |rótulos|string|não|query|nenhum|Especifica os rótulos a serem retornados|
 |label\_fields|string|não|query|nenhum|Lista os campos de rótulo a serem retornados para cada rótulo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
@@ -336,7 +330,7 @@ Obter quadro por ID: obtém quadro por ID
 |lists|string|não|query|nenhum|Especifica as listas a serem retornadas|
 |list\_fields|string|não|query|nenhum|Lista os campos de lista a serem retornados para cada lista. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |memberships|string|não|query|nenhum|Lista as associações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|memberships\_member|booleano|não|query|nenhum|Especifica se os membros de associação serão retornados|
+|memberships\_member|Booliano|não|query|nenhum|Especifica se os membros de associação serão retornados|
 |memberships\_member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados para cada membro de associação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |membros|string|não|query|nenhum|Lista os membros a serem retornados|
 |member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados para cada membro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
@@ -344,10 +338,10 @@ Obter quadro por ID: obtém quadro por ID
 |membersInvited\_fields|string|não|query|nenhum|Lista os campos a serem retornados para cada um. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |checklists|string|não|query|nenhum|Especifica as listas de verificação a serem retornadas|
 |checklist\_fields|string|não|query|nenhum|Lista os campos de lista de verificação a serem retornados para cada lista de verificação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|organization|booleano|não|query|nenhum|Especifica se as informações sobre a organização serão retornadas|
+|organization|Booliano|não|query|nenhum|Especifica se as informações sobre a organização serão retornadas|
 |organization\_fields|string|não|query|nenhum|Lista os campos de organização a serem retornados para cada organização. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |organization\_memberships|string|não|query|nenhum|Lista os membros da organização a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|myPerfs|booleano|não|query|nenhum|Especifica se meus perfs serão retornados|
+|myPerfs|Booliano|não|query|nenhum|Especifica se meus perfs serão retornados|
 |fields|string|não|query|nenhum|Lista os campos a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 
 #### Resposta
@@ -400,7 +394,7 @@ Obter lista por ID: obtém lista por ID
 |list\_id|string|sim|path|nenhum|ID exclusiva da lista a ser buscada|
 |cards|string|não|query|nenhum|Especifica os cartões a serem retornados|
 |card\_fields|string|não|query|nenhum|Lista os campos de cartão a serem retornados para cada cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|board|booleano|não|query|nenhum|Especificar se as informações do quadro serão retornadas|
+|board|Booliano|não|query|nenhum|Especificar se as informações do quadro serão retornadas|
 |board\_fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 |fields|string|não|query|nenhum|Lista os campos de lista a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
 
@@ -426,7 +420,7 @@ Obter lista por ID: obtém lista por ID
 |---|---|---|
 |ID|string|Não |
 |checkItemStates|array|Não |
-|closed|booleano|Não |
+|closed|Booliano|Não |
 |dateLastActivity|string|Não |
 |desc|string|Não |
 |idBoard|string|Não |
@@ -434,7 +428,7 @@ Obter lista por ID: obtém lista por ID
 |idMembersVoted|array|Não |
 |idShort|inteiro|Não |
 |idAttachmentCover|string|Não |
-|manualCoverAttachment|booleano|Não |
+|manualCoverAttachment|Booliano|Não |
 |idLabels|array|Não |
 |name|string|Não |
 |pos|inteiro|Não |
@@ -443,7 +437,7 @@ Obter lista por ID: obtém lista por ID
 |due|string|Não |
 |email|string|Não |
 |shortUrl|string|Não |
-|subscribed|booleano|Não |
+|subscribed|Booliano|Não |
 |url|string|Não |
 
 
@@ -454,14 +448,14 @@ Obter lista por ID: obtém lista por ID
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |Votes|inteiro|Não |
-|ViewingMemberVoted|booleano|Não |
-|Subscribed|booleano|Não |
+|ViewingMemberVoted|Booliano|Não |
+|Subscribed|Booliano|Não |
 |Fogbugz|string|Não |
 |CheckItems|inteiro|Não |
 |CheckItemsChecked|inteiro|Não |
 |Comentários|inteiro|Não |
 |Anexos|inteiro|Não |
-|Descrição|booleano|Não |
+|Descrição|Booliano|Não |
 |Due|string|Não |
 
 
@@ -480,7 +474,7 @@ Obter lista por ID: obtém lista por ID
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |idList|string|Sim |
-|name|cadeia de caracteres|Sim |
+|name|string|Sim |
 |desc|string|Não |
 |pos|string|Não |
 |idMembers|string|Não |
@@ -499,14 +493,14 @@ Obter lista por ID: obtém lista por ID
 |---|---|---|
 |name|string|Não |
 |desc|string|Não |
-|closed|booleano|Não |
+|closed|Booliano|Não |
 |idMembers|string|Não |
 |idAttachmentCover|string|Não |
 |idList|string|Não |
 |idBoard|string|Não |
 |pos|string|Não |
 |due|string|Não |
-|subscribed|booleano|Não |
+|subscribed|Booliano|Não |
 
 
 
@@ -516,17 +510,17 @@ Obter lista por ID: obtém lista por ID
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |ID|string|Não |
-|closed|booleano|Não |
+|closed|Booliano|Não |
 |dateLastActivity|string|Não |
 |dateLastView|string|Não |
 |desc|string|Não |
 |idOrganization|string|Não |
 |invitations|array|Não |
-|invited|booleano|Não |
+|invited|Booliano|Não |
 |labelNames|não definido|Não |
 |memberships|array|Não |
 |name|string|Não |
-|pinned|booleano|Não |
+|pinned|Booliano|Não |
 |powerUps|array|Não |
 |perfs|não definido|Não |
 |shortLink|string|Não |
@@ -563,7 +557,7 @@ Obter lista por ID: obtém lista por ID
 |ID|string|Não |
 |idMember|string|Não |
 |memberType|string|Não |
-|unconfirmed|booleano|Não |
+|unconfirmed|Booliano|Não |
 
 
 
@@ -576,19 +570,19 @@ Obter lista por ID: obtém lista por ID
 |voting|string|Não |
 |comentários|string|Não |
 |invitations|string|Não |
-|selfJoin|booleano|Não |
-|cardCovers|booleano|Não |
-|calendarFeedEnabled|booleano|Não |
+|selfJoin|Booliano|Não |
+|cardCovers|Booliano|Não |
+|calendarFeedEnabled|Booliano|Não |
 |background|string|Não |
 |backgroundColor|string|Não |
 |backgroundImage|string|Não |
 |backgroundImageScaled|string|Não |
-|backgroundTile|booleano|Não |
+|backgroundTile|Booliano|Não |
 |backgroundBrightness|string|Não |
-|canBePublic|booleano|Não |
-|canBeOrg|booleano|Não |
-|canBePrivate|booleano|Não |
-|canInvite|booleano|Não |
+|canBePublic|Booliano|Não |
+|canBeOrg|Booliano|Não |
+|canBePrivate|Booliano|Não |
+|canInvite|Booliano|Não |
 
 
 
@@ -599,10 +593,10 @@ Obter lista por ID: obtém lista por ID
 |---|---|---|
 |ID|string|Não |
 |name|string|Não |
-|closed|booleano|Não |
+|closed|Booliano|Não |
 |idBoard|string|Não |
 |pos|número|Não |
-|subscribed|booleano|Não |
+|subscribed|Booliano|Não |
 |cards|array|Não |
 |board|não definido|Não |
 
@@ -610,4 +604,4 @@ Obter lista por ID: obtém lista por ID
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Associações HTTP e de webhook do Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos e associações HTTP e de webhook no Azure Functions.
 
@@ -32,7 +34,7 @@ Propriedades da solicitação HTTP:
 
 - `name`: nome da variável usada no código de função para o objeto da solicitação (ou o corpo da solicitação no caso de funções do Node.js).
 - `type`: deve ser definido como *httpTrigger*.
-- `direction`: deve ser definido como *in*. 
+- `direction`: deve ser definido como *in*.
 - `webHookType`: para gatilhos WebHook, os valores válidos são *github*, *slack* e *genericJson*. Para um gatilho HTTP que não seja um WebHook, defina essa propriedade como uma cadeia de caracteres vazia. Para saber mais sobre WebHooks, veja a seção [Gatilhos WebHook](#webhook-triggers) a seguir.
 - `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Veja [Chaves de API](#apikeys) abaixo para saber mais.
 
@@ -40,7 +42,7 @@ Propriedades da resposta HTTP:
 
 - `name`: nome da variável usada no código de função para o objeto de resposta.
 - `type`: deve ser definido como *http*.
-- `direction`: deve ser definido como *out*. 
+- `direction`: deve ser definido como *out*.
  
 *function.json* de exemplo:
 
@@ -86,7 +88,7 @@ Para disparar uma função, você pode enviar para uma URL uma solicitação HTT
 
 Por padrão, uma chave de API deve ser incluída com uma solicitação HTTP para disparar uma função HTTP ou WebHook. A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. Para as funções não WebHook, você pode indicar que uma chave de API não é necessária, definindo a propriedade `authLevel` como "anonymous" no arquivo *function.json*.
 
-Você pode encontrar os valores de chave de API na pasta *D:\\home\\data\\Functions\\secrets* no sistema de arquivos do aplicativo de funções. A chave mestra e a chave de função são definidas no arquivo *host.json*, como mostra este exemplo.
+Você pode encontrar os valores de chave de API na pasta *D:\\home\\data\\Functions\\secrets* no sistema de arquivos do aplicativo de função. A chave mestra e a chave de função são definidas no arquivo *host.json*, como mostra este exemplo.
 
 ```json
 {
@@ -201,4 +203,4 @@ module.exports = function (context, data) {
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

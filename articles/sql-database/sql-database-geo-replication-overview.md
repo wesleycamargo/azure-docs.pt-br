@@ -118,7 +118,7 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 |---|-----------|
 |[Criar ou atualizar banco de dados (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Cria, atualiza ou restaura um banco de dados primário ou secundário.|
 |[Obter, Criar ou Atualizar o Status de um Banco de Dados](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Retorna o status durante uma operação de criação.|
-|[Definir o banco de dados secundário como primário r (Failover planejado)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário.|
+|[Definir o banco de dados secundário como primário (Failover planejado)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promova um banco de dados secundário em uma parceria de replicação geográfica como o novo banco de dados primário.|
 |[Definir o banco de dados secundário como primário r (Failover não planejado)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Para forçar um failover para o banco de dados secundário e definir o secundário como primário.|
 |[Obter Links de replicação](https://msdn.microsoft.com/library/azure/mt600929.aspx)|Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo\_replication\_links.|
 |[Obter link de replicação](https://msdn.microsoft.com/library/azure/mt600778.aspx)|Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo\_replication\_links.|
@@ -133,4 +133,4 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 - Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 - Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

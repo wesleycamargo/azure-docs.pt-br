@@ -88,7 +88,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
+	>[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
 
 4. Recuperar a ID para o NSG `NSG-RemoteAccess`. Você precisa fazer isso, pois as NICs a serem associadas a este NSG estão em um grupo de recursos diferente.
 
@@ -330,4 +330,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

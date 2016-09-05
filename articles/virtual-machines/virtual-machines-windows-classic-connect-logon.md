@@ -22,7 +22,7 @@
 
 No portal clássico do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
 
-Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-classic-log-on.md).
+Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Saiba como [executar essas etapas usando o novo Portal do Azure](virtual-machines-windows-connect-logon.md).
 
@@ -58,4 +58,4 @@ Veja um passo a passo em vídeo deste tutorial. Ele também aborda os pontos de 
 
 Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

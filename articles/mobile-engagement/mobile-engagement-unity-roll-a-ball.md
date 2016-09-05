@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #<a id="unity-roll-a-ball"></a>Criar um jogo Roll a Ball do Unity
@@ -23,7 +23,7 @@ Este tutorial explica as etapas principais para um [Tutorial do Roll a Ball do U
 ### Configuração do jogo
 As etapas a seguir são do [Tutorial do Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
 
-1. Abra o **Editor do Unity** e clique em **Novo**. 
+1. Abra o **Editor do Unity** e clique em **Novo**.
 	
 	![][51]
 	
@@ -82,7 +82,7 @@ As etapas a seguir são do [Tutorial do Unity](https://unity3d.com/learn/tutoria
 ### Movimentação do jogador
 As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)
 
-1. Adicione um componente **RigidBody** ao objeto **Jogador**. 
+1. Adicione um componente **RigidBody** ao objeto **Jogador**.
 
 	![][13]
 
@@ -125,8 +125,8 @@ As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutoria
 ### Movimentação da câmera
 As etapas a seguir são do [Tutorial do Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141) e vincularão a **Câmera Principal** ao objeto **Jogador**.
 
-1. Atualize **Transform.Position** para ser X = 0, Y = 10,5, Z=-10.  
-2. Atualize **Transform.Rotation** para ser X = 45, Y = 0, Z = 0.  
+1. Atualize **Transform.Position** para ser X = 0, Y = 10,5, Z=-10.
+2. Atualize **Transform.Rotation** para ser X = 45, Y = 0, Z = 0.
 
 	![][16]
 
@@ -192,7 +192,7 @@ As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutoria
 ### Criação de objetos colecionáveis
 As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). Vamos criar alguns objetos de aparência atraente que formarão o conjunto de objetos colecionáveis que o objeto Bola de Jogador precisa 'colecionar' colidindo com eles.
 
-1. Crie um novo **Objeto Cubo 3D** e nomeie-o como Seleção. 
+1. Crie um novo **Objeto Cubo 3D** e nomeie-o como Seleção.
 
 2. Ajuste a **Transformação -> Rotação** e a **Transformação -> Escala** do objeto Seleção.
 
@@ -244,7 +244,7 @@ As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutoria
 ### Coleta dos objetos Seleção
 As etapas a seguir são do [tutorial do Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). Atualizaremos o Jogador para que ele seja capaz de 'colecionar' os objetos Seleção colidindo com eles.
 
-1. Abra o script **PlayerController** anexado ao objeto Jogador para edição e atualize-o para o seguinte:  
+1. Abra o script **PlayerController** anexado ao objeto Jogador para edição e atualize-o para o seguinte:
 
 		using UnityEngine;
 		using System.Collections;
@@ -374,4 +374,4 @@ Esse tutorial conclui a criação de um jogo básico com o Unity, e você pode i
 	
 	
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

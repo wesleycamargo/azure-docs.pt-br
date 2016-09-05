@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/16/2016"
+    ms.date="08/23/2016"
     ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
@@ -24,7 +24,7 @@ O Active Directory do Azure (Azure AD) é a identidade da Microsoft como uma sol
 
 [Experimente o Azure AD Premium agora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE] O portal de administração do AD do Azure é uma parte do portal clássico do Azure. Embora o uso do AD do Azure não exija nenhuma compra do Azure, o acesso a esse portal requer uma assinatura ativa do Azure ou uma [assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] O portal de administração do AD do Azure é uma parte do portal clássico do Azure. Embora o uso do Azure AD não exija nenhuma compra do Azure, o acesso a esse portal requer uma assinatura ativa do Azure ou uma [assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Para obter uma visão geral ampla dos recursos de serviço do AD do Azure, confira [O que é o AD do Azure](active-directory-whatis.md). [Saiba mais sobre os níveis de serviço do AD do Azure](https://azure.microsoft.com/support/legal/sla/)
 
@@ -35,15 +35,15 @@ Para obter uma visão geral ampla dos recursos de serviço do AD do Azure, confi
 
 Os Serviços do AD do Azure baseados em licença (baseados em direito) funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados.
 
-Quando você compra ou ativa o Enterprise Mobility Suite, AD Premium ou AD Basic do Azure, seu diretório é atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. As informações de assinatura, incluindo status, o próximo evento de ciclo de vida e o número de licenças atribuídas ou disponíveis estão disponíveis no portal clássico do Azure, na guia Licenças do diretório específico. Este é também o melhor lugar para gerenciar suas atribuições de licença.
+Quando você compra ou ativa o Enterprise Mobility Suite, Azure AD Premium ou Azure AD Basic, seu diretório é atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. As informações de assinatura, incluindo status, o próximo evento de ciclo de vida e o número de licenças atribuídas ou disponíveis estão disponíveis no portal clássico do Azure, na guia Licenças do diretório específico. Este é também o melhor lugar para gerenciar suas atribuições de licença.
 
-Cada assinatura consiste em um ou mais planos de serviço, cada um mapeando o nível funcional incluído do tipo de serviço; por exemplo, AD do Azure, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. O gerenciamento de licença do AD do Azure não requer gerenciamento de nível de plano de serviço. Isso é diferente do Office 365, que conta com esse modo de configuração avançada para gerenciar o acesso aos serviços incluídos. O AD do Azure depende da configuração de serviço para habilitar recursos e gerenciar permissões individuais.
+Cada assinatura consiste em um ou mais planos de serviço, cada um mapeando o nível funcional incluído do tipo de serviço; por exemplo, Azure AD, Azure MFA, Microsoft Intune, Exchange Online ou SharePoint Online. O gerenciamento de licença do AD do Azure não requer gerenciamento de nível de plano de serviço. Isso é diferente do Office 365, que conta com esse modo de configuração avançada para gerenciar o acesso aos serviços incluídos. O AD do Azure depende da configuração de serviço para habilitar recursos e gerenciar permissões individuais.
 
-Em geral, as informações de assinatura do AD do Azure são gerenciadas por meio do portal clássico do Azure, na guia Licenças do diretório específico. Assinaturas de AD do Azure, com exceção do AD Premium, não aparecem no portal do Office.
+Em geral, as informações de assinatura do Azure AD são gerenciadas por meio do portal clássico do Azure, na guia Licenças do diretório específico. Assinaturas de Azure AD, com exceção do AD Premium, não aparecem no portal do Office.
 
-> [AZURE.IMPORTANT] O AD Premium e Basic do Azure, bem como assinaturas do Enterprise Mobility Suite, restringem-se a seu diretório/locatário provisionado. As assinaturas não podem ser divididas entre diretórios nem usadas para dar direitos a usuários em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra, no caso de compras diretas.
+> [AZURE.IMPORTANT] O Azure AD Premium e Básico, bem como assinaturas do Enterprise Mobility Suite, restringem-se a seu diretório/locatário provisionado. As assinaturas não podem ser divididas entre diretórios nem usadas para dar direitos a usuários em outros diretórios. É possível mover uma assinatura entre diretórios, mas requer o envio de um tíquete de suporte ou cancelamento e nova compra, no caso de compras diretas.
 
-> Ao comprar o AD do Azure ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
+> Ao comprar o Azure AD ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
 
 Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos incluem:
 - Atribuição baseada em grupos para aplicativos, que é habilitada no aplicativo específico que você está gerenciando.
@@ -52,7 +52,7 @@ Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos in
 - A detecção de aplicativos de nuvem aparece no portal do Azure em Identidade.
 
 ###Atribuindo licenças
-Ao passo que adquirir uma assinatura é tudo o que você precisa para configurar recursos pagos, o uso de recursos pagos do AD do Azure requer a distribuição de licenças para os indivíduos certos. Em geral, qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do AD do Azure deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o AD Premium, Basic do Azure ou o Enterprise Mobility Suite.
+Ao passo que adquirir uma assinatura é tudo o que você precisa para configurar recursos pagos, o uso de recursos pagos do Azure AD requer a distribuição de licenças para os indivíduos certos. Em geral, qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do AD do Azure deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o AD Premium, Basic do Azure ou o Enterprise Mobility Suite.
 
 O gerenciamento de usuários em seu diretório deve ter uma licença e é simples. Ele pode ser realizado atribuindo a um grupo a criação de regras de atribuição pelo portal de administração do AD do Azure ou atribuindo licenças diretamente aos indivíduos certos por meio de um portal, PowerShell ou APIs. Ao atribuir licenças a um grupo, uma licença é atribuída a todos os membros do grupo. Se usuários forem adicionados ou removidos do grupo, a licença apropriada será atribuída ou removida. A atribuição de grupo pode usar qualquer gerenciamento de grupo disponível e é consistente com a atribuição baseada em grupo a aplicativos. Usando essa abordagem, você pode configurar regras, de modo que todos os usuários no diretório recebam atribuição automaticamente, garantir que qualquer pessoa com o cargo apropriado tenha uma licença ou até mesmo delegar a decisão a outros gerentes na organização.
 
@@ -78,7 +78,7 @@ Como indicado, o AD do Azure tem diferentes versões pagas. Essas versões têm 
 | AD Basic do Azure | X | X | X | X | <br /> | <br /> |
 
 ###Selecione uma ou mais avaliações de licença
- Em todos os casos, você pode ativar uma assinatura de avaliação do AD Premium do Azure ou o Enterprise Mobility Suite selecionando a avaliação específica desejada na guia Licenças em seu diretório. Qualquer avaliação contém uma assinatura de 30 dias com 100 licenças.
+ Em todos os casos, você pode ativar uma assinatura de avaliação do Azure AD Premium ou o Enterprise Mobility Suite selecionando a avaliação específica desejada na guia Licenças em seu diretório. Qualquer avaliação contém uma assinatura de 30 dias com 100 licenças.
 
 ![Planos de licença de avaliação do Active Directory do Azure](./media/active-directory-licensing-what-is/trial_plans.png)
 
@@ -140,4 +140,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

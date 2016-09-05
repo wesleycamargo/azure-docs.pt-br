@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo"/>
 
 #Implementar o Mobile Engagement com os Aplicativos de Mídia
@@ -101,4 +101,4 @@ Depois dos quatro primeiros meses, os resultados refletem um bom desempenho gera
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

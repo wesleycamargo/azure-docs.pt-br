@@ -111,7 +111,7 @@ Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com 
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
 | Canônico | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| Canônico | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
@@ -1240,7 +1240,7 @@ E, em seguida, procurar por myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: Fazer logon em uma máquina virtual baseada no Linux
 
-Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+Normalmente, as máquinas Linux são conectadas por meio de SSH. Para saber mais, confira [Como usar o SSH com o Linux no Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarefa: Parar uma VM
 
@@ -1278,4 +1278,4 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usa
 
 Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

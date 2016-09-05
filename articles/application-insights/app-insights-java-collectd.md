@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # collectd: métricas de desempenho do Unix no Application Insights
 
 *O Application Insights está em modo de visualização.*
 
-Para explorar as métricas de desempenho do sistema Unix no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/), juntamente com seu plug-in do Application Insights. Essa solução de software livre reúne uma variedade de estatísticas de sistema e de rede.
+Para explorar as métricas de desempenho do sistema Unix no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/), juntamente com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
-Normalmente, você usará collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java], de modo que você tenha mais dados que ajudem a aprimorar o desempenho do aplicativo ou a diagnosticar problemas.
+Normalmente, você usará o collectd se já tiver [instrumentado seu serviço web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas.
 
 ![Exemplo de gráficos](./media/app-insights-java-collectd/sample.png)
 
@@ -31,13 +31,13 @@ No [portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Applic
 
 Faça uma cópia da chave de instrumentação que identifica o recurso.
 
-![Procurar tudo, abrir seu recurso e, no menu suspenso Esssentials, selecionar e copiar a Chave de Instrumentação](./media/app-insights-java-collectd/02-props.png)
+![Procure tudo, abra seu recurso e, no menu suspenso Essentials, selecione e copie a Chave de Instrumentação](./media/app-insights-java-collectd/02-props.png)
 
 
 
 ## Instalar o plug-in e collectd
 
-Em seu computador com o servidor Unix:
+Em seus computadores com o servidor Unix:
 
 1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
 2. Baixe o [plug-in do gravador collectd do Application Insights](https://aka.ms/aijavasdk). Observe o número de versão.
@@ -86,7 +86,7 @@ Veja o exemplo de parte de um arquivo de configuração:
     </Plugin>
 . ...
 
-Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), que possam coletar uma variedade de dados de diferentes fontes.
+Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), que possam coletar vários dados de diferentes fontes.
 
 Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
@@ -101,7 +101,7 @@ Por padrão, as métricas são agregadas em todos os computadores host dos quais
 
 ## Excluir o carregamento de estatísticas específicas
 
-Por padrão, o plug-in do Application Insights enviará todos os dados coletados por todos os plug-ins collect ‘read’ habilitados.
+Por padrão, o plug-in do Application Insights envia todos os dados coletados por todos os plug-ins collect ‘read’ habilitados.
 
 Para excluir dados de plug-ins ou fontes de dados específicos:
 
@@ -121,6 +121,7 @@ Diretivas separadas por uma nova linha.
 *Não vejo dados no portal*
 
 * Abra [Pesquisar][diagnostic] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
+* Talvez você precise [definir exceções de firewall para dados de saída](app-insights-ip-addresses.md)
 * Habilite o rastreamento no plug-in do Application Insights. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
  *  `SDKLogger true`
 * Abra um terminal e inicie collectd no modo detalhado para ver todos os problemas que ele está reportando:
@@ -143,4 +144,4 @@ Diretivas separadas por uma nova linha.
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

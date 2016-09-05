@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth"/>
 
 # Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
@@ -27,7 +27,7 @@ O [Armazenamento Premium do Azure](../storage/storage-premium-storage.md) é o a
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa de como mover VMs maiores para aproveitar o armazenamento SSD local aprimorado com o PowerShell.
+Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa para mover VMs maiores e aproveitar o armazenamento SSD local aprimorado com o PowerShell.
 
 É importante compreender o processo de ponta a ponta utilizando o Armazenamento Premium do Azure com o SQL Server em VMs IAAS. Isso inclui:
 
@@ -126,7 +126,7 @@ Para cada disco, siga estas etapas:
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 
@@ -350,12 +350,12 @@ Aqui, você está criando a VM com base na sua imagem e anexando dois VHDs de Ar
 
 > [AZURE.NOTE] Para implantações existentes, primeiro consulte a seção [Pré-requisitos](#prerequisites-for-premium-storage) deste tópico.
 
-Há considerações diferentes para implantações do SQL Server que não usam grupos de disponibilidade AlwaysOn e aqueles que usam. Se não estiver usando AlwaysOn e tiver um SQL Server autônomo existente, você poderá atualizar para o Armazenamento Premium usando um novo serviço de nuvem e conta de armazenamento. Considere as seguintes opções:
+Há considerações diferentes para implantações do SQL Server que não usam grupos de disponibilidade AlwaysOn e aquelas que usam. Se não estiver usando AlwaysOn e tiver um SQL Server autônomo existente, você poderá atualizar para o Armazenamento Premium usando um novo serviço de nuvem e conta de armazenamento. Considere as seguintes opções:
 
 - **Criar uma nova VM do SQL Server**. Você pode criar uma nova VM do SQL Server que usa uma conta de Armazenamento Premium, conforme documentado em Novas implantações. Em seguida, faça uma operação de backup e restauração de seus bancos de dados de configuração e usuário do SQL Server. Será necessário atualizar o aplicativo para referenciar o novo SQL Server se ele estiver sendo acessada interna ou externamente. Você precisa copiar todos os objetos 'fora do banco de dados' como se estivesse fazendo uma migração SxS (Lado a Lado) do SQL Server. Isso inclui objetos como logons, certificados e servidores vinculados.
 - **Migrar uma VM existente do SQL Server**. Isso exigirá colocar a VM do SQL Server offline, depois transferi-la para um novo serviço de nuvem, o que inclui copiar todos os seus VHDs anexados para a conta de Armazenamento Premium. Quando a VM for colocada online, o aplicativo fará referência ao nome de host do servidor como antes. Lembre-se de que o tamanho do disco existente afetará as características de desempenho. Por exemplo, um disco de 400 GB é arredondado para um P20. Se você souber que não vai precisar do desempenho desse disco, poderá recriar a VM coo uma VM da série DS, e anexar VHDs de Armazenamento Premium com a especificação de tamanho/desempenho que quiser. Em seguida, você poderá desanexar e anexar novamente os arquivos de banco de dados SQL.
 
-> [AZURE.NOTE] Ao copiar os discos VHD, não se esqueça de considerar o tamanho, pois o tipo de Disco de Armazenamento em que eles vão se enquadrar dependerá do tamanho e isso determina a especificação de desempenho de disco. O Azure arredondará para o tamanho de disco mais próximo, portanto, se você tiver um disco de 400 GB, ele será arredondado para um P20. Dependendo dos requisitos de E/S existentes do VHD do sistema operacional, talvez não seja necessário migrá-lo para uma conta de Armazenamento Premium.
+> [AZURE.NOTE] Ao copiar os discos VHD, não se esqueça de considerar o tamanho, pois o tipo de Disco de Armazenamento Premium em que eles vão se enquadrar dependerá do tamanho e isso determina a especificação de desempenho de disco. O Azure arredondará para o tamanho de disco mais próximo, portanto, se você tiver um disco de 400 GB, ele será arredondado para um P20. Dependendo dos requisitos de E/S existentes do VHD do sistema operacional, talvez não seja necessário migrá-lo para uma conta de Armazenamento Premium.
 
 Se o SQL Server for acessado externamente, o VIP de serviço de nuvem será alterado. Você também terá que atualizar pontos de extremidade, ACLs e configurações de DNS.
 
@@ -675,7 +675,7 @@ Para saber mais sobre as configurações acima, confira [Palavra-chave MultiSubn
 
 #### Etapa 5: Configurações de quórum do cluster
 
-Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a configuração de quorum do cluster. Se estiver usando FSW (File Share Witnes) com 2 nós, você deverá definir o quorum para permitir a maioria dos nós e utilizar votação dinâmica e isso tem o objetivo de permitir que um único nó fique de pé.
+Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a configuração de quorum do cluster. Se estiver usando FSW (File Share Witness) com 2 nós, você deverá definir o quorum para permitir a maioria dos nós e utilizar votação dinâmica e isso tem o objetivo de permitir que um único nó fique de pé.
 
 
     Set-ClusterQuorum -NodeMajority  
@@ -910,7 +910,7 @@ Agora você deve verificar os servidores DNS em suas redes cliente do SQL Server
 
 #### Etapa 16: Reconfigurar o AlwaysOn
 
-Neste ponto, você aguarda a réplica secundária desse nó que foi migrada ressincronizar totalmente com o nó local, alternar para o nó de replicação síncrona e torná-lo o AFP.
+Neste ponto, você aguarda a réplica secundária desse nó que foi migrada ressincronizar totalmente com o nó local, mudar para o nó de replicação síncrona e torná-lo o AFP.
 
 #### Etapa 17: Migrar o segundo nó
     $vmNameToMigrate="dansqlams1"
@@ -1104,11 +1104,11 @@ Depois que você ativar a réplica secundária migrada e adicionar o novo recurs
 
 Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), etapa 14.
 
-1. Para obter o recurso de endereço IP atual, altere o proprietário possível para ‘SQL Server Primário Existente’, no exemplo abaixo, ‘dansqlams4’:
+1. Para obter o recurso de endereço IP atual, altere o possível proprietário para ‘SQL Server Primário Existente’, no exemplo abaixo, ‘dansqlams4’:
 
 	![Appendix13][23]
 
-1. Para obter o novo recurso de endereço IP, altere o proprietário possível para ‘SQL Server secundário migrado’, no exemplo abaixo, ‘dansqlams5’:
+1. Para obter o novo recurso de endereço IP, altere o possível proprietário para ‘SQL Server secundário migrado’, no exemplo abaixo, ‘dansqlams5’:
 
 	![Appendix14][24]
 
@@ -1148,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

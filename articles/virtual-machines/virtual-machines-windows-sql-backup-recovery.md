@@ -4,8 +4,8 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	manager="jhubbard"
+	editor=""
 	tags="azure-resource-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Backup e restauração para o SQL Server em Máquinas Virtuais do Azure
@@ -43,9 +43,9 @@ Quando a instância do SQL Server está em execução em uma máquina virtual do
 
 - Você pode armazenar o arquivo de backup diretamente no Azure. Para obter mais informações, consulte as seções a seguir que fornecem orientação para as diferentes versões do SQL Server.
 
-## SQL Server 2016 versão Release Candidate
+## SQL Server 2016
 
-O Microsoft SQL Server 2016 versão Release Candidate (RC3) dá suporte às funcionalidades de [backup e restauração com blobs do Azure](https://msdn.microsoft.com/library/jj919148.aspx) encontradas no SQL Server 2014. Porém ele também inclui os seguintes aprimoramentos:
+O Microsoft SQL Server 2016 dá suporte às funcionalidades de [backup e restauração com blobs do Azure](https://msdn.microsoft.com/library/jj919148.aspx) encontradas no SQL Server 2014. Porém ele também inclui os seguintes aprimoramentos:
 
 | Aprimoramento do 2016 | Detalhes |
 |---------------------|-------------------------------|
@@ -63,7 +63,7 @@ O SQL Server 2014 inclui os seguintes aprimoramentos:
 
  - Agora há suporte para o *Backup do SQL Server para URL* no SQL Server Management Studio. A opção de backup para o Azure agora está disponível ao usar a tarefa de Backup ou Restauração, ou ainda o Assistente de plano de manutenção no SQL Server Management Studio. Para obter mais informações, veja [Backup do SQL Server para URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
  - O *Backup Gerenciado do SQL Server para Azure* traz uma nova funcionalidade que permite o gerenciamento de backup automatizado. Isso é especialmente útil para automatizar o gerenciamento de backups para instâncias do SQL Server 2014 em execução em um computador do Azure. Para obter mais informações, veja [Backup Gerenciado do SQL Server para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx).
- - O *Backup Automatizado* fornece automação adicional para habilitar automaticamente o *Backup Gerenciado do SQL Server para o Azure* em todos os bancos de dados novos e existentes para uma VM do SQL Server no Azure. Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+ - O *Backup Automatizado* fornece automação adicional para habilitar automaticamente o *Backup Gerenciado do SQL Server para o Azure* em todos os bancos de dados novos e existentes para uma VM do SQL Server no Azure. Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
  - Para obter uma visão geral de todas as opções de Backup do SQL Server 2014 no Azure, veja [Backup e restauração do SQL Server com o serviço de armazenamento de blob do Microsoft Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
 
 1. **Criptografia**: o SQL Server 2014 dá suporte à criptografia de dados durante a criação de um backup. Ele dá suporte a vários algoritmos de criptografia e ao uso de um certificado ou chave assimétrica. Para obter mais informações, veja [Criptografia de backup](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
@@ -74,7 +74,7 @@ Para obter informações detalhadas sobre o Backup e restauração do SQL Server
 
 A partir do SQL Server 2012 SP1 Atualização Cumulativa 2, você pode fazer o backup e restauração a partir do Serviço de Armazenamento de Blobs do Azure. Esse aprimoramento pode ser usado para fazer backup de bancos de dados do SQL Server em um SQL Server em execução em uma máquina virtual do Azure ou em uma instância local. Para obter mais informações, veja [Backup e restauração do SQL Server com o Serviço de Armazenamento de Blob do Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
-Alguns dos benefícios de usar o serviço de armazenamento de Blobs do Azure incluem a capacidade de ignorar o limite de 16 discos para discos anexados, a facilidade de gerenciamento, a disponibilidade direta do arquivo de backup para outra instância do SQL Server em execução em uma máquina virtual do Azure ou para instâncias locais para a migração ou recuperação de desastres. Para obter uma lista completa dos benefícios de usar um serviço de armazenamento de blob do Azure para backups do SQL Server, veja a seção *Benefícios* em [Backup e restauração do SQL Server com o serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
+Alguns dos benefícios de usar o serviço de armazenamento de Blobs do Azure incluem a capacidade de ignorar o limite de 16 discos para discos anexados, a facilidade de gerenciamento, a disponibilidade direta do arquivo de backup para outra instância do SQL Server em execução em uma máquina virtual do Azure ou para instâncias locais para fins de migração ou recuperação de desastres. Para obter uma lista completa dos benefícios de usar um serviço de armazenamento de blob do Azure para backups do SQL Server, veja a seção *Benefícios* em [Backup e restauração do SQL Server com o serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
 Para ver as práticas recomendadas e informações de solução de problemas, veja [Práticas recomendadas de Backup e restauração (Serviço de Armazenamento de Blob do Azure)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
@@ -92,4 +92,4 @@ Embora o backup e a restauração possam ser usados para migrar seus dados, há 
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

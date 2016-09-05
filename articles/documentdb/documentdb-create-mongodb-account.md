@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Como criar uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB usando o portal do Azure
@@ -78,4 +78,4 @@ Para criar uma conta do Banco de Dados de Documentos com suporte de protocolo pa
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

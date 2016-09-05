@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/13/2016"
+    ms.date="08/23/2016"
     ms.author="markusvi"/>
 
 
@@ -39,7 +39,7 @@ Se você for um cliente do Office365, Azure ou Dynamics CRM Online, talvez não 
 
 
 
-<center>![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png) </center>
+![Pilha do Azure AD Connect](./media/active-directory-whatis/Azure_Active_Directory.png)
 
 
 ## O AD do Azure é confiável?
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

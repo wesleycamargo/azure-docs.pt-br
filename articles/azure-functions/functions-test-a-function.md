@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/19/2016"
    ms.author="wesmc"/>
 
 # Testando os Azure Functions
@@ -135,8 +135,8 @@ A ferramenta recomendada para a testar maioria das funções é o Postman. Para 
 
 > [AZURE.TIP] Use o cliente REST com o qual você está familiarizado. Aqui estão algumas alternativas ao Postman:
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw)  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw)
 
 Para testar a função com um corpo de solicitação no Postman:
 
@@ -238,7 +238,7 @@ Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fi
 > [AZURE.NOTE] Se você usar um nome de fila diferente, verifique se o nome usado está de acordo com as regras de [Nomeação de Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx). Caso contrário, você receberá um código de status HTTP 400: solicitação incorreta.
 
 1. No [Portal do Azure] para seu aplicativo de Funções, clique em **Nova Função** > **QueueTrigger - C#**.
-2. Insira o nome da fila a ser monitorada pela função de fila 
+2. Inserir o nome da fila a ser monitorada pela função de fila
 
 		queue-newusers 
 
@@ -439,4 +439,4 @@ Na janela do navegador para a função de fila, você verá a cada mensagem que 
 
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

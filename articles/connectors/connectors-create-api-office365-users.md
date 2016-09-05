@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Adicionar o conector dos Usuários do Office 365 ao PowerApps Enterprise ou aos Aplicativos Lógicos | Microsoft Azure"
+    pageTitle="Adicionar o conector Usuários do Office 365 aos Aplicativos Lógicos | Microsoft Azure"
     description="Visão geral do conector dos Usuários do Office 365 com os parâmetros da API REST"
     services=""    
     documentationCenter=""     
@@ -14,34 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector dos Usuários do Office 365
 
-Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. O conector dos Usuários do Office 365 pode ser usado em:
-
-- Aplicativos lógicos 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-office365-users.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
-
-&nbsp;
+Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
-
 Com os Usuários do Office 365, você pode:
 
-- Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
-- Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
-- Adicione o conector dos Usuários do Office 365 ao PowerApps Enterprise. Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
+- Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365.
+- Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure.
 
-Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Para adicionar uma operação aos Aplicativos Lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 
@@ -71,7 +58,7 @@ Aplica-se à versão: 1.0.
 ### Obter meu perfil 
 Recupera o perfil para o usuário atual.```GET: /users/me```
 
-Não há parâmetros para esta chamada.
+Não existem parâmetros para esta chamada.
 
 #### Resposta
 
@@ -181,7 +168,7 @@ Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
 |Email|string|não|
 |MailNickname|string|não|
 |TelephoneNumber|string|não|
-|AccountEnabled|booleano|não|
+|AccountEnabled|Booliano|não|
 |ID|string|sim
 |UserPrincipalName|string|não|
 |Departamento|string|não|
@@ -193,7 +180,7 @@ Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Voltar para a [Lista de APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -203,4 +190,4 @@ Voltar para a [Lista de APIs](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -20,7 +20,7 @@ Os endereços IP no Azure recaem em duas categorias: dinâmicos e reservados. Os
 
 Para evitar que endereços IP sejam alterados, é possível reservar um endereço IP. Os IPs reservados podem ser usados apenas como um VIP, garantindo que o endereço IP do serviço de nuvem permaneça o mesmo, mesmo se os recursos forem desligados ou desalocados. Além disso, você pode converter IPs dinâmicos existentes usados como um VIP para um endereço IP reservado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como reservar um endereço IP estático público utilizando o [Modelo de implantação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
@@ -130,4 +130,4 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 - Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](virtual-networks-instance-level-public-ip.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

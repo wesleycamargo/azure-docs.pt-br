@@ -17,13 +17,13 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-# Usando a extensão do Script Personalizado para VMs do Windows com modelos do Azure Resource Manager
+# Extensões de Script Personalizado de VM do Windows com modelos do Azure Resource Manager
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Exemplo de modelo para uma VM do Windows
 
-Defina o recurso a seguir na seção de Recursos do modelo
+Defina o recurso a seguir na seção de Recursos do modelo.
 
        {
        "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -47,9 +47,9 @@ Defina o recurso a seguir na seção de Recursos do modelo
        }
      }
 
-No exemplo acima, substitua a URL e o nome do arquivo por suas próprias configurações. Depois de criar o modelo, você poderá implantá-lo usando o Azure PowerShell.
+No exemplo anterior, substitua a URL do arquivo e o nome do arquivo por suas próprias configurações. Depois de criar o modelo, você poderá implantá-lo usando o Azure PowerShell.
 
-Em muitos cenários, os clientes desejam manter as URLs de script e os parâmetros como privados. Para conseguir isso, mantenha a URL de script como privada, para que ela somente possa ser acessada com um nome e uma chave da conta de armazenamento, enviados como configurações protegidas. Além disso, os parâmetros do script também podem ser fornecidos como configurações protegidas com a versão 1.7 ou posterior, para a extensão de script personalizado do Windows.
+Se você quiser manter particulares os parâmetros e as URLs de script, pode definir a URL de script como **particular**. Se a URL de script for definida como **particular**, ela só poderá ser acessada com um nome de conta de armazenamento e uma chave enviada como configurações protegidas. Os parâmetros do script também podem ser fornecidos como configurações protegidas com a versão 1.7 ou posterior da extensão de Script Personalizado.
 
 ## Exemplo de modelo para uma VM do Windows com configurações protegidas
 
@@ -68,10 +68,8 @@ Em muitos cenários, os clientes desejam manter as URLs de script e os parâmetr
         "storageAccountKey": "yourStorageAccountKey"
         }
         }
-Para obter informações sobre o esquema das versões mais recentes da extensão de script personalizado, consulte a documentação [aqui](virtual-machines-windows-extensions-configuration-samples.md)
+Para obter informações sobre o esquema das versões mais recentes da extensão de Script Personalizado, consulte [Exemplos de configuração de extensão de VM do Windows do Azure](virtual-machines-windows-extensions-configuration-samples.md).
 
-Consulte o exemplo abaixo para ver uma amostra completa da configuração de aplicativos em uma VM que usa a extensão do Script Personalizado.
+Para obter exemplos de configuração de aplicativo em uma VM usando a extensão de Script Personalizado, consulte [Extensão de Script Personalizado em uma VM Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/).
 
-* [Extensão do Script Personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

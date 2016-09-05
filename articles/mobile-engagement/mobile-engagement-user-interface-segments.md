@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como criar e gerenciar segmentos de usuários para identificar padrões de uso
@@ -40,7 +40,7 @@ Os segmentos permitem segmentar os usuários finais do seu aplicativo. Segmentar
  ![segments3][37]
 
 ### Segmentos que você pode criar com base nos elementos principais do Mobile Engagement do Azure:
-- Evento: crie um segmento que tem como alvo um determinado evento do aplicativo que ocorrereu mais de duas vezes por semana. 
+- Evento: crie um segmento que tem como alvo um determinado evento do aplicativo que ocorrereu mais de duas vezes por semana.
 - Sessão: crie um segmento de usuários que usaram o aplicativo mais de 5 vezes na semana passada.
 - Atividade: crie um segmento de usuários que usaram uma página ou conteúdo mais ou menos 10 vezes no mês passado.
 - Trabalho: crie um segmento de usuários que concluíram um trabalho mais de duas vezes ao dia.
@@ -76,7 +76,7 @@ Selecione a sessão.
 
 1. Selecione o operador que é relevante na lista: =; ≥, ≤.
 2. Insira o número desejado.
-3. Selecione a ocorrência que você deseja. 
+3. Selecione a ocorrência que você deseja.
 4. Clique em Avançar. Este exemplo está definido de modo que na última semana corresponda aos usuários que fizeram pelo menos 50 sessões.
  
  ![segments9][43]
@@ -96,7 +96,7 @@ Nomeie o critério para recuperá-la no funil completo e clique em Concluir.
 Quando você terminar de configurar o critério, ele aparecerá no funil do segmento. Como um segmento é baseado em dados de análise, os segmentos são calculados uma vez por dia. Neste exemplo, 47,7% do total dos usuários finais correspondente ao critério. Eles devem ser os usuários que tiveram uma boa experiência e provavelmente darão uma classificação alta se você lhes enviar uma notificação pedindo para avaliarem o aplicativo na loja.
 
 
-## Consulte também
+## Confira também
 
 - [Conceitos][Link 6]
 - [Serviço do Guia de Solução de Problemas][Link 24]
@@ -197,4 +197,4 @@ Quando você terminar de configurar o critério, ele aparecerá no funil do segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

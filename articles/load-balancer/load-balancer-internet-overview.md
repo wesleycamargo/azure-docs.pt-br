@@ -1,10 +1,10 @@
 
 <properties 
-   pageTitle="Visão geral do balanceador de carga para a Internet | Microsoft Azure"
+   pageTitle="Visão geral do balanceador de carga para a Internet | Microsoft Azure "
    description="Visão geral do balanceador de carga para a Internet e seus recursos. Como um balanceador de carga funciona no Azure usando máquinas virtuais e serviços de nuvem."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Balanceador de carga para a Internet entre várias Máquinas Virtuais ou serviços
@@ -48,4 +48,4 @@ Se seu aplicativo precisar manter conexões ativas para servidores por trás de 
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

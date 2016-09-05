@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="08/17/2016" 
 	ms.author="luisca"/>
 
 # Guia de início rápido para a API de recomendações de aprendizado de máquina
+
+> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
+
+
 
 Este documento descreve como integrar o seu serviço ou aplicativo para usar as Recomendações de Aprendizado de Máquina do Microsoft Azure. Você pode encontrar mais detalhes sobre a API de Recomendações na [galeria](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
@@ -27,7 +31,7 @@ Este documento descreve como integrar o seu serviço ou aplicativo para usar as 
 Para usar as Recomendações de Aprendizado de Máquina do Azure, você precisa executar as seguintes etapas:
 
 * Criar um modelo – um modelo é um contêiner de seus dados de uso, dados do catálogo e o modelo de recomendação.
-* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens. 
+* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens.
 * Importar dados de uso: os dados de uso podem ser carregados de uma entre duas maneiras (ou ambas):
 	* Carregando um arquivo que contém os dados de uso.
 	* Enviando eventos de aquisição de dados. Normalmente, você carrega um arquivo de uso para poder criar um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema reúna dados suficientes usando o formato de aquisição de dados.
@@ -87,10 +91,10 @@ Criando uma solicitação para "criar modelo":
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 |
-| apiVersion | 1.0 |
+|	modelName |	São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_).<br>Comprimento máximo: 20 |
+|	apiVersion | 1\.0 |
 |||
-| Corpo da Solicitação | NENHUM |
+| Corpo da solicitação | NENHUM |
 
 
 **Resposta**:
@@ -141,10 +145,10 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_)<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
+|	apiVersion | 1\.0 |
 |||
-| Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| Corpo da solicitação | Dados de catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Preparação Complexa,Livro<br>552a1940-21e4-4399-82bb-594b46d7ed54,Controle de Animais,Livro</pre> |
 
 
 **Resposta**:
@@ -190,10 +194,10 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
+|	apiVersion | 1\.0 |
 |||
-| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -519,7 +523,7 @@ A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguinte
 - `Feed\entry\content\properties\Id` - ID do item recomendado.
 - `Feed\entry\content\properties\Name` - Nome do item.
 - `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 XML de OData
 
@@ -675,8 +679,7 @@ A resposta de exemplo a seguir inclui 10 itens recomendados:
 	</feed>
 
 ###Atualizar modelo
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.
-*ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa. *ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
 
 Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
@@ -690,7 +693,7 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | apiVersion | 1\.0 |
 |||
-| Corpo da solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
+| Corpo da solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcações XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
 
 **Resposta**:
 
@@ -708,9 +711,7 @@ XML de OData
 	</feed>
 
 ##Legal
-Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

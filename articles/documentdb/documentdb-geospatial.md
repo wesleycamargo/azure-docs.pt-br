@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/16/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
     
 # Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
@@ -202,7 +202,7 @@ Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou
 
 ST\_ISVALID e ST\_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST\_ISVALID retorna um valor Booliano e ST\_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
-* * Consulta * *
+**Consulta**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
@@ -276,6 +276,8 @@ Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um pl
 
 Se você especificar uma política de indexação que inclua o índice espacial para /* (todos os caminhos), todos os pontos encontrados na coleção serão indexados para consultas espaciais eficientes (ST\_WITHIN e ST\_DISTANCE). Os índices espaciais não têm um valor de precisão e sempre usam um valor de precisão padrão.
 
+>[AZURE.NOTE] O Banco de Dados de Documentos oferece suporte à indexação automática de Pontos, Polígonos (modo de visualização particular) e LineStrings (modo de visualização particular). Para acessar a visualização, envie um email askdocdb@microsoft.com ou entre em contato conosco por meio do Suporte do Azure.
+
 O trecho JSON a seguir mostra uma política de indexação com indexação espacial habilitada, ou seja, qualquer ponto GeoJSON encontrado em documentos para consultas espaciais do índice. Se você estiver modificando a política de indexação usando o Portal do Azure, poderá especificar o JSON a seguir para a política de indexação para habilitar a indexação espacial em sua coleção.
 
 **JSON da política de indexação da coleção com espacial habilitado**
@@ -346,4 +348,4 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

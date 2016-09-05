@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do SendGrid
 
-
-
-O conector do SendGrid pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
+O Provedor de Conexão do SendGrid permite enviar emails e gerenciar listas de destinatários.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -35,7 +29,7 @@ O conector do SendGrid pode ser usado por meio de:
 
 O conector do SendGrid pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
- O conector do SendGrid contém as seguintes ações e/ou gatilhos disponíveis:
+ O conector SendGrid tem as ações a seguir disponíveis. Não há nenhum gatilho.
 
 ### Ações do SendGrid
 Você pode executar as seguintes ações:
@@ -44,11 +38,6 @@ Você pode executar as seguintes ações:
 |--- | ---|
 |[SendEmail](connectors-create-api-sendgrid.md#sendemail)|Envia um email usando a API do SendGrid (limitado a 10.000 destinatários)|
 |[AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist)|Adiciona um destinatário individual a uma lista de destinatários|
-### Gatilhos do SendGrid
-Você pode escutar estes eventos:
-
-|Gatilho | Descrição|
-|--- | ---|
 
 
 ## Criar uma conexão com o SendGrid
@@ -126,8 +115,8 @@ Adicionar destinatário à lista: adiciona um destinatário individual a uma lis
 |para|string|Sim |
 |toname|string|Não |
 |subject|string|Sim |
-|body|string|Sim |
-|ishtml|booleano|Não |
+|corpo|string|Sim |
+|ishtml|Booliano|Não |
 |cc|string|Não |
 |ccname|string|Não |
 |bcc|string|Não |
@@ -192,4 +181,4 @@ Adicionar destinatário à lista: adiciona um destinatário individual a uma lis
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

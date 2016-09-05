@@ -13,23 +13,12 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
-# Usando o Azure PowerShell com o Azure Resource Manager
+# Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
 
-> [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md)
-- [CLI do Azure](xplat-cli-azure-resource-manager.md)
-- [PowerShell do Azure](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
-
-O Azure Resource Manager introduz uma maneira completamente nova de pensar sobre os recursos do Azure. Em vez de criar e gerenciar recursos individuais, você começa imaginando uma solução inteira, como um blog, uma galeria de fotos, um portal do SharePoint ou um wiki. Use um modelo – uma representação declarativa da solução – para criar um grupo de recursos que contém todos os recursos que necessários para dar suporte à solução. Em seguida, você gerencia e implanta esse grupo de recursos como uma unidade lógica.
+O Gerenciador de Recursos do Azure introduz uma maneira completamente nova de pensar sobre os recursos do Azure. Em vez de criar e gerenciar recursos individuais, você começa imaginando uma solução inteira, como um blog, uma galeria de fotos, um portal do SharePoint ou um wiki. Use um modelo – uma representação declarativa da solução – para criar um grupo de recursos que contém todos os recursos que necessários para dar suporte à solução. Em seguida, você gerencia e implanta esse grupo de recursos como uma unidade lógica.
 
 Neste tutorial, você aprenderá a usar o Azure PowerShell com o Azure Resource Manager. Ele orienta você pelo processo de implantação de uma solução e ajuda a trabalhar com essa solução. Você usará o Azure PowerShell e um modelo do Resource Manager para implantar:
 
@@ -50,7 +39,7 @@ Para concluir este tutorial, você precisará:
   + Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
   
   + Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure.
-- Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, veja [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
 
 Este tutorial foi criado para iniciantes do PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões.
 
@@ -100,7 +89,7 @@ Se você tiver mais de uma assinatura, forneça a ID da assinatura que deseja us
 
     Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-## Criar um grupo de recursos
+## Criar um grupos de recursos
 
 Antes de implantar os recursos em sua assinatura, você deve criar um grupo de recursos que conterá os recursos.
 
@@ -387,4 +376,4 @@ Os exemplos de implantação anteriores neste tópico mostraram apenas os cmdlet
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

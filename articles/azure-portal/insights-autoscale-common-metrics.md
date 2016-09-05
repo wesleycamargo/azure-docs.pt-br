@@ -166,12 +166,21 @@ Você pode dimensionar segundo o comprimento da fila de armazenamento, que é o 
 
 Você pode definir essas configurações na folha **Configurações** do Portal do Azure. Para conjuntos de escala de VM, você pode atualizar a configuração de Autoescala no modelo do ARM para utilizar *metricName* como *ApproximateMessageCount* e passar a ID da fila de armazenamento como *metricResourceUri*.
 
+Por exemplo, com uma Conta de Armazenamento Clássico, a configuração de dimensionamento automático metricTrigger incluiria:
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+Para uma conta de armazenamento (não clássica), o metricTrigger incluiria:
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## Métricas do Barramento de Serviço usadas frequentemente
 
@@ -187,4 +196,4 @@ Para conjuntos de escala de VM, você pode atualizar a configuração de Autoesc
 
 >[AZURE.NOTE] Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Introdução à criação de balanceador de carga para a Internet no modelo de implantação clássico usando o Portal do Azure | Microsoft Azure"
    description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando o portal do Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga para a Internet (clássico) no Portal do Azure
 
@@ -23,14 +23,14 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
 
- 
+
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 
 
-## Introdução à criação de um ponto de extremidade do balanceador de carga usando o Portal do Azure	
+## Introdução à criação de um ponto de extremidade do balanceador de carga usando o Portal do Azure
 
 Para criar um modelo de implantação (clássico) de balanceador de carga para a Internet no Portal do Azure, siga as etapas abaixo.
 
@@ -57,7 +57,7 @@ Para criar um modelo de implantação (clássico) de balanceador de carga para a
 11. Clique em ok para voltar à folha "ingressar conjunto com balanceamento de carga".
 
 12. Clique em ok e aguarde o novo recurso de Balanceador de carga ser exibido na folha "conjuntos de balanceadores de carga".
- 
+
 ## Próximas etapas
 
 [Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
@@ -66,4 +66,4 @@ Para criar um modelo de implantação (clássico) de balanceador de carga para a
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

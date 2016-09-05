@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Gatilhos e associações do Barramento de Serviço do Azure Functions para filas e tópicos
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions.
 
@@ -30,14 +32,14 @@ Este artigo explica como configurar e codificar gatilhos e associações do Barr
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para a fila ou tópico, ou a mensagens de tópico ou fila. 
+- `name`: o nome da variável usada no código de função para a fila ou tópico, ou a mensagens de tópico ou fila.
 - `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
 - `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
 - `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
 - `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão do Barramento de Serviço. A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico. Se a cadeia de conexão não gerenciar direitos, defina a propriedade `accessRights`. Se você deixar `connection` vazio, o gatilho ou a associação funcionará com a cadeia de conexão do Barramento de Serviço padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsServiceBus.
 - `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `listen` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos.
 - `type`: deve ser definido como *serviceBusTrigger*.
-- `direction`: deve ser definido como *in*. 
+- `direction`: deve ser definido como *in*.
 
 Exemplo do *function.json* para um gatilho de fila do Barramento de Serviço:
 
@@ -80,8 +82,8 @@ A mensagem da fila do Barramento de Serviço pode ser desserializada para qualqu
 
 * Objeto (de JSON)
 * string
-* matriz de bytes 
-* `BrokeredMessage` (C#) 
+* matriz de bytes
+* `BrokeredMessage` (C#)
 
 #### <a id="sbpeeklock"></a> Comportamento de PeekLock
 
@@ -101,14 +103,14 @@ Por padrão, o tempo de execução do Functions processa várias mensagens da fi
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para a fila ou mensagem da fila. 
+- `name`: o nome da variável usada no código de função para a fila ou mensagem da fila.
 - `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
 - `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
 - `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
 - `connection`: mesmo para o gatilho do Barramento de Serviço.
 - `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `send` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos, tais como da criação de filas.
 - `type`: deve ser definido como *serviceBus*.
-- `direction`: deve ser definido como *out*. 
+- `direction`: deve ser definido como *out*.
 
 *function.json* de exemplo para usar um gatilho de temporizador para gravar mensagens de fila do Barramento de Serviço:
 
@@ -140,8 +142,8 @@ O Azure Functions pode criar uma mensagem de fila do Barramento de Serviço de q
 
 * Objeto (sempre cria uma mensagem JSON, criará a mensagem com um objeto nulo se o valor for nulo quando a função terminar)
 * cadeia de caracteres (criará uma mensagem se o valor não for nulo quando a função terminar)
-* matriz de bytes (funciona como uma cadeia de caracteres) 
-* `BrokeredMessage` (C#, funciona como cadeia de caracteres)
+* matriz de bytes (funciona como uma cadeia de caracteres)
+* `BrokeredMessage` (C#, funciona como uma cadeia de caracteres)
 
 Para criar várias mensagens em uma função C#, você pode usar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando você chama o método `Add`.
 
@@ -187,4 +189,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

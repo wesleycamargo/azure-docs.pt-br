@@ -31,54 +31,7 @@ A figura acima mostra uma VM com três NICs, cada uma conectada a uma sub-rede d
 - Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs.
 - A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma.
 - O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede.
-- O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. A tabela a seguir lista os números de NICs correspondentes ao tamanho das máquinas virtuais:
-
-|Tamanho da VM (SKUs padrão)|NICs (máx. permitido por VM)|
-|---|---|
-|Todos os tamanhos básicos|1|
-|A0\\extrapequeno|1|
-|A1\\pequeno|1|
-|A2\\médio|1|
-|A3\\grande|2|
-|A4\\extragrande|4|
-|A5|1|
-|A6|2|
-|A7|4|
-|A8|2|
-|A9|4|
-|A10|2|
-|A11|4|
-|D1|1|
-|D2|2|
-|D3|4|
-|D4|8|
-|D11|2|
-|D12|4|
-|D13|8|
-|D14|8|
-|DS1|1|
-|DS2|2|
-|DS3|4|
-|DS4|8|
-|DS11|2|
-|DS12|4|
-|DS13|8|
-|DS14|8|
-|D1\_v2|1|
-|D2\_v2|2|
-|D3\_v2|4|
-|D4\_v2|8|
-|D5\_v2|8|
-|D11\_v2|2|
-|D12\_v2|4|
-|D13\_v2|8|
-|D14\_v2|8|
-|G1|1|
-|G2|2|
-|G3|4|
-|G4|8|
-|G5|8|
-|Todos os outros tamanhos|1|
+- O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. Consulte os artigos sobre tamanhos de VM do [Windows Server](../virtual-machines/virtual-machines-windows-sizes.md) e do [Linux](../virtual-machines/virtual-machines-linux-sizes.md) para determinar a quantos NICS cada tamanho VM oferece suporte.
 
 ## Grupos de segurança de rede (NSG)
 Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina virtual pode estar associada com um NSG (grupo de segurança de rede), incluindo todas as NICs em uma VM que tenha várias NICs habilitadas. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
@@ -265,4 +218,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

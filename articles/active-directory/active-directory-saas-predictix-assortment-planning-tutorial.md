@@ -47,12 +47,12 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você testará o Logon Único do Microsoft Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Predictix Assortment Planning da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o Logon Único do Microsoft Azure AD
 
 
 ## Adicionando o Predictix Assortment Planning da galeria
@@ -86,33 +86,33 @@ Para configurar a integração do Predictix Assortment Planning ao Azure AD, voc
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
 
 
-##  Configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o Predictix Assortment Planning, com base em uma usuária de teste chamada "Brenda Fernandes".
+##  Configurar e testar o Logon Único do Microsoft Azure AD
+Nesta seção, você configurará e testará o Logon Único do Microsoft Azure AD com o Predictix Assortment Planning, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Predictix Assortment Planning é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Predictix Assortment Planning.
 
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como sendo o valor de **nome de usuário** no Predictix Assortment Planning.
 
-Para configurar e testar o logon único do Azure AD com o Predictix Assortment Planning, conclua os seguintes blocos de construção:
+Para configurar e testar o Logon Único do Microsoft Azure AD com o Predictix Assortment Planning, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuração do Logon Único do Microsoft Azure AD](#configuring-azure-ad-single-sign-on)** - para habilitar os usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** - para testar o Logon Único do Microsoft Azure AD com Brenda Fernandes.
 3. **[Criar um usuário de teste Predictix Assortment Planning](#creating-a-predictix-price-reporting-test-user)** – para ter um equivalente de Brenda Fernandes no Predictix Assortment Planning vinculado à representação dela do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+4. **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o Logon Único do Microsoft Azure AD.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
-### Configuração do logon único do AD do Azure
+### Configuração do Logon Único do Microsoft Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo Predictix Assortment Planning.
+Nesta seção, você habilitará o Logon Único do Microsoft Azure AD no portal clássico e configurará o logon único em seu aplicativo Predictix Assortment Planning.
 
 
-**Para configurar o logon único do Azure AD com o Predictix Assortment Planning, execute as seguintes etapas:**
+**Para configurar o Logon Único do Microsoft Azure AD com o Predictix Assortment Planning, execute as seguintes etapas:**
 
 1. No portal clássico, na página de integração de aplicativos do **Predictix Assortment Planning**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 	 
 	![Configurar o logon único][6]
 
-2. Na página **Como você deseja que os usuários façam logon no Predictix Assortment Planning**, selecione **Logon único do Azure AD** e clique em **Avançar**.
+2. Na página **Como você deseja que os usuários façam logon no Predictix Assortment Planning**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
 
 	![Configurar o logon único](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_03.png)
 
@@ -130,7 +130,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Predictix Assortment Planning e forneça o seguinte:
@@ -170,19 +170,19 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png)
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -192,13 +192,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_07.png)
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_08.png)
 
@@ -242,7 +242,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 ### Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará sua configuração de logon único do Microsoft Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Predictix Assortment Planning no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Predictix Assortment Planning.
 
@@ -271,4 +271,4 @@ Quando você clica no bloco Predictix Assortment Planning no Painel de Acesso, d
 [204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

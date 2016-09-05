@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do OneDrive for Business
 
-
-
-O conector do OneDrive for Business pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
+Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -67,7 +61,7 @@ Para criar Aplicativos Lógicos com o OneDrive for Business, primeiro, você dev
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do OneDrive for Business|
+|Token|Sim|Fornecer as credenciais do OneDrive for Business|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
@@ -102,7 +96,7 @@ Atualizar arquivo: atualiza um arquivo no OneDrive for Business
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |ID|string|sim|path|nenhum|Especificar o arquivo a ser atualizado|
-|body| |sim|corpo|nenhum|Conteúdo do arquivo a ser atualizado no OneDrive for Business|
+|corpo| |sim|corpo|nenhum|Conteúdo do arquivo a ser atualizado no OneDrive for Business|
 
 #### Resposta
 
@@ -189,7 +183,7 @@ Criar arquivo: carrega um arquivo no OneDrive for Business
 | ---|---|---|---|---|---|
 |folderPath|string|sim|query|nenhum|Caminho da pasta para carregar o arquivo no OneDrive for Business|
 |name|string|sim|query|nenhum|Nome do arquivo a ser criado no OneDrive for Business|
-|body| |sim|corpo|nenhum|Conteúdo do arquivo para carregar no OneDrive for Business|
+|corpo| |sim|corpo|nenhum|Conteúdo do arquivo para carregar no OneDrive for Business|
 
 #### Resposta
 
@@ -208,7 +202,7 @@ Copiar arquivo: copia um arquivo no OneDrive for Business
 | ---|---|---|---|---|---|
 |fonte|string|sim|query|nenhum|URL para o arquivo de origem|
 |destino|string|sim|query|nenhum|Caminho do arquivo de destino no OneDrive for Business, incluindo nome do arquivo de destino|
-|substituir|booleano|não|query|false|Substitui o arquivo de destino se estiver definido como "true"|
+|substituir|Booliano|não|query|false|Substitui o arquivo de destino se estiver definido como "true"|
 
 #### Resposta
 
@@ -292,7 +286,7 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 | ---|---|---|---|---|---|
 |fonte|string|sim|query|nenhum|Caminho para o arquivo morto|
 |destino|string|sim|query|nenhum|Caminho no OneDrive for Business para extrair o conteúdo do arquivo morto|
-|substituir|booleano|não|query|false|Substitui os arquivos de destino se estiver definido como "true"|
+|substituir|Booliano|não|query|false|Substitui os arquivos de destino se estiver definido como "true"|
 
 #### Resposta
 
@@ -350,7 +344,7 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 |LastModified|string|Não |
 |Tamanho|inteiro|Não |
 |MediaType|string|Não |
-|IsFolder|booleano|Não |
+|IsFolder|Booliano|Não |
 |ETag|string|Não |
 |FileLocator|string|Não |
 
@@ -366,4 +360,4 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

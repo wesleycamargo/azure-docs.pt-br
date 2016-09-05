@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Trocar a assinatura do Azure por outra oferta
@@ -23,6 +23,8 @@ Você pode alterar sua assinatura existente para uma oferta mais favorável sem 
 
 -	Se você achar que tem um gasto muito alto no Azure, poderá estar qualificado para um desconto ao trocar para a oferta de compromisso monetário. Clique [aqui](billing-usage-rate-card-overview.md) para saber mais sobre como obter informações sobre o consumo de recursos do Microsoft Azure.
 -	Se você quiser aproveitar os benefícios da associação, como o MSDN ou o BizSpark, após sua inscrição em uma assinatura Pré-paga.
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 ## Guia para trocar sua assinatura por outra oferta
 
@@ -77,4 +79,6 @@ Veja abaixo os caminhos atualmente com suporte no [Centro de Contas](https://acc
 
 Para obter outras alterações da oferta, [contate o Suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/20/2016"
+   ms.date="08/19/2016"
    ms.author="alkohli" />
 
 # Introdução ao StorSimple Virtual Array
@@ -23,7 +23,7 @@ Bem-vindo à Matriz Virtual Microsoft Azure StorSimple, uma solução de armazen
 
 Esta visão geral concentra-se na Matriz Virtual.
 
-- Para obter uma visão geral do StorSimple série 8000, vá para [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md). 
+- Para obter uma visão geral do StorSimple série 8000, vá para [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md).
 
 - Para obter informações sobre o dispositivo StorSimple série 5000/7000, vá para [Ajuda Online do StorSimple](http://onlinehelp.storsimple.com/).
 
@@ -45,7 +45,8 @@ A tabela a seguir resume os recursos importantes da Matriz Virtual.
 | Desempenho | Varia de acordo com a infraestrutura subjacente |
 | Mobilidade de dados | É possível restaurar para o mesmo dispositivo ou realizar recuperação em nível de item (servidor de arquivos) |
 | Camadas de armazenamento | Armazenamento local de hipervisor e nuvem |
-| Tamanho de compartilhamento ou volume |Camadas: até 20 TB; localmente fixados: até 2 TB |
+| Tamanho do compartilhamento |Camadas: até 20 TB; localmente fixados: até 2 TB |
+| Tamanho do volume |Camadas: até 5 TB; localmente fixados: até 500 GB |
 | Instantâneos | Com controle de falhas |
 | Recuperação em nível de item | Sim, os usuários podem fazer restauração de compartilhamentos |
 
@@ -87,16 +88,16 @@ A Matriz Virtual dá suporte aos seguintes cenários de proteção de dados e re
 
 - **Restauração de volume ou compartilhamento** – Use a restauração como um novo fluxo de trabalho para recuperar um volume ou compartilhamento. Use essa abordagem para recuperar o compartilhamento ou volume inteiro.
 - **Recuperação no nível de item** – Compartilhamentos permitem acesso simplificado aos backups recentes. Você pode recuperar facilmente um arquivo individual de uma pasta .backup especial disponível na nuvem. Essa funcionalidade de restauração é controlada pelo usuário e nenhuma intervenção administrativa é necessária.
-- **Recuperação de desastre** – Use a funcionalidade de failover para recuperar todos os volumes ou compartilhamentos para um novo Virtual Array. Crie a nova Matriz Virtual e registre-a com o serviço StorSimple Manager, então realize o failover da Matriz Virtual original. A nova Matriz Virtual, em seguida, assumirá os recursos provisionados. 
+- **Recuperação de desastre** – Use a funcionalidade de failover para recuperar todos os volumes ou compartilhamentos para uma nova Matriz Virtual. Crie a nova Matriz Virtual e registre-a com o serviço StorSimple Manager, então realize o failover da Matriz Virtual original. A nova Matriz Virtual, em seguida, assumirá os recursos provisionados.
 
 ## Componentes da Matriz Virtual
 
 A Matriz Virtual inclui os seguintes componentes:
 
-- [Virtual Array](#virtual-array) – um dispositivo de armazenamento de nuvem híbrida baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor.  
+- [Matriz Virtual](#virtual-array) – um dispositivo de armazenamento de nuvem híbrida baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor.
 - [Serviço StorSimple Manager](#storsimple-manager-service) – uma extensão do portal clássico do Azure que permite gerenciar um ou mais dispositivos StorSimple de uma única interface da Web, que pode ser acessada de diferentes localizações geográficas. Você pode usar o serviço StorSimple Manager para criar e gerenciar serviços, exibir e gerenciar dispositivos e alertas, gerenciar volumes, compartilhamentos e instantâneos existentes.
-- [Interface do usuário da Web local](#local-web-user-interface) – uma interface do usuário baseada na Web usada para configurar o dispositivo para que ele se conecte à rede local e para registrar o dispositivo no serviço StorSimple Manager. 
-- [Interface de linha de comando](#command-line-interface) – uma interface do Windows PowerShell que pode ser usada para iniciar uma sessão de suporte no Virtual Array. As seções a seguir descrevem cada um dos componentes com bastante detalhes e explicam como a solução organiza dados, aloca armazenamento e facilita o gerenciamento de armazenamento e a proteção de dados.
+- [Interface do usuário da Web local](#local-web-user-interface) – uma interface do usuário baseada na Web usada para configurar o dispositivo para que ele se conecte à rede local e para registrar o dispositivo no serviço StorSimple Manager.
+- [Interface de linha de comando](#command-line-interface) – uma interface do Windows PowerShell que pode ser usada para iniciar uma sessão de suporte na Matriz Virtual. As seções a seguir descrevem cada um dos componentes com bastante detalhes e explicam como a solução organiza dados, aloca armazenamento e facilita o gerenciamento de armazenamento e a proteção de dados.
 
 ### Matriz Virtual
 
@@ -107,9 +108,9 @@ A Matriz Virtual está disponível em um modelo que está disponível para downl
 A Matriz Virtual tem os seguintes recursos:
 
 - Tem bom custo/benefício. Usa sua infraestrutura de virtualização existente e pode ser implantada em seu hipervisor Hyper-V ou VMware existente.
-- Reside no datacenter e pode ser configurada como um servidor iSCSI ou um servidor de arquivos. 
+- Reside no datacenter e pode ser configurada como um servidor iSCSI ou um servidor de arquivos.
 - É integrada à nuvem.
-- Backups são armazenados na nuvem, que pode facilitar a recuperação de desastres e simplificar a ILR (Recuperação em Nível de Item). 
+- Backups são armazenados na nuvem, que pode facilitar a recuperação de desastres e simplificar a ILR (Recuperação em Nível de Item).
 - Você pode aplicar atualizações à Matriz Virtual, assim como você as aplicaria a um dispositivo físico.
 
 >[AZURE.NOTE] Uma matriz Virtual não pode ser expandida. Portanto, é importante provisionar o armazenamento adequado ao criar o dispositivo virtual.
@@ -118,7 +119,7 @@ A Matriz Virtual tem os seguintes recursos:
 
 O Microsoft Azure StorSimple fornece uma interface do usuário baseada na web (o serviço StorSimple Manager) que permite gerenciar de modo centralizado o data center e o armazenamento em nuvem. Você pode usar o serviço StorSimple Manager para executar as seguintes tarefas:
 
-- Gerenciar, de um único serviço, várias Matrizes Virtuais StorSimple. 
+- Gerenciar, de um único serviço, várias Matrizes Virtuais StorSimple.
 - Configurar e gerenciar configurações de segurança para dispositivos StorSimple. (Criptografia na nuvem é dependente de APIs do Microsoft Azure.)
 - Configurar propriedades e credenciais da conta de armazenamento.
 - Configurar e gerenciar volumes ou compartilhamentos.
@@ -134,7 +135,7 @@ Para saber mais, veja [Usar o serviço do StorSimple Manager para administrar se
 
 A Matriz Virtual inclui uma interface do usuário baseada na Web que é usada para configuração e registro do dispositivo a serem realizados uma única vez, com o serviço StorSimple Manager. Você pode usá-lo para desligar e reiniciar a Matriz Virtual, executar testes de diagnóstico, a atualização de software, alterar a senha de administrador do dispositivo, exibir logs do sistema e contatar o Suporte da Microsoft para uma solicitação de serviço.
 
-Para obter informações sobre como usar a interface do usuário baseada na Web, vá para [Usar a interface do usuário baseada na Web para administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Para obter informações sobre como usar a interface do usuário baseada na Web, vá para [Usar a interface do usuário baseada na Web para administrar o Matriz Virutal do StorSimple](storsimple-ova-web-ui-admin.md).
 
 ### Interface de linha de comando
 
@@ -144,9 +145,9 @@ A interface incluída no Windows PowerShell permite iniciar uma sessão de supor
 
 Além da Matriz Virtual e outros componentes, a solução StorSimple usa as tecnologias de software a seguir para fornecer acesso rápido aos dados importantes, reduzir o consumo de armazenamento e proteger os dados armazenados em sua Matriz Virtual:
 
-- [Camadas de armazenamento automático](#automatic-storage-tiering) 
+- [Camadas de armazenamento automático](#automatic-storage-tiering)
 - [Volumes e compartilhamentos fixados localmente](#locally-pinned-shares-and-volumes)
-- [Eliminação de duplicação e compactação para dados em camadas ou em backup na nuvem](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+- [Eliminação de duplicação e compactação para dados em camadas ou em backup na nuvem](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud)
 - [Backups agendados e sob demanda](#scheduled-and-on-demand-backups)
 
 ### Camadas de armazenamento automático
@@ -182,6 +183,6 @@ Os recursos de proteção de dados StorSimple permitem que você crie backups so
 
 ## Próximas etapas
 
-Saiba como [preparar o portal do Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+Saiba como [preparar o portal da Matriz Virtual](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

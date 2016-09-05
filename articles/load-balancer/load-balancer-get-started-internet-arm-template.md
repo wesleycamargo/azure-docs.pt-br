@@ -3,7 +3,7 @@
    description="Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando um modelo ARM"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga para a Internet usando um modelo ARM
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando o modelo de implantação clássica](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando o modelo de implantação clássica](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -48,7 +48,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -57,7 +57,7 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 		info:    New mode is arm
 
-3. No seu navegador, navegue até ****https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador. Para este cenário, copie os valores abaixo em um arquivo chamado **c:\\lb\\azuredeploy.parameters.json**.
+3. No navegador, navegue até**https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json**, copie o conteúdo do arquivo JSON e cole-o em um novo arquivo em seu computador. Para este cenário, copie os valores abaixo em um arquivo chamado **c:\\lb\\azuredeploy.parameters.json**.
 4. Execute o cmdlet **azure group deployment create** para implantar o novo balanceador de carga usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
@@ -70,4 +70,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

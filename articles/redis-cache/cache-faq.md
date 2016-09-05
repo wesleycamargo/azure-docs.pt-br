@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2016" 
+	ms.date="08/18/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -27,6 +27,7 @@ Se sua pergunta não estiver listada aqui, fale conosco e nós o ajudaremos a en
 
 -	Você pode postar uma pergunta no [tópico de discussão](#comments) no final do FAQ e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade sobre este artigo.
 -	Para atingir um público mais amplo, você pode postar uma pergunta sobre o [Fórum do MSDN do Cache do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade.
+-	Se você quiser fazer uma solicitação de recurso, envie suas solicitações e ideias para o [UserVoice do Cache Redis do Azure](https://feedback.azure.com/forums/169382-cache).
 -	Você também pode enviar um email para nós com [Comentários externos sobre o Cache do Azure](mailto:azurecache@microsoft.com).
 
 ## Noções básicas sobre o Cache Redis do Azure
@@ -448,4 +449,4 @@ Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como
 
 [configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

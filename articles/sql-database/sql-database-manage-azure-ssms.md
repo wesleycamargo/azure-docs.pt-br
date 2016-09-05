@@ -25,19 +25,21 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e o artigo sobre como [Conectar e Consultar usando SSMS](sql-database-connect-query-ssms.md) para obter informações sobre como se conectar e, em seguida, executar uma consulta SELECT simples.
+Você pode usar o SSMS (SQL Server Management Studio) para administrar servidores e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor e um banco de dados criados no Banco de Dados SQL do Azure antes de começar. Consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e [Conectar e consultar usando o SSMS](sql-database-connect-query-ssms.md) para obter mais informações.
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure.
 
-> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SSMS (SQL Server Management Studio) para permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Uma versão mais antiga do SSMS não funcionará corretamente com o Banco de Dados SQL, portanto, visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo.
+> [AZURE.IMPORTANT] Sempre use a versão mais recente do SSMS porque ele é aprimorado continuamente para trabalhar com as atualizações mais recentes do Azure e do Banco de Dados SQL. Para obter a versão mais recente, consulte [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 
 ## Criar e gerenciar Banco de Dados SQL do Azure
 
-Enquanto estiver conectado ao banco de dados **mestre**, você pode criar novos bancos de dados no servidor e modificar ou soltar bancos de dados existentes. As etapas a seguir descrevem como realizar várias tarefas de gerenciamento de banco de dados comum por meio do Management Studio. Para executar essas tarefas, verifique se você está conectado ao banco de dados **mestre** com o logon de nível de servidor principal que criou quando configurou o servidor.
+Enquanto estiver conectado ao banco de dados **mestre**, você pode criar bancos de dados no servidor e modificar ou soltar bancos de dados existentes. As etapas a seguir descrevem como realizar várias tarefas de gerenciamento de banco de dados comuns por meio do Management Studio. Para executar essas tarefas, verifique se você está conectado ao banco de dados **mestre** com o logon de nível de servidor principal que criou quando configurou o servidor.
 
 Para abrir uma janela de consulta no Management Studio, abra a pasta de bancos de dados, expanda a pasta **Banco de dados do sistema**, clique com botão direito do mouse em **mestre** e clique em **Nova consulta**.
 
--   Use o **CRIAR BANCO DE DADOS** instrução para criar um novo banco de dados. Para saber mais, confira [CREATE DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/dn268335.aspx). A instrução a seguir cria um novo banco de dados chamado **myTestDB** e especifica que se trata de um banco de dados da Standard S0 Edition com um tamanho padrão máximo de 250 GB.
+-   Use a instrução **CREATE DATABASE** para criar um banco de dados. Para saber mais, confira [CREATE DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/dn268335.aspx). A instrução a seguir cria um banco de dados chamado **myTestDB** e especifica que se trata de um banco de dados da Standard S0 Edition com um tamanho padrão máximo de 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
@@ -51,7 +53,7 @@ Clique em **Execute** para executar a consulta.
         MODIFY
         (SERVICE_OBJECTIVE='S1');
 
--   Use a instrução **DROP DATABASE** para excluir um banco de dados existente. Para saber mais, confira [DROP DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/ms178613.aspx). A instrução abaixo exclui o banco de dados **myTestDB**, mas não elimine-o agora porque você o utilizará para criar logons na próxima etapa.
+-   Use a instrução **DROP DATABASE** para excluir um banco de dados existente. Para saber mais, confira [DROP DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/ms178613.aspx). A instrução a seguir exclui o banco de dados **myTestDB**, mas não o remova agora, pois você o utilizará para criar logons na próxima etapa.
 
         DROP DATABASE myTestBase;
 
@@ -61,22 +63,22 @@ Clique em **Execute** para executar a consulta.
 
 -   No banco de dados SQL, a instrução **USE** não é suportada para alternar entre bancos de dados. Em vez disso, você precisa estabelecer uma conexão diretamente com o banco de dados de destino.
 
->[AZURE.NOTE] Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução disponíveis dos links listados acima.
+>[AZURE.NOTE] Muitas das instruções Transact-SQL que cria ou modifica um banco de dados devem ser executadas em seu próprio lote e não podem ser agrupadas com outras instruções Transact-SQL. Para obter mais informações, consulte as informações específicas de instrução.
 
 ## Criar e gerenciar logons
 
-O banco de dados **mestre** controla os logons e quais logons têm permissão para criar bancos de dados ou outros logons. Gerencie logons conectando-se ao banco de dados **mestre** com o logon de nível de servidor principal que você criou quando configurou o servidor. Você pode usar as instruções **CREATE LOGIN**, **ALTER LOGIN** ou **DROP LOGIN** para executar consultas no banco de dados mestre que gerenciarão logons por todo o servidor. Para obter mais informações, consulte [gerenciamento de bancos de dados e logons no banco de dados SQL](http://msdn.microsoft.com/library/azure/ee336235.aspx)
+O banco de dados **mestre** contém os logons e quais logons têm permissão para criar bancos de dados ou outros logons. Gerencie logons conectando-se ao banco de dados **mestre** com o logon de nível de servidor principal que você criou quando configurou o servidor. Você pode usar as instruções **CREATE LOGIN**, **ALTER LOGIN** ou **DROP LOGIN** para executar consultas no banco de dados mestre que gerenciam logons por todo o servidor. Para obter mais informações, consulte [gerenciamento de bancos de dados e logons no banco de dados SQL](http://msdn.microsoft.com/library/azure/ee336235.aspx)
 
 
--   Use a instrução **CREATE LOGIN** para criar um novo logon em nível de servidor. Para obter mais informações, consulte [CREATE LOGIN (Banco de Dados SQL)](https://msdn.microsoft.com/library/ms189751.aspx). A instrução a seguir cria um novo logon chamado **login1**. Substitua **password1** pela senha de sua escolha.
+-   Use a instrução **CREATE LOGIN** para criar um logon no nível de servidor. Para obter mais informações, consulte [CREATE LOGIN (Banco de Dados SQL)](https://msdn.microsoft.com/library/ms189751.aspx). A instrução a seguir cria um logon chamado **login1**. Substitua **password1** pela senha de sua escolha.
 
         CREATE LOGIN login1 WITH password='password1';
 
--   Use a instrução **CREATE USER** para conceder permissões em nível de banco de dados. Todos os logons devem ser criados no banco de dados **mestre**, mas para que um logon se conecte a um banco de dados diferente, você deve conceder a esse logon permissões de nível de banco de dados usando a instrução **CREATE USER** nesse banco de dados. Para obter mais informações, consulte [CREATE USER (Banco de Dados SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
+-   Use a instrução **CREATE USER** para conceder permissões em nível de banco de dados. Todos os logons devem ser criados no banco de dados **mestre**. Para que um logon se conecte a um banco de dados diferente, você deve conceder a esse logon permissões de nível de banco de dados usando a instrução **CREATE USER** nesse banco de dados. Para obter mais informações, consulte [CREATE USER (Banco de Dados SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 -   Para dar permissões de login1 para um banco de dados chamado **myTestDB**, execute as seguintes etapas:
 
- 1.  Para atualizar o Gerenciador de Objetos e visualizar o banco de dados **myTestDB** que você acabou de criar, clique com o botão direito do mouse no nome do servidor no Gerenciador de Objetos e, em seguida, clique em **Atualizar**.
+ 1.  Para atualizar o Pesquisador de Objetos e exibir o banco de dados **myTestDB** que você acabou de criar, clique com o botão direito do mouse no nome do servidor no Pesquisador de Objetos e, em seguida, clique em **Atualizar**.
 
      Se você fechou a conexão, você pode se reconectar, selecionando **conectar Object Explorer** no menu arquivo.
 
@@ -86,19 +88,17 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use o procedimento **sp\_addrolemember** armazenado para oferecer à conta do usuário o nível apropriado de permissões no banco de dados. Para saber mais, consulte [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). A declaração a seguir dá ao **login1User** permissões de apenas leitura ao banco de dados adicionando **login1User** à regra **db\_datareader**.
+-   Use o procedimento **sp\_addrolemember** armazenado para oferecer à conta do usuário o nível apropriado de permissões no banco de dados. Para saber mais, consulte [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). A declaração a seguir dá ao **login1User** permissões de somente leitura ao banco de dados adicionando **login1User** à função **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   Use a instrução **ALTER LOGIN** para modificar um logon existente, por exemplo, se você desejar alterar a senha para o logon. Para saber mais, consulte [ALTER LOGIN (banco de dados SQL)](https://msdn.microsoft.com/library/ms189828.aspx). A instrução **ALTER LOGIN** deve ser executada no banco de dados **mestre**. Alterne para a janela de consulta que está conectada ao banco de dados.
-
-    A instrução a seguir modifica o logon **logon1** para redefinir a senha. Substitua **novaSenha** pelaa senha de sua escolha, e **senhaAntiga** pela senha atual para o logon.
+-   Use a instrução **ALTER LOGIN** para modificar um logon existente, por exemplo, se você desejar alterar a senha para o logon. Para saber mais, consulte [ALTER LOGIN (banco de dados SQL)](https://msdn.microsoft.com/library/ms189828.aspx). A instrução **ALTER LOGIN** deve ser executada no banco de dados **mestre**. Alterne para a janela de consulta que está conectada ao banco de dados. A instrução a seguir modifica o logon **login1** para redefinir a senha. Substitua **novaSenha** pelaa senha de sua escolha, e **senhaAntiga** pela senha atual para o logon.
 
         ALTER LOGIN login1
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   Use a instrução **DROP LOGIN** para excluir um logon existente. Excluir um logon no nível do servidor também exclui quaisquer contas de usuário do banco de dados associado. Para saber mais, confira [DROP DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/ms178613.aspx). A instrução **DROP LOGIN** deve ser executada no banco de dados **mestre**. A instrução a seguir exclui o logon **login1**.
+-   Use a instrução **DROP LOGIN** para excluir um logon existente. Excluir um logon no nível do servidor também exclui quaisquer contas de usuário do banco de dados associado. Para saber mais, confira [DROP DATABASE (Banco de dados SQL)](https://msdn.microsoft.com/library/ms178613.aspx). A instrução **DROP LOGIN** deve ser executada no banco de dados **mestre**. A instrução exclui o logon **login1**.
 
         DROP LOGIN login1;
 
@@ -106,11 +106,11 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
         SELECT * FROM sys.sql_logins;
 
-## Monitorar o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico</h2>
+## Monitorar o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico
 
-O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitorando o Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. A seguir estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
--   Consultar uma exibição de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. Para conceder a permissão **VIEW DATABASE STATE** a um usuário de banco de dados específico, conecte-se ao banco de dados que você deseja gerenciar com o logon principal de nível de servidor e execute a seguinte instrução no banco de dados:
+-   Consultar uma exibição de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. Para conceder a permissão **VIEW DATABASE STATE** a um usuário de banco de dados específico, conecte-se ao banco de dados e execute a seguinte instrução no banco de dados:
 
         GRANT VIEW DATABASE STATE TO login1User;
 
@@ -151,4 +151,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,7 +3,7 @@
    description="Configurar o balanceador de carga para trabalhar com o SQL sempre ativo e como aproveitar o PowerShell para criar o balanceador de carga para a implementação do SQL"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurar o balanceador de carga para SQL sempre ativo
 
@@ -68,4 +68,4 @@ No exemplo acima, você tem 2 VMs chamadas "sqlsvc1" e "sqlsvc2" em execução n
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

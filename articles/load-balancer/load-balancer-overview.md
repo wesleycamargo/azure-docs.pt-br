@@ -3,7 +3,7 @@
    description="Visão geral dos recursos do Balanceador de Carga do Azure, arquitetura e implementação. Saiba como o balanceador de carga funciona e como aproveitá-lo na nuvem."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/19/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Visão geral do Balanceador de Carga do Azure
@@ -36,7 +36,7 @@ Nesse modelo, um endereço IP público e um FQDN são atribuídos a um serviço 
 
 A conversão da porta é feita usando pontos de extremidade que têm uma relação de um para um entre a porta pública atribuída do endereço IP público e a porta local atribuída para enviar o tráfego para uma máquina virtual específica. O balanceamento de carga é feito usando os pontos de extremidade definidos pelo balanceador de carga. Esses pontos de extremidade são uma relação de um para muitos entre o endereço IP público e as portas locais atribuídas a todas as máquinas virtuais no serviço de nuvem que responderá pelo tráfego de rede com balanceamento de carga.
 
-O rótulo do domínio para o endereço IP público que um balanceador de carga usa nesse modelo de implantação é <cloud service name>.cloudapp.net. O gráfico a seguir mostra o Azure Load Balancer nesse modelo.
+O rótulo do domínio para o endereço IP público que um balanceador de carga usa nesse modelo de implantação é <nome do serviço de nuvem>.cloudapp.net. O gráfico a seguir mostra o Azure Load Balancer nesse modelo.
 
 ![Azure Load Balancer no modelo de implantação clássico](./media/load-balancer-overview/asm-lb.png)
 
@@ -83,8 +83,8 @@ O balanceador de carga pode testar a integridade de várias instâncias de servi
 Existem três tipos de investigação com suporte:
 
 - **Investigação de agente convidado (somente em VMs PaaS)****:** o balanceador de carga utiliza o agente convidado dentro da máquina virtual. Ele escuta e responde com uma resposta HTTP 200 OK somente quando a instância está no estado Pronto (ou seja, a instância não está em um estado ocupado, reciclando ou interrompendo). Se o agente convidado não responder com HTTP 200 OK, o balanceador de carga marcará a instância como sem resposta e interromperá o envio de tráfego para essa instância. O balanceador de carga continuará a executar o ping para a instância. Se o agente convidado responder com um HTTP 200, o balanceador de carga enviará o tráfego para essa instância novamente. Quando você está usando uma função web, o código do site geralmente é executado no w3wp.exe, que não é monitorado pela malha do Azure nem pelo agente convidado. Isso significa que as falhas no w3wp.exe (por exemplo, as respostas HTTP 500) não serão relatadas para o agente convidado e o balanceador de carga não saberá retirar essa instância da rotação.
-- **Investigação HTTP personalizada:** essa investigação substitui a investigação padrão (agente convidado). Você pode usá-la para criar sua própria lógica personalizada para determinar a integridade da instância de função. O balanceador de carga investigará regularmente seu ponto de extremidade (a cada 15 segundos, por padrão). A instância será considerada em rotação se responder com um TCP ACK ou HTTP 200 dentro do período de tempo limite (padrão de 31 segundos). Isso pode ser útil para implementar sua própria lógica para remover as instâncias da rotação do balanceador de carga. Por exemplo, você pode configurar a instância para retornar um status não 200 se a instância estiver acima de 90% da CPU. Para as funções da Web que usam o w3wp.exe, você também obtém um monitoramento automático do seu site, pois as falhas no código do site retornarão um status não 200 para a investigação.  
-- **Investigação TCP personalizada:** essa investigação dependem do estabelecimento bem-sucedido da sessão de TCP em uma porta de investigação definida.
+- **Investigação HTTP personalizada:** essa investigação substitui a investigação padrão (agente convidado). Você pode usá-la para criar sua própria lógica personalizada para determinar a integridade da instância de função. O balanceador de carga investigará regularmente seu ponto de extremidade (a cada 15 segundos, por padrão). A instância será considerada em rotação se responder com um TCP ACK ou HTTP 200 dentro do período de tempo limite (padrão de 31 segundos). Isso pode ser útil para implementar sua própria lógica para remover as instâncias da rotação do balanceador de carga. Por exemplo, você pode configurar a instância para retornar um status não 200 se a instância estiver acima de 90% da CPU. Para as funções da Web que usam o w3wp.exe, você também obtém um monitoramento automático do seu site, pois as falhas no código do site retornarão um status não 200 para a investigação.
+- **Investigação TCP personalizada:** essa investigação depende do estabelecimento bem-sucedido da sessão de TCP em uma porta de investigação definida.
 
 Para obter mais informações, consulte o [esquema LoadBalancerProbe](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
@@ -122,4 +122,4 @@ O balanceador de carga pode ser gerenciado usando ferramentas e APIs baseadas no
 
 [Introdução à criação de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

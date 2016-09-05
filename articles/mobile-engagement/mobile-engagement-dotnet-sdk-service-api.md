@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Usar o SDK do .NET para acessar as APIs de serviço do Azure Mobile Engagement
@@ -24,7 +24,7 @@ Criamos um SDK do .NET de forma semelhante que permite que você interaja com es
 
 Este exemplo percorre o conjunto de etapas a seguir para usar o SDK do .NET:
 
-1. Em primeiro lugar, você precisa configurar a autenticação para suas APIs usando o Azure Active Directory, conforme descrito [aqui](mobile-engagement-api-authentication.md#authentication). No final dessas etapas, você deve ter um uma **SubscriptionId**, uma **TenantId**, uma **ApplicationId** e um **segredo** válidos. 
+1. Em primeiro lugar, você precisa configurar a autenticação para suas APIs usando o Azure Active Directory, conforme descrito [aqui](mobile-engagement-api-authentication.md#authentication). No final destas etapas, você deve ter um uma **SubscriptionId**, uma **TenantId**, uma **ApplicationId** e um **segredo** válidos.
 
 2. Usaremos um aplicativo simples do Console do Windows para demonstrar como trabalhar com o SDK do .NET com o cenário de criação de uma campanha de anúncios. Portanto, abra o Visual Studio e crie um **Aplicativo de Console**.
 
@@ -122,4 +122,4 @@ Este exemplo percorre o conjunto de etapas a seguir para usar o SDK do .NET:
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

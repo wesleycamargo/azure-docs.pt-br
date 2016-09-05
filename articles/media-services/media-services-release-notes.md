@@ -30,12 +30,13 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 Problema|Descrição
 ---|---
 Vários cabeçalhos HTTP comuns não são fornecidos na API REST.|Se você desenvolver aplicativos de Serviços de Mídia usando a API REST, verá que não há suporte a alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura.
-Codificar um ativo com um nome de arquivo que contenha caracteres de escape (por exemplo, %20) falha com “MediaProcessor : Arquivo não encontrado.”|Nomes de arquivos que serão adicionados a um ativo e, então, codificados devem conter apenas caracteres e espaços alfanuméricos. O problema será corrigido em uma atualização futura.
+Não é permitida a codificação por porcentagem.|Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha.|Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se desejar que o SDK de Armazenamento do Azure liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que faz parte do SDK de Armazenamento do Azure versão 2.x. O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falhará.
-O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).|Para obter mais informações, consulte a descrição do código de status HTTP 503 no tópico [Códigos de erro dos Serviços de Mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).|Para obter mais informações, confira a descrição do código de status HTTP 503 no tópico [Códigos de erro dos Serviços de Mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. | Você precisa usar as opções **Ignorar** e **Levar** (.NET)/**superior** (REST), conforme descrito [neste exemplo do .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo da API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 Alguns clientes podem se deparar com um problema de marcas repetidas no manifesto do Smooth Streaming.|Para saber mais, consulte [esta](media-services-deliver-content-overview.md#known-issues) seção.
 Os objetos do SDK do .NET dos Serviços de Mídia do Azure não podem ser serializados, e, por isso, não funcionam com o Caching do Azure.|Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Caching do Azure, uma exceção será lançada.
+Os trabalhos de codificação falham com uma cadeia de caracteres de mensagem "Stage: DownloadFile. Código: System.NullReferenceException".|O fluxo de trabalho de codificação típico é carregar arquivos de vídeo de entrada para um Ativo de entrada e enviar um ou mais trabalhos de codificação para esse Ativo de entrada, sem modificá-lo ainda mais. No entanto, se você modificar o Ativo de entrada (por exemplo, ao adicionar/excluir/renomear arquivos no Ativo), os trabalhos subsequentes poderão falhar com um erro DownloadFile. A solução alternativa é excluir o Ativo de entrada e carregar novamente os arquivos de entrada em um novo Ativo. 
 
 ##<a id="rest_version_history"></a>Histórico de versão da API REST
 
@@ -45,7 +46,7 @@ Para obter informações sobre o histórico de versões da API REST dos Serviço
 
 ###Atualizações do arquivo de manifesto (*.ISM) gerado por tarefas de codificação
 
-Quando uma tarefa de codificação é enviada para o Media Encoder Standard ou o Codificador de Mídia do Azure, a tarefa de codificação gera um [arquivo de manifesto de streaming](media-services-deliver-content-overview.md) (*.ism) no ativo de saída. Com a versão mais recente do serviço, a sintaxe desse arquivo de manifesto de streaming foi atualizada.
+Quando uma tarefa de codificação for enviada para o Codificador de Mídia Padrão ou para o Codificador de Mídia do Azure, a tarefa de codificação gerará um [arquivo de manifesto de streaming](media-services-deliver-content-overview.md) (*.ism) no Ativo de saída. Com a versão mais recente do serviço, a sintaxe desse arquivo de manifesto de streaming foi atualizada.
 
 >[AZURE.NOTE]A sintaxe do arquivo de manifesto de streaming (.ism) é reservada para uso interno e está sujeita a alterações em versões futuras. Não modifique ou manipule o conteúdo do arquivo.
 
@@ -65,11 +66,11 @@ Alguns clientes podem se deparar com um problema de marcas repetidas no manifest
 
 ### Análise de Mídia do Azure
 
-Os Serviços de Mídia do Azure introduziram a Análise de Mídia do Azure para proporcionar uma inteligência de vídeo avançada. Para obter informações detalhadas, confira [Visão geral da Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
+Os Serviços de Mídia do Azure introduziram a Análise de Mídia do Azure para proporcionar uma inteligência de vídeo avançada. Para obter informações detalhadas, confira [Visão Geral da Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
 
 ### Apple FairPlay (Preview)
 
-Os Serviços de Mídia do Azure agora permitem criptografar dinamicamente seu conteúdo HLS (HTTP Transmissão ao Vivo) com o Apple FairPlay. Também é possível usar o serviço de entrega de licença do AMS para fornecer licenças FairPlay para os clientes. Para obter informações mais detalhadas, consulte [Usar os Serviços de Mídia do Azure para transmitir seu conteúdo HLS protegido com o Apple FairPlay](media-services-protect-hls-with-fairplay.md).
+Os Serviços de Mídia do Azure agora permitem criptografar dinamicamente seu conteúdo HLS (HTTP Transmissão ao Vivo) com o Apple FairPlay. Também é possível usar o serviço de entrega de licença do AMS para fornecer licenças FairPlay para os clientes. Para obter informações mais detalhadas, confira o artigo [Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay ](media-services-protect-hls-with-fairplay.md).
   
 ##<a id="feb_changes16"></a>Versão de fevereiro de 2016
 
@@ -121,9 +122,9 @@ O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguint
 
 	Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
 
-- O AMS adicionou suporte para vídeos ProRes da Apple. Agora você pode carregar os arquivos de vídeos de origem do QuickTime que usam Apple ProRes ou outros codecs. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- O AMS adicionou suporte para vídeos ProRes da Apple. Agora você pode carregar os arquivos de vídeos de origem do QuickTime que usam Apple ProRes ou outros codecs. Para obter mais informações, confira [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- Agora você pode usar um Codificador de Mídia Padrão para fazer subrecortes e extração de arquivos dinâmicos. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- Agora você pode usar um Codificador de Mídia Padrão para fazer subrecortes e extração de arquivos dinâmicos. Para obter mais informações, confira [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Foram feitas as seguintes atualizações de filtragem:
 
@@ -328,9 +329,9 @@ No momento, há as duas opções a seguir para solucionar o problema.
 	* Você deve criar outro CName que mapeia o nome de host personalizado (por exemplo, sports.contoso.com) em nome de host do seu StreamingEndpont dos serviços de mídia (por exemplo, amstest.streaming.mediaservices.windows.net).
 
 
-	Para obter mais informações, consulte a propriedade **CustomHostNames** no tópico [StreamingEndpoint].
+	Para obter mais informações, confira a propriedade **CustomHostNames** no tópico [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Novos recursos/cenários que fazem parte da versão de visualização pública
+### <a id="sept_14_preview_changes"></a>Novos recursos/cenários que fazem parte da versão de preview pública
 
 * Visualização de Live Streaming. Para obter mais informações, consulte [Trabalhando com Live Streaming dos Serviços de Mídia do Azure].
 
@@ -348,7 +349,7 @@ No momento, há as duas opções a seguir para solucionar o problema.
 
 ##<a id="august_changes_14"></a>Versão de agosto de 2014
 
-Ao codificar um ativo, um ativo de saída é produzido quando o trabalho de codificação é concluído. Até esta versão, o Codificador de Serviços de Mídia do Azure produzia metadados sobre os ativos de saída. A partir desta versão, o codificador também produz metadados sobre ativos de entrada. Para obter mais informações, consulte os tópicos [Metadados de entrada] e [Metadados de saída].
+Ao codificar um ativo, um ativo de saída é produzido quando o trabalho de codificação é concluído. Até esta versão, o Codificador de Serviços de Mídia do Azure produzia metadados sobre os ativos de saída. A partir desta versão, o codificador também produz metadados sobre ativos de entrada. Para obter mais informações, confira os tópicos [Metadados de entrada] e [Metadados de saída].
 
 
 ##<a id="july_changes_14"></a>Versão de julho de 2014
@@ -423,7 +424,7 @@ As seguintes alterações foram feitas na versão 3.0.0.3:
 
 A versão mais recente do SKD dos Serviços de Mídia agora é a 3.0.0.0. É possível baixar o pacote mais recente do Nuget ou obter os bits do [Github].
 
-A partir do SDK de Serviços de Mídia versão 3.0.0.0, é possível reutilizar os tokens do [Serviço de Controle de Acesso (ACS) do Active Directory do Azure]. Para obter mais informações, consulte a seção “Reutilizando tokens de serviço de controle de acesso” no tópico [Conectando-se a Serviços de Mídia com o SDK de Serviços de Mídia para .NET].
+A partir do SDK de Serviços de Mídia versão 3.0.0.0, é possível reutilizar os tokens do [Serviço de Controle de Acesso (ACS) do Active Directory do Azure]. Para obter mais informações, confira a seção “Reutilizando os tokens do Serviço de Controle de Acesso” no tópico [Conectando-se à conta dos Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET].
 
 ### <a name="dec_13_donnet_ext_changes"></a>Extensões do SDK do .NET dos Serviços de Mídia do Azure 2.0.0.0
 
@@ -639,7 +640,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Unindo segmentos de vídeo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Versões do SDK do .NET dos Serviços de Mídia do Azure 3.0.0.1 e 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Serviço de Controle de Acesso (ACS) do Active Directory do Azure]: http://msdn.microsoft.com/library/hh147631.aspx
-[Conectando-se a Serviços de Mídia com o SDK de Serviços de Mídia para .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Conectando-se à conta dos Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Extensões do SDK do .NET dos Serviços de Mídia do Azure]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
@@ -647,4 +648,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

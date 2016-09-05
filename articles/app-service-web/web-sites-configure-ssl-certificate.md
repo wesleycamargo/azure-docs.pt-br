@@ -27,7 +27,7 @@
 
 Este artigo mostra como habilitar HTTPS para um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) usando um nome de domínio personalizado. O artigo aborda a autenticação somente de servidor. Se você precisar de informações sobre autenticação mútua (incluindo autenticação de cliente), consulte [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com**, e **\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.
+Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga ***. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com**, e ***.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.
 
 >[AZURE.NOTE] Obtenha ajuda dos especialistas do Azure a qualquer momento nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para obter um suporte mais personalizado, vá até [Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
@@ -423,26 +423,22 @@ Antes de prosseguir, consulte a seção [Do que você precisa](#bkmk_domainname)
 - você tem um domínio personalizado que é mapeado para o aplicativo do Azure,
 - o aplicativo está sendo executado na camada **Básica** ou superior, e
 - você tem um certificado SSL para o domínio personalizado de uma AC.
- 
-1.	No [Portal do Azure](https://portal.azure.com), vá até a folha **Domínios personalizados e SSL** de seu aplicativo.
 
-7.	Clique em **Mais** > **Carregar Certificados**.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)
+1. Em seu navegador, abra o **[Portal do Azure.](https://portal.azure.com/)**
+2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
+3.	Clique no nome do aplicativo ao qual você deseja atribuir a esse certificado.
+4.	Em **Configurações**, clique em **Certificados SSL**
+5.	Clique em **Carregar Certificado**
+6.	Selecione o arquivo .pfx exportado na [Etapa 1](#bkmk_getcert) e especifique a senha que você criou anteriormente. Clique em **Carregar ** para carregar o certificado. Agora, você deverá ver seu certificado carregado na folha **Certificado SSL**.
+7. Na seção **associações ssl**, clique em **Adicionar associações**
+8. Na folha **Adicionar Associação SSL** use os menus suspensos para selecionar o nome de domínio a ser protegido com SSL e o certificado a ser usado. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
 
-8.	Selecione o arquivo .pfx exportado na [Etapa 1](#bkmk_getcert) e especifique a senha que você criou anteriormente. Clique em **Salvar** para carregar o certificado. Agora, você deverá ver seu certificado carregado na folha **Domínios personalizados e SSL**.
+    ![inserir imagem de Associações SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
-
-9. Na seção **Associações SSL**, selecione o nome de domínio e o certificado SSL associado. Você também pode selecionar se deseja usar SSL SNI ou SSL baseado em IP.
-
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)
-
-	* O **SSL baseado em IP** associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do aplicativo ao nome de domínio. Trata-se do método tradicional de associações SSL, e o Serviço de Aplicativo cria um endereço IP dedicado para a associação.
-
-	* O [**SSL SNI**](https://en.wikipedia.org/wiki/Server_Name_Indication) permite associar vários certificados a vários domínios. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Safari) dão suporte a ele. No entanto, navegadores mais antigos podem não dar esse suporte.
- 
-10. Clique em **Salvar** para concluir.
+       • O SSL baseado em IP associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor ao nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associação do certificado SSL a um servidor Web. • O SSL baseado em SNI é uma extensão para SSL e **[o protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)** que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) oferecem suporte ao SNI. No entanto, navegadores mais antigos podem não oferecer esse suporte. Para saber mais sobre SNI, confira o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** no Wikipédia.
+     
+9. Clique em **Adicionar Associação** para salvar as alterações e habilitar o SSL.
 
 ## Etapa 3. Alterar o mapeamento do nome de domínio (somente para SSL baseado em IP)
 
@@ -450,9 +446,9 @@ Se você usar somente associações **SSL SNI**, ignore esta seção. Várias as
 
 - você [tiver usado um registro A para mapear seu domínio personalizado](web-sites-custom-domain-name.md#a) para o aplicativo do Azure e tiver adicionado uma associação de **SSL baseado em IP**. Nesse cenário, você precisará remapear o registro A existente para apontar para o endereço IP dedicado seguindo estas etapas:
 
-	1. Depois de ter configurado uma associação SSL baseada em IP, localize o novo endereço IP na folha **Configurações** > **Propriedades** de seu aplicativo (o endereço IP virtual mostrado na folha **Trazer Domínios Externos** pode não ser atual):
+	1. Depois de ter configurado uma associação de SSL baseada em IP, um endereço IP dedicado é atribuído ao seu aplicativo. Encontre esse endereço IP na página **Domínio personalizado** nas configurações do aplicativo, logo acima da seção **Nomes de host**. Ele estará listado como **Endereço IP Externo**
     
-	    ![Endereço IP virtual](./media/web-sites-configure-ssl-certificate/staticip.png)
+	    ![Endereço IP virtual](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
 	2. [Remapeie o registro A de seu nome de domínio personalizado para esse novo endereço IP](web-sites-custom-domain-name.md#a).
 
@@ -551,4 +547,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

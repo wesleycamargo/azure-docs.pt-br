@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="genemi"/>
 
 
@@ -76,7 +76,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 - [Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL](sql-database-xevent-code-ring-buffer.md)
  - Script curto e simples de Transact-SQL.
- - Enfatizamos no exemplo de código que, quando você concluir um destino de Buffer de Anéis, será necessário liberar seus recursos executando uma instrução alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Mais tarde, você poderá adicionar outra instância do Buffer de Anéis com `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+ - Enfatizamos no tópico do exemplo de código que, quando você concluir um destino de Buffer de Anéis, será necessário liberar seus recursos executando uma instrução alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;`. Mais tarde, você poderá adicionar outra instância do Buffer de Anéis com `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
 - [Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL](sql-database-xevent-code-event-file.md)
@@ -200,10 +200,10 @@ A API [Rastreamento de Eventos para Windows (ETW)](http://msdn.microsoft.com/lib
 ## Restrições
 
 
-Há algumas diferenças relacionadas à segurança adequada ao ambiente de nuvem do Banco de Dados SQL:
+Há algumas diferenças relacionadas à segurança condizentes com o ambiente de nuvem do Banco de Dados SQL:
 
 
-- Os eventos estendidos podem ser encontrados no modelo de isolamento de locatário único. Uma sessão de eventos em um banco de dados não pode acessar dados ou eventos de outro banco de dados.
+- Os eventos estendidos são baseados no modelo de isolamento de locatário único. Uma sessão de eventos em um banco de dados não pode acessar dados ou eventos de outro banco de dados.
 
 - Não é possível emitir uma instrução **CREATE EVENT SESSION** no contexto do banco de dados **mestre**.
 
@@ -217,7 +217,7 @@ Você deve ter permissão de **Controle** no banco de dados para emitir uma inst
 ### Autorizações de contêiner de armazenamento
 
 
-O token SAS gerado para o contêiner de Armazenamento do Azure deve especificar **rwl** para as permissões. Isso fornece as seguintes permissões:
+O token SAS gerado para o contêiner de Armazenamento do Azure deve especificar **rwl** para as permissões. O valor **rwl** fornece as seguintes permissões:
 
 
 - Ler
@@ -266,7 +266,7 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 - [Postagens do blog de Jonathan Kehayias sobre eventos estendidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-Encontre outros tópicos com exemplos de código para eventos estendidos nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Assim você pode decidir se pequenas alterações são necessárias para a execução do exemplo.
+Outros tópicos com exemplos de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Assim você pode decidir se pequenas alterações são necessárias para a execução do exemplo.
 
 
 <!--
@@ -276,4 +276,4 @@ Encontre outros tópicos com exemplos de código para eventos estendidos nos lin
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

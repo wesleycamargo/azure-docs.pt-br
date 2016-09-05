@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do Wunderlist
 
-
-
-O conector do Wunderlist pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
+O Wunderlist fornece um gerenciador de tarefas e de lista de tarefas pendentes para ajudar as pessoas a realizar seu trabalho. Se você estiver compartilhando uma lista de compras com alguém da família, trabalhando em um projeto ou planejando suas férias, o Wunderlist facilitará a captura, o compartilhamento e a realização de suas listas de tarefas pendentes. O Wunderlist é sincronizado instantaneamente com seu telefone, tablet e computador, para que você possa acessar todas as tarefas de qualquer lugar.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -85,7 +79,7 @@ Para criar Aplicativos Lógicos com o Wunderlist, primeiro, você deve criar uma
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer credenciais do Wunderlist|
+|Token|Sim|Fornecer credenciais do Wunderlist|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
 
@@ -189,7 +183,7 @@ Obter tarefas: recupera tarefas de uma lista específica.
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |list\_id|inteiro|sim|query|nenhum|ID da lista|
-|concluído|booleano|não|query|nenhum|Concluído|
+|concluído|Booliano|não|query|nenhum|Concluído|
 
 #### Resposta
 
@@ -226,7 +220,7 @@ Obter subtarefas: recupera subtarefas de uma lista ou tarefa específica.
 | ---|---|---|---|---|---|
 |list\_id|inteiro|sim|query|nenhum|ID da lista|
 |task\_id|inteiro|não|query|nenhum|ID da tarefa|
-|concluído|booleano|não|query|nenhum|Concluído|
+|concluído|Booliano|não|query|nenhum|Concluído|
 
 #### Resposta
 
@@ -678,7 +672,7 @@ Excluir um lembrete: exclui um lembrete específico
 |due\_date|string|Não |
 |list\_id|inteiro|Não |
 |revision|inteiro|Não |
-|starred|booleano|Não |
+|starred|Booliano|Não |
 |título|string|Não |
 
 
@@ -783,11 +777,11 @@ Excluir um lembrete: exclui um lembrete específico
 |list\_id|inteiro|Sim |
 |título|string|Sim |
 |assignee\_id|inteiro|Não |
-|concluído|booleano|Não |
+|concluído|Booliano|Não |
 |recurrence\_type|string|Não |
 |recurrence\_count|inteiro|Não |
 |due\_date|string|Não |
-|starred|booleano|Não |
+|starred|Booliano|Não |
 
 
 
@@ -808,7 +802,7 @@ Excluir um lembrete: exclui um lembrete específico
 |list\_id|inteiro|Sim |
 |task\_id|inteiro|Sim |
 |título|string|Sim |
-|concluído|booleano|Não |
+|concluído|Booliano|Não |
 
 
 
@@ -853,11 +847,11 @@ Excluir um lembrete: exclui um lembrete específico
 |revision|inteiro|Não |
 |título|string|Não |
 |assignee\_id|inteiro|Não |
-|concluído|booleano|Não |
+|concluído|Booliano|Não |
 |recurrence\_type|string|Não |
 |recurrence\_count|inteiro|Não |
 |due\_date|string|Não |
-|starred|booleano|Não |
+|starred|Booliano|Não |
 
 
 
@@ -878,7 +872,7 @@ Excluir um lembrete: exclui um lembrete específico
 |---|---|---|
 |revision|inteiro|Não |
 |título|string|Não |
-|concluído|booleano|Não |
+|concluído|Booliano|Não |
 
 
 
@@ -904,4 +898,4 @@ Excluir um lembrete: exclui um lembrete específico
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

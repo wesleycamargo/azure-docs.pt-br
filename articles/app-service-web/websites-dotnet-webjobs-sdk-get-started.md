@@ -79,13 +79,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 1. Abra a janela **Gerenciador de Servidores** no Visual Studio.
 
-2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**.  
-![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**. ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
 
-5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. 
-![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. ![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -154,15 +152,15 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Você pode usar contas de armazenamento separadas para dados de aplicativo e registro em log, além de usar [várias contas de armazenamento para dados](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Neste tutorial, você usará uma única conta de armazenamento. As cadeias de conexão têm espaços reservados para as chaves da conta de armazenamento.
   	<pre class="prettyprint">&lt;configuration>
-	&lt;connectionStrings>
-	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
-	&lt;/connectionStrings>
-	    &lt;startup>
-	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	&lt;/startup>
-	&lt;/configuration></pre>
+  	&lt;connectionStrings>
+  	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+  	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+  	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+  	&lt;/connectionStrings>
+  	    &lt;startup>
+  	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  	&lt;/startup>
+  	&lt;/configuration></pre>
 
 	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -473,7 +471,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 2. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 
 	- *Web.config*
-	- *Global.asax.cs*  
+	- *Global.asax.cs*
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
 	- Na pasta *Views\\Home*: *Index.cshtml*.
@@ -602,15 +600,15 @@ Em seguida, ele obtém uma referência para o contêiner do blob de *imagens*, c
 		        });
 		}
 
-Um código semelhante obtém uma referência para a fila *blobnamerequest* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária. A seção [ResolveBlobName](#resolveblobname), mais adiante no tutorial, explica por que a fila na qual o aplicativo Web escreve é usada apenas para obter nomes de blob e não para gerar miniaturas.
+Um código semelhante obtém uma referência para a fila *thumbnailrequest* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
+		var imagesQueue = queueClient.GetQueueReference("thumbnailrequest");
 		imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
+O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -823,4 +821,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para sabe r mais, consulte [Recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/23/2016" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode altera
 
 Ao abrir o portal clássico do Azure, você será levado automaticamente para a guia **TODOS OS ITENS**. Para exibir seu Serviço do BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e, em seguida, selecione o nome do seu Serviço do BizTalk.
 
-Isso abre uma nova janela com as guias a seguir. Este tópico descreve essas guias.
+Isso abre uma nova janela com as seguintes guias: Este tópico descreve essas guias.
 
 ## Início Rápido (![Início rápido][QuickStart])
 Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis.
@@ -166,12 +166,12 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> fornece detalhes sobre a conta de Armazenamento.</td>
 </tr>
 <tr>
-<td><strong>Nome da Assinatura</strong></td>
+<td><strong>Nome da assinatura</strong></td>
 <td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao portal clássico do Azure.</td>
 </tr>
 <tr>
-<td><strong>ID da Assinatura</strong></td>
-<td>Quando uma assinatura é criada, uma ID da assinatura é gerada automaticamente. Ao usar APIs REST, talvez seja necessário inserir a ID da assinatura</td>
+<td><strong>ID da assinatura</strong></td>
+<td>Quando uma assinatura é criada, uma ID da assinatura é gerada automaticamente. Ao usar APIs REST, talvez seja necessário inserir a ID da assinatura.</td>
 </tr>
 </table>
 
@@ -233,17 +233,14 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 
 ##### Para remover ou exibir métricas no gráfico:
 1. Selecione a guia **Processo**.
-2. Selecione **Adicionar Métricas** na barra de tarefas:  
-![Selecione Adicionar Métricas][AddMetrics]
+2. Selecione **Adicionar Métricas** na barra de tarefas: ![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento**.
-5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.  
+5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.
 
-	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
-![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
+	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico: ![A métrica Uso de CPU fica esmaecida][GrayedMetric]
 
-	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico:  
-![A métrica Uso de CPU está habilitada][EnabledMetric]
+	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico: ![A métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 
@@ -345,15 +342,15 @@ Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure
 ## Avançar
 Agora que está familiarizado com as diferentes guias, você pode obter mais informações sobre os recursos dos Serviços BizTalk do Azure:
 
-- [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)  
-- [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)  
+- [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)
+- [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)
 - [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)
 
 ## Consulte também
-- [Conexões Híbridas](integration-hybrid-connection-overview.md)  
-- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-- [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)  
-- [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)  
+- [Conexões Híbridas](integration-hybrid-connection-overview.md)
+- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)
+- [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)
+- [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -362,4 +359,4 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

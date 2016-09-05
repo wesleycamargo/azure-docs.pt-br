@@ -53,9 +53,9 @@ Há três tipos de detecção:
 
 ## Próximas etapas
 
-Os diagnósticos proativos são totalmente automáticos. Mas talvez você queira configurar alguns outros alertas?
+As detecções proativas são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 
 * [Alertas de métrica configurados manualmente](app-insights-alerts.md)
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -294,7 +294,7 @@
 [xplat-cli]: ../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]: ../xplat-cli-azure-resource-manager.md
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 O Microsoft Azure permite que empresas adquiram recursos de computação e armazenamento gastando o mínimo de tempo, sem ciclos de compras longos. As Máquinas Virtuais do Azure permitem que as empresas implantem aplicativos clássicos no Azure, como aplicativos baseados no SAP NetWeaver, além de aumentar a confiabilidade e disponibilidade desses aplicativos sem que sejam necessários mais recursos disponíveis localmente. O Microsoft Azure também dá suporte à conectividade entre locais, o que permite que as empresas integrem ativamente as Máquinas Virtuais do Azure a seus domínios locais, suas nuvens privadas e sua estrutura do sistema da SAP.
 
@@ -955,7 +955,7 @@ O serviço Windows "AzureEnhancedMonitoring" existe e está habilitado, mas não
 Configuração incorreta. Habilite novamente a extensão de monitoramento para a VM, conforme descrito no capítulo [Configurar Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5].
 
 #### ![Windows][Logo_Windows] Faltam alguns contadores de desempenho do Azure
-A coleta de métricas de desempenho no Azure é feita pelo serviço Windows "AzureEnhancedMonitoring", que obtém dados de diferentes fontes. Alguns dados de configuração são coletados localmente, as métricas de desempenho são lidas do Diagnóstico do Azure e os contadores de armazenamento são usados por meio de seu registro de log no nível de assinatura de armazenamento.
+A coleta de métricas de desempenho no Azure é feita pelo serviço Windows "AzureEnhancedMonitoring", que obtém dados de diferentes fontes. Alguns dados de configuração são coletados localmente, as métricas de desempenho são lidas do Diagnóstico do Azure e os contadores de armazenamento são usados a partir de seu registro de log no nível de assinatura de armazenamento.
 
 Se a solução de problemas usando a Nota SAP [1999351] não ajudar, execute novamente o script de configuração Set-AzureRmVMAEMExtension. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte do cliente SAP no componente BC-OP-NT-AZR.
 
@@ -973,10 +973,10 @@ A extensão não está instalada. Verifique se há um problema de proxy (conform
 
 #### ![Linux][Logo_Linux] Faltam alguns contadores de desempenho do Azure
 
-A coleta de métricas de desempenho no Azure é feita por um daemon, que obtém dados de diferentes fontes. Alguns dados de configuração são coletados localmente, as métricas de desempenho são lidas do Diagnóstico do Azure e os contadores de armazenamento são usados por meio de seu registro de log no nível de assinatura de armazenamento.
+A coleta de métricas de desempenho no Azure é feita por um daemon, que obtém dados de diferentes fontes. Alguns dados de configuração são coletados localmente, as métricas de desempenho são lidas do Diagnóstico do Azure e os contadores de armazenamento são usados a partir de seu registro de log no nível de assinatura de armazenamento.
 
 Para ver uma completa e atualizada dos conhecidos problemas, consulte a Nota SAP [1999351], que contém informações adicionais de solução de problemas para o Monitoramento Avançado do Azure para SAP.
 
 Se a solução de problemas usando Nota SAP [1999351] não ajudar, execute novamente o script de configuração Set-AzureRmVMAEMExtension conforme descrito no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte do cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

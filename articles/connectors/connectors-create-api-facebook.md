@@ -14,23 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Introdução ao conector do Facebook
-Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. O conector do Facebook pode ser usado por meio de:
-
-- Aplicativos lógicos (discutidos neste tópico)
-- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
+Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 
 Com o Facebook, você pode:
 
-- Criar seu fluxo de negócios com base nos dados que você obtém do Facebook. 
+- Criar seu fluxo de negócios com base nos dados que você obtém do Facebook.
 - Usar um gatilho quando uma nova publicação for recebida.
-- Usar ações que publicam em sua linha do tempo, obtêm uma feed de página e mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando há uma nova publicação em sua linha do tempo, você pode publicá-la e enviá-la ao seu feed do Twitter. 
+- Usar ações que publicam em sua linha do tempo, obtêm uma feed de página e mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando há uma nova publicação em sua linha do tempo, você pode publicá-la e enviá-la ao seu feed do Twitter.
+
+
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -47,7 +46,7 @@ Todos os conectores dão suporte a dados nos formatos JSON e XML.
 Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Facebook.
 
 1. Entre em sua conta do Facebook
-2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
+2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook.
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o Facebook](../../includes/connectors-create-api-facebook.md)]
 
@@ -88,7 +87,7 @@ Publique uma mensagem de status na linha do tempo do usuário conectado. ```POST
 |200|OK|
 |400|Solicitação incorreta|
 |500|Erro interno do servidor|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ### Quando há uma nova publicação em minha linha do tempo
@@ -102,7 +101,7 @@ Não há parâmetros.
 |200|OK|
 |400|Solicitação incorreta|
 |500|Erro interno do servidor|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ### Obter feed da página
@@ -112,7 +111,7 @@ Obter publicações do feed de uma página especificada. ```GET: /{pageId}/feed`
 | ---|---|---|---|---|---|
 |pageId|string|sim|path| nenhum|ID da página da qual as publicações devem ser recuperadas.|
 |limite|inteiro|não|query| nenhum|Número máximo de publicações para recuperação|
-|include\_hidden|booleano|não|query|nenhum |Se deseja ou não incluir quaisquer publicações que foram ocultas pela página|
+|include\_hidden|Booliano|não|query|nenhum |Se deseja ou não incluir quaisquer publicações que foram ocultas pela página|
 |fields|string|não|query|nenhum |Especifica os campos que você deseja retornar. Exemplo (id, nome, imagem).|
 
 #### Resposta
@@ -121,7 +120,7 @@ Obter publicações do feed de uma página especificada. ```GET: /{pageId}/feed`
 |200|OK|
 |400|Solicitação incorreta|
 |500|Erro interno do servidor|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ### Obter a linha do tempo do usuário
@@ -141,7 +140,7 @@ Obtenha as publicações da linha do tempo de um usuário. ```GET: /{userId}/fee
 |200|OK|
 |400|Solicitação incorreta|
 |500|Erro interno do servidor|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ### Publicar na página
@@ -188,8 +187,8 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 |feed\_targeting|não definido|não|
 |from|não definido|não|
 |ícone|string|não|
-|is\_hidden|booleano|não|
-|is\_published|booleano|não|
+|is\_hidden|Booliano|não|
+|is\_published|Booliano|não|
 |link|string|não|
 |message|string|não|
 |name|string|não|
@@ -264,12 +263,12 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 |object\_attachment|string|não|
 |targeting|não definido|não|
 |feed\_targeting|não definido|não|
-|published|booleano|não|
+|published|Booliano|não|
 |scheduled\_publish\_time|string|não|
 |backdated\_time|string|não|
 |backdated\_time\_granularity|string|não|
 |child\_attachments|array|não|
-|multi\_share\_end\_card|booleano|não|
+|multi\_share\_end\_card|Booliano|não|
 
 #### PostFeedResponse
 
@@ -407,7 +406,7 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 |Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
 |url|string|sim|
-|is\_silhouette|booleano|sim|
+|is\_silhouette|Booliano|sim|
 |height|string|não|
 |width|string|não|
 
@@ -434,6 +433,6 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

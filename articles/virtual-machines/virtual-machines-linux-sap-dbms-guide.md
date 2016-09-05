@@ -4,7 +4,7 @@
    services="virtual-machines-linux,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -289,13 +289,12 @@
 [virtual-networks-udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
 [vpn-gateway-about-vpn-devices]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [vpn-gateway-create-site-to-site-rm-powershell]: ../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]: ../vpn-gateway/vpn-gateway-cross-premises-options.md
 [vpn-gateway-site-to-site-create]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]: ../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]: ../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]: ../xplat-cli-azure-resource-manager.md
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 Este guia faz parte da documentação sobre como implementar e implantar o software SAP no Microsoft Azure. Antes de ler este guia, leia o [Guia de planejamento e implementação][planning-guide]. Este documento aborda a implantação de vários RDBMS e produtos relacionados em combinação com o SAP em VMs (Máquinas Virtuais) do Microsoft Azure usando as funcionalidades de IaaS (Infraestrutura como serviço) do Azure.
 
@@ -317,7 +316,7 @@ No decorrer do documento, usaremos os termos a seguir:
 * Estrutura da SAP: refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
 * Sistema SAP: a combinação de camada DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste SAP BW, sistema de produção SAP CRM etc. Em implantações do Azure não há suporte para dividir essas duas camadas entre local e Azure. Isso significa que um sistema SAP é implantado localmente ou no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou de forma local. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
 * Implantação somente em nuvem: uma implantação em que a assinatura do Azure não está conectada por meio de uma conexão site a site ou de Rota Expressa à infraestrutura de rede local. Na documentação comum do Azure, esses tipos de implantações também são descritos como implantações 'Somente em nuvem'. As máquinas virtuais implantadas com esse método são acessadas por meio da Internet e pontos de extremidade da Internet públicos atribuídos às VMs no Azure. O AD (Active Directory) local e o DNS não se estendem ao Azure nesses tipos de implantações. Portanto, as VMs não fazem parte do Active Directory local. Observação: as implantações somente em nuvem neste documento são definidas como estruturas da SAP completas que estão sendo executadas exclusivamente no Azure sem extensão do Active Directory ou resolução de nomes do local para a nuvem pública. Não há suporte para configurações somente em nuvem para sistemas SAP de produção ou configurações nas quais o SAP STMS ou outros recursos locais precisem ser usados entre sistemas SAP hospedados no Azure e recursos locais.
-* Entre instalações: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de Rota Expressa entre o(s) datacenter(s) local(is) e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Esperamos que este seja o cenário mais comum para a implantação de ativos SAP no Azure. Para obter mais informações, consulte [este][vpn-gateway-cross-premises-options] e [este][vpn-gateway-site-to-site-create] artigo.
+* Entre instalações: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de Rota Expressa entre o(s) datacenter(s) local(is) e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Esperamos que este seja o cenário mais comum para a implantação de ativos SAP no Azure. Para obter mais informações, confira [este artigo][vpn-gateway-site-to-site-create].
 
 > [AZURE.NOTE] Implantações entre instalações de sistemas SAP em que máquinas virtuais do Azure que executam sistemas SAP são membros de um domínio local têm suporte para sistemas SAP de produção. Configurações entre locais têm suporte para a implantação de partes ou estruturas da SAP completas no Azure. Até mesmo a execução da estrutura da SAP completa no Azure requer que essas VMs sejam parte do domínio local e ADS. Em versões anteriores da documentação, falamos sobre cenários de TI híbrido, em que o termo 'Híbrido' está enraizado no fato de que há uma conectividade entre instalações entre o local e o Azure. Nesse caso, ‘Híbrido’ também significa que as VMs no Azure são parte do Active Directory local.
 
@@ -330,7 +329,7 @@ Os seguintes guias estão disponíveis para o tópico das implantações da SAP 
 * [SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de implantação][deployment-guide]
 * [SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de implantação de DBMS (este documento)][dbms-guide]
 
-As seguintes Notas SAP estão relacionadas ao tópico da SAP no Azure:
+As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
 
 | Número da observação | Title
 |------------|--------
@@ -445,7 +444,7 @@ ___
 > ![Linux][Logo_Linux] Linux
 >
 > Há suporte apenas para MDADM e LVM (Logical Volume Manager) para criar um RAID de software no Linux. Para obter mais informações, leia os seguintes artigos:
-> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid] \(para MDADM)
+> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid] (para MDADM)
 > * [Configurar o LVM em uma VM Linux no Azure][virtual-machines-linux-configure-lvm]
 
 
@@ -515,7 +514,7 @@ Você gostaria de usar uma imagem fornecida pela Microsoft ou por terceiros no A
 #### Implantando uma VM com uma imagem generalizada específica do cliente
 Devido a requisitos de patch específicos no que diz respeito à sua versão do SO ou DBMS, as imagens fornecidas no Azure Marketplace podem não atender às suas necessidades. Portanto, você precisará criar uma VM usando sua própria imagem “privada” de VM do SO/DBMS, que poderá ser implantada várias vezes posteriormente. Para preparar essa imagem “privada” para duplicação, o SO deve ser generalizado na VM local. Consulte o [Guia de implantação][deployment-guide] para obter detalhes sobre como generalizar uma VM.
 
-Se já tiver instalado o conteúdo SAP na VM local (especialmente para sistemas de duas camadas), você poderá adaptar as configurações do sistema SAP após a implantação da VM do Azure por meio do procedimento de renomeação da instância ao qual o Software Provisioning Manager SAP dá suporte (Nota SAP [1619720]). Caso contrário, você pode instalar o software SAP posteriormente, após a implantação da VM do Azure.
+Se já tiver instalado o conteúdo do SAP na VM local (especialmente para sistemas de duas camadas), você poderá adaptar as configurações do sistema SAP após a implantação da VM do Azure por meio do procedimento de renomeação da instância ao qual o Software Provisioning Manager SAP dá suporte (Nota do SAP [1619720]). Caso contrário, você pode instalar o software SAP posteriormente, após a implantação da VM do Azure.
  
 Por meio do conteúdo do banco de dados usado pelo aplicativo SAP, você pode gerar o conteúdo recentemente por uma instalação do SAP ou pode importar seu conteúdo para o Azure usando um VHD com um backup de banco de dados DBMS ou aproveitando os recursos do DBMS para fazer o backup diretamente no Armazenamento do Microsoft Azure. Nesse caso, você também pode preparar VHDs com os arquivos de log e de dados do DBMS locais e, em seguida, importá-los como discos no Azure. Mas a transferência de dados do DBMS que estão sendo carregados do local para o Azure funcionaria em discos VHD que precisam ser preparados de forma local.
 
@@ -615,8 +614,7 @@ A compactação de banco de dados funciona bem nas máquinas virtuais do Azure c
 O SQL Server 2014 abre a possibilidade para armazenar arquivos de banco de dados diretamente no Armazenamento de Blobs do Azure sem o ‘wrapper’ de um VHD em torno deles. Especialmente com o uso do Armazenamento do Azure Standard ou tipos de VM menores, isso permite cenários em que você pode superar os limites de IOPS que seriam impostos por um número limitado de VHDs que podem ser montados em alguns tipos de VM menores. Isso funciona para bancos de dados de usuário, no entanto, não para bancos de dados de sistema do SQL Server. Ele também funciona para arquivos de log e dados do SQL Server. Se desejar implantar um banco de dados do SQL Server do SAP dessa forma, em vez de aplicar ‘wrappers’ nele nos VHDs, tenha o seguinte em mente:
 
 * A conta de armazenamento usada precisa estar na mesma região do Azure que a usada para implantar a VM em que o SQL Server está sendo executado.
-* As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure. 
-[comentário]: <> (MSSedusch TODO Mas isso usará largura de banda de rede e não largura de banda do armazenamento, não é?)
+* As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure. [comentário]: <> (MSSedusch TODO Mas isso usará largura de banda de rede e não largura de banda do armazenamento, não é?)
 
 Detalhes sobre esse tipo de implantação estão listados aqui: <https://msdn.microsoft.com/library/dn385720.aspx>
  
@@ -757,26 +755,14 @@ Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade s�
 
 * O uso de um ouvinte de grupo de disponibilidade é possível apenas com o Windows Server 2012 ou Windows Server 2012 R2 como o SO convidado da VM. Para o Windows Server 2012, você precisa se certificar de que o patch esteja aplicado: <https://support.microsoft.com/kb/2854082>
 * Para o Windows Server 2008 R2 esse patch não existe e AlwaysOn precisaria ser usado da mesma maneira que o espelhamento de banco de dados especificando um parceiro de failover na cadeia de conexões (feito por meio do parâmetro default.pfl do SAP dbs/mss/server, consulte a Nota SAP [965908]).
-* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs por acaso sejam desligadas, deve-se atribuir endereços IP estáticos para as interfaces de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo) 
-[comentário]: <> (Blogs antigo) 
-[comentário]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs por acaso sejam desligadas, deve-se atribuir endereços IP estáticos para as interfaces de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo) [comentário]: <> (Blogs antigo) [comentário]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * Há etapas especiais necessárias ao criar a configuração de cluster de WSFC em que o cluster precisa de um endereço IP especial atribuído, pois o Azure com sua funcionalidade atual atribuiria ao nome do cluster o mesmo endereço IP que o nó em que o cluster foi criado. Isso significa que uma etapa manual deve ser executada para atribuir um endereço IP diferente ao cluster.
 * O ouvinte do grupo de disponibilidade será criado no Azure com pontos de extremidade TCP/IP que são atribuídos às VMs executando as réplicas primária e secundária do grupo de disponibilidade.
 * Pode haver a necessidade de proteger esses pontos de extremidade com ACLs.
 
-[comentário]: <> (TODO blog antigo) 
-[comentário]: <> (As etapas e necessidades detalhadas da instalação de uma configuração AlwaysOn no Azure são melhor experienciadas ao percorrer o tutorial disponível [aqui][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) 
-[comentário]: <> (Configuração do AlwaysOn pré-configurada por meio da galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) 
-[comentário]: <> (A criação de um ouvinte de grupo de disponibilidade é melhor descrita [neste][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) 
-[comentário]: <> (A proteção de pontos de extremidade de rede com ACLs é explicada melhor aqui:) 
-[comentário]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) 
-[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) 
-[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) 
-[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[comentário]: <> (TODO blog antigo) [comentário]: <> (As etapas e necessidades detalhadas da instalação de uma configuração AlwaysOn no Azure são melhor experienciadas ao percorrer o tutorial disponível [aqui][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) [comentário]: <> (Configuração do AlwaysOn pré-configurada por meio da galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) [comentário]: <> (A criação de um ouvinte de grupo de disponibilidade é melhor descrita [neste][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) [comentário]: <> (A proteção de pontos de extremidade de rede com ACLs é explicada melhor aqui:) [comentário]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade de rede virtual para rede virtual do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]). 
-[comentário]: <> (TODO blog antigo) 
-[comentário]: <> (A configuração de grupos de disponibilidade AlwaysOn do SQL Server nesse cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
+É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade de rede virtual para rede virtual do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]). [comentário]: <> (TODO blog antigo) [comentário]: <> (A configuração de grupos de disponibilidade AlwaysOn do SQL Server nesse cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
 
 #### Resumo da alta disponibilidade do SQL Server no Azure
 Devido ao fato de que o armazenamento do Azure está protegendo o conteúdo, há um motivo a menos para insistir em uma imagem de espera ativa. Isso significa que seu cenário de alta disponibilidade precisa proteger apenas contra os seguintes casos:
@@ -1108,7 +1094,7 @@ Desde meados de 2013, o software Oracle tem suporte pela Oracle para ser executa
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 
 ### Suporte de versão do Oracle
-Todos os detalhes sobre as versões do Oracle e versões de SO correspondentes que têm suporte para execução do SAP no Oracle nas máquinas virtuais do Azure podem ser encontrados na Nota SAP [2039619] a seguir
+Todos os detalhes sobre as versões do Oracle e versões de SO correspondentes que têm suporte para execução do SAP no Oracle nas máquinas virtuais do Azure podem ser encontrados na Nota SAP [2039619]
 
 Informações gerais sobre como executar o SAP Business Suite no Oracle podem ser encontradas no SCN: <https://scn.sap.com/community/oracle>
 
@@ -1135,9 +1121,8 @@ Se mais IOPS forem necessários, será altamente recomendável usar pools de arm
 #### Backup/restauração
 Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem suporte da mesma maneira que o Hyper-V e sistemas operacionais Windows Server standard. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
 
-#### Alta Disponibilidade
-[comentário]: <> (o link se refere ao ASM) 
-O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nessa][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
+#### Alta disponibilidade
+[comentário]: <> (o link se refere ao ASM) O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nessa][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
 #### Outros
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
@@ -1357,4 +1342,4 @@ Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de dis
 
 Consulte também o capítulo [Resumo do SQL Server para SAP no Azure geral][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

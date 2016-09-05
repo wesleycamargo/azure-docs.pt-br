@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="johnkem"/>
 
 # Visão Geral dos Logs de Diagnóstico
@@ -25,14 +25,15 @@
 Aqui estão algumas coisas que você pode fazer com os Logs de Diagnóstico:
 
 - Salve-os em uma **Conta de Armazenamento** para inspeção manual ou de auditoria. Você pode especificar o tempo (em dias) de retenção usando as **Configurações de Diagnóstico**.
-- [Transmita-os para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para o consumo por um serviço de terceiros ou a solução de análises personalizadas, como o Power BI.
+- [Transmita-os para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para o consumo por um serviço de terceiros ou uma solução de análises personalizadas, como o PowerBI.
+- Analise-os com o [Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
 ## Configurações de Diagnóstico
 Os Logs de Diagnóstico para os recursos de Não Computação são configurados usando as Configurações de Diagnóstico. **Configurações de Diagnóstico** para um controle de recursos:
 
-- Para onde os Logs de Diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou OMS).
+- Para onde os Logs de Diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Log Analytics do OMS).
 - Quais Categorias de Log são enviadas.
-- Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções dos Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+- Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
 
 Essas configurações são facilmente definidas via folha Diagnóstico para um recurso no Portal do Azure, via Azure PowerShell e comandos da CLI ou via [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -107,5 +108,6 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 ## Próximas etapas
 - [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Alterar as Configurações de Diagnóstico usando a API REST do Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+- [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

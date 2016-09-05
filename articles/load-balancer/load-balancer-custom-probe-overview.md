@@ -3,7 +3,7 @@
    description="Saiba como usar investigações personalizadas para o Balanceador de Carga do Azure a fim de monitorar instâncias por trás de um Balanceador de Carga"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Investigações do Balanceador de Carga
@@ -93,4 +93,4 @@ As investigações de TCP e HTTP são consideradas íntegras e marcam a instânc
 
 Você pode usar a [análise de logs para o Balanceador de Carga](load-balancer-monitor-log.md) para verificar o status da integridade da investigação e a contagem da investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do Balanceador de Carga.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

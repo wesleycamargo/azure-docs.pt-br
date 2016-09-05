@@ -29,7 +29,7 @@ O Azure Application Gateway pode ser configurado para encerrar a sessão de prot
 
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
-3. Os servidores que você configura para usar o Application Gateway devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
+3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 Para configurar o descarregamento de SSL em um Application Gateway, execute as seguintes etapas na ordem listada:
 
@@ -132,7 +132,7 @@ Você pode construir sua configuração criando um objeto de configuração ou u
 **Exemplo de XML de configuração**
 
 
-	    <?xml version="1.0" encoding="utf-8"?>
+	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 	    <FrontendIPConfigurations />
 	    <FrontendPorts>
@@ -235,4 +235,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

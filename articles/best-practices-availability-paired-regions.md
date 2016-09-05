@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/20/2016"
+    ms.date="08/23/2016"
     ms.author="raynew"/>
 
 # Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
@@ -22,7 +22,7 @@
 
 O Azure opera em várias regiões geográficas em todo o mundo. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais data centers.
 
-Cada região do Azure está emparelhada com outra região na mesma região geográfica (com exceção do Sul do Brasil que está associado a uma região fora de sua região geográfica), formando um par regional.
+Cada região do Azure é emparelhada com outra região na mesma área geográfica, formando juntas um par regional. A exceção é o Sul do Brasil, que é associado a uma região fora de sua área geográfica.
 
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
@@ -32,7 +32,7 @@ Figura 1 – Diagrama do par da região do Azure
 
 
 | painel Geografia do app's selecionado | Regiões emparelhadas | |
-| :-------------| :-------------   | :-------------   |
+| :-------------| :-------------   | :-------------      |
 | América do Norte | Centro-Norte dos EUA | Centro-Sul dos Estados Unidos |
 | América do Norte | Leste dos EUA | Oeste dos EUA |
 | América do Norte | Leste dos EUA 2 | Centro dos EUA |
@@ -42,15 +42,15 @@ Figura 1 – Diagrama do par da região do Azure
 | China | China Oriental | Norte da China |
 | Japão | Leste do Japão | Oeste do Japão |
 | Brasil | Sul do Brasil (1) | Centro-Sul dos Estados Unidos |
-| Austrália | Leste da Austrália | Sudeste da Austrália|
-| Governo dos EUA | Gov do Iowa nos EUA | Gov da Virgínia nos EUA |
+| Austrália | Leste da Austrália | Sudeste da Austrália |
+| Governo dos EUA | Gov do Iowa nos EUA | Gov. dos EUA – Virgínia |
 | Índia | Índia Central | Sul da Índia |
 | Canadá | Canadá Central | Leste do Canadá |
 
 
 Tabela 1 - Mapeamento de pares regionais do Azure
 
-> (1) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. Observe que a região secundária do Sul do Brasil é Centro-Sul dos Estados Unidos mas da região secundária do Centro-Sul dos Estados Unidos não é o Sul do Brasil.
+> (1) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. Observe que a região secundária do Sul do Brasil é a o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
 
 É recomendável que você replique as cargas de trabalho entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Por exemplo, as atualizações do sistema Azure planejadas são implantadas em sequência (não ao mesmo tempo) em regiões emparelhadas. Isso significa que, mesmo no caso de uma atualização falhar, ambas as regiões não serão afetadas simultaneamente. Além disso, no caso improvável de uma interrupção ampla, a recuperação de pelo menos uma região de cada par é priorizada.
 
@@ -77,7 +77,7 @@ Como mencionado na Figura 2.
 ## Benefícios de uma região emparelhada
 Como mencionado na Figura 2.
 
-![5Laranja](./media/best-practices-availability-paired-regions/5Orange.png) **Isolamento físico** – Sempre que possível, o Azure prefere pelo menos 300 milhas de separação entre os datacenters em um par regional, embora isso não seja possível ou conveniente em todas as regiões. A separação de data center físico reduz a probabilidade de desastres naturais, conflitos civis, quedas de energia ou interrupções de rede física que afetem as duas regiões ao mesmo tempo. Isolamento está sujeito às restrições dentro da região geográfica (tamanho da região geográfica, disponibilidade da infraestrutura de rede/alimentação, normas, etc.).
+![5Laranja](./media/best-practices-availability-paired-regions/5Orange.png) **Isolamento físico** – Sempre que possível, o Azure prefere pelo menos 300 milhas de separação entre os datacenters em um par regional, embora isso não seja possível ou conveniente em todas as áreas geográficas. A separação de data center físico reduz a probabilidade de desastres naturais, conflitos civis, quedas de energia ou interrupções de rede física que afetem as duas regiões ao mesmo tempo. Isolamento está sujeito às restrições dentro da região geográfica (tamanho da região geográfica, disponibilidade da infraestrutura de rede/alimentação, normas, etc.).
 
 ![6Laranja](./media/best-practices-availability-paired-regions/6Orange.png) **Replicação fornecida pela plataforma** - Alguns serviços, como o armazenamento com redundância geográfica, fornecem replicação automática para a região emparelhada.
 
@@ -88,4 +88,4 @@ Como mencionado na Figura 2.
 
 ![9Laranja](./media/best-practices-availability-paired-regions/9Orange.png) **Residência dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de vigência fiscal e legal.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

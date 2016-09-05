@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando API REST" 
+	pageTitle="Introdução ao fornecimento de conteúdo sob demanda usando a REST | Microsoft Azure" 
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando API REST." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/17/2016" 
 	ms.author="juliako"/>
 
-#Introdução ao fornecimento de conteúdo sob demanda usando API REST
+#Introdução ao fornecimento de conteúdo sob demanda usando a REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -54,7 +54,7 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 
 2. Em **NOME**, insira o nome da nova conta. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3-24 caracteres de comprimento.
 
-3. Em **REGIÃO**, selecione a região geográfica que será usada para armazenar os registros de metadados para sua conta de Serviços de Mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na lista suspensa.
+3. Em **REGIÃO**, selecione a região geográfica que é usada para armazenar os registros de metadados da sua conta de Serviços de Mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na lista suspensa.
 
 4. Em **CONTA DE ARMAZENAMENTO**, selecione uma conta de armazenamento para fornecer armazenamento de blob do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma nova conta de armazenamento. É criada uma nova conta de armazenamento na mesma região.
 
@@ -66,7 +66,7 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 
 	Depois que a conta é criada com êxito, o status é alterado para Ativo.
 	
-	Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica neste botão, é exibida uma caixa de diálogo com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações de chave primária para acessar a conta de Serviços de Mídia de modo programático.
+	Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica nesse botão, é exibida uma caixa de diálogo com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações da chave primária para acessar a conta de Serviços de Mídia de modo programático.
 
 	
 	![Página Serviços de Mídia](./media/media-services-rest-get-started/wams-mediaservices-page.png)
@@ -285,7 +285,7 @@ Se for bem-sucedido, será retornado o seguinte:
 
 A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
-Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação **MESCLAR** HTTP para atualizar o AssetFile com as informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
 
 **Solicitação HTTP**
 
@@ -497,8 +497,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
-	HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 
@@ -545,19 +544,19 @@ Se for bem-sucedido, será retornado o seguinte:
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
 
-Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
+Os Serviços de Mídia fornecem o empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming com suporte pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming, HDS), sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming** por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
-- codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
+- codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
 
 >[AZURE.NOTE] Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-Para alterar o número de unidades de streaming reservadas, faça o seguinte:
+Para alterar o número de unidades reservadas para streaming, faça o seguinte:
 	
 ### Obtenha o ponto de extremidade de streaming que deseja atualizar
 
@@ -615,7 +614,7 @@ Se for bem-sucedido, será retornado o seguinte:
 	
 ### <a id="long_running_op_status"></a>Verificar o status de uma operação de execução longa
 
-A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída. Para verificar o status da operação, use o método **Operations** e especifique a ID da operação. A ID da operação foi retornada na resposta à solicitação **Scale**.
+A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída. Para verificar o status da operação, use o método **Operations** e especifique a ID da operação. A ID da operação foi retornada na resposta à solicitação **Scale**.
 
 	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
  
@@ -662,16 +661,16 @@ A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concl
 
 ## <a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
 
-Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos e cada [Trabalho](http://msdn.microsoft.com/library/azure/hh974289.aspx) é composto de Tarefas atômicas, que fazem o trabalho real no arquivo do ativo.
+Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada [Trabalho](http://msdn.microsoft.com/library/azure/hh974289.aspx) é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo.
 
 Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os serviços de mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxas de bit adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
+- codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,
 - obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
-A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído você será capaz de criar localizadores são necessários para acessar seus ativos.
+A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos.
 
 ### Obter um processador de mídia
 
@@ -822,7 +821,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 
-- As propriedades TaskBody DEVEM usar XML literal para definir o número de entrada ou os ativos de saída que serão usados pela tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
+- As propriedades TaskBody DEVEM usar XML literal para definir o número de entradas ou os ativos de saída que serão usados pela Tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
 - Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(valor) ou JobOutputAsset(valor).
 - Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 - Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
@@ -832,7 +831,7 @@ Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 >[AZURE.NOTE] Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "\_\_metadata : uri".
 
 - Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor de Job Name ou o valor de Job Id (no caso em que a propriedade Name não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
+- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, o nome do OutputMediaAsset será tudo o que o valor de texto interno do elemento <outputAsset> representa, com um sufixo do valor Nome do Trabalho ou do valor ID do Trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
 
 	O exemplo a seguir mostra como definir o atributo assetName:
 	
@@ -841,7 +840,7 @@ Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 
 - Para habilitar o encadeamento de tarefas:
 
-	- Um trabalho deve ter pelo menos 2 tarefas
+	- Um trabalho deve ter, pelo menos, duas tarefas
 	- Deve haver pelo menos uma tarefa cujas entradas são a saída de outra tarefa no trabalho.
 
 Para saber mais, consulte [Criar um trabalho de codificação com a API REST dos Serviços de Mídia.](http://msdn.microsoft.com/library/azure/jj129574.aspx)
@@ -884,7 +883,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 ### Cancelar um trabalho
 
-Os serviços de mídia permitem cancelar trabalhos em execução com a função CancelJob. Essa chamada retornará um código de erro 400 se você tentar cancelar um trabalho quando seu estado é cancelado, está cancelando, erro ou concluído.
+Os serviços de mídia permitem cancelar trabalhos em execução com a função CancelJob. Esta chamada retornará um código de erro 400 se você tentar cancelar um Trabalho quando seu estado estiver definido como Cancelado, Cancelando, Erro ou Concluído.
 
 O exemplo a seguir mostra como chamar a função CancelJob.
 
@@ -961,7 +960,7 @@ O código a seguir mostra como solicitar a ID do ativo de saída.
 
 ## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
 
-Para transmitir ou baixar um ativo, que primeiro você precisa "publicá-lo" Criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
+Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
 
 Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
 
@@ -983,7 +982,7 @@ Uma URL SAS usada para baixar arquivos tem o seguinte formato:
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-Esta seção mostra como executar as seguintes tarefas necessárias para “publicar" seus ativos.
+Esta seção mostra como executar as seguintes tarefas necessárias para "publicar" seus ativos.
 
 - Criando o AccessPolicy com permissão de leitura
 - Criando uma URL SAS para download de conteúdo
@@ -1008,10 +1007,10 @@ O exemplo a seguir mostra como especificar o AccessPolicy para permissões de le
 	
 	{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do localizador.
+Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do Ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do Localizador.
 
 >[AZURE.NOTE]
-Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir ativos (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir um ativo (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
 
 
 ###Criando uma URL SAS para download de conteúdo 
@@ -1107,7 +1106,7 @@ Como resultado do trabalho de codificação que você executou anteriormente (co
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-###Criando uma URL de streaming para conteúdo de streaming
+### Criando uma URL de streaming para conteúdo de streaming
 
 
 O código a seguir mostra como criar um localizador de URL de streaming:
@@ -1204,4 +1203,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 <!-- URLs. -->
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

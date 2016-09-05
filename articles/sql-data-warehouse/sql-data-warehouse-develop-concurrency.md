@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/02/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
@@ -26,7 +26,7 @@ O SQL Data Warehouse permite até 1.024 conexões simultâneas. Todas as 1.024 c
 
 Os limites de simultaneidade são regidos por dois conceitos: *consultas simultâneas* e *slots de simultaneidade*. Para a execução de uma consulta, ela deve ser executada tanto no limite de simultaneidade de consulta quanto na alocação de slot de simultaneidade.
 
-- As consultas simultâneas são as consultas em execução ao mesmo tempo. O SQL Data Warehouse dá suporte para até 32 consultas simultâneas.
+- As consultas simultâneas são as consultas em execução ao mesmo tempo. O SQL Data Warehouse dá suporte a até 32 consultas simultâneas em tamanhos maiores de DWU.
 - Os slots de simultaneidade são alocados com base em DWU. Cada DWU 100 fornece quatro slots de simultaneidade. Por exemplo, um DW100 aloca quatro slots de simultaneidade e um DW1000 aloca 40. Cada consulta consome um ou mais slots de simultaneidade, dependendo da [classe de recurso](#resource-classes) da consulta. As consultas em execução na classe de recurso smallrc consomem um slot de simultaneidade. As consultas em execução em uma classe de recurso superior consomem mais slots de simultaneidade.
 
 A tabela a seguir descreve os limites das consultas simultâneas e dos slots de simultaneidade em vários tamanhos de DWU.
@@ -241,7 +241,7 @@ Para reiterar, as instruções a seguir respeitam as classes de recurso:
 
 ## Exceções de consulta para limites de simultaneidade
 
-Algumas consultas não respeitam a classe de recurso à qual o usuário é atribuído. Essas exceções para os limites de simultaneidade são feitas quando os recursos de memória necessários para um determinado comando estão baixos, geralmente porque o comando é uma operação de metadados. O objetivo dessas exceções é evitar alocações de memória maiores para consultas que jamais precisarão delas. Nesses casos, a classe de recurso padrão pequena (smallrc) sempre é usada, independentemente da classe de recurso real atribuída ao usuário. Por exemplo, `CREATE LOGIN` sempre será executado em smallrc. Os recursos necessários para atender a essa operação são muito baixos, portanto, não faria sentido incluir a consulta no modelo de slot de simultaneidade. Seria um desperdício pré-alocar grandes quantidades de memória para essa ação. Ao excluir `CREATE LOGIN` do modelo de slot de simultaneidade, o SQL Data Warehouse pode ser muito mais eficiente.
+Algumas consultas não respeitam a classe de recurso à qual o usuário é atribuído. Essas exceções para os limites de simultaneidade são feitas quando os recursos de memória necessários para um determinado comando estão baixos, geralmente porque o comando é uma operação de metadados. O objetivo dessas exceções é evitar alocações de memória maiores para consultas que jamais precisarão delas. Nesses casos, a classe de recurso padrão pequena (smallrc) sempre é usada, independentemente da classe de recurso real atribuída ao usuário. Por exemplo, `CREATE LOGIN` sempre será executado em smallrc. Os recursos necessários para atender a essa operação são muito baixos, portanto, não faz sentido incluir a consulta no modelo de slot de simultaneidade. Essas consultas também não são limitadas pelo limite de simultaneidade de 32 usuários, um número ilimitado dessas consultas pode ser executado até o limite de sessão de 1.024 sessões.
 
 As instruções a seguir não respeitam classes de recursos:
 
@@ -428,4 +428,4 @@ Para obter mais informações sobre como gerenciar usuários de banco de dados e
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

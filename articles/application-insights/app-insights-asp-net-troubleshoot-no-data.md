@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Solução de problemas de ausência de dados - Application Insights para .NET
@@ -21,14 +21,18 @@
 
 *No Application Insights, vejo apenas uma fração dos eventos que são gerados pelo meu aplicativo.*
 
-* Caso você esteja vendo consistentemente a mesma fração, isso provavelmente se deve à [amostragem](app-insights-sampling.md) adaptável. Para confirmar isso, abra a Pesquisa (na folha de visão geral) e examine uma instância de uma Solicitação ou outro evento. Na parte inferior da seção de propriedades, clique em "…" para obter detalhes completos da propriedade. Se Contagem de solicitações for > 1, a amostragem estará em operação. 
+* Caso você esteja vendo consistentemente a mesma fração, isso provavelmente se deve à [amostragem](app-insights-sampling.md) adaptável. Para confirmar isso, abra a Pesquisa (na folha de visão geral) e examine uma instância de uma Solicitação ou outro evento. Na parte inferior da seção de propriedades, clique em "…" para obter detalhes completos da propriedade. Se Contagem de solicitações for > 1, a amostragem estará em operação.
 * Caso contrário, é possível que você esteja atingindo um [limite de taxa de dados](app-insights-pricing.md#limits-summary) para seu plano de preços. Esses limites são aplicados por minuto.
 
-## Problemas do Monitor de Status
+## Nenhum dado do meu servidor
+
+*Instalei meu aplicativo em meu servidor Web e agora não vejo nenhuma telemetria dele. Ele funcionou corretamente no meu computador de desenvolvimento.*
+
+* Provavelmente um problema de firewall. [Defina exceções de firewall para o Application Insights enviar dados](app-insights-ip-addresses.md).
 
 *Eu [instalei o Status Monitor](app-insights-monitor-performance-live-website-now.md) no meu servidor Web para monitorar os aplicativos existentes. Não consigo ver todos os resultados.*
 
-Veja [Solução de problemas do Monitor de Status](app-insights-monitor-performance-live-website-now.md#troubleshooting). Portas de firewall são o problema mais comum.
+* Veja [Solução de problemas do Monitor de Status](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 
 ## <a name="q01"></a>A opção “Adicionar o Application Insights” não existe no Visual Studio
@@ -49,14 +53,14 @@ Causas mais prováveis:
 
 * A comunicação com o portal do Application Insights tiver falhado ou
 * Há algum problema com sua conta do Azure;
-* Você tiver apenas [acesso de leitura para a assinatura ou grupo em que está tentando criar o novo recurso](app-insights-resources-roles-access-control.md).
+* Você tem apenas [acesso de leitura para a assinatura ou grupo em que está tentando criar o novo recurso](app-insights-resources-roles-access-control.md).
 
 Correção:
 
-+ Verifique se você forneceu as credenciais corretas de entrada da conta do Azure. 
++ Verifique se você forneceu as credenciais corretas de entrada da conta do Azure.
 + No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
 + [Adicione o Application Insights ao seu projeto existente](app-insights-asp-net.md): no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
-+ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-asp-net-manual.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
++ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-asp-net-manual.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto.
 
 ## <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 
@@ -98,7 +102,7 @@ Caso contrário, o tipo de projeto não terá suporte direto das ferramentas do 
 
 As credenciais da Microsoft que você usou pela última vez no navegador padrão não têm acesso ao [recurso que foi criado quando o Application Insights foi adicionado a este aplicativo](app-insights-asp-net.md). Há duas razões prováveis:
 
-* Você tem mais de uma conta da Microsoft. Talvez uma conta de trabalho e uma conta pessoal da Microsoft? As credenciais usadas pela última vez no navegador padrão foram para uma conta diferente daquela que tem acesso a [adicionar o Application Insights ao projeto](app-insights-asp-net.md). 
+* Você tem mais de uma conta da Microsoft. Talvez uma conta de trabalho e uma conta pessoal da Microsoft? As credenciais usadas pela última vez no navegador padrão foram para uma conta diferente daquela que tem acesso a [adicionar o Application Insights ao projeto](app-insights-asp-net.md).
 
  * Correção: clique em seu nome no canto superior direito da janela do navegador e saia. Em seguida, entre com a conta que tem acesso. Na barra de navegação à esquerda, clique em Application Insights e escolha seu aplicativo.
 
@@ -115,7 +119,7 @@ As credenciais da Microsoft que você usou pela última vez no navegador padrão
 Causas mais prováveis:
 
 * O recurso Application Insights para seu aplicativo foi excluído ou
-* A chave de instrumentação foi definida ou alterada em applicationinsights.config quando ele foi editado diretamente sem a atualização do arquivo do projeto. 
+* A chave de instrumentação foi definida ou alterada em applicationinsights.config quando ele foi editado diretamente sem a atualização do arquivo do projeto.
 
 A chave de instrumentação em applicationinsights.config controla o local para onde a telemetria é enviada. Uma linha no arquivo do projeto controla qual recurso será aberto quando você usar o comando no Visual Studio.
 
@@ -139,9 +143,9 @@ Correção:
 
 ## <a name="q03"></a> Nenhum dado do servidor (ou nenhum dado)
 
-*Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
+* Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
 
-+ Execute seu aplicativo em modo de depuração no Visual Studio (F5). Use o aplicativo para gerar alguma telemetria. Verifique se você pode ver os eventos registrados na janela de saída do Visual Studio. 
++ Execute seu aplicativo em modo de depuração no Visual Studio (F5). Use o aplicativo para gerar alguma telemetria. Verifique se você pode ver os eventos registrados na janela de saída do Visual Studio.
 
     ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)
 
@@ -156,7 +160,7 @@ Correção:
     
 + No [painel inicial do Microsoft Azure](https://portal.azure.com), veja o mapa de Integridade do Serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
 + Verifique também o [nosso blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
-+ Você escreveu algum código para o [SDK do lado do servidor](app-insights-api-custom-events-metrics.md) que possa alterar a chave de instrumentação em instâncias do `TelemetryClient` ou no `TelemetryContext`? Ou escreveu uma [configuração de filtro ou de amostragem](app-insights-api-filtering-sampling.md) que possa estar filtrando em excesso?
++ Você gravou algum código para o [SDK do lado do servidor](app-insights-api-custom-events-metrics.md) que possa alterar a chave de instrumentação em instâncias do `TelemetryClient` ou no `TelemetryContext`? Ou gravou uma [configuração de filtro ou de amostragem](app-insights-api-filtering-sampling.md) que possa estar filtrando em excesso?
 + Se você tiver editado o ApplicationInsights.config, verifique cuidadosamente a configuração de [TelemetryInitializers e TelemetryProcessors](app-insights-api-filtering-sampling.md). Um tipo ou parâmetro nomeado incorretamente pode fazer com que o SDK não envie nenhum dado.
 
 ## <a name="q04"></a>Nenhum dado sobre Exibições de Página, Navegadores, Uso
@@ -175,7 +179,7 @@ Confira [telemetria de dependência](app-insights-asp-net-dependencies.md) e [te
 
 ## Nenhum dado de desempenho
 
-Haverá dados de desempenho (CPU, taxa de E/S etc) disponíveis para [Serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-as em Configurações, Servidores.
+Há dados de desempenho (CPU, taxa de E/S etc) disponíveis para [Serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-os em Configurações, Servidores.
 
 Esses dados não estão disponíveis para sites do Azure.
 
@@ -211,4 +215,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

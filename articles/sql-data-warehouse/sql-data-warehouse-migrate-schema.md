@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu esquema para o SQL Data Warehouse#
 
-Os resumos a seguir ajudarão você a entender as diferenças entre o SQL Server e o SQL Data Warehouse para ajudar na migração do banco de dados.
+Os resumos a seguir ajudam você a entender as diferenças entre o SQL Server e o SQL Data Warehouse para ajudar na migração do banco de dados.
 
 ### Recursos de tabela
 O SQL Data Warehouse não usa nem oferece suporte a estes recursos:
@@ -107,7 +107,7 @@ Em vez de:
 - **image**, **text**, **ntext**, use varchar/nvarchar (quanto menor, melhor)
 - **sql\_variant**, divida a coluna em várias colunas fortemente tipadas
 - **table**, converta em tabelas temporárias
-- **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que você não pode ter current\_timestamp como uma restrição padrão e o valor não será atualizado automaticamente. Se precisar migrar valores de versão de linha de uma coluna tipada timestamp, use binary(8) ou varbinary(8) para valores de versão de linha NOT NULL ou NULL.
+- **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que você não pode ter current\_timestamp como uma restrição padrão. Se precisar migrar valores de versão de linha de uma coluna tipada timestamp, use binary(8) ou varbinary(8) para valores de versão de linha NOT NULL ou NULL.
 - **tipos definidos pelo usuário**, converta de volta aos tipos nativos sempre que possível
 - **xml**, use um varchar(max) ou menor para melhor desempenho. Divida entre colunas, se necessário.
 
@@ -120,10 +120,10 @@ Suporte parcial:
 
 - As restrições padrão oferecem suporte apenas a literais e constantes. Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE] Se estiver usando o Polybase para carregar suas tabelas, defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Enquanto é possível definir uma linha com dados de tamanho variável que possa exceder essa figura e carregar linhas com BCP, ainda não será possível usar Polybase para carregar dados. O suporte a Polybase para linhas amplas será adicionado em breve. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
+> [AZURE.NOTE] Defina suas tabelas de modo que o tamanho máximo da linha não ultrapasse 32.767 bytes ao usar o PolyBase para executar o carregamento. É importante lembrar que o tamanho máximo de linha inclui o comprimento total das colunas de comprimento variável. Embora se possa definir uma linha com dados de comprimento variável que ultrapassem esse número, não é possível usar o PolyBase para carregar esses dados hoje. Como uma medida temporária, use o BCP para carregar linhas grandes. Por fim, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
 
 ## Próximas etapas
-Depois de migrar com êxito o esquema do seu banco de dados para o SQLDW, você poderá passar para um dos artigos a seguir:
+Depois de migrar com êxito o esquema do seu banco de dados para o SQL Data Warehouse, passe para um dos artigos a seguir:
 
 - [Migrar seus dados][]
 - [Migrar seu código][]
@@ -142,4 +142,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

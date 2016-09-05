@@ -34,7 +34,7 @@ Neste artigo, você aprenderá a instalar e configurar PostgreSQL em uma máquin
 
 Nesse caso, use a porta 1999 como a porta do PostgreSQL.
 
-Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você está usando uma VM Linux do Azure, consulte [Como usar SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md) para saber como usar PuTTY para se conectar a uma VM Linux.
+Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você está usando uma VM Linux do Azure, consulte [Como usar SSH com Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md) para saber como usar PuTTY para se conectar a uma VM Linux.
 
 1. Execute o seguinte comando para alternar para a raiz (admin):
 
@@ -255,4 +255,4 @@ Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy conf
 ##Obter mais informações sobre o PostgreSQL
 Agora que você concluiu a instalação do PostgreSQL em uma VM do Linux do Azure, aproveite-o usando-o no Azure. Para saber mais sobre o PostgreSQL, visite o [site do PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

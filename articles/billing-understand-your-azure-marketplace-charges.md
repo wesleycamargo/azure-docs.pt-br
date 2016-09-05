@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Entenda os encargos do Azure Marketplace
 Este artigo fornece uma visão geral de como entender os encargos relacionadas a seus pedidos no Marketplace. Alguns itens para ter em mente ao examinar sua fatura são os diferentes tipos de preços (Apenas Base, Apenas Uso e Base + Uso). Observe que cada pedido que você fizer no Marketplace terá seu próprio ciclo de cobrança mensal. Esses tópicos serão abordados em detalhes abaixo.
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 ## Examinar sua fatura do Marketplace
 Após fazer logon no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions/), você pode examinar e baixar as faturas atuais e anteriores.
@@ -98,4 +100,6 @@ Para exibir os encargos reais, siga estas etapas:
 
     ![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

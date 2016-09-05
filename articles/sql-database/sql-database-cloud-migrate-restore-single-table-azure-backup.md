@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/24/2016"
 	ms.author="daleche"/>
 
 
 # Como restaurar uma única tabela de um backup do Banco de Dados SQL do Azure
 
-É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos [backups que são realizados automaticamente](sql-database-automated-backups.md) pelo Banco de Dados SQL do Azure, com base no nível de desempenho selecionado.
+É possível se deparar com uma situação na qual você acidentalmente modificou alguns dados no banco de dados SQL e agora deseja recuperar a única tabela afetada. Este artigo descreve como restaurar uma única tabela em um banco de dados de um dos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL.
 
 ## Etapas de preparação: renomear a tabela e restaurar uma cópia do banco de dados
 1. Identifique a tabela no banco de dados SQL do Azure que deseja substituir pela cópia restaurada. Use o Microsoft SQL Management Studio para renomear a tabela. Por exemplo, renomeie a tabela como &lt;table name&gt;\_old.
 
 	**Observação** Para evitar o bloqueio, certifique-se de que não há nenhuma atividade em execução na tabela que está sendo renomeada. Se tiver problemas, lembre-se de executar esse procedimento durante uma janela de manutenção.
 
-2. Restaure um backup do banco de dados para um estado no qual deseja recuperar. Para fazer isso, confira as etapas em [Recuperação Pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
+2. Restaure um backup do banco de dados para um estado que deseja recuperar usando as etapas de [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Observações**:
-	- O nome do banco de dados restaurado estará no formato DBName+TimeStamp; por exemplo, **Adventureworks2012\_2016-01-01T22-12Z**. Essa etapa não substituirá o nome do banco de dados existente no servidor. Esta é uma medida de segurança, e destina-se a permitir que o usuário verifique o banco de dados restaurado antes de remover seu banco de dados atual e renomear o banco de dados restaurado para uso em produção.
+	- O nome do banco de dados restaurado estará no formato DBName+TimeStamp; por exemplo, **Adventureworks2012\_2016-01-01T22-12Z**. Essa etapa não substituirá o nome do banco de dados existente no servidor. Esta é uma medida de segurança, e destina-se a permitir que você verifique o banco de dados restaurado antes de remover seu banco de dados atual e renomear o banco de dados restaurado para uso em produção.
 	- Todas as camadas de desempenho de Básico a Premium são copiadas em backup automaticamente pelo serviço, com diferentes métricas de retenção de backup, dependendo da camada:
 
 | Restauração de banco de dados | Camada básica | Camadas Standard | Camadas Premium |
 | :-- | :-- | :-- | :-- |
-| Restauração Pontual | Qualquer ponto de restauração dentro de 7 dias|Qualquer ponto de restauração dentro de 35 dias| Qualquer ponto de restauração dentro de 35 dias|
+| Ponto de restauração pontual | Qualquer ponto de restauração dentro de 7 dias|Qualquer ponto de restauração dentro de 35 dias| Qualquer ponto de restauração dentro de 35 dias|
 
 ## Copiando a tabela do banco de dados restaurado usando a Ferramenta de migração do Banco de Dados SQL
 1. Baixe e instale o [SQL Database Migration Wizard](https://sqlazuremw.codeplex.com).
@@ -71,4 +71,4 @@
 
 [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

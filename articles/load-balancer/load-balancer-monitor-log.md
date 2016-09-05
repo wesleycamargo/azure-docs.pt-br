@@ -3,7 +3,7 @@
    description="Saiba como habilitar o registro em log de eventos de alerta e do status da integridade de investigação para o Balanceador de Carga do Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,14 +15,14 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Análise de log para o Balanceador de Carga do Azure (Preview)
 Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blob do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
 
 - **Logs de auditoria:** você pode usar os [Logs de Auditoria do Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal do Azure.
-- **Logs de eventos de alerta:** você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.  
+- **Logs de eventos de alerta:** você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.
 - **Logs de investigação de integridade:** você pode usar esse log para verificar o status da verificação da integridade de investigação, quantas instâncias estão online no back-end do balanceador de carga e a porcentagem de máquinas virtuais que está recebendo tráfego da rede do balanceador de carga. Esse log é gravado na alteração do evento de status da investigação.
 
 >[AZURE.WARNING] Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para obter uma melhor compreensão dos dois modelos, consulte o artigo [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../../articles/resource-manager-deployment-model.md). <BR> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Essa limitação é temporária e pode mudar a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
@@ -128,4 +128,4 @@ Você precisa se conectar à sua conta de armazenamento e recuperar as entradas 
 - Postagem de blog [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Postagem de blog [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

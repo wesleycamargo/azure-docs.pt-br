@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -134,4 +134,4 @@ Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (no
 -   Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 -   Para obter mais informações sobre registros DNS reversos, veja [Como gerenciar registros DNS reversos para seus serviços usando o PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

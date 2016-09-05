@@ -30,7 +30,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 - [Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico](virtual-machines-linux-classic-faq.md)
 - [Sobre imagens de máquinas virtuais](virtual-machines-linux-classic-about-images.md)
 - [Carregar sua própria imagem de distribuição](virtual-machines-linux-classic-create-upload-vhd.md) (e também instruções do uso de uma [Distribuição endossada pelo Azure](virtual-machines-linux-endorsed-distros.md))
-- [Fazer logon em uma VM Linux usando o Portal Clássico do Azure](virtual-machines-linux-classic-log-on.md)
+- [Fazer logon em uma VM Linux usando o Portal Clássico do Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Configurar
 
@@ -71,7 +71,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 
 ## Planejamento
-- [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Selecionando nomes de usuário do Linux](virtual-machines-linux-usernames.md)
 - [Como configurar um conjunto de disponibilidade para máquinas virtuais no modelo de implantação clássico](virtual-machines-linux-classic-configure-availability.md)
 - [Como agendar a manutenção planejada em VMs do Azure](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 ## Gerenciamento
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [Como redefinir uma senha ou propriedades SSH em Linux](virtual-machines-linux-classic-reset-access.md)
 - [Usando raiz](virtual-machines-linux-use-root-privileges.md)
 
@@ -189,4 +189,4 @@ Como o mundo dos desenvolvimentos, gerenciamento e otimização é muito extenso
 
 - [Plug-in Packer para o Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

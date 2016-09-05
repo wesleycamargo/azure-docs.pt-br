@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Introdução à criação de um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure | Microsoft Azure"
    description="Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga para a Internet (clássico) na CLI do Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -43,28 +43,28 @@ Este guia mostra como criar um balanceador de carga de Internet com base no cen�
 		info:    New mode is asm
 
 
-## Criar ponto de extremidade e conjunto de balanceadores de carga 
+## Criar ponto de extremidade e conjunto de balanceadores de carga
 
 O cenário pressupõe que as máquinas virtuais "web1" e "web2" foram criadas. Este guia criará um conjunto de balanceadores de carga usando a porta 80 como porta pública e a porta 80 como porta local. Uma porta de investigação também é configurada na porta 80 e nomeou o conjunto de balanceadores de carga como "lbset".
 
 
-### Etapa 1 
+### Etapa 1
 
 Criar o primeiro ponto de extremidade e conjunto de balanceadores de carga usando `azure network vm endpoint create` para a máquina virtual "web1".
 
-	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
 
 Parâmetros usados:
 
 **-k** -porta da máquina virtual local<br> **-o** -protocolo<BR> **-t** -porta de investigação<BR> **-b** -nome do balanceador de carga<BR>
- 
-## Etapa 2 
+
+## Etapa 2
 
 Adicione uma segunda máquina virtual "web2" ao conjunto de balanceadores de carga.
 
 	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
-## Etapa 3 
+## Etapa 3
 
 Verificar a configuração do balanceador de carga usando `azure vm show`.
 
@@ -118,7 +118,7 @@ A saída será:
 
 Você pode criar um ponto de extremidade da área de trabalho remota para encaminhar o tráfego de rede de uma porta pública para uma porta local, para uma máquina virtual específica, usando `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Remover máquina virtual do balanceador de carga
@@ -141,6 +141,4 @@ Você precisa excluir o ponto de extremidade associado ao conjunto de balanceado
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

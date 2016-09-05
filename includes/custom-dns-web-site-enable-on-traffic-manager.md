@@ -8,22 +8,24 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
 
 1. No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
 
-1. Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configurações** e, em seguida, selecione **Domínios personalizados e SSL**
+1. Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configurações** e, em seguida, selecione **Domínios personalizados**
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-1. Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos**.
-
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
-
-1. Use as caixas de texto **NOMES DE DOMÍNIO** para inserir o nome de domínio do Gerenciador de Tráfego a associar a este aplicativo Web.
+1. Na folha **Domínios personalizados**, clique em **Adicionar nome do host**.
+	
+1. Use as caixas de texto **Nome do host** para inserir o nome de domínio do Gerenciador de Tráfego a associar a este aplicativo Web.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-1. Clique em **Salvar** para salvar a configuração de nome de domínio.
+1. Clique em **Validar** para salvar a configuração de nome de domínio.
+
+7.  Ao clicar em **Validar**, o Azure iniciará o fluxo de trabalho de verificação de domínio. Isso verificará a propriedade do domínio, bem como a disponibilidade do nome do host e o sucesso ou o erro detalhado do relatório com diretrizes prescritivas sobre como corrigir o erro.
+
+8.  Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. Agora, navegue até o nome de domínio personalizado em um navegador. Agora você verá seu aplicativo em execução usando seu nome de domínio personalizado.
 
 	Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **nomes de domínio** de seu aplicativo Web.
 
 Nesse ponto, você deve ser capaz de inserir o nome de domínio do Gerenciador de Tráfego no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

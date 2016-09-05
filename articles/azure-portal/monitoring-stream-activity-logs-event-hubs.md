@@ -71,7 +71,8 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 [O esquema para o Log de Atividades está disponível aqui](./monitoring-overview-activity-logs.md). Cada evento é uma matriz de blobs JSON chamada "registros".
 
 ## Próximas etapas
+- [Arquivar o Log de atividade em uma conta de armazenamento](./monitoring-archive-activity-log.md)
 - [Leia a visão geral do Log de Atividades do Azure](./monitoring-overview-activity-logs.md)
 - [Configurar um alerta com base em um evento do Log de Atividades](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

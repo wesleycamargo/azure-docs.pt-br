@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Use o emoticon Emoji em notificações por Push
 
 Você pode incluir emoticons Emoji em notificações por push em algumas etapas fáceis:
 
-1. Em primeiro lugar, que você precisa encontrar o Emoji que quer enviar na mensagem. Verifique se o Emoji que você está selecionando será compatível com o dispositivo de destino, já que os fabricantes de dispositivos levam algum tempo para adicionar Emojis recém-aprovados às plataformas de dispositivo. 
+1. Em primeiro lugar, que você precisa encontrar o Emoji que quer enviar na mensagem. Verifique se o Emoji que você está selecionando será compatível com o dispositivo de destino, já que os fabricantes de dispositivos levam algum tempo para adicionar Emojis recém-aprovados às plataformas de dispositivo.
 
 2. No **Windows** – você pode navegar para este [link](http://apps.timwhitlock.info/emoji/tables/unicode) e copiar o ícone 'Native'.
 
@@ -40,9 +40,7 @@ Você pode incluir emoticons Emoji em notificações por push em algumas etapas 
 
 7. Quando você executar um teste ou ativar o anúncio, verá uma notificação com o emoticon conforme especificado.
 
-	![][3] 
-	![][4]
-	![][5]
+	![][3] ![][4] ![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
@@ -52,4 +50,4 @@ Você pode incluir emoticons Emoji em notificações por push em algumas etapas 
 [6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
 [7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

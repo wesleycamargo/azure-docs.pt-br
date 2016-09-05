@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guia de solução para problemas de Push e Reach
@@ -42,7 +42,7 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 - Se você usar uma categoria personalizada no Reach para exibir notificações do aplicativo, precisará seguir o ciclo de vida correto da notificação, caso contrário, a notificação não poderá ser limpa quando o usuário descartá-la.
 - Se você iniciar uma campanha sem data de término e um dispositivo receber a notificação no aplicativo, mas não exibí-la ainda, o usuário ainda receberá a notificação na próxima vez em que fizer logon no aplicativo, mesmo se você encerrar manualmente a campanha.
 - Para os problemas com a API do Push, confirme se você realmente deseja usar a API do Push, em vez da API do Reach (já que a API do Reach é usada com mais frequência) e se não está confundindo os parâmetros "payload" e "notifier".
-- Teste sua campanha de envio com tanto com o dispositivo conectado por WiFI e quanto por 3G para eliminar a conexão de rede como uma possível fonte de problemas.
+- Teste sua campanha por push com os dispositivos conectados via WIFI e 3G para eliminar a conexão de rede como uma possível fonte de problemas.
 
 ## Teste do Push
 
@@ -74,7 +74,7 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 - Nenhum dado no lado do servidor é registrado quando você usa o botão para “testar” os pushes. Os dados só são registrados para as campanhas de push reais.
 - Para ajudar a isolar o problema, solucione os problemas com: teste, simulação e uma campanha real, pois cada um deles funciona de forma um pouco diferente.
 - O período de tempo no qual as campanhas "no aplicativo" e "sempre" estão agendadas para a execução pode afetar os números de entrega, pois uma campanha só será entregue aos usuários que estão "no aplicativo" durante a execução dela (e os usuários com as configurações do dispositivo definidas para receber as notificações "fora do aplicativo").
-- As diferenças entre como o Android e o iOS lidam com as notificações fora do aplicativo dificultam comparar diretamente as estatísticas do push entre as versões Android e iOS de seu aplicativo. O Android fornece mais informações de notificação ao nível do SO do que o iOS. O Android informa quando uma notificação nativa é recebida, clicada ou excluída no centro de notificações, mas o iOS não informa isto, a menos que a notificação seja clicada. 
+- As diferenças entre como o Android e o iOS lidam com as notificações fora do aplicativo dificultam comparar diretamente as estatísticas do push entre as versões Android e iOS de seu aplicativo. O Android fornece mais informações de notificação ao nível do SO do que o iOS. O Android informa quando uma notificação nativa é recebida, clicada ou excluída no centro de notificações, mas o iOS não informa isto, a menos que a notificação seja clicada.
 - O principal motivo para os números enviados por “push” serem diferentes dos números “entregues” para as campanhas Reach é que as notificações “no aplicativo” e “fora do aplicativo” são contadas de modo diferente. As notificações "No aplicativo" são lidadas pelo Mobile Engagement, mas as notificações "Fora do aplicativo" são lidadas pelo centro de notificações no SO do dispositivo.
 
 ## Direcionamento do push
@@ -88,9 +88,9 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 ### Causas
 
 - Verifique se você carregou as marcas de informações do aplicativo por meio da interface do usuário do Mobile Engagement do Azure ou da API.
-- Diminuir a velocidade do push ou a cota do push no nível do aplicativo, ou limitar o público no nível da campanha pode impedir que uma pessoa receba um push específico, mesmo que atenda a outros critérios de direcionamento. 
+- Diminuir a velocidade do push ou a cota do push no nível do aplicativo, ou limitar o público no nível da campanha pode impedir que uma pessoa receba um push específico, mesmo que atenda a outros critérios de direcionamento.
 - Definir um "Idioma" é diferente de direcionar com base no país ou na localidade, que também é diferente de direcionar com base na Localização geográfica em um telefone local ou GPS.
-- A mensagem no “idioma padrão” é enviada para qualquer cliente que não tenha o seu dispositivo definido para um dos idiomas alternativos que você especificar.
+- A mensagem em "idioma padrão" é enviada para qualquer cliente que não tem seu dispositivo definido para um dos idiomas alternativos especificados.
 
 
 ## Agendamento do push
@@ -106,8 +106,8 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 - As campanhas criadas sem uma data de término armazenam o envio por push localmente no dispositivo e mostram-no na próxima vez em que o aplicativo é aberto, mesmo que a campanha seja encerrada manualmente.
 - Iniciar mais de uma campanha ao mesmo tempo pode levar mais tempo para verificar sua base de usuários (tente iniciar apenas uma campanha por vez, com um máximo de quatro, também destine apenas para os usuários ativos, para que os antigos usuários não precisem ser verificados).
 - Se você usar a opção "Ignorar Público, o push será enviado para os usuários por meio da API" na seção "Campanha" de uma campanha Reach, a campanha NÃO será enviada automaticamente e você precisará enviá-la manualmente através da API do Reach.
-- Se você usar uma categoria personalizada no Reach para exibir notificações no aplicativo, você deve seguir o ciclo de vida correto de uma notificação, caso contrário, a notificação não poderá ser apagada quando o usuário descartá-la.
+- Se você usar uma categoria personalizada no Reach para exibir as notificações no aplicativo, precisará seguir o ciclo de vida correto da notificação; caso contrário, a notificação poderá não ser limpa quando o usuário descartá-la.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

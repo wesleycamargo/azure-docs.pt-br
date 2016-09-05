@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/18/2016"
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,11 @@
 
 ## Notas de versão de 17/08/2016 do R Server no HDInsight
 
-• R Server 8.0.5 – principalmente uma versão de correção de bugs. Confira as [Notas de versão do R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) para obter mais informações. • Pacote AzureML no nó de borda – [esse pacote R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) habilita os modelos R a serem publicados e consumidos como um serviço Web ML do Azure. Confira a seção ["Operacionalizar um modelo"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) do artigo ["Visão geral do R Server no HDInsight"](hdinsight-hadoop-r-server-overview.md) para obter mais informações. • Dependências do Linux dos [100 pacotes R mais populares](https://github.com/metacran/cranlogs) – essas dependências do pacote Linux agora são pré-instaladas. • Opção para usar o repositório CRAN ao adicionar pacotes R aos nós de dados. Confira a seção ["Instalar pacotes R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) do artigo ["Começar a usar o R Server no HDInsight"](hdinsight-hadoop-r-server-get-started.md) para obter mais informações. • Foi aprimorada a confiabilidade de provisionamento do R Server quando os clusters são criados.
+- R Server 8.0.5 – principalmente uma versão de correção de bugs. Consulte as [Notas de Versão do R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) para obter mais informações.
+- Pacote do AM do Azure no nó de borda – [esse pacote R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que os modelos R sejam publicados e consumidos como um serviço web do AM do Azure. Consulte a seção ["Operacionalizar um modelo"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) do nosso artigo ["Visão geral do R Server no HDInsight"](hdinsight-hadoop-r-server-overview.md) artigo para obter mais informações.
+- Dependências do Linux dos [100 pacotes R mais populares](https://github.com/metacran/cranlogs) – essas dependências de pacote do Linux agora são pré-instalados.
+- Opção para usar o repositório CRAN ao adicionar pacotes R aos nós de dados. Consulte a seção ["Instalar pacotes R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) do nosso artigo ["Começar a usar o R Server no HDInsight"](hdinsight-hadoop-r-server-get-started.md) para obter mais informações.
+- Foi melhorada a confiabilidade de provisionamento do R Server quando os clusters são criados.
 
 
 ## Notas da versão de 01/08/2016 do HDInsight
@@ -1517,7 +1521,7 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 
 **Portas:** as portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço do HDP (plataforma de dados Hortonworks) permitido está agora fora desse intervalo, para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados são conforme descrito a seguir:
 
- **HDInsight 1.6 (HDP 1.1)** <table border="1">
+ **HDInsight 1.6 (HDP 1.1)**<table border="1">
 <tr><th>Name</th><th>Valor</th></tr>
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
@@ -1684,4 +1688,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

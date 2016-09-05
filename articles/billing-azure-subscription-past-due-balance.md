@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior?
 Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, você receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta em [https://account.windowsazure.com](https://account.windowsazure.com) ou [https://portal.azure.com](https://portal.azure.com).
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 Se não for possível processar o pagamento por algum motivo, você pode receber um email com uma mensagem semelhante a:
 
@@ -45,4 +47,6 @@ Para obter instruções sobre como alterar a forma de pagamento no Azure, veja [
 
 > [AZURE.NOTE] Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for desabilitada?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->
