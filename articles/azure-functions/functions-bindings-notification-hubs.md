@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Associação de saída do Hub de Notificação do Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar associações do Hub de Notificação no Azure Functions.
 
@@ -35,7 +37,7 @@ O arquivo function.json fornece as seguintes propriedades:
 - `tagExpression`: as expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos que se registraram para receber notificações que correspondem à expressão de marca. Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
 - `hubName`: nome do recurso de hub de notificação no portal do Azure.
 - `connection`: essa cadeia de conexão deve ser uma cadeia de conexão de **Configuração de Aplicativo** definida com o valor *DefaultFullSharedAccessSignature* para seu hub de notificação.
-- `direction`: deve ser definido como *”out”*. 
+- `direction`: deve ser definido como *out*.
  
 function.json de exemplo:
 
@@ -131,7 +133,7 @@ Este exemplo mostra como usar o tipo `Notification` definido na [Biblioteca de H
 	  }
 	}
 
-Para obter mais informações sobre o carregamento do seu arquivo project.json, confira [uploading a project.json file](functions-reference.md#fileupdate) (carregando um arquivo project.json).
+Para obter mais informações sobre o carregamento do seu arquivo project.json, confira [carregando um arquivo project.json](functions-reference.md#fileupdate).
 
 Código de exemplo:
 
@@ -155,4 +157,4 @@ Código de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -32,12 +32,12 @@ Para obter mais informações sobre como o Azure usa o disco temporário, veja [
 Primeiro, você precisará anexar o disco de dados à máquina virtual.
 
 - Para usar o portal, veja [Como anexar um disco de dados no portal do Azure](virtual-machines-windows-attach-disk-portal.md)
-- Para usar o portal clássico, veja [Como anexar um disco de dados a uma máquina virtual do Windows](virtual-machines-windows-classic-attach-disk.md). 
+- Para usar o portal clássico, veja [Como anexar um disco de dados a uma máquina virtual do Windows](virtual-machines-windows-classic-attach-disk.md).
 
 
 ## Mover temporariamente o pagefile.sys para a unidade C
 
-1. Conectar-se à máquina virtual. 
+1. Conectar-se à máquina virtual.
 
 2. Clique com o botão direito no menu **Iniciar** e selecione **Sistema**.
 
@@ -79,8 +79,8 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 8. Na Letra da unidade, selecione a unidade **E** e clique em **OK**.
 
 > [AZURE.NOTE] Se sua VM tiver outros discos ou unidades, use o mesmo método para reatribuir as letras da unidade dos outros discos e unidades. Você quer que a configuração de disco seja:
->- C: disco do sistema operacional  
->- D: disco de dados  
+>- C: disco do sistema operacional
+>- D: disco de dados
 >- E: disco temporário
 
 
@@ -111,4 +111,4 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 ## Próximas etapas
 - É possível aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

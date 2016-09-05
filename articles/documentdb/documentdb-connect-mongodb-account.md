@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -24,7 +24,7 @@ Saiba como se conectar a uma conta do Banco de Dados de Documentos do Azure com 
 ## Obter informações sobre a cadeia de conexão da conta
 
 1. Em uma nova janela, entre no [Portal do Azure](https://portal.azure.com).
-2. Na folha **Todas as Configurações**, clique em **Cadeia de Conexão**. Para navegar até **Todas as Configurações**, na barra de navegação rápida, clique em **Procurar**, clique nas contas do **Banco de Dados de Documentos** e selecione a conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
+2. Na barra **Navegação Esquerda** da folha Conta, clique em **Cadeia de Conexão**. Para navegar até a **Folha Conta**, na Barra de navegação rápida, clique em **Mais Serviços**, clique em **Banco de Dados de Documentos (NoSQL)** e selecione a conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
 	![Captura de tela da folha Todas as Configurações](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
@@ -84,4 +84,4 @@ Como já mencionado, todas as contas do Banco de Dados de Documentos exigem aute
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

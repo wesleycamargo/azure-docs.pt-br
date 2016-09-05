@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como gerenciar seus aplicativos e projetos existentes
@@ -68,7 +68,7 @@ Clique em um projeto para exibir todos os aplicativos que fazem parte deste proj
 ![Home2][3]
 
 
-## Consulte também
+## Confira também
 
 - [Conceitos][Link 6]
 - [Serviço do Guia de Solução de Problemas][Link 24]
@@ -170,4 +170,4 @@ Clique em um projeto para exibir todos os aplicativos que fazem parte deste proj
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

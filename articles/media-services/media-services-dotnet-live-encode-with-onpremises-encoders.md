@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como executar uma transmissão ao vivo com codificadores locais" 
+	pageTitle="Como executar uma transmissão ao vivo com codificadores locais usando .NET | Microsoft Azure" 
 	description="Este tópico mostra como usar o .NET para executar a codificação ativa com codificadores locais." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#Como executar uma transmissão ao vivo com codificadores locais
+#Como executar uma transmissão ao vivo com codificadores locais usando .NET
 
 ##Pré-requisitos
 
@@ -377,7 +377,9 @@ Para obter informações sobre como configurar um codificador ativo, consulte [S
 	    }
 	}
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -385,4 +387,4 @@ Para obter informações sobre como configurar um codificador ativo, consulte [S
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

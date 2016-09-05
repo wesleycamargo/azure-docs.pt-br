@@ -55,7 +55,7 @@ A seguir, um exemplo para ilustrar esse mecanismo. Vamos usar uma organização 
 Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
  | | VMNetwork2-NewYork | Não mapeado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Não mapeado
+ | | VMNetwork2-Chicago | Não mapeado
 
 Neste exemplo:
 
@@ -123,4 +123,4 @@ O mapeamento de rede da VMNetwork1-Chicago é alterado. | A VM-1 será conectada
 
 Agora que você compreende melhor o mapeamento de rede, [obtenha uma introdução à implantação do Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

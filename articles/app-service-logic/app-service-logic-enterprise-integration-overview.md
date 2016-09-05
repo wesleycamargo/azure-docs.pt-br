@@ -44,10 +44,13 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - EDI - Intercâmbio Eletrônico de Dados
 - EAI - Integração de Aplicativos Empresariais
 
-## Para começar agora, você precisa do seguinte
+## Para começar, você precisa do seguinte
 - Uma assinatura do Azure com uma conta de integração
 - Visual Studio 2015 para criar esquemas e mapas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 (Ferramentas de integração corporativa do Aplicativo Lógico do Microsoft Azure para Visual Studio 2015)](https://aka.ms/vsmapsandschemas)
+
+## Experimente
+Por que não experimentá-lo? Clique [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implantar aplicativos lógicos de envio e recebimento AS2 totalmente operacionais usando os recursos B2B dos Aplicativos Lógicos.
 
 ## Saiba mais sobre:
 - [Contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
@@ -61,4 +64,4 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
 - [Transformação de XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

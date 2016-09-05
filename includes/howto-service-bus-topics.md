@@ -4,7 +4,7 @@ Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de 
 
 ![Conceitos de tópico](./media/howto-service-bus-topics/sb-topics-01.png)
 
-Em contraste com as filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos usando um padrão de publicação/assinatura. É possível registrar várias assinaturas para um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
+Em contraste com as filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos usando um padrão de publicação/assinatura. É possível registrar várias assinaturas em um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
 
 Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre ou restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
 
@@ -16,42 +16,41 @@ Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no A
 
 Para criar um namespace:
 
-1.  Faça logon no [portal clássico do Azure][].
+1. Faça logon no [portal do Azure][].
 
-2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
+2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 
-3.  No painel inferior do portal, clique em **Criar**. ![][0]
+4. Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 
-4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![][2]
+5. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
 
-5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
+7. No campo **Assinatura**, escolha uma assinatura do Azure na qual criar o namespace.
 
-	> [AZURE.IMPORTANT] Selecione a **mesma região** que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
+9. No campo **Grupo de Recursos**, escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.
 
-6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção OK. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+8. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
 
-	![][6]
+	![Criar um namespace][create-namespace]
 
-## Obter as credenciais de gerenciamento padrão do namespace
+6. Selecione o botão **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+ 
+### Obter as credenciais
 
-A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
+1. Na lista de namespaces, clique no nome do namespace recém-criado.
+ 
+3. Na folha **Namespace do Barramento de Serviço**, clique em **Políticas de acesso compartilhado**.
 
-### Obter as credenciais de gerenciamento do portal
+4. Na folha **políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![][0]
+	![informações de conexão][connection-info]
 
-2.  Selecione o namespace que você acabou de criar na lista abaixo: ![][3]
+5. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior.
 
-3.  Clique em **Informações de Conexão**. ![][4]
+	![connection-string][connection-string]
 
-4.  Na caixa de diálogo **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave. Anote esses valores, pois você usará essas informações posteriormente para executar operações com o namespace.
+[portal do Azure]: https://portal.azure.com
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-  [portal clássico do Azure]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  
-  [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
-
+<!---HONumber=AcomDC_0824_2016-->

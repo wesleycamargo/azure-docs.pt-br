@@ -77,7 +77,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiv
 
 Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâmetro, entradas e saídas, que normalmente são tratados no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
-## Etapa 1: definir sua assinatura 
+## Etapa 1: definir a assinatura 
 
 1. No Azure PowerShell, faça logon na conta do Azure usando os seguintes cmdlets:
  
@@ -214,7 +214,7 @@ Para verificar a conclusão da operação, execute as etapas em [Monitorar a Ati
 
 2. Os comandos a seguir obtêm a rede de recuperação de site para o servidor VMM de origem e o servidor VMM de destino.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ Para verificar a conclusão da operação, execute as etapas em [Monitorar a Ati
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Etapa 6: Ativar a proteção para máquinas virtuais
+## Etapa 6: configurar mapeamento de armazenamento
+
+1. O comando abaixo coloca a lista de classificações de armazenamento na variável $storageclassifications.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. Os comandos a seguir colocam a classificação de origem na variável $SourceClassificaion e a classificação de destino na variável $TargetClassification.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] As classificações de origem e de destino podem ser qualquer elemento na matriz. Consulte a saída do comando abaixo para identificar o índice das classificações de origem e destino na matriz $storageclassifications.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. O cmdlet a seguir cria um mapeamento entre a classificação de origem e a classificação de destino.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Etapa 7: habilitar a proteção para máquinas virtuais
 
 Depois que os servidores, nuvens e redes estiverem configurados corretamente, você poderá habilitar a proteção para máquinas virtuais na nuvem.
 
@@ -331,4 +354,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 [Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace" />
 
 # Visão geral do monitoramento de integridade do Application Gateway
@@ -34,7 +34,7 @@ Por exemplo: configure seu Application Gateway para usar os servidores de back-e
 
 Se a verificação de investigação padrão falhar para o servidor A, o Application Gateway o remove do seu pool de back-end e o tráfego de rede para de fluir para este servidor. A investigação padrão ainda continua a verificar o servidor A a cada 30 segundos. Quando o Servidor A responde com êxito a uma solicitação de uma investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para esse servidor novamente.
 
-A investigação padrão examina apenas http://127.0.0.1:<port> para determinar o status de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deve usar investigações personalizadas, conforme descrito abaixo.
+A investigação padrão examina apenas http://127.0.0.1:\<port> para determinar o status de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deve usar investigações personalizadas, conforme descrito abaixo.
 
 ### Configurações da investigação de integridade padrão
 
@@ -67,4 +67,4 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 Depois de aprender sobre o monitoramento de integridade do Application Gateway, você pode configurar uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) para o Azure Resource Manager ou uma [investigação de integridade personalizada](application-gateway-create-probe-classic-ps.md) para o modelo de implantação clássico do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

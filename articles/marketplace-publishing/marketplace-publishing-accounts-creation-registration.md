@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="hascipio"/>
 
 # Criar uma conta de Desenvolvedor da Microsoft
@@ -172,7 +172,7 @@ Se você for adicionado como coadministrador ao portal de Publicação, será po
 
   > [AZURE.TIP] As políticas de participação são descritas no [site do Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Etapas para adicionar um coadministrador no portal de Publicação
+## 4\. Etapas para adicionar um coadministrador no portal de Publicação
 **Supondo que você seja o administrador**, abaixo estão as etapas para adicionar um coadministrador.
 
 >[AZURE.NOTE] **No caso de novos usuários**, antes de adicionar um coadministrador ao portal de Publicação, verifique se você criou pelo menos um aplicativo no portal de Publicação. Isso é obrigatório, pois a guia **EDITORES** aparece apenas após a criação de pelo menos um aplicativo no portal de Publicação.
@@ -184,6 +184,15 @@ Se você for adicionado como coadministrador ao portal de Publicação, será po
 5. Navegue até Editores -> selecione sua conta -> Administradores -> Adicionar o coadministrador (captura de tela abaixo)
 
   ![desenho](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+
+## 5\. Etapas para excluir um coadministrador no portal de Publicação
+**Supondo que você seja o administrador**, abaixo estão as etapas para excluir um coadministrador.
+
+1. Faça logon no portal de Publicação com a identificação de email de administrador.
+2. Navegue até **Editores** -> selecione sua conta -> **Administradores** -> **Coadministradores**.
+3. Clique no botão **X** ao lado do coadministrador que você quer excluir (captura de tela abaixo).
+
+    ![desenho](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## Próximas etapas
 Agora que sua conta foi criada e registrada, cumpra ou atenda a todos os pré-requisitos não técnicos para publicar sua oferta conferindo [Pré-requisitos não técnicos](marketplace-publishing-pre-requisites.md).
@@ -218,4 +227,4 @@ Agora que sua conta foi criada e registrada, cumpra ou atenda a todos os pré-re
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

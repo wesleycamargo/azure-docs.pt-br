@@ -3,7 +3,7 @@
    description="Como solucionar problemas de perfis do Gerenciador de Tráfego quando ele aparece com status de degradado."
    services="traffic-manager"
    documentationCenter=""
-   authors="kwill-MSFT"
+   authors="sdwheeler"
    manager="carmonm"
    editor="joaoma" />
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
@@ -80,4 +80,4 @@ Se a investigação estiver usando o protocolo HTTPs, convém adicionar o parâm
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

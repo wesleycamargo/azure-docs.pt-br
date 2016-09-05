@@ -90,7 +90,8 @@ Esse gráfico indica quantas conexões foram estabelecidas para seus servidores 
 
 ## Próximas etapas
 
+- Receba uma notificação com [Alertas em tempo real no Azure CDN](cdn-real-time-alerts.md)
 - Saiba mais com os [relatórios HTTP avançados](cdn-advanced-http-reports.md)
 - Analisar os [padrões de uso](cdn-analyze-usage-patterns.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

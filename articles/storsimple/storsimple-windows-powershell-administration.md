@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -60,7 +60,7 @@ Certifique-se de usar as seguintes configurações de PuTTY para conectar-se à 
  	|Item de teclado|Selecionar|
  	|---|---|
  	|Tecla BACKSPACE|Control-? (127)|
-	|Teclas Home e End|Padrão|
+	|Teclas Home e End|Standard|
 	|Teclado numérico e teclas de função|ESC[n~|
 	|Estado inicial das teclas de cursor|Normal|
 	|Estado inicial do teclado numérico|Normal|
@@ -106,13 +106,13 @@ A imagem a seguir mostra as várias opções de espaço de execução disponíve
 
 2. **Efetuar login no controlador de par com acesso completo** Essa opção equivale à opção 1, exceto pelo fato de você poder se conectar (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador de par. Como o dispositivo StorSimple é um dispositivo de alta disponibilidade com dois controladores em uma configuração ativo-passivo, par refere-se ao outro controlador no dispositivo que você está acessando por meio do console serial). Semelhante à opção 1, essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito em um controlador de par.
 
-3. **Conectar com acesso limitado** Essa opção é usada para acessar a interface do Windows PowerShell no modo limitado. As credenciais de acesso não são solicitadas. Essa opção se conecta a um espaço de execução mais restrito em comparação com as opções 1 e 2. Algumas das tarefas disponíveis por meio da opção 1 que não podem ser realizadas nesse espaço de execução são:
+3. **Conectar com acesso limitado** Essa opção é usada para acessar a interface do Windows PowerShell no modo limitado. As credenciais de acesso não são solicitadas. Essa opção se conecta a um espaço de execução mais restrito em comparação com as opções 1 e 2. Algumas das tarefas disponíveis por meio da opção 1 que **não* podem ser realizadas nesse espaço de execução são:
 
 	- Redefinir para as configurações de fábrica
 	- Alterar a senha
 	- Habilitar ou desabilitar o acesso de suporte
 	- Aplicar atualizações
-	- Instale hotfixes 
+	- Instale hotfixes
 												
 
 	>[AZURE.NOTE] **Essa é a opção preferencial se você tiver esquecido a senha de administrador do dispositivo e não puder se conectar por meio das opções 1 ou 2.**
@@ -175,7 +175,7 @@ A seguir é apresentada uma breve descrição dos tipos de Ajuda para essa inter
 
 - Para obter ajuda online para qualquer cmdlet, use o cmdlet anterior com o parâmetro `-Online`: `Get-Help <cmdlet-name> -Online`
 
-- Para obter ajuda completa, use o parâmetro `–Full` e, para obter exemplos, use o parâmetro `–Examples`.
+- Para obter ajuda completa, use o parâmetro `–Full` e para obter exemplos, use o parâmetro `–Examples`.
 
 #### Para atualizar a Ajuda
 
@@ -192,9 +192,9 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 1. Depois que os arquivos de ajuda forem instalados, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
 
 
->[AZURE.NOTE] Para obter uma lista de todos os cmdlets disponíveis em qualquer runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
+>[AZURE.NOTE] Para obter uma lista de todos os cmdlets disponíveis em um runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
 
 ## Próximas etapas
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -6,7 +6,7 @@
 
      ![Marcar recursos com pares de nome/valor](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. Para exibir sua taxonomia de marcas no portal, selecione **Procurar** e **Marcas**.
+1. Para exibir sua taxonomia de marcas no portal, selecione **Mais Serviços** e **Marcas**.
 
      ![Localizar marcas pelo hub Procurar](./media/resource-manager-tag-resources/browse-tags.png)
 
@@ -22,4 +22,4 @@
 
      ![Fixar marcas no Quadro Inicial](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

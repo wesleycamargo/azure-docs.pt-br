@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -47,8 +47,8 @@ O Azure Multi-Factor Authentication é uma solução fácil de usar, escalonáve
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Fácil de usar**|**Escalonável**|**Sempre protegidos**|**Confiável**
 
-- **Fácil de usar** - a Autenticação Multifator do Azure é simples de configurar e usar. A proteção adicional que acompanha o Azure Multi-Factor Authentication permite que os usuários usem e gerenciem os seus próprios dispositivos e, em muitos casos, ele pode ser configurado com apenas alguns cliques.
-- **Escalonável** - a Autenticação Multifator do Azure utiliza a força da nuvem e integra-se ao seu AD local e aos aplicativos personalizados. Essa proteção ainda é estendida aos seus cenários essenciais de missão de alto volume.
+- **Fácil de usar** - a Multi-Factor Authentication do Azure é simples de configurar e usar. A proteção adicional que acompanha o Azure Multi-Factor Authentication permite que os usuários usem e gerenciem os seus próprios dispositivos e, em muitos casos, ele pode ser configurado com apenas alguns cliques.
+- **Escalonável** - a Multi-Factor Authentication do Azure utiliza os recursos da nuvem e integra-se ao seu AD e aplicativos personalizados locais. Essa proteção ainda é estendida aos seus cenários essenciais de missão de alto volume.
 - **Sempre protegidos** - o Azure Multi-Factor Authentication fornece autenticação forte usando os mais altos padrões do setor.
 - **Confiável** - Garantimos 99,9% de disponibilidade do Azure Multi-Factor Authentication. O serviço é considerado indisponível quando não é possível receber ou processar solicitações de autenticação parao Multi-Factor Authentication.
 
@@ -84,8 +84,8 @@ Método de verificação | Descrição
 ------------- | ------------- |
 Chamada telefônica | É feita uma chamada para o telefone inteligente do usuário solicitando que verifique se está se conectando pressionando o sinal #. Isso concluirá o processo de verificação. Essa opção é configurável e pode ser alterada para um código que você especificar.
 Mensagem de texto | Uma mensagem de texto será enviada para o smartphone do usuário com um código de 6 dígitos. Digite esse código para concluir o processo de verificação.
-Notificação de aplicativo móvel | Uma solicitação de verificação será enviada ao smartphone do usuário solicitando que conclua a verificação, selecionando Verificar no aplicativo móvel. Isso ocorrerá se você selecionou a notificação do aplicativo como seu método de verificação principal. Se o usuário receber isso quando não estiver se conectando, é possível relatar como fraude.
-Código de verificação co Aplicativos Móveis | Um código de verificação será enviado ao aplicativo móvel que está sendo executado no smartphone do usuário. Isso ocorrerá se você selecionou o código de verificação como seu método de verificação principal.
+Notificação de aplicativo móvel | Uma solicitação de verificação será enviada ao smartphone do usuário solicitando que conclua a verificação, selecionando Verificar no aplicativo móvel. Isso ocorrerá se você selecionou a notificação do aplicativo como seu método de verificação principal. Se o usuário receber isso quando não estiver se conectando, poderá relatar esse fato como fraude.</li><br><p> O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Código de verificação co Aplicativos Móveis | Um código de verificação será enviado ao aplicativo móvel que está sendo executado no smartphone do usuário. Isso ocorrerá se você selecionou o código de verificação como seu método de verificação principal.</li><br><p> O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 
 ## Versões disponíveis do Azure Multi-Factor Authentication
@@ -134,8 +134,8 @@ Se desejar todas as funcionalidades oferecidas pelo Azure Multi-Factor Authentic
 Ao usar um Provedor do Azure Multi-Factor Authentication, há dois modelos de uso disponíveis que são cobrados por meio de sua assinatura do Azure:
 
 
-- **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
-- **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
+- **Por usuário**. Para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
+- **Por autenticação**. Para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
 O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para saber mais, veja [métodos de verificação selecionáveis](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
@@ -147,12 +147,12 @@ Escolha o modelo baseado em consumo que funciona melhor para sua organização. 
 
 Como há vários tipos de Azure Multi-Factor Authentication, precisamos determinar algumas coisas para descobrir qual versão é a correta para usar. Esses elementos são:
 
--	<a href="#1">O que estou tentando proteger?</a>
--	<a href="#2">Onde os usuários estão localizados</a>
+-	[O que estou tentando proteger](#what-am-i-trying-to-secure)
+-	[Onde os usuários estão localizados](#where-are-the-users-located)
 
 As seções a seguir fornecem orientações sobre como determinar a cada um deles.
 
-<h3 id="1">O que estou tentando proteger?</h3>
+### O que estou tentando proteger?
 
 Para determinar a solução de autenticação multifator correta, precisamos responder primeiro à pergunta de o que você está tentando proteger com um segundo método de autenticação. É um aplicativo no Azure? Ou é um sistema de acesso remoto, por exemplo. Ao determinar o que estamos tentando proteger, passaremos a responder à pergunta de onde a autenticação multifator precisa ser habilitada.
 
@@ -168,7 +168,7 @@ Acesso remoto, como VPN, RDG| |* |
 
 
 
-<h3 id="2">Onde os usuários estão localizados</h3>
+### Onde os usuários estão localizados
 
 Em seguida, dependendo de onde os usuários estão localizados, podemos determinar a solução correta para usar, seja a autenticação multifator na nuvem ou no local usando o Servidor MFA.
 
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

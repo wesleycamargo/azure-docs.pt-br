@@ -55,7 +55,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 1. Embora as especificidades de cada registrador variem, em geral, você mapeia *de* seu nome de domínio personalizado (como **contoso.com**,) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) que é usado para seu aplicativo web.
 
-> [AZURE.NOTE] Como alternativa, se um registro já está em uso e será necessário vincular seus aplicativos a ele, mapeie preventivamente **awverify.contoso.com** em **contoso.trafficmanager.net**.
+> [AZURE.NOTE] Como alternativa, se um registro já estiver em uso e você precisar vincular seus aplicativos a ele, crie um registro TXT para **awverify.contoso.com** em **contoso.trafficmanager.net**.
 
 1. Depois de terminar a adição ou a modificação de registros DNS no registrador, salve as alterações.
 
@@ -72,4 +72,4 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodej
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

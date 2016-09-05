@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Adicionar e gerenciar vários diretórios do Active Directory do Azure
@@ -41,8 +41,8 @@ Você pode configurar cada diretório do Azure AD independentemente para que os 
 
 Para adicionar um diretório do Active Directory do Azure no portal de clássico do Azure, selecione a extensão do Active Directory do Azure à esquerda e toque em **Adicionar**.
 
-> [AZURE.NOTE]   Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Se você cancelar ou permitir que a assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o Azure PowerShell, o Azure Graph API ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
+> [AZURE.NOTE]   Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Se você cancelar ou permitir que a assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o Azure PowerShell, a API do Graph do Azure ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
 
 Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as práticas recomendadas, consulte [O que é o licenciamento do Active Directory do Azure?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

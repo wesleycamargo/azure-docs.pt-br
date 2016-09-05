@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Suporte do Gerenciador de Recursos do Azure para visualização do balanceador de carga | Microsoft Azure"
+   pageTitle="Suporte do Gerenciador de Recursos do Azure para visualização do balanceador de carga | Microsoft Azure "
    description="Usando PowerShell para o balanceador de carga com o ARM (Gerenciador de Recursos do Azure) na visualização. Usando modelos de balanceador de carga"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
-# Suporte do Gerenciador de Recursos do Azure para balanceador de carga 
+# Suporte do Gerenciador de Recursos do Azure para balanceador de carga
 
 O ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços do Azure. O balanceador de carga do Azure agora pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure.
 
@@ -40,13 +40,14 @@ Com ARM, o balanceador de carga do Azure contém os recursos filho a seguir:
 
 
 ## Modelos de início rápido
+
 O Gerenciador de Recursos do Azure permite que você provisione seus aplicativos usando um modelo declarativo. Em um modelo único, você pode implantar vários serviços, juntamente com suas dependências. Use o mesmo modelo para implantar repetidamente seu aplicativo durante cada estágio do ciclo de vida do aplicativo
 
 Modelos incluem máquinas virtuais, redes virtuais, conjuntos de disponibilidade, NICs (Interfaces de Rede), contas de armazenamento, balanceadores de carga, grupos de segurança de rede e IPs públicos. Com modelos, você pode criar tudo o que é necessário para um aplicativo complexo, usando um arquivo simples que você pode marcar e com o qual colaborar.
 
 [Saiba mais sobre modelos](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Saiba mais sobre recursos de rede](../virtual-network/resource-groups-networking)
+[Saiba mais sobre recursos de rede](../virtual-network/resource-groups-networking.md)
 
 Modelos que usam o balanceador de carga do Azure podem ser encontrados em um [repositório GitHub](https://github.com/Azure/azure-quickstart-templates) que hospeda um conjunto de modelos gerados pela comunidade
 
@@ -76,4 +77,4 @@ Também é possível [começar a criar um balanceador de carga para a Internet](
 
 Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre as [configurações de tempo limite de TCP ocioso para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

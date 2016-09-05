@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Gatilho de temporizador do Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. Os gatilhos de temporizador chamam funções com base em uma agenda, única ou recorrente.
 
@@ -26,7 +28,7 @@ Este artigo explica como configurar e codificar gatilhos de temporizador no Azur
 
 ## function.json para gatilho de temporizador
 
-O arquivo *function.json* fornece uma expressão de agendamento.
+O arquivo *function.json* fornece uma expressão de agendamento. Por exemplo, o agendamento a seguir executa a função a cada minuto:
 
 ```json
 {
@@ -46,9 +48,11 @@ O gatilho de temporizador lida com a expansão de várias instâncias automatica
 
 ## Formato de expressão de agendamento
 
-A expressão de agendamento é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui seis campos: {segundo} {minuto} {hora} {dia} {mês} {dia da semana}. Muitos documentos de expressão cron encontrados online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
+A expressão de agendamento é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-Veja alguns exemplos de expressão de agendamento.
+Observe que muitas das expressões cron encontradas online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
+
+Veja alguns outros exemplos de expressão de agendamento:
 
 Para disparar uma vez a cada cinco minutos:
 
@@ -56,10 +60,34 @@ Para disparar uma vez a cada cinco minutos:
 "schedule": "0 */5 * * * *"
 ```
 
+Para disparar uma vez na parte superior de cada hora:
+
+```json
+"schedule": "0 0 * * * *",
+```
+
 Para disparar uma vez a cada duas horas:
 
 ```json
 "schedule": "0 0 */2 * * *",
+```
+
+Para disparar uma vez a cada hora das 9h às 17h:
+
+```json
+"schedule": "0 0 9-17 * * *",
+```
+
+Para disparar às 9h30 todos os dias:
+
+```json
+"schedule": "0 30 9 * * *",
+```
+
+Para disparar às 9h30 todos os dias da semana:
+
+```json
+"schedule": "0 30 9 * * 1-5",
 ```
 
 ## Exemplo de código C# de gatilho de temporizador
@@ -77,4 +105,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

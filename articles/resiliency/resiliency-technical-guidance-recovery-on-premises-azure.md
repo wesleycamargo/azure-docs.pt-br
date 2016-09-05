@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação do local para o Azure
@@ -79,22 +79,23 @@ Para obter mais informações, confira [Alta disponibilidade e recuperação de 
 
 ###Rede
 
-  1. Examinar a seção [Rede](#networking) deste documento.
+  1. Examine a seção Rede deste documento.
   2. Usar a Rede Virtual para se conectar com segurança do local à nuvem.
 
 ###Computação
 
-  1. Examinar a seção [Computação](#compute) deste documento.
+  1. Examine a seção Computação deste documento.
   2. Realocar VMs entre o Hyper-V e o Azure.
 
 ###Armazenamento
-  1. Examinar a seção [Armazenamento](#storage) deste documento.
+
+  1. Examine a seção Armazenamento deste documento.
   2. Tirar proveito dos serviços do StorSimple para usar o armazenamento em nuvem.
   3. Usar o serviço de Backup do Azure.
 
 ###Banco de dados
 
-  1. Examinar a seção [Banco de dados](#database) deste documento.
+  1. Examine a seção Banco de dados deste documento.
   2. Considerar o uso do SQL Server em VMs do Azure como o backup.
   3. Configurar Grupos de Disponibilidade AlwaysOn.
   4. Configurar o espelhamento de banco de dados com base em certificado.
@@ -105,4 +106,4 @@ Para obter mais informações, confira [Alta disponibilidade e recuperação de 
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série é sobre [Recuperação de corrupção de dados ou exclusão acidental](./resiliency-technical-guidance-recovery-data-corruption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

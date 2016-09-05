@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
+	keywords="azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
 	ms.service="functions"
@@ -19,29 +19,17 @@
 	ms.author="chrande"/>
 
 # Referência do desenvolvedor do Azure Functions
-Azure Functions compartilham alguns componentes e conceitos técnicos principais, independentemente da linguagem ou binding que você utilizar. Antes de saltar para o aprendizado específico a uma linguagem ou binding, assegure-se de ler esta visão geral que se aplica a todos eles.
+
+O Azure Functions compartilha alguns conceitos técnicos e componentes principais, independentemente da linguagem ou do binding que você utilizar. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
 
 Este artigo pressupõe que você já tenha lido a [Visão geral do Azure Functions](functions-overview.md) e está familiarizado com [conceitos do SDK de WebJobs como gatilhos, associações e tempo de execução do JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). O Azure Functions é baseado no SDK de WebJobs.
 
-## função
 
-Uma *função* é o principal conceito no Azure Functions. Você escreve o código para uma função em uma linguagem de sua escolha e salva os arquivos de código e um arquivo de configuração na mesma pasta. A configuração é em JSON, e o arquivo é nomeado `function.json`. Há suporte para várias linguagens, e cada uma tem uma experiência ligeiramente diferente, otimizada para funcionar melhor para esta linguagem. Exemplo de estrutura de pasta:
+## Código de função
 
-```
-mynodefunction
-| - function.json
-| - index.js
-| - node_modules
-| | - ... packages ...
-| - package.json
-mycsharpfunction
-| - function.json
-| - run.csx
-```
+Uma *função* é o principal conceito no Azure Functions. Você escreve o código para uma função em uma linguagem de sua escolha e salva os arquivos de código e um arquivo de configuração na mesma pasta. A configuração é em JSON e o arquivo é nomeado como `function.json`. Há suporte a várias linguagens e cada uma tem uma experiência ligeiramente diferente, otimizada para funcionar melhor para esta linguagem.
 
-## function.JSON e bindings
-
-O arquivo `function.json` contém uma configuração específica para uma função, incluindo seu binding. Em tempo de execução esse arquivo é lido para determinar quais eventos disparar, quais dados serão incluídos na chamada da função e para onde enviar os dados passados pela própria função.
+O arquivo `function.json` contém uma configuração específica para uma função, incluindo seu binding. Durante o tempo de execução esse arquivo é lido para determinar quais eventos serão disparados, quais dados serão incluídos na chamada da função e para onde os dados passados pela própria função serão enviados.
 
 ```json
 {
@@ -68,33 +56,19 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 |`direction`|'in', 'out'| Indica se a associação é para receber dados na função ou enviar dados a partir da função.
 | `name` | string | O nome que será usado para os dados associados na função. Em C#, ele será o nome de um argumento. Em JavaScript, será a chave em uma lista de chave/valor.
 
+## Aplicativo de funções
+
+Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas em conjunto pelo Serviço de Aplicativo do Azure. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, a implantação contínua e a versão de tempo de execução. Funções escritas em vários idiomas podem compartilhar o mesmo aplicativo de funções. Pense em um aplicativo de funções como uma forma de organizar e gerenciar coletivamente suas funções.
+
 ## Tempo de execução (host de script e host Web)
 
-O tempo de execução, também conhecido como o host de script, é o host por baixo do SDK de WebJobs que escuta eventos, coleta e envia dados e, no fim das contas, executa seu código.
+O tempo de execução ou host de script é o host subjacente do SDK WebJobs que escuta eventos, coleta e envia dados e, por fim, executa seu código.
 
 Para facilitar gatilhos HTTP, há também um host Web que foi desenvolvido para ficar na frente do host de script em cenários de produção. Isso ajuda a isolar o host de script a partir do tráfego de front-end gerenciado pelo host Web.
 
 ## Estrutura de pastas
 
-Um host de script aponta para uma pasta que contém um arquivo de configuração e uma ou mais funções.
-
-```
-parentFolder (for example, wwwroot in a function app)
- | - host.json
- | - mynodefunction
- | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
- | | - function.json
- | | - run.csx
-```
-
-O arquivo *host.json* contém uma configuração específica de host de script e fica na pasta pai. Para obter informações sobre as configurações que estão disponíveis, confira [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) no wiki do repositório WebJobs.Script.
-
-Cada função tem uma pasta que contém arquivos de código, *function.json* e outras dependências.
+[AZURE.INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 Ao configurar um projeto para implantar funções em um aplicativo de função no Serviço de Aplicativo do Azure, você poderá tratar essa estrutura de pastas como o código do site. Você pode usar ferramentas como implantação e integração contínuas ou scripts de implantação personalizados para implantar a instalação do pacote de tempo ou a transpilação do código.
 
@@ -136,9 +110,13 @@ Os aplicativos de função baseiam-se no Serviço de Aplicativo; portanto, todas
 
 2. Quando estiver conectado ao site do aplicativo de funções, copie um arquivo *host.json* atualizado para `/site/wwwroot` ou copie arquivos de função para `/site/wwwroot/<function_name>`.
 
+#### Para usar a implantação contínua
+
+Siga as instruções no tópico [Implantação contínua para funções do Azure](functions-continuous-deployment.md).
+
 ## Execução paralela
 
-Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo. Se um aplicativo de funções estiver usando o [Plano de Serviço Dinâmico](functions-scale.md#dynamic-service-plan), ele poderá escalar horizontalmente de modo automático para até dez instâncias simultâneas. Cada instância do aplicativo de funções, quer seja executada no Plano de Serviço Dinâmico, quer em um [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar chamadas simultâneas de função em paralelo usando vários threads. O número máximo de chamadas simultâneas de função em cada instância do aplicativo de função varia com base no tamanho da memória do aplicativo de função.
+Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo. Se um aplicativo de funções estiver usando o [Plano de Serviço Dinâmico](functions-scale.md#dynamic-service-plan), o aplicativo de funções poderá escalar horizontalmente automaticamente. Cada instância do aplicativo de funções, quer seja executada no Plano de Serviço Dinâmico, quer em um [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar chamadas simultâneas de função em paralelo usando vários threads. O número máximo de chamadas simultâneas de função em cada instância do aplicativo de função varia com base no tamanho da memória do aplicativo de função.
 
 ## Azure Functions Pulse  
 
@@ -173,4 +151,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

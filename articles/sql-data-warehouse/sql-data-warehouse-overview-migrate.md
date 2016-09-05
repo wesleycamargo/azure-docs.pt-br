@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Migrar sua solução para o SQL Data Warehouse
 
-O SQL Data Warehouse é um sistema de banco de dados distribuído que pode ser dimensionado para atender às suas necessidades. Para manter o desempenho e o dimensionamento, nem todos os recursos do SQL Server são implementados no SQL Data Warehouse. Os seguintes tópicos de migração abordam alguns dos principais fatores para a migração de sua solução para o SQL Data Warehouse. O design de data warehouses, de acordo com a escala, apresenta padrões de design diferentes. Portanto, as abordagens tradicionais nem sempre são as melhores. Provavelmente, você perceberá que é melhor adaptar sua solução a fim de garantir o proveito total da plataforma distribuída fornecida pelo SQL Data Warehouse.
+O SQL Data Warehouse é um sistema de banco de dados distribuído que pode ser dimensionado para atender às suas necessidades. Para manter o desempenho e a escala, nem todos os recursos do SQL Server são implementados no SQL Data Warehouse. Os seguintes tópicos de migração abordam alguns dos principais fatores para a migração de sua solução para o SQL Data Warehouse. O design de data warehouses, de acordo com a escala, apresenta padrões de design diferentes. Portanto, as abordagens tradicionais nem sempre são as melhores. Provavelmente, você perceberá que é melhor adaptar sua solução para garantir o aproveitamento total da plataforma distribuída fornecida pelo SQL Data Warehouse.
 
-Também é importante lembrar de que o SQL Data Warehouse é uma plataforma baseada no Microsoft Azure. Portanto, parte de sua migração também pode incluir a transferência de dados para a nuvem. A transferência de dados é um assunto por si só e deve ser considerado com cuidado; especialmente à medida que os volumes aumentam. Além disso, a transferência de dados não deve ser confundida com carregamento de dados, que é um tópico separado.
+Também é importante lembrar de que o SQL Data Warehouse é uma plataforma baseada no Microsoft Azure. Portanto, parte de sua migração também pode incluir a transferência de dados para a nuvem. A transferência de dados é um assunto por si só e deve ser considerado com cuidado; especialmente à medida que os volumes aumentam. A transferência de dados e o carregamento de dados são tópicos distintos.
 
 ## Guia de migração
 Antes de iniciar sua migração, leia estes artigos para entender algumas das diferenças entre os produtos e os conceitos fundamentais.
@@ -34,7 +34,7 @@ Para obter outras dicas de desenvolvimento, confira a [visão geral sobre desenv
 
 Você também pode exibir a [referência de Transact-SQL][] para saber mais.
 
-Por fim, confira a [visão geral sobre carregamento][], que analisa diversas opções de carregamento de dados e fornece orientações passo a passo.
+Por fim, confira a [visão geral sobre carregamento][]. Esse artigo aborda diversas opções de carregamento de dados e fornece orientação detalhada.
 
 <!--Image references-->
 
@@ -52,4 +52,4 @@ Por fim, confira a [visão geral sobre carregamento][], que analisa diversas op�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

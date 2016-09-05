@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
@@ -23,7 +23,7 @@ O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a p�
 
 Há três etapas para acessar dados de Proteção de Identidade por meio do Microsoft Graph:
 
-1. Adicione um aplicativo com um segredo do cliente. 
+1. Adicione um aplicativo com um segredo do cliente.
 
 2. Use esse segredo e algumas outras informações para se autenticar no Microsoft Graph, onde você recebe um token de autenticação.
 
@@ -39,7 +39,7 @@ Antes de começar, será necessário:
 ## Adicionar um aplicativo com um segredo do cliente
 
 
-1. [Entre](https://manage.windowsazure.com) no portal clássico do Azure como administrador. 
+1. [Entre](https://manage.windowsazure.com) no portal clássico do Azure como administrador.
 
 1. No painel de navegação à esquerda, clique em **Active Directory**.
 
@@ -91,7 +91,7 @@ Agora você pode configurar seu aplicativo.
 ## Conceda permissão ao aplicativo para usar a API
 
 
-1. Na página do seu aplicativo, no menu superior, clique em **Configurar**. 
+1. Na página do seu aplicativo, no menu superior, clique em **Configurar**.
 
 	![Criação de um aplicativo](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -151,13 +151,13 @@ Neste ponto, você deve ter:
 
 Para autenticar, envie uma solicitação post para `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
-- grant\_type: “**credenciais\_do\_cliente**”
+- grant\_type: “**client\_credentials**”
 
 - resource: “**https://graph.microsoft.com**”
 
-- client\_id: <your client ID>
+- client\_id: <sua ID de cliente>
 
-- client\_secret: <your key>
+- client\_secret: <sua chave>
 
 
 > [AZURE.NOTE] Você precisa fornecer valores para os parâmetros **client\_id** e **client\_secret**.
@@ -208,7 +208,7 @@ Veja um código de exemplo para autenticação e chamada da API usando o Powersh
 
 Parabéns, você acabou de criar sua primeira chamada para o Microsoft Graph! Agora você pode consultar os eventos de risco de identidade e usar os dados como quiser.
 
-Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](https://graph.microsoft.io/docs) e muito mais no [site do Microsoft Graph](https://graph.microsoft.io/). Além disso, marque a página [API do Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) que lista todas as APIs do Identity Protection disponíveis no gráfico. À medida que adicionarmos novas maneiras de trabalhar com o Identity Protection via API, você as verá nessa página.
+Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](https://graph.microsoft.io/docs) e muito mais no [site do Microsoft Graph](https://graph.microsoft.io/). Além disso, marque a página [API do Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) que lista todas as APIs do Identity Protection disponíveis no Graph. À medida que adicionarmos novas maneiras de trabalhar com o Identity Protection via API, você as verá nessa página.
 
 
 ## Recursos adicionais
@@ -223,4 +223,4 @@ Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do
 
 - [Raiz do Serviço Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

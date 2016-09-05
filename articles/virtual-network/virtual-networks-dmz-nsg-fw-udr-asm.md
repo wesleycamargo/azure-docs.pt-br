@@ -76,7 +76,7 @@ Se o destino não tiver se aplicado a qualquer um dos prefixos Null ou dos prefi
 
 Se houver dois prefixos idênticos na tabela de rotas, a ordem a seguir será a ordem de preferência baseada no atributo de “origem” das rotas:
 
-1.	<blank> = uma Rota Definida pelo Usuário adicionada manualmente à tabela
+1.	"VirtualAppliance" = uma Rota Definida pelo Usuário adicionada manualmente à tabela
 2.	"VPNGateway" = uma rota dinâmica (BGP quando usada com redes híbridas) adicionadas por um protocolo de rede dinâmico, essas rotas podem ser alteradas ao longo do tempo conforme o protocolo dinâmico reflete automaticamente as alterações na rede emparelhada
 3.	"Padrão" = as Rotas do Sistema, a Rede Virtual local e as entradas estáticas, como mostrado na tabela de rotas acima.
 
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

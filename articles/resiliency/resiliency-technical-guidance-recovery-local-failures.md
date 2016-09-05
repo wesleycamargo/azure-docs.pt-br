@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de falhas locais no Azure
@@ -160,23 +160,23 @@ Os aplicativos criados no Azure se beneficiam dos recursos de plataforma para se
 
 ###Barramento de Serviço
 
-Para atenuar uma interrupção temporária do Barramento de Serviço do Azure, considere a criação de uma fila durável do lado do cliente. Isso usa temporariamente um mecanismo de armazenamento local alternativo para armazenar mensagens que não podem ser adicionadas à fila de Barramento de Serviço. O aplicativo pode decidir como lidar com as mensagens armazenadas temporariamente depois que o serviço for restaurado. Para saber mais, confira [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](../service-bus/service-bus-performance-improvements.md) e [Barramento de Serviço (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+Para atenuar uma interrupção temporária do Barramento de Serviço do Azure, considere a criação de uma fila durável do lado do cliente. Isso usa temporariamente um mecanismo de armazenamento local alternativo para armazenar mensagens que não podem ser adicionadas à fila de Barramento de Serviço. O aplicativo pode decidir como lidar com as mensagens armazenadas temporariamente depois que o serviço for restaurado. Para saber mais, confira [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](../service-bus/service-bus-performance-improvements.md) e [Barramento de Serviço (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Serviços Móveis
 
 Há duas considerações de disponibilidade para os Serviços Móveis do Azure. Em primeiro lugar, faça backup regularmente do banco de dados SQL que está associado ao seu serviço móvel. Em segundo, faça backup dos scripts do serviço móvel. Para saber mais, confira [Recuperar o serviço móvel em caso de desastre](../mobile-services/mobile-services-disaster-recovery.md).
 
-Se os Serviços Móveis apresentarem uma interrupção temporária, talvez você precise usar temporariamente um datacenter alternativo do Azure. Para saber mais, confira [Serviços móveis (recuperação de desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+Se os Serviços Móveis apresentarem uma interrupção temporária, talvez você precise usar temporariamente um datacenter alternativo do Azure. Para saber mais, confira [Serviços móveis (recuperação de desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###HDInsight
 
-Os dados associados ao HDInsight do Azure são armazenados por padrão no armazenamento de Blobs do Azure. O Armazenamento do Azure especifica as propriedades de durabilidade e alta disponibilidade para o armazenamento de Blobs. O processamento de vários nós associado aos trabalhos do Hadoop MapReduce ocorre em um HDFS (Sistema de Arquivos Distribuídos Hadoop) transitório que é provisionado quando necessário pelo HDInsight. Os resultados de um trabalho MapReduce também são armazenados por padrão no armazenamento de Blobs do Azure para que os dados processados sejam duráveis e permaneçam altamente disponíveis depois que o cluster Hadoop for desprovisionado. Para saber mais, confira [HDInsight (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+Os dados associados ao HDInsight do Azure são armazenados por padrão no armazenamento de Blobs do Azure. O Armazenamento do Azure especifica as propriedades de durabilidade e alta disponibilidade para o armazenamento de Blobs. O processamento de vários nós associado aos trabalhos do Hadoop MapReduce ocorre em um HDFS (Sistema de Arquivos Distribuídos Hadoop) transitório que é provisionado quando necessário pelo HDInsight. Os resultados de um trabalho MapReduce também são armazenados por padrão no armazenamento de Blobs do Azure para que os dados processados sejam duráveis e permaneçam altamente disponíveis depois que o cluster Hadoop for desprovisionado. Para saber mais, confira [HDInsight (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ##Listas de verificação para falhas locais
 
 ###Serviços de Nuvem
 
-  1. Examinar a seção [Serviços de Nuvem](#cloud-services) deste documento.
+  1. Examinar a seção Serviços de Nuvem deste documento.
   2. Configure pelo menos duas instâncias para cada função.
   3. Mantenha o estado no armazenamento durável, não em instâncias de função.
   4. Trate corretamente o evento StatusCheck.
@@ -187,40 +187,40 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 ###Máquinas Virtuais
 
-  1. Examinar a seção [Máquinas Virtuais](#virtual-machines) deste documento.
+  1. Confira a seção Máquinas Virtuais deste documento.
   2. Não use a unidade D para armazenamento persistente.
   3. Agrupe computadores em uma camada de serviço em um conjunto de disponibilidade.
   4. Configure o balanceamento de carga e investigações opcionais.
 
 ###Armazenamento
 
-  1. Examinar a seção [Armazenamento](#storage) deste documento.
+  1. Examine a seção Armazenamento deste documento.
   2. Use várias contas de armazenamento quando dados ou largura de banda excederem as cotas.
 
 ###Banco de Dados SQL
 
-  1. Examinar a seção [Banco de Dados SQL](#sql-database) deste documento.
+  1. Examinar a seção Banco de Dados SQL deste documento.
   2. Implemente uma política de repetição para tratar de erros transitórios.
   3. Use particionamento/fragmentação como uma estratégia de escalonamento horizontal.
 
 ###SQL Server em máquinas virtuais
 
-  1. Examinar a seção [SQL Server em máquinas virtuais](#sql-server-on-virtual-machines) deste documento.
+  1. Examinar a seção SQL Server em máquinas virtuais deste documento.
   2. Siga as recomendações anteriores para máquinas virtuais.
   3. Use recursos de alta disponibilidade do SQL Server, como o AlwaysOn.
 
 ###Barramento de Serviço
 
-  1. Examinar a seção [Barramento de Serviço](#service-bus) deste documento.
+  1. Examinar a seção Barramento de Serviço deste documento.
   2. Considere a criação de uma fila durável do lado do cliente como um backup.
 
 ###HDInsight
 
-  1. Examinar a seção [HDInsight](#hdinsight) deste documento.
+  1. Examinar a seção HDInsight deste documento.
   2. Nenhuma etapa adicional de disponibilidade é necessária para falhas locais.
 
 ##Próximas etapas
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

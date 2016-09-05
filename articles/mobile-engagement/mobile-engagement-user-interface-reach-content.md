@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como gerenciar o conteúdo exclusivo dos diferentes tipos de campanhas de notificação por push
@@ -34,8 +34,8 @@ Você pode usar a seção de conteúdo de uma nova campanha de alcance para modi
 -    Anúncio de texto: é uma notificação que leva o usuário a dar uma olhada em uma exibição de texto.
 -    Anúncio pela: é uma notificação que leva o usuário a dar uma olhada em uma exibição da Web.
 
-### Consulte também
-- [Alcance - Instruções - Anúncios][Link 3] 
+### Confira também
+- [Alcance - Instruções - Anúncios][Link 3]
 
 ### Sobre os anúncios de exibição na Web:
 As ocorrências do padrão "{deviceid}" no código HTML ou no código JavaScript que você fornecer aqui serão substituídas automaticamente pelo identificador do dispositivo que estiver exibindo o anúncio. Essa é uma maneira fácil de recuperar identificadores de dispositivos do Mobile Engagement do Azure em um serviço Web externo hospedado no seu back office. Se você quiser criar uma exibição da Web em tela inteira (sem os botões Ação e Sair padrão que fornecemos), poderá usar as seguintes funções do código de JavaScript da exibição da Web do anúncio:
@@ -50,67 +50,67 @@ Qualquer URL que possa ser interpretada pelo sistema operacional de destino do d
 
 - **Ações do Android + iOS**
     - Abrir uma página Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain\]
     - Exemplo:http://www.azure.com
     - Enviar um email
-    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
-    - Exemplo: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message]
+    - Exemplo:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Enviar um SMS
-    - sms: [phone-number] 
+    - sms: [phone-number]
     - Exemplo:sms:2125551212
     - Discar um número de telefone
-    - tel: [phone-number] 
+    - tel: [phone-number]
     - Exemplo:tel:2125551212
 - **Somente ações do Android**
     - Baixar um aplicativo da Play Store
-    - Pacote market://details?id=[app] 
+    - Pacote market://details?id=[app]
     - Exemplo:market://details?id=com.microsoft.office.word
     - Iniciar uma pesquisa localizada geograficamente
-    - geo:0,0?q=[search query] 
+    - geo:0,0?q=[search query]
     - Exemplo:geo:0,0?q=starbucks,paris
 - **Somente ações do iOS**
-    - Transferir um aplicativo na App Store
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+    - Baixar um aplicativo da App Store
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
     - Exemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Ações do Windows
     - Abrir uma página Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain\]
     - Exemplo:http://www.azure.com
     - Enviar um email
-    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
-    - Exemplo: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message]
+    - Exemplo:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Enviar um SMS (necessário o aplicativo da Skype Store)
-    - sms: [phone-number] 
+    - sms: [phone-number]
     - Exemplo:sms:2125551212
     - Discar um número de telefone (necessário o aplicativo da Skype Store)
-    - tel: [phone-number] 
+    - tel: [phone-number]
     - Exemplo:tel:2125551212
     - Baixar um aplicativo da Play Store
-    - ms-windows-store:PDP?PFN=[app package ID] 
+    - ms-windows-store:PDP?PFN=[app package ID]
     - Exemplo: ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Iniciar uma pesquisa do Bing Mapas
-    - bingmaps:?q=[search query] 
+    - bingmaps:?q=[search query]
     - Exemplo:bingmaps:? q=starbucks,paris
     - Usar um esquema personalizado
-    - [custom scheme]://[custom scheme params] 
+    - [custom scheme]://[custom scheme params]
     - Exemplo:myCustomProtocol://myCustomParams
     - Usar um pacote de dados (necessário o aplicativo da Store para leitura de extensão)
-    - [folder][data].[extension] 
+    - [folder][data].[extension]
     - Example:myfolderdata.txt
  
 ### Criar uma URL de rastreamento:
--    Consulte a seção "Configurações" da <UI Documentation> para obter instruções sobre a criação de uma URL de rastreamento que permitirá que os usuários baixem um de seus outros aplicativos.
+-    Consulte a seção "Configurações" da <Documentação de UI> para obter instruções sobre a criação de uma URL de rastreamento que permitirá que os usuários baixem um de seus outros aplicativos.
  
 ### Definir os textos do anúncio
 Preencha o título, o conteúdo e os textos de botão do seu anúncio. Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo pode ser baseado nos comentários sobre essa campanha, tenha sido ela apenas enviada por push, respondida, acionada ou encerrada.
 
-### Consulte também
+### Confira também
 - [Documentação da Interface do Usuário - Alcance - Novo Critério de Envio por Push][Link 28]
 
 ## Conteúdo das pesquisas
 ![Reach-Content2][31] Preencha o título, a descrição e os textos de botão do seu anúncio. Em seguida, adicione as perguntas e opções de respostas para as suas perguntas. Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo direcionado pode ser baseado no fato desta campanha ter sido apenas enviada por push, respondida, acionada ou encerrada. O público-alvo também pode ser baseado nos comentários de resposta de pesquisa, onde a pergunta e resposta de opção são usadas como critérios.
 
-### Consulte também
+### Confira também
 - [Documentação da interface do usuário - Alcance - Novo Critério de Envio por Push][Link 28]
  
 ## Conteúdo de envio de dados por push
@@ -126,7 +126,7 @@ Preencha o título, o conteúdo e os textos de botão do seu anúncio. Você pod
 - Se você optou por enviar dados binários ou base64, use o botão "carregar o arquivo" para carregar o seu arquivo.
 - Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo direcionado pode ser baseado no fato desta campanha ter sido apenas enviada por push, respondida, acionada ou encerrada.
 
-### Consulte também
+### Confira também
 - [Documentação da interface do usuário - Alcance - Novo Critério de Envio por Push][Link 28]
 
 ## Conteúdo de blocos (somente para o Windows Phone)
@@ -135,7 +135,7 @@ Preencha o título, o conteúdo e os textos de botão do seu anúncio. Você pod
 ### Definir o conteúdo do seu bloco
 A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em dispositivos Windows Phone. Um envio de lado a lado é a versão do serviço de Notificação por Push da Microsoft (MPNS) um envio por push nativo para o Windows Phone. O tipo de envio por push do bloco é o único tipo de envio que não tem uma resposta e, portanto, o público-alvo de futuras campanhas não pode ser criado com os resultados de uma campanha de envio por push do bloco.
 
-### Consulte também
+### Confira também
 - [Documentação da API - API do Reach - Envio por Push Nativo][Link 4]
 
 <!--Image references-->
@@ -230,4 +230,4 @@ A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em disposit
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

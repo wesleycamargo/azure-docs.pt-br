@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-	manager="jeffreyg"
+	manager="timlt"
 	editor="monicar"
 	tags="azure-service-management" />
 <tags
@@ -125,7 +125,7 @@ Para criar a rede virtual:
 | **Assinatura** | Especifique a assinatura que você pretende usar. Se você tiver apenas uma assinatura, esta opção poderá ficar em branco. |
 | **Localidade** | Especifique a localização do Azure onde você implantará seu grupo de disponibilidade |
 
-    Observe que o espaço de endereço e o intervalo de endereços da sub-rede podem ser diferentes da tabela. Dependendo da sua assinatura, o Azure especificará automaticamente um espaço de endereço disponível e o intervalo de endereços de sub-rede correspondente. Se não houver espaço de endereço suficiente disponível, use uma assinatura diferente.
+    Observe que o espaço de endereço e o intervalo de endereços da sub-rede podem ser diferentes da tabela. Dependendo da sua assinatura, o Azure especificará automaticamente um espaço de endereço disponível e o intervalo de endereços de sub-rede correspondente. Se não houver espaço de endereço disponível suficiente, use uma assinatura diferente.
 
 1. Clique em **Criar**
 
@@ -865,4 +865,4 @@ Para testar a conexão:
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

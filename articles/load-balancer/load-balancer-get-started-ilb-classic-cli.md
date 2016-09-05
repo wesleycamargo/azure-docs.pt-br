@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Criar um balanceador de carga interno usando a CLI do Azure no modelo de implantação clássico | Microsoft Azure"
    description="Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando a CLI do Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga interno (clássico) usando a CLI do Azure
 
@@ -53,7 +53,7 @@ Este guia mostra como criar um balanceador de carga interno com base no cenário
 		info:    New mode is asm
 
 
-## Criar ponto de extremidade e conjunto de balanceadores de carga 
+## Criar ponto de extremidade e conjunto de balanceadores de carga
 
 O cenário pressupõe a existência das máquinas virtuais “DB1” e “DB2” em um serviço de nuvem chamado “mytestcloud”. As duas máquinas virtuais estão usando uma rede virtual chamada minha "testvnet" com a sub-rede "subnet-1".
 
@@ -62,7 +62,7 @@ Este guia criará um conjunto de balanceadores de carga internos usando a porta 
 Esse é um cenário comum em que você tem máquinas virtuais do SQL no back-end usando um balanceador de carga interno para garantir que os servidores de banco de dados não sejam expostos diretamente usando um endereço IP público.
 
 
-### Etapa 1 
+### Etapa 1
 
 Crie um conjunto do balanceador de carga interno usando o `azure network service internal-load-balancer add`.
 
@@ -73,7 +73,7 @@ Parâmetros usados:
 **-r** - nome do serviço de nuvem<BR> **-n** - nome do balanceador de carga interno<BR> **-t** - nome da sub-rede (a mesma sub-rede pelas máquinas virtuais que você adicionará ao balanceador de carga interno)<BR> **-a** - (opcional) adicionar um endereço IP privado estático<BR>
 
 Confira `azure service internal-load-balancer --help` para obter mais informações.
- 
+
 É possível verificar as propriedades do balanceador de carga interno usando o comando `azure service internal-load-balancer list` *nome do serviço de nuvem*.
 
 Apresentamos a seguir um exemplo da saída:
@@ -87,7 +87,7 @@ Apresentamos a seguir um exemplo da saída:
 	info:    service internal-load-balancer list command OK
 
 
-## Etapa 2 
+## Etapa 2
 
 Você configura o conjunto de balanceadores de carga internos quando adicionar o primeiro ponto de extremidade. Você associará o ponto de extremidade, a máquina virtual e a porta de investigação ao conjunto de balanceador de carga interno nesta etapa.
 
@@ -98,11 +98,11 @@ Parâmetros usados:
 **-k** - porta da máquina virtual local<BR> **-t** - porta de investigação<BR> **-r** - protocolo de investigação<BR> **-e** - intervalo de investigação em segundos<BR> **-f** - intervalo de tempo limite em segundos <BR> **-i** - nome do balanceador de carga interno <BR>
 
 
-## Etapa 3 
+## Etapa 3
 
 Verifique a configuração do balanceador de carga usando o *nome da máquina virtual* do `azure vm show`
 
-	azure vm show DB1 
+	azure vm show DB1
 
 A saída será:
 
@@ -132,7 +132,7 @@ A saída será:
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@ A saída será:
 
 Você pode criar um ponto de extremidade da área de trabalho remota para encaminhar o tráfego de rede de uma porta pública para uma porta local, para uma máquina virtual específica, usando `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Remover máquina virtual do balanceador de carga
@@ -179,4 +179,4 @@ Confira `azure vm endpoint --help` para obter mais informações.
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

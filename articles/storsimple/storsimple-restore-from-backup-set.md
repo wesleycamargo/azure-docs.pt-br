@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/23/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Restaurar um volume do StorSimple de um conjunto de backup
@@ -39,7 +39,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 - **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
 - **Tamanho** – O tamanho real do conjunto de backup.
-- **Criado em** – O intervalo de data e hora quando os backups foram criados. 
+- **Criado em** – O intervalo de data e hora quando os backups foram criados.
 - **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
 - **Iniciada por** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda, ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup interativo).
 
@@ -89,4 +89,4 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

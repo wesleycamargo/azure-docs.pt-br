@@ -3,7 +3,7 @@
    description="Este artigo o ajudará a entender o que é o Gerenciador de Tráfego e se é a opção de roteamento do tráfego correta para seu aplicativo"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/09/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # O que é o Gerenciador de Tráfego?
 
@@ -33,7 +33,7 @@ O Gerenciador de Tráfego pode ajudá-lo a:
 - **Melhorar a capacidade de resposta dos aplicativos de alto desempenho** – o Azure permite executar serviços de nuvem ou sites em data centers espalhados pelo mundo inteiro. O Gerenciador de Tráfego pode melhorar a capacidade de resposta de seus aplicativos direcionando os usuários finais para o ponto de extremidade com a menor latência de rede do cliente.
 - **Atualizar e realizar a manutenção do serviço sem inatividade** – você pode executar diretamente a atualização e outras operações de manutenção planejadas em seus aplicativos sem inatividade para os usuários finais usando o Gerenciador de Tráfego para direcionar o tráfego para os pontos de extremidade alternativos quando a manutenção está em andamento.
 - **Combinar aplicativos locais e baseados na nuvem** – o Gerenciador de Tráfego suporta os pontos de extremidade externos e não do Azure habilitando seu uso com implantações locais e de nuvem híbridas, incluindo os cenários de "intermitência para a nuvem", "migrar para a nuvem" e "failover para a nuvem".
-- **Distribuir o tráfego para implantações grandes e complexas** – os métodos de roteamento de tráfego podem ser combinados usando os [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md) para criar configurações do roteamento de tráfego sofisticadas e flexíveis para atender às necessidades de implantações maiores e mais complexas. 
+- **Distribuir o tráfego para implantações grandes e complexas** – os métodos de roteamento de tráfego podem ser combinados usando os [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md) para criar configurações do roteamento de tráfego sofisticadas e flexíveis para atender às necessidades de implantações maiores e mais complexas.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
@@ -48,4 +48,4 @@ O Gerenciador de Tráfego pode ajudá-lo a:
 - [Criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-profiles.md).
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

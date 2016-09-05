@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="iainfou"/>
 
 # Como desanexar um disco de uma máquina virtual Linux
@@ -30,4 +30,4 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
 - [Usando a CLI do Azure com o modelo de implantação Clássico](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como gerenciar as configurações globais do seu aplicativo
@@ -21,7 +21,7 @@
 As opções do menu **Configurações** disponíveis para um aplicativo variam, dependendo da plataforma do aplicativo e das permissões que você recebeu para o aplicativo. As configurações incluem: Detalhes, Projetos, Push Nativo, Velocidade do Push, Marca (informações do aplicativo) e Pressão Comercial. A opção de menu Marca (informações do aplicativo) da seção Configurações pode ser gerenciada pelo seu aplicativo (usando o SDK) ou por seu back-end (usando a API do Dispositivo).
 
 
->[AZURE.NOTE]Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+>[AZURE.NOTE] Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
 
 ## Detalhes
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte:
  
 ### Dispositivo Amazon Messaging para Android (ADM)
 
-Para habilitar o envio nativo usando o ADM, é preciso fornecer a <OAuth credentials> do Amazon que consiste em uma ID de cliente e o segredo do cliente (requer integração com o SDK para Android versão 1.0+).
+Para habilitar o push nativo usando o ADM, é preciso fornecer as <credenciais do OAuth> do Amazon que consiste em uma ID de cliente e o segredo do cliente (requer integração com o SDK para Android versão 2.1.0+).
 
 Para obter mais informações, consulte:
 
@@ -99,7 +99,7 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 ![settings12][57]
 
 
-## Consulte também
+## Confira também
 
 - [Conceitos][Link 6]
 - [Serviço do Guia de Solução de Problemas][Link 24]
@@ -202,4 +202,4 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0824_2016-->

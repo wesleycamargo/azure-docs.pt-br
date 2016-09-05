@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Autenticação e Autorização nos Aplicativos Móveis do Azure
@@ -56,7 +56,7 @@ Depois que tudo estiver configurado no back-end, você pode modificar seu client
 
 ### Como funciona a autenticação sem um SDK do provedor
 
-Se não desejar configurar um SDK do provedor, você poderá permitir que os Aplicativos Móveis realizem o logon para você. O SDK do cliente dos Aplicativos Móveis abrirá uma exibição da Web para o provedor de sua escolha e concluirá a conexão. Ocasionalmente, em blogs e fóruns você verá isso designado como “fluxo do servidor” ou “fluxo direcionado pelo servidor”, já que o servidor está gerenciando o logon, e o SDK do cliente nunca recebe o token do provedor.
+Se não desejar configurar um SDK do provedor, você poderá permitir que os Aplicativos Móveis realizem o logon para você. O SDK do cliente dos Aplicativos Móveis abrirá uma exibição da Web para o provedor de sua escolha e concluirá a conexão. Ocasionalmente, em blogs e fóruns, você verá isso sendo chamado de “fluxo do servidor” ou “fluxo direcionado pelo servidor”, já que o servidor gerencia o logon e o SDK do cliente nunca recebe o token do provedor.
 
 O código necessário para iniciar esse fluxo é abordado no tutorial de autenticação de cada plataforma. No final do fluxo, o SDK do cliente tem um token do Serviço de Aplicativo, e o token é anexado automaticamente a todas as solicitações para o back-end.
 
@@ -104,4 +104,4 @@ Se você deseja usar um sistema de identidade diferente daqueles fornecidos aqui
 [Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar seu aplicativo para usar o logon do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -91,13 +91,13 @@ As migrações automáticas ocorrem das 18h às 6h (hora local por região) dura
 | Leste do Japão | 10 de agosto de 2016 | 24 de agosto de 2016 |
 | Oeste do Japão | Ainda não foi determinado | Ainda não foi determinado |
 | Centro-Norte dos EUA | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da Europa | 10 de agosto de 2016 | 24 de agosto de 2016 |
+| Norte da Europa | 10 de agosto de 2016 | 31 de agosto de 2016 |
 | Centro-Sul dos Estados Unidos | 23 de junho de 2016 | 2 de julho de 2016 |
 | Sudeste Asiático | 23 de junho de 2016 | 1º de julho de 2016 |
 | Europa Ocidental | 23 de junho de 2016 | 8 de julho de 2016 |
-| Centro-Oeste dos EUA | 14 de agosto de 2016 | 28 de agosto de 2016 |
+| Centro-Oeste dos EUA | 14 de agosto de 2016 | 31 de agosto de 2016 |
 | Oeste dos EUA | 23 de junho de 2016 | 7 de julho de 2016 |
-| Oeste dos EUA 2 | 14 de agosto de 2016 | 28 de agosto de 2016 |
+| Oeste dos EUA 2 | 14 de agosto de 2016 | 31 de agosto de 2016 |
 
 ## Automigração para o Armazenamento Premium
 Se desejar controlar quando o tempo de inatividade deverá ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
@@ -147,42 +147,19 @@ Com a alteração para o Armazenamento Premium, também aumentamos o número de 
 -- Etapa 1: Criar Tabela para controlar a Recompilação do Índice
 -- Executar como usuário no mediumrc ou superior
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- Etapa 2: Executar Recompilações do Índice. Se o script falhar, é possível executar novamente para reiniciar onde o último parou
 -- Executar como usuário no mediumrc ou superior
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -- Etapa 3: Limpar Tabela Criada na Etapa 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a possível causa.
 
@@ -208,4 +185,4 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

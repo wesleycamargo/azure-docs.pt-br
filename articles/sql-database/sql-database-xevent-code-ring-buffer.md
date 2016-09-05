@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,15 +32,15 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 1. Cria uma tabela com dados para demonstração.
 
 2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql\_statement\_starting**.
- - O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'**.
- - Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring\_buffer**.
+	- O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'**.
+	- Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring\_buffer**.
 
 3. Inicia a sessão de evento.
 
 4. Emite algumas instruções SQL UPDATE simples.
 
 5. Emite uma instrução SQL SELECT para recuperar a saída de evento do Buffer de Anéis.
- - **sys.dm\_xe\_database\_session\_targets** e outras exibições de gerenciamento dinâmico (DMVs) são ingressadas.
+	- **sys.dm\_xe\_database\_session\_targets** e outras exibições de gerenciamento dinâmico (DMVs) são ingressadas.
 
 6. Interrompe a sessão de evento.
 
@@ -56,13 +56,12 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 
 - Qualquer banco de dados no qual você possa criar uma tabela.
- - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
+ - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em alguns minutos.
 
 
-- SQL Server Management Studio (ssms.exe), sua Visualização de agosto de 2015 ou uma versão posterior. Você pode baixar o ssms.exe mais recente de:
- - [Um link no tópico.](http://msdn.microsoft.com/library/mt238290.aspx)
+- O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. Você pode baixar o ssms.exe mais recente de:
+ - Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - A Microsoft recomenda que você atualize seu ssms.exe periodicamente, talvez mensalmente.
 
 
 ## Exemplo de código
@@ -239,7 +238,7 @@ Nós usamos o ssms.exe para executar o exemplo de código.
 
 Para exibir os resultados, clicamos na célula no título de coluna **target\_data\_XML**.
 
-Em seguida, no painel de resultados, clicamos na célula no título de coluna **target\_data\_XML**. Isso criou outra guia de arquivo no ssms.exe em que o conteúdo da célula de resultado foi exibido, como XML.
+Em seguida, no painel de resultados, clicamos na célula no título de coluna **target\_data\_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
 
 
 A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **<event>**.
@@ -386,4 +385,4 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

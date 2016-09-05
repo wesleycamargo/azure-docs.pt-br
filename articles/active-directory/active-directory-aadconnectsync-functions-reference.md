@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -21,7 +21,7 @@
 
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização. A sintaxe das funções é expressa usando o seguinte formato: `<output type> FunctionName(<input type> <position name>, ..)`
 
-Se uma função está sobrecarregada e aceita diversas sintaxes, todas as sintaxes válidas são listadas. As funções são fortemente tipadas e verificam que o tipo passado corresponde ao tipo documentado. Se o tipo não corresponde, um erro é gerado.
+Se uma função está sobrecarregada e aceita diversas sintaxes, todas as sintaxes válidas são listadas. As funções são fortemente tipadas e verificam que o tipo passado corresponde ao tipo documentado. Se o tipo não corresponder, um erro será gerado.
 
 Os tipos são expressos com a seguinte sintaxe:
 
@@ -30,14 +30,16 @@ Os tipos são expressos com a seguinte sintaxe:
 - **dt** - data/hora UTC
 - **enum** - enumeração das constantes conhecidas
 - **exp** - expressão, que espera-se que seja avaliada como um valor Booliano
-- **mvbin** - binário de vários valores
-- **mvstr** - Cadeia de Caracteres com Vários Valores
-- **mvstr** - Referência de Vários Valores
+- **mvbin** - Binário de Valores Múltiplos
+- **mvstr** - Cadeia de Caracteres de Valores Múltiplos
+- **mvstr** - Referência de Valores Múltiplos
 - **num** - numérico
-- **ref** - referência de valor único
-- **str** - cadeia de caracteres de valor único
+- **ref** – Referência
+- **str** – Cadeia de Caracteres
 - **var** - uma variante de (quase) qualquer outro tipo
 - **void** - não retorna um valor
+
+As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos atributos de valores múltiplos. As funções com **bin**, **str** e **ref** funcionam nos atributos de valor único e valores múltiplos.
 
 ## Referência de funções
 
@@ -77,9 +79,9 @@ Lista de funções | | | | |
 
 **Sintaxe:** `num BitAnd(num value1, num value2)`
 
-- value1, value2: valores numéricos que devem ser agrupados com AND
+- value1, value2: os valores numéricos que devem ser agrupados com AND
 
-**Comentários:** esta função converte ambos os parâmetros para a representação binária e define um bit como:
+**Comentários:** esta função converte ambos os parâmetros na representação binária e define um bit para:
 
 - 0 - se um ou ambos os bits correspondentes na *máscara* e no *sinalizador* são 0
 - 1 - se ambos os bits correspondentes são 1.
@@ -97,7 +99,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 
 - value1, value2: valores numéricos que devem ser agrupados com OR
 
-**Comentários:** esta função converte ambos os parâmetros para a representação binária e define um bit como 1 se um ou ambos os bits correspondentes na máscara e sinalizador forem 1; ou então define o bit como 0, se ambos os bits correspondentes forem 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
+**Comentários:** esta função converte ambos os parâmetros na representação binária e define um bit para 1 se um ou ambos os bits correspondentes na máscara e no sinalizador são 1; e para 0 se ambos os bits correspondentes são 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
 
 ----------
 ### CBool
@@ -115,7 +117,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 ----------
 ### CDate
 
-**Descrição:** a função CDate retorna, de uma cadeia de caracteres, um atributo DateTime UTC. DateTime não é um tipo de atributo nativo no Sync, mas é usado por algumas funções.
+**Descrição:** a função CDate retorna um DateTime UTC a partir de uma cadeia de caracteres. DateTime não é um tipo de atributo nativo no Sync, mas é usado por algumas funções.
 
 **Sintaxe:** `dt CDate(str value)`
 
@@ -125,12 +127,12 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 **Exemplo:** `CDate([employeeStartTime])` retorna um DateTime com base na hora de início do funcionário
 
-`CDate("2013-01-10 4:00 PM -8")` Retorna um DateTime que representa "2013-01-11 12:00 AM"
+`CDate("2013-01-10 4:00 PM -8")` Retorna um DateTime que representa "11/01/2013 12:00"
 
 ----------
 ### CGuid
 
-**Descrição:** a função CGuid converte a representação de cadeia de caracteres de um GUID em sua representação binária.
+**Descrição:** a função CGuid converte a representação da cadeia de caracteres de um GUID em sua representação binária.
 
 **Sintaxe:** `bin CGuid(str GUID)`
 
@@ -139,31 +141,31 @@ Retorna True se ambos os atributos têm o mesmo valor.
 ----------
 ### Contém:
 
-**Descrição:** a função Contains localiza uma cadeia de caracteres dentro de um atributo com vários valores
+**Descrição:** a função Contains localiza uma cadeia de caracteres dentro de um atributo de valores múltiplos
 
-**Sintaxe:** `num Contains (mvstring attribute, str search)` - diferencia maiúsculas de minúsculas `num Contains (mvstring attribute, str search, enum Casetype)``num Contains (mvref attribute, str search)` - diferencia maiúsculas de minúsculas
+**Sintaxe:**`num Contains (mvstring attribute, str search)` `num Contains (mvstring attribute, str search, enum Casetype)` - diferencia letras maiúsculas de minúsculas`num Contains (mvref attribute, str search)` - diferencia letras maiúsculas de minúsculas
 
-- attribute: o atributo com vários valores pelo qual pesquisar.<br>
-- search: cadeia de caracteres a localizar no atributo.<br>
-- Casetype: CaseInsensitive ou CaseSensitive.<br>
+- attribute: o atributo de valores múltiplos para a pesquisa.
+- search: a cadeia de caracteres a localizar no atributo.
+- Casetype: CaseInsensitive ou CaseSensitive.
 
 Retorna o índice no atributo com vários valores em que a cadeia de caracteres foi encontrada. Se a cadeia de caracteres não for encontrada, 0 será retornado.
 
-**Comentários:** para atributos com vários valores de cadeia de caracteres, a pesquisa encontrará subcadeias de caracteres nos valores. Para atributos de referência, a cadeia de caracteres pesquisada deve corresponder exatamente ao valor para que sejam considerados como uma correspondência.
+**Comentários:** para os atributos da cadeia de caracteres de valores múltiplos, a pesquisa encontra as subcadeias nos valores. Para atributos de referência, a cadeia de caracteres pesquisada deve corresponder exatamente ao valor para que sejam considerados como uma correspondência.
 
-**Exemplo:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` se o atributo proxyAddresses tem um endereço de email principal (indicado por letras maiúsculas "SMTP:"), o atributo proxyAddress é retornado; caso contrário, um erro é retornado.
+**Exemplo:** `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))` se o atributo proxyAddresses tiver um endereço de email principal (indicado pelas letras maiúsculas "SMTP:"), o atributo proxyAddress será retornado; caso contrário, um erro será retornado.
 
 ----------
 ### ConvertFromBase64
 
 **Descrição:** a função ConvertFromBase64 converte o valor codificado base64 especificado em uma cadeia de caracteres regular.
 
-**Sintaxe:** `str ConvertFromBase64(str source)`<br> - adota Unicode para a codificação de `str ConvertFromBase64(str source, enum Encoding)`
+**Sintaxe:** `str ConvertFromBase64(str source)` - adota Unicode para a codificação `str ConvertFromBase64(str source, enum Encoding)`
 
 - source: cadeia de caracteres codificada em Base64
 - Codificação: Unicode, ASCII, UTF8
 
-**Exemplo:** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")``ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
+**Exemplo:** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
 Ambos os exemplos retornam "*Hello world!*"
 
@@ -196,21 +198,21 @@ Ambos os exemplos retornam "*Hello world!*"
 
 **Sintaxe:** `str ConvertToUTF8Hex(str source)`
 
-**Comentários:** o formato de saída dessa função é usado pelo Azure Active Directory como formato do atributo DN.
+**Comentários:** o formato de saída dessa função é usado pelo Azure Active Directory como o formato do atributo DN.
 
 **Exemplo:** `ConvertToUTF8Hex("Hello world!")` retorna 48656C6C6F20776F726C6421
 
 ----------
 ### Contagem
 
-**Descrição:** a função Count retorna o número de elementos em um atributo com valores múltiplos
+**Descrição:** a função Count retorna o número de elementos em um atributo de valores múltiplos
 
 **Sintaxe:** `num Count(mvstr attribute)`
 
 ----------
 ### CNum
 
-**Descrição:** a função CNum usa uma cadeia de caracteres e retorna um tipo de dados numérico.
+**Descrição:** a função CNum obtém uma cadeia de caracteres e retorna um tipo de dados numérico.
 
 **Sintaxe:** `num CNum(str value)`
 
@@ -226,18 +228,18 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### CStr
 
-**Descrição:** a função CStr o converte em um tipo de dados String.
+**Descrição:** a função CStr converte em um tipo de dados da cadeia de caracteres.
 
-**Sintaxe:** `str CStr(num value)``str CStr(ref value)``str CStr(bool value)`
+**Sintaxe:** `str CStr(num value)` `str CStr(ref value)` `str CStr(bool value)`
 
 - valor: pode ser um valor numérico, o atributo de referência ou booliano.
 
-**Exemplo:** `CStr([dn])` poderia retornar “cn=Pedro,dc=contoso,dc=com”
+**Exemplo:** `CStr([dn])` poderia retornar "cn=Joe,dc=contoso,dc=com"
 
 ----------
 ### DateAdd
 
-**Descrição:** retorna um parâmetro Date, contendo uma data à qual um intervalo de tempo especificado foi adicionado.
+**Descrição:** retorna um Date contendo uma data à qual um intervalo de tempo especificado foi adicionado.
 
 **Sintaxe:** `dt DateAdd(str interval, num value, dt date)`
 
@@ -255,33 +257,33 @@ Ambos os exemplos retornam "*Hello world!*"
 - valor: O número de unidades que você deseja adicionar. Ele pode ser positivo (para obter datas no futuro) ou negativo (para obter datas no passado).
 - date: DateTime, representando a data à qual o intervalo é adicionado.
 
-**Exemplo:** `DateAdd("m", 3, CDate("2001-01-01"))` adiciona três meses e retorna para um DateTime que representa "1/4/2001"
+**Exemplo:** `DateAdd("m", 3, CDate("2001-01-01"))` adiciona três meses e retorna um DateTime que representa "01/04/2001".
 
 ----------
 ### DateFromNum
 
-**Descrição:** a função DateFromNum converte um valor, de formato de data do AD, em um tipo DateTime.
+**Descrição:** a função DateFromNum converte um valor, no formato de data do AD, em um tipo DateTime.
 
 **Sintaxe:** `dt DateFromNum(num value)`
 
-**Exemplo:** `DateFromNum([lastLogonTimestamp])` `DateFromNum(129699324000000000)` retorna um DateTime que representa 2012-01-01 23:00:00
+**Exemplo:** `DateFromNum([lastLogonTimestamp])` `DateFromNum(129699324000000000)` retorna um DateTime que representa 01/01/2012 23:00:00
 
 ----------
 ### DNComponent
 
-**Description:** The DNComponent function returns the value of a specified DN component going from left.
+**Descrição:** a função DNComponent retorna o valor de um componente DN especificado saindo da esquerda.
 
 **Sintaxe:** `str DNComponent(ref dn, num ComponentNumber)`
 
 - dn: o atributo de referência a interpretar
 - ComponentNumber: o componente no DN a retornar
 
-**Exemplo:** `DNComponent([dn],1)` se dn é “cn=Pedro,ou=…, ele retorna Pedro
+**Exemplo:** `DNComponent([dn],1)` se dn é “cn=Joe,ou=…,” ele retorna Joe
 
 ----------
 ### DNComponentRev
 
-**Descrição:** a função DNComponentRev retornará o valor de um componente DN especificado, saindo da direita (o final).
+**Descrição:** a função DNComponentRev retorna o valor de um componente DN especificado saindo da direita (o final).
 
 **Sintaxe:** `str DNComponentRev(ref dn, num ComponentNumber)` `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
@@ -289,7 +291,7 @@ Ambos os exemplos retornam "*Hello world!*"
 - ComponentNumber - o componente no DN a retornar
 - Opções: DC – ignorar todos os componentes com “dc=”
 
-**Exemplo:** se dn é "cn = Pedro, ou = São Paulo, ou = SP, ou = BR, dc = contoso, dc = com", `DNComponentRev([dn],3)` `DNComponentRev([dn],1,"DC")` ambos retornam Brasil.
+**Exemplo:** se dn é "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", então, `DNComponentRev([dn],3)` `DNComponentRev([dn],1,"DC")` ambos retornam US.
 
 ----------
 ### Erro
@@ -303,11 +305,11 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### EscapeDNComponent
 
-**Descrição:** a função EscapeDNComponent usa um componente de um DN e escapa-o para que ele possa ser representado no LDAP.
+**Descrição:** a função EscapeDNComponent obtém um componente de um DN e aplica o escape para que ele possa ser representado no LDAP.
 
 **Sintaxe:** `str EscapeDNComponent(str value)`
 
-**Exemplo:** `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)` garante que o objeto possa ser criado em um diretório LDAP, mesmo que o atributo displayName tenha caracteres que devam ser escapados no protocolo LDAP.
+**Exemplo:** `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)` garante que o objeto possa ser criado em um diretório LDAP, mesmo que o atributo displayName tenha caracteres que devam ter o escape aplicado no LDAP.
 
 ----------
 ### FormatDateTime
@@ -319,13 +321,13 @@ Ambos os exemplos retornam "*Hello world!*"
 - value: um valor no formato DateTime
 - format: uma cadeia de caracteres que representa o formato para o qual converter.
 
-**Comentários**: os possíveis valores para o formato podem ser encontrados aqui: [Formatos de data/hora definidos pelo usuário (função Format)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
+**Comentários**: os possíveis valores para o formato podem ser encontrados aqui: [Formatos de Data/Hora Definidos pelo Usuário (Função Format)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
 
 **Exemplo:**
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Resulta em "2007-12-25".
+`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` resulta em "25/12/2007".
 
-`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` Pode resultar em "20140905081453.0Z"
+`FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` pode resultar em "20140905081453.0Z"
 
 ----------
 ### GUID
@@ -342,10 +344,10 @@ Ambos os exemplos retornam "*Hello world!*"
 **Sintaxe:** `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition: qualquer valor ou expressão que pode ser avaliada como true ou false.
-- valueIfTrue: um valor que será retornado se condition for avaliada como true.
-- valueIfFalse: um valor que será retornado se condition for avaliada como false.
+- valueIfTrue: se a condição for avaliada como true, o valor será retornado.
+- valueIfFalse: se a condição for avaliada como false, o valor será retornado.
 
-**Exemplo:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` retorna o alias de um usuário com"t-" adicionado ao seu início se o usuário for um estagiário; caso contrário, retorna o alias do usuário como está.
+**Exemplo:** `IIF([employeeType]="Intern","t-" & [alias],[alias])` se o usuário for um estagiário, retornará o alias de um usuário com "t-" adicionado ao início; caso contrário, retornará o alias do usuário como está.
 
 ----------
 ### InStr
@@ -361,7 +363,7 @@ Ambos os exemplos retornam "*Hello world!*"
 - start: posição inicial para se localizar a subcadeia de caracteres
 - compare: vbTextCompare ou vbBinaryCompare
 
-**Comentários:** retorna a posição em que a subcadeia de caracteres tiver sido encontrada ou 0 se ela não tiver sido encontrada.
+**Comentários:** retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
 
 **Exemplo:** `InStr("The quick brown fox","quick")` é avaliado como 5
 
@@ -379,9 +381,9 @@ Ambos os exemplos retornam "*Hello world!*"
 - start: posição inicial para se localizar a subcadeia de caracteres
 - compare: vbTextCompare ou vbBinaryCompare
 
-**Comentários:** retorna a posição em que a subcadeia de caracteres tiver sido encontrada ou 0 se ela não tiver sido encontrada.
+**Comentários:** retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
 
-**Exemplo:** `InStrRev("abbcdbbbef","bb")` retorna 7.
+**Exemplo:** `InStrRev("abbcdbbbef","bb")` retorna 7
 
 ----------
 ### IsBitSet
@@ -397,53 +399,53 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### IsDate
 
-**Descrição:** a função IsDate será avaliada como True se a expressão puder ser avaliada como um tipo DateTime.
+**Descrição:** se a expressão puder ser avaliada como um tipo DateTime, a função IsDate será avaliada como True.
 
 **Sintaxe:** `bool IsDate(var Expression)`
 
-**Comentários:** usada para determinar se CDate() será bem-sucedida.
+**Comentários:** usada para determinar se CDate() pode ter êxito.
 
 ----------
 ### IsEmpty
 
-**Descrição:** a função IsEmpty é avaliada como True se o atributo está presente no CS ou MV, mas é avaliada como uma cadeia de caracteres vazia.
+**Descrição:** se o atributo estiver presente no CS ou no MV, mas for avaliado como uma cadeia de caracteres vazia, a função IsEmpty será avaliada como True.
 
 **Sintaxe:** `bool IsEmpty(var Expression)`
 
 ----------
 ### IsGuid
 
-**Descrição:** a função IsGuid é avaliada como true se a cadeia de caracteres pode ser convertida em um GUID.
+**Descrição:** se a cadeia de caracteres puder ser convertida em um GUID, a função IsGuid será avaliada como true.
 
 **Sintaxe:** `bool IsGuid(str GUID)`
 
 **Comentários:** um GUID é definido como uma cadeia de caracteres seguindo um destes padrões: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-usada para determinar se CGuid() será bem-sucedida.
+Usada para determinar se CGuid() pode ter êxito.
 
-**Exemplo:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` se StrAttribute tiver um formato de GUID, ela retornará uma representação binária; caso contrário, retornará um valor nulo.
+**Exemplo:** `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` se StrAttribute tiver um formato de GUID, retornará uma representação binária; caso contrário, retornará Null.
 
 ----------
 ### IsNull
 
-**Descrição:** a função IsNull retornará true se a expressão for avaliada como nula.
+**Descrição:** se a expressão for avaliada como Null, a função IsNull retornará true.
 
 **Sintaxe:** `bool IsNull(var Expression)`
 
-**Comentários:** para um atributo, um valor nulo é expresso pela ausência do atributo.
+**Comentários:** para um atributo, um valor Null é expresso pela ausência do atributo.
 
-**Exemplo:** `IsNull([displayName])` retorna True se o atributo não está presente no CS ou MV.
+**Exemplo:** `IsNull([displayName])` retornará True se o atributo não estiver presente no CS ou no MV.
 
 ----------
 ### IsNullOrEmpty
 
-**Descrição:** a função IsNullOrEmpty retornará true se a expressão for nula ou for uma cadeia de caracteres vazia.
+**Descrição:** se a expressão for nula ou uma cadeia de caracteres vazia, a função IsNullOrEmpty retornará true.
 
 **Sintaxe:** `bool IsNullOrEmpty(var Expression)`
 
-**Comentários:** para um atributo, isso poderia ser avaliado como True se o atributo estivesse ausente, ou estivesse presente mas fosse uma cadeia de caracteres vazia.<br> O inverso dessa função é chamado de IsPresent.
+**Comentários:** para um atributo, isso seria avaliado como True se o atributo estivesse ausente ou presente, mas fosse uma cadeia de caracteres vazia. O inverso dessa função é chamado de IsPresent.
 
-**Exemplo:** `IsNullOrEmpty([displayName])` retorna True se o atributo não está presente ou é uma cadeia de caracteres vazia no CS ou MV.
+**Exemplo:** `IsNullOrEmpty([displayName])` retornará True se o atributo não estiver presente ou for uma cadeia de caracteres vazia no CS ou no MV.
 
 ----------
 ### IsNumeric
@@ -452,21 +454,21 @@ usada para determinar se CGuid() será bem-sucedida.
 
 **Sintaxe:** `bool IsNumeric(var Expression)`
 
-**Comentários:** usada para determinar se CNum() terá sucesso ao analisar a expressão.
+**Comentários:** usada para determinar se CNum() pode ter êxito ao analisar a expressão.
 
 ----------
 ### IsString
 
-**Descrição:** a função IsString será avaliada como True se a expressão puder ser avaliada como um tipo de cadeia de caracteres.
+**Descrição:** se a expressão puder ser avaliada como um tipo de cadeia de caracteres, a função IsString será avaliada como True.
 
 **Sintaxe:** `bool IsString(var expression)`
 
-**Comentários:** usada para determinar se CStr() terá sucesso ao analisar a expressão.
+**Comentários:** usada para determinar se CStr() pode ter êxito ao analisar a expressão.
 
 ----------
 ### IsPresent
 
-**Descrição:** a função IsPresent retornará true se a expressão for avaliada como uma cadeia de caracteres que não é nula e não está vazia.
+**Descrição:** se a expressão for avaliada como uma cadeia de caracteres que não é Null nem vazia, a função IsPresent retornará true.
 
 **Sintaxe:** `bool IsPresent(var expression)`
 
@@ -477,7 +479,7 @@ usada para determinar se CGuid() será bem-sucedida.
 ----------
 ### Item
 
-**Descrição:** a função Item retorna um item de um atributo/cadeia de caracteres com vários valores.
+**Descrição:** a função Item retorna um item de um atributo/cadeia de caracteres de valores múltiplos.
 
 **Sintaxe:** `var Item(mvstr attribute, num index)`
 
@@ -493,21 +495,21 @@ Gera um erro se o índice está fora dos limites.
 ----------
 ### ItemOrNull
 
-**Descrição:** a função ItemOrNull retorna um item de um atributo/cadeia de caracteres com vários valores.
+**Descrição:** a função ItemOrNull retorna um item de um atributo/cadeia de caracteres de valores múltiplos.
 
 **Sintaxe:** `var ItemOrNull(mvstr attribute, num index)`
 
 - attribute: atributo com valores múltiplos
 - index: índice para um item na cadeia de caracteres com vários valores.
 
-**Comentários:** a função ItemOrNull é útil junto à função Contains, desde a última função retorne o índice de um item no atributo de vários valores.
+**Comentários:** a função ItemOrNull é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
 
-Retorna um valor nulo se o índice está fora dos limites.
+Se o índice estiver fora dos limites, retornará um valor Null.
 
 ----------
 ### Join
 
-**Descrição:** a função Join usa uma cadeia de caracteres de valores múltiplos e retorna uma cadeia de caracteres de valor único com separador especificado inserido entre cada item.
+**Descrição:** a função Join obtém uma cadeia de caracteres de valores múltiplos e retorna uma cadeia de caracteres de um único valor com um separador especificado inserido entre cada item.
 
 **Sintaxe:** `str Join(mvstr attribute)` `str Join(mvstr attribute, str Delimiter)`
 
@@ -521,7 +523,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 ----------
 ### LCase
 
-**Descrição:** a função LCase converte todos os caracteres em uma cadeia de caracteres em letras minúsculas.
+**Descrição:** a função LCase converte todos os caracteres de uma cadeia de caracteres em letras minúsculas.
 
 **Sintaxe:** `str LCase(str value)`
 
@@ -530,7 +532,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 ----------
 ### Left
 
-**Descrição:** a função Left retorna um número especificado de caracteres do lado esquerdo de uma cadeia de caracteres.
+**Descrição:** a função Left retorna um número especificado de caracteres a partir da esquerda de uma cadeia de caracteres.
 
 **Sintaxe:** `str Left(str string, num NumChars)`
 
@@ -543,7 +545,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 - Se numChars < 0, retorne a cadeia de caracteres de entrada.
 - Se a cadeia de caracteres for nula, retorne a cadeia de caracteres vazia.
 
-Se a cadeia de caracteres contém menos caracteres do que o número especificado em numChars, uma cadeia de caracteres idêntica à cadeia de caracteres (ou seja, que contém todos os caracteres no parâmetro 1) será retornada.
+Se a cadeia de caracteres contiver menos caracteres que o número especificado em numChars, uma cadeia de caracteres idêntica à cadeia (ou seja, que contém todos os caracteres no parâmetro 1) será retornada.
 
 **Exemplo:** `Left("John Doe", 3)` retorna "Joh".
 
@@ -559,7 +561,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 ----------
 ### LTrim
 
-**Descrição:** a função LTrim remove espaços em branco à esquerda de uma cadeia de caracteres.
+**Descrição:** a função LTrim remove os espaços em branco à esquerda de uma cadeia de caracteres.
 
 **Sintaxe:** `str LTrim(str value)`
 
@@ -568,7 +570,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 ----------
 ### Mid
 
-**Descrição:** a função Mid retorna um número especificado de caracteres de uma posição especificada em uma cadeia de caracteres.
+**Descrição:** a função Mid retorna um número especificado de caracteres a partir de uma posição especificada em uma cadeia de caracteres.
 
 **Sintaxe:** `str Mid(str string, num start, num NumChars)`
 
@@ -576,7 +578,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 - start: um número que identifica a posição inicial na cadeia de caracteres da qual retornar caracteres
 - NumChars: um número que identifica o número de caracteres a ser retornado da posição
 
-**Comentários:** retorna caracteres numChars desde a posição inicial na cadeia de caracteres. Uma cadeia de caracteres contendo caracteres numChars desde a posição inicial na cadeia de caracteres:
+**Comentários:** retorna os caracteres numChars começando na posição inicial da cadeia de caracteres. Uma cadeia de caracteres contendo caracteres numChars desde a posição inicial na cadeia de caracteres:
 
 - Se numChars = 0, retorne a cadeia de caracteres vazia.
 - Se numChars < 0, retorne a cadeia de caracteres de entrada.
@@ -584,7 +586,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 - Se start <= 0, retorne a cadeia de caracteres de entrada.
 - Se a cadeia de caracteres for nula, retorne a cadeia de caracteres vazia.
 
-Se não houver caracteres numChar restantes na cadeia de caracteres na posição inicial, serão retornados tantos caracteres quanto for possível retornar.
+Se não houver nenhum caractere numChar restante na cadeia de caracteres a partir da posição inicial, o máximo possível de caracteres será retornado.
 
 **Exemplo:** `Mid("John Doe", 3, 5)` retorna "hn Do".
 
@@ -593,7 +595,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### Now
 
-**Descrição:** a função Now retorna um DateTime especificando a data e a hora atual, de acordo a data e hora do sistema do seu computador.
+**Descrição:** a função Now retorna um DateTime especificando a data e a hora atuais, de acordo com a data e a hora do sistema do seu computador.
 
 **Sintaxe:** `dt Now()`
 
@@ -661,14 +663,14 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 
 - Essa função atualmente não fornece o uso de maiúsculas apropriado para converter uma palavra que está totalmente em letras maiúsculas, como um acrônimo.
 
-**Exemplo:** `PCase("TEsT")` retorna "TEST".
+**Exemplo:** `PCase("TEsT")` retorna "Test".
 
-`PCase(LCase("TEST"))` Retorna "Teste"
+`PCase(LCase("TEST"))` Retorna "Test"
 
 ----------
 ### RandomNum
 
-**Descrição:** a função RandomNum retorna um número aleatório entre um intervalo especificado.
+**Descrição:** a função RandomNum retorna um número aleatório em um intervalo especificado.
 
 **Sintaxe:** `num RandomNum(num start, num end)`
 
@@ -680,11 +682,11 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 ----------
 ### RemoveDuplicates
 
-**Descrição:** a função RemoveDuplicates usa uma cadeia de caracteres com vários valores e verifica se cada valor é exclusivo.
+**Descrição:** a função RemoveDuplicates obtém uma cadeia de caracteres de valores múltiplos e verifica se cada valor é exclusivo.
 
 **Sintaxe:** `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Exemplo:** `RemoveDuplicates([proxyAddresses])` retorna um atributo proxyAddress corrigido em que todos os valores duplicados foram removidos.
+**Exemplo:** `RemoveDuplicates([proxyAddresses])` retorna um atributo proxyAddress corrigido no qual todos os valores duplicados foram removidos.
 
 ----------
 ### Substitua
@@ -703,7 +705,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 - \\r - Retorno de carro
 - \\t - Guia
 
-**Exemplo:** `Replace([address],"\r\n",", ")` substitui CRLF por uma vírgula e um espaço e pode levar a "One Microsoft Way, Redmond, WA, USA"
+**Exemplo:** `Replace([address],"\r\n",", ")` substitui CRLF por uma vírgula e espaço, e pode levar a "One Microsoft Way, Redmond, WA, USA"
 
 ----------
 ### ReplaceChars
@@ -724,7 +726,7 @@ O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em 
 - A origem não pode ser vazia nem maior que um caractere (erro de análise).
 - O destino pode ter vários caracteres, por exemplo, ö:oe, β:ss.
 - O destino pode ser vazio, o que indica que o caractere deve ser removido.
-- A origem diferencia maiúsculas de minúsculas e deve ser uma correspondência exata.
+- A origem diferencia as letras maiúsculas de minúsculas e deve ser uma correspondência exata.
 - A , (vírgula) e : (dois-pontos) são caracteres reservados e não podem ser substituídos usando essa função.
 - Espaços e outros caracteres em branco na cadeia de caracteres ReplacePattern são ignorados.
 
@@ -737,14 +739,14 @@ O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em 
 ----------
 ### Right
 
-**Descrição:** a função Right retorna um número especificado de caracteres do lado direito (final) de uma cadeia de caracteres.
+**Descrição:** a função Right retorna um número especificado de caracteres a partir da direita (final) de uma cadeia de caracteres.
 
 **Sintaxe:** `str Right(str string, num NumChars)`
 
 - string: a cadeia de caracteres da qual retornar caracteres
 - NumChars: um número que identifica o número de caracteres a ser retornado do final (direita) da cadeia de caracteres
 
-**Comentários:** os caracteres de NumChars são retornados desde a última posição da cadeia de caracteres.
+**Comentários:** os caracteres de NumChars são retornados a partir da última posição da cadeia de caracteres.
 
 Uma cadeia de caracteres que contém os últimos caracteres numChars na cadeia de caracteres:
 
@@ -759,43 +761,43 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 ----------
 ### RTrim
 
-**Descrição:** a função RTrim remove espaços em branco ao final de uma cadeia de caracteres.
+**Descrição:** a função RTrim remove os espaços em branco à direita de uma cadeia de caracteres.
 
 **Sintaxe:** `str RTrim(str value)`
 
-**Exemplo:** `RTrim(" Test ")` retorna "TEST".
+**Exemplo:** `RTrim(" Test ")` retorna "Test".
 
 ----------
 ### Divisão
 
-**Descrição:** a função Split usa uma cadeia de caracteres separada por um delimitador e a transforma em uma cadeia de caracteres de valores múltiplos.
+**Descrição:** a função Split obtém uma cadeia de caracteres separada por um delimitador e transforma-a em uma cadeia de caracteres de valores múltiplos.
 
 **Sintaxe:** `mvstr Split(str value, str delimiter)` `mvstr Split(str value, str delimiter, num limit)`
 
 - valor: a cadeia de caracteres com um caractere delimitador para separar.
 - delimitador: um único caractere a ser usado como o delimitador.
-- limite: número máximo de valores a serem retornados.
+- limite: o número máximo de valores que podem ser retornados.
 
-**Exemplo:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` retorna uma cadeia de caracteres com valores múltiplos e com 2 elementos úteis para o atributo proxyAddress.
+**Exemplo:** `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` retorna uma cadeia de caracteres de valores múltiplos com dois elementos úteis para o atributo proxyAddress.
 
 ----------
 ### StringFromGuid
 
-**Descrição:** a função StringFromGuid usa um GUID binário e o converte-o em uma cadeia de caracteres
+**Descrição:** a função StringFromGuid obtém um GUID binário e converte-o em uma cadeia de caracteres
 
 **Sintaxe:** `str StringFromGuid(bin GUID)`
 
 ----------
 ### StringFromSid
 
-**Descrição:** a função StringFromSid converte uma matriz de bytes ou uma matriz de bytes com valores múltiplos que contém um identificador de segurança em uma cadeia de caracteres ou cadeia de caracteres com valores múltiplos.
+**Descrição:** a função StringFromSid converte uma matriz de bytes, que contém um identificador de segurança, em uma cadeia de caracteres.
 
-**Sintaxe:** `str StringFromSid(bin ObjectSID)` `mvstr StringFromSid(mvbin ObjectSID)`
+**Sintaxe:** `str StringFromSid(bin ObjectSID)`
 
 ----------
 ### Switch
 
-**Descrição:** a função Switch é usada para retornar um único valor com base em condições avaliadas.
+**Descrição:** a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 
 **Sintaxe:** `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -811,18 +813,18 @@ Switch retorna um Nothing se:
 - Nenhuma das expressões são True.
 - A primeira expressão True tem um valor correspondente que é Null.
 
-O Switch avalia todas as expressões, mesmo que retorne apenas uma delas. Por essa razão, você deve tomar cuidado com efeitos colaterais indesejáveis. Por exemplo, se a avaliação de qualquer expressão resulta em um erro de divisão por zero, ocorrerá um erro.
+Switch avalia todas as expressões, mesmo que retorne apenas uma delas. Por essa razão, você deve tomar cuidado com efeitos colaterais indesejáveis. Por exemplo, se a avaliação de qualquer expressão resulta em um erro de divisão por zero, ocorrerá um erro.
 
-Valor também pode ser a função Error, que retornaria uma cadeia de caracteres personalizada.
+O valor também pode ser a função Error, que retornaria uma cadeia de caracteres personalizada.
 
-**Exemplo:** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` retorna o idioma falado em algumas das maiores cidades; caso contrário, retorna um erro.
+**Exemplo:** `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))` retorna o idioma falado em algumas das maiores cidades; caso contrário, retorna um Erro.
 
 ----------
 ### Trim
 
-**Descrição:** a função Trim remove espaços em branco à esquerda e à direita de uma cadeia de caracteres.
+**Descrição:** a função Trim remove os espaços em branco à esquerda e à direita de uma cadeia de caracteres.
 
-**Sintaxe:** `str Trim(str value)` `mvstr Trim(mvstr value)`
+**Sintaxe:** `str Trim(str value)`
 
 **Exemplo:** `Trim(" Test ")` retorna "TEST".
 
@@ -845,7 +847,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 **Sintaxe:** `str Word(str string, num WordNumber, str delimiters)`
 
 - string: a cadeia de caracteres da qual retornar uma palavra
-- WordNumber: um número que identifica o número de palavras que deve ser retornado.
+- WordNumber: um número que identifica qual número de palavras deve retornar.
 - delimitadores: uma cadeia de caracteres que representa o delimitador(es) que deve ser usado para identificar palavras
 
 **Comentários:** cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
@@ -853,7 +855,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 - Se number < 1, retorna uma cadeia de caracteres vazia.
 - Se a cadeia de caracteres for nula, retorna a cadeia de caracteres vazia.
 
-Se a cadeia de caracteres contém um número menor que o número de palavras ou cadeia de caracteres não contém quaisquer palavras identificadas por delimitadores, uma cadeia de caracteres vazia é retornada.
+Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não contiver nenhuma palavra identificada por delimitadores, uma cadeia de caracteres vazia será retornada.
 
 **Exemplo:** `Word("The quick brown fox",3," ")` retorna "brown"
 
@@ -865,4 +867,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

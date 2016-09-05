@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure
@@ -56,7 +56,7 @@ Agora, os logs do console produzidos pelo SDK podem ser habilitados/desabilitado
 
 ### Atualizar de versões anteriores
 
-Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure/)
+Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure.md)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

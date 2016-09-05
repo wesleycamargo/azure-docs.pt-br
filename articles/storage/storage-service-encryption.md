@@ -27,7 +27,7 @@ As seções a seguir fornecem orientações detalhadas sobre como usar os recurs
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure, usando a [Criptografia do lado do cliente](storage-client-side-encryption.md), HTTPs ou SMB 3.0. A Criptografia do Serviço de Armazenamento é um novo recurso do Armazenamento do Azure que criptografará os dados quando eles forem gravados em Armazenamento do Azure, e possui suporte para blobs de bloco, blobs de página e blobs de acréscimo. Esse recurso pode ser habilitado para novas contas de armazenamento usando o modelo de implantação do Azure Resource Manager, e está disponível para todos os níveis de redundância (LRS, ZRS, GRS e RA-GRS). A Criptografia do Serviço de Armazenamento está disponível para o Armazenamento Standard e Premium, lidando com a criptografia, descriptografia e gerenciamento de chaves de uma forma totalmente transparente. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, um dos codificadores de blocos mais potentes. A seção Visualização a seguir traz detalhes sobre como é possível entrar no programa de visualização da Criptografia do Serviço de Armazenamento.
 
-Esta captura de tela mostra onde encontrar a configuração da Criptografia do Serviço de Armazenamento usando o [Portal do Azure](https://azure.portal.com). Nessa tela, clique em Criptografia para continuar.
+Essa captura de tela mostra onde encontrar a configuração da Criptografia do Serviço de Armazenamento usando o [portal do Azure](https://azure.portal.com). Nessa tela, clique em Criptografia para continuar.
 
 ![Captura de tela do Portal mostrando a opção Criptografia](./media/storage-service-encryption/image1.png)
 
@@ -37,11 +37,7 @@ Depois de clicar na configuração da Criptografia, habilite ou desabilite a Cri
 
 ##Disponibilidade
 
-Para o Armazenamento Standard, esse recurso está disponível atualmente no Sudeste da Austrália, Central do Canadá, Leste do Canadá, EUA Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental e Oeste dos EUA.
-
-Para o Armazenamento Premium, esse recurso está disponível atualmente no Sudeste da Austrália, Central do Canadá, Leste do Canadá, EUA Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Leste do Japão, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático e Oeste dos EUA.
-
-Atualizaremos este documento à medida que lançarmos esse recurso em outras regiões.
+Esse recurso está atualmente disponível em todas as regiões para Armazenamento Standard e Premium.
 
 ##Cenários de criptografia
 
@@ -61,7 +57,7 @@ A visualização pública tem as seguintes limitações:
 
 -   Dados existentes - A SSE criptografa apenas os dados recém-criados após a habilitação da criptografia. Se, por exemplo, você criar uma nova conta de armazenamento do Resource Manager, mas não ativar a criptografia e, na sequência, carregar blobs ou VHDs arquivados nessa conta de armazenamento e então ativar a SSE, esses blobs não serão criptografados, a menos que sejam reconfigurados ou copiados.
 
--   Suporte do Marketplace - Habilite a criptografia de VMs criadas no Marketplace usando o (Portal do Azure)(https://portal.azure.com), o PowerShell e a CLI do Azure. Imagem base de VHD permanecerá não criptografada; no entanto, quaisquer gravações feitas após a rotação da VM serão criptografadas.
+-   Suporte do Marketplace - Habilite a criptografia de VMs criadas no Marketplace usando o [portal do Azure](https://portal.azure.com), o PowerShell e a CLI do Azure. Imagem base de VHD permanecerá não criptografada; no entanto, quaisquer gravações feitas após a rotação da VM serão criptografadas.
 
 -   Dados de tabela, filas arquivos não serão criptografados.
 
@@ -97,7 +93,7 @@ Quando o status do registro retornar como "Registrado", sua assinatura terá sid
 
 ###Etapa 3: Habilitar a criptografia.
 
-Você pode habilitar a criptografia usando o [Portal do Azure](https://portal.azure.com).
+Você pode habilitar a criptografia usando o [portal do Azure](https://portal.azure.com).
 
 > [AZURE.NOTE] Se você quiser habilitar ou desabilitar programaticamente a Criptografia do Serviço de Armazenamento em uma conta de armazenamento, use a [API REST do provedor de recursos de armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx). Vamos adicionar essa capacidade à [Biblioteca de cliente do provedor de recursos de armazenamento para .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), ao Azure PowerShell e à CLI do Azure em breve.
 
@@ -127,7 +123,7 @@ Para saber mais, visite [Pesquisadores de armazenamento do Azure](storage-explor
 
 Assim que o SSE estiver amplamente disponível, uma versão atualizada das Bibliotecas de Cliente de Armazenamento será implantada permitindo que você consulte o estado de um objeto para determinar se ele está criptografado ou não.
 
-Enquanto isso, você pode chamar [Obter propriedades da conta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para verificar se a conta de armazenamento tem a criptografia habilitada, ou para exibir as propriedades da conta de armazenamento no Portal do Azure.
+Enquanto isso, você pode chamar [Obter propriedades da conta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para verificar se a conta de armazenamento tem a criptografia habilitada ou para exibir as propriedades da conta de armazenamento no Portal do Azure.
 
 ##Fluxo de trabalho da criptografia e da descriptografia
 
@@ -159,7 +155,7 @@ R: Durante a versão de visualização do SSE, é necessário criar uma nova con
 
 **P: Eu gostaria de criptografar os dados atuais em uma conta de armazenamento do Resource Manager existente?**
 
-R: Se a sua conta de armazenamento do Resource Manager existente tiver sido criada antes deste comunicado de Preview, você poderá criar uma nova conta de armazenamento do Resource Manager e habilitar a criptografia. Em seguida, você poderá copiar os dados da conta de armazenamento anterior e eles serão criptografados automaticamente. No entanto, se sua conta de armazenamento do Resource Manager tiver sido criada após o comunicado de Preview e você decidir habilitar a criptografia posteriormente, isso poderá ser feito usando o Portal do Azure, e você poderá regravar seus dados não criptografados de volta para a conta de armazenamento.
+R: Se a sua conta de armazenamento do Resource Manager existente tiver sido criada antes deste comunicado de Preview, você poderá criar uma nova conta de armazenamento do Resource Manager e habilitar a criptografia. Em seguida, você poderá copiar os dados da conta de armazenamento anterior e eles serão criptografados automaticamente. No entanto, se sua conta de armazenamento do Resource Manager tiver sido criada após o comunicado de Visualização e você decidir habilitar a criptografia posteriormente, isso poderá ser feito usando o portal do Azure e você poderá regravar seus dados não criptografados de volta para a conta de armazenamento.
 
 **P: Estou usando o armazenamento Premium. Posso usar o SSE?**
 
@@ -199,7 +195,7 @@ R: Não no momento; as chaves são totalmente gerenciadas pela Microsoft.
 
 **P: O SSE é habilitado por padrão quando eu crio uma nova conta de armazenamento?**
 
-R: O SSE não está habilitado por padrão. Você pode usar o Portal do Azure para habilitá-lo. Você também pode habilitar esse recurso por meio de programação usando a API REST do Provedor de Recursos de Armazenamento.
+R: O SSE não está habilitado por padrão. Você pode usar o portal do Azure para habilitá-lo. Você também pode habilitar esse recurso por meio de programação usando a API REST do Provedor de Recursos de Armazenamento.
 
 **P: Qual é a diferença para a Criptografia de Unidade do Azure?**
 
@@ -229,4 +225,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configure o CHAP para seu dispositivo StorSimple
@@ -198,4 +198,4 @@ Você pode verificar se o CHAP está sendo usado executando as etapas a seguir.
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

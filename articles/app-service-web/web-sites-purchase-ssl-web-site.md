@@ -159,26 +159,27 @@ Antes de executar as etapas nesta seção, você precisa ter associado um nome d
 1.	Em seu navegador, abra o **[Portal do Azure.](https://portal.azure.com/)**
 2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
 3.	Clique no nome do aplicativo ao qual você deseja atribuir a esse certificado.
-4.	Em **Configurações**, clique em **Domínios personalizados e SSL.**
-5.	Na **seção de certificados**, clique em **Importar Certificado** e selecione o Certificado que você acabou de adquirir
+4.	Em **Configurações**, clique em **Certificados SSL**
+5.	Clique em **Importar Certificado do Serviço de Aplicativo** e selecione o certificado que você acabou de adquirir
 
-    ![inserir imagem de Importar Certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
+    ![inserir imagem de Importar Certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
+6. Na seção **associações ssl**, clique em **Adicionar associações**
+7. Na folha **Adicionar Associação SSL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com SSL e o certificado a ser usado. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
 
-    ![inserir imagem de Associações SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
+    ![inserir imagem de Associações SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
        • O SSL baseado em IP associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor ao nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associação do certificado SSL a um servidor Web. • O SSL baseado em SNI é uma extensão para SSL e **[o protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)** que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) oferecem suporte ao SNI. No entanto, navegadores mais antigos podem não oferecer esse suporte. Para saber mais sobre SNI, confira o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** no Wikipédia.
        
-7. Clique em *Salvar* para salvar as alterações e habilitar SSL.
+7. Clique em **Adicionar Associação** para salvar as alterações e habilitar o SSL.
 
 
 
 Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi configurado pelo uso de um registro A, você deverá executar as seguintes etapas adicionais:
 
-* Depois de ter configurado uma associação de SSL baseada em IP, um endereço IP dedicado é atribuído ao seu aplicativo. Você encontrará esse endereço IP na página **Painel** do aplicativo, na seção **Visualização Rápida**. Ele estará listado como **Endereço IP Virtual:**
+* Depois de ter configurado uma associação de SSL baseada em IP, um endereço IP dedicado é atribuído ao seu aplicativo. Encontre esse endereço IP na página **Domínio personalizado** nas configurações do aplicativo, logo acima da seção **Nomes de host**. Ele estará listado como **Endereço IP Externo**
     
-    ![inserir imagem de IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
+    ![inserir imagem de IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
     Observe que esse endereço IP será diferente do endereço IP virtual usado anteriormente para configurar o registro A de seu domínio. Se você estiver configurado para usar SSL baseado em SNI, ou não estiver configurado para usar SSL, nenhum endereço será listado para essa entrada.
     
@@ -208,4 +209,4 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

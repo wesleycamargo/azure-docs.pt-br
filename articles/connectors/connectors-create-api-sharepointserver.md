@@ -1,6 +1,6 @@
 <properties
-pageTitle="Usar o Conector do SharePoint Online em seus Aplicativos Lógicos ou PowerApps| Microsoft Azure"
-description="Introdução ao uso do Conector do SharePoint Online do Serviço de Aplicativo do Azure em seus Aplicativos lógicos e PowerApps."
+pageTitle="Usar o Conector do SharePoint Online em seus Aplicativos Lógicos | Microsoft Azure"
+description="Comece a usar o Conector do SharePoint Online do Serviço de Aplicativo do Azure em seus Aplicativos Lógicos."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do SharePoint Online 
@@ -23,10 +23,6 @@ O Conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoi
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
-Com o SharePoint, você pode:
-
-* Usá-lo para criar aplicativos lógicos
-* Usá-lo para compilar PowerApps
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -70,7 +66,7 @@ Para usar o Conector do SharePoint, crie primeiro uma **conexão** e, então, fo
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer credenciais do SharePoint|
+|Token|Sim|Fornecer credenciais do SharePoint|
 
 Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade (nome de usuário e senha, credenciais de cartão inteligente, etc.) para o SharePoint Online. Depois de se autenticar, você poderá continuar e usar o Conector do SharePoint Online em seu aplicativo lógico.
 
@@ -78,13 +74,12 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]
 2. Selecione **SharePoint Online - Quando um arquivo é criado**
-3. Escolha **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]
+3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]
 4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]
 5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da caixa de diálogo **Quando um arquivo é criado** do SharePoint. ![Configurar o SharePoint][4]
 6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.
 7. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
->[AZURE.TIP] É possível usar essa conexão em outros aplicativos lógicos, no PowerApps ou em ambos.
 
 ## Referência da API REST do SharePoint
 #### Esta documentação destina-se à versão: 1.0
@@ -250,7 +245,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 |dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
 |destino|string|sim|query|nenhum|Caminho para o arquivo de destino|
-|substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
+|substituir|Booliano|não|query|false|Se deseja ou não substituir um arquivo existente|
 
 
 ### Estas são as respostas possíveis:
@@ -315,7 +310,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 |dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
 |destino|string|sim|query|nenhum|Caminho para a pasta de destino|
-|substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
+|substituir|Booliano|não|query|false|Se deseja ou não substituir um arquivo existente|
 
 
 ### Estas são as respostas possíveis:
@@ -693,7 +688,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +696,4 @@ Nenhuma das propriedades é obrigatória.
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -15,11 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Como criar um tíquete de suporte para problemas de assinatura e cobrança do Azure
-
 Este artigo fornece as informações necessárias para abrir um tíquete no Suporte do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com/). Selecione **Ajuda + suporte**>**Nova solicitação de suporte**.
@@ -44,4 +43,4 @@ Você também pode enviar uma solicitação de suporte do site de suporte do Azu
 
  >[AZURE.NOTE]Somente o administrador da conta do Azure tem permissão para acessar o Centro de Contas. Para obter mais informações sobre como descobrir quem é o administrador da conta da assinatura, consulte as [Perguntas frequentes](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

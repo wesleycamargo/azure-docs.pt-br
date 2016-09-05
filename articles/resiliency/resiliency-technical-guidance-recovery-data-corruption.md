@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de dados corrompidos ou exclusão acidental
@@ -45,7 +45,7 @@ Há várias opções de [continuidade de negócios](../sql-database/sql-database
 
 ###Backup do banco de dados SQL
 
-Backups pontuais para o Banco de Dados SQL do Microsoft Azure são obtidos ao [Copiar seu banco de dados SQL do Azure](../sql-database/sql-database-copy.md). Você pode usar esse comando para criar uma cópia transacionalmente consistente de um banco de dados no mesmo servidor de banco de dados lógico ou em um servidor diferente. Em ambos os casos, a cópia do banco de dados é totalmente funcional e completamente independente do banco de dados de origem. Cada cópia que você cria representa uma opção de recuperação pontual. Você pode recuperar o estado do banco de dados completamente renomeando o novo banco de dados com o nome do banco de dados de origem. Como alternativa, você pode recuperar um subconjunto específico de dados do novo banco de dados usando consultas Transact-SQL. Para detalhes adicionais sobre o banco de dados SQL, consulte: [Continuidade de negócios na nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](../sql-database/sql-database-business-continuity.md).
+Backups pontuais para o Banco de Dados SQL do Microsoft Azure são obtidos ao [Copiar seu banco de dados SQL do Azure](../sql-database/sql-database-copy.md). Você pode usar esse comando para criar uma cópia transacionalmente consistente de um banco de dados no mesmo servidor de banco de dados lógico ou em um servidor diferente. Em ambos os casos, a cópia do banco de dados é totalmente funcional e completamente independente do banco de dados de origem. Cada cópia que você cria representa uma opção de recuperação pontual. Você pode recuperar o estado do banco de dados completamente renomeando o novo banco de dados com o nome do banco de dados de origem. Como alternativa, você pode recuperar um subconjunto específico de dados do novo banco de dados usando consultas Transact-SQL. Para obter detalhes adicionais sobre Banco de Dados SQL, consulte [Visão geral da continuidade de negócios com o Banco de Dados SQL](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server em backup de máquinas virtuais
 
@@ -60,27 +60,33 @@ Para sites do Azure e Serviços Móveis do Azure, você deve fazer o backup e a 
 ##Listas de verificação de dados corrompidos ou exclusão acidental
 
 ##Lista de verificação de Máquinas Virtuais
-  1. Leia a seção [Máquinas Virtuais](#virtual-machines) deste documento.
+
+  1. Confira a seção Máquinas Virtuais deste documento.
   2. Faça backup e manutenção dos discos de VM com o Backup do Azure (ou seu próprio sistema de backup usando o armazenamento de blobs do Azure e instantâneos de VHD).
 
 ##Lista de verificação de armazenamento
-  1. Leia a seção [Armazenamento](#storage) deste documento.
+
+  1. Examine a seção Armazenamento deste documento.
   2. Faça backups regulares dos recursos de armazenamento críticos.
   3. Considere o uso do recurso de instantâneo para blobs.
 
 ##Lista de verificação de banco de dados
-  1. Leia a seção [Banco de dados](#database) deste documento.
+
+  1. Examine a seção Banco de dados deste documento.
   2. Crie backups pontuais usando o comando Cópia de Banco de Dados.
 
 ##Lista de verificação do SQL Server em backup de máquinas virtuais
-  1. Leia a seção [SQL Server em backup de máquinas virtuais](#sql-server-on-virtual-machines-backup) deste documento.
+
+  1. Leia a seção SQL Server em backup de máquinas virtuais deste documento.
   2. Use técnicas tradicionais de backup e restauração.
   3. Crie uma sessão de envio de logs em atraso.
 
 ##Lista de verificação de aplicativos Web
+
   1. Faça backup e manutenção do banco de dados associado, se houver.
 
 ##Lista de verificação dos Serviços de Mídia
+
   1. Faça backup e manutenção dos recursos de armazenamento associados.
 
 ##Mais informações
@@ -91,4 +97,4 @@ Para saber mais sobre recursos de backup e restauração no Azure, confira [Cen�
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). Se você estiver procurando mais recursos de resiliência, recuperação de desastre e alta disponibilidade, confira os [recursos adicionais](./resiliency-technical-guidance.md#additional-resources) das orientações técnicas de resiliência do Azure.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

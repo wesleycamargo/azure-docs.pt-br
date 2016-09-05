@@ -3,7 +3,7 @@
    description="Este artigo ajudará a entender o que é o Gerenciador de Tráfego do Azure e como ele funciona"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/07/2016"
-   ms.author="jonatul"/>
+   ms.author="sewhee"/>
 
 # Como funciona o Gerenciador de Tráfego
 
@@ -131,4 +131,4 @@ Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

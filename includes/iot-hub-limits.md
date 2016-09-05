@@ -14,7 +14,7 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 | Máximo de hubs IoT por assinatura do Azure | 10 |
 | Máximo de hubs IoT por assinatura do Azure | 1 |
 | Número máximo de identidades de dispositivo<br/> retornadas em uma única chamada | 1000 |
-| Máximo de retenção de mensagens do Hub IoT | 7 dias |
+| Retenção máxima de mensagem do Hub IoT para mensagens do dispositivo para nuvem | 7 dias |
 | Tamanho máximo da mensagem do dispositivo para a nuvem | 256 KB |
 | Tamanho máximo do lote do dispositivo para a nuvem | 256 KB |
 | Máximo de mensagens no lote do dispositivo para a nuvem | 500 |
@@ -37,4 +37,4 @@ O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são
 | Recebimentos da nuvem para o dispositivo | 50000/min/unidade (para S3) 1000/min/unidade (para S1 e S2). |
 | Operações de upload de arquivo | 5000 notificações de upload de arquivos/min/unidade (para S3), 100 notificações de upload de arquivos/min/unidade (para S1 e S2). <br/> 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo.<br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

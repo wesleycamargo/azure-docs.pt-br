@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integração do SDK do Engagement do Windows Universal
 
 > [AZURE.SELECTOR] 
-- [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Engagement em seu aplicativo do Windows Universal.
 
@@ -54,7 +54,7 @@ O NuGet implanta automaticamente os recursos do SDK na pasta `Resources` na raiz
 O NuGet ainda não implantará automaticamente os recursos do SDK em seu aplicativo UWP. Você deve fazê-lo manualmente até que a implantação de recursos seja reintroduzida no NuGet:
 
 1.  Abra o Explorador de Arquivos.
-2.  Navegue até o seguinte local (**x.x.x** é a versão do Engagement que você está instalando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x** \\content\\win81*
+2.  Navegue até o seguinte local (**x.x.x** é a versão do Engagement que você está instalando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
 3.  Arraste e solte a pasta **Recursos** do Gerenciador de Arquivos para a raiz de seu projeto no Visual Studio.
 4.  No Visual Studio, selecione o projeto e ative o ícone **Mostrar Todos os Arquivos** na parte superior do **Gerenciados de Soluções**.
 5.  Alguns arquivos não estão incluídos no projeto. Para importá-los de uma só vez, clique com botão direito do mouse na pasta **Recursos**, **Excluir do projeto** e clique novamente com o botão direito do mouse na pasta **Recursos**, **Incluir no projeto** para voltar a incluir toda a pasta. Todos os arquivos da pasta **Recursos** agora estão incluídos em seu projeto.
@@ -283,4 +283,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

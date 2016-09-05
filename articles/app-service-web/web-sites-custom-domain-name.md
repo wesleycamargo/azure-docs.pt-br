@@ -77,9 +77,9 @@ Para mapear um nome de domínio personalizado usando um registro A, você precis
 
 2.	Clique em **Serviços de Aplicativos** no menu à esquerda.
 
-4.	Clique em seu aplicativo, clique em **Configurações** > **Domínios personalizados e SSL** > **Trazer Domínios Externos**.
+4.	Clique em seu aplicativo e em **Domínios personalizados**.
 
-6.  Anote o endereço IP.
+6.  Anote o endereço IP na seção Nomes de host acima...
 
     ![Mapear nome de domínio personalizado com um registro A: obter endereço IP para o aplicativo do Serviço de Aplicativo do Azure](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -99,7 +99,7 @@ Faça logon em seu registrador de domínio e use a ferramenta de controle para i
 <a name="a"></a>
 ### Criar um registro A
 
-Para usar um registro A para mapear para o endereço IP do seu aplicativo do Azure, você precisa realmente criar um registro A e um registro CNAME. O registro A é para a própria resolução de DNS e o registro CNAME é para o Azure verificar se você tem o nome de domínio personalizado.
+Para usar um registro A para mapear para o endereço IP do seu aplicativo do Azure, você precisa realmente criar um registro A e um registro TXT. O registro A é para a própria resolução de DNS e o registro TXT é para o Azure verificar se você tem o nome de domínio personalizado.
 
 Configure seu registro A da seguinte maneira (@ normalmente representa o domínio raiz):
  
@@ -126,28 +126,28 @@ Configure seu registro A da seguinte maneira (@ normalmente representa o domíni
   </tr>
 </table>
 
-O registro CNAME adicional assume a convenção que mapeia de awverify.&lt;*subdomínio*>.& lt;*domínioraiz*> para awverify.&lt;*subdomínio*>. azurewebsites. Configure o registro CNAME da seguinte maneira:
+O registro TXT adicional assume a convenção que mapeia de &lt;*subdomínio*>.&lt;*domínioraiz*> para &lt;*subdomínio*>. azurewebsites. Configure seu registro TXT da seguinte maneira:
 
 <table cellspacing="0" border="1">
   <tr>
     <th>Exemplo de FQDN</th>
-    <th>Host CNAME</th>
-    <th>Valor CNAME</th>
+    <th>Host TXT</th>
+    <th>Valor TXT</th>
   </tr>
   <tr>
     <td>contoso.com (raiz)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+    <td>@</td>
+    <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
-    <td>awverify.www</td>
-    <td>awverify.&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+    <td>www</td>
+    <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
   </tr>
   <tr>
     <td>*. contoso.com (curinga)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+    <td>*</td>
+    <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
   </tr>
 </table>
 
@@ -181,23 +181,27 @@ Configure seu registro CNAME da seguinte maneira (@ normalmente representa o dom
 <a name="enable"></a>
 ## Etapa 3. Habilitar o nome de domínio personalizado para seu aplicativo
 
-De volta à folha **Trazer Domínios Externos** no portal do Azure (consulte a [Etapa 1](#vip)), você precisa adicionar o FQDN (nome de domínio totalmente qualificado) do seu domínio personalizado à lista.
+De volta à folha **Domínios personalizados** no portal do Azure (consulte a [Etapa 1](#vip)), você precisa adicionar o FQDN (nome de domínio totalmente qualificado) do seu domínio personalizado à lista.
 
 1.	Se não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com).
 
 2.	No Portal do Azure, clique em **Serviços de Aplicativos** no menu à esquerda.
 
-4.	Clique em seu aplicativo, clique em **Configurações** > **Domínios personalizados e SSL** > **Trazer Domínios Externos**.
+3.	Clique em seu aplicativo e em **Domínios personalizados** > **Adicionar nome do host**.
 
-2.	Adicionar o FQDN de seu domínio personalizado à lista (por exemplo, **www.contoso.com**).
+4.	Adicionar o FQDN de seu domínio personalizado à lista (por exemplo, **www.contoso.com**).
 
     ![Mapear um nome de domínio personalizado para um aplicativo do Azure: adicionar à lista de nomes de domínio](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] O Azure tentará verificar o nome de domínio que você usar aqui. Certifique-se de que ele seja o mesmo nome de domínio para o qual você criou um registro DNS na [Etapa 2](#createdns).
 
-6.  Clique em **Salvar**.
+5.  Clique em **Validar**.
 
-7.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
+6.  Ao clicar em **Validar**, o Azure iniciará o fluxo de trabalho de verificação de domínio. Isso verificará a propriedade do domínio, bem como a disponibilidade do nome do host e o sucesso ou o erro detalhado do relatório com diretrizes prescritivas sobre como corrigir o erro.
+
+7.  Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. Agora, navegue até o nome de domínio personalizado em um navegador. Agora você verá seu aplicativo em execução usando seu nome de domínio personalizado.
+
+8.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
 <a name="verify"></a>
 ## Verificar propagação de DNS
@@ -219,4 +223,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

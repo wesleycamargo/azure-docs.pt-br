@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -221,7 +221,7 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 
 ## Consulte também
 
--  [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/)
+-  [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
 
 -  [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

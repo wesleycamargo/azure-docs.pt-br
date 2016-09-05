@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Conteúdo do SDK
@@ -42,4 +42,4 @@ Este documento lista e descreve o conteúdo do arquivo SDK.
 
 > Controladores de exibição do Engagement e código-fonte do SDK Reach (para usuários avançados que desejam adaptar a classes do Engagement as suas necessidades).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

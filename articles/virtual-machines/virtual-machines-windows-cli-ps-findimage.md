@@ -15,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
 # Navegue e selecione imagens da máquina virtual do Windows com o PowerShell ou a CLI
 
-Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e versões de cada localização no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
+Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
 
 ## Tabela das imagens do Windows mais usadas
 
@@ -41,4 +41,4 @@ Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

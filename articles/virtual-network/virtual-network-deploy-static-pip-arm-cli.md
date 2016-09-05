@@ -106,7 +106,7 @@ Antes de criar uma máquina virtual, você precisa de um grupo de recursos, rede
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
+	>[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
 
 5. Crie uma conta de armazenamento para hospedar a unidade do SO da VM.
 
@@ -227,4 +227,4 @@ Depois de fazer quaisquer alterações necessárias e de compreender o script mo
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

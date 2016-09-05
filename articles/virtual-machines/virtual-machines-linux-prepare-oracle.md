@@ -3,6 +3,7 @@ pageTitle="Preparar uma Máquina Virtual do Oracle Linux para o Azure | Microsof
 description="Configuração passo a passo de uma máquina virtual do Oracle que executa o Linux no Microsoft Azure."
 services="virtual-machines-linux"
 authors="bbenz"
+manager="timlt"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
@@ -189,7 +190,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além dos itens acima, recomendamos *remover* os seguintes parâmetros:
+	Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além dos itens acima, recomendamos *remover* os seguintes parâmetros:
 
 		rhgb quiet crashkernel=auto
 
@@ -225,4 +226,4 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 15.  Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

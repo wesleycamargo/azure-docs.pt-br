@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="iainfou"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
@@ -58,7 +58,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 			data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
 			info:    vm disk list command OK
 
-	Compare isso com a saída de `lsscsi` para o mesmo exemplo de máquina virtual:
+	Compare esses dados com a saída de `lsscsi` para o mesmo exemplo de máquina virtual:
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -68,7 +68,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 	O último número na tupla em cada linha é o _lun_. Veja `man lsscsi` para obter mais informações.
 
-3. No prompt, digite o comando a seguir para criar seu novo dispositivo:
+3. No prompt, digite o comando a seguir para criar seu dispositivo:
 
 		$sudo fdisk /dev/sdc
 
@@ -76,9 +76,9 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 4. Quando solicitado, digite **n** para criar uma nova partição.
 
 
-	![Criar novo dispositivo](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Criar dispositivo](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
-5. Quando solicitado, digite **p** para definir a partição como a partição primária, digite **1** para torná-la a primeira partição e digite Enter para aceitar o valor padrão para o cilindro. Em alguns sistemas, ele pode mostrar os valores padrão do primeiro e último setores, em vez do cilindro. Você pode optar por aceitar esses padrões.
+5. Quando solicitado, digite **p** para definir a partição como primária. Digite **1** para torná-la a primeira partição e digite enter para aceitar o valor padrão para o cilindro. Em alguns sistemas, ele pode mostrar os valores padrão do primeiro e último setores, em vez do cilindro. Você pode optar por aceitar esses padrões.
 
 
 	![Criar partição](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
@@ -103,7 +103,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 	![Criar sistema de arquivos](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
 
-	>[AZURE.NOTE] Observe que sistemas SuSE Linux Enterprise 11 dão suporte apenas a acesso somente leitura para sistemas de arquivos ext4. Para esses sistemas, é recomendável formatar o novo sistema de arquivos como ext3 em vez de ext4.
+	>[AZURE.NOTE] Sistemas SuSE Linux Enterprise 11 dão suporte apenas a acesso somente leitura para sistemas de arquivos ext4. Para esses sistemas, é recomendável formatar o novo sistema de arquivos como ext3 em vez de ext4.
 
 
 9. Crie um diretório para montar o novo sistema de arquivos, como a seguir:
@@ -122,11 +122,11 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 11. Adicione a nova unidade ao /etc/fstab:
 
-	Para garantir que a unidade seja novamente montada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Isso evita que o disco incorreto seja montado em um determinado local, se o sistema operacional detectar um erro de disco durante a inicialização, e os discos de dados restantes sejam atribuídos a essas IDs de dispositivo. Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
+	Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo /etc/fstab. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado no /etc/fstab para referir-se à unidade em vez de apenas o nome do dispositivo (por exemplo, /dev/sdc1). Usar o UUID evitará que o disco incorreto seja montado em uma determinada localização, se o sistema operacional detectar um erro de disco durante a inicialização, e que os discos de dados restantes sejam atribuídos a essas IDs de dispositivo. Para localizar o UUID da nova unidade, você pode usar o utilitário **blkid**:
 
 		# sudo -i blkid
 
-	Uma saída será semelhante ao seguinte:
+	A saída deve ser semelhante a esta:
 
 		/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
 		/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
@@ -139,7 +139,7 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 		# sudo vi /etc/fstab
 
-	Neste exemplo, usaremos o valor UUID para o novo dispositivo **/dev/sdc1** criado nas etapas anteriores e no ponto de montagem de **/datadrive**. Adicione a seguinte linha no final do arquivo **/etc/fstab**:
+	Neste exemplo, usamos o valor UUID para o novo dispositivo **/dev/sdc1** criado nas etapas anteriores e o ponto de montagem **/datadrive**. Adicione a seguinte linha no final do arquivo **/etc/fstab**:
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
@@ -147,21 +147,21 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 
 		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
-	Agora você pode testar se o sistema de arquivo está montado corretamente ao simplesmente desmontar e montar novamente o sistema de arquivos, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores:
+	Agora você pode testar se o sistema de arquivo está montado corretamente ao desmontar e montar novamente o sistema de arquivos, ou seja, usando o ponto de montagem de exemplo `/datadrive` criado nas etapas anteriores:
 
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas será necessário inseri-las separadamente em/etc/fstab também.
+	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas, será necessário inseri-las separadamente em/etc/fstab também.
 
-	Você precisará tornar a unidade gravável usando esse comando:
+	Você precisa tornar a unidade gravável usando esse comando:
 
 		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE] Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se esta for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema se inicialize mesmo se a montagem do disco falhar no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 ### Suporte a TRIM/UNMAP para Linux no Azure
-Alguns kernels Linux darão suporte a operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Isso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Isso poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
+Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Essas operações são úteis principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Descartar páginas poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
 
 Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
 
@@ -196,6 +196,6 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
-[Logon]: virtual-machines-linux-classic-log-on.md
+[Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

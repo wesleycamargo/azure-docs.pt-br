@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/08/2016" 
 	ms.author="arramac"/>
 	
 # Indexação automática no Banco de Dados de Documentos do Azure
@@ -67,4 +67,4 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 - Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

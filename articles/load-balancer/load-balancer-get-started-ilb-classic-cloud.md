@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Criar um balanceador de carga interno para os serviços de nuvem no modelo de implantação clássico | Microsoft Azure"
    description="Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga interno (clássico) para os serviços de nuvem
 
@@ -91,4 +91,4 @@ O tráfego de rede terá a carga equilibrada usando o balanceador de carga testL
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

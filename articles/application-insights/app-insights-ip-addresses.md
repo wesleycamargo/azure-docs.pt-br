@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Endereços IP usados pelo Application Insights | Microsoft Azure"
-	description="Lista de endereços estáticos" 
+	description="Exceções de firewall de servidor exigidas pelo Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Endereços IP usados pelo Application Insights
 
-O serviço [Visual Studio Application Insights](app-insights-overview.md) usa alguns endereços IP que você talvez queira conhecer - por exemplo, se você estiver monitorando um aplicativo executado atrás de um firewall.
+O serviço [Visual Studio Application Insights](app-insights-overview.md) usa um número de endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
 
 > [AZURE.NOTE] Embora esses endereços sejam estáticos, é possível que seja necessário alterá-los de tempos em tempos.
 
@@ -46,11 +46,11 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
 
 Esta lista pode mudar de tempos em tempos.
 
-## Disponibilidade
+## Testes de disponibilidade
 
-Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados.
+Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados. Se você deseja executar testes da web em seu aplicativo, mas o servidor web estiver restrito a servir clientes específicos, você precisará permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
 
-Abra as portas 80 (http) e 443 (https).
+Abra as portas 80 (http) e 443 (https) para o tráfego de entrada desses endereços:
 
 ```
 
@@ -184,4 +184,4 @@ Abra as portas 80 (http) e 443 (https).
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

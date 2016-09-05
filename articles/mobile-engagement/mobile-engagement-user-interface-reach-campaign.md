@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -46,44 +46,44 @@ Você pode usar o menu suspenso de idiomas para enviar uma versão diferente do 
 - Teste: pode ser enviado para cada idioma por vez
  
 ### Idiomas com suporte:
-- Árabe (ar) 
-- Búlgaro (bg) 
-- Catalão (ca) 
-- Chinês (zh) 
-- Croata (h) 
-- Tcheco (cs) 
-- Dinamarquês (da) 
-- Holandês (nl) 
-- Inglês (en) 
-- Finlandês (fi) 
-- Francês (fr) 
-- Alemão (de) 
-- Grego (el) 
-- Hebraico (he) 
-- Híndi (Olá) 
-- Húngaro (hu) 
-- Indonésio (id) 
-- Italiano (it) 
-- Japonês (ja) 
-- Coreano (ko) 
-- Letão (lv) 
-- Lituano (lt) 
-- Malaio (macroidioma) (ms) 
-- Norueguês Bokmål (nb) 
-- Polonês (pl) 
-- Português (Portugal) 
-- Romeno (ro) 
-- Russo (ru) 
-- Sérvio (sr) 
-- Eslovaco (discos) 
-- Esloveno (sl) 
-- Espanhol (es) 
-- Sueco (sv) 
-- Tagalo (NFA) 
-- Tailandês (th) 
-- Turco (tr) 
-- Ucraniano (uk) 
-- Vietnamita (vi) 
+- Árabe (ar)
+- Búlgaro (bg)
+- Catalão (ca)
+- Chinês (zh)
+- Croata (h)
+- Tcheco (cs)
+- Dinamarquês (da)
+- Holandês (nl)
+- Inglês (en)
+- Finlandês (fi)
+- Francês (fr)
+- Alemão (de)
+- Grego (el)
+- Hebraico (he)
+- Híndi (Olá)
+- Húngaro (hu)
+- Indonésio (id)
+- Italiano (it)
+- Japonês (ja)
+- Coreano (ko)
+- Letão (lv)
+- Lituano (lt)
+- Malaio (macroidioma) (ms)
+- Norueguês Bokmål (nb)
+- Polonês (pl)
+- Português (Portugal)
+- Romeno (ro)
+- Russo (ru)
+- Sérvio (sr)
+- Eslovaco (discos)
+- Esloveno (sl)
+- Espanhol (es)
+- Sueco (sv)
+- Tagalo (NFA)
+- Tailandês (th)
+- Turco (tr)
+- Ucraniano (uk)
+- Vietnamita (vi)
  
 ## Campanha
 Você pode usar a seção de campanha para definir o nome e a categoria da sua campanha, bem como se você planeja ignorar a seção público de uma campanha de envio e, em vez disso, enviar essa campanha por meio da API do Reach (e alguns elementos com o API de envio de nível baixo). As categorias podem ser usadas com um modelo de notificação personalizado para notificações do controle no aplicativo com base nas configurações predefinidas. Você pode obter uma lista existente de "categorias" por meio da API do Reach.
@@ -116,7 +116,7 @@ Você pode usar a seção Notificação para definir as configurações básicas
 ## Conteúdo
 Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pesquisas, Envio de Dados por Push e Blocos (somente no Windows Phone). A configuração de conteúdo de campanhas de envio é específica para o tipo de campanha.
 
-### Consulte também
+### Confira também
 - [Documentação da interface do usuário - Reach - Enviar conteúdo por push][Link 29]
  
 ![Reach-Campaign5][24]
@@ -130,7 +130,7 @@ Você pode usar a seção Público-alvo para definir uma lista padrão de itens 
 - No máximo, inicie apenas quatro campanhas por vez.
 - Envie por push apenas para seus usuários ativos (caixa de seleção "Envolver apenas os usuários que podem ser contatados por meio de envio por push nativo" e "Envolver apenas os usuários ativos") para que somente os usuários que ainda tenham o aplicativo instalado e que o utilizem sejam verificados. Quando seu público-alvo for definido, você poderá usar o botão de simulação para descobrir quantos usuários receberão esse envio por push. Isso irá calcular o número de usuários conhecidos potencialmente direcionados para esse público-alvo (essa é uma estimativa com base em uma amostra aleatória de usuários). Lembre-se de que os usuários que desinstalaram o aplicativo também fazem parte desse público-alvo, mas não poderão ser alcançados.
 
-### Consulte também
+### Confira também
 - [Documentação da Interface do Usuário - Alcance - Novo Critério de Envio por Push][Link 28]
 
 ![Reach-Campaign6][25]
@@ -151,8 +151,8 @@ Você pode usar a seção Período para definir quando o envio por push será fe
 
 > Observação: as campanhas sem uma data de término podem armazenar envios por push em caches local e ainda exibí-los após as suas campanhas concluídas manualmente. Para evitar esse comportamento, especifique uma hora de término para as campanhas.
 
-### Consulte também
-- [Alcance - Instruções – Agendamento][Link 3] 
+### Confira também
+- [Alcance - Instruções – Agendamento][Link 3]
  
 ![Reach-Campaign8][27]
 
@@ -163,7 +163,7 @@ Você pode usar a seção Período para definir quando o envio por push será fe
 Você pode usar a seção Teste para fazer esse envio por push para o seu próprio dispositivo de teste antes de salvar a campanha. Se você tiver configurado algum idioma personalizado para a campanha, poderá testar o envio para cada idioma. Você pode configurar um dispositivo de teste para "Minha Conta".
 > Observação: dados do lado do servidor não serão registrados quando você usar o botão para “testar” envios por push; os dados só serão registrados em log para campanhas de envio por push reais.
 
-### Consulte também
+### Confira também
 - [Documentação da interface do usuário - Minha Conta][Link 14]
  
 ![Reach-Campaign9][28]
@@ -260,4 +260,4 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

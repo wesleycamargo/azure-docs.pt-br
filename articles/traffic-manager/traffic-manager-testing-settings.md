@@ -3,7 +3,7 @@
    description="Este artigo o ajudará a testar as configurações do Gerenciador de Tráfego"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Teste as configurações do Gerenciador de Tráfego
 
@@ -72,4 +72,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

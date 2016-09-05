@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integração do SDK do Reach do Windows Universal
@@ -59,7 +59,7 @@ O Engagement oferece duas maneiras de adicionar banners no aplicativo e exibiç�
 A escolha entre as duas integrações pode ser resumida desta forma:
 
 -   Escolha a integração de sobreposição se suas páginas já herdam do Agente `EngagementPage`, é apenas uma questão de substituir `EngagementPage` por `EngagementPageOverlay` e `xmlns:engagement="using:Microsoft.Azure.Engagement"` por `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` nas páginas.
--   Escolha a integração manual de exibições da Web se quiser colocar precisamente a interface do usuário do Reach dentro de suas páginas ou se não quiser adicionar outro nível de herança às páginas. 
+-   Escolha a integração manual de exibições da Web se quiser colocar precisamente a interface do usuário do Reach dentro de suas páginas ou se não quiser adicionar outro nível de herança às páginas.
 
 ### Integração de sobreposição
 
@@ -334,4 +334,4 @@ Agora, para usar esses protocolo edite seu `App.xaml.cs` método com o método `
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

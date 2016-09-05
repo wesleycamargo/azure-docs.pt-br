@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Procedimentos de atualização de aplicativos do Windows Universal
@@ -37,7 +37,7 @@ A sobreposição do Alcance foi aprimorada. Ela faz parte dos recursos do pacote
 
 Ao atualizar para a nova versão do SDK, você pode escolher se deseja ou não manter os arquivos existentes da pasta de sobreposição de seus recursos:
 
-* Se a sobreposição anterior estiver funcionando para você ou se você estiver integrando os elementos `WebView` manualmente, você poderá optar por manter os arquivos existentes e ela ainda funcionará. 
+* Se a sobreposição anterior estiver funcionando para você ou se você estiver integrando os elementos `WebView` manualmente, você poderá optar por manter os arquivos existentes e ela ainda funcionará.
 * Se você deseja atualizar para a nova sobreposição, basta substituir toda a pasta `overlay` dos seus recursos pela nova pasta do pacote do SDK (aplicativos UWP: após a atualização, você pode obter a nova pasta de sobreposição de %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
 
 > [AZURE.WARNING] Usar a nova sobreposição substituirá todas as personalizações feitas na versão anterior.
@@ -314,4 +314,4 @@ Observe que renomear também afeta métodos substituídos.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

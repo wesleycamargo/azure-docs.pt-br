@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Monitorar consultas de usuário no SQL Data Warehouse do Azure
@@ -48,4 +48,4 @@ Para obter mais dicas de gerenciamento, acesse a [Visão geral de gerenciamento]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

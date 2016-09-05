@@ -4,7 +4,7 @@
    services="virtual-machines-windows,virtual-network,storage"
    documentationCenter="saponazure"
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-service-management"
    keywords=""/>
@@ -35,4 +35,4 @@ Atualização: agosto de 2015
 
 [Baixar este guia agora](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->
