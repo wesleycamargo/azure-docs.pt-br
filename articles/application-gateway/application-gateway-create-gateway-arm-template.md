@@ -26,6 +26,7 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 - [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
+- [CLI do Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 	| **backendaddress2** | Endereço IP do segundo servidor Web |
 
 
->[AZURE.IMPORTANT] Os modelos do Gerenciador de Recursos do Azure mantidos no GitHub podem mudar ao longo do tempo. Verifique o modelo antes de usá-lo.
+	>[AZURE.IMPORTANT] Os modelos do Gerenciador de Recursos do Azure mantidos no GitHub podem mudar ao longo do tempo. Verifique o modelo antes de usá-lo.
 
 6. Verifique o conteúdo em **resources** e observe o seguinte:
 
@@ -147,8 +148,6 @@ Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 Se necessário, crie um grupo de recursos usando o cmdlet **New-AzureResourceGroup**. No exemplo abaixo, você cria um novo grupo de recursos chamado AppgatewayRG no local Leste dos EUA.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

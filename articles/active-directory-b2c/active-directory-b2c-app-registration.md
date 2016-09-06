@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/22/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ Você também poderá acessar a folha clicando em **Procurar** e em **Azure AD B
 2. Clique em **+Adicionar**, na parte superior da folha.
 3. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "Aplicativo B2C da Contoso".
 4. Se você estiver escrevendo um aplicativo baseado na web, alterne o botão **incluir o aplicativo web / API da web** para **Sim**. As **URLs de Resposta** são pontos de extremidade para onde o Azure AD B2C retornará quaisquer tokens que seus aplicativo solicitarem. Por exemplo, insira: `https://localhost:44321/`. Se o aplicativo Web também chamará alguma API Web protegida pelo Azure AD B2C, convém criar também um **Segredo de Aplicativo** clicando no botão **Gerar Chave**.
+
+    > [AZURE.NOTE] Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
+
 5. Se você estiver escrevendo um aplicativo móvel, alterne o **incluir cliente nativo** para **Sim**. Copie o **URI de Redirecionamento** padrão criado automaticamente para você.
 6. Clique em **Criar** para registrar seu aplicativo.
 7. Clique no aplicativo que você acabou de criar e copie a **ID de Aplicativo Cliente** globalmente exclusiva que você usará posteriormente no código.
 
-> [AZURE.NOTE] Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
+> [AZURE.IMPORTANT] Os aplicativos criados na folha de recursos de B2C precisam ser gerenciados no mesmo local. Se você editar aplicativos B2C usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C.
 
 ## Criar um Aplicativo de Início Rápido
 
@@ -51,4 +54,4 @@ Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode conclu
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

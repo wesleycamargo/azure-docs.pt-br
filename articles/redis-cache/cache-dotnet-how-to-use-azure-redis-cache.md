@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="06/09/2016" 
+	ms.date="08/25/2016" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -61,10 +61,10 @@ Para saber mais sobre como configurar o cache, confira [Como configurar o Cache 
 
 [AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
-Depois que o projeto de cliente estiver configurado para cache, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
+Depois que o projeto de cliente estiver configurado para caching, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
 
 <a name="working-with-caches"></a>
-## Trabalhando com Caches
+## Trabalhando com caches
 
 As etapas desta seção descrevem como realizar tarefas comuns com o Cache.
 
@@ -286,4 +286,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Como cadeias de caracteres de aplicativo e cadeias de caracteres de conexão funcionam]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

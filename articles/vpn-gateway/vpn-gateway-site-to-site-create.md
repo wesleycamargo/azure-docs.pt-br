@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Criar uma rede virtual com uma conexão VPN site a site usando o portal clássico do Azure
+# Criar uma VNet com uma conexão Site a Site usando o Portal Clássico do Azure
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,7 +25,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artigo o orientará na criação de uma rede virtual e uma conexão VPN site a site para sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure. No momento, você não pode criar uma configuração Site a Site de ponta a ponta para o modelo de implantação clássico usando o portal do Azure.
+Este artigo mostra como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o **modelo de implantação clássica** e o portal clássico. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações. No momento, você não pode criar uma configuração Site a Site de ponta a ponta para o modelo de implantação clássico usando o portal do Azure.
 
 ![Diagrama Site a Site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
@@ -107,4 +107,4 @@ Configure o gateway de rede virtual para criar uma conexão site a site segura. 
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

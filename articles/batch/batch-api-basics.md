@@ -67,7 +67,7 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 
 ## Conta
 
-Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando executar operações com o serviço Lote, você precisará do nome da conta e de uma de suas chaves. Você pode [criar e gerenciar uma conta do Lote do Azure no portal do Azure](batch-account-create-portal.md).
+Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando executar operações com o serviço Lote, você precisará do nome da conta e de uma de suas chaves. Você pode criar uma [conta do Lote do Azure usando o Portal do Azure](batch-account-create-portal.md).
 
 ## Nó de computação
 
@@ -175,7 +175,7 @@ Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é rea
 
 ### Prioridade do trabalho
 
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] \(REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] \(.NET do Lote).
+Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Você pode atualizar a prioridade de um trabalho usando a operação [Atualizar as propriedades de um trabalho][rest_update_job] (REST do Lote) ou modificando a propriedade [CloudJob.Priority][net_cloudjob_priority] (.NET do Lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
 
@@ -286,9 +286,9 @@ Confira [Dependências de tarefas no Lote do Azure](batch-task-dependencies.md) 
 
 Cada tarefa executada em um trabalho do Lote tem acesso às variáveis de ambiente definidas pelo serviço de Lote (definidas pelo serviço, como descrito na tabela abaixo) e às variáveis de ambiente personalizadas que podem ser definidas para suas tarefas. Os aplicativos e scripts executados nos nós por suas tarefas têm acesso a essas variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] \(API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, veja a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
 
-O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] \(REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+O aplicativo cliente ou serviço pode obter variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
 As seguintes variáveis de ambiente são definidas pelo serviço de Lote e estão disponíveis para acesso por suas tarefas:
 
@@ -379,7 +379,7 @@ Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [
 
 Normalmente, você precisa usar certificados ao criptografar ou descriptografar as informações confidenciais das tarefas, como a chave para uma [conta de Armazenamento do Azure][azure_storage]. Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
 
-Você usa a operação [Adicionar certificado][rest_add_cert] \(REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
+Você usa a operação [Adicionar certificado][rest_add_cert] (REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] (.NET do Lote) para adicionar um certificado a uma conta do Lote. Em seguida, você pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
 
 Se você adicionar certificados a um pool *existente*, deverá reinicializar seus nós de computação para que os certificados sejam aplicados aos nós.
 
@@ -518,4 +518,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

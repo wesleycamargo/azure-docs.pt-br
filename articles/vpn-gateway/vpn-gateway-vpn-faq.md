@@ -42,7 +42,7 @@ Há suporte para as seguintes conexões entre locais:
 
 - [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
 
-Para saber mais sobre conexões, veja [Diagramas de conexão de Gateway de VPN](vpn-gateway-topology.md).
+Para saber mais sobre conexões, confira [Sobre Gateway de VPN](vpn-gateway-about-vpngateways.md).
 
 ### Qual é a diferença entre uma conexão site a site e uma ponto a site?
 
@@ -68,11 +68,11 @@ Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com
 
 ### O que devo fazer se tiver um dispositivo VPN que não esteja na lista de dispositivos compatíveis conhecidos?
 
-Se não encontrar seu dispositivo listado como um dispositivo de VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+Se não encontrar seu dispositivo listado como um dispositivo VPN compatível conhecido e quiser usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
 
 ### Por que meu túnel VPN baseado em políticas é desativado quando o tráfego está ocioso?
 
-Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Mas assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente. Se tiver um gateway de VPN baseado em rotas (também conhecido como dinâmico), você não terá esse comportamento.
+Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente. Se tiver um gateway de VPN baseado em rotas (também conhecido como dinâmico), você não terá esse comportamento.
 
 ### Posso usar VPNs de software para me conectar ao Azure?
 
@@ -126,7 +126,7 @@ A reconexão automática e o DDNS atualmente não têm suporte em VPNs ponto a s
 
 ### Posso ter configurações site a site e ponto a site que coexistam para a mesma rede virtual?
 
-Sim. Essas duas soluções funcionarão se você tiver um tipo VPN baseada em rota para o gateway. Para o modelo de implantação clássica, você precisará de um gateway dinâmico. Não damos suporte a ponto a site para o roteamento estático de gateways VPN ou gateways usando -VpnType PolicyBased.
+Sim. Essas duas soluções funcionarão se você tiver um tipo VPN Baseada em Rota para o gateway. Para o modelo de implantação clássica, você precisará de um gateway dinâmico. Não damos suporte a ponto a site para o roteamento estático de gateways VPN ou gateways usando -VpnType PolicyBased.
 
 ### Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
 
@@ -166,11 +166,11 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 
 Temos um serviço de gateway que executamos para habilitar a conectividade entre locais.
 
-Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas GatewaySubnet para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
+Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
 
 O tamanho mínimo de sub-rede de gateway depende totalmente da configuração que você deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29 em algumas configurações, recomendamos que você crie uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.).
 
-## Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
+### Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
 
 Nº
 
@@ -195,7 +195,7 @@ Um gateway de VPN é fundamentalmente um dispositivo de hospedagem múltipla com
 
 ### Mais informações sobre tipos de gateway, requisitos e taxa de transferência
 
-Para saber mais, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
+Para saber mais, confira [Sobre configurações de Gateway de VPN] (vpn-gateway-about-vpn gateway-settings.md).
 
 ## Conectividade multissite e de VNet para VNet
 
@@ -229,7 +229,7 @@ Não, não há suporte para túneis redundantes entre uma rede virtual do Azure 
 
 ### Pode haver sobreposição de espaços de endereço entre as redes virtuais conectadas e sites local locais?
 
-Não. Espaços de endereço sobrepostos farão com que o carregamento de arquivo netcfg ou a Criação de Rede Virtual falhem.
+Não. Espaços de endereço sobrepostos farão com que o carregamento de arquivo de configuração de rede ou a “Criação de Rede Virtual” falhe.
 
 ### Obtenho mais largura de banda com mais VPNs site a site do que com uma única rede virtual?
 
@@ -237,7 +237,7 @@ Não, todos os túneis de VPN, incluindo VPNs site a ponto, compartilham o mesmo
 
 ### Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
 
-O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração netcfg. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito é muito propensa a erros e não é recomendada.
+**Modelo de implantação clássica**<br> O tráfego via Gateway de VPN do Azure é possível usando o modelo de implantação clássica, mas se baseia em espaços de endereço estaticamente definidos no arquivo de configuração de rede. Ainda não há suporte a BGP com Redes Virtuais do Azure e Gateways de VPN usando o modelo de implantação clássica. Sem BGP, a definição manual de espaços de endereço de trânsito é muito propensa a erros e não é recomendada.<br> **Modelo de implantação do Resource Manager**<br> Se você estiver usando o modelo de implantação do Resource Manager, consulte a seção [BGP](#bgp) para saber mais.
 
 ### O Azure gera a mesma chave pré-compartilhada IPsec/IKE para todas as minhas conexões VPN para a mesma rede virtual?
 
@@ -252,7 +252,7 @@ Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente 
 
 Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
@@ -274,11 +274,6 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 ## Perguntas frequentes sobre rede virtual
 
 As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
-
-## Próximas etapas
-
-Você pode exibir mais informações sobre Gateways de VPN na [página de documentação do Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

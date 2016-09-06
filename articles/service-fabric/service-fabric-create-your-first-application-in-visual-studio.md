@@ -18,7 +18,7 @@
 
 # Criar seu primeiro aplicativo do Azure Service Fabric no Visual Studio
 
-O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Este tópico orienta você pelo processo de criação de seu primeiro aplicativo no Visual Studio.
+O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Este tópico orienta você no processo de criação de seu primeiro aplicativo no Visual Studio.
 
 ## Pré-requisitos
 
@@ -123,6 +123,7 @@ Agora que você tem um aplicativo, tente executá-lo.
 - Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autônomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Tente criar um serviço usando os modelos de programação [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Saiba como você pode expor os serviços na Internet com um [front-end de serviço Web](service-fabric-add-a-web-frontend.md).
+- Veja um [laboratório prático](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) e crie um serviço sem estado, configure o monitoramento e relatórios de integridade, e realize uma atualização do aplicativo.
 
 <!-- Image References -->
 
@@ -138,4 +139,4 @@ Agora que você tem um aplicativo, tente executá-lo.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

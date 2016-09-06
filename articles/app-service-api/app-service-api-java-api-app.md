@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/31/2016"
 	ms.author="rachelap"/>
 
 # Criar e implantar um aplicativo de API Java no Serviço de Aplicativo do Azure
@@ -24,7 +24,7 @@ Este tutorial mostra como criar um aplicativo Java e implantá-lo em aplicativos
 
 ## Pré-requisitos
 
-1. [Java Developer's Kit 8] \(ou posterior)
+1. [Java Developer's Kit 8] (ou posterior)
 1. O [Maven] instalado na máquina de desenvolvimento
 1. O [Git] instalado na máquina de desenvolvimento
 1. Uma assinatura paga ou de [avaliação gratuita] para o [Microsoft Azure]
@@ -338,4 +338,4 @@ Para obter mais informações sobre como usar o Java no Azure, consulte o [Centr
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

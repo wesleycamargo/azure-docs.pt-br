@@ -1,9 +1,9 @@
-1.	Entre no [portal do Microsoft Azure](https://portal.azure.com/) online.
-2.	Na barra de navegação, clique em **Novo**, em seguida, clique em **Dados + Armazenamento** e, em seguida, clique em **Banco de Dados de Documentos do Azure**.
+1.	Entre no [Portal do Azure](https://portal.azure.com/).
+2.	Na barra de navegação, clique em **Novo**, em **Dados + Armazenamento** e em **Base de Dados de Documentos (NoSQL)**.
 
-	![Captura de tela do portal do Azure para criação de um banco de dados, destacando o botão Novo, Dados + Armazenamento na folha Criar, e o Banco de Dados de Documentos do Azure na folha Dados + Armazenamento](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+	![Captura de tela do portal do Azure, realçando Mais Serviços e Banco de Dados de Documentos (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Na folha **Nova conta do Banco de Dados de Documentos**, especifique a configuração desejada para a conta do Banco de Dados de Documentos.
+3. Na folha **Nova conta**, especifique a configuração desejada para a conta do Banco de Dados de Documentos.
 
 	![Captura de tela da lâmina Novo Banco de Dados de Documentos](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -26,7 +26,7 @@
 
 	![Captura de tela do hub de notificações, mostrando que a conta do Banco de Dados de Documentos foi criada com êxito e implantada em um grupo de recursos - Criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	Após criar a conta do Banco de Dados de Documentos, ele está pronto para uso com as configurações padrão no portal online. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como **Sessão**. Você pode ajustar a configuração da consistência padrão clicando em **Consistência Padrão** no menu. Para saber mais sobre os níveis de consistência oferecidos pelo Banco de Dados de Documentos, confira [Níveis de consistência no Banco de Dados de Documentos](../articles/azure-portal/resource-group-portal.md)
+5.	Após a conta do Banco de Dados de Documentos ser criada, ela estará pronta para uso com as configurações padrão. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como **Sessão**. Você pode ajustar a consistência padrão clicando em **Consistência Padrão** no menu de recursos. Para saber mais sobre os níveis de consistência oferecidos pelo Banco de Dados de Documentos, confira [Níveis de consistência no Banco de Dados de Documentos](../articles/azure-portal/resource-group-portal.md).
 
     ![Captura de tela da folha Grupo de Recursos - começar o desenvolvimento do aplicativo](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)
 
@@ -36,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

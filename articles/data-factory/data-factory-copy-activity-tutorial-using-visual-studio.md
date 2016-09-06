@@ -23,7 +23,7 @@
 - [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Como usar o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Usando a API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Como usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 Neste tutorial, você faz o seguinte usando o Visual Studio 2013:
@@ -277,4 +277,4 @@ Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-copy-activit
 | [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

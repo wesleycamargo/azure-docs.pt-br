@@ -13,11 +13,14 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/07/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
+
+> [AZURE.NOTE] Para habilitar as detecções avançadas, atualize para o Padrão da Central de Segurança do Azure. Há uma avaliação gratuita de 90 dias disponível. Para atualizar, selecione a Camada de Preços na [Política de Segurança](security-center-policies.md). Consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para saber mais.
+
 
 ## O que são alertas de segurança?
 A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque. A Central de Segurança do Azure também agrega alertas que se alinham para eliminar os padrões em cadeia como [Incidentes](security-center-incident.md).
@@ -208,4 +211,4 @@ Neste documento, você aprendeu a configurar políticas de segurança na Central
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização.
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -76,7 +76,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Mumbai** | Tata Communications |
 | **Osaka** | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** | Interxion |
-| **São Paulo** | Equinix, Telefonica+ |
+| **São Paulo** | Equinix, Telefonica |
 | **Seattle** | Equinix, Level 3 Communications, Megaport |
 | **Vale do Silício** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Cingapura** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
@@ -156,4 +156,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

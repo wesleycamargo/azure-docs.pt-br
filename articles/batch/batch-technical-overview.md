@@ -58,7 +58,7 @@ Ao desenvolver soluções de Lote, você usará as contas a seguir no Microsoft 
 
 - [Conta e assinatura do Azure][free_account] - se ainda não tiver uma assinatura do Azure, você poderá ativar o **benefício de assinante do MSDN** ou inscrever-se para uma [conta gratuita do Azure][msdn_benefits]. Ao criar uma conta, uma assinatura padrão será criada para você.
 
-- **Conta do Lote** - quando os aplicativos interagem com o serviço de Lote, o nome da conta, a URL da conta, e uma chave de acesso são usados como credenciais. Todos os recursos do Lote, como pools, nós de computação, trabalhos e tarefas estão associados a uma conta do Lote. Você pode [criar e gerenciar uma conta do Lote](batch-account-create-portal.md) no portal do Azure.
+- **Conta do Lote** - quando os aplicativos interagem com o serviço de Lote, o nome da conta, a URL da conta, e uma chave de acesso são usados como credenciais. Todos os recursos do Lote, como pools, nós de computação, trabalhos e tarefas estão associados a uma conta do Lote. Você pode [criar a conta do Lote](batch-account-create-portal.md) no portal do Azure.
 
 - **Conta de armazenamento** - o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure][azure_storage]. Quase todos os cenários de Lote usam o Armazenamento do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Para criar uma conta de Armazenamento, confira [Sobre as contas de armazenamento do Azure](./../storage/storage-create-storage-account.md).
 
@@ -71,8 +71,7 @@ Os aplicativos e serviços podem emitir chamadas à API REST diretamente, usar u
 | **REST do Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET do Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Python em lotes** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Java do Lote** (visualização) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Java do Lote** (visualização) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Gerenciamento de recursos em lotes
 
@@ -161,4 +160,4 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

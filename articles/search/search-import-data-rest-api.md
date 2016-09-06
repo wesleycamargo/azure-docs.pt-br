@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Carregar dados para a Pesquisa do Azure usando a API REST
@@ -32,13 +32,13 @@ Para enviar documentos no índice usando a API REST, você emitirá uma solicita
 ## I. Identificar a api-key do administrador de seu serviço de Pesquisa do Azure
 Ao emitir solicitações HTTP em seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys do serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
 
-  - Suas *chaves de administração* principal e secundária concedem direitos totais a todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+  - Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
   - As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas a aplicativos cliente que emitem solicitações de pesquisa.
 
 Para importar dados para um índice, você pode usar a chave de administração principal ou secundária.
@@ -52,8 +52,7 @@ Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada 
 --- | --- | --- | ---
 `upload` | Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. | chave, além de quaisquer outros campos que você quiser definir | Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo.
 `merge` | Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. | chave, além de quaisquer outros campos que você quiser definir | Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. | chave, além de outros campos que você deseja definir |- 
-`delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null.
+`mergeOrUpload` | Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. | chave, além de outros campos que você deseja definir |- `delete` | Remove o documento especificado do índice. | somente chave | Todos os campos que você especificar que não sejam o campo de chave serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null.
 
 ## III. Construir sua solicitação HTTP e o corpo da solicitação
 Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
@@ -168,4 +167,4 @@ Para obter mais informações sobre as ações do documento e as respostas de ê
 ## Avançar
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -114,12 +114,16 @@ Você precisa de uma rede do Azure para que as VMs do Azure criadas após o fail
 - Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará uma rede do Azure no [modo Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - É recomendável configurar uma rede antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+
 
 ### Configurar uma conta de armazenamento do Azure
 
 - Você precisará de uma conta de armazenamento padrão do Azure para armazenar os dados replicados para o Azure. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação.
 - Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará uma conta no [modo Resource Manager](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
 - É recomendável que você configure uma conta antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 ### Preparar o servidor do VMM
 
@@ -144,7 +148,7 @@ Você precisa configurar o mapeamento de rede durante a implantação da Recuper
 ## Criar um cofre dos Serviços de Recuperação
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Novo** > **Gerenciamento** > **Serviços de Recuperação**. Como alternativa, você pode clicar em **Procurar** > cofres do **Serviços de Recuperação** > **Adicionar**.
+2. Clique em **Novo** > **Gerenciamento** > **Serviços de Recuperação**. Como alternativa, você pode clicar em **Procurar** > cofres dos **Serviços de Recuperação** > **Adicionar**.
 
 	![Novo cofre](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
@@ -189,11 +193,11 @@ Instale o Provedor do Azure Site Recovery no servidor do VMM e registre o servid
 
 	![Configurar origem](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor do VMM.
+2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor VMM.
 
 	![Configurar origem](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. Na folha **Adicionar Servidor**, verifique se **Servidor do System Center VMM** aparece em **Tipo de servidor** e se o servidor do VMM atende [aos pré-requisitos e aos requisitos de URL](#on-premises-prerequisites).
+3. Na folha **Adicionar Servidor**, verifique se **Servidor do System Center VMM** aparece em **Tipo de servidor** e se o servidor VMM atende [aos pré-requisitos e aos requisitos de URL](#on-premises-prerequisites).
 4. Baixe o arquivo de instalação do Provedor do Azure Site Recovery.
 5. Baixe a chave do registro. Você precisará dela quando executar a instalação. A chave é válida por cinco dias após ser gerada.
 
@@ -567,4 +571,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -23,7 +23,7 @@
 - [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Como usar o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Usando a API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Como usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 Este tutorial mostra como criar e monitorar um data factory do Azure usando a API .NET. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
@@ -458,4 +458,4 @@ Você deve ter quatro valores após estas etapas:
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
