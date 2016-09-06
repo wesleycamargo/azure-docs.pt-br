@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Consultar o SQL Data Warehouse do Azure (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este passo a passo usa o Utilitário de linha de comando sqlcmd para consultar um SQL Data Warehouse do Azure.
-
-## Pré-requisitos
-
-Para acompanhar este tutorial, você precisará:
-
--  [sqlcmd.exe][]. Para baixar, veja [Utilitários de linha de comando 11 da Microsoft para SQL Server][], que também podem exigir o [Driver 11 do OBDC da Microsoft para SQL Server Windows][].
+Este passo a passo usa o utilitário da linha de comando [sqlcmd][] para consultar um SQL Data Warehouse do Azure.
 
 ## 1\. Connect
 
-Para começar com o sqlcmd, abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
+Para começar com o [sqlcmd][], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
 + **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
 + **Banco de dados (-d):** nome do banco de dados.
@@ -73,18 +67,16 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Próximas etapas
 
-Veja a [documentação do sqlcmd][sqlcmd.exe] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
+Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Driver 11 do OBDC da Microsoft para SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Utilitários de linha de comando 11 da Microsoft para SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

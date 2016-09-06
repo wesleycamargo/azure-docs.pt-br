@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="juliako"/>
 
 
 #Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
 
 Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem.
-
-Os Serviços de Mídia do Azure no portal do Azure estão atualmente na visualização.
 
 
 ##Pré-requisitos
@@ -81,11 +79,11 @@ Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma un
 
 Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
 
-1. Na janela **Configurações**, clique em **Pontos de extremidade da transmissão**.
+1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
 
 2. Clique no ponto de extremidade da transmissão padrão.
 
-	A janela **DETALHES DO PONTO DE EXTREMIDADE DA TRANSMISSÃO PADRÃO** é exibida.
+	A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
 
 3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão**.
 
@@ -101,7 +99,7 @@ Um canal é associado a eventos/programas que permitem que você controle a publ
 	
 Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo**. Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os eventos podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada evento está associado um ativo. Para publicar o evento, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você compile um URL de transmissão que você poderá fornecer aos seus clientes.
+Cada evento está associado um ativo. Para publicar o evento, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
 Um canal dá suporte a até três eventos em execução simultânea para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
 
@@ -175,4 +173,4 @@ Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

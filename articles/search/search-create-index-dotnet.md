@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Criar um índice de Pesquisa do Azure usando o SDK do .NET
@@ -99,7 +99,7 @@ Escolhemos cuidadosamente os valores de propriedade para cada `Field` com base e
 
 Observe que exatamente um campo no índice do tipo `DataType.String` deve ser designado como o campo _chave_, definindo `IsKey` para `true` (confira `hotelId` no exemplo acima).
 
-A definição de índice acima usa um analisador de idioma personalizado para o campo `description_fr` porque ele se destina a armazenar texto em francês. Confira [o tópico de suporte a idiomas no MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), além da [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analisadores de idioma.
+A definição de índice acima usa um analisador de idioma personalizado para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), além da [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analistas de linguagem.
 
 > [AZURE.NOTE]  Observe que, passando `AnalyzerName.FrLucene` no construtor, `Field` será automaticamente do tipo `DataType.String` e terá `IsSearchable` definido como `true`.
 
@@ -123,4 +123,4 @@ serviceClient.Indexes.Delete("hotels");
 ## Avançar
 Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar o conteúdo no índice](search-what-is-data-import.md) para que possa começar a pesquisar os dados.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

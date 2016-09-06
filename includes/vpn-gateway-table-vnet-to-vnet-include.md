@@ -6,6 +6,4 @@
 
 (+) indica que esse método de implantação está disponível somente para redes virtuais na mesma assinatura.<br> (*) indica suporte parcial.
 
-O emparelhamento VNet, que está atualmente em Preview, está disponível para determinados modelos de implantação e configurações. Consulte o artigo [Emparelhamento VNet](../articles/virtual-network/virtual-network-peering-overview.md) para obter mais informações.
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->
