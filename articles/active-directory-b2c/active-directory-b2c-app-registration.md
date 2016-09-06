@@ -40,7 +40,8 @@ Você também poderá acessar a folha clicando em **Procurar** e em **Azure AD B
 3. Insira um **Nome** para o aplicativo que descreva seu aplicativo para os consumidores. Por exemplo, você poderia digitar "Aplicativo B2C da Contoso".
 4. Se você estiver escrevendo um aplicativo baseado na web, alterne o botão **incluir o aplicativo web / API da web** para **Sim**. As **URLs de Resposta** são pontos de extremidade para onde o Azure AD B2C retornará quaisquer tokens que seus aplicativo solicitarem. Por exemplo, insira: `https://localhost:44321/`. Se o aplicativo Web também chamará alguma API Web protegida pelo Azure AD B2C, convém criar também um **Segredo de Aplicativo** clicando no botão **Gerar Chave**.
 
-    > [AZURE.NOTE] Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
+    > [AZURE.NOTE]
+    Um **Segredo de Aplicativo** é uma credencial de segurança importante e deve ser protegido adequadamente.
 
 5. Se você estiver escrevendo um aplicativo móvel, alterne o **incluir cliente nativo** para **Sim**. Copie o **URI de Redirecionamento** padrão criado automaticamente para você.
 6. Clique em **Criar** para registrar seu aplicativo.

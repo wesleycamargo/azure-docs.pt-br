@@ -13,10 +13,9 @@
 	- Para **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do Banco de Dados de Documentos. Se a sua conta tiver apenas uma assinatura, essa conta será selecionada por padrão.
 
 	- Em **Grupo de Recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos. Por padrão, um novo grupo de recursos é criado. Para saber mais, veja [Como usar o portal do Azure para gerenciar os recursos do Azure](../articles/azure-portal/resource-group-portal.md).
-
 	- Use **Local** para especificar a localização geográfica na qual hospedar a sua conta do Banco de Dados de Documentos.
 	
-    - Para fornecer acesso conveniente à sua conta e aos recursos que você criará no futuro, verifique **Fixar no painel**.
+	- Para fornecer acesso conveniente à sua conta e aos recursos que você criará no futuro, verifique **Fixar no painel**.
 
 4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Para verificar o status da implantação, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
