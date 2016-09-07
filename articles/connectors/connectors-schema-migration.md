@@ -19,8 +19,8 @@
 
 # Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview
 
-Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte:
-1. Abra o aplicativo lógico no portal do Azure
+Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte:  
+1. Abra o aplicativo lógico no portal do Azure  
 2. Clique em Atualizar Esquema:
 
 ![Ícone de API][step1]
