@@ -3,7 +3,7 @@
    description="Saiba como criar um balanceador de carga voltado para a Internet no Gerenciador de Recursos usando a CLI do Azure"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga para a Internet usando a CLI do Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando a implantação clássica](load-balancer-get-started-internet-classic-portal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também é possível [Saber como criar um balanceador de carga para a Internet usando a implantação clássica](load-balancer-get-started-internet-classic-portal.md).
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -35,7 +35,7 @@ Isto abordará a sequência de tarefas individuais que precisam ser realizadas p
 
 Você precisa criar e configurar os objetos a seguir para implantar um balanceador de carga.
 
-- Configuração de IP de front-end – contém endereços IP públicos para o tráfego de rede de entrada. 
+- Configuração de IP de front-end – contém endereços IP públicos para o tráfego de rede de entrada.
 
 - Pool de endereços de back-end – contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
 
@@ -123,9 +123,9 @@ Criar as regras NAT.
 Parâmetros:
 
 - **-g** – nome do grupo de recursos
-- **-l** – nome do balanceador de carga 
+- **-l** – nome do balanceador de carga
 - **- n** – nome do recurso, quer seja a regra nat, a regra de teste ou de balanceamento de carga.
-- **-p** – protocolo (pode ser TCP ou UDP)  
+- **-p** – protocolo (pode ser TCP ou UDP)
 - **-f** – porta de front-end a ser usada (o comando probe usa -f para definir o caminho do teste)
 - **-b** – porta de back-end a ser usada
 
@@ -226,10 +226,10 @@ Parâmetros:
 
 - **-g** - nome do grupo de recursos
 - **-n** - nome do recurso NIC
-- **--subnet-name** - nome da sub-rede 
+- **--subnet-name** - nome da sub-rede
 - **--subnet-vnet-name** - nome da rede virtual
-- **-d** - ID do recurso de pool back-end - começa com /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool> 
-- **-e** – ID da regra NAT que será associada ao recurso NIC – começa com /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+- **-d** - ID do recurso de pool back-end - começa com /subscription/{subscriptionID/resourcegroups/<nome do grupo de recursos>/providers/Microsoft.Network/loadbalancers/<nome do balanceador de carga>/backendaddresspools/<nome do pool de back-end>
+- **-e** - ID da regra NAT que será associada ao recurso NIC – começa com /subscriptions/####################################/resourceGroups/<nome do grupo de recursos>/providers/Microsoft.Network/loadBalancers/<nome do balanceador de carga>/inboundNatRules/<nome da regra nat>
 
 
 Saída esperada:
@@ -297,7 +297,7 @@ Como a NIC *lb-nic1-be* está associada à regra NAT *rdp1*, você pode se conec
 
 ### Etapa 4
 
-Crie uma máquina virtual (VM) denominada *web2* e a associe à NIC denominada *lb-nic2-be*. Uma conta de armazenamento denominada *web1nrp* foi criada antes da execução do comando a seguir.
+Crie uma máquina virtual (VM) denominada *web2* e a associe à NIC denominada *lb-nic2-be*. Uma conta de armazenamento chamada *web1nrp* foi criada antes da execução do comando a seguir.
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
@@ -328,4 +328,4 @@ Em que **nrprg** é o grupo de recursos e **nrplb** é o nome do balanceador de 
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

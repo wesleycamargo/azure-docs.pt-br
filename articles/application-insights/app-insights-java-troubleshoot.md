@@ -24,7 +24,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights em Java][java]? 
 
 *No Eclipse, ao adicionar o SDK do Application Insights por meio de Maven ou Gradle, recebo erros de validação de soma de verificação ou de compilação.*
 
-* Se o elemento <version> de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[1.0,)</version>` ou Gradle `version:'1.0.+'`), tente definir uma versão específica, como `1.0.2`. Veja as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) da versão mais recente.
+* Se o elemento <versão> estiver usando um padrão com caracteres curinga (por exemplo: (Maven) `<version>[1.0,)</version>` ou (Gradle) `version:'1.0.+'`), tente definir uma versão específica, como `1.0.2`. Veja as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) da versão mais recente.
 
 ## Sem dados 
 
@@ -33,7 +33,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights em Java][java]? 
 * Espere um minuto e clique em Atualizar. Os gráficos são atualizados periodicamente, mas você também pode atualizá-los manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
 * Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto)
 * Verifique se não há um nó `<DisableTelemetry>true</DisableTelemetry>` no arquivo xml.
-* Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com.
+* Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com. Consulte a [lista completa de exceções do firewall](app-insights-ip-addresses.md)
 * No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
 * Ative o log para a janela de console do IDE adicionando um elemento `<SDKLogger />` sob o nó raiz no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto) e verifique se há entradas precedidas com [Erro].
 * Certifique-se de que o arquivo ApplicationInsights.xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "Arquivo de configuração foi descoberto com êxito".
@@ -48,7 +48,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights em Java][java]? 
 
 #### Não vejo todos os dados que eu esperava
 
-* Abra a folha Cotas e Preço e verifique se a [amostragem](app-insights-sampling.md) está funcionando. (Transmissão de 100% significa que a amostragem não está funcionando.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega de seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria. 
+* Abra a folha Cotas e Preço e verifique se a [amostragem](app-insights-sampling.md) está funcionando. (Transmissão de 100% significa que a amostragem não está funcionando.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega de seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria.
 
 ## Sem dados de uso
 
@@ -140,4 +140,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

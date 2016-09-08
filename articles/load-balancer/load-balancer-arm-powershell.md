@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure | Microsoft Azure"
+   pageTitle="Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure | Microsoft Azure "
    description="Como criar regras para um balanceador de carga, regras de NAT, teste para o gerenciador de recursos do Azure. Passo a passo mostra o processo de ponta a ponta para criar um recurso de balanceador de carga."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure
 
@@ -75,7 +75,7 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 
     PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
-Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscription”.
+Para ver uma lista das assinaturas disponíveis, use o cmdlet ‘Get-AzureSubscription’.
 
 
 ### Etapa 4
@@ -84,7 +84,7 @@ Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de r
 
     PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um balanceador de carga usarão o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um balanceador de carga usarão o mesmo grupo de recursos.
 
 No exemplo anterior, criamos um grupo de recursos denominado "NRP-RG" e o local "Oeste dos EUA".
 
@@ -275,10 +275,10 @@ Use o comando Remove-AzureLoadBalancer para excluir um balanceador de carga cria
 >[AZURE.NOTE] Você pode usar a opção -Force para evitar a solicitação de exclusão.
 
 
-## Veja também
+## Consulte também
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

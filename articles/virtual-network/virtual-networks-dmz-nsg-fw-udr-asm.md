@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exemplo de DMZ - Criar uma DMZ para proteger aplicativos com um Firewall, um UDR e um NSG | Microsoft Azure"
-   description="Criar uma DMZ com um Firewall, o Roteamento Definido pelo Usuário (UDR) e os Grupos de Segurança de Rede (NSG)"
+   pageTitle="Exemplo de rede de perímetro - Criar uma rede de perímetro para proteger aplicativos com um Firewall, um UDR e um NSG | Microsoft Azure"
+   description="Criar uma rede de perímetro com um Firewall, o Roteamento Definido pelo Usuário (UDR) e os Grupos de Segurança de Rede (NSG)"
    services="virtual-network"
    documentationCenter="na"
    authors="tracsman"
@@ -16,13 +16,13 @@
    ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
-# Exemplo 3 - Criar uma DMZ para proteger as redes com um Firewall, um UDR e um NSG
+# Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
 
 [Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
-Este exemplo criará uma DMZ com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
+Este exemplo criará uma rede de perímetro com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários.
 
-![DMZ bidirecional com NVA, NSG e UDR][1]
+![rede de perímetro bidirecional com NVA, NSG e UDR][1]
 
 ## Configuração do ambiente
 Neste exemplo, há uma assinatura que contém o seguinte:
@@ -47,7 +47,7 @@ Para compilar o ambiente:
 Assim que o script for executado com êxito, as seguintes etapas pós-script poderão ser utilizadas:
 
 1.	Configure as regras de firewall; isso será abordado na seção: Descrição da regra de firewall.
-2.	Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta DMZ.
+2.	Opcionalmente, na seção de referências, há dois scripts para configurar o servidor Web e um servidor de aplicativos com um aplicativo Web simples para testar a configuração desta rede de perímetro.
 
 Assim que o script for executado com êxito, será necessário concluir as regras de firewall; isso será abordado na seção: Regras de firewall.
 
@@ -76,7 +76,7 @@ Se o destino não tiver se aplicado a qualquer um dos prefixos Null ou dos prefi
 
 Se houver dois prefixos idênticos na tabela de rotas, a ordem a seguir será a ordem de preferência baseada no atributo de “origem” das rotas:
 
-1.	<blank> = uma Rota Definida pelo Usuário adicionada manualmente à tabela
+1.	"VirtualAppliance" = uma Rota Definida pelo Usuário adicionada manualmente à tabela
 2.	"VPNGateway" = uma rota dinâmica (BGP quando usada com redes híbridas) adicionadas por um protocolo de rede dinâmico, essas rotas podem ser alteradas ao longo do tempo conforme o protocolo dinâmico reflete automaticamente as alterações na rede emparelhada
 3.	"Padrão" = as Rotas do Sistema, a Rede Virtual local e as entradas estáticas, como mostrado na tabela de rotas acima.
 
@@ -915,10 +915,10 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
 	</NetworkConfiguration>
 
 #### Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de exemplo de aplicativo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros de rede de perímetro, um deles foi fornecido no seguinte link: [Script de exemplo de aplicativo][SampleApp]
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
+[1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "rede de perímetro bidirecional com NVA, NSG e UDR"
 [2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Criar um objeto de rede de front-end"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Criar um objeto de servidor DNS"
@@ -941,4 +941,4 @@ Se você desejar instalar um aplicativo de exemplo para esse e outros exemplos d
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

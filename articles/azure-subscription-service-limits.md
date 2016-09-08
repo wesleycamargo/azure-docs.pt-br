@@ -10,19 +10,19 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/18/2016"
 	ms.author="btardif"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
 
 ## Visão geral
 
-Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Observe que isso não cobre atualmente todos os serviços do Azure. Com o tempo, esses limites serão ampliados e atualizados para uma maior cobertura da plataforma.
+Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Isso não cobre atualmente todos os serviços do Azure. Com o tempo, esses limites serão ampliados e atualizados para uma maior cobertura da plataforma.
 
 > [AZURE.NOTE] Se você deseja aumentar o limite acima do **Limite Padrão**, você pode [abrir uma solicitação no suporte ao cliente online sem custo](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Os limites não podem ser aumentados acima do valor de **Limite máximo** nas tabelas abaixo. Se não houver nenhuma coluna **Limite máximo**, o recurso especificado não tem limites ajustáveis.
 
@@ -30,7 +30,7 @@ Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Obs
 
 Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para saber mais sobre os Grupos de Recursos do Azure, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
 
-Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Gerenciador de Recursos do Azure**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
+Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Azure Resource Manager**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
 
 > [AZURE.NOTE] É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos.
 <!-- -->
@@ -84,7 +84,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 #### Limites de assinatura
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### Limites de Assinatura – Gerenciador de Recursos do Azure
+#### Limites de Assinatura – Azure Resource Manager
 
 Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure. Limites que não foram alterados com o Gerenciador de Recursos do Azure não estão listados abaixo. Consulte a tabela anterior para obter esses limites.
 
@@ -295,7 +295,7 @@ Para obter informações mais detalhadas sobre outros limites, incluindo o taman
 
 Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
 
-## Consulte também
+## Confira também
 
 [Entendendo os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
@@ -303,4 +303,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

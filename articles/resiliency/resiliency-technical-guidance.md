@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure
@@ -61,4 +61,4 @@ As informações são organizadas nos artigos a seguir:
 
 Este artigo faz parte de uma série que enfoca a orientação técnica para a resiliência do Azure. Se estiver interessado em ler outros artigos desta série, você poderá começar com [Recuperação de falhas locais](resiliency-technical-guidance-recovery-local-failures.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

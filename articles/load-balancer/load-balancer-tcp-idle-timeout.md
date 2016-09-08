@@ -3,7 +3,7 @@
    description="Configurar tempo limite de ociosidade do TCP do balanceador de carga"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Como alterar as configurações de tempo limite de ociosidade do TCP para o balanceador de carga
 
@@ -166,4 +166,4 @@ Atualize a configuração dos pontos de extremidade de entrada com balanceamento
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

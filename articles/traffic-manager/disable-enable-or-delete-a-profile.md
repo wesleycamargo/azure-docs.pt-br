@@ -3,14 +3,17 @@
    description="Este artigo o ajudará a trabalhar com os perfis do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Desabilitar, habilitar ou excluir um perfil
 
@@ -35,7 +38,7 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 
 1. Verifique se o registro de recurso DNS no servidor DNS da Internet não usa mais um registro de recurso CNAME que aponta para o nome de domínio de seu perfil do Gerenciador de Tráfego.
-1. Selecione o perfil que você deseja excluir. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil 
+1. Selecione o perfil que você deseja excluir. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil
 1. clicando na coluna ao lado do perfil. Não clique no nome do perfil ou na seta ao lado do nome, pois você será levado para a página de configurações do perfil.
 1. Depois de selecionar o perfil, clique em Excluir na parte inferior da página.
 
@@ -51,4 +54,4 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

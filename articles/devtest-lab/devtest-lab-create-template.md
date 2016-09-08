@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma imagem personalizada dos Laboratórios de Desenvolvimento/Teste de um arquivo VHD | Microsoft Azure"
-	description="Saiba como criar uma imagem personalizada de um arquivo VHD, que possa ser usada para criar VMs em Laboratórios de Desenvolvimento/Teste"
+	pageTitle="Gerenciar imagens personalizadas do Azure DevTest Labs para criar VMs | Microsoft Azure"
+	description="Saiba como criar uma imagem personalizada com base em um arquivo VHD ou em uma VM existente no Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/24/2016"
 	ms.author="tarcher"/>
 
-# Criar uma imagem personalizada do Laboratórios de Desenvolvimento/Teste de um arquivo VHD
+# Gerenciar imagens personalizadas do Azure DevTest Labs para criar VMs
 
 ## Visão geral
+Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [adicionar VMs (máquinas virtuais) a esse laboratório](devtest-lab-add-vm-with-artifacts.md). Durante a criação de uma VM, você especifica uma *base*, que pode ser uma *imagem personalizada* ou uma *imagem do Marketplace*. Neste artigo, você aprenderá como [criar uma imagem personalizada de um VHD](#create-a-custom-image-from-a-vhd) para que você possa criar uma VM com base nessa imagem personalizada. Além disso, você também pode [criar uma imagem personalizada de uma VM](#create-a-custom-image-from-a-vm) para subsequente criação rápida de VM.
 
-Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [adicionar VMs (máquinas virtuais) a esse laboratório](devtest-lab-add-vm-with-artifacts.md). Durante a criação de uma VM, você especifica uma *base*, que pode ser uma *imagem personalizada* ou uma *imagem do Marketplace*. Neste artigo, você verá como criar uma imagem personalizada de um arquivo VHD. Observe que você precisará acessar um arquivo VHD válido para executar todas as etapas deste artigo.
+## Criar uma imagem personalizada com base em um arquivo VHD
 
-## Criar uma imagem personalizada
+Nesta seção, você verá como criar uma imagem personalizada com base em um arquivo VHD. Observe que você precisará acessar um arquivo VHD válido para executar todas as etapas desta seção.
+
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -64,7 +66,7 @@ Após ter [criado um laboratório](devtest-lab-create-lab.md), você poderá [ad
 
 1. Acesse a seção [Próximas etapas](#next-steps).
 
-##Carregar um arquivo VHD
+###Carregar um arquivo VHD
 
 Para adicionar uma nova imagem personalizada, você precisará ter acesso a um arquivo VHD.
 
@@ -73,6 +75,29 @@ Para adicionar uma nova imagem personalizada, você precisará ter acesso a um a
     ![Carregar imagem](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
 1. A próxima folha exibirá instruções para modificar e executar um script do PowerShell que carrega um arquivo VHD em sua assinatura do Azure. **Observação:** esse processo pode ser demorado, dependendo do tamanho do arquivo VHD e da velocidade de conexão.
+
+## Criar uma imagem personalizada com base em uma VM
+Se você tiver uma máquina virtual já configurada, poderá criar uma imagem personalizada com base nessa VM e subsequentemente usar essa imagem personalizada para criar outras VMs idênticas. As etapas a seguir ilustram como criar uma imagem personalizada com base em uma VM:
+
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
+
+1. Na lista de laboratórios, selecione o laboratório desejado.
+
+1. Na folha **Visão geral** do laboratório, selecione a VM com base na qual você deseja criar a imagem personalizada.
+
+1. Na folha da VM, selecione **Criar imagem personalizada (VHD)**.
+
+	![Criar item de menu de imagem personalizada](./media/devtest-lab-create-template/create-custom-image.png)
+
+1. Na folha **Criar imagem**, digite um nome e uma descrição para a sua imagem personalizada. Essas informações serão exibidas na lista de bases quando você criar uma VM.
+
+	![Criar folha de imagem personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
+
+1. Selecione se o sysprep foi executado na VM. Se o sysprep não tiver sido executado na VM, especifique se deseja ou não que sysprep seja executado quando uma VM for criada usando essa imagem personalizada.
+
+1. Selecione **OK** quando tiver terminado de criar a imagem personalizada.
 
 ## Postagens de blogs relacionadas
 
@@ -83,4 +108,4 @@ Para adicionar uma nova imagem personalizada, você precisará ter acesso a um a
 
 Depois de adicionar uma imagem personalizada para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

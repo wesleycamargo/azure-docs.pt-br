@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Associações do Hub de Eventos do Azure Functions
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar associações do [Hub de Eventos do Azure](../event-hubs/event-hubs-overview.md) no Azure Functions. O Azure Functions dá suporte a associações de gatilho e de saída para os Hubs de Eventos do Azure.
 
@@ -134,4 +136,4 @@ O seguinte código de função de exemplo do Node.js demonstra a gravação de u
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/23/2016"
 	ms.author="tarcher"/>
 
 # Adicionar proprietários e usuários a um laboratório
@@ -28,7 +28,7 @@ Você permite acesso ao seu laboratório por meio de duas funções:
 
 - **Proprietário**: os usuários atribuídos à função **Proprietário** no nível de laboratório têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento. A função **Proprietário** atribuída ao nível de laboratório não concede aos usuários permissões para acessar recursos na assinatura fora do escopo do laboratório. Os usuários atribuídos à função **Proprietário** no nível de assinatura do Azure automaticamente têm direitos de **Proprietário** sobre quaisquer recursos criados nessa assinatura, incluindo laboratórios e VMs.
 
--  **Usuário dos DevTest Labs**: os usuários atribuídos à função **Usuário dos DevTest Labs** podem criar VMs no laboratório especificado, bem como exibir todos os recursos do laboratório, como VMs, políticas ou redes virtuais. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
+-  **Usuário dos DevTest Labs**: os usuários atribuídos à função **Usuário dos DevTest Labs** podem criar VMs no laboratório especificado, bem como exibir todos os recursos do laboratório, como VMs, políticas ou redes virtuais. Os usuários podem ser *internos* (um membro do Azure Active Directory da assinatura) ou *externos* (um usuário que não é membro do Azure AD, como um membro de uma organização parceira).
 	-  Uma função **Usuário de Laboratórios de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
 	-  Os usuários na função **Usuário de Laboratórios de Desenvolvimento/Teste** podem executar essas operações apenas dentro do laboratório ao qual estão atribuídos. Por exemplo, um **Usuário de Laboratórios de Desenvolvimento/Teste** não pode criar uma máquina virtual usando o serviço de Máquina Virtual da assinatura. A criação de uma máquina virtual só é permitida por meio da conta de Laboratórios de Desenvolvimento/Teste.
 	- Usuários *externos* são usuários com uma Conta da Microsoft (MSA).
@@ -103,4 +103,4 @@ Para adicionar um usuário de Laboratórios de Desenvolvimento/Teste ao seu labo
 
 1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

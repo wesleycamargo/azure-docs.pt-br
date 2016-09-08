@@ -3,7 +3,7 @@
    description="Este artigo ajudará você a configurar o método de roteamento de tráfego de desempenho no Gerenciador de Tráfego"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurar o método de roteamento de tráfego de Desempenho
 
@@ -25,7 +25,7 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 2. No portal clássico do Azure, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
 3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes. Para obter as etapas para adicionar ou remover pontos de extremidade de seu perfil, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
 4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
-5. Para ver as **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Desempenho*. Se não for, clique em **Desempenho** na lista suspensa.
+5. Para ver as **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é *Desempenho*. Se não for, clique em **Desempenho** na lista suspensa.
 6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, você deve especificar um caminho e um nome de arquivo. Observe que uma barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). Para obter mais informações sobre o monitoramento, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 7. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
 8. Teste as alterações em sua configuração. Para obter mais informações, consulte [Testando as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
@@ -49,4 +49,4 @@ Para usar rotear tráfego para serviços de nuvem e sites (pontos de extremidade
 [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

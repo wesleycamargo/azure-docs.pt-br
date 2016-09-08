@@ -30,8 +30,8 @@ Neste manual, reunimos as diretrizes de negócios e analíticas necessárias par
 
 Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Aprendizado de Máquina do Azure) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:
 
-1. Noções básicas sobre negócios  
-2. Noções básicas sobre dados  
+1. Noções básicas sobre negócios
+2. Noções básicas sobre dados
 3. Implementação técnica
 
 A parte **Noções Básicas sobre Negócios** descreve o aspecto comercial que você precisa compreender e considerar antes de tomar uma decisão de investimento. Ela explica como qualificar o problema comercial existente para garantir que a análise preditiva e o aprendizado de máquina sejam realmente eficazes e aplicáveis. O documento explica ainda mais as noções básicas sobre o aprendizado de máquina e como ele é usado para resolver os problemas de previsão de energia. Descreve os pré-requisitos e os critérios de qualificação de um caso de uso. Alguns casos de uso e cenários de caso de uso de exemplo também são fornecidos.
@@ -85,7 +85,7 @@ No contexto de demanda de energia, a Previsão de Carga a Curto Prazo (STLF) é 
 -   Balanceamento de carga e prevenção de sobrecarga
 -   Previsão de Carga a Longo Prazo
 -   Detecção de anomalias e de falhas
--   Redução/nivelamento do pico 
+-   Redução/nivelamento do pico
 
 O modelo STLF baseia-se principalmente no consumo de dados no passado próximo (último dia ou semana) e na temperatura prevista de uso como um indicador importante. A obtenção da previsão de temperatura precisa para a próxima hora e para até 24 horas tem se tornado menos desafiadora nos dias de hoje. Esses modelos são menos sensíveis aos padrões sazonais ou às tendências de consumo a longo prazo.
 
@@ -225,7 +225,7 @@ Podemos considerar a formulação do problema como a etapa mais crítica pela qu
 A formulação dessas perguntas permite que nos concentremos na obtenção dos dados corretos e na implementação de uma solução totalmente alinhada aos problemas de negócios em questão. Além disso, poderemos assim definir algumas métricas chave que nos permitirão avaliar o desempenho do modelo. Por exemplo, que grau de exatidão a previsão deverá ter e qual é o intervalo de erros que ainda seria aceitável para a empresa?
 
 ### Fontes de dados
-A rede inteligente moderna coleta dados de várias partes e componentes da rede. Esses dados representam vários aspectos da operação e da utilização da rede de energia. No escopo da previsão da demanda de energia, estamos limitando a discussão a fontes de dados que reflitam o consumo de demanda real. Uma fonte do consumo de energia importante é composta pelos medidores inteligentes. As empresas de serviços em todo o mundo têm implantado medidores inteligentes para seus consumidores. Os medidores inteligentes registram o consumo de energia real e retransmitem constantemente esses dados à empresa de serviço. Os dados são coletados e enviados de volta em um intervalo fixo, desde a cada cinco minutos até a cada hora. Medidores inteligentes mais avançados podem ser programados remotamente para controlar e equilibrar o consumo real em uma casa. Os dados dos medidores inteligentes são relativamente confiáveis e incluem um carimbo de data/hora. Dessa maneira, é um ingrediente importante para a previsão da demanda. Os dados do medidor podem ser agregados (somados) em vários níveis na topologia da rede: transformador, subestação, região, *etc.* Podemos então escolher o nível de agregação necessária para criar um modelo de previsão para ele. Por exemplo, se a empresa de serviço quiser prever a carga futura em cada uma das subestações da rede, então todos os dados dos medidores poderão ser agregados para cada subestação individual e usados como uma entrada para o modelo de previsão. Podemos nos referir aos medidores inteligentes como uma fonte de dados interna.
+A rede inteligente moderna coleta dados de várias partes e componentes da rede. Esses dados representam vários aspectos da operação e da utilização da rede de energia. No escopo da previsão da demanda de energia, estamos limitando a discussão a fontes de dados que reflitam o consumo de demanda real. Uma fonte do consumo de energia importante é composta pelos medidores inteligentes. As empresas de serviços em todo o mundo têm implantado medidores inteligentes para seus consumidores. Os medidores inteligentes registram o consumo de energia real e retransmitem constantemente esses dados à empresa de serviço. Os dados são coletados e enviados de volta em um intervalo fixo, desde a cada cinco minutos até a cada hora. Medidores inteligentes mais avançados podem ser programados remotamente para controlar e equilibrar o consumo real em uma casa. Os dados dos medidores inteligentes são relativamente confiáveis e incluem um carimbo de data/hora. Dessa maneira, é um ingrediente importante para a previsão da demanda. Os dados do medidor podem ser agregados (somados) em vários níveis na topologia da rede: transformador, subestação, região, *etc*. Podemos então escolher o nível de agregação necessária para criar um modelo de previsão para ele. Por exemplo, se a empresa de serviço quiser prever a carga futura em cada uma das subestações da rede, então todos os dados dos medidores poderão ser agregados para cada subestação individual e usados como uma entrada para o modelo de previsão. Podemos nos referir aos medidores inteligentes como uma fonte de dados interna.
 
 Uma previsão de demanda de energia confiável também se baseará em outras fontes de dados externas. Um importante fator que afeta o consumo de energia é o clima ou, mais precisamente, a temperatura. Os dados históricos mostram uma forte correlação entre a temperatura externa e o consumo de energia. Nos dias quentes de verão, os consumidores usarão seus aparelhos de ar-condicionado e, durante o inverno, usarão os sistemas de energia ou de aquecimento. Portanto, uma fonte confiável de temperaturas históricas no local da rede é fundamental. Além disso, também contamos com a previsão exata da temperatura como um indicador do consumo de energia.
 
@@ -259,7 +259,7 @@ As tabelas a seguir mostram exemplos de um bom formato de dados de consumo e de 
 Como pode ser visto acima, este exemplo inclui três valores diferentes para o consumo associado a três fases de energia. Além disso, observe que os campos de data e de hora estão separados, mas também podem ser combinados em uma única coluna. Nesse caso, a coluna de local é representada em formato de código postal de cinco dígitos e a temperatura em formato de graus Celsius.
 
 ### Formato de Dados
-O Cortana Intelligence Suite pode dar suporte à maioria dos formatos de dados comuns, como CSV, TSV, JSON *etc.* É importante que o formato de dados permaneça consistente durante todo o ciclo de vida do projeto.
+O Cortana Intelligence Suite pode dar suporte à maioria dos formatos de dados comuns, como CSV, TSV, JSON *etc*. É importante que o formato de dados permaneça consistente durante todo o ciclo de vida do projeto.
 
 ### Ingestão de dados
 Como a previsão da demanda de energia é prevista com constância e com frequência, devemos garantir que os dados brutos estejam fluindo por meio de um processo de ingestão de dados sólido e confiável. O processo de ingestão deve garantir que os dados brutos estejam disponíveis para o processo de previsão no tempo necessário. Isso significa que a frequência da ingestão de dados deve ser maior do que a frequência de previsão.
@@ -291,7 +291,7 @@ Nesta seção, listamos alguns dos recursos de dados comuns incluídos nos model
 -   Termos de Fourier – os termos de Fourier são pesos que derivam do carimbo de data/hora e são usados para capturar a periodicidade (ciclos) nos dados. Como podemos ter várias estações em nossos dados, talvez sejam necessários vários termos de Fourier. Por exemplo, os valores da demanda podem ter estações/ciclos anuais, semanais e diários, o que resultará em três termos de Fourier.
 
 **Recursos de medição independentes:** os recursos independentes incluem todos os elementos de dados que gostaríamos de usar como indicadores em nosso modelo. Aqui, podemos excluir o recurso dependente que precisamos prever.
--   Recurso de retardo – são valores de tempo deslocados da demanda real. Por exemplo, os recursos de retardo 1 conterão o valor de demanda na hora anterior (supondo que sejam os dados por hora) relativo ao carimbo de data/hora atual. Da mesma forma, podemos adicionar o retardo 2, o retardo 3, *etc.* A combinação real dos recursos de retardo usados é determinada durante a fase de modelagem por meio da avaliação dos resultados do modelo.
+-   Recurso de retardo – são valores de tempo deslocados da demanda real. Por exemplo, os recursos de retardo 1 conterão o valor de demanda na hora anterior (supondo que sejam os dados por hora) relativo ao carimbo de data/hora atual. Da mesma forma, podemos adicionar o retardo 2, o retardo 3, *etc*. A combinação real dos recursos de retardo usados é determinada durante a fase de modelagem por meio da avaliação dos resultados do modelo.
 -   Tendências a longo prazo – esse recurso representa o crescimento linear em demanda entre os anos.
 
 **Recurso dependente:** recurso dependente é a coluna de dados que gostaríamos que nosso modelo previsse. Com o [aprendizado de máquina supervisionado](https://en.wikipedia.org/wiki/Supervised_learning), primeiro precisamos treinar o modelo usando os recursos dependentes (também conhecidos como rótulos). Isso permite que o modelo aprenda os padrões nos dados associados ao recurso dependente. Na previsão da demanda de energia, geralmente desejamos prever a demanda real e, portanto, poderíamos usá-la como o recurso dependente.
@@ -384,4 +384,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

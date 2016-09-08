@@ -215,8 +215,7 @@ Além disso, você pode capturar logs de qualquer pasta. Basta especificar o cam
 
 ### Logs do ETW
 
-Se você usar [Rastreamento de Eventos para Windows
-https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) e desejar capturar logs de ETW, selecione a caixa de seleção **Habilitar transferência de logs de ETW**. Você pode aumentar ou diminuir o número de minutos quando os logs de eventos são transferidos para sua conta de armazenamento alterando o valor do **Período de transferência (min)**.
+Se você usar [Rastreamento de Eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) e desejar capturar logs de ETW, selecione a caixa de seleção **Habilitar transferência de logs de ETW**. Você pode aumentar ou diminuir o número de minutos quando os logs de eventos são transferidos para sua conta de armazenamento alterando o valor do **Período de transferência (min)**.
 
 Os eventos são capturados das origens de eventos e manifestos de evento que você especificar. Para especificar uma origem de evento, insira um nome na seção **Origens de evento** e, em seguida, escolha o botão **Adicionar origem de evento**. Da mesma forma, você pode especificar um manifesto de evento na seção **Manifestos de eventos** e, em seguida, escolha o botão **Adicionar manifesto de evento**.
 

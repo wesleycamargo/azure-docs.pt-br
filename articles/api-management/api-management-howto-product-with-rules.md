@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
@@ -48,7 +48,7 @@ Na caixa **Título**, digite **Avaliação gratuita**.
 
 Na caixa **Descrição**, digite o seguinte texto: **Assinantes poderão fazer 10 chamadas/minuto, até no máximo 200 chamadas/semana e após isso o acesso será negado.**
 
-Os produtos de Gerenciamento de API podem ser protegidos ou abertos. Os produtos protegidos devem ser assinados antes que possam ser usados. Os produtos abertos podem ser usados sem uma assinatura. Certifique-se de que **Exigir assinatura** esteja marcado para criar um produto protegido que requer uma assinatura. Esta é a configuração padrão.
+Os produtos de Gerenciamento de API podem ser protegidos ou abertos. Os produtos protegidos devem ser assinados antes que possam ser usados. Os produtos abertos podem ser usados sem uma assinatura. Verifique se **Exigir assinatura** está marcado para criar um produto protegido que requer uma assinatura. Esta é a configuração padrão.
 
 Se deseja que um administrador analise e aceite ou rejeite as tentativas de assinatura para este produto, marque **Requerer aprovação de assinatura**. Se a caixa de seleção não estiver marcada, as tentativas de assinatura serão aprovadas automaticamente. Neste exemplo, as assinaturas são aprovadas automaticamente; por isso, não marque a caixa.
 
@@ -237,7 +237,6 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
 -	Para obter mais informações e ver uma demonstração da definição de limites de taxa e cotas, consulte o vídeo a seguir.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -288,9 +287,8 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -375,11 +375,11 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Implementamos um mecanismo de limitação automático para impedir que os usuários tentem redefinir suas senhas muitas vezes em um curto período de tempo. Isso ocorre quando:</p>
               <ol class="ordered">
                 <li>
-										O usuário tenta validar um número de telefone cinco vezes em uma hora.&lt;br>&lt;br></li>
+										O usuário tenta validar um número de telefone cinco vezes em uma hora.<br\><br\></li>
                 <li>
-										O usuário tenta usar o portão de perguntas de segurança cinco vezes em uma hora.&lt;br>&lt;br></li>
+										O usuário tenta usar o portão de perguntas de segurança cinco vezes em uma hora.<br\><br\></li>
                 <li>
-										O usuário tenta redefinir uma senha para a mesma conta de usuário cinco vezes em uma hora.&lt;br>&lt;br></li>
+										O usuário tenta redefinir uma senha para a mesma conta de usuário cinco vezes em uma hora.<br\><br\></li>
               </ol>
               <p>Para corrigir isso, instrua o usuário a aguardar 24 horas após a última tentativa para poder redefinir a senha.</p>
             </td>
@@ -485,11 +485,11 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse erro ocorre nos seguintes casos:</p>
               <ul>
                 <li class="unordered">
-										Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.&lt;br>&lt;br></li>
+										Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect &lt;br>&lt;br></li>
+										Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect <br\><br\></li>
               </ul>
               <p>Para corrigir esse erro, verifique se você não está usando uma conta federada para o administrador global que você indicou no início do processo de instalação do Azure AD Connect e se a senha especificada está correta.</p>
             </td>
@@ -516,11 +516,11 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Verifique se o firewall permite conexões de saída para o seguinte:</p>
               <ul>
                 <li class="unordered">
-										Todo o tráfego sobre TCP 443 (HTTPS)&lt;br>&lt;br></li>
+										Todo o tráfego sobre TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Conexões de saída para &lt;br>&lt;br></li>
+										Conexões de saída para <br\><br\></li>
               </ul>
               <p>
 
@@ -574,11 +574,11 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Há um bug conhecido na versão lançada do Azure AD Connect que se manifesta na seguinte situação:</p>
               <ol class="ordered">
                 <li>
-										Você configura o Azure AD Connect para o locatário abc.com (domínio verificado) usando credenciais. Isso resulta na criação do conector AAD com o nome "abc.com – AAD".&lt;br>&lt;br></li>
+										Você configura o Azure AD Connect para o locatário abc.com (domínio verificado) usando credenciais. Isso resulta na criação do conector AAD com o nome "abc.com – AAD".<br\><br\></li>
                 <li>
-										Você então altera as credenciais AAD para o conector (usando a IU antiga) para (observe que é o mesmo locatário, mas com nome de domínio diferente).&lt;br>&lt;br></li>
+										Você então altera as credenciais AAD para o conector (usando a IU antiga) para (observe que é o mesmo locatário, mas com nome de domínio diferente).<br\><br\></li>
                 <li>
-										Agora você tenta habilitar/desabilitar o write-back de senha. O assistente construirá o nome do conector usando as credenciais como "abc.onmicrosoft.com – AAD" e passar para o cmdlet de write-back de senha. Isso irá falhar porque não há nenhum conector criado com esse nome.&lt;br>&lt;br></li>
+										Agora você tenta habilitar/desabilitar o write-back de senha. O assistente construirá o nome do conector usando as credenciais como "abc.onmicrosoft.com – AAD" e passar para o cmdlet de write-back de senha. Isso irá falhar porque não há nenhum conector criado com esse nome.<br\><br\></li>
               </ol>
               <p>Esse problema foi corrigido em nossas compilações mais recentes. Se você tiver uma compilação mais antiga, uma solução é usar o cmdlet do PowerShell para habilitar/desabilitar o recurso. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
             </td>
@@ -701,19 +701,19 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.&lt;br>&lt;br></li>
+										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.&lt;br>&lt;br></li>
+										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.&lt;br>&lt;br></li>
+										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.&lt;br>&lt;br></li>
+										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -775,15 +775,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.&lt;br>&lt;br></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.&lt;br>&lt;br></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.&lt;br>&lt;br></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
@@ -858,15 +858,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.&lt;br>&lt;br></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.&lt;br>&lt;br></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.&lt;br>&lt;br></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outras situações que podem causar esse erro.</p>
             </td>
@@ -913,15 +913,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>O administrador selecionou uma senha em nome de um usuário e a senha chegou com sucesso no ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.&lt;br>&lt;br></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.&lt;br>&lt;br></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.&lt;br>&lt;br></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
@@ -1360,19 +1360,19 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.&lt;br>&lt;br></li>
+										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.&lt;br>&lt;br></li>
+										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.&lt;br>&lt;br></li>
+										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.&lt;br>&lt;br></li>
+										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon da Conta da Microsoft
@@ -24,7 +24,7 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 
 ## <a name="register-microsoft-account"> </a>Registrar seu aplicativo na conta da Microsoft
 
-1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você a usará para configurar seu aplicativo com a Conta da Microsoft.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**, que posteriormente você usa para configurar seu aplicativo com a conta da Microsoft.
 
 2. Navegue até a página [Meus Aplicativos] no Centro de Desenvolvedoras da conta da Microsoft e faça logon com sua conta da Microsoft, se necessário.
 
@@ -76,4 +76,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 [Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

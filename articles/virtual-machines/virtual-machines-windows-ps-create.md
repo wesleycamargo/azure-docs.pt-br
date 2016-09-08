@@ -25,7 +25,7 @@ Todas as etapas neste artigo são necessárias para criar uma máquina virtual e
 
 ## Etapa 1: instalar o PowerShell do Azure
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que deseja usar e entrar na sua conta do Azure.
         
 ## Etapa 2: criar um grupo de recursos
 
@@ -104,12 +104,12 @@ Todas as máquinas virtuais fazem parte de uma [rede virtual](../virtual-network
 
 Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
-1. Substitua o valor **$ipName** por um nome do endereço IP público. Criar a variável e o endereço IP público.
+1. Substitua o valor de **$ipName** pelo nome do endereço IP público. Criar a variável e o endereço IP público.
 
         $ipName = "myIPaddress1"
         $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
         
-2. Substitua o valor **$nicName** por um nome para a interface de rede. Crie a variável e a interface de rede.
+2. Substitua o valor de **$nicName** pelo nome do adaptador de rede. Crie a variável e a interface de rede.
 
         $nicName = "mynic1"
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
@@ -122,7 +122,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    A senha deve ter entre 12 e 123 caracteres e ter pelo menos um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
+    A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Confira mais sobre os [requisitos de nome de usuário e senha](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Substitua o valor **$vmName** por um nome para a máquina virtual. Crie a variável e a configuração da máquina virtual.
 
@@ -131,7 +131,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
         
     Consulte [Tamanhos das máquinas virtuais no Azure](virtual-machines-windows-sizes.md) para obter uma lista dos tamanhos disponíveis para uma máquina virtual.
     
-3. Substitua o valor **$vmName** por um nome de computador para a máquina virtual. Criar a variável e adicione as informações do sistema operacional à configuração.
+3. Substitua o valor **$compName** por um nome de computador para a máquina virtual. Criar a variável e adicione as informações do sistema operacional à configuração.
 
         $compName = "myvm1"
         $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
@@ -146,7 +146,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Substitua o valor **$blobPath** por um caminho e nome de arquivo no armazenamento que o disco rígido virtual usará. Normalmente, o arquivo de disco rígido virtual é armazenado em um contêiner, por exemplo, **vhds/WindowsVMosDisk.vhd**. Crie as variáveis.
+6. Substitua o valor **$blobPath** por um caminho e nome de arquivo no armazenamento que o disco rígido virtual usará. Normalmente, o arquivo do disco rígido virtual é armazenado em um contêiner, por exemplo, **vhds/WindowsVMosDisk.vhd**. Crie as variáveis.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -170,6 +170,6 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
-- Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos](virtual-machines-windows-ps-template.md)
+- Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Resource Manager](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

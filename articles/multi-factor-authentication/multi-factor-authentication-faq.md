@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
+	ms.date="08/22/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes sobre o Azure Multi-Factor Authentication
@@ -145,7 +145,7 @@ Obtenha mais informações sobre como criar senhas de aplicativo e outra [ajuda 
 
 O serviço Azure Multi-Factor Authentication envia mensagens de texto usando agregadores de SMS. Muitos fatores podem afetar a confiabilidade da entrega e do recebimento da mensagem de texto, incluindo o agregador que é usado, o país de destino, a operadora do celular do usuário e a intensidade do sinal. Por esse motivo, a entrega das mensagens de texto e o recebimento de respostas de SMS no SMS bidirecional não são garantidos. É recomendável usar o SMS unidirecional em vez de SMS bidirecional quando possível. O SMS unidirecional é mais confiável e impede os usuários de incorrerem em cobranças globais de SMS ao responderem a uma mensagem de texto que foi enviada de outro país.
 
-As verificações de mensagem de texto também são mais confiáveis em alguns países ou regiões, como os Estados Unidos e o Canadá. Incentivamos os usuários que enfrentam dificuldade em receber mensagens de texto de maneira confiável ao usar o Azure Multi-Factor Authentication a selecionar o método de ligação ou aplicativo móvel. O método de autenticação do aplicativo móvel é excelente, pois o usuário pode receber notificações de aplicativo móvel por conexões celulares e Wi-Fi. Além disso, a senha de aplicativo móvel é exibida mesmo quando o dispositivo não tem qualquer sinal. O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+As verificações de mensagem de texto também são mais confiáveis em alguns países ou regiões, como os Estados Unidos e o Canadá. Incentivamos os usuários que enfrentam dificuldade em receber mensagens de texto de maneira confiável ao usar o Azure Multi-Factor Authentication a selecionar o método de ligação ou aplicativo móvel. O método de autenticação do aplicativo móvel é excelente, pois o usuário pode receber notificações de aplicativo móvel por conexões celulares e Wi-Fi. Além disso, a senha de aplicativo móvel é exibida mesmo quando o dispositivo não tem qualquer sinal. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 **P: Posso usar tokens de hardware com o Servidor Multi-Factor Authentication?**
 
@@ -185,4 +185,4 @@ Atualmente, um usuário pode usar a verificação de segurança adicional apenas
 
 Uma solução alternativa para isso é ter contas de usuário separadas para operações administrativas e não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, saiba como [fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

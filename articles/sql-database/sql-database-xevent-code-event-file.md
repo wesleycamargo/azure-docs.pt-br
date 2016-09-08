@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -49,10 +49,9 @@ Este tópico apresenta um exemplo de código em duas fases:
  - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
 
 
-- SQL Server Management Studio (ssms.exe), sua Visualização de agosto de 2015 ou uma versão posterior. Você pode baixar o ssms.exe mais recente de:
+- O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. Você pode baixar o ssms.exe mais recente de:
  - Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - A Microsoft recomenda que você atualize seu ssms.exe periodicamente. Em alguns casos, o ssms.exe será atualizado mensalmente.
 
 
 - Você deve ter os [módulos do Azure PowerShell](http://go.microsoft.com/?linkid=9811175) instalados.
@@ -64,7 +63,7 @@ Este tópico apresenta um exemplo de código em duas fases:
 
 Esse PowerShell é a fase 1 do exemplo de código de duas fases.
 
-O script começa com comandos para limpeza após uma possível execução anterior, e foi projetado para ser reutilizável.
+O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
 
 
 
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -270,7 +269,7 @@ Anote os valores nomeados que o script do PowerShell imprime quando termina. Voc
 - Em seguida na fase 2, o script Transact-SQL a seguir deverá usar o contêiner.
 
 
-O script começa com comandos para limpeza após uma possível execução anterior, e foi projetado para ser reutilizável.
+O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
 
 
 O script PowerShell imprimiu alguns valores nomeados quando terminou. Você precisa editar o script Transact-SQL a fim de usar esses valores. Localize **TODO** no script Transact-SQL para localizar os pontos de edição.
@@ -512,9 +511,9 @@ GO
 ## Saída
 
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event\_data\_XML**. Um elemento **<evento>** é exibido mostrando uma instrução UPDATE.
+Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event\_data\_XML**. Um elemento **<event>** é exibido mostrando uma instrução UPDATE.
 
-Veja um elemento **<evento>** gerado durante o teste:
+Veja um elemento **<event>** gerado durante o teste:
 
 
 &nbsp;
@@ -583,7 +582,7 @@ Vamos supor que você queira executar o exemplo anterior de Transact-SQL no Micr
 - Para manter a simplicidade, convém substituir completamente o uso do contêiner de Armazenamento do Azure por um arquivo simples, como **C:\\myeventdata.xel**. O arquivo seria gravado no disco rígido local do computador que hospeda o SQL Server.
 
 
-- Você não precisaria de qualquer tipo de instrução Transact-SQL para **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
+- Você não precisaria de nenhuma variante de instrução Transact-SQL para **CREATE MASTER KEY** e **CREATE CREDENTIAL**.
 
 
 - Na instrução **CREATE EVENT SESSION**, em sua cláusula **ADD TARGET**, você pode substituir o valor de Http atribuído a **filename =** por uma cadeia de caracteres de caminho completo, como **C:\\myfile.xel**.
@@ -610,4 +609,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

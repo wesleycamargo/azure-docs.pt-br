@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Perguntas - Application Insights para ASP.NET
@@ -27,6 +27,12 @@
 * [Aplicativo Web Java](app-insights-java-troubleshoot.md)
 * [Outras plataformas](app-insights-platforms.md)
 
+*Não recebo qualquer valor de meu servidor*
+
+* [Definir exceções de firewall](app-insights-ip-addresses.md)
+* [Configurar um servidor ASP.NET](app-insights-monitor-performance-live-website-now.md)
+* [Configurar um servidor Java](app-insights-java-agent.md)
+
 
 ## É possível usar o Application Insights com...?
 
@@ -35,7 +41,7 @@
 
 ## É gratuito?
 
-* Sim, se você escolher a [faixa de preços](app-insights-pricing.md) gratuita. Você obtém a maioria dos recursos e uma cota mais ampla de dados. 
+* Sim, se você escolher a [faixa de preços](app-insights-pricing.md) gratuita. Você obtém a maioria dos recursos e uma cota mais ampla de dados.
 * Você deve fornecer os dados de cartão de crédito para se registrar com o Microsoft Azure, mas nenhum encargo será cobrado, a menos que você use outro serviço do Azure pago ou explicitamente atualize para uma faixa cobrada.
 * Se seu aplicativo enviar mais dados do que a cota mensal por camada gratuita, eles deixarão de ser registrados em log. Se isso acontecer, você pode optar por começar a pagar ou aguardar até que a cota seja reiniciada no final do mês.
 * Dados básicos de uso e da sessão não estão sujeitos a uma cota.
@@ -145,4 +151,4 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

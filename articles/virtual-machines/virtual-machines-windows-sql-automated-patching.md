@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Gerenciador de Recursos)
@@ -22,10 +22,9 @@
 - [Gerenciador de Recursos](virtual-machines-windows-sql-automated-patching.md)
 - [Clássico](virtual-machines-windows-classic-sql-automated-patching.md)
 
-A aplicação de patch automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure que executa o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, isso garante que as atualizações do sistema e qualquer reinicialização associada ocorrerão no melhor momento possível para o banco de dados. A aplicação de patch automatizada depende da [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+A aplicação de patch automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure que executa o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, essa restrição garante que as atualizações do sistema e qualquer reinicialização associada ocorram no melhor momento possível para o banco de dados. A aplicação de patch automatizada depende da [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-modelo de implantação clássico. Para exibir a versão clássica deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure Clássico](virtual-machines-windows-classic-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica. Para exibir a versão clássica deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure Clássico](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## Pré-requisitos
 
@@ -61,10 +60,10 @@ A tabela a seguir descreve as opções que podem ser configuradas para Aplicaç�
 |**Categoria de patch**|Importante|A categoria de atualizações para baixar e instalar.|
 
 ## Configuração no Portal
-Você pode usar o Portal do Azure para configurar o a Aplicação de Patch Automatizado durante o provisionamento ou para VMs existentes.
+Você pode usar o portal do Azure para configurar a aplicação de Patch automatizada durante o provisionamento ou para VMs existentes.
 
 ### Novas VMs
-Use o Portal do Azure para configurar a Aplicação de Patch Automatizada quando criar uma nova Máquina Virtual do SQL Server no modelo de implantação do Gerenciador de Recursos.
+Use o portal do Azure para configurar a aplicação de Patch automatizada quando criar uma nova máquina virtual do SQL Server no modelo de implantação do gerenciador de recursos.
 
 Na folha **Configurações do SQL Server**, selecione **Aplicação de patch automatizada**. As capturas de tela do portal do Azure a seguir mostram a folha **Aplicação de Patch Automatizada**.
 
@@ -83,7 +82,7 @@ Na folha **Configuração do SQL Server**, clique no botão **Editar** na seçã
 
 Quando terminar, clique no botão **OK** na parte inferior da folha **Configuração do SQL Server** para salvar suas alterações.
 
-Se você for habilitar a Aplicação de Patch Automatizada pela primeira vez, o Azure configurará o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal do Azure não mostrará que a Aplicação de Patch Automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal do Azure refletirá as novas configurações.
+Se você for habilitar a Aplicação de Patch Automatizada pela primeira vez, o Azure configurará o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal do Azure não mostrará que a Aplicação de Patch Automatizada está configurada. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal do Azure reflete as novas configurações.
 
 >[AZURE.NOTE] Você também pode configurar a Aplicação de Patch Automatizada usando um modelo. Para obter mais informações, consulte o [Modelo de início rápido do Azure para a Aplicação de Patch Automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
 
@@ -106,11 +105,11 @@ Com base neste exemplo, a tabela a seguir descreve o efeito prático sobre a VM 
 |**DayOfWeek**|Patches instalados toda quinta-feira.|
 |**MaintenanceWindowStartingHour**|Inicia as atualizações às 11h.|
 |**MaintenanceWindowsDuration**|Os patches devem ser instalados dentro de 120 minutos. Com base na hora de início, eles devem estar concluídos até 13h.|
-|**PatchCategory**|A única configuração possível para esse parâmetro é "Important".|
+|**PatchCategory**|A única configuração possível para esse parâmetro é **Important**.|
 
 Pode demorar vários minutos para instalar e configurar o Agente IaaS do SQL Server.
 
-Para desabilitar a Aplicação de Patch Automatizada, execute o mesmo script sem o parâmetro **-Enable** para **AzureRM.Compute\\New-AzureVMSqlServerAutoPatchingConfig**. A ausência do parâmetro **-Enable** sinaliza o comando para desabilitar o recurso.
+Para desabilitar a aplicação de Patch automatizada, execute o mesmo script sem o parâmetro **-Enable** para **AzureRM.Compute\\New-AzureVMSqlServerAutoPatchingConfig**. A ausência do parâmetro **-Enable** sinaliza o comando para desabilitar o recurso.
 
 ## Próximas etapas
 
@@ -118,4 +117,4 @@ Para obter informações sobre outras tarefas de automação disponíveis, consu
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0720_2016--->
+<!---HONumber=AcomDC_0824_2016-->

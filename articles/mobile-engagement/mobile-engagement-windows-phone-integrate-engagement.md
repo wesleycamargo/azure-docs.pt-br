@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Integração do SDK do Windows Phone Silverlight para o Engagement
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Mobile Engagement do Azure em seu aplicativo do Windows Phone Silverlight.
 
@@ -191,7 +191,7 @@ Esses métodos são chamados de dentro do método `OnNavigatedTo` da página.
 
 Se você não pode ou não quer sobrecarregar as classes `PhoneApplicationPage`, em vez disso, você pode iniciar suas atividades chamando os métodos `EngagementAgent` diretamente.
 
-É recomendável chamar `StartActivity` dentro do método `OnNavigatedTo` da sua PhoneApplicationPage.
+Recomendamos chamar `StartActivity` dentro do método `OnNavigatedTo` da sua PhoneApplicationPage.
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
@@ -247,4 +247,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > [AZURE.WARNING] O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

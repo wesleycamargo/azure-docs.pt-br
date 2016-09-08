@@ -14,18 +14,13 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do MailChimp
 
+O MailChimp é um serviço de SaaS que permite que as empresas gerenciem e automatizem atividades de marketing de email, incluindo envio de emails de marketing, mensagens automatizadas e campanhas direcionadas.
 
-
-O conector do MailChimp pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -61,7 +56,7 @@ Para criar Aplicativos Lógicos com o MailChimp, primeiro, você deve criar uma 
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do MailChimp|
+|Token|Sim|Fornecer as credenciais do MailChimp|
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
@@ -263,15 +258,15 @@ Não há parâmetros para essa chamada
 |título|string|Não |
 |from\_name|string|Sim |
 |reply\_to|string|Sim |
-|use\_conversation|booleano|Não |
+|use\_conversation|Booliano|Não |
 |to\_name|string|Não |
 |folder\_id|inteiro|Não |
-|authenticate|booleano|Não |
-|auto\_footer|booleano|Não |
-|inline\_css|booleano|Não |
-|auto\_tweet|booleano|Não |
+|authenticate|Booliano|Não |
+|auto\_footer|Booliano|Não |
+|inline\_css|Booliano|Não |
+|auto\_tweet|Booliano|Não |
 |auto\_fb\_post|array|Não |
-|fb\_comments|booleano|Não |
+|fb\_comments|Booliano|Não |
 
 
 
@@ -295,11 +290,11 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|opens|booleano|Não |
-|html\_clicks|booleano|Não |
-|text\_clicks|booleano|Não |
-|goal\_tracking|booleano|Não |
-|ecomm360|booleano|Não |
+|opens|Booliano|Não |
+|html\_clicks|Booliano|Não |
+|text\_clicks|Booliano|Não |
+|goal\_tracking|Booliano|Não |
+|ecomm360|Booliano|Não |
 |google\_analytics|string|Não |
 |clicktale|string|Não |
 |salesforce|não definido|Não |
@@ -346,8 +341,8 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|campaign|booleano|Não |
-|HDInsight|booleano|Não |
+|campaign|Booliano|Não |
+|HDInsight|Booliano|Não |
 
 
 
@@ -356,8 +351,8 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|campaign|booleano|Não |
-|HDInsight|booleano|Não |
+|campaign|Booliano|Não |
+|HDInsight|Booliano|Não |
 
 
 
@@ -366,7 +361,7 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|HDInsight|booleano|Não |
+|HDInsight|Booliano|Não |
 
 
 
@@ -387,13 +382,13 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|sunday|booleano|Não |
-|monday|booleano|Não |
-|tuesday|booleano|Não |
-|wednesday|booleano|Não |
-|thursday|booleano|Não |
-|friday|booleano|Não |
-|saturday|booleano|Não |
+|sunday|Booliano|Não |
+|monday|Booliano|Não |
+|tuesday|Booliano|Não |
+|wednesday|Booliano|Não |
+|thursday|Booliano|Não |
+|friday|Booliano|Não |
+|saturday|Booliano|Não |
 
 
 
@@ -464,8 +459,8 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|habilitado|booleano|Não |
-|can\_cancel|booleano|Não |
+|habilitado|Booliano|Não |
+|can\_cancel|Booliano|Não |
 |status|string|Não |
 |emails\_sent|inteiro|Não |
 |emails\_canceled|inteiro|Não |
@@ -490,14 +485,14 @@ Não há parâmetros para essa chamada
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|name|cadeia de caracteres|Sim |
+|name|string|Sim |
 |contact|não definido|Sim |
 |permission\_reminder|string|Sim |
-|use\_archive\_bar|booleano|Não |
+|use\_archive\_bar|Booliano|Não |
 |campaign\_defaults|não definido|Sim |
 |notify\_on\_subscribe|string|Não |
 |notify\_on\_unsubscribe|string|Não |
-|email\_type\_option|booleano|Sim |
+|email\_type\_option|Booliano|Sim |
 |visibility|string|Não |
 
 
@@ -536,16 +531,16 @@ Não há parâmetros para essa chamada
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |ID|string|Sim |
-|name|cadeia de caracteres|Sim |
+|name|string|Sim |
 |contact|não definido|Sim |
 |permission\_reminder|string|Sim |
-|use\_archive\_bar|booleano|Não |
+|use\_archive\_bar|Booliano|Não |
 |campaign\_defaults|não definido|Sim |
 |notify\_on\_subscribe|string|Não |
 |notify\_on\_unsubscribe|string|Não |
 |date\_created|string|Não |
 |list\_rating|inteiro|Não |
-|email\_type\_option|booleano|Sim |
+|email\_type\_option|Booliano|Sim |
 |subscribe\_url\_short|string|Não |
 |subscribe\_url\_long|string|Não |
 |beamer\_address|string|Não |
@@ -600,7 +595,7 @@ Não há parâmetros para essa chamada
 |merge\_fields|não definido|Não |
 |interests|string|Não |
 |idioma|string|Não |
-|vip|booleano|Não |
+|vip|Booliano|Não |
 |location|não definido|Não |
 |email\_address|string|Sim |
 
@@ -616,7 +611,7 @@ Não há parâmetros para essa chamada
 
 
 
-### Local padrão
+### Local
 
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
@@ -646,7 +641,7 @@ Não há parâmetros para essa chamada
 |member\_rating|inteiro|Não |
 |last\_changed|string|Não |
 |idioma|string|Não |
-|vip|booleano|Não |
+|vip|Booliano|Não |
 |email\_client|string|Não |
 |location|não definido|Não |
 |last\_note|não definido|Não |
@@ -697,7 +692,7 @@ Não há parâmetros para essa chamada
 |merge\_fields|não definido|Não |
 |interests|string|Não |
 |idioma|string|Não |
-|vip|booleano|Não |
+|vip|Booliano|Não |
 |location|não definido|Não |
 
 
@@ -733,7 +728,7 @@ Não há parâmetros para essa chamada
 |member\_rating|inteiro|Não |
 |last\_changed|string|Não |
 |idioma|string|Não |
-|vip|booleano|Não |
+|vip|Booliano|Não |
 |email\_client|string|Não |
 |location|não definido|Não |
 |last\_note|não definido|Não |
@@ -744,4 +739,4 @@ Não há parâmetros para essa chamada
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

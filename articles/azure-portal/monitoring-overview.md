@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visão Geral do Monitoramento no Microsoft Azure | Microsoft Azure"
-	description="Visão geral de alto nível do monitoramento e diagnóstico nos alertas do Azure para outros sistemas não Azure."
+	description="Visão geral de nível superior do monitoramento e diagnóstico no Microsoft Azure, incluindo alertas, webhooks, dimensionamento automático e muito mais."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -138,4 +138,4 @@ Saiba mais sobre
 - [Solucionando Problemas no Armazenamento do Azure](../storage/storage-e2e-troubleshooting.md) se você estiver usando os Blobs de Armazenamento, Tabelas ou Filas
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

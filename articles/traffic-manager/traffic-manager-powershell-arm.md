@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Suporte do Azure Resource Manager para o Gerenciador de Tráfego | Microsoft Azure"
+   pageTitle="Suporte do Azure Resource Manager para o Gerenciador de Tráfego | Microsoft Azure "
    description="Usando o Powershell para o Gerenciador de Tráfego com o ARM (Azure Resource Manager)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Suporte do Azure Resource Manager para o Gerenciador de Tráfego do Azure
 O ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços do Azure. Os perfis do Gerenciador de Tráfego do Azure agora podem ser gerenciados usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure.
@@ -66,11 +66,11 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 
 	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
-Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureRmSubscription”.
+Para ver uma lista das assinaturas disponíveis, use o cmdlet ‘Get-AzureRmSubscription’.
 
 ### Etapa 4
 
-O serviço do Gerenciador de Tráfego é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o Gerenciador de Tráfego pelo ARM. Essa operação deve ser executa apenas uma vez para cada assinatura.
+O serviço do Gerenciador de Tráfego é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o Gerenciador de Tráfego pelo ARM. Essa operação deve ser executada apenas uma vez para cada assinatura.
 
 	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
 
@@ -309,4 +309,4 @@ Essa sequência também pode ser transferida:
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

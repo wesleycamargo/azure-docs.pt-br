@@ -67,7 +67,7 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 
 ## Conta
 
-Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando executar operações com o serviço Lote, você precisará do nome da conta e de uma de suas chaves. Você pode [criar e gerenciar uma conta do Lote do Azure no portal do Azure](batch-account-create-portal.md).
+Uma conta do Batch é uma entidade identificada exclusivamente no serviço Batch. Todo o processamento é feito por meio de uma conta do Lote. Quando executar operações com o serviço Lote, você precisará do nome da conta e de uma de suas chaves. Você pode criar uma [conta do Lote do Azure usando o Portal do Azure](batch-account-create-portal.md).
 
 ## Nó de computação
 
@@ -518,4 +518,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Conectar ao Armazenamento do Azure em seu aplicativo Xamarin Forms
@@ -22,7 +22,7 @@
 
 O cliente de Aplicativos Móveis do Azure e o SDK do servidor oferecem suporte a sincronização offline de dados estruturados com operações CRUD com base no ponto de extremidade /tables. Geralmente, esses dados são armazenados em um banco de dados ou armazenamento semelhante, e geralmente esses armazenamentos de dados não podem armazenar grandes quantidades de dados binários com eficiência. Além disso, alguns aplicativos têm dados relacionados armazenados em outro lugar (por exemplo, armazenamento de blobs, compartilhamentos de arquivos), e ser capaz de criar associações entre registros no ponto de extremidade /tables e em outros dados é bastante útil.
 
-Este tópico mostra como adicionar suporte para imagens ao início rápido de lista de tarefas pendentes dos Aplicativos Móveis. Primeiro, você precisa concluir o tutorial [Criar um aplicativo Xamarin.Forms].
+Este tópico mostra como adicionar suporte para imagens ao início rápido de lista de tarefas dos Aplicativos Móveis. Primeiro, você precisa concluir o tutorial [Criar um aplicativo Xamarin.Forms].
 
 Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadeia de conexão ao back-end do Aplicativo Móvel. Em seguida, você adicionará uma nova herança do novo tipo de Aplicativos Móveis `StorageController<T>` ao projeto de seu servidor.
 
@@ -36,7 +36,7 @@ Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadei
 
 ## Criar uma conta de armazenamento
 
-1. Crie uma conta de armazenamento seguindo o tutorial [Criar uma conta de armazenamento do Azure]. 
+1. Crie uma conta de armazenamento seguindo o tutorial [Criar uma conta de armazenamento do Azure].
 
 2. No Portal do Azure, navegue até a conta de armazenamento recém-criada e clique no ícone **Chaves**. Copie a **Cadeia de Conexão Primária**.
 
@@ -160,7 +160,7 @@ Para sua conveniência, este exemplo usa a biblioteca [PCLStorage], mas ela não
 
 ###<a name="add-iplatform"></a>Adicionar a interface IPlatform
 
-Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal. Isso segue o padrão [Xamarin.Forms DependencyService] para carregar a classe específica da plataforma correta no tempo de execução. Posteriormente, você adicionará implementações específicas da plataforma em cada um dos projetos de cliente.
+Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal. Isso segue o padrão [Xamarin.Forms DependencyService] para carregar a classe específica da plataforma correta no tempo de execução. Posteriormente, você adicionará implementações específicas de plataforma em cada um dos projetos de cliente.
 
 1. Adicione as seguintes instruções using:
 
@@ -243,7 +243,7 @@ Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal
 
 Crie uma nova classe `TodoItemFileSyncHandler` no projeto da biblioteca portátil principal. Essa classe contém retornos de chamada do SDK do Azure a fim de notificar seu código quando um arquivo é adicionado ou removido.
 
-O SDK do cliente móvel do Azure, de fato, não armazena nenhum dado do arquivo: o SDK do cliente invoca a implementação do `IFileSyncHandler` que, por sua vez, determina se os arquivos são armazenados no dispositivo local e de que maneira.
+O SDK do cliente móvel do Azure não armazena nenhum dado do arquivo: o SDK do cliente invoca a implementação do `IFileSyncHandler` que, por sua vez, determina se os arquivos são armazenados no dispositivo local e de que maneira.
 
 1. Adicione as seguintes instruções using:
 
@@ -622,7 +622,7 @@ Adicione o código específico da plataforma ao projeto do iOS.
 
 ###<a name="update-windows"></a>Atualizar o projeto do Windows
 
-1. Instale a extensão do Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para saber mais, confira o tutorial [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Instale a extensão do Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para saber mais, confira o tutorial [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md).
 
 2. Edite **Package.appxmanifest** e verifique a capacidade da **Webcam**.
 
@@ -709,7 +709,7 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
-- O recurso de sincronização de arquivos usa notificações de alteração do registro no repositório local para recuperar os registros recebidos pelo cliente como parte de uma operação de push ou pull. Isso é realizado por meio da ativação de notificações locais e do servidor para o contexto de sincronização usando o parâmetro `StoreTrackingOptions`.
+- O recurso de sincronização de arquivos usa notificações de alteração do registro no repositório local para recuperar os registros recebidos pelo cliente como parte de uma operação de push ou pull. Isso é realizado por meio da ativação de notificações locais e do servidor sobre o contexto de sincronização usando o parâmetro `StoreTrackingOptions`.
 
         this.client.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
 
@@ -735,4 +735,4 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 [Noções básicas das Assinaturas de Acesso Compartilhado]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Criar uma conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

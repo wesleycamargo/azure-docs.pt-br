@@ -3,7 +3,7 @@
    description="Saiba como criar um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Introdução à criação de um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell
 
@@ -141,7 +141,7 @@ Crie um teste de integridade. Há duas maneiras de configurar uma investigação
 Investigação HTTP
 	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-ou
+ou o
 
 Investigação TCP
 	
@@ -215,13 +215,13 @@ Saída esperada:
                            ],
                            "ProvisioningState": "Succeeded",
                            "Name": "ipconfig1",
-                           "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                           "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
                          }
                        ]
 	DnsSettings          : {
-                         "DnsServers": [ ],
-                         "AppliedDnsServers": [ ]
+                         "DnsServers": [],
+                         "AppliedDnsServers": []
                        }
 	AppliedDnsSettings   :
 	NetworkSecurityGroup : null
@@ -308,4 +308,4 @@ Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga cr
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

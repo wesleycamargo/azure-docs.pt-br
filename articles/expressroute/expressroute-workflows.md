@@ -12,15 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
+
 Esta página fornece uma orientação de alto nível pelos fluxos de trabalho de provisionamento do serviço e de configuração do roteamento.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-A figura e as etapas correspondentes abaixo mostram as tarefas que você deve executar para provisionar um circuito da Rota Expressa de ponta a ponta.
+A figura e as etapas correspondentes a seguir mostram as tarefas que você deve executar para provisionar um circuito da Rota Expressa de ponta a ponta.
 
 1. Use o PowerShell para configurar um circuito da Rota Expressa. Siga as instruções no artigo [Criar circuitos da Rota Expressa](expressroute-howto-circuit-classic.md) para obter mais detalhes.
 
@@ -36,7 +37,8 @@ A figura e as etapas correspondentes abaixo mostram as tarefas que você deve ex
 	
 	>[AZURE.IMPORTANT] Use um proxy/borda diferente da usada para a Internet para se conectar à Microsoft. Usar a mesma borda para a Rota Expressa e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Vinculando redes virtuais aos circuitos da Rota Expressa - Você pode vincular redes virtuais ao circuito da Rota Expressa. Siga as instruções [para vincular redes virtuais](expressroute-howto-linkvnet-arm.md) ao seu circuito. Essas redes virtuais podem estar na mesma assinatura do Azure que o circuito da Rota Expressa ou podem estar em uma assinatura diferente.
 
@@ -58,7 +60,7 @@ Esta seção lista os possíveis estados de um circuito da Rota Expressa.
 
 #### No momento da criação
 
-Você verá o circuito da Rota Expressa no estado descrito abaixo assim que executar o cmdlet do PowerShell para criar o circuito da Rota Expressa.
+Você verá o circuito da Rota Expressa no seguinte estado assim que executar o cmdlet do PowerShell para criar um circuito da Rota Expressa.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -66,7 +68,7 @@ Você verá o circuito da Rota Expressa no estado descrito abaixo assim que exec
 
 #### Quando o provedor de conectividade estiver no processo de provisionamento do circuito
 
-Você verá o circuito da Rota Expressa no estado descrito abaixo assim que passar a chave de serviço para o provedor de conectividade, e ele tiver iniciado o processo de provisionamento.
+Você verá o circuito da Rota Expressa no estado a seguir assim que passar a chave de serviço para o provedor de conectividade, e ele tiver iniciado o processo de provisionamento.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -74,7 +76,7 @@ Você verá o circuito da Rota Expressa no estado descrito abaixo assim que pass
 
 #### Quando o provedor de conectividade tiver concluído o processo de provisionamento
 
-Você verá o circuito da Rota Expressa no estado descrito abaixo assim que o provedor de conectividade tiver concluído o processo de provisionamento.
+Você verá o circuito da Rota Expressa no seguinte estado assim que o provedor de conectividade tiver concluído o processo de provisionamento.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
@@ -83,7 +85,7 @@ Provisionado e Habilitado são os únicos estados nos quais o circuito pode esta
 
 #### Se o desprovisionamento tiver sido iniciado primeiro no lado da Microsoft
 
-Você verá o circuito da Rota Expressa no estado descrito abaixo assim que executar o cmdlet do PowerShell para excluir o circuito da Rota Expressa.
+Você verá o circuito da Rota Expressa no seguinte estado assim que executar o cmdlet do PowerShell para excluir um circuito da Rota Expressa.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
@@ -92,7 +94,7 @@ Entre em contato com seu provedor de conectividade para desprovisionar o circuit
 
 #### Se o desprovisionamento tiver sido iniciado no lado do provedor de serviço
 
-Se você tiver solicitado ao provedor de serviços primeiro o desprovisionamento do circuito da Rota Expressa, você verá o circuito definido com o estado descrito a seguir, após o provedor de serviços ter concluído o processo de desprovisionamento.
+Se você tiver solicitado ao provedor de serviços primeiro o desprovisionamento do circuito da Rota Expressa, verá o circuito definido com o estado a seguir, após o provedor de serviços ter concluído o processo de desprovisionamento.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
@@ -120,4 +122,4 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

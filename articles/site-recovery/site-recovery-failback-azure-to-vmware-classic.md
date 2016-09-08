@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="01/11/2015"
+   ms.date="08/22/2016"
    ms.author="ruturajd"/>
 
 # Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
@@ -153,7 +153,7 @@ Será necessário baixar e instalar alguns pacotes adicionais.
 
 Faça o seguinte para aplicar as alterações personalizadas após a conclusão das etapas pós-instalação e após a instalação dos pacotes:
 
-1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar -zxvf <nome do arquivo>**
+1.	Copie o binário do Agente Unificado RHEL 6-64 para a VM. Execute este comando para descompactar o binário: **tar –zxvf <nome do arquivo>**
 2.	Execute esse comando para conceder permissões: **# chmod 755 ./ApplyCustomChanges.sh**
 3.	Execute o script: **# ./ApplyCustomChanges.sh**. Você só deve executar o script uma vez. Reinicie o servidor após a execução bem-sucedida do script.
 
@@ -204,4 +204,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!---HONumber=AcomDC_0720_2016--->
+<!---HONumber=AcomDC_0824_2016-->

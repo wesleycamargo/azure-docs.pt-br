@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 	
 #Conteúdo do SDK do Windows Phone Silverlight
@@ -37,4 +37,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Engagement (cadeia de conexão do Engagement, relatar falhas, etc.).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -31,7 +31,7 @@ Os processos de criptografia e descriptografia seguem a técnica de envelope.
 ### Criptografia com a técnica de envelope  
 A criptografia com a técnica de envelope funciona da seguinte maneira:
 
-1.	A biblioteca do cliente do Armazenamento do Azure gera um CEK (Chave de Criptografia de Conteúdo) que é uma chave simétrica de uso único.  
+1.	A biblioteca do cliente do Armazenamento do Azure gera um CEK (Chave de Criptografia de Conteúdo) que é uma chave simétrica de uso único.
 
 2.	Os dados do usuário são criptografados usando esse CEK.
 
@@ -42,7 +42,7 @@ A criptografia com a técnica de envelope funciona da seguinte maneira:
 ### Descriptografia com a técnica de envelope  
 A descriptografia com a técnica de envelope funciona da seguinte maneira:
 
-1.	A biblioteca de cliente presume que o usuário está gerenciando o KEK (chave de criptografia de chave) localmente ou no Cofre da Chave do Azure. O usuário não precisa conhecer a chave específica que foi usada para criptografia. Em vez disso, um resolvedor de chave que resolve diferentes identificadores de chaves pode ser configurado e usado.  
+1.	A biblioteca de cliente presume que o usuário está gerenciando o KEK (chave de criptografia de chave) localmente ou no Cofre da Chave do Azure. O usuário não precisa conhecer a chave específica que foi usada para criptografia. Em vez disso, um resolvedor de chave que resolve diferentes identificadores de chaves pode ser configurado e usado.
 
 2.	A biblioteca de cliente baixa os dados criptografados junto com demais materiais de criptografia armazenados no serviço.
 
@@ -54,7 +54,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### Blobs  
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **upload*** ou **openOutputStream**. Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **upload*** ou o método **openOutputStream**. Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -82,7 +82,7 @@ A biblioteca de cliente dá suporte à criptografia de propriedades de entidade 
 
 Criptografia de dados de tabela funciona da seguinte maneira:
 
-1.	Os usuários especificam as propriedades que devem ser criptografadas.  
+1.	Os usuários especificam as propriedades que devem ser criptografadas.
 
 2.	A biblioteca de cliente gera um vetor de inicialização aleatório (IV) de 16 bytes com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes para cada entidade e executa a criptografia de envelope sobre as propriedades individuais que devem ser criptografadas, derivando uma nova IV por propriedade. A propriedade criptografada é armazenada como dados binários.
 
@@ -109,16 +109,16 @@ A biblioteca de cliente de armazenamento usa a biblioteca principal do Cofre da 
 Há três pacotes do Cofre da Chave:
 
 - azure-keyvault-core contém IKey e IKeyResolver. Este é um pequeno pacote sem dependências. A biblioteca de cliente do armazenamento para Java define isso como uma dependência.
-- azure-keyvault contém o cliente REST do Cofre da Chave.  
-- azure-keyvault-extensions contém o código de extensão que inclui implementações de algoritmos de criptografia e um RSAKey e SymmetricKey. Ele depende dos namespaces básicos e KeyVault, e fornece a funcionalidade para definir um resolvedor de agregação (quando os usuários desejam usar vários provedores de chave) e um resolvedor de chave em cache. Embora a biblioteca de cliente de armazenamento não dependa diretamente deste pacote, se os usuários quiserem usar o Cofre da Chave do Azure para armazenar suas chaves ou usar as extensões do Cofre da Chave para consumir provedores criptográficos local e na nuvem, eles precisarão esse pacote.  
+- azure-keyvault contém o cliente REST do Cofre da Chave.
+- azure-keyvault-extensions contém o código de extensão que inclui implementações de algoritmos de criptografia e um RSAKey e SymmetricKey. Ele depende dos namespaces básicos e KeyVault, e fornece a funcionalidade para definir um resolvedor de agregação (quando os usuários desejam usar vários provedores de chave) e um resolvedor de chave em cache. Embora a biblioteca de cliente de armazenamento não dependa diretamente deste pacote, se os usuários quiserem usar o Cofre da Chave do Azure para armazenar suas chaves ou usar as extensões do Cofre da Chave para consumir provedores criptográficos local e na nuvem, eles precisarão esse pacote.
 
   O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por Cofre da Chave são criados com tal prioridade em mente. Ao executar a criptografia do lado do cliente com o Cofre da Chave, o modelo preferido é usar chaves mestras simétricas armazenadas como segredos no Cofre da Chave e armazenadas em cache localmente. Os usuários devem fazer o seguinte:
 
-1.	Crie um segredo offline e carregue-o no Cofre da Chave.  
+1.	Crie um segredo offline e carregue-o no Cofre da Chave.
 
 2.	Use o identificador de base do segredo como um parâmetro para resolver a versão atual do segredo para criptografia e armazenar essas informações localmente em cache. Use CachingKeyResolver para armazenamento em cache. Os usuários não deverão implementar sua própria lógica de cache.
 
-3.	Use o resolvedor de cache como uma entrada ao criar a política de criptografia. Mais informações sobre o uso do Cofre da Chave podem ser encontradas nos exemplos de código de criptografia.<fix URL>
+3.	Use o resolvedor de cache como uma entrada ao criar a política de criptografia. Mais informações sobre o uso do Cofre de Chaves podem ser encontradas nos exemplos de código de criptografia. <corrigir URL>
 
 ## Práticas recomendadas  
 O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para Java.
@@ -136,12 +136,12 @@ O suporte à criptografia está disponível somente na biblioteca de cliente de 
 ## API do cliente / Interface  
 Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.
 
-- Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.  
-- Para descriptografar:  
-	- O resolvedor de chave é invocado se especificado para obter a chave. Se o resolvedor for especificado, mas não tiver um mapeamento para o identificador de chave, um erro será gerado.  
-	- Se o resolvedor não for especificado, mas uma chave for especificada, a chave será usada se o identificador corresponder ao identificador da chave necessária. Se o identificador não corresponder, um erro será gerado.  
+- Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.
+- Para descriptografar:
+	- O resolvedor de chave é invocado se especificado para obter a chave. Se o resolvedor for especificado, mas não tiver um mapeamento para o identificador de chave, um erro será gerado.
+	- Se o resolvedor não for especificado, mas uma chave for especificada, a chave será usada se o identificador corresponder ao identificador da chave necessária. Se o identificador não corresponder, um erro será gerado.
 
-	  Os [exemplos de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstram um cenário completo mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre da Chave.
+	  Os [exemplos de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <corrigir URL> demonstram um cenário completo mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre de Chaves.
 
 ### Modo RequireEncryption  
 Os usuários podem habilitar opcionalmente um modo de operação no qual todos os downloads e uploads devem ser criptografados. Nesse modo, as tentativas de carregamento de dados sem uma política de criptografia ou o download de dados que não são criptografados no serviço falharão no cliente. O sinalizador **requireEncryption** do objeto de opções da solicitação controla esse comportamento. Se o seu aplicativo for criptografar todos os objetos armazenados no Armazenamento do Azure, é possível definir a propriedade **requireEncryption** nas opções de solicitação padrão para o objeto de cliente do serviço.
@@ -240,11 +240,11 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 ## Próximas etapas  
 
-- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o código-fonte Java do GitHub](https://github.com/Azure/azure-storage-java)   
+- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o pacote Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+- Baixar a [Biblioteca de cliente do Armazenamento do Azure para o código-fonte Java do GitHub](https://github.com/Azure/azure-storage-java)
 - Baixe a biblioteca do Azure Key Vault Maven para pacotes Java Maven:
 	- Pacote [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
 	- Pacote [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-- Visite a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)  
+- Visitar a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

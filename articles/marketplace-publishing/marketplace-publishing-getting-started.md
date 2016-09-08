@@ -13,26 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="08/22/2016"
    ms.author="hascipio" />
 
 # Como publicar e gerenciar uma oferta no Azure Marketplace
 Este artigo é fornecido para ajudar um desenvolvedor a criar, implantar e gerenciar suas soluções listadas no Azure Marketplace para que outros clientes e parceiros do Azure as adquiram e utilizem.
 
-A primeira coisa que você gostaria de fazer como um publicador é definir que tipo de solução sua empresa está oferecendo. O Azure Marketplace oferece suporte a várias soluções, e cada uma delas requer um conjunto ligeiramente diferente de trabalho para publicar com êxito no Marketplace.
+## O que é o Azure Marketplace?
+O Azure Marketplace é onde um assinante do Azure pode localizar serviços para facilitar o desenvolvimento de aplicativos e soluções locais ou baseados na nuvem. Também é onde se usa os serviços do [Azure Certified](http://azure.com/certified) como blocos de construção para desenvolver rapidamente um aplicativo ou serviço inovador para sua linha de negócios e outros assinantes do Azure.
 
-## Tipos de Ofertas
-|Tipo de oferta| Definição |
-|---|---|
-|Imagem de Máquina Virtual | Imagem de máquina virtual (VM) pré-configurada com um sistema operacional totalmente instalado e um ou mais aplicativos. Ofertas de Imagem de Máquina Virtual podem incluir uma ou várias imagens de VM reunidas por um Modelo de Solução. Uma imagem da máquina virtual ("Imagem") fornece as informações necessárias para criar e implantar máquinas virtuais no serviço de Máquinas Virtuais do Azure. Uma imagem abrange um disco rígido virtual do sistema operacional e zero ou mais discos rígidos virtuais do disco de dados. Os clientes podem implantar qualquer quantidade de máquinas virtuais por meio de uma única imagem.|
-|Serviço do desenvolvedor| Serviço totalmente gerenciado para operadores de informações, analistas de negócios, desenvolvedores ou profissionais de TI usarem no desenvolvimento de aplicativos personalizados ou gerenciamento de sistemas. Os Serviços de Desenvolvedor fornecem funcionalidade para habilitar os clientes a desenvolver rapidamente aplicativos de escala de nuvem no Azure. Os clientes deverão ter uma assinatura do Azure para adquirir Serviços de Desenvolvedor. Os Editores são responsáveis por medir o uso dos clientes dos Serviços de Desenvolvedores e por relatar as informações de uso para a Microsoft, conforme detalhado no Contrato de Editor do Microsoft Azure Marketplace.|
-|Modelo de Solução|Um "Modelo de Solução ARM (Azure Resource Manager)" é uma estrutura de dados que pode fazer referência a uma ou mais ofertas distintas, incluindo ofertas publicadas por outros fornecedores, para habilitar os clientes do Azure a implantar uma ou mais ofertas de forma única e coordenada.|
+Como um editor do Azure, o Azure Marketplace é a maneira de distribuir e vender suas soluções ou seus serviços inovadores a outros desenvolvedores, ISVs e profissionais de TI que queiram desenvolver rapidamente seus aplicativos baseados em nuvem e soluções móveis.
+
+## Tipos de oferta com suporte
+A primeira coisa que você gostaria de fazer como um publicador é definir que tipo de solução sua empresa está oferecendo. O Azure Marketplace dá suporte a três tipos de oferta:
+
+- **Imagens de Máquina Virtual** são imagens pré-configuradas com um sistema operacional totalmente instalado e um ou mais aplicativos. Uma imagem da máquina virtual fornece as informações necessárias para criar e implantar máquinas virtuais no serviço de Máquinas Virtuais do Azure.
+
+    >[AZURE.NOTE] **Por exemplo,** como um editor do Azure, você criou e validou uma VM com um serviço de banco de dados inovador bem convincente, tanto é que outros assinantes do Azure estariam dispositivos a adquirir e implantar essa VM nos respectivos ambientes de serviço de nuvem.
+
+- **Serviços de Desenvolvedor** são serviços totalmente gerenciados para uso no desenvolvimento de aplicativos ou no gerenciamento de sistemas. Eles apresentam funcionalidade que permitem rápido desenvolvimento de aplicativos em escala de nuvem no Azure.
+
+    >[AZURE.NOTE] **Por exemplo,** como um editor do Azure, você desenvolveu um serviço acessível por API (hospedado no Azure ou em qualquer outro lugar) que fornece previsões com base nos dados históricos. E esse é um serviço que outros assinantes do Azure que estão criando soluções podem querer utilizar. Você pode implantar esse serviço no Azure Marketplace para que outras pessoas o encontrem, adquiram e usem nos respectivos serviços.
+
+- O **modelo de solução** é uma estrutura de dados que pode fazer referência a um ou mais serviços distintos do Azure, incluindo serviços publicados por outros vendedores, de modo a permitir que assinantes do Azure implantem uma ou mais ofertas de maneira simples e coordenada.
+
+    >[AZURE.NOTE] **Por exemplo,** como um editor do Azure, você agrupou um conjunto de serviços do Azure que agiliza a implantação de um serviço de nuvem seguro e de alta disponibilidade com balanceamento de carga que é realizada com apenas alguns cliques. Outros assinantes do Azure podem aproveitar o valor para poupar tempo adquirindo esse modelo de solução em vez de identificar e configurar manualmente os mesmos serviços, ou semelhantes, do Azure.
 
 Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este artigo fornece uma breve visão geral das etapas que você precisará concluir para qualquer tipo de solução.
 
 ## 1\. Pré-requisitos
 
-> [AZURE.NOTE] Antes de começar qualquer trabalho no Azure Marketplace, você deve ser pré-aprovado. Isso não é aplicável a editores de serviço de dados.
+> [AZURE.NOTE] Antes de começar qualquer trabalho no Azure Marketplace, você deve ser [pré-aprovado](http://azure.com/certified).
 
 1. [Solicitar pré-aprovação do Microsoft Azure Certified](marketplace-publishing-azure-certification.md)
 2. [Criar e registrar uma conta de Desenvolvedor da Microsoft](marketplace-publishing-accounts-creation-registration.md)
@@ -68,7 +79,15 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 ## 3\. Gerenciamento pós-publicação de sua oferta
 - [Guia de pós-produção para ofertas de máquina virtual](marketplace-publishing-vm-image-post-publishing.md)
 - [Como atualizar os detalhes não técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-- [Como excluir uma oferta ou SKU do Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
+- [Como atualizar os detalhes técnicos de uma oferta ou uma SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
+- [Como adicionar uma nova SKU em uma oferta listada](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
+- [Como alterar a contagem de discos de dados para uma SKU listada](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+- [Como excluir uma oferta listada do Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#5-how-to-delete-a-listed-offer-from-the-azure-marketplace)
+- [Como excluir uma SKU listada do Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
+- [Como excluir a versão atual de uma SKU listada do Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
+- [Como reverter o preço de listagem para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
+- [Como reverter o modelo de cobrança para os valores de produção](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
+- [Como reverter a configuração de visibilidade de uma SKU listada para o valor de produção](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 - [Como alterar seu incentivo ao revendedor de Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
 - [Noções básicas sobre os relatórios de percepções do vendedor](marketplace-publishing-report-seller-insights.md)
 - [Noções básicas sobre os relatórios de pagamento](marketplace-publishing-report-payout.md)
@@ -77,4 +96,4 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 ## Recursos adicionais
 - [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

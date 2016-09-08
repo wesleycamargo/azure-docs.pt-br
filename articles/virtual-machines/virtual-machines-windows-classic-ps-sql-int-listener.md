@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
+	ms.date="08/19/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure
@@ -104,7 +104,9 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 		$ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
 		(Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
-1. Em uma das VMs, copie o script do PowerShell abaixo em um editor de texto e defina as variáveis para os valores que você anotou anteriormente.
+1. Em uma das VMs, copie o script do PowerShell de seu sistema operacional em um editor de texto e defina as variáveis para os valores que você anotou anteriormente.
+
+    Para o Windows Server 2012 ou superior, use o seguinte script:
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -113,10 +115,19 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 		Import-Module FailoverClusters
 
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+	    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		
+    Para o Windows Server 2008 R2, use o seguinte script:
 
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Define variables
+		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
+		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+
+		Import-Module FailoverClusters
+
+		cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+	
 
 1. Assim que você tiver definido as variáveis, abra uma janela elevada do Windows PowerShell, depois copie o script do editor de texto e cole-o na sua sessão do Azure PowerShell para executá-lo. Se o prompt ainda mostrar >>, digite ENTER novamente para certificar-se de que o script comece a ser executado.
 
@@ -138,4 +149,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

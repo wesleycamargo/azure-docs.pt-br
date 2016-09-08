@@ -33,7 +33,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 ## Capturar a máquina virtual
 
-1. [Conecte-se à máquina virtual](virtual-machines-linux-classic-log-on.md) usando um cliente SSH de sua escolha.
+1. [Conecte-se à máquina virtual](virtual-machines-linux-mac-create-ssh-keys.md) usando um cliente SSH de sua escolha.
 
 2. Na janela SSH, digite o comando a seguir. Observe que a saída de `waagent` pode variar um pouco dependendo da versão do utilitário:
 
@@ -57,7 +57,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 	>[AZURE.NOTE] Nas próximas etapas, presumimos que você já [instalou a CLI do Azure](../xplat-cli-install.md) no computador cliente. Todas as etapas abaixo também podem ser executadas no [portal clássico do Azure][].
 
-5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
+5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
 
 6. Verifique se você está no modo de Gerenciamento de Serviços:
 
@@ -95,4 +95,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. É possível
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Como criar uma máquina virtual do Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

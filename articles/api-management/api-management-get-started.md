@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Gerenciar sua primeira API no Gerenciamento de API do Azure
@@ -186,7 +186,7 @@ A seção **Análise** possui as quatro guias a seguir.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+- Saiba como [Proteger sua API com limites de taxas](api-management-howto-product-with-rules.md).
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ A seção **Análise** possui as quatro guias a seguir.
 [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 [Preços de Gerenciamento de API]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
@@ -245,4 +244,4 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

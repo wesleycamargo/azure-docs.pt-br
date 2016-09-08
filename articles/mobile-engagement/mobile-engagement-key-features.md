@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement – Principais recursos
@@ -22,19 +22,19 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 
 ## **Geral**
 
-- **Encontre SDKs para todas as principais plataformas** SDKs disponíveis para todas as principais plataformas – iOS, Android, Universal do Windows, Windows Phone Silverlight, Kindle e Cordova. Fornecemos SDKs fáceis de integrar e documentações úteis para ajudá-lo a começar a usar qualquer plataforma de sua escolha. 
+- **Encontre SDKs para todas as principais plataformas** SDKs disponíveis para todas as principais plataformas – iOS, Android, Universal do Windows, Windows Phone Silverlight, Kindle e Cordova. Fornecemos SDKs fáceis de integrar e documentações úteis para ajudá-lo a começar a usar qualquer plataforma de sua escolha.
 
 - **Portal de SaaS separado** Facilita o acesso à equipe de marketing, sem a necessidade de acessar o portal de gerenciamento do Azure.
 
 - **Disponibilidade de APIs REST abertas** Para integrar e automatizar com sistemas de CRM/CMS/TI usando APIs de plataforma aberta, fornecemos APIs REST abertas e o SDK do .NET para consumir essas APIs que permitem uma fácil integração e automação com o Mobile Engagement. Confira [isto](mobile-engagement-api-authentication.md) para obter detalhes.
 
-- **Conector do Power BI disponível** Também é possível extrair os principais gráficos de análise em um painel do Power BI. Veja este [guia](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)
+- **Conector do Power BI disponível** Também é possível extrair os principais gráficos de análise em um painel do Power BI. Veja este [guia](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-mobile/)
 
 - **Garantia de segurança e privacidade** O Azure Mobile Engagement, como parte da família do Azure, segue todas as práticas recomendadas padrão relacionadas à segurança e privacidade esperadas de um serviço de nuvem.
 
 ## **Análises Acionáveis**
 
-- **Monitorar dados em tempo real** É possível acompanhar análises em tempo real usando nosso módulo de Monitor, que mostra detalhes como sessões, eventos, erros e falhas, tudo em tempo real. Dê uma olhada neste [artigo](mobile-engagement-concepts.md) para obter um entendimento dos conceitos básicos. 
+- **Monitorar dados em tempo real** É possível acompanhar análises em tempo real usando nosso módulo de Monitor, que mostra detalhes como sessões, eventos, erros e falhas, tudo em tempo real. Dê uma olhada neste [artigo](mobile-engagement-concepts.md) para obter um entendimento dos conceitos básicos.
 
 	![][1]
 
@@ -164,4 +164,4 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

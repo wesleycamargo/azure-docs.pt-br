@@ -3,7 +3,7 @@
    description="Tarefas do PowerShell para restaurar um Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Restaurar um Azure SQL Data Warehouse (PowerShell)
 
@@ -171,4 +171,4 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

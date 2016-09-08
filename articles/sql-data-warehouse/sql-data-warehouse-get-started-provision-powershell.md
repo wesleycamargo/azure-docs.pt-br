@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um SQL Data Warehouse usando o PowerShell
@@ -27,14 +27,14 @@ Este artigo mostra como criar um SQL Data Warehouse usando o PowerShell.
 
 ## Pré-requisitos
 
-Para começar, você precisará do seguinte:
+Para começar, você precisa do seguinte:
 
 - **Conta do Azure**: visite [Avaliação Gratuita do Azure][] ou [Créditos do Azure no MSDN][] para criar uma conta.
 - **Servidor SQL do Azure**: veja [Criar um servidor lógico do Banco de Dados SQL do Azure com o Portal do Azure][] ou [Criar um servidor lógico do Banco de Dados SQL do Azure com o PowerShell][] para obter mais detalhes.
 - **Grupo de recursos**: use o mesmo grupo de recursos do servidor SQL do Azure ou veja [como criar um grupo de recursos][].
 - **PowerShell versão 1.0.3 ou superior**: você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para saber mais sobre como instalar a versão mais recente, veja [Como instalar e configurar o Azure PowerShell][].
 
-> [AZURE.NOTE] A criação de um novo SQL Data Warehouse pode resultar em um novo serviço faturável. Confira [Preços do SQL Data Warehouse][] para obter mais detalhes sobre preços.
+> [AZURE.NOTE] A criação de um SQL Data Warehouse pode resultar em um novo serviço faturável. Confira [Preços do SQL Data Warehouse][] para obter mais detalhes sobre preços.
 
 ## Criar um SQL Data Warehouse
 
@@ -51,21 +51,27 @@ Para começar, você precisará do seguinte:
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Criar banco de dados. Este exemplo cria um novo banco de dados chamado "mynewsqldw", com um nível de objetivo de serviço "DW400", no servidor denominado "sqldwserver1", que está no grupo de recursos denominado "mywesteuroperesgp1".
+4.  Criar banco de dados. Este exemplo cria um banco de dados denominado "mynewsqldw", com um nível de objetivo de serviço "DW400", no servidor denominado "sqldwserver1", que está no grupo de recursos denominado "mywesteuroperesgp1".
 
 	```Powershell
-	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
 	```
 
-Os parâmetros necessários para esse cmdlet são:
+Os parâmetros requeridos são:
 
 - **RequestedServiceObjectiveName**: a quantidade de [DWU][] solicitada. Os valores com suporte são: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 e DW6000.
 - **DatabaseName**: o nome do SQL Data Warehouse que você está criando.
 - **ServerName**: o nome do servidor que você está usando para a criação (deve ser V12).
 - **ResourceGroupName**: o grupo de recursos que você está usando. Para encontrar os grupos de recursos na sua assinatura, use Get-AzureResource.
-- **Edition**: você deve definir a edição como "DataWarehouse" para criar um SQL Data Warehouse.
+- **Edition**: deve ser "DataWarehouse" para criar um SQL Data Warehouse.
 
-Para obter mais detalhes sobre as opções do parâmetro, confira [Criar Banco de Dados (Azure SQL Data Warehouse)][]. Para obter a referência dos comandos, veja [New-AzureRmSqlDatabase][]
+Os parâmetros opcionais são:
+
+- **CollationName**: o agrupamento padrão, se não especificado, é SQL\_Latin1\_General\_CP1\_CI\_AS. O agrupamento não pode ser alterado em um banco de dados.
+- **MaxSizeBytes**: o tamanho máximo padrão de um banco de dados é de 10 GB.
+
+
+Para obter mais detalhes sobre as opções do parâmetro, consulte [New-AzureRmSqlDatabase][] e [Criar Banco de Dados (SQL Data Warehouse do Azure)][].
 
 ## Próximas etapas
 
@@ -93,7 +99,7 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Criar Banco de Dados (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[Criar Banco de Dados (SQL Data Warehouse do Azure)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
@@ -101,4 +107,4 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

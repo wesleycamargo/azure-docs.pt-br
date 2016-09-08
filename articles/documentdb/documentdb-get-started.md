@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/16/2016"
+	ms.date="08/29/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -96,9 +96,9 @@ Agora, adicione essas duas constantes e sua variável *client* sob sua classe p�
 
 Em seguida, vá para o [Portal do Azure](https://portal.azure.com) para recuperar o URI e a chave primária. O URI do Banco de Dados de Documentos e a chave primária são necessárias para que seu aplicativo entenda onde deve se conectar e para que o Banco de Dados de Documentos confie na conexão do seu aplicativo.
 
-No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos da Etapa 1 e clique em **Chaves**.
+No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos e clique em **Chaves**.
 
-Copie o URI e substitua *<seu URI de ponto de extremidade>* pelo URI copiado em seu programa. Copie a chave primária e substitua *<sua chave>* pela chave copiada em seu programa.
+Copie o URI do portal e cole-o em `<your endpoint URI>` no arquivo program.cs. Em seguida, copie a CHAVE PRIMÁRIA do portal e cole-a em `<your key>`.
 
 ![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em C#. Mostra uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
@@ -194,7 +194,7 @@ Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da cri
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -242,14 +242,14 @@ Copie e cole o método **CreateDocumentCollectionIfNotExists** embaixo do métod
 		}
 	}
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do banco de dados. Isso criará uma coleção de documentos denominada *FamilyCollection*.
+Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do banco de dados. Isso criará uma coleção de documentos denominada *FamilyCollection\_oa*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+		await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -340,9 +340,9 @@ Insira dois documentos, um para a Família Martins e um para a Família Barros.
 
 Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da criação da coleção de documentos.
 
-	await this.CreateDatabaseIfNotExists("FamilyDB");
+	await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-	await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+	await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO YOUR CODE
 	Family andersenFamily = new Family
@@ -371,7 +371,7 @@ Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da cri
 			IsRegistered = true
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
 	Family wakefieldFamily = new Family
 	{
@@ -408,7 +408,7 @@ Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da cri
 			IsRegistered = false
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -458,10 +458,10 @@ Copie e cole o método **ExecuteSimpleQuery** embaixo de seu método **CreateFam
 
 Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da segunda criação de documento.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -495,17 +495,17 @@ Copie e cole o método **ReplaceFamilyDocument** embaixo de seu método **Execut
 
 Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da execução da consulta. Depois de substituir o documento, isso executará a mesma consulta novamente para exibir o documento alterado.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO YOUR CODE
 	// Update the Grade of the Andersen Family child
 	andersenFamily.Children[0].Grade = 6;
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -533,12 +533,12 @@ Copie e cole o método **DeleteFamilyDocument** embaixo de seu método **Replace
 
 Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da segunda execução da consulta.
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO CODE
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -550,13 +550,13 @@ Excluir o banco de dados criado removerá o banco de dados e todos os recursos f
 
 Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da exclusão de documento para excluir o banco de dados inteiro e todos os recursos-filhos.
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 	// ADD THIS PART TO CODE
 	// Clean up/delete the database
-	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -568,9 +568,9 @@ Pressione F5 no Visual Studio para compilar o aplicativo no modo de depuração.
 
 Você deverá ver a saída do aplicativo iniciado. A saída mostrará os resultados das consultas que adicionamos e deverá coincidir com o texto de exemplo abaixo.
 
-	Created FamilyDB
+	Created FamilyDB_oa
 	Press any key to continue ...
-	Created FamilyCollection
+	Created FamilyCollection_oa
 	Press any key to continue ...
 	Created Family Andersen.1
 	Press any key to continue ...
@@ -612,4 +612,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

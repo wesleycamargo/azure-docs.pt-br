@@ -50,7 +50,7 @@ info:    vm disk attach-new command OK
 
 ## Conectar-se à VM do Linux para montar o novo disco
 
-> [AZURE.NOTE] Este tópico faz a conexão com uma VM usando nomes de usuário e senhas. Para usar pares de chaves pública e privada a fim de se comunicar com a VM, confira [Como usar SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md). Você pode modificar a conectividade **SSH** de VMs criadas com o comando `azure vm quick-create` usando o comando `azure vm reset-access` para redefinir completamente o acesso **SSH**, adicionar ou remover usuários ou adicionar arquivos de chave pública para proteger o acesso.
+> [AZURE.NOTE] Este tópico faz a conexão com uma VM usando nomes de usuário e senhas. Para usar pares de chaves pública e privada a fim de se comunicar com a VM, confira [Como usar SSH com Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md). Você pode modificar a conectividade **SSH** de VMs criadas com o comando `azure vm quick-create` usando o comando `azure vm reset-access` para redefinir completamente o acesso **SSH**, adicionar ou remover usuários ou adicionar arquivos de chave pública para proteger o acesso.
 
 Você precisa de SSH em sua VM do Azure para particionar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo. Se você não estiver familiarizado com a conexão usando **ssh**, o comando assumirá a forma `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` e será semelhante ao seguinte:
 
@@ -277,4 +277,4 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 - Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](virtual-machines-linux-optimization.md).
 - Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](virtual-machines-linux-configure-raid.md) para obter desempenho adicional.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

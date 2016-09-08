@@ -64,7 +64,8 @@ $
 
 ## Introdução
 
-Usar as chaves públicas e privadas do SSH é a maneira mais fácil de fazer logon em servidores Linux. A [criptografia de chave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) fornece uma maneira muito mais segura de fazer logon na VM BSD ou do Linux no Azure do que as senhas, que podem ser obtidas por força bruta muito mais facilmente. Sua chave pública pode ser compartilhada com qualquer pessoa; mas apenas você (ou sua infraestrutura de segurança local) possui sua chave privada. A chave privada SSH pode ter uma [senha](https://www.xkcd.com/936/) para protegê-la. Esta senha é apenas para acessar a chave privada do SSH e **não é** a senha da conta de usuário. Quando você adiciona uma senha para a chave SSH, ela criptografa a chave privada para que ela possa ser usada sem a senha para desbloqueá-la. Se um invasor roubasse sua chave privada, e se ela não tivesse uma senha, ele poderia usar essa chave privada para fazer logon em qualquer servidor com a chave pública correspondente instalada. Se a chave privada é protegida por senha, ela não pode ser usada por esse invasor, o que é uma camada adicional de segurança para sua infraestrutura no Azure.
+Usar as chaves públicas e privadas do SSH é a maneira mais fácil de fazer logon em servidores Linux. A [criptografia de chave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) fornece uma maneira muito mais segura de fazer logon na VM BSD ou do Linux no Azure do que as senhas, que podem ser obtidas por força bruta muito mais facilmente. Sua chave pública pode ser compartilhada com qualquer pessoa; mas apenas você (ou sua infraestrutura de segurança local) possui sua chave privada. A chave privada SSH deve ter uma [senha bastante segura ](https://www.xkcd.com/936/) (fonte:[xkcd.com](https://xkcd.com)) para protegê-la. Esta senha é apenas para acessar a chave privada do SSH e **não é** a senha da conta de usuário. Quando você adiciona uma senha à chave SSH, ela criptografa a chave privada para que a chave seja inútil sem a senha para desbloqueá-la. Se um invasor roubasse sua chave privada e se ela não tivesse uma senha, ele poderia usar essa chave privada para fazer logon em qualquer servidor com a chave pública correspondente. Se uma chave privada for protegida por senha, ela não poderá ser usada por esse invasor, o que é uma camada adicional de segurança para sua infraestrutura no Azure.
+
 
 
 Este artigo cria arquivos de chave com o formato *ssh-rsa*, recomendados para as implantações no Resource Manager. As chaves *ssh-rsa* e necessários no [portal](https://portal.azure.com) para as implantações clássicas e do Resource Manager.
@@ -87,7 +88,7 @@ _Comando explicado_
 
 `ssh-keygen` = programa usado para criar as chaves
 
-`-t rsa` = tipo de chave a ser criada, que é o [formato RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = tipo de chave a ser criada, que é o [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = bits da chave
 
@@ -242,4 +243,4 @@ A próxima etapa é criar VMs do Linux do Azure usando a nova chave pública SSH
 - [Criar uma VM Linux segura usando o Portal do Azure](virtual-machines-linux-quick-create-portal.md)
 - [Criar uma VM Linux segura usando a CLI do Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

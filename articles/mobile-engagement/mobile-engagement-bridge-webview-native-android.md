@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Ponte Android WebView com o SDK do Mobile Engagement Android
@@ -24,7 +24,7 @@
 
 Alguns aplicativos móveis são projetados como um aplicativo híbrido onde o aplicativo foi desenvolvido usando desenvolvimento Android nativo, mas algumas ou todas as telas são renderizadas em uma exibição do Android WebView. Você ainda pode consumir o SDK do Mobile Engagement Android em tais aplicativos e este tutorial descreve como fazer isso. O exemplo de código abaixo baseia-se nesta documentação do Android [aqui](https://developer.android.com/guide/webapps/webview.html#BindingJavaScript). Ela descreve como essa abordagem documentada poderia ser usada para implementar o mesmo para métodos mais usados pelo SDK do Mobile Engagement Android de forma que uma Webview de um aplicativo híbrido também possa iniciar solicitações para controlar eventos, trabalhos, erros, informações do aplicativo enquanto os canaliza pelo nosso SDK do Android.
 
-1. Em primeiro lugar, você precisa concluir nosso [Tutorial de introdução](mobile-engagement-android-get-started.md) para integrar o SDK do Mobile Engagement Android ao aplicativo híbrido. Depois de fazer isso, seu método `OnCreate` será semelhante ao seguinte.  
+1. Em primeiro lugar, você precisa concluir nosso [Tutorial de introdução](mobile-engagement-android-get-started.md) para integrar o SDK do Mobile Engagement Android ao aplicativo híbrido. Depois de fazer isso, seu método `OnCreate` será semelhante ao seguinte.
     
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -200,10 +200,10 @@ Alguns aplicativos móveis são projetados como um aplicativo híbrido onde o ap
 
 8. Observe os seguintes pontos sobre o arquivo HTML acima:
 
-	- 	Ele contém um conjunto de caixas de entrada onde você pode fornecer dados a serem usados como nomes de Evento, Erro, Trabalho, AppInfo. Quando você clica no botão ao lado dele, é feita uma chamada para o Javascript que eventualmente chama os métodos do arquivo de ponte para passar essa chamada para o SDK do Mobile Engagement Android. 
-	- 	Estamos marcando algumas informações estáticas adicionais nos eventos, nos trabalhos e até mesmo nos erros para demonstrar como isso pode ser feito. Essa informação adicional é enviada como uma cadeia de caracteres JSON que, se você olhar o arquivo `WebAppInterface`, é analisada, colocada em um Android `Bundle` e passada juntamente com envios de Eventos, Trabalhos, Erros. 
-	- 	O Trabalho do Mobile Engagement é inicializado com o nome que você especifica na caixa de entrada, executado por 10 segundos e, em seguida, desligado. 
-	- 	Um appinfo ou marca do Mobile Engagement é passada com “customer\_name” como a chave estática e com o valor que você inseriu na entrada como o valor da marca. 
+	- 	Ele contém um conjunto de caixas de entrada onde você pode fornecer dados a serem usados como nomes de Evento, Erro, Trabalho, AppInfo. Quando você clica no botão ao lado dele, é feita uma chamada para o Javascript que eventualmente chama os métodos do arquivo de ponte para passar essa chamada para o SDK do Mobile Engagement Android.
+	- 	Estamos marcando algumas informações estáticas adicionais nos eventos, nos trabalhos e até mesmo nos erros para demonstrar como isso pode ser feito. Essa informação adicional é enviada como uma cadeia de caracteres JSON que, se você olhar o arquivo `WebAppInterface`, é analisada, colocada em um Android `Bundle` e passada juntamente com envios de Eventos, Trabalhos, Erros.
+	- 	O Trabalho do Mobile Engagement é inicializado com o nome que você especifica na caixa de entrada, executado por 10 segundos e, em seguida, desligado.
+	- 	Um appinfo ou marca do Mobile Engagement é passada com “customer\_name” como a chave estática e com o valor que você inseriu na entrada como o valor da marca.
  
 9. Execute o aplicativo e você verá o seguinte: Agora, forneça um nome para um evento de teste conforme mostrado a seguir e clique em **Enviar**.
 
@@ -217,4 +217,4 @@ Alguns aplicativos móveis são projetados como um aplicativo híbrido onde o ap
 [1]: ./media/mobile-engagement-bridge-webview-native-android/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-android/event-output.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

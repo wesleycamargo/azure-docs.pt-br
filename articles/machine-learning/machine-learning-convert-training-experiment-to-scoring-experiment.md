@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/19/2016"
 	ms.author="garye"/>
 
 # Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo
@@ -37,7 +37,7 @@ O processo de conversão de um teste de treinamento em um teste preditivo envolv
 Depois de executar seu teste (botão **EXECUTAR** na parte inferior da tela de teste), o botão **Configurar Serviço Web** (selecione a opção **Serviço Web Preditivo**) executará para você as três etapas de conversão do teste de treinamento em um teste preditivo:
 
 1.	Ele salva o modelo treinado como um módulo na seção **Modelos Treinados** da paleta do módulo (à esquerda da tela do experimento) e, em seguida, substitui o algoritmo de aprendizado de máquina e os módulos [Treinar Modelo][train-model] pelo modelo treinado salvo.
-2.	Ele remove módulos que claramente não são mais necessários. No nosso exemplo, isso inclui os módulos [Divisão][split], o segundo [Modelo de Pontuação][score-model] e [Avaliar Modelo][evaluate-model].
+2.	Ele remove módulos que claramente não são mais necessários. No nosso exemplo, isso inclui os módulos [Dividir Dados][split], o segundo [Modelo de Pontuação][score-model] e [Avaliar Modelo][evaluate-model].
 3.	Ele cria a entrada do serviço Web e módulos de saída e adiciona-os nos locais padrão no seu experimento.
 
 Por exemplo, o seguinte experimento treina um modelo de árvore de decisão de duas classes aumentada usando dados de censo de exemplo:
@@ -96,7 +96,7 @@ Em alguns casos, talvez você queira permitir que o usuário do serviço Web alt
 
 Um exemplo comum é a configuração do módulo [Importar Dados][import-data] para que o usuário do serviço Web implantado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Exportar Dados][export-data] para que um destino diferente possa ser especificado.
 
-Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas de acordo.
+Você pode definir os Parâmetros de Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas de acordo.
 
 Para obter mais informações sobre Parâmetros de Serviço Web, consulte [Usando os parâmetros do serviço Web de Aprendizado de Máquina do Azure][webserviceparameters].
 
@@ -131,4 +131,4 @@ Para saber mais sobre o processo completo de implantação, consulte [Implantar 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

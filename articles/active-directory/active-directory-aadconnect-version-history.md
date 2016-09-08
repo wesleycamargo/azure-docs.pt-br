@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Connect: histórico de versão | Microsoft Azure"
-   description="Este tópico lista todas as versões do Azure AD Connect e Azure AD Sync"
+   description="Este tópico lista todas as versões do Azure AD Connect e do Azure AD Sync"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: histórico de lançamento de versão
@@ -134,7 +134,7 @@ Lançado: novembro de 2015
 **Novos recursos de visualização:**
 
 - [Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md).
-- Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](active-directory-get-started.md).
+- Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
 
 **Novo cenário com suporte:**
 
@@ -270,7 +270,7 @@ Lançamento: outubro de 2014
 
 **Novos recursos:**
 
-- Sincronização de senha de vários AD local para o AD do Azure.
+- Sincronização de senha de vários AD local para o Azure AD.
 - Interface do usuário de instalação localizada para todos os idiomas do Windows Server.
 
 **Atualizando do AADSync 1.0 GA**
@@ -293,4 +293,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Use chaves SSH com Hadoop baseado em Linux do Linux, Unix ou OS X | Microsoft Azure"
-   description="Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
+   description=" Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X
@@ -25,7 +25,9 @@
 
 O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite executar remotamente operações em seus clusters HDInsight baseados em Linux usando uma interface de linha de comando. Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X.
 
-> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente Linux, Unix ou OS X. Embora essas etapas possam ser executadas em um cliente baseado em Windows, se você tiver instalado um pacote que forneça `ssh` e `ssh-keygen` (como o Git para Windows), nós recomendamos que os clientes baseados em Windows sigam as etapas em [Usar SSH com o HDInsight baseado em Linux (Hadoop) no Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] As etapas neste artigo presumem que você esteja usando um cliente Linux, Unix ou OS X. Essas etapas poderão ser executadas em um cliente baseado no Windows, se você tiver instalado um pacote que fornece `ssh` e `ssh-keygen`, como o [Bash no Ubuntu no Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Se você não tiver SSH instalado no cliente baseado no Windows, use as etapas em [Usar SSH com HDInsight baseado em Linux (Hadoop) do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como instalar e usar o PuTTY.
 
 ##Pré-requisitos
 
@@ -245,4 +247,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

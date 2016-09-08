@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
+	ms.date="08/23/2016"
 	ms.author="danlep"/>
 
 # Comandos de CLI do Azure comuns para as tarefas da máquina virtual no modelo de implantação do Gerenciador de Recursos 
@@ -23,4 +23,4 @@ Este artigo mostra os comandos comuns da Interface de Linha de Comando do Azure 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

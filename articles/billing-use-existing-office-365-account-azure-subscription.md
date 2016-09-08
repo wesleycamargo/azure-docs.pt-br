@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Use sua conta existente do Office 365 com sua assinatura do Azure ou vice-versa
 Cenário: se você já tem uma assinatura do Office 365 e estiver pronto para uma assinatura do Azure, mas deseja usar as contas de usuário existentes do Office 365 para sua assinatura do Azure. Outra opção seria se você é assinante do Azure e deseja obter uma assinatura do Office 365 para os usuários no Azure Active Directory existentes. Este artigo mostra como é fácil conseguir ambos.
 
 > [AZURE.NOTE] Este artigo não se aplica aos clientes do EA (Enterprise Agreement).
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 ## Guia rápido
 
@@ -97,7 +99,7 @@ Para assinar o Office 365, siga estas etapas:
 
 	![office-365-sign-in](./media/billing-use-existing-office-365-account-azure-subscription/13-office-365-sign-in.png)
 
-4. Clique em **Experimentar agora mesmo**.
+4. Clique em **Experimentar agora**.
 
 	![office-365-confirm-your-order](./media/billing-use-existing-office-365-account-azure-subscription/14-office-365-confirm-your-order.png)
 
@@ -145,6 +147,8 @@ Consulte [Como assinaturas do Azure são associadas ao Azure Active Directory](.
 - As assinaturas do Office 365 pertencem o próprio diretório. Os usuários dentro do diretório poderão operar nessas assinaturas se eles tiverem as permissões necessárias.
 
 ##Próximas etapas
-Este é um cenário relacionado no qual você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado, e deseja ser capaz de acessar o locatário do Office 365 a partir da assinatura do Azure. Para saber como realizar essa tarefa, confira [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+Este é um cenário relacionado no qual você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado, e deseja poder acessar o locatário do Office 365 usando a assinatura do Azure. Para saber como realizar essa tarefa, confira [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

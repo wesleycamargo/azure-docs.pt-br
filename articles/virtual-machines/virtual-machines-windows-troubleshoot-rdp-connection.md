@@ -130,7 +130,7 @@ Como alternativa, salve uma cópia local do arquivo RDP do portal e execute este
 
 Se não precisar realmente de mais de duas conexões simultâneas de Área de Trabalho Remota à VM, você poderá usar o Gerenciador do Servidor para remover a função de Servidor de Área de Trabalho Remota.
 
-Para saber mais, confira a postagem no blog [Azure VM fails with "No Remote Desktop License Servers available" (A VM do Azure falha com a mensagem "Nenhum Servidor de Licença da Área de Trabalho Remota disponível")](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
+Para saber mais, confira a postagem no blog [Azure VM fails with "No Remote Desktop License Servers available" (A VM do Azure falha com a mensagem "Nenhum Servidor de Licença da Área de Trabalho Remota disponível")](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
 <a id="rdpname"></a>
 ### A Área de Trabalho Remota não consegue localizar o “nome” do computador.
@@ -156,7 +156,7 @@ A parte do endereço desse arquivo RDP tem:
 
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\*UserName* (exemplo: CORP\\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -173,8 +173,8 @@ Causa: a VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-- Para contas locais, use a sintaxe *NomeComputador* \\ *NomeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *DomainName* \\ *UserName* (exemplo: CONTOSO\\fabiopena).
+- Para contas locais, use a sintaxe *NomeComputador*\\ *NomeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *DomainName*\\ *UserName* (exemplo: CONTOSO\\fabiopena).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 
@@ -210,4 +210,4 @@ Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por 
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

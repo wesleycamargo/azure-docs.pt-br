@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/17/2016"
 	ms.author="luisca"/>
 
 # Obter recomendações em lotes
@@ -198,4 +198,4 @@ O exemplo a seguir mostra como fica a saída. Neste exemplo, podemos mostrar os 
 -	Apenas um trabalho em lote pode ser chamado por assinatura e por vez.
 -	Um arquivo de entrada do trabalho em lote não pode ter mais de 2 MB.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

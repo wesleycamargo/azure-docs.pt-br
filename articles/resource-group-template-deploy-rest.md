@@ -23,17 +23,12 @@
 - [CLI do Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API REST](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 Este artigo explica como usar a API REST do Resource Manager com modelos do Resource Manager para implantar seus recursos no Azure.
 
 > [AZURE.TIP] Para obter ajuda com a depuração de erros durante a implantação, consulte:
 >
-> - [Exibir operações de implantação com a API REST](resource-manager-troubleshoot-deployments-rest.md) para saber mais sobre como obter informações que o ajudarão a solucionar o erro
+> - [Exibir operações de implantação com a API REST](resource-manager-troubleshoot-deployments-rest.md) para saber sobre como obter informações que o ajudarão a solucionar o erro
 > - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
 
 Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
@@ -42,7 +37,7 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
 
 ## Implantar com a API REST
 1. Definir [Parâmetros e cabeçalhos comuns](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common), incluindo tokens de autenticação.
-2. Se você não tiver um grupo de recursos existente, crie um novo grupo de recursos. Forneça sua id de assinatura, o nome do novo grupo de recursos e local que você precisa para sua solução. Para obter mais informações, consulte [Criar um grupo de recursos](https://msdn.microsoft.com/library/azure/dn790525.aspx).
+2. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça sua id de assinatura, o nome do novo grupo de recursos e local que você precisa para sua solução. Para obter mais informações, consulte [Criar um grupo de recursos](https://msdn.microsoft.com/library/azure/dn790525.aspx).
 
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
           <common headers>
@@ -55,7 +50,7 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
    
 3. Valide sua implantação antes de executá-la usando a operação [Validar uma implantação do modelo](https://msdn.microsoft.com/library/azure/dn790547.aspx). Ao testar a implantação, forneça parâmetros exatamente como faria ao executar a implantação (mostrado na próxima etapa).
 
-3. Criar uma nova implantação. Forneça sua ID da assinatura, o nome do grupo de recursos a ser implantado, o nome da implantação e um link para seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que **mode** está definido como **Incremental**. Para executar uma implantação completa, defina **mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
+3. Crie uma implantação. Forneça sua ID da assinatura, o nome do grupo de recursos a ser implantado, o nome da implantação e um link para seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](./#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que **mode** está definido como **Incremental**. Para executar uma implantação completa, defina **mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
     
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
           <common headers>
@@ -94,4 +89,4 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

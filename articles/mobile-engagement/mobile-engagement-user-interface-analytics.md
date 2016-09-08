@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como analisar dados históricos sobre seu aplicativo
@@ -70,7 +70,7 @@ A visão geral de retenção é dividida no meio em vários cartões, cada uma m
 5.    Este é um minigráfico de histórico dos valores de retenção. Ele permite que você veja os valores no passado para ter uma visão geral de como ele evoluiu.
 
 
-## Consulte também
+## Confira também
 
 - [Conceitos][Link 6]
 - [Serviço do Guia de Solução de Problemas][Link 24]
@@ -170,4 +170,4 @@ A visão geral de retenção é dividida no meio em vários cartões, cada uma m
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

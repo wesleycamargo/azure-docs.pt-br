@@ -4,7 +4,7 @@
    services="virtual-machines,virtual-network,storage"
    documentationCenter="saponazure"
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -166,4 +166,4 @@ Se você deseja usar a área de trabalho Gnome para instalar um sistema de demon
 
 Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. Embora este não seja um tópico específico do Azure, é importante entender. O SAP não oferece suporte ao Oracle no SUSE ou ao Red Hat em uma nuvem pública como o Azure. Para discutir sobre este tópico, contate diretamente o Oracle.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

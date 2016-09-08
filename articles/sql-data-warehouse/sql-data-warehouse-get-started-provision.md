@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Criar um Azure SQL Data Warehouse
@@ -60,6 +60,8 @@ Para começar, você precisa do seguinte:
 
     - **Selecionar fonte**: clique em **Selecionar fonte** > **Exemplo**. O Azure preenche automaticamente a opção **Selecionar exemplo** com AdventureWorksDW.
 
+> [AZURE.NOTE] O agrupamento padrão para um SQL Data Warehouse é SQL\_Latin1\_General\_CP1\_CI\_AS. Se for necessário um agrupamento diferente, [T-SQL][] poderá ser usado para criar o banco de dados com um agrupamento diferente.
+
 4. Clique em **Criar** para criar seu SQL Data Warehouse.
 
 5. Aguarde alguns minutos. Quando o data warehouse estiver pronto, retorne para o [Portal do Azure](https://portal.azure.com). Você pode encontrar o SQL Data Warehouse em seu painel, relacionado sob seus Bancos de Dados SQL ou no grupo de recursos que você usou para criá-lo.
@@ -88,7 +90,8 @@ Também é uma ótima ideia dar uma olhada nas [práticas recomendadas][].
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [assinatura]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -99,4 +102,4 @@ Também é uma ótima ideia dar uma olhada nas [práticas recomendadas][].
 [Avaliação Gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Créditos do Azure no MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

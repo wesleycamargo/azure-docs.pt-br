@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/17/2016"
+   ms.date="08/24/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory
@@ -29,7 +29,7 @@ A autenticação do Azure Active Directory é um mecanismo de conexão com o Ban
 - A autenticação do Active Directory do Azure usa usuários de banco de dados independente para autenticar identidades no nível do banco de dados.
 - O Azure Active Directory dá suporte à autenticação baseada em token para aplicativos que se conectam ao Banco de Dados SQL.
 - A autenticação do Azure Active Directory oferece suporte ao ADFS (federação de domínio) ou à autenticação de senha/usuário nativo para um local do Azure Active Directory sem sincronização de domínio.
-- O Azure Active Directory dá suporte a conexões do SQL Server Management Studio que usam a Autenticação Universal do Active Directory, a qual inclui a MFA (Multi-Factor Authentication). A MFA inclui autenticação eficiente com uma variedade de opções de verificação fáceis como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis
+- O Azure Active Directory dá suporte a conexões do SQL Server Management Studio que usam a Autenticação Universal do Active Directory, a qual inclui a MFA (Multi-Factor Authentication). A MFA inclui autenticação eficiente com uma variedade de opções de verificação fáceis como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis. Para saber mais, confira [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 As etapas de configuração incluem os procedimentos a seguir para configurar e usar a autenticação do Active Directory do Azure.
 
@@ -85,7 +85,8 @@ Não há suporte para contas da Microsoft (por exemplo, outlook.com, hotmail.com
 - Somente um administrador do Azure Active Directory do SQL Server pode conectar-se inicialmente ao SQL Server do Azure ou ao Azure SQL Data Warehouse usando uma conta do Azure Active Directory. O administrador do Active Directory pode configurar usuários subsequentes de banco de dados do Active Directory do Azure.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
 - O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (A autenticação do Azure Active Directory tem suporte do **Provedor de dados do .NET Framework para SqlServer**; é necessária pelo menos a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos de camada de dados (DAC e .bacpac) podem usar a autenticação do Azure Active Directory.
-- [ODBC versão 13.1](https://www.microsoft.com/download/details.aspx?id=53339) oferece suporte à autenticação do Azure Active Directory. No entanto, `sqlcmd.exe` e `bcp.exe` não podem conectar-se usando a autenticação do Azure Active Directory porque eles usam um provedor ODBC mais antigo.
+- [ODBC versão 13.1](https://www.microsoft.com/download/details.aspx?id=53339) oferece suporte à autenticação do Azure Active Directory. No entanto, o `bcp.exe` não pode se conectar usando a autenticação do Azure Active Directory, pois eles usam um provedor ODBC mais antigo.
+- O `sqlcmd` oferece suporte à autenticação do Azure Active Directory a partir da versão 13.1 disponível no [Centro de Download](http://go.microsoft.com/fwlink/?LinkID=825643).
 - O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 - O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/pt-BR/download/details.aspx?id=11774) dá suporte à autenticação do Azure Active Directory. Confira também [Configuração das propriedades de conexão](https://msdn.microsoft.com/library/ms378988.aspx).
 - O PolyBase não pode ser autenticado usando a autenticação do Azure Active Directory.
@@ -103,9 +104,7 @@ Para saber mais, confira [Integração de suas identidades locais com o Azure Ac
 
 O mais recente Banco de Dados SQL V12 do Azure dá suporte à autenticação do Active Directory do Azure. Para obter informações sobre Banco de Dados SQL V12 e saber se ele está disponível em sua região, consulte [O que há de novo na Última Atualização do Banco de Dados SQL V12](sql-database-v12-whats-new.md). Esta etapa não é necessária para o Azure SQL Data Warehouse porque o SQL Data Warehouse só está disponível no V12.
 
-Se você tem um banco de dados existente, verifique se ele está hospedado no Banco de Dados SQL V12 conectando-se ao banco de dados (por exemplo, usando o SQL Server Management Studio) e executando o `SELECT @@VERSION;`. A saída esperada para um Banco de Dados SQL V12 é pelo menos **Microsoft SQL Azure (RTM) - 12.0**.
-
-Se o seu banco de dados não estiver hospedado no Banco de Dados SQL V12, consulte [Planejar e se preparar para atualizar para o Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md) e, em seguida, visite o Portal Clássico do Azure para migrar o banco de dados para Banco de Dados SQL V12.
+Se você tem um banco de dados existente, verifique se ele está hospedado no Banco de Dados SQL V12 conectando-se ao banco de dados (por exemplo, usando o SQL Server Management Studio) e executando o `SELECT @@VERSION;`. A saída esperada para um Banco de Dados SQL V12 é pelo menos **Microsoft SQL Azure (RTM) - 12.0**. Se o seu banco de dados não estiver hospedado no Banco de Dados SQL V12, consulte [Planejar e se preparar para atualizar para o Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md) e, em seguida, visite o Portal Clássico do Azure para migrar o banco de dados para Banco de Dados SQL V12.
 
 Como alternativa, você pode criar um novo banco de dados em Banco de Dados SQL V12, seguindo as etapas listadas em [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md). **Dica**: leia a próxima etapa antes de selecionar uma assinatura para o novo banco de dados.
 
@@ -133,7 +132,7 @@ Os procedimentos a seguir fornecem instruções passo a passo sobre como alterar
 	![edit-directory-confirm][7]
 7. Clique na marca de verificação para recarregar o portal.
 
-> [AZURE.NOTE] Quando você muda o diretório, o acesso a todos os coadministradores, usuários e grupos do AD do Azure e usuários de recursos reserva recursos com backup em diretório serão removidos e eles não terão mais acesso a essa assinatura nem a seus recursos. Apenas você, como um administrador de serviços, poderá configurar o acesso para entidades de segurança com base no novo diretório. Essa alteração pode levar bastante tempo para se propagar para todos os recursos. Alterar o diretório também altera o administrador do Azure AD para o Banco de Dados SQL e SQL Data Warehous remove a permissão de acesso ao banco de dados para quaisquer usuários existentes do Azure AD. O administrador do AD do Azure deve ser definido novamente (conforme descrito abaixo) e novos usuários do Azure devem ser criados.
+> [AZURE.NOTE] Quando você muda o diretório, o acesso a todos os coadministradores, usuários e grupos do AD do Azure e usuários de recursos reserva recursos com backup em diretório serão removidos e eles não terão mais acesso a essa assinatura nem a seus recursos. Apenas você, como um administrador de serviços, pode configurar o acesso para entidades de segurança com base no novo diretório. Essa alteração pode levar bastante tempo para se propagar para todos os recursos. Alterar o diretório também altera o administrador do Azure AD para o Banco de Dados SQL e SQL Data Warehouse e remove a permissão de acesso ao banco de dados para quaisquer usuários existentes do Azure AD. O administrador do AD do Azure deve ser definido novamente (conforme descrito abaixo) e novos usuários do Azure devem ser criados.
 
 ## 4\. Crie um administrador do Azure AD para o Azure SQL Server
 
@@ -153,11 +152,10 @@ Ao usar o Azure Active Directory com a Replicação Geográfica, o administrador
 	![configurações de ad.][9]
 3. Na folha **Configurações**, clique em **administrador do Active Directory.
 4. Na folha **Administrador do Active Directory**, clique em **Administrador do Active Directory** e, na parte superior, clique em **Definir administrador**.
-5. Na folha **Adicionar administrador**, procure um usuário, selecione o usuário ou grupo que será um administrador e, em seguida, clique em **Selecionar**. (A folha Administrador do Active Directory mostrará todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.) O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para o SQL Server.
-6. Na parte superior da folha **Administrador do Active Directory**, clique em **SALVAR**.
-![escolha o administrador][10]
+5. Na folha **Adicionar administrador**, procure um usuário, selecione o usuário ou grupo que será um administrador e, em seguida, clique em **Selecionar**. (A folha Administrador do Active Directory mostra todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.) O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para o SQL Server.
+6. Na parte superior da folha **Administrador do Active Directory**, clique em **SALVAR**.![escolha o administrador][10]
 
-	O processo de alteração do administrador pode levar vários minutos. O novo administrador será exibido na caixa **Administrador do Active Directory**.
+	O processo de alteração do administrador pode levar vários minutos. O novo administrador aparece na caixa **Administrador do Active Directory**.
 
 > [AZURE.NOTE] Ao configurar o administrador do Azure AD, o novo nome de administrador (usuário ou grupo) não pode já estar presente no banco de dados mestre virtual como um usuário de autenticação do SQL Server. Se presente, a configuração de administração do AD do Azure falhará, revertendo sua criação e indicando que esse administrador (nome) já existe. Como esse usuário de autenticação do SQL Server não é parte do Azure AD, qualquer esforço para se conectar ao servidor usando a autenticação do Azure AD falhará.
 
@@ -167,7 +165,7 @@ Para remover um Administrador mais tarde, na parte superior da folha **Administr
 
 Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-Para provisionar um administrador do AD do Azure, você deve executar os seguintes comandos do Azure PowerShell:
+Para provisionar um administrador do AD do Azure, execute os seguintes comandos do Azure PowerShell:
 
 - Add-AzureRmAccount
 - Select-AzureRmSubscription
@@ -192,7 +190,7 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 
 O parâmetro de entrada **DisplayName** aceita o nome de exibição do Azure AD ou o Nome UPN. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do AD do Azure, há suporte apenas para o nome de exibição do AD do Azure.
 
-> [AZURE.NOTE] O comando ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` do Azure PowerShell não impede que você provisione administradores do Azure AD para usuários para os quais não há suporte. Um usuário para o qual não há suporte pode ser provisionado, mas não poderá se conectar a um banco de dados. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
+> [AZURE.NOTE] O comando ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` do Azure PowerShell não impede que você provisione administradores do Azure AD para usuários para os quais não há suporte. Um usuário para o qual não há suporte pode ser provisionado, mas não pode se conectar a um banco de dados. (Consulte a lista de administradores com suporte em **Limitações e recursos do AD do Azure** acima.)
 
 O seguinte exemplo usa a **ObjectID** opcional:
 
@@ -236,7 +234,7 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 
 A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-> [AZURE.NOTE] Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal, e as funções RBAC não são propagadas para o SQL Server, Banco de Dados SQL ou para o SQL Data Warehouse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **Contribuidor do SQL Server** não concede acesso para se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
+> [AZURE.NOTE] Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal. Funções de RBAC não são propagadas para o SQL Server, para o Banco de Dados SQL ou para o SQL Data Warehouse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **Colaborador do SQL Server** não concede acesso para se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
 
 ### Conecte-se ao banco de dados ou ao data warehouse do usuário usando o SQL Server Management Studio ou o SQL Server Data Tools
 
@@ -268,7 +266,7 @@ Use este método se você estiver conectado ao Windows usando as credenciais de 
 
 ### Criar um usuário de banco de dados independente do AD do Azure em um banco de dados do usuário
 
-Para criar um usuário de banco de dados independente baseado no Azure AD (que não seja o administrador do servidor proprietário do banco de dados), conecte-se ao banco de dados com uma identidade do Azure AD (conforme descrito no procedimento anterior) como um usuário com, no mínimo, a permissão **ALTER ANY USER**. Em seguida, use a sintaxe Transact-SQL a seguir:
+Para criar um usuário de banco de dados independente baseado no Azure AD (que não seja o administrador do servidor proprietário do banco de dados), conecte-se ao banco de dados com uma identidade do Azure AD como um usuário com, no mínimo, a permissão **ALTER ANY USER**. Em seguida, use a sintaxe Transact-SQL a seguir:
 
 	CREATE USER <Azure_AD_principal_name>
 	FROM EXTERNAL PROVIDER;
@@ -292,7 +290,7 @@ Para criar um usuário de banco de dados independente que representa um aplicati
 Para obter mais informações sobre como criar usuários de banco de dados independente baseados em identidades do Active Directory do Azure, consulte [CRIAR USUÁRIO (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
 
-> [AZURE.NOTE] Remover o administrador do Azure Active Directory para o Servidor SQL do Azure impede que qualquer usuário da autenticação do Azure AD se conecte ao servidor. Se necessário, os usuários do Azure AD inutilizáveis poderão ser removidos manualmente por um administrador do Banco de Dados SQL.
+> [AZURE.NOTE] Remover o administrador do Azure Active Directory para o Servidor SQL do Azure impede que qualquer usuário da autenticação do Azure AD se conecte ao servidor. Se for necessário, os usuários do Azure AD inutilizáveis poderão ser removidos manualmente por um administrador do Banco de Dados SQL.
 
 Quando você cria um usuário de banco de dados, o usuário recebe a permissão **CONNECT** e pode se conectar a esse banco de dados como membro da função **PUBLIC**. Inicialmente, as únicas permissões disponíveis para o usuário são as permissões concedidas à função **PUBLIC** ou as permissões concedidas a quaisquer grupos do Windows dos quais esse usuário faz parte. A partir do momento que você provisionar um usuário de banco de dados independente baseado no AD do Azure, você pode conceder ao usuário permissões adicionais, do mesmo modo que você concede permissões para qualquer outro tipo de usuário. Normalmente, conceda permissões para funções de banco de dados e adicione usuários a funções. Para saber mais, confira [Noções básicas sobre permissões do Mecanismo de Banco de Dados](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre funções especiais do Banco de dados SQL, veja [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md). Um usuário de domínio federado que é importado para um domínio gerenciado deve usar a identidade do domínio gerenciado.
 
@@ -309,7 +307,7 @@ A autenticação do Active Directory do Azure dá suporte aos seguintes métodos
 
 ### 7\.1. Conectar-se usando a autenticação integrada (Windows)
 
-Para usar a autenticação integrada do Windows, o Active Directory do seu domínio deve ser federado com o Active Directory do Azure e o seu aplicativo cliente (ou um serviço) se conectando ao banco de dados deve ser executado em um computador associado a um domínio sob as credenciais de domínio de um usuário.
+Para usar a autenticação integrada do Windows, o Active Directory de seu domínio deve ser federado com o Azure Active Directory. Seu aplicativo cliente (ou um serviço) conectando-se ao banco de dados deve estar em execução em uma máquina ingressada no domínio com credenciais de domínio do usuário.
 
 Para conectar-se a um banco de dados usando a autenticação integrada e uma identidade do AD do Azure, a palavra-chave de Autenticação na cadeia de conexão de banco de dados deve ser definida como Integrada ao Active Directory. O exemplo de código em C# a seguir usa ADO .NET.
 
@@ -321,7 +319,7 @@ Para conectar-se a um banco de dados usando a autenticação integrada e uma ide
 Observe que, para a conexão ao Banco de Dados SQL do Azure, não há suporte para a palavra-chave de cadeia de conexão ``Integrated Security=True``.
 
 ### 7\.2. Conectar com um nome principal e uma senha do AD do Azure
-Para conectar-se a um banco de dados usando a autenticação integrada e uma identidade do AD do Azure, a palavra-chave de Autenticação deve ser definida como a Senha do Active Directory e a cadeia de conexão deve conter as palavras-chave e valores ID/UID e Password/PWD. O exemplo de código em C# a seguir usa ADO .NET.
+Para conectar-se a um banco de dados usando a autenticação integrada e uma identidade do Azure AD, a palavra-chave de Autenticação deve ser definida como Senha do Active Directory. A cadeia de conexão deve conter valores e palavras-chave de ID/UID de Usuário e Senha/PWD. O exemplo de código em C# a seguir usa ADO .NET.
 
 	string ConnectionString =
 	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
@@ -336,7 +334,7 @@ Este método de autenticação permite que os serviços de camada intermediária
 
 1. Registrar seu aplicativo no Azure Active Directory e obter a ID de cliente para seu código.
 2. Criar um usuário de banco de dados que representa o aplicativo. (Concluída anteriormente na etapa 6).
-3. Criar um certificado no computador cliente que executará o aplicativo.
+3. Crie um certificado no computador cliente que executa o aplicativo.
 4. Adicionar o certificado como uma chave para seu aplicativo.
 
 Exemplo de cadeia de conexão:
@@ -349,6 +347,14 @@ conn.Open();
 ```
 
 Para obter mais informações, confira [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+
+### Conectando-se ao sqlcmd  
+As instruções a seguir, conexão usando a versão 13.1 do sqlcmd, que está disponível no [Centro de Download](http://go.microsoft.com/fwlink/?LinkID=825643).
+
+```
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
+```
 
 ## Confira também
 
@@ -375,4 +381,4 @@ Para obter mais informações, confira [Blog de segurança do SQL Server](https:
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

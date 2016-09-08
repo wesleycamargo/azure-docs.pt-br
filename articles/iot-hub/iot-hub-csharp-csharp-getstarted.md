@@ -60,7 +60,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
 5. Adicione os seguintes campos à classe **Program**. Substitua o valor do espaço reservado pela cadeia de conexão do hub IoT criado na seção anterior.
 
 		static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Adicione o seguinte método à classe **Programa**:
 
@@ -282,4 +282,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

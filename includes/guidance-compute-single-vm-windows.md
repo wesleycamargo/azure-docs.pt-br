@@ -88,7 +88,7 @@ O provisionamento de uma VM no Azure envolve mais partes móveis do que apenas a
 
 ## Considerações sobre capacidade de gerenciamento
 
-- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] \(Convenções de nomenclatura recomendadas para recursos do Azure).
+- **Grupos de recursos.** Coloque recursos acoplados rigidamente que compartilhem o mesmo ciclo de vida em um mesmo [grupo de recursos][resource-manager-overview]. Os grupos de recursos permitem implantar e monitorar recursos como um grupo, além de acumular custos de cobrança por grupo de recursos. Também é possível excluir recursos como um conjunto, o que é muito útil para implantações de teste. Dê nomes significativos aos recursos. Isso facilita a localização de um recurso específico e o entendimento de sua função. Veja [Recommended Naming Conventions for Azure Resources][naming conventions] (Convenções de nomenclatura recomendadas para recursos do Azure).
 
 - **Diagnóstico da VM.** Habilite o monitoramento e diagnóstico, incluindo métricas de integridade básicas, logs de infraestrutura de diagnóstico e [diagnóstico de inicialização][boot-diagnostics]. O diagnóstico de inicialização poderá ajudar a diagnosticar uma falha de inicialização se sua VM entrar em um estado não inicializável. Para saber mais, veja [Habilitar monitoramento e diagnóstico][enable-monitoring]. Use a extensão [Coleção de Logs do Azure][log-collector] para coletar logs da plataforma Azure e carregá-los no Armazenamento do Azure.
 
@@ -171,7 +171,7 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
   }
 	```
 
-- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Esse arquivo contém as definições de regras NSGs e NSG. O parâmetro `name` no bloco `virtualNetworkSettings` especifica a rede virtual à qual o NSG está conectado. O parâmetro `subnets` no bloco `networkSecurityGroupSettings` identifica todas as sub-redes que aplicam as regras NSG na rede virtual. Eles devem ser itens definidos no arquivo **virtualNetwork.parameters.json**.
+- **[networkSecurityGroups.parameters.json][nsg-parameters]**. Esse arquivo contém as definições de regras NSGs e NSG. O parâmetro `name` no bloco `virtualNetworkSettings` especifica a rede virtual à qual o NSG está conectado. O parâmetro `subnets` no bloco `networkSecurityGroupSettings` identifica todas as sub-redes que aplicam as regras NSG na rede virtual. Eles devem ser itens definidos no arquivo **virtualNetwork.parameters.json**.
 
 	Observe que a regra de segurança padrão mostrada no exemplo permite que um usuário se conecte à VM por meio de uma conexão (RDP) da área de trabalho remota. Você pode abrir portas adicionais (ou negar o acesso através de portas específicas) adicionando mais itens à matriz `securityRules`.
 
@@ -313,7 +313,7 @@ Para executar o script que implanta a solução:
 
 	- [virtualNetwork.parameters.json][vnet-parameters]
 
-	- [networkSecurityGroup.parameters.json][nsg-parameters]
+	- [networkSecurityGroups.parameters.json][nsg-parameters]
 
 	- [virtualMachineParameters.json][vm-parameters]
 
@@ -386,11 +386,11 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
-[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Única arquitetura de VM do Windows no Azure"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

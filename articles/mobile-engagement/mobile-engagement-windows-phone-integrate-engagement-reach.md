@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Integração do SDK do Windows Phone Silverlight para o Reach
@@ -24,7 +24,7 @@ Você deve seguir o procedimento de integração descrito na [Integração do SD
 
 Você não tem nada a adicionar. As referências e recursos de `EngagementReach` já estão em seu projeto.
 
-> [AZURE.TIP]Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement).
+> [AZURE.TIP]  Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement).
 
 ##Adicione recursos
 
@@ -73,7 +73,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-> [AZURE.TIP]Você pode especificar o nome do canal de notificação MPNS do seu aplicativo. Por padrão, o Engagement cria um nome baseado na appId. Você não precisa especificar o nome, exceto se você planeja usar o canal de notificação fora do Engagement.
+> [AZURE.TIP] Você pode especificar o nome do canal de notificação MPNS do seu aplicativo. Por padrão, o Engagement cria um nome baseado na appId. Você não precisa especificar o nome, exceto se você planeja usar o canal de notificação fora do Engagement.
 
 ### Inicialização do Engagement
 
@@ -99,7 +99,7 @@ Modifique o `App.xaml.cs`:
 		   EngagementReach.Instance.OnActivated(e);
 		}
 
-> [AZURE.IMPORTANT]O `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não precisa fazê-lo.
+> [AZURE.IMPORTANT] O `EngagementReach.Instance.Init` é executado em um thread dedicado. Você não precisa fazê-lo.
 
 ##Considerações de envio de armazenamento de aplicativo
 
@@ -144,7 +144,7 @@ Se desejar que o aplicativo seja capaz de receber push de dados do Reach, você 
 
 Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` retornará ao Engagement.
 
-> [AZURE.WARNING]O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
+> [AZURE.WARNING] O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
 
 ##Personalizar a interface do usuário (opcional)
 
@@ -177,7 +177,7 @@ Depois, defina o conteúdo do campo `EngagementReach.Instance.Handler` com seu o
 	   // Engagement Agent and Reach initialization
 	}
 
-> [AZURE.NOTE]Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
+> [AZURE.NOTE] Por padrão, o Engagement usa a sua própria implementação de `EngagementReachHandler`. Você não precisa criar sua própria e se você fizer isso, você não precisa substituir cada método. O comportamento padrão é selecionar o objeto base do Engagement.
 
 ### Layouts
 
@@ -211,11 +211,11 @@ Você pode substituir os métodos `EngagementReachHandler` em sua subclasse para
 	   // return a new instance of your own notification
 	}
 
-> [AZURE.TIP]O método `CreateNotification` pode retornar nulo. A notificação não será exibida e a campanha de alcance será descartada.
+> [AZURE.TIP] O método `CreateNotification` pode retornar nulo. A notificação não será exibida e a campanha de alcance será descartada.
 
 Para simplificar a implementação de layout, também fornecemos nossa própria xaml que pode servir como base para o seu código. Eles estão localizados no arquivo do SDK do Engagement (/src/reach/).
 
-> [AZURE.WARNING]As fontes que fornecemos são exatamente as mesmas que usamos. Portanto, se você quiser modificá-las diretamente, não se esqueça de alterar o namespace e o nome.
+> [AZURE.WARNING] As fontes que fornecemos são exatamente as mesmas que usamos. Portanto, se você quiser modificá-las diretamente, não se esqueça de alterar o namespace e o nome.
 
 ### Posição de notificação
 
@@ -259,11 +259,11 @@ Para implementar o retorno de chamada, execute:
 
 Você pode definir o retorno de chamada em seu método `Application_Launching` de seu arquivo `App.xaml.cs`, de preferência antes da chamada de `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
+> [AZURE.TIP] Cada manipulador é chamado pelo Thread de interface do usuário. Você não precisa se preocupar ao usar uma MessageBox ou algo relacionado à interface do usuário.
 
 [Políticas de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [Requisitos adicionais para tipos específicos de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0824_2016-->

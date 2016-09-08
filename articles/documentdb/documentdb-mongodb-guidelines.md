@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Diretrizes de desenvolvimento de visualização para contas do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -50,7 +50,7 @@ A experiência do portal do Azure das contas habilitadas para o protocolo do Mon
 
 ### Operações CRUD e de consulta
 
-Recurso|Com suporte|Terá suporte|Sem suporte 
+Recurso|Suportado|Terá suporte|Sem suporte 
 ---|---|---|---
 Inserir|InsertOne| | 
  |InsertMany| | 
@@ -63,16 +63,16 @@ Atualização de Matriz| |-todos-|
 Bit a bit| |-todos-| 
 Isolamento| |-todos-| 
 Substitua|ReplaceOne| |
-Excluir|DeleteOne | |
+Exclusão|DeleteOne | |
  |DeleteMany| | 
- |Remove| | 
+ |Remover| | 
 BulkWrite| |bulkWrite()| 
 Comparação|-todos-| | 
 Lógico|-todos-| | 
 Consulta de Elemento| |-todos-| 
-Avaliação|$mod|$regex, $text, $where| 
+Avaliação|$mod, $regex |$text, $where| 
 Geoespacial|2dsphere, 2d, polígono|Todo o resto| 
-Matriz|$all, $size|$elemMatch| 
+Matriz|$all, $size, $elemMatch|| 
 Bit a bit| |-todos-| 
 Comentário|-todos-| | 
 Projeção| |-todos-| 
@@ -80,7 +80,7 @@ Projeção| |-todos-|
 
 ### Comandos de banco de dados
 
-Recurso|Com suporte|Terá suporte|Sem suporte 
+Recurso|Suportado|Terá suporte|Sem suporte 
 ---|---|---|---
 Agregação|Contagem| |aggregate, distinct, group, mapreduce
 Geoespacial| |-todos-| 
@@ -100,4 +100,4 @@ Diagnóstico|listDatabases, collStats, dbStats| |Todo o resto
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,21 +1,22 @@
-<properties 
+<properties
    pageTitle="Vários VIPs por serviço de nuvem"
    description="Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Vários VIPs por serviço de nuvem
+
 Você pode acessar os serviços de nuvem do Azure pela Internet pública usando um endereço IP fornecido pelo Azure. Este endereço IP público é conhecido como um VIP (IP virtual), uma vez que está vinculado ao balanceador de carga do Azure, e não realmente às instâncias VM no serviço de nuvem. Você pode acessar qualquer instância VM dentro de um serviço de nuvem usando um único VIP.
 
 No entanto, há situações em que você terá mais de um VIP como ponto de entrada para o mesmo serviço de nuvem. Por exemplo, o serviço de nuvem pode hospedar vários sites que exigem conectividade SSL usando a porta padrão de 443, sendo cada site hospedado para um cliente, ou locatário, diferente. Nesse cenário, você precisa ter outro endereço IP público para cada site. O diagrama a seguir mostra uma típica hospedagem multilocatário na Web, com a necessidade de vários certificados SSL na mesma porta pública.
@@ -26,7 +27,7 @@ No cenário anterior, todos os VIPs usam a mesma porta pública (443) e o tráfe
 
 >[AZURE.NOTE] Outro cenário para o uso de vários VIPs hospeda vários ouvintes do Grupo de Disponibilidade do AlwaysOn do SQL no mesmo conjunto de máquinas virtuais.
 
-VIPs são dinâmicos por padrão, o que significa que o endereço IP real atribuído ao serviço de nuvem pode mudar ao longo do tempo. Para evitar isso, você pode reservar um VIP para o serviço. Para saber mais sobre VIPs reservados, consulte [IP público reservado](../virtual-networks-reserved-public-ip).
+VIPs são dinâmicos por padrão, o que significa que o endereço IP real atribuído ao serviço de nuvem pode mudar ao longo do tempo. Para evitar isso, você pode reservar um VIP para o serviço. Para saber mais sobre VIPs reservados, consulte [IP público reservado](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 >[AZURE.NOTE] Consulte [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obter informações sobre preços em VIPs e IPs reservados.
 
@@ -43,6 +44,7 @@ Neste momento, a funcionalidade de VIP multi está limitada aos seguintes cenár
 
 
 ## Como adicionar um VIP a um serviço de nuvem
+
 Para adicionar um VIP ao seu serviço, execute o seguinte comando do PowerShell:
 
     Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -54,6 +56,7 @@ O comando acima exibirá um resultado semelhante ao exemplo a seguir:
     Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
 ## Como remover um VIP de um serviço de nuvem
+
 Para remover o VIP adicionado ao serviço no exemplo acima, execute o seguinte comando PowerShell:
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -61,6 +64,7 @@ Para remover o VIP adicionado ao serviço no exemplo acima, execute o seguinte c
 >[AZURE.IMPORTANT] Você só pode remover um VIP, se ele não tiver pontos de extremidade associados a ele.
 
 ## Como recuperar informações de VIP de um serviço de nuvem
+
 Para recuperar VIPs associados a um serviço de nuvem, execute o seguinte script do PowerShell:
 
     $deployment = Get-AzureDeployment -ServiceName myService
@@ -94,6 +98,7 @@ Neste exemplo, o serviço de nuvem tem 3 VIPs:
 >[AZURE.NOTE] Sua assinatura só será cobrada por VIPs extras quando eles estiverem associados a um ponto de extremidade. Para obter mais informações sobre preços, consulte [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Como associar um VIP a um ponto de extremidade
+
 Para associar um VIP em um serviço de nuvem a um ponto de extremidade, execute o seguinte comando do PowerShell:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
@@ -128,6 +133,7 @@ E a saída será semelhante aos resultados abaixo:
     ExtensionData   :
 
 ## Como habilitar balanceamento de carga em um VIP específico
+
 Você pode associar um único VIP com várias máquinas virtuais para fins de balanceamento de carga. Por exemplo, suponha que você tenha um serviço de nuvem chamado *myService*, e duas máquinas virtuais *myVM1* e *myVM2*. E o serviço de nuvem tem vários VIPs, um deles chamado *Vip2*. Se você quiser garantir que todo o tráfego para a porta *81* no *Vip2* seja equilibrado entre *myVM1* e *myVM2* na porta *8181*, execute o seguinte script do PowerShell:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
@@ -153,6 +159,5 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
- 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do AS2 e adicione-o a seu Aplicativo Lógico
@@ -39,7 +39,7 @@ Os seguintes itens devem ser criados por você antes que possam ser usados pelo 
 Requisito | Descrição
 --- | ---
 Aplicativo de API do TPM | Antes de criar um conector do AS2, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1]. <br/><br/>**Observação** Saiba o nome do seu Aplicativo de API do TPM. 
-Banco de Dados SQL do Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio Banco de Dados SQL do Azure. <br/><br/>**Observação** Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
+Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio Banco de Dados SQL do Azure. <br/><br/>**Observação** Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
 Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar do arquivamento de mensagens AS2, um contêiner de armazenamento não será necessário. <br/><br/>**Observação** Se você estiver habilitando o arquivamento, copie a cadeia de conexão para o Armazenamento de Blobs.<br/><br/>[Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 ## Criar o conector do AS2
@@ -95,7 +95,7 @@ Carga útil | objeto| O conteúdo da carga para codificar e enviar para o ponto 
 AS2 de | string | A identidade AS2 do remetente da mensagem AS2. Esse parâmetro é usado para pesquisar o contrato adequado para enviar a mensagem.
 AS2 para | string | A identidade AS2 do receptor da mensagem AS2. Esse parâmetro é usado para pesquisar o contrato adequado para enviar a mensagem.
 URL do parceiro | string | O ponto de extremidade do parceiro para o qual a mensagem precisa ser enviada.
-Habilitar arquivamento | boolean | Determina se a mensagem de saída deve ser arquivada.
+Habilitar arquivamento | Booliano | Determina se a mensagem de saída deve ser arquivada.
 
 A ação retorna um código de resposta HTTP 200 à conclusão bem-sucedida.
 
@@ -122,4 +122,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

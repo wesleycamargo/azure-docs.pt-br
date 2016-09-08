@@ -26,7 +26,7 @@
 
 
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
 
 ## Visão geral
 
@@ -34,7 +34,7 @@ Este artigo descreve como implantar a Recuperação de Site para replicar máqui
 
 O artigo inclui os pré-requisitos para o cenário e mostra como configurar um cofre do Site Recovery, instalar o Provedor do Azure Site Recovery no servidor VMM de origem, registrar o servidor no cofre, adicionar uma conta de armazenamento do Azure, instalar o agente de Serviços de Recuperação do Azure nos servidores host Hyper-V, definir configurações de proteção para nuvens VMM que serão aplicadas a todas as máquinas virtuais protegidas e habilitar a proteção para essas máquinas virtuais. Conclua testando o failover para verificar se tudo está funcionando conforme o esperado.
 
-Publique quaisquer comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Arquitetura
 
@@ -51,7 +51,7 @@ Veja o que será necessário no Azure.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **Conta do Azure**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site.
-**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de uma [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). Ela deve estar localizada na mesma região que o serviço de Recuperação de Site e associada à mesma assinatura. Observe que, atualmente, não há suporte para a replicação em contas de armazenamento premium, então ela não deve ser usada.<br/><br/>[Leia sobre o](../storage/storage-introduction.md) armazenamento do Azure.
+**Armazenamento do Azure** | Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure se adaptam quando ocorre failover. <br/><br/>Você precisa de uma [conta de armazenamento com redundância geográfica padrão](../storage/storage-redundancy.md#geo-redundant-storage). A conta deve estar localizada na mesma região do serviço do Site Recovery e associada à mesma assinatura. Observe que, atualmente, não há suporte para a replicação em contas de armazenamento premium, então ela não deve ser usada.<br/><br/>[Leia sobre o](../storage/storage-introduction.md) armazenamento do Azure.
 **Rede do Azure** | Você precisará de uma rede virtual do Azure com a qual as máquinas virtuais do Azure se conectarão quando ocorrer failover. A rede virtual do Azure deve estar na mesma região que o cofre de Recuperação de Site.
 
 ## Pré-requisitos do local
@@ -75,7 +75,7 @@ Quando você proteger máquinas virtuais na rede do Azure mapeando mapas entre r
 Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 - As máquinas virtuais que você deseja proteger no servidor VMM de origem devem estar conectadas a uma rede VM. Essa rede deve ser vinculada a uma rede lógica que esteja associada à nuvem.
-- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará esta rede no momento do failover. A rede deve estar na mesma região que sua assinatura do Azure Site Recovery.
+- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará esta rede no momento do failover. A rede deve estar na mesma região de sua assinatura do Azure Site Recovery.
 
 Prepare o mapeamento de rede da seguinte maneira:
 
@@ -138,7 +138,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![Registros do servidor](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
 
-7. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione **Conectar com as configurações de proxy existentes** para usar as configurações de conexão com a Internet padrão definidas no servidor.
+7. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione **Conectar-se com as configurações de proxy existentes** para usar as configurações de conexão com a Internet padrão definidas no servidor.
 
 	![Configurações da Internet](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
@@ -160,7 +160,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 10.  A configuração de criptografia é usada somente quando você estiver replicando VMs do Hyper-V em nuvens do VMM no Azure. Se estiver replicando para um site secundário, ela não é usada.
 
 11.  Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
+12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
 
 13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
  	
@@ -202,15 +202,17 @@ Em que parâmetros são os seguintes:
 ## Etapa 4: criar uma conta de armazenamento do Azure
 
 1. Se você não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma Conta de Armazenamento do Azure** para criar uma conta.
-2. Crie uma conta com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
+2. Crie uma conta com a replicação geográfica habilitada. Ela deve estar na mesma região do serviço do Azure Site Recovery e associada à mesma assinatura.
 
 	![Conta de armazenamento](./media/site-recovery-vmm-to-azure-classic/storage.png)
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 ## Etapa 5: instalar o Agente de Serviços de Recuperação do Azure
 
 Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hyper-V na nuvem VMM.
 
-1. Clique em **Início Rápido** > **Baixar o Agente dos Serviços Azure Site Recovery e instalar nos hosts** para obter a versão mais recente do arquivo de instalação do agente.
+1. Clique em **Início Rápido** > **Baixar Agente dos Serviços do Azure Site Recovery e instale nos hosts** para obter a versão mais recente do arquivo de instalação do agente.
 
 	![Instalar o Agente de Serviços de Recuperação](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
 
@@ -220,7 +222,7 @@ Instale o agente de Serviços de Recuperação do Azure em cada servidor host Hy
 	![Agente de Serviços de Recuperação de Pré-requisitos](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
 4. Na página **Configurações de Instalação**, especifique onde você deseja instalar o agente e selecione a localização do cache na qual os metadados de backup serão instalados. Em seguida, clique em **Instalar**.
-5. Após a instalação ser concluída, clique em **Fechar** para concluir o assistente.
+5. Após a instalação terminar, clique em **Fechar** para concluir o assistente.
 
 	![Registrar o Agente MARS](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
@@ -268,6 +270,8 @@ Depois que você salvar as configurações, um trabalho começará a acompanhar 
 
 Observe que, se a rede de destino tiver várias sub-redes, e uma dessas sub-redes tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada à sub-rede de destino após o failover. Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+
 ## Etapa 8: habilitar a proteção para máquinas virtuais
 
 Depois de redes, servidores e nuvens estarem configurados corretamente, você pode ativar a proteção para máquinas virtuais na nuvem. Observe o seguinte:
@@ -285,7 +289,7 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 
 	![Habilitar a proteção da máquina virtual](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-	Acompanhe o progresso da ação **Habilitar Proteção** na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho **Finalizar Proteção** ser executado, a máquina virtual está pronta para o failover. Após a proteção estar habilitada e as máquinas virtuais serem replicadas, você será capaz de visualizá-los no Azure.
+	Acompanhe o progresso da ação **Habilitar Proteção** na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de **Finalizar Proteção** ser executado, a máquina virtual está pronta para failover. Após a proteção estar habilitada e as máquinas virtuais serem replicadas, você será capaz de visualizá-los no Azure.
 
 
 	![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
@@ -332,14 +336,10 @@ O failover de teste simula o mecanismo de failover e recuperação em uma rede i
 
 	![Criar plano de recuperação](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais para adicionar ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação — Grupo
-3. 
-4. 
-5. 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
+2. Na página **Selecionar Máquinas Virtuais**, selecione as máquinas virtuais para adicionar ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação, o Grupo 1. Foi testado um máximo de 100 máquinas virtuais em um único plano de recuperação.
 
-	- Se você desejar verificar as propriedades das máquinas virtuais antes de adicioná-las ao plano, clique na máquina virtual na página Propriedades da nuvem na qual ela está localizada. Você também pode configurar as propriedades da máquina virtual no console do VMM.
-	- Todas as máquinas virtuais que são exibidas foram habilitadas para a proteção. A lista inclui as máquinas virtuais que estão habilitadas para proteção com a replicação inicial concluída e as que estão habilitadas para proteção com a replicação inicial pendente. Somente as máquinas virtuais com replicação inicial concluída podem realizar failover como parte de um plano de recuperação.
-
+- Se você desejar verificar as propriedades das máquinas virtuais antes de adicioná-las ao plano, clique na máquina virtual na página Propriedades da nuvem na qual ela está localizada. Você também pode configurar as propriedades da máquina virtual no console do VMM.
+- Todas as máquinas virtuais que são exibidas foram habilitadas para a proteção. A lista inclui as máquinas virtuais que estão habilitadas para proteção com a replicação inicial concluída e as que estão habilitadas para proteção com a replicação inicial pendente. Somente as máquinas virtuais com replicação inicial concluída podem realizar failover como parte de um plano de recuperação.
 
 	![Criar plano de recuperação](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -381,4 +381,4 @@ Para executar um failover de teste, faça o seguinte:
 
 Saiba mais sobre [como configurar os planos de recuperação](site-recovery-create-recovery-plans.md) e o [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

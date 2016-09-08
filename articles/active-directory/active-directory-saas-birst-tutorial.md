@@ -25,7 +25,7 @@ A integração do Birst Agile Business Analytics ao Azure AD oferece os seguinte
 
 - Você pode controlar no AD do Azure quem tem acesso ao Birst Agile Business Analytics
 - Você pode permitir que os usuários façam logon automaticamente no Birst Agile Business Analytics (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -34,7 +34,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do AD do Azure ao Birst Agile Business Analytics, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Um logon único do Birst Agile Business Analytics na assinatura qualificada
+- Uma assinatura do Birst Agile Business Analytics com logon único habilitado
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -123,9 +123,9 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 	![Configurar o logon único](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png)
 
 
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Birst Agile Business Analytics usando o seguinte padrão: **“https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Birst Agile Business Analytics usando o seguinte padrão: **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**. A URL é dependente do datacenter onde sua conta do Birst está localizada. Para datacenters nos EUA, use **"https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"** e para datacenters na Europa, use **"https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**
 
-	b. Clique em **Próximo**.
+	b. Clique em **Avançar**.
 
 
 4. Na página **Configurar o logon único no Birst Agile Business Analytics**, execute as seguintes etapas:
@@ -134,7 +134,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para configurar o SSO para o seu aplicativo, entre em contato com a equipe de suporte do Birst Agile Business Analytics por meio do email [info@birst.com](emailTo:info@birst.com) e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
@@ -144,7 +144,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
 	
 	![Logon único do AD do Azure][10]
 
@@ -163,7 +163,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal Clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_09.png)
 
@@ -173,11 +173,11 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_05.png)
 
@@ -185,9 +185,9 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_06.png)
 
@@ -199,7 +199,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -282,4 +282,4 @@ Ao clicar no bloco do Birst Agile Business Analytics no Painel de Acesso, você 
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

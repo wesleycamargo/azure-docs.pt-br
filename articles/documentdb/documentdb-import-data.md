@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/23/2016"
 	ms.author="anhoh"/>
 
 # Importar dados para o Banco de Dados de Documentos com a ferramenta de migração de banco de dados
@@ -490,4 +490,4 @@ Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma men
 
 - Para saber mais sobre o Banco de Dados de Documentos, confira o [Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

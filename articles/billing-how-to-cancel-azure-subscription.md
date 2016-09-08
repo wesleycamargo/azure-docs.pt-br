@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Como cancelar sua assinatura do Azure
 
->[AZURE.NOTE] Um plano de Suporte do Azure tem um prazo de seis meses e a Microsoft exige a continuação do compromisso financeiro durante esse prazo. O cancelamento antes do término do prazo não isenta o compromisso pelo período restante nem proporciona estornos pelos valores pré-pagos. Se você cancelou sua assinatura por engano e precisa reativá-la, pode entrar em contato com o [Suporte do Azure](billing-how-to-create-billing-support-ticket.md) para obter assistência.
+>[AZURE.NOTE] Um plano de Suporte do Azure tem um prazo de seis meses e a Microsoft exige a continuação do compromisso financeiro durante esse prazo. O cancelamento antes do término do prazo não isenta o compromisso pelo período restante nem proporciona estornos pelos valores pré-pagos. Se você cancelou sua assinatura por engano e precisa reativá-la, pode entrar em [contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter assistência.
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 Se você cancelar sua assinatura, todos os seus serviços serão excluídos imediatamente. Certifique-se de fazer backup dos dados que deseja salvar antes de cancelar.
 
@@ -30,4 +32,6 @@ Se você cancelar sua assinatura, todos os seus serviços serão excluídos imed
 4. Selecione **Sim, cancelar minha assinatura**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Clique em ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) para fechar a janela de diálogo e retornar à página da assinatura.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

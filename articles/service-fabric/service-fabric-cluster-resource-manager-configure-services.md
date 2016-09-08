@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="08/19/2016"
    ms.author="masnider"/>
 
 
 # Configurando as definições do Gerenciador de Recursos de Cluster para serviços do Service Fabric
-O Gerenciador de Recursos de Cluster do Service Fabric permite obter um controle muito refinado sobre as regras que regem cada serviço nomeado individual. Cada instância do Serviço pode especificar regras específicas de como ela deve ser alocada no cluster e pode definir o conjunto de métricas que deseja relatar, incluindo seu grau de importância para esse serviço. Em geral, a configuração de serviços é dividida em três tarefas diferentes:
+O Gerenciador de Recursos de Cluster do Service Fabric permite obter um controle muito refinado sobre as regras que regem cada serviço nomeado individual. Cada instância de serviço nomeada pode especificar regras de como ela deve ser alocada no cluster e pode definir o conjunto de métricas que deseja relatar, incluindo seu grau de importância para esse serviço. Em geral, a configuração de serviços é dividida em três tarefas diferentes:
 
 1. Configurando restrições de posicionamento
 2. Configurando métricas
-3. Configurando regras de posicionamento avançado (menos comum)
+3. Configurando políticas de posicionamento avançado (menos comum)
 
 Vamos abordar todas elas, uma por vez:
 
 ## Restrições de posicionamento
-As restrições de posicionamento são usadas para controlar em quais nós no cluster um serviço pode, na verdade, ser executado. Normalmente, você verá uma instância específica de serviço nomeado ou todos os serviços de um tipo restrito ser executados em determinado tipo de nó, mas as restrições de posicionamento são extensíveis – é possível definir qualquer conjunto de propriedades por tipo de nó e, em seguida, selecionar para elas com restrições quando o serviço é criado. As restrições de posicionamento também são atualizadas dinamicamente durante o tempo de vida do serviço, permitindo que você responda às alterações no cluster. Para obter mais informações sobre as restrições de posicionamento e como configurá-los podem ser encontradas [neste artigo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
+As restrições de posicionamento são usadas para controlar em quais nós no cluster um serviço pode, na verdade, ser executado. Normalmente, você verá uma instância de serviço nomeada específica ou todos os serviços de um determinado tipo restrito para ser executado em um determinado tipo de nó. Dito isso, as restrições de posicionamento são extensíveis – você pode definir qualquer conjunto de propriedades em uma base de tipo de nó e, em seguida, selecionar para ele com restrições quando o serviço for criado. As restrições de posicionamento também são atualizadas dinamicamente durante o tempo de vida do serviço, permitindo que você responda às alterações no cluster. As propriedades de um determinado nó também podem ser atualizadas dinamicamente no cluster. Para obter mais informações sobre as restrições de posicionamento e como configurá-los podem ser encontradas [neste artigo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
 
 ## Métricas
-As métricas são a lista de recursos nos quais esse serviço deve ser balanceado, incluindo informações sobre a quantidade do recurso consumido, por padrão, por cada réplica ou instância desse serviço. As métricas também incluem um peso que indica até que ponto essa métrica é importante para o serviço, caso as compensações sejam necessárias.
+As métricas são o conjunto de recursos que uma determinada instância de serviço nomeada precisa, incluindo as informações sobre o quanto desse recurso cada réplica com monitoração de estado ou cada instância sem monitoração de estado deste serviço consome por padrão. As métricas também incluem um peso que indica até que ponto o balanceamento dessa métrica é importante para o serviço, caso as compensações sejam necessárias.
 
 ## Outras regras de posicionamento
 Há outros tipos de regras de posicionamento que são principalmente úteis em clusters distribuídos geograficamente ou em outros cenários menos comuns. Elas são configuradas por meio de Correlações ou Políticas. Embora não sejam usadas em muitos cenários, vamos descrevê-las para fins de integridade.
@@ -43,4 +43,4 @@ Há outros tipos de regras de posicionamento que são principalmente úteis em c
 - Para descobrir como o Resource Manager de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
 - O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

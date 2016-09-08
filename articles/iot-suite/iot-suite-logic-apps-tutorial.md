@@ -82,7 +82,7 @@ Para começar, configure o aplicativo lógico a ser usado com a solução pré-c
     }
     ```
     
-    Observação: você pode copiar a URL para o HTTP post após você salvar o aplicativo lógico, mas primeiro você deve adicionar uma ação.
+    > [AZURE.NOTE] Você pode copiar a URL para o HTTP post após você salvar o aplicativo lógico, mas primeiro você deve adicionar uma ação.
 
 8. Clique em __+ Nova etapa__ no gatilho manual. Em seguida, clique em **Adicionar uma ação**.
 
@@ -182,4 +182,4 @@ Agora que você já usou um aplicativo lógico para conectar a solução pré-co
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

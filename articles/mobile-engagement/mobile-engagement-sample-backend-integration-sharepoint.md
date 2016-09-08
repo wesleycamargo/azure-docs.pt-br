@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Integração da API do Azure Mobile Engagement
@@ -86,7 +86,7 @@ Este tutorial passa pelo cenário em que um usuário de negócios do SharePoint 
         }
 
 ## Integração do Mobile Engagement
-1.  Depois de encontrarmos um item que requer processamento - podemos extrair as informações necessárias para criar um anúncio do item de lista e chamada `CreateAzMECampaign` para criá-lo e subsequentemente `ActivateAzMECampaign` para ativá-lo. Essas são essencialmente chamadas da API REST chamaando para o back-end do Mobile Engagement. 
+1.  Depois de encontrarmos um item que requer processamento - podemos extrair as informações necessárias para criar um anúncio do item de lista e chamada `CreateAzMECampaign` para criá-lo e subsequentemente `ActivateAzMECampaign` para ativá-lo. Essas são essencialmente chamadas da API REST chamaando para o back-end do Mobile Engagement.
 
 2.  As APIs REST do Mobile Engagement exigem uma **Cabeçalho de autorização HTTP de esquema de autenticação básica** que é composto pelo `ApplicationId` e o `ApiKey` que você obtém do portal do Azure. Certifique-se de que você está usando a chave do **chaves de api** seção e *não* da seção **chaves do sdk**.
 
@@ -207,4 +207,4 @@ Esse exemplo criou uma campanha de anúncio simples especificando principalmente
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

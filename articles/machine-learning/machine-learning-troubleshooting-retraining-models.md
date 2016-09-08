@@ -43,11 +43,12 @@ Com todas as peças no lugar, as principais etapas necessárias para readaptar o
 3.	Atualize o ponto de extremidade adicionado do serviço Web de pontuação com o novo modelo treinado: usando o código de exemplo fornecido em Readaptar os modelos de Aprendizado de Máquina de forma programática, atualize o novo ponto de extremidade adicionado ao modelo de pontuação com o modelo treinado recentemente do Serviço Web de Treinamento.
 
 ## Obstáculos comuns
+
 ### Verifique se você tem a URL correta do PATCH
 
 A URL do PATCH que você está usando deve ser a associada ao novo ponto de extremidade de pontuação adicionado ao serviço Web de pontuação. Há duas maneiras de obter a URL do PATCH:
 
-Opção 1: usando o C#
+**Opção 1: usando o C#**
 
 Para obter a URL correta do PATCH:
 
@@ -59,14 +60,16 @@ Para obter a URL correta do PATCH:
 3.	Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
 4.	Clique no link **Atualizar Recurso** para abrir a página de ajuda do patch.
 
-Opção 2: usando o Portal do Azure
+**Opção 2: usando o Portal do Azure**
 
-1.	Faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1.	Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2.	Abra a guia Aprendizado de Máquina. ![Guia Aprendizado de máquina.][image4]
-3.	Clique no nome do espaço de trabalho, em seguida, em **Serviços Web**.
-4.	Clique no serviço Web de pontuação com o qual você está trabalhando. (Se você não modificou o nome padrão do serviço Web, ele normalmente terminará com [Scoring Exp.].)
+3.	Clique no nome do espaço de trabalho e depois em **Serviços Web**.
+4.	Clique no serviço Web de pontuação com o qual você está trabalhando. (Se você não modificou o nome padrão do serviço Web, ele terminará com [Scoring Exp.].)
 5.	Clicar em Adicionar Ponto de Extremidade
 6.	Depois do ponto de extremidade ser adicionado, clique no nome dele. Em seguida, clique em **Atualizar Recurso** para abrir a página de ajuda do patch.
+
+>[AZURE.NOTE] Se você tiver adicionado o ponto de extremidade para o serviço Web de treinamento em vez do serviço Web de previsão, você receberá o seguinte erro quando clicar no link **Atualizar Recurso**: Desculpe, mas esse recurso não tem suporte nem está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pela inconveniência e estamos trabalhando para melhorar esse fluxo de trabalho.
 
 ![Painel Novo ponto de extremidade.][image3]
 
@@ -74,16 +77,16 @@ A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece
 
 ![URL de patch.][image5]
 
-
 ### Verifique se você está atualizando o ponto de extremidade correto de pontuação
+
 * Não corrija o serviço Web de treinamento: a operação do patch deve ser executada no serviço Web de pontuação.
 * Não corrija o ponto de extremidade padrão no serviço Web: a operação do patch deve ser executada no novo ponto de extremidade do serviço Web de pontuação que você adicionou.
 
-Verifique se você adicionou o ponto de extremidade ao serviço Web correto
+Você pode verificar em qual serviço Web o ponto de extremidade está visitando o portal clássico do Azure.
 
-O ponto de extremidade usado para readaptar o modelo deve estar no serviço Web de pontuação, não no serviço Web de treinamento. Você pode verificar em qual serviço Web o ponto de extremidade está visitando o portal clássico do Azure.
+>[AZURE.NOTE] Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[predictive exp.]".
 
-1.	Faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1.	Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2.	Abra a guia Aprendizado de Máquina. ![IU do espaço de Trabalho do Machine Learning.][image4]
 3.	Selecione o espaço de trabalho.
 4.	Clique em **Serviços Web**.
@@ -92,10 +95,9 @@ O ponto de extremidade usado para readaptar o modelo deve estar no serviço Web 
 
 ### Verifique o espaço de trabalho no qual o serviço Web está para garantir que esteja na região correta
 
-1.	Faça logon no [Portal do Azure](https://manage.windowsazure.com).
+1.	Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2.	Selecione Aprendizado de Máquina no menu. ![IU da região do aprendizado de máquina.][image4]
 3.	Verifique o local do seu espaço de trabalho.
-
 
 <!-- Image Links -->
 
@@ -106,4 +108,4 @@ O ponto de extremidade usado para readaptar o modelo deve estar no serviço Web 
 [image5]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-help-page-patch-url.png
 [image6]: ./media/machine-learning-troubleshooting-retraining-a-model/retraining-output.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

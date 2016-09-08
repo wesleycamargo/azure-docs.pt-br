@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="rnagpal"/>
 
 # SDKs e APIs de Banco de Dados de Documentos 
@@ -39,8 +39,14 @@
 
 ## Notas de versão
 
-### <a name="1.9.3"/>[1\.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 > [AZURE.IMPORTANT] Você pode receber System.NotSupportedException ao consultar coleções particionadas. Para evitar esse erro, desmarque a opção "Preferir 32 bits" na janela de propriedades do projeto, na guia Compilar.
+
+### <a name="1.9.4"/>[1\.9.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.4)
+
+  - Foram modificadas as classes ResourceResponse, FeedResponse, StoredProcedureResponse e MediaResponse para implementar a interface pública correspondente para que elas possam ser simuladas para a implantação orientada a testes (TDD).
+  - Foi corrigido um problema que causava um cabeçalho de chave de partição malformado ao usar um objeto JsonSerializerSettings personalizado para serialização de dados.
+
+### <a name="1.9.3"/>[1\.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 
   - Foi corrigido um problema que fazia com que consultas de execução longa falhassem com o erro: o token de autorização não é válido no momento.
   - Foi corrigido um problema que removia o SqlParameterCollection original de consultas superiores/ordenar por entre partições.
@@ -129,7 +135,7 @@
   - Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
   - IndexingPolicy para dar suporte a Order By
   
-		**NB: Possible breaking change** 
+		**NB: possível alteração interruptiva** 
   
     	Se você tem o código existente que provisiona as coleções com uma política personalizada de indexação, o seu código existente precisa ser atualizado para dar suporte à nova classe IndexingPolicy.Se você não tem uma política personalizada de indexação, essa alteração não afeta você.
 
@@ -163,27 +169,27 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
  
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.9.3](#1.9.3) | 15 de agosto de 2016 |--- 
-| [1\.9.2](#1.9.2) | 23 de julho de 2016 |--- 
-| 1.9.1 | Substituído |--- 
-| 1.9.0 | Substituído |--- 
-| [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- 
-| [1\.7.1](#1.7.1) | 06 de maio de 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- 
-| [1\.6.3](#1.6.3) | 08 de abril de 2016 |--- 
-| [1\.6.2](#1.6.2) | 29 de março de 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--- 
-| [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 de novembro de 2015 |--- 
-| [1\.5.0](#1.5.0) | 05 de outubro de 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- 
-| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |--- 
-| [1\.2.0](#1.2.0) | 06 de julho de 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |--- 
-| [0\.9.3-prelease](#0.9.x-preview) | March 12, 2015 | 29 de fevereiro de 2016 
-| [0\.9.2-prelease](#0.9.x-preview) | janeiro de 2015 | 29 de fevereiro de 2016 
+| [1\.9.4](#1.9.4) | 24 de agosto de 2016 |--
+| [1\.9.3](#1.9.3) | 15 de agosto de 2016 |--
+| [1\.9.2](#1.9.2) | 23 de julho de 2016 |--
+| 1.9.1 | Preterido |--| 1.9.0 | Preterido |--
+| [1\.8.0](#1.8.0) | 14 de junho de 2016 |--
+| [1\.7.1](#1.7.1) | 06 de maio de 2016 |--
+| [1\.7.0](#1.7.0) | 26 de abril de 2016 |--
+| [1\.6.3](#1.6.3) | 08 de abril de 2016 |--
+| [1\.6.2](#1.6.2) | 29 de março de 2016 |--
+| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--
+| [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--
+| [1\.5.1](#1.5.1) | 23 de novembro de 2015 |--
+| [1\.5.0](#1.5.0) | 05 de outubro de 2015 |--
+| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--
+| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--
+| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |--
+| [1\.2.0](#1.2.0) | 06 de julho de 2015 |--
+| [1\.1.0](#1.1.0) | 30 de abril de 2015 |--
+| [1\.0.0](#1.0.0) | 08 de abril de 2015 |--
+| [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016 
+| [0\.9.2-prelease](#0.9.x-preview) | Janeiro de 2015 | 29 de fevereiro de 2016 
 | [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016 
 | [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
@@ -194,4 +200,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

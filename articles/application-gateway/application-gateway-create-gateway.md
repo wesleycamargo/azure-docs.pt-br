@@ -24,7 +24,7 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 - [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
-
+- [CLI do Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -36,12 +36,12 @@ Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Se você tiver uma rede virtual existente, selecione uma sub-rede vazia existente ou crie uma nova sub-rede na rede virtual existente unicamente para uso pelo gateway de aplicativo. Não é possível implantar o gateway de aplicativo para uma rede virtual diferente dos recursos que você pretende implantar por trás do gateway de aplicativo.
 3. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
-3. Os servidores que você configurará para usar o gateway de aplicativo deverão existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
+3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 ## O que é necessário para criar um gateway de aplicativo?
 
 
-Quando você usa o comando **New-AzureApplicationGateway** para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto, e o recurso recém-criado precisará ser configurado usando um objeto de configuração ou XML.
+Quando você usa o comando **New-AzureApplicationGateway** para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto, e o recurso recém-criado é configurado usando um objeto de configuração ou XML.
 
 
 Os valores são:
@@ -49,11 +49,11 @@ Os valores são:
 - **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
 - **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
 - **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
+- **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
 - **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico.
 
 
-## Criar um novo gateway de aplicativo
+## Criar um Application Gateway
 
 Para criar um Application Gateway:
 
@@ -66,7 +66,7 @@ Para criar um Application Gateway:
 
 ### Criar um recurso de gateway de aplicativo
 
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1".
 
@@ -110,7 +110,7 @@ Você pode configurar o gateway de aplicativo usando XML ou um objeto de configu
 
 ## Configurar o gateway de aplicativo usando XML
 
-No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do gateway de aplicativo e confirmá-las para o recurso de gateway de aplicativo.
+No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.
 
 ### Etapa 1  
 
@@ -163,7 +163,7 @@ Edite os valores entre parênteses para os itens de configuração. Salve o arqu
 
 >[AZURE.IMPORTANT] O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
 
-O exemplo a seguir mostra como usar um arquivo de configuração configurando o gateway de aplicativo para balancear a carga do tráfego HTTP na porta pública 80 e enviando o tráfego de rede para a porta 80 do back-end entre dois endereços IP.
+O exemplo a seguir mostra como usar um arquivo de configuração para configurar o gateway de aplicativo. A carga de exemplo equilibra o tráfego HTTP na porta pública 80 e envia o tráfego de rede para a porta 80 do back-end entre dois endereços IP.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -224,9 +224,9 @@ Em seguida, defina o gateway de aplicativo. Use o cmdlet **Set-AzureApplicationG
 
 ## Configurar o gateway de aplicativo usando um objeto de configuração
 
-O exemplo a seguir mostra como configurar o gateway de aplicativo usando objetos de configuração. Todos os itens de configuração precisam ser configurado individualmente e, em seguida, adicionados a um objeto de configuração do gateway de aplicativo. Depois de criar o objeto de configuração, você usará o comando **Set-AzureApplicationGateway** para confirmar a configuração para o recurso do gateway de aplicativo criado anteriormente.
+O exemplo a seguir mostra como configurar o gateway de aplicativo usando objetos de configuração. Todos os itens de configuração precisam ser configurado individualmente e, em seguida, adicionados a um objeto de configuração do gateway de aplicativo. Depois de criar o objeto de configuração, você usa o comando **Set-AzureApplicationGateway** para confirmar a configuração para o recurso do gateway de aplicativo criado anteriormente.
 
->[AZURE.NOTE] Antes de atribuir um valor a cada objeto de configuração, você precisa declarar que tipo de objeto do PowerShell vai armazená-lo. A primeira linha para criar os itens individuais define quais Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome de objeto) serão usados.
+>[AZURE.NOTE] Antes de atribuir um valor a cada objeto de configuração, você precisa declarar que tipo de objeto do PowerShell vai armazená-lo. A primeira linha para criar os itens individuais define quais Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome de objeto) são usados.
 
 ### Etapa 1
 
@@ -247,7 +247,7 @@ Crie a porta front-end, como mostrado no exemplo a seguir.
 
 Crie o pool de servidores back-end.
 
- Defina os endereços IP que serão adicionados ao pool de servidores back-end conforme mostrado no exemplo a seguir.
+ Defina os endereços IP que são adicionados ao pool de servidores back-end conforme mostrado no exemplo a seguir.
 
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -415,4 +415,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

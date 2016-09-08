@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do Outlook.com
 
 O conector do Outlook.com permite que você gerencie seus emails, calendários e contatos. É possível executar várias ações, como enviar emails, agendar reuniões, adicionar contatos, etc.
-
-O conector do Outlook.com pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flow.microsoft.com)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -78,7 +72,7 @@ Para criar Aplicativos Lógicos com o Outlook.com, primeiro, você deve criar um
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do Outlook.com|
+|Token|Sim|Fornecer as credenciais do Outlook.com|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o Outlook.com](../../includes/connectors-create-api-outlook.md)]
@@ -120,8 +114,8 @@ Obter emails: recupera emails de uma pasta
 | ---|---|---|---|---|---|
 |folderPath|string|não|query|Caixa de Entrada|Caminho da pasta para recuperar emails (padrão: “Caixa de Entrada”)|
 |top|inteiro|não|query|10|Número de emails a serem recuperados (padrão: 10)|
-|fetchOnlyUnread|booleano|não|query|verdadeiro|Recuperar somente emails não lidos?|
-|includeAttachments|booleano|não|query|false|Se for definido como true, os anexos também serão recuperados junto com o email|
+|fetchOnlyUnread|Booliano|não|query|verdadeiro|Recuperar somente emails não lidos?|
+|includeAttachments|Booliano|não|query|false|Se for definido como true, os anexos também serão recuperados junto com o email|
 |searchQuery|string|não|query|nenhum|Consulta de pesquisa para filtrar emails|
 |skip|inteiro|não|query|0|Número de emails a serem ignorados (padrão: 0)|
 |skipToken|string|não|query|nenhum|Ignorar o token para buscar nova página|
@@ -210,7 +204,7 @@ Responder ao email: responde a um email
 | ---|---|---|---|---|---|
 |messageId|string|sim|path|nenhum|ID do email a ser respondido|
 |comentário|string|sim|query|nenhum|Responder comentário|
-|replyAll|booleano|não|query|false|Responder a todos os destinatários|
+|replyAll|Booliano|não|query|false|Responder a todos os destinatários|
 
 #### Resposta
 
@@ -257,8 +251,8 @@ Em novos emails: dispara um fluxo quando chega um novo email
 |para|string|não|query|nenhum|Endereços de email do destinatário|
 |de|string|não|query|nenhum|Do endereço|
 |importância|string|não|query|Normal|Importância do email (Alta, Normal, Baixa) (padrão: Normal)|
-|fetchOnlyWithAttachment|booleano|não|query|false|Recuperar somente emails com anexo|
-|includeAttachments|booleano|não|query|false|Incluir anexos|
+|fetchOnlyWithAttachment|Booliano|não|query|false|Recuperar somente emails com anexo|
+|includeAttachments|Booliano|não|query|false|Incluir anexos|
 |subjectFilter|string|não|query|nenhum|Cadeia de caracteres a ser procurada no assunto|
 
 #### Resposta
@@ -604,10 +598,10 @@ Atualizar contato: atualiza parcialmente um contato
 |Da|string|Não |
 |Co|string|Não |
 |Cco|string|Não |
-|Assunto|string|Sim |
+|Subject|string|Sim |
 |Corpo|string|Sim |
 |Importância|string|Não |
-|IsHtml|booleano|Não |
+|IsHtml|Booliano|Não |
 |Para|string|Sim |
 
 
@@ -629,17 +623,17 @@ Atualizar contato: atualiza parcialmente um contato
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |ID|string|Não |
-|IsRead|booleano|Não |
-|HasAttachment|booleano|Não |
+|IsRead|Booliano|Não |
+|HasAttachment|Booliano|Não |
 |DateTimeReceived|string|Não |
 |Anexos|array|Não |
 |Da|string|Não |
 |Co|string|Não |
 |Cco|string|Não |
-|Assunto|string|Sim |
+|Subject|string|Sim |
 |Corpo|string|Sim |
 |Importância|string|Não |
-|IsHtml|booleano|Não |
+|IsHtml|Booliano|Não |
 |Para|string|Sim |
 
 
@@ -662,7 +656,7 @@ Atualizar contato: atualiza parcialmente um contato
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|Assunto|string|Sim |
+|Subject|string|Sim |
 |Corpo|string|Não |
 |Importância|string|Não |
 |Digest|array|Sim |
@@ -743,7 +737,7 @@ Atualizar contato: atualiza parcialmente um contato
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|sortable|booleano|Não |
+|sortable|Booliano|Não |
 |unsortableProperties|array|Não |
 |ascendingOnlyProperties|array|Não |
 
@@ -754,7 +748,7 @@ Atualizar contato: atualiza parcialmente um contato
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|filterable|booleano|Não |
+|filterable|Booliano|Não |
 |nonFilterableProperties|array|Não |
 |requiredProperties|array|Não |
 
@@ -775,7 +769,7 @@ Atualizar contato: atualiza parcialmente um contato
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|Assunto|string|Sim |
+|Subject|string|Sim |
 |Opções|string|Sim |
 |Corpo|string|Não |
 |Importância|string|Não |
@@ -811,7 +805,7 @@ Atualizar contato: atualiza parcialmente um contato
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|Assunto|string|Sim |
+|Subject|string|Sim |
 |Opções|string|Sim |
 |Corpo|string|Não |
 |Importância|string|Não |
@@ -914,4 +908,4 @@ Atualizar contato: atualiza parcialmente um contato
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

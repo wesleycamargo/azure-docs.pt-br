@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/24/2016"
+    ms.date="08/18/2016"
     ms.author="alkohli" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
@@ -23,9 +23,9 @@ O seu dispositivo StorSimple inclui diodos emissores de luz (LEDs) e alarmes que
 
 Há três estados de LED usados para indicar o status de um módulo: verde, verde intermitente a vermelho-âmbar ou vermelho-âmbar.
 
-- LEDs verdes representam o status de funcionamento adequado.  
-- Verde intermitente a vermelho-âmbar representam a presença de condições não críticas que podem exigir a intervenção do usuário.  
-- LEDs vermelho-âmbar indicam que há uma falha crítica presente no módulo.  
+- LEDs verdes representam o status de funcionamento adequado.
+- Verde intermitente a vermelho-âmbar representam a presença de condições não críticas que podem exigir a intervenção do usuário.
+- LEDs vermelho-âmbar indicam que há uma falha crítica presente no módulo.
 
 O restante deste artigo descreve os vários LEDs indicadores de monitoramento, seus locais no dispositivo StorSimple, o status do dispositivo com base em estados do LED e quaisquer alarmes audíveis associados.
 
@@ -41,7 +41,7 @@ O painel frontal contém os seguintes indicadores:
 2. LED Indicador de energia (verde/vermelho-âmbar)
 3. LED indicador de falha de módulo (aceso vermelho-âmbar/apagado)
 4. LED indicador de falha lógica (aceso vermelho-âmbar/apagado)
-5. Exibição da ID da unidade  
+5. Exibição da ID da unidade
 
 A principal diferença entre os LEDs do painel frontal do dispositivo e do compartimento EBOD é o **Número de Identificação da Unidade de Sistema** mostrado na tela do LED. A unidade padrão exibida no dispositivo de ID é **00**, enquanto que a ID de unidade padrão exibida no compartimento EBOD é **01**. Isso permite que você possa diferenciar rapidamente entre o dispositivo e o compartimento EBOD quando o dispositivo está ativado. Se o dispositivo estiver desligado, use as informações fornecidas em [Ligar um novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar o dispositivo do compartimento EBOD.
 
@@ -52,11 +52,11 @@ Use a tabela a seguir para identificar o status indicado pelos LEDs no painel fr
 |Energia do sistema | Falha do módulo | Falha lógica | Alarme | Status|
 |-------------|---------------|-----------------|-------|-------|
 |Vermelho-âmbar | DESATIVADO | DESATIVADO | N/D | Perda de energia CA, operando com energia reserva ou energia CA ativada e os módulos do controlador foram removidos.|
-|Verde | ATIVO | ATIVO | N/D | Estado de teste do painel de operações ligado (5s)|
+|Verde | ATIVADO | ATIVADO | N/D | Estado de teste do painel de operações ligado (5s)|
 |Verde | DESATIVADO | DESATIVADO | N/D | Energia ligada, todas as funções em boas condições|
-|Verde | ATIVO |N/D | LEDs de falha do ventilador, LEDs de falha de PCM | Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado|
-| Verde | ATIVO | N/D | LEDs de módulo de E/S | Qualquer falha do módulo do controlador|
-| Verde | ATIVO | N/D | N/D | Falha lógica no compartimento|
+|Verde | ATIVADO |N/D | LEDs de falha do ventilador, LEDs de falha de PCM | Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado|
+| Verde | ATIVADO | N/D | LEDs de módulo de E/S | Qualquer falha do módulo do controlador|
+| Verde | ATIVADO | N/D | N/D | Falha lógica no compartimento|
 | Verde | Piscando | N/D | LED de status de módulo no módulo do controlador. LEDs de falha do ventilador, LEDs de falha de PCM | Tipo de módulo controlador desconhecido instalado, falha de barramento I2C, erro de configuração dos dados vitais do produto (VPD) do módulo do controlador |
 
 ## LEDs indicadores de refrigeração do módulo de energia (PCM)   
@@ -79,19 +79,19 @@ Legenda do LED:
 3. Falha de bateria
 4. PCM OK
 5. Falha de CC
-6. Bateria boa  
+6. Bateria boa
 
-O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositvo possui seis LEDs. Quatro destes LEDs exibem o status da fonte de energia e do ventilador. Os dois LEDs restantes indicam o status do módulo de bateria de backup no PCM. Você pode usar as tabelas a seguir para determinar o status do PCM.
+O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositvo possui seis LEDs. Quatro destes LEDs exibem o status da fonte de energia e do ventilador. Os outros dois LEDs indicam o status do módulo da bateria de backup no PCM. Você pode usar as tabelas a seguir para determinar o status do PCM.
 
 ### LEDs indicadores do PCM para a fonte de energia e para o ventilador
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 |--------|----------------|-----------------------|------------------|----------------------|
 | Sem energia de CA (para o compartimento) | DESATIVADO | DESATIVADO | DESATIVADO | DESATIVADO|
-| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVO | DESATIVADO | ATIVO |
-| CA presente PCM ligado - OK | ATIVO | DESATIVADO | DESATIVADO | DESATIVADO |
-| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVO | N/D |
-| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente) | DESATIVADO | ATIVO | ATIVO | ATIVO |
-| PCM (ventilador fora da tolerância) | ATIVO | DESATIVADO | DESATIVADO | ATIVO |
+| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVADO | DESATIVADO | ATIVADO |
+| CA presente PCM ligado - OK | ATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
+| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVADO | N/D |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente) | DESATIVADO | ATIVADO | ATIVADO | ATIVO |
+| PCM (ventilador fora da tolerância) | ATIVADO | DESATIVADO | DESATIVADO | ATIVADO |
 | Modo standby | Piscando | DESATIVADO | DESATIVADO | DESATIVADO |
 | Download de firmware do PCM | DESATIVADO | Piscando | Piscando | Piscando |
 
@@ -100,10 +100,10 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 | Status | Bateria boa (verde) | Falha na bateria (âmbar) |
 |--------|----------------------|-----------------------|
 | Bateria ausente | DESATIVADO | DESATIVADO |
-| Bateria presente e carregada | ATIVO | DESATIVADO |
+| Bateria presente e carregada | ATIVADO | DESATIVADO |
 | Bateria carregando ou descarga de manutenção | Piscando | DESATIVADO |
 | Falha “pequena” na bateria (recuperável) | DESATIVADO | Piscando |
-| Falha “grave” na bateria (não recuperável) | DESATIVADO | ATIVO |
+| Falha “grave” na bateria (não recuperável) | DESATIVADO | ATIVADO |
 | Bateria desarmada | Piscando | DESATIVADO |
 
 ## LEDs de PCM para o compartimento EBOD  
@@ -117,11 +117,11 @@ Você pode usar a tabela a seguir para determinar o status do PCM.
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 |--------|---------------|------------------------|------------------|----------------------|
 | Sem energia de CA (para o compartimento) | DESATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
-| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVO | DESATIVADO | ATIVO |
-| CA presente PCM ligado - OK | ATIVO | DESATIVADO | DESATIVADO | DESATIVADO |
-| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVO | X |
-| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente | DESATIVADO | ATIVO | ATIVO | ATIVO |
-| PCM (ventilador fora da tolerância) | ATIVO | DESATIVADO | DESATIVADO | ATIVO |
+| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVADO | DESATIVADO | ATIVADO |
+| CA presente PCM ligado - OK | ATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
+| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVADO | X |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente | DESATIVADO | ATIVADO | ATIVADO | ATIVO |
+| PCM (ventilador fora da tolerância) | ATIVADO | DESATIVADO | DESATIVADO | ATIVADO |
 | Modelo standby | Piscando | DESATIVADO | DESATIVADO | DESATIVADO |
 | Download de firmware do PCM | DESATIVADO | Piscando | Piscando | Piscando |
 
@@ -186,9 +186,9 @@ Use a tabela a seguir para determinar o estado de cada drive de disco que, por s
 |-------|--------------------------|----------------------|-------------------------|
 | Nenhum driver instalado | DESATIVADO | DESATIVADO | Nenhum |
 | Driver instalado e operacional | Piscando com atividade | X | Nenhum |
-| Conjunto de identidades do dispositivo Enclosure Services do SCSI (SES) | ATIVO | Piscando 1 segundo ligado/1 segundo desligado | Nenhum |
-| Conjunto de bits de falha do dispositivo SES | ATIVO | ATIVO | Falha lógica (vermelha) |
-| Falha no circuito de controle de energia | DESATIVADO | ATIVO | Falha no módulo (vermelho) |
+| Conjunto de identidades do dispositivo Enclosure Services do SCSI (SES) | ATIVADO | Piscando 1 segundo ligado/1 segundo desligado | Nenhum |
+| Conjunto de bits de falha do dispositivo SES | ATIVADO | ATIVADO | Falha lógica (vermelha) |
+| Falha no circuito de controle de energia | DESATIVADO | ATIVADO | Falha no módulo (vermelho) |
 
 ## Alarmes audíveis  
 
@@ -201,7 +201,7 @@ Um dispositivo StorSimple contém alarmes audíveis associados com o compartimen
 - Falha no sistema
 - Falha lógica
 - Falha no fornecimento de energia
-- Remoção de um módulo de refrigeração de energia (PCM)  
+- Remoção de um módulo de refrigeração de energia (PCM)
 
 A tabela a seguir descreve os vários estados de alarme.
 
@@ -217,9 +217,9 @@ A tabela a seguir descreve os vários estados de alarme.
 
 > [AZURE.NOTE] 
 
->  - No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.  
->  - Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.  
->  - O estado de falha crítica S4 pode ser inserido a partir de qualquer outro estado.  
+>  - No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.
+>  - Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.
+>  - O estado de falha crítica S4 pode ser inserido a partir de qualquer outro estado.
 
 Você pode silenciar o alarme audível apertando o botão de mudo no painel de operações. Um silenciament automático ocorrerá após dois minutos se o botão de mudo não for manualmente acionado. Quando o alarme estiver mudo, ele continuará a soar através de bipes curtos e intermitentes para indicar que ainda existe um problema. O alarme será silenciado quando todos os problemas forem resolvidos.
 
@@ -262,4 +262,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

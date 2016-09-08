@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 # Diretrizes de resiliência de serviço do Microsoft Azure
@@ -38,4 +38,4 @@ Os links de diretrizes de design abaixo são diretrizes arquiteturais e de desig
 ##Próximas etapas
 Se você estiver procurando diretrizes que se concentrem mais amplamente em sistemas e soluções, leia [Recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](https://aka.ms/drtechguide).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

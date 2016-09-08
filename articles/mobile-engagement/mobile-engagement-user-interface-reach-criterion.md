@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
-   manager="dwrede" 
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -26,7 +26,7 @@ Direcionar seu público-alvo por critérios específicos com o botão "Novos Cri
 - [Documentação da interface do usuário - Alcance - Nova Campanha por Push][Link 27]
 
 ## Os critérios de público-alvo podem incluir:
-- ****Aspectos técnicos: ** você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Veja também:** [Documentação de Interface de Usuário - Análise][Link 15], [Documentação de Interface de Usuário - Monitoramento][Link 16]
+- **Aspectos técnicos:** você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Veja também:** [Documentação de Interface de Usuário - Análise][Link 15], [Documentação de Interface de Usuário - Monitoramento][Link 16]
 - **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular (“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK). **Consulte também:** [Documentação do SDK - iOS -Integração][Link 5], [Documentação do SDK - Android - Integração][Link 5]
 - **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite direcionar melhor para seu público-alvo depois de duas ou três campanhas de alcance em relação ao que poderia ser feito da primeira vez. Também pode ser usado para filtrar os usuários que já receberam uma notificação com conteúdo semelhante, definindo uma campanha para NÃO ser enviada aos usuários que já receberam uma campanha anterior específica. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [Documentação da interface do usuário - Alcance - Enviar Conteúdo por Push][Link 29]
 - **Instalar Rastreamento:** você pode rastrear informações com base no local onde seus usuários instalaram o seu Aplicativo. **Consulte também:** [Documentação da interface do usuário - Configurações][Link 20]
@@ -37,7 +37,7 @@ Direcionar seu público-alvo por critérios específicos com o botão "Novos Cri
 ## Exemplo: 
 Se você quiser enviar por push um anúncio apenas para o subconjunto de seus usuários que executaram uma ação no aplicativo de compra.
 
-1. Vá para a página de configurações do aplicativo, selecione o menu “Informações do Aplicativo" e selecione “Nova informação do aplicativo"
+1. Vá para a página de configurações do aplicativo, selecione o menu "Informações do Aplicativo" e selecione "Nova informação do aplicativo"
 2. Registre uma nova informação de aplicativo booliano chamada "inAppPurchase"
 3. Defina as informações de aplicativo como "verdadeiro" quando o usuário executar com êxito uma compra no aplicativo (usando a função sendAppInfo("inAppPurchase",...))
 4. Se você não quiser fazer isso no seu aplicativo, poderá fazer no seu back-end usando a API do dispositivo)
@@ -48,7 +48,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 ![Reach-Criterion1][29]
 
 ## As Opções de Critério se Aplicam a:
-- **Técnicos**     
+- **Técnicos**
 - Nome do firmware: nome do firmware
 - Versão do firmware: versão do firmware
 - Modelo do dispositivo: modelo do dispositivo
@@ -59,27 +59,27 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Tipo de rede: tipo de rede
 - Localidade: localidade
 - Tamanho da tela: tamanho da tela
-- **Localidade**      
+- **Localidade**
 - Última área conhecida: país, região, localidade
 - Isolamento geográfico em tempo real: lista de POIs (Nome, Ações), POI circular (Nome, Latitude, Longitude, Raio em metros)
-- **Comentários de alcance**     
+- **Comentários de alcance**
 - Comentários de anúncio: anúncio, comentários
 - Comentários de pesquisa: pesquisa, comentários
 - Comentários de resposta da pesquisa: comentários de resposta da pesquisa, pergunta, opção
 - Comentários de Envio de Dados por Push: envio de dados por push, comentários
-- **Instalar o Rastreamento**     
+- **Instalar o Rastreamento**
 - Loja: loja, indefinido
 - Fonte: fonte, indefinido
-- **Perfil do usuário**     
+- **Perfil do usuário**
 - Sexo: masculino ou feminino, indefinido
 - Data de nascimento: operador, data, indefinido
 - Aceitação: verdadeiro ou falso, indefinido
-- **Informações do aplicativo**      
+- **Informações do aplicativo**
 - Cadeia de caracteres: cadeia de caracteres, indefinido
 - Data: operador, data, indefinido
 - Inteiro: operador, número, indefinido
 - Booliano: verdadeiro ou falso, indefinido
-- **Segmento**    
+- **Segmento**
 - Nome dos segmentos (da lista suspensa), Exclusão (usuários de destino que não fazem parte deste segmento).
 
 <!--Image references-->
@@ -174,4 +174,4 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

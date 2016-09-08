@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/17/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@ Este tópico mostra como usar o Portal Clássico do Azure para gerenciar o conte
 
 Este tópico mostra como executar as seguintes operações de conteúdo diretamente do portal:
 
-- Exibir informações de conteúdo como estado publicado, URL publicada, tamanho, data e hora da última atualização, e se o ativo está ou não criptografado.
+- Exibir informações de conteúdo como estado publicado, URL publicada, tamanho, data e hora da última atualização, e se o ativo está criptografado.
 - Carregar novo conteúdo
 - Conteúdo do índice
 - Codificar conteúdo
@@ -47,11 +47,11 @@ Este tópico mostra como executar as seguintes operações de conteúdo diretame
 	![UploadContentDialog][uploadcontent]
 
 5. Na caixa de diálogo Carregar Conteúdo, clique no botão de seleção para aceitar o Arquivo e o Nome do Conteúdo.
-6. O carregamento será iniciado e você poderá acompanhar o andamento na parte inferior do portal.
+6. O upload é iniciado. Você pode acompanhar o andamento na parte inferior do portal.
 
 	![JobStatus][status]
 
-Quando o carregamento for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "**Source**" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
+Quando o upload for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "**-Source**" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
 
 ![ContentPage][contentpage]
 
@@ -67,7 +67,10 @@ O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arqui
 
 As etapas a seguir demonstram como usar o Portal Clássico do Azure para indexar seu conteúdo.
 
-1. Selecione o arquivo que você deseja indexar. Se houver suporte para a indexação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
+1. Selecione o arquivo que você deseja indexar.
+
+	Se houver suporte para a indexação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
+	
 1. Pressione o botão PROCESSO.
 2. Na caixa de diálogo **Processo**, escolha o processador do **Indexador de Mídia do Azure**.
 3. Em seguida, preencha na caixa de diálogo Processo as informações para **título** e **descrição** do arquivo de mídia de entrada.
@@ -81,11 +84,11 @@ As etapas a seguir demonstram como usar o Portal Clássico do Azure para indexar
 - [REST](media-services-rest-encode-asset.md)
 - [Portal](media-services-manage-content.md#encode)
 
-Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os Serviços de Mídia oferecem um codificador de mídia que permite que você especifique como deseja que seu conteúdo seja codificado (por exemplo, os codecs para uso, formato de arquivo, resolução e taxa de bits).
+Para fornecer vídeo digital pela Internet, você deve compactar a mídia. Os Serviços de Mídia oferecem um codificador de mídia que permite que você especifique como deseja que seu conteúdo seja codificado (por exemplo, os codecs para uso, formato de arquivo, resolução e taxa de bits).
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
 
-Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
+Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming com suporte pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS), sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
@@ -94,25 +97,26 @@ Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
-Observe que, além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
+Além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming sob demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação ou capacidade de saída) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
 
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia Padrão usando o Portal Clássico do Azure.
 
 1.  Selecione o arquivo que você deseja codificar.
 
-  Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
-4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia Padrão**.
-5. Escolha uma das **configurações de codificação**.
+	Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
 
-![Process2][process2]
+2. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia Padrão**.
+3. Escolha uma das **configurações de codificação**.
+
+	![Process2][process2]
 
 
-O tópico [Cadeias de Caracteres Predefinidas de Tarefa para o Codificador de Mídia Standard](https://msdn.microsoft.com/library/mt269960) explica o significado de cada predefinição.
+	O tópico [Cadeias de Caracteres Predefinidas de Tarefa para o Codificador de Mídia Standard](https://msdn.microsoft.com/library/mt269960) explica o significado de cada predefinição.
 
-5. Em seguida, digite o nome de conteúdo de saída amigável desejado ou aceite o padrão. Em seguida, clique no botão de seleção para iniciar a operação de codificação e você poderá acompanhar o andamento na parte inferior do portal.
-6. Pressione OK.
+4. Em seguida, digite o nome de conteúdo de saída amigável desejado ou aceite o padrão. Em seguida, clique no botão de seleção para iniciar a operação de codificação e você poderá acompanhar o andamento na parte inferior do portal.
+5. Pressione OK.
 
-Após a codificação ser realizada, a página de conteúdo conterá o arquivo codificado.
+Após a codificação ser realizada, a página CONTEÚDO conterá o arquivo codificado.
 
 Para exibir o andamento do trabalho de codificação, alterne para a página **TRABALHOS**.
 
@@ -132,7 +136,7 @@ Se você desejar para os serviços de mídia criptografar dinamicamente seus ati
 
 	![Criptografar][encrypt]
 
-	Uma vez que você habilitou a criptografia, sempre que um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+	Uma vez que você habilitou a criptografia, sempre que um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
 Consulte também:
 
@@ -164,7 +168,7 @@ Para criar uma URL de streaming de HLS, anexe (format=m3u8-aapl) à URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Para criar uma URL de streaming de MPEG DASH, anexe (format=mpd-time-csf) à URL.
+Para criar uma URL de streaming MPEG DASH, anexe (format=mpd-time-csf) à URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -173,7 +177,7 @@ Os localizadores têm uma data de validade. Quando você usa o portal para publi
 
 >[AZURE.NOTE] Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
 
-Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
+Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
 ###Publicar
 
@@ -222,4 +226,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

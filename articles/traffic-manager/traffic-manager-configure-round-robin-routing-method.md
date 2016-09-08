@@ -3,7 +3,7 @@
    description="Este artigo o ajudará a configurar o balanceamento de carga round robin para os pontos de extremidade do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Configurar o método de roteamento de Round Robin
 
@@ -52,4 +52,4 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

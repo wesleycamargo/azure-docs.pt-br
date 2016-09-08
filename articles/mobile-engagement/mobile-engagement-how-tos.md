@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como começar a usar e gerenciar pushes para chegar aos seus usuários finais
@@ -21,7 +21,7 @@
 Depois que o SDK é totalmente integrado ao seu aplicativo, você pode começar a usar a seção Reach da interface do usuário para enviar notificações por Push aos usuários do seu aplicativo.
 
 ## Faça sua primeira campanha de notificação por push
--    Confirme que o seu Reach está integrado ao seu aplicativo com o SDK. 
+-    Confirme que o seu Reach está integrado ao seu aplicativo com o SDK.
 -    Selecione seu aplicativo
  
 ![First1][1]
@@ -79,7 +79,7 @@ A personalização funciona substituindo um marcador por uma marca de informaç�
 
 > Aviso: se a marca de informações de aplicativo não estiver definida para o usuário, o usuário não receberá o envio por push.
 
--    Resultado
+-    Result
  
 ![Personalize2][12]
 
@@ -111,8 +111,8 @@ A personalização funciona substituindo um marcador por uma marca de informaç�
 
 O modo de entrega "Somente fora do aplicativo" fornece notificação por push quando o aplicativo é fechado. Esta é a notificação por push padrão. Ao selecionar "Somente fora do aplicativo", você deve ter fornecido os certificados da plataforma que o seu aplicativo está compilando (APNS ou GCM).
 
-### Consulte também
--  [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] (http://developer.android.com/google/gcm/index.html) 
+### Confira também
+-  [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] (http://developer.android.com/google/gcm/index.html)
 
 ### Modo de entrega "Apenas no aplicativo"
 ![Differentiate3][17]
@@ -127,7 +127,7 @@ Você pode escolher um modo de entrega a "Qualquer hora", e isso garante alcanç
 ![Shedule1][18]
 
 É 21 de março e você tem um comunicado para fazer e ele está planejado para o dia 22 de março à meia-noite. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto em que as notificações serão enviadas.
--    Desmarque a caixa de seleção "Nenhum" e selecione uma hora de início 
+-    Desmarque a caixa de seleção "Nenhum" e selecione uma hora de início
 -    Escolha a data e a hora em que você deseja iniciar a campanha de envio por push.
 
 ### Plano para terminar uma campanha
@@ -220,7 +220,7 @@ Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up apar
 -    Escreva o conteúdo que será exibido no botão de ação (um botão de ação habilita o aplicativo a fazer uma ação específica, como abrir uma página do aplicativo, redirecionar para um Repositório ou qualquer tipo de fonte que você possa fornecer).
 -    Escreva o conteúdo que será exibido no botão Sair (clicando no botão Sair, a exibição da web desaparecerá).
  
--    Resultado
+-    Result
  
 ![WebView5][32]
 
@@ -297,4 +297,4 @@ Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up apar
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

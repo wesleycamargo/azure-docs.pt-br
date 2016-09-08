@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Gatilhos e associações de Azure Functions para Armazenamento do Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos e associações do Armazenamento do Azure em Azure Functions.
 
@@ -30,11 +32,11 @@ Este artigo explica como configurar e codificar gatilhos e associações do Arma
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila. 
-- `queueName`: o nome da fila a ser sondada. Para regras de nomenclatura de fila, consulte [Nomeando Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila.
+- `queueName`: o nome da fila a ser sondada. Para regras de nomenclatura de fila, confira [Naming Queues and Metadata (Nomeando filas e metadados)](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar o `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração de aplicativo AzureWebJobsStorage.
 - `type`: deve ser definido como *queueTrigger*.
-- `direction`: deve ser definido como *in*. 
+- `direction`: deve ser definido como *in*.
 
 *function.json* de exemplo para um gatilho de fila de armazenamento:
 
@@ -59,8 +61,8 @@ A mensagem da fila pode ser desserializada para qualquer um destes tipos:
 
 * Objeto (de JSON)
 * Cadeia de caracteres
-* Matriz de bytes 
-* `CloudQueueMessage` (C#) 
+* Matriz de bytes
+* `CloudQueueMessage` (C#)
 
 #### Metadados de gatilho de fila
 
@@ -106,7 +108,7 @@ O SDK chamará uma função até 5 vezes para processar uma mensagem da fila. Se
 
 A fila de mensagens suspeita é denominada *{originalqueuename}*-suspeita. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
-Se você quiser manipular mensagens suspeitas manualmente, poderá obter o número de vezes que uma mensagem foi selecionada para processamento ao verificar `dequeueCount`.
+Se quiser manipular mensagens suspeitas manualmente, você poderá obter o número de vezes que uma mensagem foi selecionada para processamento verificando `dequeueCount`.
 
 ## <a id="storagequeueoutput"></a> Associação de saída de fila do Armazenamento do Azure
 
@@ -114,13 +116,13 @@ Se você quiser manipular mensagens suspeitas manualmente, poderá obter o núme
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila. 
-- `queueName`: o nome da fila. Para regras de nomenclatura de fila, consulte [Nomeando Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx).
-- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila.
+- `queueName`: o nome da fila. Para regras de nomenclatura de fila, confira [Naming Queues and Metadata (Nomeando filas e metadados)](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar o `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração de aplicativo AzureWebJobsStorage.
 - `type`: deve ser definido como *queue*.
-- `direction`: deve ser definido como *out*. 
+- `direction`: deve ser definido como *out*.
 
-*function.json* de exemplo para uma associação de saída de fila de armazenamento que usa um gatilho de fila e grava uma mensagem de fila:
+O *function.json* de exemplo para uma associação de saída de fila de armazenamento que usa um gatilho de fila e grava uma mensagem de fila:
 
 ```json
 {
@@ -148,10 +150,10 @@ O arquivo *function.json* especifica as propriedades a seguir.
 
 A associação `queue` pode serializar os seguintes tipos para uma mensagem de fila:
 
-* Objeto (`out T` em C#, criará uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
+* Objeto (`out T` no C#, criará uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
 * Cadeia de caracteres (`out string` no C#, criará a mensagem da fila se o valor do parâmetro não for nulo quando a função terminar)
-* Matriz de bytes (`out byte[]` em C#, funciona como uma cadeia de caracteres) 
-* `out CloudQueueMessage` (C#, funciona como cadeia de caracteres) 
+* Matriz de bytes (`out byte[]` no C#, funciona como uma cadeia de caracteres)
+* `out CloudQueueMessage` (C#, funciona como cadeia de caracteres)
 
 No C#, você também pode associar a `ICollector<T>` ou `IAsyncCollector<T>`, sendo `T` um dos tipos com suporte.
 
@@ -182,13 +184,13 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para o blob. 
+- `name`: o nome da variável usada no código de função para o blob.
 - `path`: um caminho que especifica o contêiner a ser monitorado e, opcionalmente, um padrão de nome de blob.
-- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar o `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração de aplicativo AzureWebJobsStorage.
 - `type`: deve ser definido como *blobTrigger*.
 - `direction`: deve ser definido como *in*.
 
-*function.json* de exemplo para um gatilho de blob de armazenamento que observa blobs adicionados ao contêiner de itens de trabalho de exemplo:
+O *function.json* de exemplo para um gatilho de blob de armazenamento que observa blobs adicionados ao contêiner de itens de trabalho de exemplo:
 
 ```json
 {
@@ -223,7 +225,7 @@ Em funções do C#, também é possível associar a qualquer um dos seguintes ti
 * `CloudBlobDirectory`
 * `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
-* Outros tipos desserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
+* Outros tipos desserializados por [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
 
 #### Exemplo de código C# de gatilho de blob
 
@@ -252,9 +254,9 @@ Outro exemplo:
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Esse caminho também poderia ser um blob chamado *original-blob1.txt* e o valor das variáveis `blobname` e `blobextension` no código de função seria *original-Blob1* e *txt*.
+Esse caminho também poderia ser um blob chamado *original-Blob1.txt* e o valor das variáveis `blobname` e `blobextension` no código de função seria *original-Blob1* e *txt*.
 
-Você pode restringir os tipos de blobs que disparam a função especificando um padrão com um valor fixo para a extensão de arquivo. Se você definir o `path` como *samples/{nome}.png*, somente os blobs *.png* do contêiner *samples* vão disparar a função.
+Você pode restringir os tipos de blobs que disparam a função especificando um padrão com um valor fixo para a extensão de arquivo. Se você definir `path` como *amostras/{nome}.png*, somente os blobs *.png* no contêiner de *exemplos* vão disparar a função.
 
 Se você precisar especificar um padrão de nome para nomes de blob que têm chaves no nome, duplique as chaves. Por exemplo, para localizar blobs no contêiner *imagens* que têm nomes como este:
 
@@ -294,7 +296,7 @@ A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguint
 
 #### Sondagem de blobs para grandes contêineres
 
-Se o contêiner de blob que o gatilho está monitorando contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob para grandes contêineres não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar um gatilho de fila em vez de um gatilho de blob para processar o blob.
+Se o contêiner de blob que o gatilho está monitorando contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há qualquer garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob para grandes contêineres não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar um gatilho de fila em vez de um gatilho de blob para processar o blob.
  
 ## <a id="storageblobbindings"></a> Associações de entrada e de saída de blob do Armazenamento do Azure
 
@@ -302,13 +304,13 @@ Se o contêiner de blob que o gatilho está monitorando contiver mais de 10.000 
 
 O arquivo *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para o blob. 
-- `path`: um caminho que especifica o contêiner do qual o blob será lido ou aonde será gavado, contendo opcionalmente um padrão de nome de blob.
-- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `name`: o nome da variável usada no código de função para o blob.
+- `path`: um caminho que especifica o contêiner do qual o blob será lido ou onde será gravado, contendo opcionalmente um padrão de nome de blob.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar o `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração de aplicativo AzureWebJobsStorage.
 - `type`: deve ser definido como *blob*.
-- `direction`: defina como *in* ou *out*. 
+- `direction`: defina como *in* ou *out*.
 
-*function.json* de exemplo para uma associação de entrada ou de saída de blob de armazenamento, usando um gatilho de fila para copiar um blob:
+O *function.json* de exemplo para uma associação de entrada ou de saída de blob de armazenamento, usando um gatilho de fila para copiar um blob:
 
 ```json
 {
@@ -341,10 +343,10 @@ O arquivo *function.json* especifica as propriedades a seguir.
 
 #### Tipos de entrada e de saída de blob com suporte
 
-A associação `blob` pode serializar ou desserializar os seguintes tipos em funções Node.js ou C#:
+A associação `blob` pode serializar ou desserializar os seguintes tipos em funções do Node.js ou do C#:
 
-* Objeto (`out T` no C# para blob de saída: criará um blob como um objeto nulo se o valor do parâmetro for nulo quando a função terminar)
-* Cadeia de caracteres (`out string` no C# para blob de saída: criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
+* Objeto (`out T` em C# para blob de saída: criará um blob como um objeto nulo se o valor do parâmetro for nulo quando a função terminar)
+* Cadeia de caracteres (`out string` em C# para blob de saída: criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
 
 Em funções do C#, também é possível associar aos seguintes tipos:
 
@@ -353,8 +355,8 @@ Em funções do C#, também é possível associar aos seguintes tipos:
 * `Stream`
 * `CloudBlobStream` (somente saída)
 * `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
+* `CloudBlockBlob`
+* `CloudPageBlob`
 
 #### Exemplo de código C# de saída de blob
 
@@ -374,14 +376,14 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 O *function.json* especifica as propriedades a seguir.
 
-- `name`: o nome da variável usada no código de função para a associação de tabela. 
+- `name`: o nome da variável usada no código de função para a associação de tabela.
 - `tableName`: o nome da tabela.
-- `partitionKey` e `rowKey`: usados em conjunto para ler uma única entidade em uma função do C# ou do Node, ou para gravar uma única entidade em uma função do Node.
-- `take`: o número máximo de linhas a serem lidas para a tabela de entrada em uma função Node.
-- `filter`: expressão de filtro OData para a tabela de entrada em uma função de Node.
-- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `partitionKey` e `rowKey`: usadas em conjunto para ler uma única entidade em uma função do C# ou do Node, ou para gravar uma única entidade em uma função do Node.
+- `take`: o número máximo de linhas a serem lidas para a entrada de tabela em uma função do Node.
+- `filter`: expressão de filtro OData para a entrada de tabela em uma função do Node.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar o `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração de aplicativo AzureWebJobsStorage.
 - `type`: deve ser definido como *table*.
-- `direction`: defina como *in* ou *out*. 
+- `direction`: defina como *in* ou *out*.
 
 O *function.json* de exemplo a seguir usa um gatilho de fila para ler uma linha da tabela. O JSON fornece um valor de chave de partição embutido em código e especifica que a chave de linha virá da mensagem da fila.
 
@@ -411,7 +413,7 @@ O *function.json* de exemplo a seguir usa um gatilho de fila para ler uma linha 
 
 #### Tipos de entrada e de saída de tabelas de armazenamento com suporte
 
-A associação `table` pode serializar ou desserializar objetos em funções Node.js ou C#: Os objetos terão as propriedades RowKey e PartitionKey.
+A associação `table` pode serializar ou desserializar objetos em funções do Node.js ou do C#. Os objetos terão as propriedades RowKey e PartitionKey.
 
 Em funções do C#, também é possível associar aos seguintes tipos:
 
@@ -438,7 +440,7 @@ A associação de tabela dá suporte aos seguintes cenários:
 
 * Gravar uma ou mais linhas em uma função do C#.
 
-	O tempo de execução do Functions oferece uma associação `ICollector<T>` ou `IAsyncCollector<T>` à tabela, em que `T` especifica o esquema das entidades que você deseja adicionar. Geralmente, o tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas isso não é obrigatório. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário.
+	O tempo de execução de Functions oferece uma associação `ICollector<T>` ou `IAsyncCollector<T>` à tabela, em que `T` especifica o esquema das entidades que você deseja adicionar. Geralmente, o tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas isso não é obrigatório. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário.
 
 #### Exemplo de tabelas de armazenamento: ler uma única entidade de tabela em C# ou em Node
 
@@ -471,7 +473,7 @@ module.exports = function (context, myQueueItem) {
 
 #### Exemplo de tabelas de armazenamento: ler várias entidades de tabela em C# 
 
-O exemplo de *function.json* e de código C# a seguir lê entidades para uma chave de partição especificada na mensagem de fila.
+O exemplo de código *function.json* e C# a seguir lê entidades para uma chave de partição especificada na mensagem de fila.
 
 ```json
 {
@@ -495,7 +497,7 @@ O exemplo de *function.json* e de código C# a seguir lê entidades para uma cha
 }
 ```
 
-O código C# adiciona uma referência ao SDK do Armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`.
+O código C# adiciona uma referência ao SDK de Armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -605,4 +607,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

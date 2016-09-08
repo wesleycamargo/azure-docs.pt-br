@@ -3,7 +3,7 @@
    description="Visão geral das opções de restauração para recuperar um banco de dados no SQL Data Warehouse do Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/28/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 
 # Recuperar um SQL Data Warehouse do Azure (Visão geral)
@@ -72,4 +72,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,26 +1,26 @@
 
-<properties 
+<properties
    pageTitle="Visão geral do balanceador de carga interno | Microsoft Azure"
    description="Visão geral do balanceador de carga interno e seus recursos. Como um balanceador de carga funciona no Azure e possíveis cenários para configurar pontos de extremidade internos"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Visão geral do balanceador de carga interno
 
 ILB (Balanceador de Carga Interno) é um aprimoramento de segurança pelo balanceador de carga atual para a Internet oferecido no Azure. O acesso ao ILB só pode ser feito pelos recursos dentro do serviço de nuvem ou usando a VPN para acessar a infraestrutura do Azure e alcançar o ILB.
-			
+
 A infraestrutura restringe a acessibilidade e cria um limite de confiança entre os endereços IP virtuais de balanceamento de carga e um serviço de nuvem ou uma rede virtual e nunca será exposta a um ponto de extremidade da Internet diretamente. Isso permite que aplicativos de linha de negócios internos sejam executados no Azure e acessados na nuvem ou no local.
 
 ## Cenários para balanceador de carga interno
@@ -40,7 +40,7 @@ O ILB habilite os novos tipos de balanceamento de carga a seguir:
 O balanceamento de carga do Azure existente fornece apenas balanceamento de carga entre computadores na Internet e máquinas virtuais em um serviço de nuvem. O ILB habilita novos recursos para hospedar máquinas virtuais no Azure.
 
 - Aplicativos para a Internet de diversas camadas, cujas camadas de back-end não são para a Internet, mas exigem balanceamento de carga para tráfego da camada para a Internet.
-- Balanceamento de carga para aplicativos de linha de negócios (LOB) hospedados no Azure sem exigir hardware ou software do balanceador de carga adicional. Incluindo servidores locais, no conjunto de computadores, cujo tráfego é de balanceamento de carga. 
+- Balanceamento de carga para aplicativos de linha de negócios (LOB) hospedados no Azure sem exigir hardware ou software do balanceador de carga adicional. Incluindo servidores locais, no conjunto de computadores, cujo tráfego é de balanceamento de carga.
 - As seções a seguir descrevem essas configurações em mais detalhes.
 
 ## Aplicativos para a Internet de diversas camadas
@@ -90,6 +90,4 @@ Outro cenário para LOB é ter uma VPN site a site na rede virtual na qual o pon
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

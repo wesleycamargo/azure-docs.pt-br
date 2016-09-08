@@ -1,6 +1,6 @@
 <properties
    pageTitle="Criar uma rede virtual com uma conexão VPN site a site usando o Azure Resource Manager e o Portal do Azure | Microsoft Azure"
-   description="Como criar uma Rede Virtual usando o modelo do Gerenciador de Recursos e o conectando à sua rede local usando uma conexão de gateway de VPN S2S."
+   description="Como criar uma VNet usando o modelo de implantação do Resource Manager e o conectá-lo à sua rede local usando uma conexão de gateway de VPN S2S."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/22/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Criar uma rede virtual com uma conexão VPN site a site usando o Portal do Azure e o Azure Resource Manager
+# Criar uma VNet com uma conexão Site a Site usando o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,7 +25,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artigo mostra como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o modelo de implantação do Azure Resource Manager e o Portal do Azure.
+Este artigo mostra como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o **modelo de implantação do Azure Resource Manager** e o Portal do Azure. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações.
 
 ![Diagrama](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
@@ -154,4 +154,4 @@ Você pode verificar a conexão VPN no portal ou usando o PowerShell.
 
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
