@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Adicionar a API do Microsoft Translator ao PowerApps Enterprise ou aplicativos lógicos | Microsoft Azure"
+    pageTitle="Adicionar o Microsoft Translator aos aplicativos lógicos | Microsoft Azure"
     description="Visão geral do conector do Microsoft Translator com parâmetros da API REST"
     services=""
     suite=""
@@ -15,28 +15,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Introdução ao conector do Microsoft Translator
-Conecte-se ao Microsoft Translator para traduzir texto, detectar um idioma e muito mais. O conector do Microsoft Translator pode ser usado em:
+Conecte-se ao Microsoft Translator para traduzir texto, detectar um idioma e muito mais. Com o Microsoft Translator, você pode:
 
-- Aplicativos lógicos 
-- PowerApps
+- Compile seu fluxo de negócios baseado nos dados obtidos do Microsoft Translator.
+- Use ações para traduzir texto, detectar um idioma e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo arquivo é criado no Dropbox, você pode traduzir o texto contido no arquivo para outro idioma usando o Microsoft Translator.
 
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-microsofttranslator.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
-
-Com o Microsoft Translator, você pode:
-
-- Compile seu fluxo de negócios baseado nos dados obtidos do Microsoft Translator. 
-- Use ações para traduzir texto, detectar um idioma e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo arquivo é criado no Dropbox, você pode traduzir o texto contido no arquivo para outro idioma usando o Microsoft Translator.
-- Adicione o conector do Microsoft Translator ao PowerApps Enterprise. Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
-
-Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 O Microsoft Translator inclui as seguintes ações. Não há nenhum gatilho.
@@ -146,4 +134,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

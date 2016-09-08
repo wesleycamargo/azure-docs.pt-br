@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Substituir um controlador EBOD em seu dispositivo StorSimple
@@ -89,7 +89,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
 
     ![Cabeamento do dispositivo 4U para alimentação](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figura 4** Reconectando os cabos
+    **Figura 4**. Reconectando os cabos
 
     |Rótulo|Descrição|
     |:----|:----------|
@@ -107,4 +107,4 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -62,7 +62,7 @@ Você precisará especificar a rede à qual deseja que a máquina virtual perten
 Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM Linux. Para obter instruções, consulte:
 
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.
-- [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
+- [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 
 Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) para ajudar a corrigir o problema.
@@ -156,4 +156,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

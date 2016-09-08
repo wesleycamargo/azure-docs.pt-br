@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Google
@@ -26,7 +26,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 
 ## <a name="register"> </a>Registre seu aplicativo com o Google
 
-1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**. Você o usará para configurar o seu aplicativo Google.
+1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**, pois você a usará mais tarde para configurar seu aplicativo do Google.
 
 2. Vá até o site [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
 
@@ -81,4 +81,4 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

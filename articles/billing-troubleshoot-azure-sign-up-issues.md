@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Solucionar problemas de inscrição do Azure
 Este artigo ajudará você a solucionar as causas comuns de problemas que podem ocorrer quando você se inscreve no Azure.
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure no [site de Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [entre em contato com o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente.
 
 ## Estou recebendo um erro ao inserir minhas informações para me inscrever.
 As informações de perfil de conta estão corretas? Os detalhes do seu perfil são usados para gerar extratos de cobrança, portanto, é importante inserir suas informações de forma precisa. Como exemplos de campos incorretos, temos:
@@ -53,13 +53,13 @@ Verifique se o método de pagamento que você está usando na inscrição tem su
 - Os provedores de cartão de crédito/débito aceitos variam de acordo com o país da conta.
 
 Sugestões:
-- Para causas comuns dos problemas de inscrição usando um cartão de crédito ou débito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
+- Para causas comuns dos problemas de inscrição usando um cartão de crédito ou débito, consulte o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Não consigo ativar um plano de benefícios do Azure, por exemplo, MSDN, BizSpark, BizSparkPlus ou MPN.
 Verifique sua qualificação: veja no canal do programa de benefícios se você está qualificado para o plano escolhido:
 - MSDN:
   - Verifique o status de qualificação na [página da sua conta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Se não for possível verificar o status, contate o [Atendimento ao Cliente de Assinaturas MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
+  - Se não for possível verificar o status, entre em contato com o [Atendimento ao Cliente de Assinaturas MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - MPN
   - Entre no [portal do MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verifique o status da sua qualificação. Você poderá ser elegível para benefícios adicionais se tiver as [Competências de Plataforma de Nuvem](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) adequadas.
   - Se não for possível verificar seu status, contate o [suporte do MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
@@ -81,4 +81,6 @@ Você já usou uma assinatura do Azure anteriormente? O Contrato de Termos de Us
 Sugestões:
 - Se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere a compra de uma assinatura pré-paga. Você também pode estar qualificado para uma oferta de benefício. Saiba mais na [página de detalhes de oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) em vez do plano de avaliação gratuita do Azure. Observe que os planos de benefícios exigem pré-requisitos específicos.
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

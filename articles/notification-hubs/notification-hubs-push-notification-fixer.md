@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/19/2016" 
 	ms.author="wesmc"/>
 
 #Hubs de Notificação do Azure - Diretrizes de Diagnóstico
@@ -36,10 +36,10 @@ Os Hubs de Notificação do Azure precisam se autenticar no contexto do aplicati
  
 	a) Certifique-se de que o nome de seu hub de notificação (sem erros de grafia) é o mesmo:
 
-	- Onde você está registrando do cliente, 
-	- Onde você está enviando notificações de back-end,  
-	- Onde você configurou as credenciais PNS e 
-	- Cujas credenciais SAS que você configurou no cliente e no back-end. 
+	- Onde você está registrando do cliente,
+	- Onde você está enviando notificações de back-end,
+	- Onde você configurou as credenciais PNS e
+	- Cujas credenciais SAS que você configurou no cliente e no back-end.
 		
 	b) Certifique-se de que você está usando as cadeias de configuração SAS corretas no cliente e no back-end do aplicativo. Como regra geral, você deve estar usando o **DefaultListenSharedAccessSignature** no cliente e **DefaultFullSharedAccessSignature** no back-end do aplicativo (que concede permissão para enviar notificações para o NH)
 
@@ -206,7 +206,7 @@ Essa mensagem indica que qualquer credenciais inválidas são configuradas no hu
 Mais detalhes aqui -
 
 - [Acesso Programático de Telemetria]
-- [Acesso de Telemetria por meio do exemplo de APIs] 
+- [Acesso de Telemetria por meio do exemplo de APIs]
 
 > [AZURE.NOTE] Várias telemetrias relacionados a recursos como **Importação/Exportação de Registros**, **Acesso de Telemetria via APIs** etc., só estão disponíveis na camada Standard. Se você tentar usar esses recursos se estiver na camada Free ou Basic, receberá a mensagem de exceção para esse efeito ao usar o SDK e um HTTP 403 (Proibido) quando usá-los diretamente pelas APIs REST. Certifique-se de que você atualizou para a camada Standard via portal Clássico do Azure.
 
@@ -241,4 +241,4 @@ Mais detalhes aqui -
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

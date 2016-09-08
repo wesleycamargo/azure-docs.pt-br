@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Redefinir a senha de um usuário
@@ -35,4 +35,4 @@ Se você estiver respondendo a um usuário que está solicitando uma redefiniç�
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 - [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

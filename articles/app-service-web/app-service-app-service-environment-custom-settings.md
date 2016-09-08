@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/22/2016"
 	ms.author="stefsch"/>
 
 # Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 
 ## Visão geral ##
 Como os Ambientes de Serviço de Aplicativo são isolados em um único cliente, há certas definições de configuração que podem ser aplicadas exclusivamente a Ambientes de Serviço de Aplicativo. Este artigo documenta as várias personalizações específicas que estão disponíveis para Ambientes de Serviço de Aplicativo.
+
+Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
 Você pode armazenar as personalizações de Ambiente de Serviço de Aplicativo usando uma matriz no novo atributo **clusterSettings**. Esse atributo é encontrado no dicionário de "Propriedades" da entidade do Azure Resource Manager *hostingEnvironments*.
 
@@ -76,7 +78,7 @@ O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSetting
         ],
 
 ## Mudar a ordem do pacote de criptografia TLS ##
-Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx)).
+Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx)).
 
         "clusterSettings": [
             {
@@ -95,4 +97,4 @@ O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a def
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

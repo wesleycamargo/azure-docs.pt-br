@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
@@ -24,8 +24,8 @@ Se você [instrumentou seu aplicativo Web em Java com o Application Insights][ja
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
  * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
- * Chamadas **Redis** feitas por meio do cliente Jedis. Se a chamada levar mais de 10 segundos, o agente também buscará os argumentos da chamada.
- * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta. 
+ * Chamadas **Redis** feitas por meio do cliente Jedis. Se a chamada demorar mais de 10 segundos, o agente também buscará os argumentos da chamada.
+ * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
 * **Exceções capturadas:** dados sobre exceções que são manipuladas pelo código.
 * **Tempo de execução do método:** dados sobre o tempo necessário para executar métodos específicos.
 
@@ -59,11 +59,11 @@ Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omit
         
         <!-- Collect remote dependency data -->
         <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
                Defaults: enabled, 10000 ms -->
            <Jedis enabled="true" thresholdInMS="1000"/>
            
-           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
@@ -94,7 +94,7 @@ Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
 ## Exibir os dados
 
-No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecerão [no bloco Desempenho][metrics].
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][metrics].
 
 Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
 
@@ -104,7 +104,8 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
 ## Perguntas? Problemas?
 
-[Solucionar problemas de Java](app-insights-java-troubleshoot.md)
+* Não há dados? [Definir exceções de firewall](app-insights-ip-addresses.md)
+* [Solucionar problemas de Java](app-insights-java-troubleshoot.md)
 
 
 
@@ -122,4 +123,4 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

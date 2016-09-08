@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (portal do Azure)
@@ -34,7 +34,7 @@ Esta coleção de tarefas usa o portal do Azure para:
 - Pausar computação
 - Retomar a computação
 
-Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação][].
+Para obter mais informações, consulte [Visão geral sobre gerenciar computação][].
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -64,7 +64,7 @@ Para alterar recursos de computação:
 
 Para pausar um banco de dados:
 
-1. Abra o [portal do Azure][] e abra seu banco de dados. Observe que o Status é **Online**. 
+1. Abra o [portal do Azure][] e abra seu banco de dados. Observe que o Status é **Online**.
 
     ![Status online][6]
 
@@ -72,8 +72,8 @@ Para pausar um banco de dados:
 
     ![Confirmar pausar][7]
 
-1. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será **Pausando".
-2. Quando o status for **Em pausa**, a operação de pausa terá sido concluída e não estará mais sendo cobrados pelas DWUs.
+1. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será **Pausando**.
+2. Quando o status for **Em pausa**, a operação de pausa terá sido concluída e você deixará de ser cobrado pelas DWUs.
 
     ![Status em pausa][4]
 
@@ -81,17 +81,17 @@ Para pausar um banco de dados:
 
 ## Retomar a computação
 
-[AZURE.INCLUDE [Descrição de retomada do SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)]Para retomar um banco de dados:
+[AZURE.INCLUDE [Descrição de retomada do SQL Data Warehouse](../../includes/sql-data-warehouse-resume-description.md)] Para retomar um banco de dados:
 
-1. Abra o [portal do Azure][] e abra seu banco de dados. Observe que o Status é **Em pausa**. 
+1. Abra o [Portal do Azure][] e abra seu banco de dados. Observe que o Status é **Em pausa**.
 
     ![Pausar banco de dados][4]
 
-1. Para retomar do banco de dados, clique em **Iniciar** e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
+1. Para retomar o banco de dados, clique em **Iniciar** e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
 
     ![Confirmar retomar][5]
 
-1. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será "Retomando".
+1. Enquanto o SQL Data Warehouse estiver iniciando o banco de dados, o status será “Continuando”.
 2. Quando o status for **online**, o banco de dados estará pronto.
 
     ![Status online][6]
@@ -99,7 +99,7 @@ Para pausar um banco de dados:
 <a name="next-steps-bk"></a>
 
 ## Próximas etapas
-Para obter mais informações, consulte [Visão geral de gerenciamento][].
+Para obter mais informações, consulte [Visão geral do gerenciamento][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -111,7 +111,7 @@ Para obter mais informações, consulte [Visão geral de gerenciamento][].
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
+[Visão geral do gerenciamento]: ./sql-data-warehouse-overview-manage.md
 [Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
@@ -121,4 +121,4 @@ Para obter mais informações, consulte [Visão geral de gerenciamento][].
 
 [portal do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Como usar o API do Engagement no Windows Universal
@@ -36,7 +36,7 @@ As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagemen
 
 Uma *atividade* geralmente está associada com uma página de aplicativo, isso significa que a *atividade* inicia quando a página é exibida e é interrompida quando a página for fechada: esse é o caso quando o SDK Engagement é integrado usando a classe `EngagementPage`.
 
-Mas as *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada página em várias partes secundárias para obter mais detalhes sobre o uso desta página (por exemplo para saber com que frequência e por quanto tempo as caixas de diálogo são usadas dentro desta página).
+Mas as *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada página em várias partes secundárias para obter mais detalhes sobre o uso desta página (por exemplo para saber com que frequência e por quanto tempo as caixas de diálogo são usadas dentro dessa página).
 
 ##Relatório de atividades
 
@@ -48,7 +48,7 @@ Mas as *atividades* também podem ser controladas manualmente usando a API do En
 
 É necessário chamar `StartActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
 
-> [AZURE.IMPORTANT] O SDK chama automaticamente o método EndActivity quando o aplicativo é fechado. Portanto, é ALTAMENTE recomendado chamar o método StartActivity sempre que a atividade do usuário for alterada para NUNCA chamar o método EndActivity, visto que chamar esse método força o encerramento da sessão atual.
+> [AZURE.IMPORTANT] O SDK chama automaticamente o método EndActivity quando o aplicativo é fechado. Portanto, é ALTAMENTE recomendado chamar o método StartActivity sempre que a atividade do usuário for alterada e NUNCA chamar o método EndActivity, visto que chamar esse método força o encerramento da sessão atual.
 
 #### Exemplo
 
@@ -329,7 +329,7 @@ Os arquivos extras estão limitados a **1024** caracteres por chamada.
 
 Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função SendAppInfo().
 
-Observe que essas informações podem ser enviadas de forma incremental: somente o último valor para uma determinada chave será mantido por um determinado dispositivo. Como eventos extras, use um Dictionary<object, object> para anexar informações.
+Observe que essas informações podem ser enviadas de forma incremental: somente o valor mais recente de uma determinada chave será mantido para um dispositivo específico. Como eventos extras, use um Dictionary<objeto, objeto> para anexar informações.
 
 ### Exemplo
 
@@ -368,4 +368,4 @@ O SDK pode ser configurado para gerar logs de teste no console do IDE. Esses log
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

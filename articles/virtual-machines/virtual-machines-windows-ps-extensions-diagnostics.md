@@ -4,7 +4,7 @@
 	documentationCenter=""
 	description="Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows"
 	authors="sbtron"
-	manager=""
+ 	manager="timlt"
 	editor=""/>
 
 <tags
@@ -43,7 +43,7 @@ Se o arquivo de configuração de diagnóstico especificar um elemento **Storage
 
 Se nenhuma **StorageAccount** tiver sido especificada na configuração de diagnóstico, você precisará passar o parâmetro *StorageAccountName* para o cmdlet. Se o parâmetro *StorageAccountName* for especificado, o cmdlet sempre usará a conta de armazenamento que está especificada no parâmetro, não aquela que está especificada no arquivo de configuração de diagnóstico.
 
-Se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente que a VM, você precisará transmitir explicitamente os parâmetros *StorageAccountName* e *StorageAccountKey* para o cmdlet. O parâmetro *StorageAccountKey* não é necessário quando a conta de armazenamento de diagnóstico está na mesma assinatura, uma vez que o cmdlet pode consultar e definir automaticamente o valor de chave ao habilitar a extensão de diagnóstico. No entanto, se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente, o cmdlet talvez não possa obter a chave automaticamente e você precisará explicitamente especificar a chave por meio do parâmetro *StorageAccountKey*.
+Se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente da assinatura da VM, você precisará passar explicitamente os parâmetros *StorageAccountName* e *StorageAccountKey* para o cmdlet. O parâmetro *StorageAccountKey* não é necessário quando a conta de armazenamento de diagnóstico está na mesma assinatura, uma vez que o cmdlet pode consultar e definir automaticamente o valor de chave ao habilitar a extensão de diagnóstico. No entanto, se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente, o cmdlet talvez não consiga obter a chave automaticamente e você precisará especificá-la explicitamente por meio do parâmetro *StorageAccountKey*.
 
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -82,8 +82,8 @@ O XML a seguir pode ser usado para a configuração de diagnóstico público com
 A configuração precisa ser atualizada para incluir o seguinte:
 
 - O atributo *resourceID* do elemento **Métricas** precisa ser atualizado com a ID de recurso para a VM.
-	- A ID do recurso pode ser criada usando o seguinte padrão: "/subscriptions/{*ID da assinatura para a assinatura com a VM*}/resourceGroups/{*o nome do grupo de recursos para VM*}/providers/Microsoft.Compute/virtualMachines/{*o nome da VM*}".
-	- Por exemplo, se a ID de assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos será **MyResourceGroup** e o nome da VM será **MyWindowsVM**, então o valor de *resourceID* será:
+	- A ID do recurso pode ser criada usando o seguinte padrão: "/subscriptions/{*ID da assinatura para a assinatura com a VM*}/resourceGroups/{*O nome do grupo de recursos para a VM*}/providers/Microsoft.Compute/virtualMachines/{*O nome da VM*}".
+	- Por exemplo, se a ID de assinatura para a assinatura em que a VM está em execução for **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos for **MyResourceGroup** e o nome da VM for **MyWindowsVM**, o valor de *resourceID* será:
 
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
@@ -201,4 +201,4 @@ A configuração precisa ser atualizada para incluir o seguinte:
 - Para obter orientações adicionais sobre como usar a funcionalidade do Diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [Habilitar o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 - O [esquema de configuração de diagnóstico](https://msdn.microsoft.com/library/azure/mt634524.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

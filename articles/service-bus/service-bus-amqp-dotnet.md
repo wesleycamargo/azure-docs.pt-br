@@ -25,7 +25,7 @@ O suporte para o AMQP 1.0 está disponível na versão 2.1 ou posterior do SDK d
 
 ## Configurando aplicativos .NET para usar o AMQP 1.0
 
-Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece basicamente inalterado ao usar o AMQP 1.0.
+Por padrão, a biblioteca de cliente do .NET do Barramento de Serviço se comunica com o serviço do Barramento de Serviço usando um protocolo dedicado baseado em SOAP. O uso do AMQP 1.0 em vez do protocolo padrão requer a configuração explícita na cadeia de conexão do Service Bus, conforme descrito na próxima seção. Além dessa alteração, o código do aplicativo permanece inalterado ao usar o AMQP 1.0.
 
 Na versão atual, existem alguns outros recursos da API que não são suportados com o uso do AMQP. Esses recursos sem suporte são listados posteriormente na seção [Recursos sem suporte, restrições e diferenças de comportamento](#unsupported-features-restrictions-and-behavioral-differences). Algumas das definições de configuração avançadas também apresentam um significado diferente com o uso do AMQP.
 
@@ -45,7 +45,7 @@ O valor da configuração `Microsoft.ServiceBus.ConnectionString` é a cadeia de
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Em que `[namespace]` e `SharedAccessKey` são obtidos no [portal clássico do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
+Em que `[namespace]` e `SharedAccessKey` são obtidos no [Portal do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
 
 Ao usar AMQP, anexe a cadeia de conexão com `;TransportType=Amqp`. Essa notação informa à biblioteca de cliente para fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
 
@@ -75,7 +75,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | DateTime | timestamp | Valor do AMQP |
 | Guid | uuid | Valor do AMQP |
 | byte | binário | Valor do AMQP |
-| cadeia de caracteres | cadeia de caracteres | Valor do AMQP |
+| string | string | Valor do AMQP |
 | System.Collections.IList | list | Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Array | array | Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
 | System.Collections.IDictionary | map | Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
@@ -134,9 +134,9 @@ Está pronto(a) para saber mais? Visite os links a seguir:
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[portal clássico do Azure]: http://manage.windowsazure.com
+[Portal do Azure]: https://portal.azure.com
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -66,7 +66,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Manutenção planejada para máquinas virtuais do Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Criar um conjunto de disponibilidade para máquinas virtuais](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Gerenciar suas máquinas virtuais usando o Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Conectar VNets clássicas a VNets novas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Conectar VNets clássicas a VNets novas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [Sobre o agente e extensões de máquina virtual](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

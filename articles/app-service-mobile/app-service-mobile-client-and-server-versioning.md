@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="donnam"/>
 
 # Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
@@ -46,7 +46,7 @@ Você pode recusar a verificação de versão definindo um valor **verdadeiro** 
 
 ## Resumo de compatibilidade para todas as versões
 
-A tabela abaixo mostra a compatibilidade entre todos os tipos de cliente e de servidor. Um back-end é classificado como **Serviços** Móveis ou **Aplicativos** Móveis baseado no SDK de servidor que ele usa.
+A tabela abaixo mostra a compatibilidade entre todos os tipos de cliente e de servidor. Um back-end é classificado como **Serviços** Móveis ou **Aplicativos** Móveis com base no SDK de servidor que ele usa.
 
 | | Node.js ou .NET de **Serviços Móveis** | Node.js ou .NET de **Aplicativos Móveis** |
 | ----------                | -----------------------             |   ----------------              |
@@ -138,4 +138,4 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

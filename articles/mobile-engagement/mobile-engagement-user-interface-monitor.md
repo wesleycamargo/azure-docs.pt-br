@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como monitorar dados em tempo real sobre o seu aplicativo
@@ -48,12 +48,14 @@ Para obter mais informações, veja: [Documentação do SDK - Notas de versão][
 ![Monitor3][16]
 
 ## Monitor - Alertas
-Você também pode especificar condições para alertas que serão enviados automaticamente para você por email ou mensagem instantânea. (Quaisquer serviços compatíveis com XMPP, como GTalk do Google ou iChat da Apple, têm suporte). Os alertas são baseados em um limite de detecção predefinido maior que (>) ou menor que (<) um número específico de sessões, trabalhos, eventos, erros ou falhas por hora, minuto ou segundo. Alertas podem monitorar todas as atividades de um determinado tipo, ou apenas para monitorar uma atividade de um trabalho, evento ou erro específico. Você também pode especificar uma taxa de detecção mínima, que é a quantidade mínima de tempo que vai separar duas notificações para o mesmo alerta para assegurar que quando o alerta for disparado, você nunca receberá mais de 1 notificação a cada X minutos.
+Você também pode especificar condições para alertas que serão enviados automaticamente para você por email ou mensagem instantânea. (Quaisquer serviços compatíveis com XMPP, como GTalk do Google ou iChat da Apple, têm suporte). Os alertas são baseados em um limite de detecção predefinido maior que (>) ou menor que (<) um número específico de sessões, trabalhos, eventos, erros ou falhas por hora, minuto ou segundo. Alertas podem monitorar todas as atividades de um determinado tipo, ou apenas para monitorar uma atividade de um trabalho, evento ou erro específico.
+
+Você também pode especificar uma taxa de detecção mínima, que é a quantidade mínima de minutos que vai separar duas notificações para o mesmo alerta para assegurar que quando o alerta for disparado, você nunca receberá mais de 1 notificação por intervalo especificado.
 
 ![Monitor4][17]
 
 
-## Consulte também
+## Confira também
 
 - [Conceitos][Link 6]
 - [Serviço do Guia de Solução de Problemas][Link 24]
@@ -153,4 +155,4 @@ Você também pode especificar condições para alertas que serão enviados auto
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0824_2016-->

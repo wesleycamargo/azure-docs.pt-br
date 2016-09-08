@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
-| 12 | [Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure](sql-server-stretch-database-encryption-tde.md) | Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure |
-| 13 | [Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure](sql-server-stretch-database-tde-tsql.md) | Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL |
+| 12 | [Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure](sql-server-stretch-database-encryption-tde.md) | Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure |
+| 13 | [Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL |
 
 
 
@@ -72,4 +72,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 | 14 | [Fazer backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-backup.md) | Saiba como fazer backup de bancos de dados habilitados para Stretch. |
 | 15 | [Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md) | Saiba como restaurar os bancos de dados habilitados para Stretch. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

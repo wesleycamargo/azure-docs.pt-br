@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="raynew"/>
 
 # Replicar máquinas virtuais do Hyper-V em nuvens de VMM para um site de VMM secundário
@@ -29,7 +29,7 @@ O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de ne
 
 Este artigo descreve como replicar máquinas virtuais de Hyper-V em servidores de host Hyper-V gerenciados em nuvens do VMM para site secundário do VMM usando o Azure Site Recovery.
 
-O artigo inclui os pré-requisitos, mostra como configurar um cofre de Recuperação de Site, instalar o Provedor do Azure Site Recovery nos servidores do VMM de origem e destino, registrar os servidores no cofre, definir as configurações de proteção para nuvens VMM e, em seguida, habilitar a proteção para VMs do Hyper-V. Conclua testando o failover para verificar se tudo está funcionando conforme o esperado.
+O artigo inclui os pré-requisitos, mostra como configurar um cofre do Site Recovery, instalar o Provedor do Azure Site Recovery nos servidores do VMM de origem e destino, registrar os servidores no cofre, definir as configurações de proteção para nuvens VMM e, em seguida, habilitar a proteção para VMs do Hyper-V. Conclua testando o failover para verificar se tudo está funcionando conforme o esperado.
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -45,11 +45,11 @@ Verifique se estes pré-requisitos estão em vigor:
 
 **Pré-requisitos** | **Detalhes**
 --- | ---
-**As tabelas**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site.
-**VMM** | Será necessário pelo menos um servidor do VMM.<br/><br/>O servidor deve executar pelo menos o System Center 2012 SP1 com as últimas atualizações cumulativas.<br/><br/>Se quiser configurar a proteção com um único servidor do VMM, precisará de pelo menos duas nuvens configuradas no servidor.<br/><br/>Se quiser implantar a proteção com dois servidores VMM, cada servidor precisará ter no mínimo uma nuvem configurada no servidor VMM primário que deseja proteger e uma nuvem configurada no servidor VMM secundário que deseja usar para proteção e recuperação<br/><br/>Todas as nuvens do VMM precisam ter o conjunto de perfis de Capacidade do Hyper-V.<br/><br/>A nuvem de origem que você quer proteger deve conter um ou mais grupos de hosts do VMM.<br/><br/>Saiba mais sobre a configuração de nuvens do VMM em [Passo a passo: Criando nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) no blog de Keith Mayer.
+**As tabelas**| Você precisa de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site.
+**VMM** | Você precisará de pelo menos um servidor do VMM.<br/><br/>O servidor deve executar pelo menos o System Center 2012 SP1 com as últimas atualizações cumulativas.<br/><br/>Se quiser configurar a proteção com um único servidor do VMM, precisará de pelo menos duas nuvens configuradas no servidor.<br/><br/>Se quiser implantar a proteção com dois servidores VMM, cada servidor precisará ter no mínimo uma nuvem configurada no servidor VMM primário que deseja proteger e uma nuvem configurada no servidor VMM secundário que deseja usar para proteção e recuperação<br/><br/>Todas as nuvens do VMM precisam ter o conjunto de perfis de funcionalidade do Hyper-V.<br/><br/>A nuvem de origem que você quer proteger deve conter um ou mais grupos de hosts do VMM.<br/><br/>Saiba mais sobre a configuração de nuvens do VMM em [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Passo a passo: Criando nuvens privadas com o System Center 2012 SP1 VMM) no blog de Keith Mayer.
 **Hyper-V** | Você precisará de um ou mais servidores de host do Hyper-V nos grupos de hosts do VMM primários e secundários e de uma ou mais máquinas virtuais em cada servidor de host do Hyper-V.<br/><br/>Os servidores do Hyper-V de host e de destino devem executar pelo menos o Windows Server 2012 com a função Hyper-V e ter as atualizações mais recentes instaladas.<br/><br/>Qualquer servidor do Hyper-V com VMs que você deseja proteger deve estar localizado em uma nuvem do VMM.<br/><br/>Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente caso tenha um cluster baseado em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. [Saiba mais](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) na entrada do blog de Aidan Finn.
-**Mapeamento de rede** | Você pode definir o mapeamento de rede para assegurar que as máquinas virtuais de réplica sejam colocadas da melhor forma possível em servidores host Hyper-V secundários após o failover e que possam se conectar às redes VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/>Para configurar o mapeamento de rede durante a implantação, certifique-se de que as máquinas virtuais no servidor host Hyper-V de origem estejam conectadas a uma rede VM do VMM. Essa rede deve estar vinculada a uma rede lógica associada à nuvem.<br/<br/>A nuvem de destino no servidor do VMM secundário que você usar para recuperação deverá ter uma rede VM correspondente configurada, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino.<br/><br/>[Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede.
-**Mapeamento de armazenamento** | Por padrão, quando você replica uma máquina virtual em um servidor host Hyper-V de origem para um servidor host Hyper-V de destino, os dados replicados são armazenados no local padrão indicado para o host Hyper-V de destino no Gerenciador Hyper-V. Para obter mais controle sobre onde os dados replicados são armazenados, você pode configurar o mapeamento do armazenamento<br/><br/> Para configurar o mapeamento do armazenamento, precisará configurar as classificações de armazenamento nos servidores do VMM de origem e de destino antes de começar a implantação. [Saiba mais](site-recovery-storage-mapping.md).
+**Mapeamento de rede** | Você pode definir o mapeamento de rede para assegurar que as máquinas virtuais de réplica sejam colocadas da melhor forma possível em servidores host Hyper-V secundários após o failover e que possam se conectar às redes VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/>Para configurar o mapeamento de rede durante a implantação, certifique-se de que as máquinas virtuais no servidor host Hyper-V de origem estejam conectadas a uma rede de VM do VMM. Essa rede deve estar vinculada a uma rede lógica associada à nuvem.<br/<br/>A nuvem de destino no servidor do VMM secundário que você usar para recuperação deverá ter uma rede VM correspondente configurada, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino.<br/><br/>[Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede.
+**Mapeamento de armazenamento** | Por padrão, quando você replica uma máquina virtual em um servidor host Hyper-V de origem para um servidor host Hyper-V de destino, os dados replicados são armazenados no local padrão indicado para o host Hyper-V de destino no Gerenciador Hyper-V. Para obter mais controle sobre onde os dados replicados são armazenados, você pode configurar o mapeamento do armazenamento<br/><br/> Para configurar o mapeamento do armazenamento, precisa configurar as classificações de armazenamento nos servidores do VMM de origem e de destino antes de começar a implantação. [Saiba mais](site-recovery-storage-mapping.md).
 
 
 ## Etapa 1: criar um cofre de Recuperação de Site
@@ -79,7 +79,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	![Ícone de Inicialização Rápida](./media/site-recovery-vmm-to-vmm-classic/quick-start-icon.png)
 
 2. Na lista suspensa, escolha **Entre dois sites de VMM locais**.
-3. Em **Preparar Servidores VMM**, clique em **Gerar arquivo de chave de registro**. O arquivo de chave é gerado automaticamente e é válido por cinco dias após ter sido gerado. Se não estiver acessando o portal do Azure por meio do servidor VMM, você precisará copiar esse arquivo para o servidor.
+3. Em **Preparar Servidores VMM**, clique em **Gerar arquivo de chave de registro**. O arquivo de chave é gerado automaticamente e é válido por cinco dias após ter sido gerado. Se não estiver acessando o Portal do Azure por meio do servidor VMM, você precisará copiar esse arquivo para o servidor.
 
 	![Chave de Registro](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
@@ -89,7 +89,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 2. Execute esse arquivo no servidor VMM de origem.
 
-	>[AZURE.NOTE] Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
+	>[AZURE.NOTE] Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor, você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
 
 3. O Instalador faz algumas **Verificações de Pré-requisitos** e solicita permissão para interromper o serviço VMM para iniciar a instalação do Provedor. O Serviço VMM será reiniciado automaticamente quando a instalação for finalizada. Se estiver instalando em um cluster do VMM, você deverá parar a função de Cluster.
 
@@ -132,9 +132,9 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 11.  Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
 12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
 
-13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
- 	
-	![Última página](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido em **Servidores VMM** > **Servidores** no cofre.
+
+	![Servidores](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### Instalação de linha de comando
 
@@ -158,13 +158,13 @@ O Provedor do Azure Site Recovery também pode ser instalado da linha de comando
 
 Em que os parâmetros são:
 
- - **/Credentials**: parâmetro obrigatório que especifica o local no qual o arquivo da chave de registro está localizado
- - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
- - **/EncryptionEnabled**: parâmetro opcional que você precisa usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se de que o nome do arquivo que você fornecer tem uma extensão **. pfx**.
+ - **/Credentials**: parâmetro obrigatório que especifica a localização na qual o arquivo da chave de registro está localizado
+ - **/FriendlyName**: parâmetro obrigatório para o nome do servidor host Hyper-V que aparece no portal do Azure Site Recovery.
+ - **/EncryptionEnabled**: parâmetro opcional que você precisará usar apenas no Cenário VMM para Azure se precisar da criptografia de suas máquinas virtuais em repouso no Azure. Certifique-se de que o nome do arquivo que você fornecer tem uma extensão **. pfx**.
  - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
  - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
- - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
- - **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
+ - **/proxyUsername**: parâmetro opcional que especificará o nome de usuário proxy (se o proxy exigir autenticação).
+ - **/proxyPassword**: parâmetro opcional que especificará a senha para autenticação com o servidor proxy (se o proxy exigir autenticação).
 
 ## Etapa 4: definir as configurações da proteção de nuvem
 
@@ -183,7 +183,7 @@ Depois que os servidores VMM são registrados, você pode definir as configuraç
 
 5. Em **Frequência de cópia**, especifique com que frequência os dados devem ser sincronizados entre os locais de origem e de destino. Observe que essa configuração só é relevante quando o host Hyper-V está executando o Windows Server 2012 R2. Para outros servidores, é usada uma configuração padrão de cinco minutos.
 6. Em **Pontos de recuperação adicionais**, especifique se deseja criar pontos de recuperação adicionais. O valor padrão de zero indica que somente o último ponto de recuperação para uma máquina virtual primária é armazenado em um servidor host de réplica. Observe que a habilitação de vários pontos de recuperação exige armazenamento adicional para os instantâneos que são armazenados em cada ponto de recuperação. Por padrão, os pontos de recuperação são criados a cada hora, assim, cada ponto de recuperação contém dados válidos equivalentes a uma hora. O valor de ponto de recuperação que você atribui à máquina virtual no console do VMM não deve ser menor do que o valor atribuído no console do Azure Site Recovery.
-7. Em **Frequência de instantâneos consistentes com aplicativos**, especifique a frequência para criar instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
+7. Em **Frequência dos instantâneos consistentes por aplicativo**, especifique com que frequência criar instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
 
 	![Definir configurações de proteção](./media/site-recovery-vmm-to-vmm-classic/cloud-settings.png)
 
@@ -363,7 +363,7 @@ Esta seção fornece informações adicionais de privacidade para o serviço Mic
 
 **Recurso: Failover — planejado, não planejado, teste**
 
-- **O que ele faz**: esse recurso ajuda o failover de uma máquina virtual de um datacenter gerenciado do VMM para outro datacenter gerenciado do VMM. A ação de failover é disparada pelo usuário em seu portal do Serviço. As possíveis razões para um failover incluem um evento não planejado (por exemplo, no caso de desastre natural; um evento planejado (por exemplo, o balanceamento de carga do data center); um failover de teste (por exemplo, um ensaio de plano de recuperação).
+- **O que ele faz**: esse recurso ajuda o failover de uma máquina virtual de um datacenter gerenciado do VMM para outro datacenter gerenciado do VMM. A ação de failover é disparada pelo usuário em seu portal do Serviço. As possíveis razões para um failover incluem um evento não planejado (por exemplo, no caso de desastre natural); um evento planejado (por exemplo, o balanceamento de carga do data center); um failover de teste (por exemplo, um ensaio de plano de recuperação).
 
 O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma ação de failover no host Hyper-V por meio das interfaces do VMM. O failover real da máquina virtual de um host Hyper-V para outro (normalmente em execução em um data center de "recuperação" diferente) é tratado pela tecnologia de replicação do Hyper-V do Windows Server 2012 ou Windows Server 2012 R2. Depois que o failover for concluído, o Provedor instalado no servidor VMM do data center de "recuperação" enviará as informações de êxito ao serviço.
 
@@ -376,9 +376,9 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 	- Nomes de nuvem do servidor VMM: o nome de nuvem é necessário ao se usar o recurso de emparelhamento/desemparelhamento da nuvem do Serviço descrito abaixo. Quando você decide emparelhar sua nuvem de um data center primário com outra nuvem no data center de recuperação, os nomes de todas as nuvens do data center de recuperação são apresentados.
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use esse Serviço.
- 
+
 ## Próximas etapas
 
 Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [saiba mais sobre](site-recovery-failover.md) os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

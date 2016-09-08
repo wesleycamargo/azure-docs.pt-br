@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 #Guia estratégico do Azure Active Directory Identity Protection 
@@ -43,7 +43,7 @@ Esse tipo de evento de risco identifica os usuários que entraram com êxito de 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
 
 1.	Baixe o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2.	Usando o Tor Browser, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2.	Usando o Tor Browser, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).
 3.	Insira as credenciais da conta que deseja exibir no relatório **Entradas de endereços IP anônimos**.
 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
@@ -63,7 +63,7 @@ Para simular locais desconhecidos, você precisa entrar de um local e um disposi
 
 **Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
-1.	Escolha uma conta com um histórico de entrada de, pelo menos, 14 dias. 
+1.	Escolha uma conta com um histórico de entrada de, pelo menos, 14 dias.
 
 2.	Realize uma das seguintes opções:
 	
@@ -78,7 +78,7 @@ A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
 
 **Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
 
-1.	Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1.	Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2.	Insira as credenciais da conta para a qual deseja gerar um evento de risco de viagem impossível.
 
@@ -96,7 +96,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 
 -	Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 -	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
--	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+-	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md).
 
 
 
@@ -165,8 +165,8 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 <br> ![Manual](./media/active-directory-identityprotection-playbook/200.png "Manual") <br>
 
 
-## Consulte também
+## Confira também
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/26/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Gerenciamento de unidades administrativas no AD do Azure - Visualização pública
@@ -37,4 +37,4 @@ Para obter mais informações sobre requisitos de software e instalação do mó
 ## Próximas etapas
 [Edições do Active Directory do Azure](active-directory-editions.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

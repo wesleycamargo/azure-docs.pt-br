@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\
 
 	![Serviço de mobilidade](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do servidor de configuração e a frase secreta que foi gerada quando você executou a Configuração Unificada. Você pode recuperar a senha executando:**<PastaInstalaçãoRecuperaçãoSite>\\home\\sysystems\\bin\\genpassphrase.exe –n** no servidor de configuração.
+3. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do servidor de configuração e a frase secreta que foi gerada quando você executou a Configuração Unificada. Você pode recuperar a senha executando:**<PastaDeInstalaçãoDoSiteRecovery>\\home\\sysystems\\bin\\genpassphrase.exe –v** no servidor de configuração.
 
 	![Serviço de mobilidade](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -580,6 +580,14 @@ Em que:
 - /InstallLocation: obrigatório. Especifica onde instalar o serviço.
 - /PassphraseFilePath: obrigatório. A frase secreta do servidor de configuração.
 - /LogFilePath: obrigatório. O local dos arquivos de configuração de log.
+
+#### Desinstalar o Serviço de Mobilidade manualmente
+
+O Serviço de Mobilidade pode ser desinstalado usando Adicionar ou Remover Programas no Painel de Controle ou usando a linha de comando.
+
+O comando para desinstalar o Serviço de mobilidade usando a linha de comando é
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Instale manualmente em um servidor Linux:
@@ -851,4 +859,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

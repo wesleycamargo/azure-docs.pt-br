@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Como criar uma conta do Banco de Dados de Documentos usando o portal do Azure
@@ -28,7 +28,7 @@ Para criar um banco de dados com o Banco de Dados de Documentos do Microsoft Azu
 - Ter uma conta do Azure. Se ainda não tiver uma, você poderá obter uma [conta gratuita do Azure](https://azure.microsoft.com/free).
 - Criar uma conta do Banco de Dados de Documentos
 
-Você pode criar uma conta do Banco de Dados de Documentos usando o portal do Azure, modelos do Azure Resource Manager ou a CLI (interface de linha de comando) do Azure. Este artigo mostra como criar uma conta de banco de dados usando o portal do Azure. Para criar uma conta usando o Gerenciador de Recursos do Azure ou a CLI do Azure, consulte [Automatizar a criação da conta do Banco de Dados de Documentos](documentdb-automation-resource-manager-cli.md).
+Você pode criar uma conta do Banco de Dados de Documentos usando o portal do Azure, modelos do Azure Resource Manager ou a CLI (interface de linha de comando) do Azure. Este artigo mostra como criar uma conta do Banco de Dados de Documentos usando o portal do Azure. Para criar uma conta usando o Gerenciador de Recursos do Azure ou a CLI do Azure, consulte [Automatizar a criação da conta do Banco de Dados de Documentos](documentdb-automation-resource-manager-cli.md).
 
 Você é novo no Banco de Dados de Documentos? Assista a [este](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vídeo de Scott Hanselman com duração de quatro minutos para saber como concluir as tarefas mais comuns no portal online.
 
@@ -46,11 +46,11 @@ Agora que você tem uma conta do Banco de Dados de Documentos, a próxima etapa 
 
 Depois de criar seu banco de dados, você precisa [adicionar uma ou mais coleções](documentdb-create-collection.md) ao banco de dados e [adicionar documentos](documentdb-view-json-document-explorer.md) às coleções.
 
-Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no Portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
+Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
 Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
 -	[Roteiro de aprendizagem para o Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

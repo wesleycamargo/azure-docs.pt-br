@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 
@@ -45,8 +45,8 @@ Tópico|Descrição
 [Experiência de conexão](multi-factor-authentication-end-user-signin.md)|Mostra o que você pode esperar quando se conectar usando vários métodos, como telefone ou aplicativo.
 [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md)|Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido.
 [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md)| Encontre informações sobre como criar e usar senhas de aplicativo.
-[Usar o aplicativo móvel](multi-factor-authentication-azure-authenticator.md)|O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/pt-BR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Usar o aplicativo móvel](multi-factor-authentication-microsoft-authenticator.md)|O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

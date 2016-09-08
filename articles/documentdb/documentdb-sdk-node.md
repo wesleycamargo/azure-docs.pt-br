@@ -149,6 +149,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1.9.0](#1.9.0) | 07 de julho de 2016 |---
 | [1\.8.0](#1.8.0) | 14 de junho de 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- 
 | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 

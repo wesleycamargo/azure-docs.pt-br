@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Guia de solução de problemas de serviço
@@ -56,8 +56,8 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
 4) Para testar se o problema é com o Dispositivo:
 
    - Teste se o dispositivo é capaz de se conectar ao Mobile Engagement do Azure com outro aplicativo integrado Mobile Engagement do Azure.
-   - Verifique se você pode gerar eventos, trabalhos e travamentos de seu telefone que podem ser vistos na interface do usuário do Mobile Engagement do Azure 
-   - Teste se você pode enviar notificações por push da IU do Mobile Engagement do Azure para o seu dispositivo com base em sua identificação do dispositivo. 
+   - Verifique se você pode gerar eventos, trabalhos e travamentos de seu telefone que podem ser vistos na interface do usuário do Mobile Engagement do Azure
+   - Teste se você pode enviar notificações por push da IU do Mobile Engagement do Azure para o seu dispositivo com base em sua identificação do dispositivo.
 
 5) Para testar se o problema é com o seu aplicativo:
 
@@ -79,14 +79,14 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
 - Informações incorretas mostradas nos logs do Mobile Engagement do Azure.
 
 ### Causas
-* Confirme que sua conta de usuário tem permissões suficientes para executar a tarefa.
+* Confirme se sua conta de usuário tem permissões suficientes para executar a tarefa.
 * Confirme se o problema não está restrito a um computador ou à sua rede local.
 * Confirme se o serviço do Mobile Engagement do Azure não tem nenhuma interrupção relatada.
 * Confirme se os arquivos de marca de informações do aplicativo seguem todas estas regras:
 	- Usam somente o conjunto de caracteres UTF8 (não há suporte para o conjunto de caracteres ANSI).
     - Usam uma vírgula "," como o caractere separador (você pode abrir uma solicitação de serviço para pedir a alteração do caractere separador do .csv de uma vírgula "," para um outro caractere, como um ponto e vírgula ";").
     - Usam letras maiúsculas para valores boolianos “verdadeiro” e “falso”.
-    - Usem um arquivo que seja menor do que o tamanho máximo de 35 MB.
+    - Usam um arquivo menor do que o tamanho máximo de 35 MB.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

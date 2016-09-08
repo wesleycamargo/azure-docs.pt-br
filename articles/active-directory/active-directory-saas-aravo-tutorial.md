@@ -47,12 +47,12 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+O objetivo deste tutorial é permitir que você teste o logon único do Microsoft Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Aravo da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o Logon Único do Microsoft Azure AD
 
 
 ## Adicionando o Aravo da galeria
@@ -60,7 +60,7 @@ Para configurar a integração do Aravo ao Azure AD, você precisa adicionar o A
 
 **Para adicionar o Aravo da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal Clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -86,32 +86,32 @@ Para configurar a integração do Aravo ao Azure AD, você precisa adicionar o A
 	![Seleção do aplicativo na galeria](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_0001.png)
 
 
-##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Aravo, com base em um usuário de teste chamado “Brenda Fernandes”.
+##  Configurar e testar o Logon Único do Microsoft Azure AD
+O objetivo desta seção é mostrar como configurar e testar o Logon Único do Microsoft Azure AD com o Aravo, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Aravo é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Aravo.
 
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no Aravo.
 
-Para configurar e testar o logon único do Azure AD com o Aravo, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o Logon Único do Microsoft Azure AD com o Aravo, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuração do Logon Único do Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** - para habilitar os usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** - para testar o Logon Único do Microsoft Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do Aravo](#creating-a-aravo-test-user)** - para ter um equivalente de Brenda Fernandes no Aravo que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+4. **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o Logon Único do Microsoft Azure AD.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
-### Configuração do logon único do AD do Azure
+### Configuração do Logon Único do Microsoft Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo do Aravo.
+Nesta seção, você habilitará o Logon Único do Microsoft Azure AD no portal clássico e configurará o logon único em seu aplicativo Aravo.
 
-**Para configurar o logon único do Azure AD com o Aravo, execute as seguintes etapas:**
+**Para configurar o Logon Único do Microsoft Azure AD com o Aravo, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, na página de integração de aplicativos do **Aravo**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 	 
 	![Configurar o logon único][6]
 
-2. na página **Como você deseja que os usuários façam logon no Aravo**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+2. Na página **Como você deseja que os usuários façam logon no Aravo**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
 
 	![Configurar o logon único](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_03.png)
 
@@ -119,9 +119,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 	![Configurar o logon único](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_04.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL no seguinte padrão: `https://<company name>.aravo.com`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.aravo.com`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL no seguinte padrão:`https://<company name>.aravo.com/aems/login.do`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:`https://<company name>.aravo.com/aems/login.do`
 
 	c. Clique em **Próximo**.
 
@@ -133,7 +133,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Aravo e forneça o seguinte:
 
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal Clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_09.png)
 
@@ -172,11 +172,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_04.png)
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_05.png)
 
@@ -184,9 +184,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_06.png)
 
@@ -198,13 +198,13 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_07.png)
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-aravo-tutorial/create_aaduser_08.png)
 
@@ -249,7 +249,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+O objetivo desta seção é testar sua configuração de logon único do Microsoft Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Aravo no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Aravo.
 
@@ -279,4 +279,4 @@ Ao clicar no bloco do Aravo no Painel de Acesso, você deverá ser conectado aut
 [204]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

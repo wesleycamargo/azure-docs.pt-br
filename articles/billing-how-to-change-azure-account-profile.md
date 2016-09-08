@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone
@@ -26,6 +26,8 @@ Perdeu um email importante do Azure? Deseja atualizar outras informações de co
 
 -	[Como alterar suas informações de perfil](#how-to-change-your-profile-information)
 -	[Respostas para perguntas e problemas comuns](#frequently-asked-questions)
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 ## Informações importantes sobre seu endereço de email do perfil
 
@@ -61,4 +63,6 @@ Devido a restrições técnicas, não podemos alterar o país em uma conta exist
 
 Se você se inscrever para o novo recurso de visualização de Alertas de Cobrança do Azure, receberá o email de Alertas de Cobrança do Azure no endereço especificado, independentemente de se você tiver alterado o endereço de email do administrador da conta.
 
-<!---HONumber=AcomDC_0817_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

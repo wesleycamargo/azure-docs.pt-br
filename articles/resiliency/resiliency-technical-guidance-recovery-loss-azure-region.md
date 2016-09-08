@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Orientações técnicas de resiliência do Azure: recuperação de uma interrupção de serviço em toda a região
@@ -102,11 +102,11 @@ O Banco de Dados SQL do Azure fornece dois tipos de recuperação: Restauração
 
 ####Restauração geográfica
 
-A [Restauração Geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) também está disponível para bancos de dados Basic, Standard e Premium. Ele fornece a opção de recuperação padrão quando o banco de dados está indisponível devido a um incidente na região em que o banco de dados está hospedado. De forma semelhante à Recuperação Pontual, a Restauração Geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura da cópia de backup replicado geograficamente e, assim, é resistente a falhas de armazenamento na região primária. Para saber mais, confira [Recuperação de uma interrupção](../sql-database/sql-database-disaster-recovery.md).
+A [Restauração Geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) também está disponível para bancos de dados Basic, Standard e Premium. Ele fornece a opção de recuperação padrão quando o banco de dados está indisponível devido a um incidente na região em que o banco de dados está hospedado. De forma semelhante à Recuperação Pontual, a Restauração Geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura da cópia de backup replicado geograficamente e, assim, é resistente a falhas de armazenamento na região primária. Para obter mais detalhes, consulte [Restaurar um banco de dados SQL ou fazer failover para um secundário](../sql-database/sql-database-disaster-recovery.md).
 
 ####Replicação geográfica ativa
 
-A [Replicação Geográfica Ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Projetar um aplicativo em nuvem para recuperação de desastres usando a Replicação Geográfica Ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Atualização de aplicativo sem tempo de inatividade](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obter detalhes sobre como projetar e implementar aplicativos e atualizações de aplicativos sem tempo de inatividade.
+A [Replicação Geográfica Ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Consulte [Criar um aplicativo em nuvem para recuperação de desastres usando a replicação geográfica ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Gerenciando atualizações sem interrupção de aplicativos em nuvem usando a replicação geográfica ativa do Banco de Dados SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obter detalhes sobre como criar e implementar aplicativos e a atualização de aplicativos sem tempo de inatividade.
 
 ###SQL Server em máquinas virtuais
 
@@ -120,7 +120,7 @@ Ao tentar executar seu serviço de nuvem em várias regiões do Azure, você dev
 
 ###Barramento de Serviço
 
-O Barramento de Serviço do Azure usa um namespace exclusivo que não abrange regiões do Azure. Portanto, o primeiro requisito é configurar os namespaces do barramento de serviço necessários na região alternativa. No entanto, também há considerações sobre a durabilidade das mensagens na fila. Há várias estratégias para replicar mensagens entre regiões do Azure. Para obter detalhes sobre essas estratégias de replicação e outras estratégias de recuperação de desastre, confira [Práticas recomendadas para isolar aplicativos contra interrupções do Barramento de Serviço e desastres](../service-bus/service-bus-outages-disasters.md). Para obter outras considerações sobre disponibilidade, confira [Barramento de Serviço (Disponibilidade)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
+O Barramento de Serviço do Azure usa um namespace exclusivo que não abrange regiões do Azure. Portanto, o primeiro requisito é configurar os namespaces do barramento de serviço necessários na região alternativa. No entanto, também há considerações sobre a durabilidade das mensagens na fila. Há várias estratégias para replicar mensagens entre regiões do Azure. Para obter detalhes sobre essas estratégias de replicação e outras estratégias de recuperação de desastre, confira [Práticas recomendadas para isolar aplicativos contra interrupções do Barramento de Serviço e desastres](../service-bus/service-bus-outages-disasters.md). Para obter outras considerações sobre disponibilidade, confira [Barramento de Serviço (Disponibilidade)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###Aplicativos Web
 
@@ -132,7 +132,7 @@ Na região secundária do Azure, crie um serviço móvel de backup para seu apli
 
 ###HDInsight
 
-Os dados associados ao HDInsight são armazenados por padrão no armazenamento de Blobs do Azure. O HDInsight requer que um cluster Hadoop processando trabalhos de MapReduce esteja colocalizado na mesma região da conta de armazenamento que contém os dados sendo analisados. Desde que você use o recurso de replicação geográfica disponível para o Armazenamento do Azure, você poderá acessar os dados na região secundária onde os dados foram replicados se, por algum motivo, a região primária não estiver mais disponível. Você pode criar um novo cluster Hadoop na região em que os dados foram replicados e continuar processando-os. Para obter outras considerações sobre disponibilidade, confira [HDInsight (Disponibilidade)](./resiliency-technical-guidance-recovery-local-failures.md#hdinsight).
+Os dados associados ao HDInsight são armazenados por padrão no armazenamento de Blobs do Azure. O HDInsight requer que um cluster Hadoop processando trabalhos de MapReduce esteja colocalizado na mesma região da conta de armazenamento que contém os dados sendo analisados. Desde que você use o recurso de replicação geográfica disponível para o Armazenamento do Azure, você poderá acessar os dados na região secundária onde os dados foram replicados se, por algum motivo, a região primária não estiver mais disponível. Você pode criar um novo cluster Hadoop na região em que os dados foram replicados e continuar processando-os. Para obter outras considerações sobre disponibilidade, confira [HDInsight (Disponibilidade)](./resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ###Relatórios SQL
 
@@ -149,69 +149,81 @@ Os arquivos de configuração fornecem a maneira mais rápida de configurar uma 
 ##Listas de verificação para recuperação de desastre
 
 ##Lista de verificação de Serviços de Nuvem
-  1. Examinar a seção [Serviços de Nuvem](#cloud-services) deste documento.
+
+  1. Examinar a seção Serviços de Nuvem deste documento.
   2. Criar uma estratégia de recuperação de desastre entre regiões.
   3. Compreender as compensações em reservar capacidade em regiões alternativas.
   4. Usar ferramentas de roteamento de tráfego, como o Gerenciador de Tráfego do Azure.
 
 ##Lista de verificação de Máquinas Virtuais
-  1. Examinar a seção [Máquinas Virtuais](#virtual-machines) deste documento.
+
+  1. Examinar a seção Máquinas Virtuais deste documento.
   2. Usar [Backup do Azure](https://azure.microsoft.com/services/backup/) para criar backups consistentes com aplicativos em regiões.
 
 ##Lista de verificação de armazenamento
-  1. Examinar a seção [Armazenamento](#storage) deste documento.
+
+  1. Examinar a seção Armazenamento deste documento.
   2. Não desabilitar a replicação geográfica dos recursos de armazenamento.
   3. Compreender a região alternativa para a replicação geográfica em caso de failover.
   4. Criar estratégias de backup personalizadas para estratégias de failover controlado pelo usuário.
 
 ##Lista de verificação de Banco de Dados SQL
-  1. Examinar a seção [Banco de Dados SQL](#sql-database) deste documento.
+
+  1. Examinar a seção Banco de Dados SQL deste documento.
   2. Usar a [Restauração Geográfica](../sql-database/sql-database-recovery-using-backups.md#geo-restore) ou a [Replicação Geográfica](../sql-database/sql-database-geo-replication-overview.md) conforme apropriado.
 
 ##Lista de verificação do SQL Server em Máquinas Virtuais
-  1. Examinar a seção [SQL Server em máquinas virtuais](#sql-server-on-virtual-machines) deste documento.
+
+  1. Examinar a seção SQL Server em máquinas virtuais deste documento.
   2. Usar Grupos de Disponibilidade AlwaysOn entre regiões ou o espelhamento de banco de dados.
   3. Como alternativa, usar o backup e restauração para o armazenamento de blobs.
 
 ##Lista de verificação do Barramento de Serviço
-  1. Examinar a seção [Barramento de Serviço](#service-bus) deste documento.
+
+  1. Examinar a seção Barramento de Serviço deste documento.
   2. Configurar um namespace do Barramento de Serviço em uma região alternativa.
   3. Considerar estratégias de replicação personalizadas para mensagens entre regiões.
 
 ##Lista de verificação de aplicativos Web
-  1. Examine a seção [Aplicativos Web](#web-apps) deste documento.
+
+  1. Examine a seção Aplicativos Web deste documento.
   2. Manter os backups de sites fora da região primária.
   3. Se a interrupção for parcial, tentar recuperar o site atual com FTP.
   4. Planejar implantar o site da Web em um site da Web novo ou existente em uma região alternativa.
   5. Planejar alterações de configuração tanto de aplicativo quanto dos registros DNS CNAME.
 
 ##Lista de verificação de serviços móveis
-  1. Examinar a seção [Serviços móveis](#mobile-services) deste documento.
+
+  1. Examinar a seção Serviços móveis deste documento.
   2. Criar um serviço móvel de backup em uma região alternativa.
   3. Gerenciar backups do Banco de Dados SQL do Azure associado para restaurar durante o failover.
   4. Usar ferramentas de linha de comando do Azure para mover o serviço móvel.
 
 ##Lista de verificação do HDInsight
-  1. Examinar a seção [HDInsight](#hdinsight) deste documento.
+
+  1. Examinar a seção HDInsight deste documento.
   2. Criar um novo cluster Hadoop na região com dados replicados.
 
 ##Lista de verificação de Relatórios SQL
-  1. Examinar a seção [Relatórios SQL](#sql-reporting) deste documento.
+
+  1. Examinar a seção Relatórios SQL deste documento.
   2. Manter uma instância de Relatórios SQL alternativa em uma região diferente.
   3. Manter um plano separado para replicar o destino para essa região.
 
 ##Lista de verificação de Serviços de Mídia
-  1. Examinar a seção [Serviços de Mídia](#media-services) deste documento.
+
+  1. Examinar a seção Serviços de Mídia deste documento.
   2. Criar uma conta de Serviços de Mídia em uma região alternativa.
   3. Codificar o mesmo conteúdo em ambas as regiões para dar suporte a failover de streaming.
-  4. Enviar trabalhos de codificação em uma região alternativa caso ocorra uma interrupção.
+  4. Enviar trabalhos de codificação para uma região alternativa no caso de uma interrupção do serviço.
 
 ##Lista de verificação de Rede Virtual
-  1. Examinar a seção [Rede Virtual](#virtual-network) deste documento.
+
+  1. Examinar a seção Rede Virtual deste documento.
   2. Usar as configurações da rede virtual exportadas para recriá-la em outra região.
 
 ##Próximas etapas
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se concentra em [recuperação de um datacenter local para o Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

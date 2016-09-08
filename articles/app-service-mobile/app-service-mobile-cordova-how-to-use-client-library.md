@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/22/2016"
 	ms.author="ggailey"/>
 
 # Como usar a biblioteca de clientes do Apache Cordova para os Aplicativos Móveis do Azure
@@ -24,7 +24,7 @@ Este guia ensina a executar cenários comuns usando o mais recente [Plug-in do A
 
 ##<a name="Setup"></a>Configuração e Pré-requisitos
 
-Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que você adicionou o Plug-in do Apache Cordova ao seu código. Se você não tiver feito isso, você pode adicionar o plug-in do Apache Cordova ao seu projeto na linha de comando:
+Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais. Este guia também pressupõe que você adicionou o Plug-in do Apache Cordova ao seu código. Se você não tiver feito isso, poderá adicionar o plug-in do Apache Cordova ao seu projeto na linha de comando:
 
 ```
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
@@ -51,7 +51,7 @@ Dois fluxos de autenticação são suportados: um server flow e um client flow. 
 
 Vários tipos de aplicativos do Apache Cordova usam uma funcionalidade de loopback para manipular fluxos de Interface do usuário do OAuth. Isso causa problemas pois o serviço de autenticação só sabe utilizar seu serviço por padrão. Exemplos disso são usar o emulador Ripple, executar seu serviço localmente ou em um Serviço de Aplicativo do Azure diferente e redirecionar para o Serviço de Aplicativo do Azure para autenticação ou recarregar em tempo real com o Ionic. Siga estas instruções para adicionar as definições locais à configuração:
 
-1. Faça logon no [Portal do Azure]
+1. Fazer logon no [portal do Azure]
 2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do seu Aplicativo Móvel.
 3. Clique em **Ferramentas**
 4. Clique em **Gerenciador de Recursos** no menu OBSERVAR e clique em **Ir**. Uma nova janela ou guia será aberta.
@@ -70,7 +70,7 @@ Vários tipos de aplicativos do Apache Cordova usam uma funcionalidade de loopba
 
 As configurações serão salvas neste momento. Não feche a janela do navegador até que as configurações sejam salvas. Você também precisará adicionar essas URLs de loopback às configurações de CORS:
 
-1. Faça logon no [Portal do Azure]
+1. Fazer logon no [portal do Azure]
 2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do seu Aplicativo Móvel.
 3. A folha Configurações será aberta automaticamente. Se não for, clique em **Todas as Configurações**.
 4. Clique em **CORS** no menu de API.
@@ -124,10 +124,10 @@ pushHandler.on('error', function (error) {
 Use o SDK dos Hubs de Notificação para enviar notificações por push do servidor. Você nunca deve enviar notificações por push diretamente dos clientes, pois isso pode ser usado para disparar um ataque de negação de serviço contra os Hubs de Notificação ou PNS.
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Plug-in do Apache Cordova para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [seu primeiro aplicativo do Apache Cordova]: http://cordova.apache.org/#getstarted
@@ -135,6 +135,6 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

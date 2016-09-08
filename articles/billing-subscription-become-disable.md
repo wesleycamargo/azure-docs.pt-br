@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # O que devo fazer se minha assinatura do Azure for desabilitada?
 
-Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la. Sua assinatura do Azure pode ser desabilitada pelos seguintes motivos:
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la. Sua assinatura do Azure pode ser desabilitada pelos seguintes motivos.
 
 ## Você atingiu o limite de gastos
 
@@ -35,9 +37,9 @@ Aqui você encontra como remover seu Limite de Gastos:
 3. Selecione uma assinatura.
 
 4. Se você vir *A assinatura alcançou o Limite de Gastos e foi desabilitada para evitar encargos*, clique nela.
-	
+
 	Caso contrário, clique em **Remover limite de gastos** na área **Status da Assinatura**.
-	
+
 5. Selecione uma das opções a seguir que é apropriada para você:
 
 |Opção|Efeito|
@@ -71,4 +73,6 @@ Se você não conseguir acessar o portal, envie a solicitação de suporte pelo 
 
 Para saber mais, confira [Como Criar um Tíquete de Suporte para Problemas de Cobrança e Assinatura do Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -26,7 +26,7 @@ Este artigo explica como usar os recursos do sistema de mensagens agenciado do B
 
 ## Introdução ao Barramento de serviço
 
-Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal clássico do Azure](http://manage.windowsazure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
+Este artigo presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada "queue1." Caso contrário, você pode criar o namespace e a fila usando o [Portal do Azure][]. Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 ## Baixe o SDK do Barramento de Serviço
 
@@ -63,7 +63,7 @@ O valor da configuração **Microsoft.ServiceBus.ConnectionString** é a cadeia 
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Em que `[namespace]` e `[SAS key]` são obtidos no [portal clássico do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
+Em que `[namespace]` e `[SAS key]` são obtidos no [Portal do Azure][]. Para obter mais informações, consulte [Como usar as Filas do Barramento de Serviço][].
 
 Ao usar o AMQP, a cadeia de conexão é acrescentada com `;TransportType=Amqp`, que informa à biblioteca de cliente para fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
 
@@ -291,23 +291,6 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-## Restrições e recursos não suportados
-
-Os seguintes recursos da API do Service Bus do .NET não são atualmente suportados com o uso do AMQP:
-
-* Transações
-* Enviar por meio de destino da transferência
-* Receber pelo número sequencial da mensagem
-* Procurar mensagens e sessões
-* Estado de sessão
-* APIs baseadas em lote
-* Recebimento dimensionado
-* Manipulação do tempo de execução das regras de assinatura
-* Renovação de bloqueio da sessão
-* Algumas pequenas diferenças no comportamento
-
-Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md). Este artigo inclui uma lista detalhada de APIs sem suporte.
-
 ## Resumo
 
 Este artigo mostrou como acessar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
@@ -322,6 +305,6 @@ Agora que você leu uma visão geral do Barramento de Serviço e do AMQP com o .
 * [Como usar a API do JMS (Serviço de Mensagem Java) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
  
-[portal clássico do Azure]: https://manage.windowsazure.com
+[Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -37,7 +37,7 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 
 ## Como posso acessar minha máquina virtual?
 
-Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando SSH (Secure Shell). Veja as instruções sobre como conectar [do Windows](virtual-machines-linux-ssh-from-windows.md) ou [do Linux e do Mac](virtual-machines-linux-ssh-from-linux.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
+Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando SSH (Secure Shell). Veja as instruções sobre como conectar [do Windows](virtual-machines-linux-ssh-from-windows.md) ou [do Linux e do Mac](virtual-machines-linux-mac-create-ssh-keys.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 
 Se você estiver tendo problemas, confira [Solucionar problemas de conexões SSH (Secure Shell)](virtual-machines-linux-troubleshoot-ssh-connection.md).
@@ -58,4 +58,4 @@ As duas novas regiões, Central do Canadá e Leste do Canadá, não são registr
 
 Não. A adição de uma NIC só pode ser feita no momento da criação.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

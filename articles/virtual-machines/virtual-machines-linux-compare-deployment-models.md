@@ -3,9 +3,9 @@
    description="Visão geral dos CRP, NRP e política SRP (Provedores de Recursos de Computação, Rede e Armazenamento) para aplicativos do Linux no modelo de implantação do Azure Resource Manager"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Provedores de Computação, Rede e Armazenamento do Azure para os aplicativos do Linux no modelo de implantação do Azure Resource Manager
 
@@ -23,4 +23,4 @@ A inclusão dos recursos de computação, rede e armazenamento no Azure Resource
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

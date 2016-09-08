@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # Entenda os encargos do Azure Marketplace
 Este artigo fornece uma visão geral de como entender os encargos relacionadas a seus pedidos no Marketplace. Alguns itens para ter em mente ao examinar sua fatura são os diferentes tipos de preços (Apenas Base, Apenas Uso e Base + Uso). Observe que cada pedido que você fizer no Marketplace terá seu próprio ciclo de cobrança mensal. Esses tópicos serão abordados em detalhes abaixo.
+
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 ## Examinar sua fatura do Marketplace
 Após fazer logon no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions/), você pode examinar e baixar as faturas atuais e anteriores.
@@ -29,11 +31,11 @@ Para exibir ou baixar sua fatura:
 1. Entre no Portal de Contas do Azure usando sua ID Organizacional.
 2. Clique em **Marketplace**. É exibida uma lista completa de todos os pedidos no Marketplace que foram feitos por sua conta do Azure. Você observará que os pedidos são agrupados por ID e por nome de assinatura do Azure pai.
 
-    ![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+	![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace](https://azure.microsoft.com/marketplace/faq/).
+3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace]( https://azure.microsoft.com/marketplace/faq/).
 
-    ![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+	![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 A exibição de resumo contém as seguintes informações para cada pedido:
 - Preço
@@ -59,11 +61,11 @@ Para alterar a forma de pagamento, siga estas etapas:
 
 1. Clique em **Alterar como você paga**.
 
-    ![Assinaturas](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+	![Assinaturas](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
 
 2. Selecione a forma de pagamento para a qual você deseja alterar. A opção **Pagar com** permite que você selecione seu cartão de crédito. A opção **Adicionar uma nova forma de pagamento** permite que você adicione um novo cartão de crédito.
 
-    ![Alterar forma de pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+	![Alterar forma de pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
 ## Gerenciamento de pedidos
 Na página de visão geral resumida, você verá o link **Gerenciar Pedido**. Esse link levará você ao seu portal, no qual será possível ver todos os seus pedidos no Marketplace, exibir a integridade do serviço e solicitar suporte.
@@ -92,10 +94,12 @@ Para exibir os encargos reais, siga estas etapas:
 
     Observe que, se estiver tentando acessar seu uso bruto no Portal de Gerenciamento de Cobrança e Contas, você precisará chamar o suporte clicando no link de suporte na parte inferior da página).
 
-    ![Histórico de pedidos](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+	![Histórico de pedidos](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
 2. Identifique o pedido que deseja examinar e clique em **Detalhes** para exibir uma divisão dos encargos, o que incluirá o subtotal, o imposto e o total de encargos.
 
-    ![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+	![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0803_2016-->
+> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+<!---HONumber=AcomDC_0824_2016-->

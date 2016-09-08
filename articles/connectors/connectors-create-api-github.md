@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do GitHub
 
-
-
-O conector do GitHub pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flows.microsoft.com)
+O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -58,7 +52,7 @@ Para criar Aplicativos Lógicos com o GitHub, primeiro, você deve criar uma **c
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do GitHub|
+|Token|Sim|Fornecer as credenciais do GitHub|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o GitHub](../../includes/connectors-create-api-github.md)]
@@ -157,7 +151,7 @@ Não há parâmetros para essa chamada
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |título|string|Sim |
-|body|string|Sim |
+|corpo|string|Sim |
 |assignee|string|Sim |
 
 
@@ -168,7 +162,7 @@ Não há parâmetros para essa chamada
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |título|string|Sim |
-|body|string|Sim |
+|corpo|string|Sim |
 |assignee|string|Sim |
 |número|string|Não |
 |state|string|Não |
@@ -179,4 +173,4 @@ Não há parâmetros para essa chamada
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

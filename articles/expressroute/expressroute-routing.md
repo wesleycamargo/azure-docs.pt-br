@@ -78,15 +78,15 @@ O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP 
 
 ## Números de sistema autônomos
 
-A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits.
+A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits. No lado do emparelhamento (cliente ou fornecedor), o AS pode ser um ASN público se puder ser verificado como de sua propriedade, ou um número ASN privado para o emparelhamento privado, e exige um ASN público para os emparelhamentos públicos e da Microsoft.
 
-Não há requisitos de simetria de transferência de dados. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
+Não há nenhum requisito em torno de simetria de transferência de dados nos caminhos primários e secundários de qualquer circuito determinado. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. As rotas idênticas devem ser anunciadas dos lados principal ou secundário entre todos os determinados pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
 
 ## Agregação de rotas e limites de prefixo
 
 Damos suporte a até 4.000 prefixos anunciados a nós por meio do emparelhamento privado do Azure. Esse número poderá ser aumentado para até 10.000 prefixos se o complemento Premium da Rota Expressa estiver habilitado. Aceitamos até 200 prefixos por sessão BGP para o emparelhamento público do Azure e o emparelhamento da Microsoft.
 
-A sessão BGP será descartada se o número de prefixos exceder o limite. Aceitaremos rotas padrão somente no link de emparelhamento privado. O provedor deve filtrar a rota padrão e endereços IP privados (RFC 1918) dos caminhos de emparelhamento público do Azure e emparelhamento da Microsoft.
+A sessão BGP será descartada se o número de prefixos exceder o limite. Aceitaremos rotas padrão somente no link de emparelhamento privado. O provedor ou o cliente deve filtrar a rota padrão e endereços IP privados (RFC 1918) dos anúncios BGP para caminhos de emparelhamento público do Azure e emparelhamento da Microsoft.
 
 ## Roteamento de tráfego e de roteamento entre regiões
 
@@ -175,4 +175,4 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma Rede Virtual do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

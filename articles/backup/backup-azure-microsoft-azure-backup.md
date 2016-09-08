@@ -244,7 +244,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 | Perda de conectividade > 15 dias | Provisionamento Cancelado | Parada | Parada | Parado e pontos de recuperação do Azure excluídos | Parada |
 
 ### Recuperação de perda de conectividade
-Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, precisará incluir os seguintes endereços de domínio na lista branca no perfil do firewall/proxy:
+Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, precisará incluir os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
 
 - www.msftncsi.com
 - *.Microsoft.com

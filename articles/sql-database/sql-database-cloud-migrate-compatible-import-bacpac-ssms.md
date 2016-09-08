@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Importar do BACPAC para o Banco de Dados SQL usando SSMS
@@ -26,7 +26,7 @@
 
 Este artigo mostra como importar de um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) para o Banco de Dados SQL usando o Assistente para Exportação de Aplicativo de Camada de Dados no SQL Server Management Studio.
 
-> [AZURE.NOTE] As etapas abaixo supõem que você já tenha provisionado sua instância lógica do Azure SQL e tenha as informações sobre a conexão a seu alcance.
+> [AZURE.NOTE] As etapas a seguir supõem que você já tenha provisionado sua instância lógica do Azure SQL e tenha as informações sobre a conexão a seu alcance.
 
 1. Verifique se você tem a versão mais recente do SQL Server Management Studio. As novas versões do Management Studio são atualizadas mensalmente para permanecerem em sincronia com as atualizações para o portal do Azure.
 
@@ -36,11 +36,11 @@ Este artigo mostra como importar de um arquivo [BACPAC](https://msdn.microsoft.c
 
     ![Importar o item de menu do aplicativo da camada de dados](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-3.	No assistente de importação, importe seu arquivo BACPAC de seu disco local ou selecione a conta de Armazenamento do Azure e o contêiner para o qual você carregou o arquivo BACPAC para criar o novo banco de dados no Banco de Dados SQL do Azure.
+3.	Para criar o banco de dados no Banco de Dados SQL do Azure, importe um arquivo BACPAC do seu disco local ou selecione a conta de armazenamento do Azure e o contêiner para o qual você carregou o arquivo BACPAC.
 
     ![Configurações de importação](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-    ***Importante:*** ao importar um BACPAC do armazenamento de blobs do Azure, use o armazenamento standard. Não há suporte para a importação de um BACPAC do armazenamento premium.
+	 > [AZURE.IMPORTANT] Ao importar um BACPAC do armazenamento de blobs do Azure, use o armazenamento standard. Não há suporte para a importação de um BACPAC do armazenamento premium.
 
 4.	Forneça o **Nome do novo banco de dados** para o banco de dados no Banco de Dados SQL do Azure, defina a **Edição do Banco de Dados SQL do Microsoft Azure** (camada de serviço), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho).
 
@@ -63,4 +63,4 @@ Este artigo mostra como importar de um arquivo [BACPAC](https://msdn.microsoft.c
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

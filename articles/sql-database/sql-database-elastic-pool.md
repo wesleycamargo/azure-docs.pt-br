@@ -1,5 +1,5 @@
 <properties
-	pageTitle="O que é um pool de banco de dados elástico do Azure? | Microsoft Azure"
+	pageTitle="O que é um pool elástico do Azure | Microsoft Azure"
 	description="Gerencie centenas ou milhares de bancos de dados usando um pool. Um preço para um conjunto de unidades de desempenho pode ser distribuído pelo pool. Mova bancos de dados para dentro ou para fora à vontade."
 	keywords="banco de dados elásticos, bancos de dados sql"
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# O que é um Pool de Banco de Dados Elástico do Azure?
+# O que é um pool elástico do Azure?
 
 Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
 
@@ -26,11 +26,11 @@ Pools elásticos fornecem uma solução simples e econômica para gerenciar as m
 
 ## Como ele funciona
 
-Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe seu próprio banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos de forma eficiente e econômica? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools de banco de dados elástico resolvem esse problema, garantindo que os bancos de dados recebam os recursos de desempenho que precisam e quando precisam. Eles fornecem um mecanismo de alocação de recursos simples dentro de um orçamento previsível. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
+Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe seu próprio banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos de forma eficiente e econômica? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools elásticos resolvem esse problema, garantindo que os bancos de dados recebam os recursos de desempenho que precisam e quando precisam. Eles fornecem um mecanismo de alocação de recursos simples dentro de um orçamento previsível. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elástico) para pools de banco de dados elástico. Confira a [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md#understand-dtus) para saber mais sobre DTUs e eDTUs.
+No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elásticos) para bancos de dados elásticos em um pool elástico. Confira a [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md#understand-dtus) para saber mais sobre DTUs e eDTUs.
 
 Um pool é fornecido com um número definido de eDTUs por um preço definido. Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais eDTUs para atender à demanda. Bancos de dados sob cargas leves consumem menos e bancos de dados sem carga não consomem nenhum eDTU. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool.
 
@@ -42,20 +42,17 @@ E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de d
 
 ![Bancos de dados SQL que compartilham eDTUs em um pool de banco de dados elástico.][1]
 
-Bancos de dados que são ótimos candidatos a pools de banco de dados elástico normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados individual, de 4 bancos de dados e, finalmente, um pool de banco de dados elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados com uma demanda de recursos mais constante são mais adequados para as camadas de serviço Basic, Standard e Premium, em que os recursos são atribuídos individualmente.
+Os bancos de dados que são ótimos candidatos a pools de banco de dados elásticos normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados individual, de 4 bancos de dados e, finalmente, de um pool elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados com uma demanda de recursos mais constante são mais adequados para as camadas de serviço Basic, Standard e Premium, em que os recursos são atribuídos individualmente.
 
-[Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
+[Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 
-
-> [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL.
-
-## Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos
+## Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos.
 
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas. O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.
 
-## Propriedades do pool de bancos de dados elásticos
+## Pool elástico e propriedades de bancos de dados elásticos
 
 ### Limites para pools elásticos
 
@@ -106,4 +103,4 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a r
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

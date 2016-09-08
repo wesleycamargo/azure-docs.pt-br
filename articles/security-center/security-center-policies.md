@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Configuração de políticas de segurança na Central de segurança do Azure
@@ -38,7 +38,13 @@ Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisit
 
     ![Habilitar coleta de dados](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. Certifique-se de que a opções **Coletar dados de máquinas virtuais** esteja **Ativa**. Essa opção habilita a coleta de log automático para recursos novos e existentes.
+	As opções disponíveis nessa folha são:
+	- **Política prevenção**: essa opção permite que você configure as políticas por assinatura ou grupo de recursos.
+	- **Notificação por email**: uma notificação por email é enviada na primeira ocorrência diária de um alerta e apenas para os alertas de gravidade alta. As preferências do email só podem ser configuradas para as políticas de assinatura. Leia [Fornecer detalhes de contato da segurança na Central de Segurança do Azure](security-center-provide-security-contact-details.md) para obter mais informações sobre como configurar a notificação por email.
+	- **Camada de preços**: use essa opção para atualizar a partir da seleção da Camada de Preços. Visite a [página da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre as opções de preços.
+
+	
+4.  Certifique-se de que a opções **Coletar dados de máquinas virtuais** esteja **Ativa**. Essa opção habilita a coleta de log automático para recursos novos e existentes.
 
     >[AZURE.NOTE] É recomendável que você ative a coleta de dados para cada uma das suas assinaturas para assegurar que o monitoramento de segurança esteja disponível para todas as VMs novas e existentes. Habilitar a coleta de dados instala o agente de monitoramento. Se não desejar ativar a coleta de dados agora desse local, você pode fazer isso posteriormente dos modos de exibição integridade e recomendações. Você também pode habilitar a coleta de dados somente para a assinatura ou para VMs selecionadas. Consulte as [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) para saber mais sobre as VMs com suporte.
 
@@ -100,4 +106,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

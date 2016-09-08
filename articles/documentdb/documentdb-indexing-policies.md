@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/05/2016" 
+    ms.date="08/08/2016" 
     ms.author="arramac"/>
 
 
@@ -461,7 +461,7 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 
 Agora que já vimos como especificar caminhos, vamos examinar as opções que podemos usar para configurar a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
-- Tipo de dados: **String**, **Number** ou **Point** (pode conter somente uma entrada por tipo de dados por caminho)
+- Tipo de dados: **String**, **Number** ou **Point** (pode conter somente uma entrada por tipo de dados por caminho). **Polígono** e **LineString** recebem suporte no modo de visualização particular
 - Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais)
 - Precisão: 1 a 8 ou -1 (precisão máxima) para os números de 1 a 100 (precisão máxima) para a cadeia de caracteres
 
@@ -475,6 +475,8 @@ O Banco de Dados de Documentos dá suporte a tipos de índice Hash e Intervalo p
 O Banco de Dados de Documentos também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para o tipo de dados de Ponto. O valor no caminho especificado deve ser um ponto GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes.
+
+>[AZURE.NOTE] O Banco de Dados de Documentos oferece suporte à indexação automática de Pontos, Polígonos (modo de visualização particular) e LineStrings (modo de visualização particular). Para acessar a visualização, envie um email askdocdb@microsoft.com ou entre em contato conosco por meio do Suporte do Azure.
 
 Estes são os tipos de índice com suporte e exemplos de consultas que eles podem usar para servir:
 
@@ -759,4 +761,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

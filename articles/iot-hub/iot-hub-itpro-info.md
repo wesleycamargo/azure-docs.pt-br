@@ -32,11 +32,11 @@ Os dispositivos podem se comunicar com o Hub IoT no Azure usando uma variedade d
 | MQTT | 8883 |
 | LWM2M (Gerenciamento de dispositivo) | 5684 |
 
-Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo endereço IP para o tempo de vida desse hub. No entanto, para manter a qualidade do serviço, se a Microsoft mover o Hub IoT para uma unidade de escala diferente, ele receberá um novo endereço IP.
+Depois de criar um hub IoT em uma região do Azure, o hub manterá o mesmo endereço IP durante a vida útil desse hub. No entanto, para manter a qualidade do serviço, se a Microsoft mover o Hub IoT para uma unidade de escala diferente, ele receberá um novo endereço IP.
 
 ## Hub IoT e segurança
 
-Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo identifica incluindo um token que encapsula a ID exclusiva de dispositivos em cada solicitação que faz, e o hub verifica a validade do token e se o dispositivo não está na lista negra (*DeviceConnect* permissão revogada). Para obter informações sobre os tokens compatíveis com o Hub IoT, confira [Usar tokens de segurança do Hub IoT e certificados X.509][lnk-tokens]
+Somente os dispositivos registrados com um hub IoT têm permissão para se comunicar com esse hub IoT. Um dispositivo registrado deve ser concedido à permissão *DeviceConnect*. Um dispositivo se identifica incluindo um token que encapsula a ID exclusiva do dispositivo em cada solicitação efetuada. Em seguida, o hub verifica a validade do token e se o dispositivo não está numa lista de negação (permissão *DeviceConnect* revogada). Para obter informações sobre os tokens compatíveis com o Hub IoT, confira [Usar tokens de segurança do Hub IoT e certificados X.509][lnk-tokens]
 
 O acesso a outros pontos de extremidade de gerenciamento em um hub IoT também é controlado por meio de um conjunto de permissões: *iothubowner*, *serviço*, *registryRead*, e *registryReadWrite*. Qualquer aplicativo de gerenciamento de cliente que se conecta a um hub IoT deve incluir um token com as permissões apropriadas.
 
@@ -59,4 +59,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

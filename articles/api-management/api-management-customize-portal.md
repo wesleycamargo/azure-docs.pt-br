@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure
@@ -78,7 +78,7 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+-	Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando [Modelos de portal do desenvolvedor](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -95,8 +95,7 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [variáveis LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

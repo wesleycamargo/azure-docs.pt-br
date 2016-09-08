@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
 A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
 
-### Consulte também
+### Confira também
 -  [Guia de solução de problemas - Análise][Link 21]
 
 ## Painel
@@ -129,4 +129,4 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -45,7 +45,7 @@ O grupo de segurança ou a lista de distribuição acima deve ser usada pela pri
 ### Descrição
 Isso é o portal onde você pode exibir suas ofertas preparadas e publicadas no Azure Marketplace (aplicável a máquinas virtuais, modelos de soluções e serviços de desenvolvedor baseados no Gerenciador de Recursos do Azure).
 ### Identidade/conta usada
-Enquanto você estiver preparando uma oferta do portal de publicação, um ID de assinatura deve estar na lista branca. A mesma assinatura (há um nome de usuário e senha associados a ela) precisa ser usada para entrar neste portal para testar a oferta de preparação.
+Enquanto você estiver preparando uma oferta do portal de publicação, um ID de assinatura deve estar na lista de autorizados. A mesma assinatura (há um nome de usuário e senha associados a ela) precisa ser usada para entrar neste portal para testar a oferta de preparação.
 
 ## Consulte também
 - [Introdução: Como publicar uma oferta para o Azure Marketplace](marketplace-publishing-getting-started.md)

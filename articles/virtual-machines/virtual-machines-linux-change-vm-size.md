@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="na"
    authors="mikewasson"
-   manager="roshar"
+   manager="timlt"
    editor=""
    tags=""/>
 
@@ -26,7 +26,7 @@ Depois de provisionar uma máquina virtual (VM), você pode expandir ou reduzir 
 
 Este artigo mostra como redimensionar uma VM Linux usando a [CLI do Azure][azure-cli].
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
 
 ## Redimensionar uma VM Linux 
@@ -74,4 +74,4 @@ Para obter escalabilidade adicional, execute várias instâncias de VM e expanda
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md
 [vm-sizes]: virtual-machines-linux-sizes.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

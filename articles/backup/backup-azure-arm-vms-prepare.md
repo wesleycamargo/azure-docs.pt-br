@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
 > [AZURE.SELECTOR]
-- [Modelo do gerenciador de recursos](backup-azure-arm-vms-prepare.md)
+- [Modelo do Gerenciador de Recursos](backup-azure-arm-vms-prepare.md)
 - [Modelo clássico](backup-azure-vms-prepare.md)
 
 Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Gerenciador de Recursos. As etapas mostradas nos procedimentos usam o Portal do Azure.
@@ -46,11 +46,12 @@ Antes de preparar seu ambiente, compreenda as limitações.
 
 - Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 - Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
+- Não há suporte para o backup de máquinas virtuais de Linux com extensão Docker.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 - Não há suporte para backup e restauração entre regiões.
 - Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure (consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões com suporte). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - Você pode fazer backup de máquinas virtuais somente para determinadas versões de sistemas operacionais:
-  - **Linux**: o Backup do Azure suporta [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux. Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
+  - **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux. Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 - A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -72,11 +73,11 @@ Para criar um cofre dos serviços de recuperação:
 
     A lista de cofres dos Serviços de Recuperação é exibida.
 
-3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
+3. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    A folha do cofre de Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
@@ -203,7 +204,7 @@ Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, 
 
 |Opção|Vantagens|Desvantagens|
 |------|----------|-------------|
-|Intervalos de IPs na lista branca| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo de gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
+|Intervalos de IPs na lista branca| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
 |Proxy HTTP| É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Ponto único de acesso à Internet nas VMs, <br>Não está sujeito a alterações do endereço IP do Azure| Custos adicionais para a execução de uma VM com o software do proxy|
 
 ### Realizar a lista branca de intervalos de IP do datacenter do Azure
@@ -254,7 +255,7 @@ Se você configurou um servidor de proxy em uma conta de usuário atual (não um
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] Se você receber "(407) Autenticação de Proxy Necessária" no log do servidor de proxy, verifique se a configuração da sua autenticação está correta.
+>[AZURE.NOTE] Se você receber "(407) Autenticação de Proxy Necessária" no log do servidor proxy, verifique se a configuração da sua autenticação está correta.
 
 ######Para computadores Linux
 
@@ -321,4 +322,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 - [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

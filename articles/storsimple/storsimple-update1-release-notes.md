@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Notas de versão da Atualização 1.2 para o StorSimple 8000 Series  
@@ -35,7 +35,7 @@ Examine as informações contidas nas notas de versão antes de implantar a atua
 
 >[AZURE.IMPORTANT]
 > 
-- São necessárias cerca de 5 a 10 horas para instalar essa atualização (incluindo as atualizações do Windows). 
+- São necessárias cerca de 5 a 10 horas para instalar essa atualização (incluindo as atualizações do Windows).
 - A Atualização 1.2 tem atualizações de software, do driver LSI e do firmware de disco. Para instalar, siga as instruções em [instalar a Atualização 1.2 no dispositivo StorSimple](storsimple-install-update-1.md).
 - Para novas versões, talvez você não veja atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Procure atualizações em poucos dias novamente, uma vez que elas serão disponibilizadas em breve.
 
@@ -44,7 +44,7 @@ Examine as informações contidas nas notas de versão antes de implantar a atua
 
 Esses recursos foram lançados pela primeira vez com a Atualização 1, que foi disponibilizada a um conjunto limitado de usuários. Com a versão Atualização 1.2, a maioria dos usuários do StorSimple recebe os seguintes recursos novos e melhorias:
 
-- **Migração de dispositivos 5000-7000 Series para dispositivos 8000 Series** – esta versão apresenta um novo recurso de migração que permite que usuários de dispositivos StorSimple 5000-7000 Series migrem seus dados para um dispositivo físico StorSimple 8000 Series ou um dispositivo virtual 1100. O recurso de migração tem duas proposições de valor fundamentais:                                                                  
+- **Migração de dispositivos 5000-7000 Series para dispositivos 8000 Series** – esta versão apresenta um novo recurso de migração que permite que usuários de dispositivos StorSimple 5000-7000 Series migrem seus dados para um dispositivo físico StorSimple 8000 Series ou um dispositivo virtual. O recurso de migração tem duas proposições de valor fundamentais:
 
     - **Continuidade dos negócios**, permitindo a migração dos dados existentes nos dispositivos séries 5000-7000 para dispositivos série 8000.
     - **Ofertas de recursos aprimorados dos dispositivos 8000 Series**, como o gerenciamento centralizado eficiente de vários dispositivos por meio do serviço StorSimple Manager, uma classe melhor de hardware e firmware atualizado, dispositivos virtuais, mobilidade de dados e recursos no mapa futuro.
@@ -91,7 +91,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 1 | Quorum de disco | Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, em seguida, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. | Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 2 | ID de controlador incorreta | Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. | Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. | Sim | Não |
 | 3 | Contas de armazenamento | Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | Sim | Sim |
-| 4 | Failover de dispositivo | Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | | Sim | Não |
+| 4 | Failover de dispositivo | Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de dispositivo de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | | Sim | Não |
 | 5 | Instalação | Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | | Sim | Não |
 | 6 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](storsimple-configure-web-proxy.md). | Sim | Não |
 | 7 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
@@ -111,7 +111,7 @@ Se o patch da Atualização 1.2 for aplicado a um dispositivo físico (executand
 
 Essa versão atualiza o driver e o firmware de disco no dispositivo.
  
-- Para saber mais sobre a atualização do controlador SAS, confira [Atualização 1 para controladores SAS LSI no dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005). 
+- Para saber mais sobre a atualização do controlador SAS, confira [Atualização 1 para controladores SAS LSI no dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005).
 
 - Para saber mais sobre a atualização de firmware de disco, confira [Atualização 1 de firmware de disco para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063416).
  
@@ -124,4 +124,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. Novos disposit
 - [Instalar a Atualização 1.2 no seu dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

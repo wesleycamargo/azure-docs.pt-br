@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo do Serviço do Aplicativo para usar o logon do Facebook
@@ -44,7 +44,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 	> [AZURE.IMPORTANT] O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
-7. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Análise do Aplicativo** e habilite a opção **Tornar <your-app-name> público** para habilitar o acesso ao público geral usando a autenticação do Facebook.
+7. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Análise do Aplicativo** e habilite a opção **Tornar <nome de seu aplicativo> público** para habilitar o acesso ao público geral usando a autenticação do Facebook.
 
 ## <a name="secrets"> </a>Adicionar informações do Facebook ao seu aplicativo
 
@@ -75,4 +75,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Get started with authentication]: /pt-BR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

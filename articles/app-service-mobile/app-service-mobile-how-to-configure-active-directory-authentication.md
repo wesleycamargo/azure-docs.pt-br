@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Active Directory do Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Active Directory do Azure como um provedor de autenticação.
+Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Azure Active Directory como um provedor de autenticação.
 
 ## <a name="express"> </a>Configurar o Active Directory do Azure usando configurações expressas
 
@@ -101,7 +101,7 @@ O Active Directory do Azure também permite que você registre clientes nativos,
 
 4. No Assistente para Adicionar aplicativo, insira um **Nome** para o seu aplicativo e clique no tipo **Aplicativo Cliente Nativo**. Em seguida, clique em continuar.
 
-5. Na caixa **URI de redirecionamento**, digite o ponto de extremidade do site _/.auth/login/done_, usando o esquema HTTPS. Esse valor deve ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_. Caso queira criar um aplicativo do Windows, use o [SID de pacote](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
+5. Na caixa **URI de redirecionamento**, digite o ponto de extremidade do site _/.auth/login/done_, usando o esquema HTTPS. Esse valor deve ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_. Caso queira criar um aplicativo do Windows, use o [SID de pacote](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
 
 6. Depois que o aplicativo nativo tiver sido adicionado, clique na guia **Configurar**. Encontre a **ID do cliente** e anote esse valor.
 
@@ -130,4 +130,4 @@ Você configurou um aplicativo de cliente nativo que pode acessar o aplicativo d
 [portal clássico do Azure]: https://manage.windowsazure.com/
 [alternative method]: #advanced
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

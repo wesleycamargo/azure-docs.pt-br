@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #Como integrar o GCM ao Mobile Engagement
@@ -82,4 +82,4 @@ Siga [este guia](mobile-engagement-android-get-started.md#grant-mobile-engagemen
 
 [SDK do Google Play]: https://developers.google.com/cloud-messaging/android/start
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0824_2016-->

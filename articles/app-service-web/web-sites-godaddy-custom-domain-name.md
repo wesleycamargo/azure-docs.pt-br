@@ -60,14 +60,14 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 	![adicionar um registro de zona](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
-	* Ao adicionar um **registro (host) A** - você deve definir o campo **Host** como **@** (isso representa o nome do domínio raiz, como **contoso.com**) * (um caractere curinga para corresponder a vários subdomínios) ou o subdomínio que você deseja usar (por exemplo, **www**). Você deve definir o campo **Aponta para** como o endereço IP do seu aplicativo Web do Azure.
+	* Ao adicionar um **registro A (host)** - você deve definir o campo **Host** como **@** (isso representa o nome do domínio raiz, como **contoso.com**), * (um caractere curinga para corresponder a vários subdomínios) ou o subdomínio que você deseja usar (por exemplo, **www**). Você deve definir o campo **Aponta para* como o endereço IP do seu aplicativo Web do Azure.
 
 	* Ao adicionar um **registro CNAME (alias)** - você deve definir o campo **Host** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve definir o campo **Aponta para** como o nome do domínio **.azurewebsites.net** do aplicativo Web do Azure. Por exemplo, **contoso.azurwebsites.net**.
 
 5. Clique em **Adicionar Outro**.
-6. Selecione **CNAME** como o tipo de registro e especifique um valor de **Host** de **awverify** e um valor de **Aponta para** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+6. Selecione **TXT** como o tipo de registro e especifique um valor de **Host** de **@** e um valor de **Aponta para** de **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE] Esse registro CNAME é usado pelo Azure para validar que você possui o domínio descrito pelo registro A do primeiro registro CNAME. Depois que o domínio tiver sido mapeado para o aplicativo Web no Portal do Azure, a entrada **awverify** poderá ser removida.
+	> [AZURE.NOTE] Esse registro TXT é usado pelo Azure para validar que você possui o domínio descrito pelo registro A do primeiro registro TXT. Depois que o domínio tiver sido mapeado para o aplicativo Web no Portal do Azure, essa entrada do registro TXT poderá ser removida.
 
 5. Ao concluir a adição ou a modificação dos registros, clique em **Concluir** para salvar as alterações.
 
@@ -81,4 +81,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

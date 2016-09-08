@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="golive"/>
 
 # Exemplo de uso: implantação contínua em Máquinas Virtuais usando a DSC de Automação e o Chocolatey
@@ -75,11 +75,13 @@ A Galeria do PowerShell é instrumentada para instalar recursos de DSC em sua co
 
 ![Exemplo da Galeria do PowerShell](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
+Outra técnica recentemente adicionada ao Portal do Azure permite criar novos módulos ou atualizar módulos existentes. Clique no recurso Conta de Automação, no bloco Ativos e, por fim, no bloco Módulos. O ícone Procurar na Galeria permite ver a lista de módulos na galeria, filtrar para ver detalhes e, por fim, importar para sua Conta de Automação. Isso é uma ótima maneira de manter atualizados os módulos periodicamente. Além disso, o recurso de importação verifica dependências com outros módulos para garantir que nada esteja fora de sincronização.
+
 Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure. Isso exige que você faça alguns ajustes. Porém, não é difícil, e isso só precisa ser feito uma vez por recurso (a menos que você deseje atualizá-lo no futuro). Para saber mais sobre como criar Módulos de Integração do PowerShell, confira este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Instale o módulo necessário na estação de trabalho, da seguinte maneira:
     -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) (não é necessário para o Windows 10)
-    -   `Install-Module –Name MODULE-NAME` < — captura o módulo da Galeria do PowerShell
+    -   `Install-Module –Name MODULE-NAME` <— captura o módulo da Galeria do PowerShell
 -   Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária
 -   Exclua os exemplos e a documentação da pasta principal
 -   Compacte a pasta principal, nomeando o arquivo ZIP exatamente como a pasta
@@ -167,7 +169,7 @@ Para cada pacote que você coloca no repositório de pacotes, é necessário um 
 
 ## Etapa 6: reunir tudo isso
 
-Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada. Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Visual Studio Team Services, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/pt-BR/get-started/build/build-your-app-vs) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
+Sempre que uma versão passar na garantia de qualidade e for aprovada para implantação, o pacote será criado e o nuspec e o nupkg serão atualizados e implantados no servidor do NuGet. Além disso, a configuração (Etapa 4 acima) deve ser atualizada de acordo com o novo número de versão. Ela deve ser enviada para o servidor de recepção e compilada. Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma ou duas linhas do PowerShell. No caso do Visual Studio Team Services, algumas delas são encapsuladas em tarefas de compilação que podem ser encadeadas juntas em uma compilação. Este [artigo](https://www.visualstudio.com/pt-BR/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Este [repositório GitHub](https://github.com/Microsoft/vso-agent-tasks) fornece detalhes das várias tarefas de compilação disponíveis.
 
 ## Observações
 
@@ -185,4 +187,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

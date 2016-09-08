@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/22/2016"
 	ms.author="luisca"/>
 
 # Guia de início rápido da API de Recomendações dos Serviços Cognitivos
@@ -54,7 +54,7 @@ Nesta tarefa, você vai se inscrever no serviço da API de Recomendações e cri
 
 1. Selecione a opção **Inteligência**.
 
-1. Selecione o produto **APIs dos Serviços Cognitivos**. Este produto permitirá que você inicie uma assinatura de qualquer uma das APIs dos serviços cognitivas (Detecção Facial, Análise de Texto, Pesquisa Visual Computacional etc.). Hoje, nos concentraremos na API de Recomendações.
+1. Selecione o produto **APIs dos Serviços Cognitivos**. Este produto permitirá que você inicie uma assinatura de qualquer uma das APIs dos serviços cognitivos (Detecção Facial, Análise de Texto, Pesquisa Visual Computacional etc.). Hoje, nos concentraremos na API de Recomendações.
 
 1. Na página de aterrissagem da API dos Serviços Cognitivos, informe o **Nome da conta** da sua assinatura das Recomendações. (Por exemplo, "MinhasRecomendações"). O nome não pode conter espaços.
 
@@ -97,8 +97,8 @@ Observe que os três primeiros elementos são obrigatórios. O tipo de evento é
 
  > **Qual é a quantidade de dados de que você precisa?**
  <p>
->  Isso depende muito dos dados de uso. O sistema aprende quando os usuários compram itens diferentes. Para algumas versões, como o FBT, é importante saber quais itens são comprados nas mesmas transações. (Nós os chamamos de *co-ocorrências*). Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto, se você tivesse 10.000 itens no catálogo, recomendaríamos que tivesse pelo menos 20 vezes esse número de transações, ou cerca de 200.000 transações. Mais uma vez, essa é uma apenas uma boa regra. Você precisará fazer experiências com seus dados.
-> </p>
+ Isso depende muito dos dados de uso. O sistema aprende quando os usuários compram itens diferentes. Para algumas versões, como o FBT, é importante saber quais itens são comprados nas mesmas transações. (Nós os chamamos de *co-ocorrências*). Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto, se você tivesse 10.000 itens no catálogo, recomendaríamos que tivesse pelo menos 20 vezes esse número de transações, ou cerca de 200.000 transações. Mais uma vez, essa é uma apenas uma boa regra. Você precisará fazer experiências com seus dados.
+</p>
 
 <a name="Ex1Task3"></a>
 #### Tarefa 3 - Criar um modelo de recomendações ####
@@ -162,10 +162,10 @@ Veja algumas ideias de locais onde você pode usar as Recomendações:
 Um modelo de recomendações pode usar a ID de usuário como entrada. Ele usará o histórico de transações do usuário para fornecer recomendações personalizadas para o usuário especificado.
 </p>
 
-Confira a [documentação sobre a obtenção de recomendações de item](http://go.microsoft.com/fwlink/?LinkID=760719).
+Confira a [Documentação sobre a obtenção de recomendações de item](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

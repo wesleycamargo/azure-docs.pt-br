@@ -38,6 +38,7 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 -	[Posso criar uma instância do serviço de Gerenciamento de API usando um modelo do ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Por que estou recebendo falha de autenticação ao tentar clonar o repositório GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[O Gerenciamento de API funciona com a Rota Expressa?](#does-api-management-work-with-express-route)
 
 
 ### Como fazer uma pergunta à equipe de Gerenciamento de API?
@@ -150,4 +151,8 @@ Sim. Siga as etapas abaixo:
 
 Se você estiver usando o Gerenciador de Credenciais do GIT ou tentando clonar o repositório por meio do Visual Studio, talvez você se depare com um problema com o diálogo de credencial do Windows, que limita o tamanho da senha para somente 127 caracteres e, portanto, trunca a senha que geramos. Estamos trabalhando para encurtar a senha. Por enquanto, use o GIT Bash para clonar.
 
-<!---HONumber=AcomDC_0810_2016-->
+### O Gerenciamento de API funciona com a Rota Expressa?
+
+Sim!
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -529,6 +529,14 @@ Em que:
 - /PassphraseFilePath: obrigatório. Especifica a senha do servidor de configuração.
 - /LogFilePath: obrigatório. Especifica o local dos arquivos de configuração de log
 
+#### Desinstalar o Serviço de Mobilidade manualmente
+
+O Serviço de Mobilidade pode ser desinstalado usando Adicionar ou Remover Programas no Painel de Controle ou usando a linha de comando.
+
+O comando para desinstalar o Serviço de mobilidade usando a linha de comando é
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 #### Modificar o endereço IP do servidor de gerenciamento
 
 Após executar o assistente, você pode modificar o endereço IP do servidor de gerenciamento da seguinte maneira:
@@ -796,4 +804,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre o failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

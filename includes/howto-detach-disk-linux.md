@@ -3,14 +3,13 @@ Quando não precisar mais de um disco de dados conectado a uma VM (máquina virt
 > [AZURE.NOTE] Uma VM no Azure usa diferentes tipos de discos, um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a VM.
 
 
-## Localize o disco
+## Localizar o disco
 
 Antes de poder desanexar um disco de uma VM, você precisa descobrir o número LUN, que é um identificador para o disco a ser desanexado. Para fazer isso, siga estas etapas:
 
 1. 	Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](../articles/xplat-cli-connect.md). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 
-2. 	Descubra quais discos estão anexados à sua VM usando `azure vm disk list
-	<virtual-machine-name>`:
+2. 	Descubra quais discos estão anexados à sua VM usando `azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list
@@ -28,9 +27,9 @@ Antes de poder desanexar um disco de uma VM, você precisa descobrir o número L
 
 ## Remover as referências do sistema operacional no disco
 
-Antes de desanexar o disco do convidado do Linux, você deve identificar todas as partições no disco que não estão em uso e verificar se o sistema operacional não tentará montá-las novamente após uma reinicialização. Essas etapas desfazem a configuração que você provavelmente criou ao [anexar](../articles/virtual-machines-linux-classic-attach-disk.md) o disco.
+Antes de desanexar o disco do convidado do Linux, você deve se certificar de que nenhuma das partições no disco está em uso. Certifique-se de que o sistema operacional não tente remontá-los após uma reinicialização. Essas etapas desfazem a configuração que você provavelmente criou ao [anexar](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) o disco.
 
-1. Use o comando `lsscsi` para descobrir o identificador do disco. `lsscsi` pode ser instalada pelo `yum install lsscsi` (em distribuições baseadas em Red Hat) ou pelo `apt-get install lsscsi` (em distribuições baseadas em Debian). Você pode encontrar o identificador de disco que está procurando usando o número de LUN acima. O último número na tupla em cada linha é o LUN. No exemplo a seguir, LUN 0 é mapeado para _/dev/sdc_
+1. Use o comando `lsscsi` para descobrir o identificador do disco. `lsscsi` pode ser instalada pelo `yum install lsscsi` (em distribuições baseadas em Red Hat) ou pelo `apt-get install lsscsi` (em distribuições baseadas em Debian). Você pode encontrar o identificador de disco que está procurando usando o número de LUN. O último número na tupla em cada linha é o LUN. No exemplo a seguir, LUN 0 é mapeado para _/dev/sdc_
 
 			ops@TestVM:~$ lsscsi
 			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -97,4 +96,4 @@ Depois de localizar o número de LUN do disco e remover as referências do siste
 
 O disco permanece desanexado no armazenamento mas já não está conectado a uma máquina virtual.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

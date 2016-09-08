@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/16/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do ProjectOnline
 
 O Project Online é uma solução online flexível da Microsoft para PPM (gerenciamento de portfólio de projetos) e trabalho cotidiano. Distribuído por meio do Office 365, o Project Online permite que as organizações se familiarizem rapidamente com funcionalidades avançadas de gerenciamento de projetos para planejar, priorizar e gerenciar projetos e investimentos em portfólio de projetos – praticamente, em qualquer lugar e em qualquer dispositivo.
-
-O conector do ProjectOnline pode ser usado por meio de:
-
-- [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps](http://powerapps.microsoft.com)
-- [Fluxo](http://flow.microsoft.com)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -64,7 +58,7 @@ Para criar Aplicativos Lógicos com o ProjectOnline, primeiro, você deve criar 
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|A criptografia do token|Sim|Fornecer as credenciais do ProjectOnline|
+|Token|Sim|Fornecer as credenciais do ProjectOnline|
 
 >[AZURE.INCLUDE [Etapas para criar uma conexão com o ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
@@ -343,14 +337,14 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 |ResourceId|string|Não |
 |ResourceBaseCalendar|string|Não |
 |ResourceBookingType|inteiro|Não |
-|ResourceCanLevel|booleano|Não |
+|ResourceCanLevel|Booliano|Não |
 |ResourceCostPerUse|número|Não |
 |ResourceCreatedDate|string|Não |
 |ResourceEarliestAvailableFrom|string|Não |
 |ResourceEmail|string|Não |
 |ResourceInitials|string|Não |
-|ResourceIsActive|booleano|Não |
-|ResourceIsGeneric|booleano|Não |
+|ResourceIsActive|Booliano|Não |
+|ResourceIsGeneric|Booliano|Não |
 |ResourceLatestAvailableTo|string|Não |
 |ResourceModifiedDate|string|Não |
 |ResourceName|string|Não |
@@ -384,7 +378,7 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 |TaskStartDate|string|Não |
 |TaskFinishDate|string|Não |
 |TaskPriority|inteiro|Não |
-|TaskIsActive|booleano|Não |
+|TaskIsActive|Booliano|Não |
 
 
 
@@ -405,9 +399,9 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
 |Nome|string|Sim |
-|IsBudget|booleano|Não |
-|IsGeneric|booleano|Não |
-|IsInactive|booleano|Não |
+|IsBudget|Booliano|Não |
+|IsGeneric|Booliano|Não |
+|IsInactive|Booliano|Não |
 
 
 
@@ -423,7 +417,7 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 |CheckOutId|string|Não |
 |CreatedDate|string|Não |
 |ID|string|Não |
-|IsCheckedOut|booleano|Não |
+|IsCheckedOut|Booliano|Não |
 |LastPublishedDate|string|Não |
 |LastSavedDate|string|Não |
 |OptimizerDecision|inteiro|Não |
@@ -469,7 +463,7 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|CanLevel|booleano|Não |
+|CanLevel|Booliano|Não |
 |Código|string|Não |
 |CostAccrual|inteiro|Não |
 |CostCenter|string|Não |
@@ -482,10 +476,10 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 |ID|string|Não |
 |Initials|string|Não |
 |IsActive|booleano|Não |
-|IsBudget|booleano|Não |
-|IsCheckedOut|booleano|Não |
-|IsGeneric|booleano|Não |
-|IsTeam|booleano|Não |
+|IsBudget|Booliano|Não |
+|IsCheckedOut|Booliano|Não |
+|IsGeneric|Booliano|Não |
+|IsTeam|Booliano|Não |
 |MaterialLabel|string|Não |
 |Modificado|string|Não |
 |Nome|string|Não |
@@ -524,4 +518,4 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

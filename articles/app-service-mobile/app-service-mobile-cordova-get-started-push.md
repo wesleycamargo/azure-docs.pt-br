@@ -250,6 +250,8 @@ Antes de executar um aplicativo Cordova no iOS usando o Visual Studio, percorra 
 
 Verifique se que você pode criar o aplicativo para iOS. As etapas no guia de instalação são necessárias para criar para iOS no Visual Studio. Se você não tiver um Mac, poderá criar para iOS usando o agente remotebuild em um serviço como o MacInCloud. Para saber mais, confira [Executar seu aplicativo iOS na nuvem](http://taco.visualstudio.com/pt-BR/docs/build_ios_cloud/).
 
+>[AZURE.NOTE] O XCode 7 ou superior é necessário para usar o plug-in de push no iOS.
+
 ####Localizar a ID a ser usada como a ID do aplicativo
 
 Antes de registrar seu aplicativo para notificações por push, abra o config.xml em seu aplicativo Cordova, localize o valor de atributo `id` no elemento de widget e copie-o para uso posterior. No XML a seguir, a ID é `io.cordova.myapp7777777`.
@@ -320,7 +322,7 @@ Para usar as opções de Loja no Visual Studio, selecione um destino do Windows 
 
 Abra o designer de configuração (clique com o botão direito do mouse no arquivo config.xml e selecione **Designer de Exibição**), selecione a guia **Windows** e escolha **Windows 10** em **Versão de Destino do Windows**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] Se você estiver usando uma versão do Cordova anterior ao Cordova 5.1.1 (recomendamos a 6.1.1), defina também o sinalizador Compatível com Toast como true no arquivo config.xml.
 
 Para dar suporte a envio de notificações por push nas versões padrão, abra o arquivo build.json. Copie a configuração de "versão" em sua configuração de depuração.
 
@@ -384,4 +386,4 @@ Saiba como usar os SDKs.
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

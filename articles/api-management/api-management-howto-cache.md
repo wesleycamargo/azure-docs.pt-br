@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
@@ -129,7 +129,6 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
 -	Para saber mais sobre as políticas de cache, veja [Políticas de cache][] na [Referência de política do Gerenciamento de API][].
 -	Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 
 [Referência de política do Gerenciamento de API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Políticas de cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -163,4 +161,4 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->
