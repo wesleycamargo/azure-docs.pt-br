@@ -44,11 +44,11 @@ Clique em **Certificado**. Uma implantação será iniciada, e uma barra de Stat
 
 Após a conclusão bem-sucedida da implantação, você poderá usar o certificado primário ou secundário para realizar operações de gerenciamento no cluster.
 
-![Screen shot of certificate deployment in progress][SecurityConfigurations\_03]
+![Screen shot of certificate deployment in progress][SecurityConfigurations_03]
 
 Esta é uma imagem da aparência da folha de segurança após a conclusão da implantação.
 
-![Screen shot of certificate thumbprints after deployment][SecurityConfigurations\_08]
+![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_08]
 
 
 Agora você pode usar o novo certificado que acabou de adicionar para se conectar e realizar operações no cluster.
@@ -209,6 +209,9 @@ Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
-[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
 <!---HONumber=AcomDC_0817_2016-->
+
