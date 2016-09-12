@@ -137,7 +137,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do eDigitalResearch e forneça o seguinte:
 
-	  - O arquivo **Certificado baixado**
+	  -O arquivo **Certificado baixado**
 	
 	  -A **ID da Entidade**
 	
