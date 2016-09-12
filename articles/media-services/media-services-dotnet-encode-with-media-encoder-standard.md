@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como codificar um ativo usando o Media Encoder Standard" 
-	description="Este tópico mostra como usar o .NET para codificar um ativo com o Media Encoder Standard." 
+	pageTitle="Codificar um ativo com o Codificador de Mídia Padrão usando o .NET" 
+	description="Este tópico mostra como usar o .NET para codificar um ativo com o Codificador de Mídia Padrão." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="07/18/2016"
+ 	ms.date="08/30/2016"
 	ms.author="juliako;anilmur"/>
 
 
-#Como codificar um ativo usando o Media Encoder Standard
+# Codificar um ativo com o Codificador de Mídia Padrão usando o .NET
 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace.
 
-Este tópico mostra como usar o .NET para codificar seus ativos com o MES (Media Encoder Standard). O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Este tópico mostra como usar o .NET para codificar seus ativos com o MES (Codificador de Mídia Padrão). O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md). Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -35,7 +35,7 @@ Se seu ativo de saída tiver o armazenamento criptografado, você deverá config
 
 ###Predefinições de MES
 
-O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ###Metadados de entrada e saída
 
@@ -56,8 +56,8 @@ Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/sa
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 - Crie um trabalho de codificação.
-- Obtenha uma referência para o Media Encoder Standard.
-- Especifique o uso da predefinição "720p com várias taxas de bits H264". Você pode ver todas as predefinições [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Você também pode examinar o esquema que essas predefinições devem seguir [aqui](https://msdn.microsoft.com/library/mt269962.aspx) neste tópico.
+- Obtenha uma referência para o Codificador de Mídia Padrão.
+- Especifique o uso da predefinição "720p com várias taxas de bits H264". Você pode ver todas as predefinições [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Você também pode examinar [aqui](https://msdn.microsoft.com/library/mt269962.aspx) neste tópico o esquema que essas predefinições devem seguir.
 - Adicione uma única tarefa de codificação para o trabalho.
 - Especifique o ativo de entrada a ser codificado.
 - Crie um ativo de saída que conterá o ativo codificado.
@@ -150,4 +150,4 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 [Como gerar miniatura usando o codificador de mídia padrão com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

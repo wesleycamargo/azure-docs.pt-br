@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/18/2016"
+	ms.date="08/25/2016"
 	ms.author="sdanie" />
 
 # Como configurar o Cache Redis do Azure
@@ -38,7 +38,7 @@ O Cache Redis do Azure fornece as seguintes configurações na folha **Configura
 	-	[Configurações avançadas](#advanced-settings)
 	-	[Supervisor do Cache Redis](#redis-cache-advisor)
 -	[Configurações de escala](#scale-settings)
-	-	[Camada de preços](#pricing-tier)
+	-	[Tipo de preço](#pricing-tier)
 	-	[Tamanho do cluster Redis](#cluster-size)
 -	[Configurações de gerenciamento de dados](#data-management-settings)
 	-	[Persistência de dados do Redis](#redis-data-persistence)
@@ -56,9 +56,9 @@ As configurações na seção **Suporte + solução de problemas** fornecem opç
 
 ![Suporte + Solução de Problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-Clique em **Solucionar problemas** para ver problemas comuns e estratégias para resolvê-los.
+Clique em **Diagnosticar e solucionar problemas** para ver problemas comuns e estratégias para resolvê-los.
 
-Clique em **Logs de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para saber mais sobre como trabalhar com logs de auditoria, confira [Exibir eventos e logs de auditoria](../azure-portal/insights-debugging-with-events.md) e [Operações de auditoria com o Resource Manager](../resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
+Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para saber mais sobre como trabalhar com logs de auditoria, confira [Exibir eventos e logs de auditoria](../azure-portal/insights-debugging-with-events.md) e [Operações de auditoria com o Resource Manager](../resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 O **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 
@@ -174,14 +174,14 @@ As configurações na seção **Escala** permitem acessar e definir as configura
 
 ![Rede](./media/cache-configure/redis-cache-scale.png)
 
--	[Camada de preços](#pricing-tier)
+-	[Tipo de preço](#pricing-tier)
 -	[Tamanho do cluster Redis](#cluster-size)
 
-### Camada de preços
+### Tipo de preço
 
 Clique em **Tipo de preço** para exibir ou alterar o tipo de preço do cache. Para obter mais informações sobre escala, veja [Como escalonar o Cache Redis do Azure](cache-how-to-scale.md).
 
-![Camada de preços do Cache Redis](./media/cache-configure/pricing-tier.png)
+![Tipo de preço do Cache Redis](./media/cache-configure/pricing-tier.png)
 
 <a name="cluster-size"></a>
 ### Tamanho do Cluster Redis
@@ -224,7 +224,7 @@ Clique em **OK** para salvar a configuração de persistência.
 
 ### Importar/exportar
 
-A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de página em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
+A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de páginas em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
 
 A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache Redis do Azure carrega os arquivos RDB do armazenamento do Azure para a memória e insere as chaves no cache.
 
@@ -299,9 +299,9 @@ As configurações na seção **Rede** permitem acessar e definir as configuraç
 
 A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
 
-A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../resource-group-lock-resources.md).
+A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Azure Resource Manager](../resource-group-lock-resources.md).
 
-A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no Portal do Azure para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+A seção **Usuários** dá suporte ao RBAC (controle de acesso baseado em função) no Portal do Azure para ajudar as organizações a atender aos seus requisitos de gerenciamento de acesso de maneira simples e precisa. Para saber mais, confira [Role-based access control in the Azure portal](../active-directory/role-based-access-control-configure.md) (Controle de acesso baseado em função no portal do Azure).
 
 Clique em **Exportar modelo** para criar e exportar um modelo de seus recursos implantados para implantações futuras. Para saber mais sobre como trabalhar com modelos, confira [Implantar recursos com modelos do Azure Resource Manager](../resource-group-template-deploy.md).
 
@@ -409,4 +409,4 @@ Para saber mais sobre como mover os recursos de um grupo de recursos para outro,
 ## Próximas etapas
 -	Para saber mais sobre como trabalhar com os comandos do Redis, confira [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

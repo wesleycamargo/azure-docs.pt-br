@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric – custo de movimento | Microsoft Azure"
-   description="Visão geral do custo das movimentações para os Serviços do Service Fabric"
+   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric: custo de movimento | Microsoft Azure"
+   description="Visão geral do custo dos movimentos de serviços do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,38 +16,38 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Custo de movimento do serviço que influencia as escolhas do Gerenciador de Recursos
-Outro fator importante que levamos em consideração durante a tentativa de determinar quais alterações devem ser feitas em um cluster e a pontuação de determinada solução é o Custo geral de alcançar essa solução.
+# Custo de movimento do serviço para influenciar escolhas do Gerenciador de Recursos de Cluster
+Um fator importante a ser levado em consideração ao tentar determinar quais alterações devem ser feitas em um cluster e a pontuação de uma solução é o custo geral de alcançar essa solução.
 
-Mover instâncias ou réplicas de serviços custa, no mínimo, tempo de CPU e largura de banda de rede, e para os serviços com estado, também custa a quantidade de espaço em disco necessária para a criação de uma cópia do estado antes de desligar réplicas antigas. Obviamente, você gostaria de minimizar o custo de qualquer solução criada pelo Gerenciador de Recursos de Cluster, mas não deseja ignorar soluções que melhorem significativamente a alocação de recursos no cluster.
+Mover réplicas ou instâncias de serviço custa, no mínimo, tempo de CPU e largura de banda de rede. Para serviços com estado, há também o custo da quantidade de espaço em disco necessária para criar uma cópia do estado antes de desligar réplicas antigas. Obviamente, seria desejável minimizar o custo de qualquer solução que o Gerenciador de Recursos de Cluster do Azure Service Fabric criar. Por outro lado, não seria bom ignorar soluções que melhorariam significativamente a alocação de recursos no cluster.
 
-O Gerenciador de Recursos de Cluster tem duas maneiras de computar custos e limitá-los, mesmo ao tentar gerenciar o cluster de acordo com seus outros objetivos. A primeira é que, quando ele planeja um novo layout para o cluster, ele conta cada uma das movimentações que faria. Em um caso simples, se você obtiver duas soluções com praticamente o mesmo saldo geral (pontuação) no final, escolha aquela com o menor custo (número total de movimentações).
+O Gerenciador de Recursos de Cluster tem duas maneiras de computar custos e limitá-los, mesmo ao tentar gerenciar o cluster de acordo com seus outros objetivos. A primeira é que, ao planejar um novo layout para o cluster, o Gerenciador de Recursos de Cluster conta cada uma das movimentações que faria. Em um caso simples, se você tiver duas soluções com praticamente o mesmo saldo (pontuação) geral no final, escolha aquela com o menor custo (número total de movimentações).
 
-Isso funciona muito bem, até que nos deparamos com o mesmo problema que tivemos com cargas padrão ou estáticas – é improvável que em qualquer sistema complexo todas as movimentações sejam iguais; provavelmente, algumas serão muito mais caras.
+Isso funciona muito bem. Mas, como ocorre com cargas estáticas ou padrão, é improvável em qualquer sistema complexo que todas as mudanças sejam iguais. É provável que algumas delas sejam muito mais caras.
 
 ## Alterando o custo de movimento de uma réplica e fatores a serem considerados
-Assim como ao relatar carga (outro recurso do Gerenciador de Recursos de Cluster), fornecemos ao serviço uma forma de reportar automaticamente quão caro é o serviço de movimento em um dado momento.
+Assim como ao relatar a carga (outro recurso do Gerenciador de Recursos de Cluster), você fornece ao serviço uma forma de relatar automaticamente quão caro é o serviço de movimento em um dado momento.
 
-Código
+Código:
 
 ```csharp
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Mais uma vez, isso refere-se apenas a relação entre eles, com exceção de Zero, que significa que a movimentação de uma réplica é gratuita e não deve contar na pontuação da solução. Definir o custo de movimentação para Alto *não* é uma garantia de que a réplica não será movida, apenas que ela não será movida a menos que haja um bom motivo para isso.
+O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Eles são relativos uns aos outros, exceto pelo Zero. Zero significa que a mudança de uma réplica é gratuita e não deve contar para a pontuação da solução. Definir o custo de movimentação para Alto *não* é uma garantia de que a réplica não será movida, apenas que ela não será movida a menos que haja um bom motivo para isso.
 
-![Custo das movimentações como um fator na seleção de réplicas para movimentação][Image1]
+![Custo de movimentos como um fator na seleção de réplicas para movimento][Image1]
 
-O MoveCost nos ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções e que sejam mais fáceis de conseguir enquanto ainda alcançam o equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas, mas os fatores mais comuns para calcular seus custos de mudança são:
+O MoveCost ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções e que sejam mais fáceis de conseguir enquanto ainda alcançam o equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas. Os fatores mais comuns ao calcular o custo do movimento são:
 
-1.	A quantidade de estados ou dados que o serviço deve mover
-2.	O custo da desconexão de clientes (para que o custo de movimentação de uma réplica Primária seja geralmente mais alto do que o de uma réplica Secundária)
-3.	O custo de interrupção de alguma operação em andamento (algumas operações no nível de armazenamento de dados ou executadas em resposta a um chamado do cliente são caras e, depois de determinado ponto, não será conveniente anulá-las se não houver necessidade). Portanto, durante a operação, você aumenta o custo para reduzir a probabilidade de que a réplica ou a instância de serviço seja movida e, em seguida, quando a operação for concluída, você a coloca novamente no estado normal.
+- a quantidade de estados ou de dados que o serviço deve mover.
+- o custo de desconexão de clientes. O custo de mover uma réplica primária normalmente é mais alto do que o custo de mover uma réplica secundária.
+- o custo de interromper uma operação em andamento. Algumas operações no nível do armazenamento de dados ou operações realizadas em resposta a uma chamada de cliente são caras. Depois de um certo ponto, você não quer interrompê-las a não ser que seja necessário. Portanto, durante a operação, você aumenta o custo para reduzir a probabilidade de que a réplica ou a instância de serviço seja movida. Quando a operação for concluída, você a coloca novamente no estado normal.
 
 ## Próximas etapas
-- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre eles e como configurá-los, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia a carga no cluster, confira o artigo sobre [como balancear a carga](service-fabric-cluster-resource-manager-balancing.md)
+- O Gerenciador de Recursos de Cluster do Service Fabric usa métricas para gerenciar o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Gerenciando o consumo e a carga de recursos no Service Fabric com métricas](service-fabric-cluster-resource-manager-metrics.md).
+- Para saber como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira [Balanceamento do cluster do Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

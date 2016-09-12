@@ -236,6 +236,8 @@ Configure uma rede do Azure para que as VMs do Azure sejam conectadas a uma rede
 
 [Leia mais](../virtual-network/virtual-networks-overview.md) sobre as redes do Azure.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+
 ## Etapa 3: instalar os componentes do VMware
 
 Se você quiser replicar máquinas virtuais VMware, instale os seguintes componentes de VMware no servidor de gerenciamento:
@@ -599,7 +601,7 @@ Adicionar computadores a um grupo de proteção:
 
 4. Em **Specify Target Resources (Especificar Recursos de Destino)**, selecione a conta de armazenamento que está sendo usada para a replicação e escolha se as configurações devem ser usadas para todas as cargas de trabalho. Observe que as contas de armazenamento Premium não têm suporte no momento.
 
-	>[AZURE.NOTE] Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos.
+	>[AZURE.NOTE] 1.Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos. 2.[Migração de contas de armazenamento](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 	![Habilitar proteção](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -804,4 +806,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Saiba mais sobre o failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

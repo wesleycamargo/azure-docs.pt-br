@@ -63,7 +63,6 @@ A linguagem tem muitos recursos atrativos:
 
 
 
->[AZURE.NOTE] É recomendável começar com o [tour de linguagem](app-insights-analytics-tour.md).
 
 
 
@@ -84,4 +83,10 @@ No momento, os resultados da consulta são limitados apenas a uma semana de dado
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Próximas etapas
+
+
+* É recomendável começar com o [tour de linguagem](app-insights-analytics-tour.md).
+
+<!---HONumber=AcomDC_0831_2016-->

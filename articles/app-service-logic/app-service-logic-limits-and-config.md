@@ -65,7 +65,7 @@ Estes são os limites de execução de um único aplicativo lógico.
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Itens ForEach|10\.000|Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário|
+|Itens ForEach|5\.000|Você pode usar a [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme o necessário|
 |Iterações Until|10\.000||
 |Itens SplitOn|10\.000||
 |Paralelismo de ForEach|20|Você pode definir um foreach sequencial adicionando `"operationOptions": "Sequential"` à ação `foreach`|
@@ -134,4 +134,4 @@ Chamadas feitas diretamente de um aplicativo lógico (isto é, por meio de [HTTP
 - [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

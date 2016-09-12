@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -85,6 +85,8 @@ Há alguns benefícios em usar os novos kernels.
 	| excluir | `%%delete -f -s <session number>` | Exclui uma sessão específica do ponto de extremidade atual do Livy. Observe que você não pode excluir a sessão iniciada para o próprio kernel. |
 	| limpeza | `%%cleanup -f` | Exclui todas as sessões do ponto de extremidade atual do Livy, incluindo a sessão deste notebook. O sinalizador de força -f é obrigatório. |
 
+	>[AZURE.NOTE] Além das mágicas adicionadas pelo kernel PySpark, você também pode usar as [mágicas internas de IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Você pode usar a mágica `%%sh` para executar scripts e bloco de código no nó principal do cluster.
+
 3. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas Hive e SQL. Você tem a opção de escolher entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
 
 ## Parâmetros compatíveis com a mágica de %%sql
@@ -124,7 +126,7 @@ Quando você abrir um notebook Jupyter, verá duas pastas disponíveis no nível
 * A pasta **PySpark** tem notebooks de exemplo que usam o novo kernel **Python**.
 * A pasta **Scala** tem notebooks de amostra que usam o novo kernel **Spark**.
 
-Você pode abrir o notebook **00 - [LEIA-ME PRIMEIRO] Recursos do kernel mágico do Spark** da pasta **PySpark** ou **Spark** para saber mais sobre os diferentes comandos mágicos disponíveis. Você também pode usar outros notebooks de exemplo disponíveis nas duas pastas para saber como obter diferentes cenários usando notebooks Jupyter com clusters Spark HDInsight.
+Você pode abrir o notebook **00 – [LEIA-ME PRIMEIRO] Recursos do kernel mágico do Spark** da pasta **PySpark** ou **Spark** para saber mais sobre os diferentes comandos mágicos disponíveis. Você também pode usar outros notebooks de exemplo disponíveis nas duas pastas para saber como obter diferentes cenários usando notebooks Jupyter com clusters Spark HDInsight.
 
 ## Onde os blocos de anotações são armazenados?
 
@@ -188,4 +190,4 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

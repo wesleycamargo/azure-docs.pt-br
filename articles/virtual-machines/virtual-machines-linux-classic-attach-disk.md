@@ -81,14 +81,14 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 5. Quando solicitado, digite **p** para definir a partição como primária. Digite **1** para torná-la a primeira partição e digite enter para aceitar o valor padrão para o cilindro. Em alguns sistemas, ele pode mostrar os valores padrão do primeiro e último setores, em vez do cilindro. Você pode optar por aceitar esses padrões.
 
 
-	![Criar partição](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Criar partição](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Digite **p** para ver os detalhes sobre o disco que está sendo particionado.
 
 
-	![Listar informações de disco](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Listar informações de disco](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -152,9 +152,9 @@ Você pode anexar tanto discos vazios como discos que contenham dados às suas V
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas, será necessário inseri-las separadamente em/etc/fstab também.
+	Se o comando `mount` produzir um erro, verifique se o arquivo /etc/fstab tem a sintaxe correta. Se as partições ou unidades de dados adicionais forem criadas, insira-as separadamente em/etc/fstab também.
 
-	Você precisa tornar a unidade gravável usando esse comando:
+	Torne a unidade gravável usando este comando:
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

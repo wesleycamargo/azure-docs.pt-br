@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia" 
+	pageTitle="Publicar conteúdo dos Serviços de Mídia do Azure usando o REST" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. O código usa a API REST." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Como fornecer conteúdo de Streaming
+# Publicar conteúdo dos Serviços de Mídia do Azure usando o REST
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish.md)
 
 ##Visão geral
 
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador.
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador.
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e criar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
 
 A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.
   
@@ -187,8 +187,8 @@ exemplo:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Consulte também
+##Confira também
 
 [Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -53,9 +53,9 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		info:    network route-table create command OK
 
 	Parâmetros:
-	- **-g (ou --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
-	- **-l (ou --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
-	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
+	- **-g (ou --resource-group)**. Nome do grupo de recursos em que a UDR será criada. Para o nosso cenário, *TestRG*.
+	- **-l (ou --location)**. Região do Azure em que a nova UDR será criada. Para o nosso cenário, *westus*.
+	- **-n (or --name)**. Nome da nova UDR. Para nosso cenário, *UDR-FrontEnd*.
 
 4. Execute o comando **`azure network route-table route create`** para criar uma rota na tabela de rotas criada acima para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4).
 
@@ -199,4 +199,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, siga as etapas a
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

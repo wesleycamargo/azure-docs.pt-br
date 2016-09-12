@@ -21,6 +21,14 @@ Este artigo responde a algumas perguntas frequentes sobre os Serviços de Nuvem 
 
 ## Certificados
 
+### Onde devo instalar o certificado?
+
+- **Meu** Certificado de Aplicativo com chave privada (*.pfx, *.p12).
+
+- **AC** Todos os certificados intermediários ficam neste repositório (política e Sub ACs).
+
+- **RAIZ** O repositório de AC raiz, para que seu certificado de AC raiz seja inserido aqui.
+
 ### Não é possível remover o certificado expirado
 
 Azure impede a remoção de um certificado enquanto ele está em uso. É necessário excluir a implantação que usa o certificado ou atualizá-la com um certificado diferente ou renovado.
@@ -35,19 +43,13 @@ Esses certificados são criados sempre que uma extensão é adicionada ao servi�
 
 ### Certificados que excluí continuam reaparecendo
 
-Estes certificados continuam sendo excluídos provavelmente devido a uma ferramenta que você está usando, como o Visual Studio. Sempre que você se reconectar com uma ferramenta que está usando um certificado, ele será carregado novamente no Azure.
+Eles continuam reaparecendo muito provavelmente devido a uma ferramenta que você está usando, como o Visual Studio. Sempre que você se reconectar com uma ferramenta que está usando um certificado, ele será carregado novamente no Azure.
 
 ### Meus certificados continuam desaparecendo
 
 Quando a instância de máquina virtual for reciclada, todas as alterações locais serão perdidas. Use um [tarefa de inicialização](cloud-services-startup-tasks.md) para instalar certificados na máquina virtual sempre que a função for iniciada.
 
-### Onde devo instalar o certificado?
 
-**Meu** Certificado de Aplicativo com chave privada (*.pfx, *.p12).
-
-**AC** Todos os certificados intermediários ficam neste repositório (política e Sub ACs).
-
-**RAIZ** O repositório de AC raiz, para que seu certificado de AC raiz seja inserido aqui.
 
 ## Solucionar problemas
 
@@ -55,4 +57,4 @@ Quando a instância de máquina virtual for reciclada, todas as alterações loc
 
 Primeiro, certifique-se de que a instância de máquina virtual que você está tentando reservar o IP esteja ativada. Segundo, certifique-se de que você esteja usando IPs reservados para as implantações de preparo e produção. **Não** altere as configurações enquanto a implantação é atualizada.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

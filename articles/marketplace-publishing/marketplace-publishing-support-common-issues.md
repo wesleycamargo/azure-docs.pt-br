@@ -29,7 +29,7 @@ O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um 
 
   ![1\_RequestRefund][1]
 
-  1. Navegue até as páginas de suporte.
+  1. Navegue até as páginas de suporte aqui: [https://support.microsoft.com/pt-BR/getsupport?tenant=ClassicCommercial&locale=pt-BR&supportregion=pt-BR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/pt-BR/getsupport?tenant=ClassicCommercial&locale=pt-BR&supportregion=pt-BR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. Na caixa **Tipo de problema** selecione **Gerenciando Clientes**.
   3. Na caixa **Categoria**, selecione **Aprovar ou solicitar reembolso de um cliente**.
   4. Clique em **Iniciar solicitação**.
@@ -120,4 +120,4 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

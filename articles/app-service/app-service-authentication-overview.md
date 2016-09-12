@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/29/2016"
 	ms.author="mahender"/>
 
 # Autenticação e autorização no Serviço de Aplicativo do Azure
@@ -26,7 +26,7 @@ O Serviço de Aplicativo usa uma identidade federada, na qual um provedor de ide
 
 Se você deseja começar agora mesmo, veja um dos seguintes tutoriais:
 
-- [Adicionar autenticação ao aplicativo iOS][iOS] \(ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova])
+- [Adicionar autenticação ao aplicativo iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova])
 - [Autenticação de usuário para Aplicativos de API no Serviço de Aplicativo do Azure][apia-user]
 - [Introdução ao Serviço de Aplicativo do Azure - parte 2][web-getstarted]
 
@@ -139,6 +139,18 @@ Use os recursos a seguir se quiser usar o fluxo direcionado ao cliente para o Az
 - [Use a Biblioteca de Autenticação do Active Directory para Android][ADAL-Android]
 - [Use a Biblioteca de Autenticação do Active Directory para Windows e Xamarin][ADAL-dotnet]
 
+Use os recursos a seguir se quiser usar o fluxo direcionado ao cliente para o Facebook:
+
+- [Usar o SDK do Facebook para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
+
+Use os recursos a seguir se quiser usar o fluxo direcionado ao cliente para o Twitter:
+
+- [Usar o Twitter Fabric para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Use os recursos a seguir se quiser usar o fluxo direcionado ao cliente para o Google:
+
+- [Usar o SDK de logon do Google para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
+
 ### Aplicativos de API
 Os tutoriais a seguir mostram como proteger seus aplicativos de API:
 
@@ -178,4 +190,4 @@ Os tutoriais a seguir mostram como proteger seus aplicativos de API:
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

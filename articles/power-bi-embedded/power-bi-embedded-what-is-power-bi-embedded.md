@@ -26,7 +26,7 @@ O **Power BI Embedded** é um serviço do Azure que permite que ISVs e desenvolv
 
 ## Licenciamento do Microsoft Power BI Embedded
 
-No modelo de uso do **Microsoft Power BI Embedded**, o licenciamento para o Power BI não é de responsabilidade do usuário final. Em vez disso, **renderizações** são compradas pelo desenvolvedor do aplicativo que está consumindo os elementos visuais e são cobradas da assinatura que tem tais recursos.
+No modelo de uso do **Microsoft Power BI Embedded**, o licenciamento para o Power BI não é de responsabilidade do usuário final. Em vez disso, **renderizações** são compradas pelo desenvolvedor do aplicativo que está consumindo os elementos visuais e são cobradas da assinatura proprietária de tais recursos.
 
 ## Modelo Conceitual do Microsoft Power BI Embedded
 
@@ -55,33 +55,20 @@ Conjuntos de dados armazenados em cache podem ser usados em Preview. No entanto,
 
 ## Autenticação e autorização com tokens de aplicativo
 
-O **Microsoft Power BI Embedded** transfere para o seu aplicativo para executar toda a autorização e autenticação de usuário necessárias. Não há nenhum requisito explícito de que os usuários finais sejam os clientes do Azure Active Directory (Azure AD). Em vez disso, o aplicativo dará autorização expressa para renderizar um relatório do Power BI para o **Microsoft Power BI Embedded** via **Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)**. Esses **Tokens de Aplicativo** são criados conforme necessário, quando seu aplicativo deseja renderizar um relatório. Consulte [Tokens de Aplicativo](power-bi-embedded-get-started-sample.md#key-flow).
+O **Microsoft Power BI Embedded** transfere para o seu aplicativo para executar toda a autorização e autenticação de usuário necessárias. Não há nenhum requisito explícito de que os usuários finais sejam os clientes do Azure Active Directory (Azure AD). Em vez disso, o aplicativo dá ao **Microsoft Power BI Embedded** autorização expressa para renderizar um relatório do Power BI pelo uso de **Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)**. Esses **Tokens de Aplicativo** são criados conforme necessário, quando seu aplicativo deseja renderizar um relatório. Consulte [Tokens de Aplicativo](power-bi-embedded-get-started-sample.md#key-flow).
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
 
-### Tokens de Autenticação de Aplicativo
-
 **Tokens de Autenticação de Aplicativo (Tokens de Aplicativo)** são usados para autenticação com o **Microsoft Power BI Embedded**. Há três tipos de **Tokens de Aplicativo**:
 
-1.	Tokens de Provisionamento - usados ao provisionar um novo **Espaço de Trabalho** em uma **Coleção de Espaços de Trabalho**
-2.	Tokens de Desenvolvimento - usados ao fazer chamadas diretamente para as **APIs REST do Power BI**
+1.	Tokens de Provisionamento – Usados ao provisionar um novo **Espaço de Trabalho** em uma **Coleção de Espaços de Trabalho**
+2.	Tokens de Desenvolvimento – Usados ao fazer chamadas diretamente para as **APIs REST do Power BI**
 3.	Tokens de Inserção - usados ao fazer chamadas para renderizar um relatório no iframe inserido
 
-Esses tokens são usados para as várias fases de suas interações com **Microsoft Power BI Embedded**. Os tokens são projetados para que você possa delegar permissões do seu aplicativo para o Power BI.
-
-### Geração de Tokens de Aplicativo
-
-Os SDKs fornecidos para a Preview permitem que você gere tokens. Primeiro, chame um dos métodos Create\_\_\_Token(). Em segundo lugar, chame o método Generate() com a chave de acesso recuperada da **Coleção de Espaços de Trabalho**. Os métodos Create básicos para tokens são definidos na classe Microsoft.PowerBI.Security.PowerBIToken e são conforme demonstrado a seguir:
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken](https://msdn.microsoft.com/library/mt710366.aspx)
-
-Para um exemplo de como usar [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) e [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), consulte [Introdução ao código de exemplo do Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md).
-
+Esses tokens são usados para as várias fases de suas interações com **Microsoft Power BI Embedded**. Os tokens são projetados para que você possa delegar permissões do seu aplicativo para o Power BI. Para obter mais informações, consulte o [Fluxo de Tokens de Aplicativo](power-bi-embedded-app-token-flow.md).
 
 ## Consulte também
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

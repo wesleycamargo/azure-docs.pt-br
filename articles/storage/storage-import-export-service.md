@@ -40,7 +40,6 @@ Você pode usar esse serviço em cenários como:
 - Backup: fazer backups dos seus dados locais para guardar no armazenamento de blobs do Azure.
 - Recuperação de dados: recuperar uma grande quantidade de dados guardados no armazenamento de blobs e enviá-los para seu local.
 
-
 ## Pré-requisitos
 
 Nesta seção, listamos os pré-requisitos necessários para usar este serviço. Examine-os cuidadosamente antes de enviar suas unidades.
@@ -401,9 +400,12 @@ Leia a seção de perguntas frequentes abaixo, que abrange as perguntas mais com
 
 ## Perguntas frequentes ##
 
+
 **Quanto tempo levará para copiar meus dados após a unidade atingir o data center?**
 
 O tempo para copiar varia de acordo com diversos fatores, como tipo de trabalho, tipo e tamanho dos dados sendo copiados, tamanho dos discos fornecidos e carga de trabalho existente. Ele pode variar de alguns dias para duas semanas, dependendo desses fatores. Portanto, é difícil fornecer uma estimativa geral. O serviço tenta otimizar seu trabalho copiando várias unidades em paralelo quando possível. Se tiver um trabalho de importação/exportação de tempo crítico, entre em contato conosco para obter uma estimativa.
+
+**Quando devo usar o serviço Importação/Exportação do Azure?** A Importação/Exportação do Azure deverá ser considerada para uso se o carregamento ou o download pela rede levar mais do que a estimativa de sete dias. Você pode calcular quanto tempo levará usando qualquer calculadora online ou [baixando](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) a que está localizada em nossa amostra da API REST da Importação/Exportação do Azure, no repositório de exemplos do Azure na [Calculadora de Velocidade de Transferência de Dados](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). Este não é um cálculo exato, mas apenas uma indicação aproximada.
 
 **Posso usar o serviço de Importação/Exportação do Azure com uma conta de armazenamento do Gerenciador de Recursos?**
 
@@ -413,9 +415,9 @@ Não, não é possível copiar os dados para ou a partir de uma conta de armazen
 
 Não, o serviço de Importação/Exportação do Azure só dá suporte a Blobs de Bloco e Blobs de Página. Todos os outros tipos de armazenamento incluindo os Arquivos do Azure, Tabelas e Filas não têm suporte.
 
-**O serviço de Importação/Exportação do Azure está disponível para as assinaturas CSP?**
+**O serviço de Importação/Exportação do Azure está disponível para as assinaturas de CSP?**
 
-Não, o serviço de Importação/Exportação do Azure não dá suporte a assinaturas CSP. O suporte será adicionado no futuro.
+Não, o serviço de Importação/Exportação do Azure não dá suporte a assinaturas de CSP. O suporte será adicionado no futuro.
 
 **Posso ignorar a etapa de preparação da unidade para um trabalho de importação ou posso me preparar uma unidade sem copiar?**
 
@@ -423,7 +425,7 @@ Qualquer unidade que você deseja enviar para importar os dados deve ser prepara
 
 **É necessário executar alguma preparação de disco ao criar um trabalho de exportação?**
 
-Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
+Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, confira [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
 
 **O que acontecerá se eu enviar por engano uma unidade de disco rígido que não esteja em conformidade com os requisitos com suporte?**
 
@@ -461,7 +463,7 @@ Ao preparar um disco rígido para um trabalho de importação, o destino será e
 
 Ao preparar a unidade, você pode especificar se os arquivos de destino devem ser substituídos ou ignorados usando o parâmetro denominado /Disposition:<rename|no-overwrite|overwrite>. Por padrão, o serviço irá renomear os novos arquivos em vez de substituir os blobs existentes.
 
-**A ferramenta do cliente de Importação/Exportação do Azure é compatível com os sistemas operacionais de 32 bits?** Não. A ferramenta do cliente só é compatível com os sistemas operacionais Windows de 64 bits. Consulte a seção Sistemas Operacionais em [pré-requisitos](#pre-requisites) para obter uma lista completa de versões do sistema operacional com suporte.
+**A ferramenta do cliente de Importação/Exportação do Azure é compatível com os sistemas operacionais de 32 bits?** Não. A ferramenta do cliente só é compatível com os sistemas operacionais Windows de 64 bits. Confira a seção Sistemas Operacionais em [pré-requisitos](#pre-requisites) para obter uma lista completa de versões do sistema operacional com suporte.
 
 **Devo incluir algo diferente de unidade de disco rígido no meu pacote?**
 
@@ -475,7 +477,7 @@ Você pode enviar as unidades para o data center usando qualquer transportadora 
 
 Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
-**Ao criar um trabalho, o endereço de envio será uma localização diferente da minha localização da conta de armazenamento. O que devo fazer?**
+**Ao criar um trabalho, o endereço de envio será uma localização diferente da localização da minha conta de armazenamento. O que devo fazer?**
 
 Alguns locais de armazenamento de conta são mapeados para os locais de entrega alternativos. Locais de envio disponíveis anteriormente também podem ser temporariamente mapeados para locais alternativos. Sempre verifique o endereço de envio fornecido durante a criação do trabalho antes de enviar suas unidades.
 
@@ -489,11 +491,11 @@ O número de telefone é fornecido a você durante a criação do trabalho. Se v
 
 **Posso usar o serviço de Importação/Exportação do Azure para copiar os dados do SharePoint e as caixas de correio PST para O365?**
 
-Consulte [Importar arquivos PST ou dados do SharePoint para o Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Confira [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx) (Importar arquivos PST ou dados do SharePoint para o Office 365).
 
 **Posso usar o serviço de Importação/Exportação do Azure para copiar meus backups offline para o Serviço de Backup do Azure?**
 
-Consulte o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
+Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/backup-azure-backup-import-export.md).
 
 ## Consulte também:
 
@@ -501,4 +503,6 @@ Consulte o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/ba
 
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+- [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+
+<!---HONumber=AcomDC_0831_2016-->

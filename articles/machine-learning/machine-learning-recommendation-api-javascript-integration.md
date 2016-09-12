@@ -3,7 +3,7 @@
 	description="Recomendações do Aprendizado da Máquina do Azure - Integração do JavaScript - documentação" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 # Recomendações do Aprendizado da Máquina do Azure - Integração do JavaScript
+
+> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
+
 
 Este documento descreve como integrar seu site usando o JavaScript. O JavaScript permite enviar eventos de Aquisição de Dados e usar as recomendações assim que você cria um modelo de recomendação. Todas as operações realizadas via JS também podem ser feitas do lado do servidor.
 
@@ -133,8 +136,7 @@ Ou com dados opcionais:
 
 
 ####3\.2.3. Evento Adicionar ao Carrinho de Compras
-Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. 
-Parâmetros:
+Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. Parâmetros:
 * evento (cadeia de caracteres, obrigatória) – “addshopcart”
 * item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
 * itemName (cadeia de caracteres, opcional) – o nome do item
@@ -166,8 +168,7 @@ Esse evento deve ser usado quando o usuário comprou o carrinho de compras.
 
 Parâmetros:
 * evento (cadeia de caracteres) – “adquirir”
-* itens (adquiridos[] ) – A matriz que contém uma entrada para cada item adquirido.<br><br>
-Formato adquirido:
+* itens (adquiridos) – A matriz que contém uma entrada para cada item adquirido.<br><br> Formato adquirido:
 	* item (cadeia de caracteres) - Identificador exclusivo do item.
 	* contagem (int ou cadeia de caracteres) – número de itens que foram adquiridos.
 	* preço (flutuante ou cadeia de caracteres) – campo opcional – o preço do item.
@@ -186,11 +187,7 @@ Esse evento deve ser usado após o logon do usuário em seu site.
 
 Parâmetros:
 * evento (cadeia de caracteres) – “userlogin”
-* usuário (cadeia de caracteres) – identificação exclusiva do usuário.
-		<script>
-			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
-		</script>
+* usuário (cadeia de caracteres) – identificação exclusiva do usuário. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
 
 ##4\. Usar Recomendações via JavaScript
 O código que usa a recomendação é inicializado por um evento JavaScript pela página da Web do cliente. A resposta de recomendação inclui as Ids dos itens recomendados, seus nomes e suas classificações. É melhor usar essa opção apenas para exibir uma lista dos itens recomendados – uma manipulação mais complexa (como adicionar os metadados do item) deve ser feita na integração no lado do servidor.
@@ -228,4 +225,4 @@ Exemplo: O código a seguir solicita oito recomendações para o item "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->

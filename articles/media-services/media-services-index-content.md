@@ -19,10 +19,6 @@
 
 # Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
-> [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
-
 
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.
 
@@ -31,9 +27,9 @@ O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arqui
 
 Um trabalho de indexação pode gerar as seguintes saídas:
 
-- Arquivos de legenda nos seguintes formatos: **SAMI**, **TTML** e **WebVTT**.
+- Arquivos de legenda oculta nos seguintes formatos: **SAMI**, **TTML** e **WebVTT**.
 
-	Arquivos de legenda incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
+	Arquivos de legenda oculta incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem. Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
 - Arquivo de palavra-chave (XML).
 - Áudio de indexação de arquivo de blob (AIB) para uso com o SQL Server.
 
@@ -153,8 +149,8 @@ Quando houver mais de um arquivo de mídia de entrada, o Indexador gerará um ar
 
 Nome do arquivo | Descrição
 ----------|------------
-__InputFileName.aib__ | Arquivo de blob de indexação de áudio. <br /><br />O arquivo de Blob de Indexação de Áudio (AIB) é um arquivo binário que pode ser pesquisado no Microsoft SQL Server usando a pesquisa de texto completa. O arquivo AIB é mais eficiente do que os arquivos de legenda simples, porque ele contém alternativas para cada palavra, permitindo uma experiência de pesquisa muito mais sofisticada. <br/><br/>Ele requer a instalação do complemento do indexador SQL em um computador que execute o Microsoft SQL Server 2008 ou posterior. Pesquisando o AIB usando a pesquisa de texto completa do Microsoft SQL Server fornece resultados da pesquisa mais precisos que pesquisando os arquivos de legenda codificada gerados pelo WAMI. Isso ocorre porque o AIB contém palavras alternativas que parecem familiares enquanto os arquivos de legenda codificados contêm a palavra com a confiança mais alta para cada segmento do áudio. Se a pesquisa de palavras faladas for de máxima importância, é recomendável usar o AIB em conjunto com o Microsoft SQL Server.<br/><br/> Para baixar o complemento, clique em <a href="http://aka.ms/indexersql">Complemento SQL do Indexador de Mídia do Azure</a>. <br/><br/>Também é possível utilizar outros mecanismos de pesquisa, como o Apache Lucene/Solr para simplesmente indexar o vídeo com base na legenda codificada e nos arquivos XML de palavra-chave, mas isso produzirá resultados de pesquisa menos precisos.
-__InputFileName.smi__<br />__InputFileName.ttml__<br />__InputFileName.vtt__ |Arquivos de Legenda Codificada (CC) nos formatos SAMI, TTML e WebVTT.<br/><br/>Eles podem ser usados para tornar os arquivos de áudio e de vídeo acessíveis às pessoas com deficiência auditiva.<br/><br/>Os arquivos de Legenda Codificada incluem uma marca chamada <b>Reconhecimento</b>, que pontua um trabalho de indexação com base na possibilidade de reconhecimento da fala no vídeo de origem. Você pode usar o valor de <b>Reconhecimento</b> para mostrar os arquivos de saída na tela e facilitar o uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
+__InputFileName.aib__ | Arquivo de blob de indexação de áudio. <br /><br />O arquivo de Blob de Indexação de Áudio (AIB) é um arquivo binário que pode ser pesquisado no Microsoft SQL Server usando a pesquisa de texto completa. O arquivo AIB é mais eficiente do que os arquivos de legenda simples, porque ele contém alternativas para cada palavra, permitindo uma experiência de pesquisa muito mais sofisticada. <br/><br/>Ele requer a instalação do complemento do indexador SQL em um computador que execute o Microsoft SQL Server 2008 ou posterior. Pesquisando o AIB usando a pesquisa de texto completa do Microsoft SQL Server fornece resultados da pesquisa mais precisos que pesquisando os arquivos de legenda oculta codificada gerados pelo WAMI. Isso ocorre porque o AIB contém palavras alternativas que parecem familiares enquanto os arquivos de legenda oculta codificados contêm a palavra com a confiança mais alta para cada segmento do áudio. Se a pesquisa de palavras faladas for de máxima importância, é recomendável usar o AIB em conjunto com o Microsoft SQL Server.<br/><br/> Para baixar o complemento, clique em <a href="http://aka.ms/indexersql">Complemento SQL do Indexador de Mídia do Azure</a>. <br/><br/>Também é possível utilizar outros mecanismos de pesquisa, como o Apache Lucene/Solr para simplesmente indexar o vídeo com base na legenda oculta e nos arquivos XML de palavra-chave, mas isso produzirá resultados de pesquisa menos precisos.
+__InputFileName.smi__<br />__InputFileName.ttml__<br />__InputFileName.vtt__ |Arquivos de Legenda Oculta (CC) nos formatos SAMI, TTML e WebVTT.<br/><br/>Eles podem ser usados para tornar os arquivos de áudio e de vídeo acessíveis às pessoas com deficiência auditiva.<br/><br/>Os arquivos de Legenda Oculta incluem uma marca chamada <b>Reconhecimento</b>, que pontua um trabalho de indexação com base na possibilidade de reconhecimento da fala no vídeo de origem. Você pode usar o valor de <b>Reconhecimento</b> para mostrar os arquivos de saída na tela e facilitar o uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
 __InputFileName.kw.xml<br />InputFileName.info__ |Arquivos de palavra-chave e de informações. <br/><br/>O arquivo de palavra-chave é um arquivo XML que contém as palavras-chave extraídas do conteúdo de fala, com frequência e informações de compensação. <br/><br/>Um arquivo de informações é um arquivo de texto sem formatação com informações completas sobre cada termo reconhecido. A primeira linha é especial e contém a pontuação de Reconhecimento. Cada linha subsequente é uma lista separada por tabulações dos seguintes dados: hora de início, hora de término, palavra/frase, confiança. Os tempos são fornecidos em segundos, e a confiança é fornecida como um número de 0 a 1. <br/><br/>Exemplo de linha: "1.20 1.45 word 0.67" <br/><br/>Esses arquivos podem ser usados para várias finalidades, por exemplo, para a execução da análise de fala ou exposição aos mecanismos de pesquisa como Bing, Google ou Microsoft SharePoint, a fim de tornar os arquivos de mídia mais detectáveis, ou até mesmo usados para entregar anúncios mais relevantes.
 __JobResult.txt__ |Manifesto de saída, presente apenas durante a indexação de vários arquivos, contendo as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
 
@@ -298,4 +294,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 
 [Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

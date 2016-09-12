@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="05/22/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 
@@ -265,13 +265,13 @@ Ao criar um trabalho em lotes para o ponto de extremidade de serviço de Aprendi
 
 * **Input**: representa uma referência de blob na qual a entrada do trabalho em lotes é armazenada.
 * **GlobalParameters**: representa o conjunto de parâmetros globais que você pode definir para o experimento. Um experimento de Aprendizado de Máquina do Azure pode ter parâmetros obrigatórios e opcionais que personalizam a execução do serviço, e o chamador deve fornecer todos os parâmetros obrigatórios se aplicável. Esses parâmetros são especificados como uma coleção de pares chave-valor.
-* **Outputs**: se o serviço tiver definido uma ou mais saídas, o chamador poderá redirecionar qualquer uma delas para um local de blob do Azure. Isso permite salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente. 
+* **Outputs**: se o serviço tiver definido uma ou mais saídas, o chamador poderá redirecionar qualquer uma delas para um local de blob do Azure. Isso permite salvar as saídas do serviço em um local preferencial e com um nome previsível, caso contrário, o nome de blob de saída é gerado aleatoriamente.
 
     Observe que o serviço espera que o conteúdo de saída, de acordo com o tipo, sejam salvos como formatos com suporte:
   - saídas de conjuntos de dados: podem ser salvas como **.csv, .tsv, .arff**
   - saídas de modelos treinados: podem ser salvas como **.ilearner**
 
-  As substituições de local de saída são especificadas como uma coleção de pares de *<output name  blob reference>*, em que o *nome de saída* é o nome definido pelo usuário para um nó de saída específico (também mostrado na página de Ajuda da API do serviço) e a *referência de blob* é uma referência a um local de blob do Azure para o qual a saída dever ser redirecionada.
+  As substituições de local de saída são especificadas como uma coleção de pares de *<nome da saída, referência de blob>*, em que o *nome de saída* é o nome definido pelo usuário para um nó de saída específico (também mostrado na página de Ajuda da API do serviço) e a *referência de blob* é uma referência a um local de blob do Azure para o qual a saída dever ser redirecionada.
 
 Todos esses parâmetros de criação de trabalho podem ser opcionais, dependendo da natureza do serviço. Por exemplo, serviços os sem um nó de entrada definido não exigem a passagem em um parâmetro *Input*. Da mesma forma, o recurso de substituição de local de saída é totalmente opcional, caso contrário, as saídas serão armazenadas na conta de armazenamento padrão configurada para o espaço de trabalho do Aprendizado de Máquina do Azure. A seguir, mostramos uma carga de solicitação de exemplo, conforme passada à API REST, de um serviço em que apenas as informações de entrada são fornecidas:
 
@@ -685,4 +685,4 @@ Agora você pode usar todas as ferramentas do swagger. Aqui estão as instruçõ
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -36,11 +36,11 @@ Para os serviços disponíveis por meio do Resource Health, há duas maneiras de
 A folha Integridade de recursos no Portal do Azure fornece informações detalhadas sobre a integridade do recurso, bem como ações recomendadas, que variam dependendo da integridade atual do recurso. Essa folha fornece a melhor experiência ao se consultar o Resource Health, pois facilita o acesso a outros recursos no portal. Como mencionado anteriormente, o conjunto de ações recomendadas na folha Integridade de recursos varia com base na integridade atual:
 
 * Recursos íntegros: como não foi detectado nenhum problema que possa afetar a integridade do recurso, as ações são voltadas para ajudar no processo de solução de problemas. Por exemplo, fornece acesso direto à folha Solução de problemas, que oferece orientação sobre como resolver os mais problemas comuns enfrentados pelos clientes.
-* Recurso não íntegro: para problemas causados pelo Azure, a folha exibirá ações que a Microsoft está executando (ou executou) para recuperar o recurso. Para problemas causados por ações iniciadas pelo usuário, a folha mostrará uma lista de clientes de ações que os clientes podem executar para solucionar o problema e recuperar o recurso.  
+* Recurso não íntegro: para problemas causados pelo Azure, a folha exibirá ações que a Microsoft está executando (ou executou) para recuperar o recurso. Para problemas causados por ações iniciadas pelo usuário, a folha mostrará uma lista de clientes de ações que os clientes podem executar para solucionar o problema e recuperar o recurso.
 
 Após fazer logon no Portal do Azure, há duas maneiras de acessar a folha Integridade de recursos:
 
-####Abrir a folha Recursos
+###Abrir a folha Recursos
 Abra a folha Recursos de um recurso específico. Na folha Configurações aberta ao lado da folha Recursos, clique em Integridade de Recursos para abrir a folha Integridade de recursos.
 
 ![Folha Integridade de recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -52,36 +52,11 @@ Abra a folha Ajuda e Suporte clicando no ponto de interrogação no canto superi
 
 ![Ajuda + suporte](./media/resource-health-overview/HelpAndSupport.png)
 
-Clicar no bloco abrirá a folha de assinatura de Integridade de recursos, que lista todos os recursos em sua assinatura. Ao lado de cada recurso, há um ícone que indica sua integridade. Clicar em cada recurso abrirá a folha Integridade de recursos.
+Clicar no bloco abre a folha de assinatura de Integridade de recursos, que lista todos os recursos em sua assinatura. Ao lado de cada recurso, há um ícone que indica sua integridade. Clicar em cada recurso abrirá a folha Integridade de recursos.
 
 **Bloco de integridade de recursos**
 
 ![Bloco Integridade de recursos](./media/resource-health-overview/resourceHealthTile.png)
-
-### API de integridade de recursos
-Além da experiência do Portal do Azure, também há um conjunto de APIs que pode ser usado para consultar o Resource Health. As APIs disponíveis permitem que os usuários solicitem a integridade atual de todos os recursos em uma assinatura, todos os recursos em um grupo de recursos ou a integridade de um único recurso.
-
-Outra API permite que os usuários solicitem a integridade histórica de um único recurso. A resposta é uma coleção de estados de integridade do Resource dos últimos 14 dias. Caso o recurso possa ter sido afetado por uma interrupção declarada, o estado da integridade incluirá uma anotação chamada serviceImpactingEvents, com mais detalhes sobre a interrupção.
-
-Antes de usar a API para consultar o Resource Health, a assinatura deve ser registrada no serviço com o envio de uma solicitação POST à seguinte URL: volume
- 
-        //Register the subscription with the Resource health resource provider
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
-        
-A seguir estão exemplos de como chamar a API do Resource Health
-
-        // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-        
-        //GET the health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
-        
-        //GET the historical health of a single resource:
-        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
-
 
 ## O que significa o status de integridade do recurso?
 Há quatro status de integridade diferentes que você pode ver para o recurso.
@@ -95,9 +70,9 @@ O serviço não detectou problemas na plataforma que possam afetar a disponibili
 
 Nesse caso, o serviço detectou um problema contínuo na plataforma que está afetando a disponibilidade deste recurso; por exemplo, o nó em que a VM está em execução foi reiniciado inesperadamente. Isso é indicado por um ícone de aviso vermelho. Informações adicionais sobre o problema são fornecidas na seção no meio da folha, incluindo:
 
-1.	As ações que a Microsoft está executando para recuperar o recurso 
+1.	As ações que a Microsoft está executando para recuperar o recurso
 2.	Uma linha do tempo detalhada do problema, incluindo o tempo de resolução esperado
-3.	Uma lista de ações recomendadas para usuários 
+3.	Uma lista de ações recomendadas para usuários
 
 ![O recurso não está disponível](./media/resource-health-overview/Unavailable.png)
 
@@ -132,4 +107,4 @@ O Resource Health relata o status do banco de dados SQL, não do SQL Server. Emb
 ## Comentários
 Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

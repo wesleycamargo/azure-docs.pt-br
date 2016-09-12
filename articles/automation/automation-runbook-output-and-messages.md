@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
 # Saída e mensagens do runbook na Automação do Azure
@@ -48,30 +48,43 @@ Considere os cenários de exemplo a seguir.
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 O fluxo de saída para o trabalho de runbook deveria ser:
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 O fluxo detalhado para o trabalho de runbook deveria ser:
 
 	Verbose outside of function
 	Verbose inside of function
 
+Uma vez publicado o runbook e antes de começar, você também deve ativar log Detalhado nas configurações de runbook para obter a saída de fluxo Detalhada.
+
 ### Declarando o tipo de dados de saída
 
 Um fluxo de trabalho pode especificar o tipo de dados de sua saída usando o [atributo OutputType](http://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito em tempo de execução, mas oferece uma indicação para o autor do runbook no tempo de design da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, a importância de declarar tipos de dados de saída em tempo de design aumentará. Como resultado, é uma prática recomendada incluir essa declaração em todos os runbooks criados.
 
+Veja uma lista de tipos de saída de exemplo:
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui uma declaração de seu tipo de saída. Se seu runbook gerar uma matriz de um determinado tipo, você ainda deverá especificar o tipo como oposto a uma matriz do tipo.
 
 	Workflow Test-Runbook
@@ -81,6 +94,25 @@ O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui um
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
+
+Para declarar um tipo de saída em runbooks Gráficos ou de Fluxo de Trabalho Gráfico do PowerShell, você poderá selecionar a opção de menu **Entrada e Saída** e digitar o nome do tipo de saída. Recomendamos que você use o nome completo da classe .NET para torná-la facilmente identificável ao fazer referência a ela de um runbook pai. Isso expõe todas as propriedades da classe para o barramento de dados no runbook e oferece muita flexibilidade ao usá-los para a lógica condicional, registro em log e referenciamento como valores de outras atividades no runbook.<br> ![Opção Entrada e Saída de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+No exemplo a seguir, temos dois runbooks gráficos para demonstrar esse recurso. Se aplicarmos o modelo de design modular do runbook, temos um runbook que serve como o *modelo de Autenticação do Runbook* que gerencia a autenticação com o Azure usando a conta Executar como. Nosso segundo runbook, que normalmente executaria a lógica principal para automatizar um determinado cenário, nesse caso executará o *modelo de Autenticação de Runbook* e exibirá os resultados para o painel de saída **Teste**. Sob circunstâncias normais, esse runbook teria de fazer algo em um recurso aproveitando a saída do runbook filho.
+
+Veja a lógica básica do runbook **AuthenticateTo-Azure**.<br> ![Exemplo de modelo de runbook de autenticação](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
+
+Ele inclui o tipo de saída *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, que retornará as propriedades de perfil de autenticação.<br> ![Exemplo de tipo de saída de runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+
+Embora esse runbook seja bastante direto, há um item de configuração para ressaltar aqui. A última atividade está executando o cmdlet **Write-Output** e grava os dados de perfil em uma variável $\_ usando uma expressão do PowerShell para o parâmetro **Inputobject**, que é necessário para esse cmdlet.
+
+Para o segundo runbook neste exemplo, chamado *Test-ChildOutputType*, nós simplesmente temos duas atividades.<br> ![Runbook de tipo de saída de exemplo filho](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+
+A primeira atividade chama o runbook **AuthenticateTo-Azure** e a segunda atividade está executando o cmdlet **Write-Verbose** com a **Fonte de dados** de **Saída de atividade** e o valor de **Caminho de campo** é **Context.Subscription.SubscriptionName**, que está especificando a saída de contexto do runbook **AuthenticateTo-Azure**.<br> ![Fonte de dados de parâmetro do cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+A saída resultante é o nome da assinatura.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+Uma observação sobre o comportamento do controle Tipo de Saída. Quando você digita um valor no campo Tipo de Saída na folha Propriedades de Entrada e Saída, precisa clicar fora do controle depois de digitá-lo, para que a entrada seja reconhecida pelo controle.
+
 
 ## Fluxos de mensagens
 
@@ -190,7 +222,7 @@ Na captura de tela acima, é possível ver que, ao habilitar o log Detalhado e o
 
 ## Próximas etapas
 
-- Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, consulte [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
+- Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 - Para entender como criar e usar runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

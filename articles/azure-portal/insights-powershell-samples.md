@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/30/2016"
 	ms.author="ashwink"/>
 
 # Exemplos de início rápido do PowerShell do Azure Insights
@@ -25,7 +25,7 @@ Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu
 
 ## Exemplos neste artigo
 
-Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Insights. Você também pode ver a lista completa de cmdlets (de monitoramento) do Azure Insights em [Cmdlets do Azure Insights](https://msdn.microsoft.com/library/mt282452.aspx).
+Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Insights. Você também pode ver a lista completa de cmdlets de PowerShell (monitoramento) do Azure Insights em [Cmdlets do Azure Insights](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 
 ## Conectar-se e usar assinaturas
@@ -384,4 +384,4 @@ Habilitar configuração de diagnóstico com retenção para uma categoria de lo
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure
@@ -48,11 +48,17 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 
 	![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Forneça o **Nome do novo banco de dados** para o banco de dados, defina a **Edição do Banco de Dados SQL do Microsoft Azure** [(camada de serviço)](sql-database-service-tiers.md), **Tamanho máximo do banco de dados**, **Objetivo de Serviço** (nível de desempenho) e **Nome do arquivo temporário** para o arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) criado por esse assistente durante o processo de migração.
+5.	Forneça as seguintes informações sobre o arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que este assistente cria durante o processo de migração:
 
-	![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+ - Especifique um novo **nome de banco de dados**
+ - A **Edição do Banco de Dados SQL do Microsoft Azure** ([camada de serviço](sql-database-service-tiers.md))
+ - O **Tamanho máximo do banco de dados**
+ - O **Objetivo de Serviço** (nível de desempenho)
+ - O **Nome de arquivo temporário**
 
-6.	Siga o assistente para migrar o banco de dados. Dependendo do tamanho e da complexidade do banco de dados, a implantação talvez demore de alguns minutos até algumas horas. Se este assistente detectar problemas de compatibilidade, os erros serão exibidos na tela e a migração não continuará. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md).
+    ![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+
+6.	Conclua o assistente. Dependendo do tamanho e da complexidade do banco de dados, a implantação talvez demore de alguns minutos até algumas horas. Se este assistente detectar problemas de compatibilidade, os erros serão exibidos na tela e a migração não continuará. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
 8.	Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
@@ -68,4 +74,4 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

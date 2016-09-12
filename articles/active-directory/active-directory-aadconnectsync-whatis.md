@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -37,7 +37,8 @@ Tópico | O que ele abrange e quando deve ser lido
 [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md)| Descreve as regras prontas e a configuração padrão. Também descreve como as regras trabalham juntas para que os cenários prontos funcionem.
 [Compreendendo usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continua do tópico anterior e descreve como a configuração para usuários e contatos funciona em conjunto, especialmente em um ambiente de várias florestas.
 [Como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md) | Explica como alterar uma configuração comum para fluxos de atributo.
-[Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Descreve em detalhes o funcionamento do modelo de configuração e a sintaxe para a linguagem de expressão.
+[Noções básicas sobre provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Descreve o modelo de configuração chamado provisionamento declarativo.
+[Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Descreve a sintaxe para a linguagem de expressão usada no provisionamento declarativo.
 [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Limitações de suporte e para fazer alterações na configuração de integração.
 [Configurar a filtragem](active-directory-aadconnectsync-configure-filtering.md) | Descreve as diferentes opções para limitar quais objetos serão sincronizados com o Azure AD e o passo a passo de como configurá-los.
 **Recursos e cenários** |
@@ -63,4 +64,4 @@ Tópico | O que ele abrange e quando deve ser lido
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

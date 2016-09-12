@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/26/2016"
 	ms.author="andkjell"/>
 
 
@@ -111,7 +111,7 @@ Alguns atributos no Active Directory são compostos de vários valores no esquem
 Nesta expressão, caso o atributo tenha um valor, podemos levar o primeiro item (Item) no atributo, remover espaços à direita e à esquerda (Trim, cortar) e, em seguida, manter os primeiros 448 caracteres (Left, à esquerda) na cadeia de caracteres.
 
 ### Não faça um atributo fluir
-Para obter informações sobre o cenário para esta seção, confira [Controlar o processo de fluxo de atributos](#control-the-attribute-flow-process).
+Para obter informações sobre o cenário para esta seção, confira [Controlar o processo de fluxo de atributos](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
 Há duas maneiras de não fazer um atributo fluir. A primeira está disponível no assistente de instalação e permite que você [remova os atributos selecionados](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Essa opção funciona se você nunca tiver sincronizado o atributo antes. No entanto, se você começou a sincronizar esse atributo e removê-lo mais tarde com esse recurso, o mecanismo de sincronização deixará de gerenciar o atributo e os valores existentes serão deixados no AD do Azure.
 
@@ -124,31 +124,9 @@ Na Fabrikam, percebemos que alguns dos atributos que sincronizamos para a nuvem 
 - Salve a Regra de Sincronização. Inicie o **Serviço de Sincronização**, localize o Conector, selecione **Executar** e **Sincronização Completa**. Esta etapa recalculará todos os fluxos de atributo.
 - Verifique se as alterações pretendidas estão prestes a ser exportadas pesquisando o espaço conector. ![Exclusão em etapas](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-## Conceito avançado
-
-### Controlar o processo de fluxo de atributos
-Quando várias regras de sincronização de entrada são configuradas para contribuir com o mesmo atributo de metaverso, a precedência é usada para determinar o vencedor. A regra de sincronização com precedência mais alta (valor numérico menor) contribuirá com o valor. O mesmo ocorre com as regras de saída. A regra de sincronização com a precedência mais alta vence e contribui com o valor para o diretório conectado.
-
-Em alguns casos, em vez de contribuir com um valor, a regra de sincronização deve determinar como as outras regras devem comportar-se. Há alguns literais especiais usados para esse caso.
-
-Para as Regras de Sincronização de entrada, o literal **NULL** pode ser usado para indicar que o fluxo não tem valores para contribuir. Outra regra com menor precedência pode contribuir com um valor. Se nenhuma regra contribuiu com um valor, o atributo metaverso é removido. Para uma regra de saída, se **NULL** for o valor final depois do processamento de todas as regras de sincronização, o valor será removido no diretório conectado.
-
-O literal **AuthoritativeNull** é semelhante a **NULL**, mas com a diferença de que nenhuma regra de precedência mais baixa pode contribuir com um valor.
-
-Um fluxo de atributos também pode usar **IgnoreThisFlow**. É semelhante a NULL no sentido de que indica que não há nada para contribuir. A diferença é que ele não remove um valor já existente no destino. É como se o fluxo de atributos nunca tivesse existido lá.
-
-Aqui está um exemplo:
-
-Em *Saída para AD – usuário Exchange híbrido* o fluxo a seguir pode ser encontrado: `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)` esta expressão deve ser lida como: se a caixa de correio do usuário estiver localizada no Azure AD, então, flua o atributo do Azure AD para o AD. Caso contrário, não flua nada de volta para o Active Directory. Neste caso, ele manteria o valor existente no AD.
-
-### ImportedValue
-A função ImportedValue é diferente de todas as outras funções, pois o nome do atributo deve ser colocado entre aspas, em vez de colchetes: `ImportedValue("proxyAddresses")`.
-
-Geralmente, durante a sincronização, um atributo usa o valor esperado, mesmo que ele ainda não tenha sido exportado ou que um erro tenha sido recebido durante a exportação ("topo da torre"). Uma sincronização de entrada presumirá que um atributo que ainda não atingiu um diretório conectado finalmente o atingirá. Em alguns casos, é importante sincronizar apenas um valor que foi confirmado pelo diretório conectado ("holograma e torre de importação delta").
-
-Um exemplo dessa função pode ser encontrado na Regra de Sincronização pronta para uso *Entrada do AD – Usuário Comum do Exchange*. No Exchange Híbrido, o valor adicionado pelo Exchange online só deve ser sincronizado quando confirmado que o valor foi exportado com êxito: `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
-
 ## Próximas etapas
+
+Saiba mais sobre [Provisionamento Declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md) e as opções disponíveis nas regras de sincronização.
 
 Saiba mais sobre as [Expressões de Provisionamento Declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) usadas para os fluxos de atributo.
 
@@ -156,4 +134,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

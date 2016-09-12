@@ -1,6 +1,6 @@
 <properties
    pageTitle="Monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos | Microsoft Azure"
-   description="Monitorar eventos e alertas a partir dos backups da máquina virtual implantados pelo Gerenciador de Recursos"
+   description="Monitorar eventos e alertas a partir dos backups da máquina virtual implantados pelo Resource Manager. Envie um email com base em alertas."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
+ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Monitorar alertas para os backups das máquinas virtuais do Azure
 
-Os alertas são respostas do serviço informando que um limite do evento foi atingido ou ultrapassado. Saber quando os problemas iniciam pode ser essencial para manter baixos os custos do negócio. Os alertas normalmente não ocorrem em um agendamento e é útil saber quando eles ocorrem. No painel do cofre, o bloco Alertas de Backup exibe os eventos nos níveis Crítico e Aviso. Nas configurações Alertas de Backup, você pode exibir todos os eventos. Mas o que fazer se um alerta ocorrer quando você estiver trabalhando em um problema separado? Se você não sabe quando o alerta ocorre, pode ser uma inconveniência secundária ou pode comprometer os dados. Para verificar se as pessoas corretas estão cientes de um alerta, quando ele ocorre, configure o serviço para enviar notificações de alerta por email. Para obter detalhes sobre como configurar as notificações por email, confira [Configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
+Os alertas são respostas do serviço informando que um limite do evento foi atingido ou ultrapassado. Saber quando os problemas iniciam pode ser essencial para manter baixos os custos do negócio. Os alertas normalmente não ocorrem em um agendamento e é útil saber assim que possível após sua ocorrência. Por exemplo, quando um trabalho de backup ou de restauração falha, um alerta ocorre em até cinco minutos após a falha. No painel do cofre, o bloco Alertas de Backup exibe os eventos nos níveis Crítico e Aviso. Nas configurações Alertas de Backup, você pode exibir todos os eventos. Mas o que fazer se um alerta ocorrer quando você estiver trabalhando em um problema separado? Se você não sabe quando o alerta ocorre, pode ser uma inconveniência secundária ou pode comprometer os dados. Para verificar se as pessoas corretas estão cientes de um alerta, quando ele ocorre, configure o serviço para enviar notificações de alerta por email. Para obter detalhes sobre como configurar as notificações por email, confira [Configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
+
+## Como localizar informações sobre os alertas?
 
 Para exibir informações sobre o evento que gerou um alerta, você deve abrir a folha Alertas de Backup. Há duas maneiras de abrir a folha Alertas de Backup: no bloco Alertas de Backup no painel do cofre ou na folha Alertas e Eventos.
 
@@ -72,6 +74,15 @@ Para configurar as notificações por email para alertas
 5. Na caixa de diálogo **Gravidade**, escolha um ou mais níveis que você deseja para disparar a notificação por email.
 
 6. Clique em **Salvar**.
+
+### Há situações em que o email não será enviado mesmo se as notificações estiverem configuradas?
+
+Há situações em que um alerta não é enviado, mesmo que as notificações tenham sido corretamente configuradas. Nas situações a seguir, não serão enviadas notificações por email:
+
+- Se as notificações forem configuradas como Resumo de Hora em Hora e se um alerta for gerado e resolvido em uma hora.
+- O Trabalho é cancelado.
+- Um trabalho de backup é disparado e falha e outro trabalho de backup está em andamento.
+- Um trabalho de backup agendado para uma VM habilitada para o Resource Manager, mas a VM não existe mais.
 
 ## Personalizar a exibição de eventos
 
@@ -220,4 +231,4 @@ Para obter uma explicação abrangente dos eventos, operações e os logs de aud
 
 Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

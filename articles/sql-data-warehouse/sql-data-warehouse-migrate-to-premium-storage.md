@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -47,9 +47,9 @@ Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenam
 | Centro-Sul dos Estados Unidos | 27 de maio de 2016 |
 | Sudeste Asiático | 24 de maio de 2016 |
 | Europa Ocidental | 25 de maio de 2016 |
-| Centro-Oeste dos EUA | Armazenamento Premium ainda não disponível |
+| Centro-Oeste dos EUA | 26 de agosto de 2016 |
 | Oeste dos EUA | 26 de maio de 2016 |
-| Oeste dos EUA 2 | Armazenamento Premium ainda não disponível |
+| Oeste dos EUA 2 | 26 de agosto de 2016 |
 
 ## Detalhes da migração automática
 Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local da sua região durante o [cronograma de migração automática][] abaixo. Seu Data Warehouse existente ficará inutilizável durante a migração. Estimamos que a migração levará cerca de uma hora por TB de armazenamento por Data Warehouse. Também vamos garantir que não haja cobrança durante nenhuma parte da migração automática.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Próximas etapas
-Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Caso você encontre problemas de desempenho, recomendamos que recrie seus Índices Columnstore Clusterizados usando o script a seguir. O script abaixo funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
+Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Para maximizar os benefícios de desempenho dessa mudança, recomendamos que recrie seus Índices Columnstore Clusterizados usando o script a seguir. O script abaixo funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
 
 **Pré-requisitos:**
 
@@ -147,42 +147,19 @@ Com a alteração para o Armazenamento Premium, também aumentamos o número de 
 -- Etapa 1: Criar Tabela para controlar a Recompilação do Índice
 -- Executar como usuário no mediumrc ou superior
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 -- Etapa 2: Executar Recompilações do Índice. Se o script falhar, é possível executar novamente para reiniciar onde o último parou
 -- Executar como usuário no mediumrc ou superior
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 -- Etapa 3: Limpar Tabela Criada na Etapa 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a possível causa.
 
@@ -205,7 +182,7 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 
 
 <!--Other Web references-->
-[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/pt-BR/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

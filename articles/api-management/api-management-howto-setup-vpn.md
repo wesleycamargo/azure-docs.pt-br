@@ -20,7 +20,7 @@
 
 O suporte a VPN do Gerenciamento de API permite que você conecte seu gateway de Gerenciamento de API a uma Rede Virtual do Azure (clássico). Isso permite que os clientes do Gerenciamento de API se conectem com segurança a seus serviços Web de back-end locais ou que não estão acessíveis para a Internet pública.
 
->[AZURE.NOTE] O Gerenciamento de API do Azure funciona com redes virtuais clássicas. Para obter informações sobre como criar uma VNET clássica, confira [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obter informações sobre como conectar redes virtuais clássicas a VNETs ARM, confira [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] O Gerenciamento de API do Azure funciona com redes virtuais clássicas. Para obter informações sobre como criar uma VNET clássica, confira [Criar uma rede virtual (clássica) usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obter informações sobre como conectar redes virtuais clássicas a VNETs ARM, confira [Conectando redes virtuais clássicas a novas redes virtuais](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="enable-vpn"> </a>Habilitar conexões VPN
 
@@ -62,6 +62,9 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | 6381, 6382, 6383 | Entrada/Saída | UDP | Dependências do Gerenciamento de API no Cache Redis | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
 | 445 | Saída | TCP | Dependência do Gerenciamento de API no Compartilhamento de Arquivos do Azure para GIT | VIRTUAL\_NETWORK/INTERNET |
 
+## <a name="custom-dns"> </a>Instalação de servidor DNS personalizado
+
+O Gerenciamento de API depende de uma série de serviços do Azure. Quando uma instância do serviço de Gerenciamento de API é hospedada em uma rede virtual em que um servidor DNS personalizado é usado, precisa ser capaz de resolver nomes de host dos serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração de DNS personalizada.
 
 ## <a name="related-content"> </a>Conteúdo relacionado
 
@@ -82,4 +85,4 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 [Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

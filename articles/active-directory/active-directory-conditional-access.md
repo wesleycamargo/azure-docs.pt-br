@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/17/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 
@@ -82,7 +82,7 @@ As políticas podem ser definidas com base nos seguintes requisitos:
 
 - **Dispositivos compatíveis** - você pode definir uma política para restringir o acesso a dispositivos marcados como **compatíveis** no diretório pelo sistema de gerenciamento. Essa política garante que apenas os dispositivos que atendam às políticas de segurança como imposição de criptografia de arquivos em um dispositivo tenham permissão para acesso. Essa política pode ser usada para restringir o acesso dos seguintes dispositivos:
 
-    - **Dispositivos com Windows ingressados no domínio** gerenciados pelo System Center Configuration Manager 2016 implantados em uma configuração híbrida.
+    - **Dispositivos com Windows ingressados no domínio** gerenciados pelo System Center Configuration Manager 2016 (branch atual) implantados em uma configuração híbrida.
 
     - **Dispositivos móveis pessoais ou de trabalho do Windows 10** que são gerenciados pelo Microsoft Intune ou por um sistema de MDM (gerenciamento de dispositivo móvel) de terceiros com suporte.
 
@@ -125,4 +125,4 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 - [Perguntas frequentes sobre acesso condicional](active-directory-conditional-faqs.md)
 - [Referência técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

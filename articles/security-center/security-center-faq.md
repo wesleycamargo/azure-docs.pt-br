@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/26/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -26,12 +26,16 @@ Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ### Como posso obter a Central de Segurança do Azure?
-A Central de Segurança do Azure vem habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**).
+A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). ([Entre no portal](https://portal.azure.com), selecione **Procurar** e role até a **Central de Segurança**).
 
 ## Cobrança
 
 ### Como funciona o faturamento para a Central de Segurança do Azure?
-Confira [Preços da Central de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/) para saber mais.
+A Central de Segurança é oferecida em duas camadas: Gratuita e Standard.
+
+A camada Gratuita permite definir políticas de segurança e receber alertas, incidentes e recomendações de segurança que orientam você durante o processo de configuração dos controles necessários. Com a camada Gratuita, você também pode monitorar o estado de segurança de seus recursos do Azure e de soluções de parceiros integradas com sua assinatura do Azure.
+
+A camada Standard oferece os recursos da camada Gratuita mais as detecções avançadas: inteligência de ameaças, análise comportamental, análise de falha e detecção de anomalias. Uma avaliação gratuita de 90 dias da camada Standard está disponível. Para atualizar, selecione Tipo de Preço na [política de segurança](security-center-policies.md#setting-security-policies-for-subscriptions). Consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para saber mais.
 
 ## Coleta de dados
 
@@ -39,12 +43,12 @@ A Central de Segurança coleta dados de suas máquinas virtuais para avaliar o e
 
 ### Como desabilitar a coleta de dados?
 
-Você pode desabilitar a **Coleta de dados** para uma assinatura na política de segurança a qualquer momento. ([Entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a **Coleta de dados**. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
+Você pode desabilitar a **Coleta de dados** para uma assinatura na política de Segurança a qualquer momento. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você selecionar uma assinatura, uma nova folha será aberta e fornecerá a opção de desativar a **Coleta de dados**. Selecione a opção **Excluir agentes** na faixa de opções para remover os agentes das máquinas virtuais existentes.
 
-> [AZURE.NOTE] As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você deve selecionar uma assinatura para desativar a coleta de dados.
+> [AZURE.NOTE] As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você precisa selecionar uma assinatura para desativar a coleta de dados.
 
 ### Como habilitar a coleta de dados?
-Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando a **Coleta de dados** estiver habilitada, ela coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
+Você pode habilitar a coleta de dados para suas assinaturas do Azure na política de segurança. Para habilitar a coleta de dados, [entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**. Defina a **coleta de dados** como **Ativada** e configure as contas de armazenamento onde você deseja que os dados sejam coletados (veja a pergunta “[Onde meus dados são armazenados?](#where-is-my-data-stored)”). Quando estiver habilitada, a **Coleta de dados** coletará automaticamente as informações de configuração e os eventos de segurança de todas as máquinas virtuais com suporte na assinatura.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da coleta de dados ocorre apenas no nível da assinatura.
 
@@ -55,7 +59,7 @@ A coleta de dados é habilitada por meio do agente de monitoramento do Azure e d
 O agente e a extensão consomem uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho.
 
 ### Onde meus dados são armazenados?
-Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no Portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para selecionar uma região.
+Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**). Quando você clica em uma assinatura, uma nova folha é aberta. Selecione **Escolher contas de armazenamento** para selecionar uma região.
 
 > [AZURE.NOTE] As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a seleção da região de sua conta de armazenamento ocorre apenas no nível da assinatura.
 
@@ -64,7 +68,7 @@ Para saber mais sobre as contas de armazenamento e o armazenamento do Azure, con
 ## Como usar a Central de Segurança do Azure
 
 ### O que é uma política de segurança?
-Uma política de segurança define o conjunto de controles que são recomendados para os recursos na assinatura ou grupo de recursos especificado. Na Central de Segurança do Azure, você pode definir as políticas para as assinaturas do Azure e grupos de segurança de acordo com os requisitos de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
+Uma política de segurança define o conjunto de controles que são recomendados para os recursos na assinatura ou grupo de recursos especificado. Na Central de Segurança do Azure, você pode definir as políticas para as assinaturas do Azure e grupos de recurso de acordo com os requisitos de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
 
 Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisitos de segurança diferentes daqueles usados para aplicativos de produção. Da mesma forma, os aplicativos com dados regulamentados, como PII (informações de identificação pessoal), podem exigir um nível mais alto de segurança. As políticas de segurança habilitadas na Central de segurança do Azure determinarão as recomendações de segurança e monitoramento. Para saber mais sobre as políticas de segurança, consulte a seção [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md).
 
@@ -98,21 +102,34 @@ A Central de segurança do Azure automaticamente coleta, analisa e funde os dado
 - Alertas de segurança das soluções de segurança de parceiro integradas, como antimalware ou Firewalls de aplicativo Web
 
 ### Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?
-O MSRC (Microsoft Security Response Center) executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros. Quando o MSRC fica ciente de que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal ou que o uso do cliente do Azure não está de acordo com os termos de Uso Aceitável, um gerente de incidentes de segurança notifica o cliente. A notificação ocorrerá normalmente ao enviar um email para os contatos de segurança especificados na Central de Segurança do Azure ou o proprietário da assinatura do Azure, se um contato de segurança não for especificado.
+O MSRC (Microsoft Security Response Center) executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros. Quando o MSRC fica ciente de que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal ou que o uso do cliente do Azure não está de acordo com os termos de Uso Aceitável, um gerente de incidentes de segurança notifica o cliente. Normalmente, a notificação será feita enviando um email para os contatos de segurança especificados na Central de Segurança do Azure ou para o proprietário da assinatura do Azure se um contato de segurança não for especificado.
 
 A Central de Segurança é um serviço do Azure que monitora o ambiente do cliente do Azure continuamente e aplica a análise para detectar automaticamente uma ampla gama de atividades potencialmente mal-intencionadas. Essas detecções são exibidas como alertas de segurança no painel da Central de Segurança.
 
 ### Como as permissões são tratadas na Central de segurança do Azure?
-A Central de segurança do Azure oferece suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md).
+A Central de segurança do Azure oferece suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-Quando um usuário abre a Central de segurança do Azure, somente as recomendações e alertas relacionados aos recursos que o usuário tem acesso aparecerão. Isso significa que os usuários verão apenas os itens relacionados a recursos nos quais o usuário recebe a função de leitor, colaborador ou proprietário para a assinatura ou grupo de recursos que o recurso pertence.
+Quando um usuário abrir a Central de Segurança, somente as recomendações e alertas relacionados aos recursos a que o usuário tem acesso aparecerão. Isso significa que os usuários verão apenas os itens relacionados a recursos nos quais o usuário recebe a função de leitor, colaborador ou proprietário para a assinatura ou grupo de recursos a que o recurso pertence.
 
-Para editar uma política de segurança, você deve ser um proprietário ou colaborador da assinatura.
+Se precisar:
+
+- **editar uma política de segurança**, você precisa ser um proprietário ou colaborador da assinatura.
+- **aplicar uma recomendação**, você precisa ser um proprietário ou colaborador da assinatura.
+- **ter visibilidade do estado de segurança em todas as suas assinaturas**, você precisa ser um proprietário, colaborador ou leitor (administrador de TI, equipe de segurança) de cada assinatura.
+- **ter visibilidade do estado de segurança de seus recursos**, você precisa ser um proprietário, colaborador ou leitor do grupo de recursos (DevOps).
+
+### Quais recursos do Azure são monitorados pela Central de Segurança do Azure?
+A Central de Segurança do Azure monitora os seguintes recursos do Azure:
+
+- Máquinas virtuais (incluindo os Serviços de Nuvem)
+- Redes Virtuais do Azure
+- Serviço do SQL Azure
+- Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web
 
 ## Máquinas Virtuais
 
 ### Quais tipos de máquinas virtuais terão suporte?
-O monitoramento de integridade de segurança e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-classic-rm.md).
+O monitoramento e as recomendações de integridade de segurança estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md).
 
 VMs do Windows com suporte:
 
@@ -124,10 +141,22 @@ VMs do Linux com suporte:
 
 - Ubuntu versões 12.04, 14.04, 15.10, 16.04
 - Debian versões 7, 8
-- CentOS versões 6.\*, 7.*
-- Red Hat Enterprise Linux (RHEL) versões 6.\*, 7.*
-- SUSE Linux Enterprise Server (SLES) versões 11.\*, 12.*
+- CentOS versões 6.*, 7.*
+- Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
+- SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
 
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+### Por que a Central de Segurança do Azure não reconhece a solução antimalware em execução em minha VM do Azure?
+
+A Central de Segurança do Azure só tem visibilidade de antimalware instalado por meio de extensões do Azure. Por exemplo, a Central de Segurança não será capaz de detectar antimalware que foi pré-instalado em uma imagem fornecida por você ou se você tiver instalado antimalware em suas máquinas virtuais usando seus próprios processos (como sistemas de gerenciamento de configuração).
+
+### Por que recebo a mensagem "Dados de verificação ausentes" para minha VM?
+
+Pode levar algum tempo (normalmente, menos de uma hora) para que os dados de verificação sejam preenchido após a Coleta de dados ser habilitada na Central de Segurança do Azure. As verificações não são preenchidas para VMs com estado parado.
+
+### Por que recebo a mensagem "O Agente de VM está ausente?"
+
+O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de dados. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. Para obter informações sobre como instalar o Agente da VM em outras VMs, consulte a postagem de blog sobre o [Agente de VM e Extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+<!---HONumber=AcomDC_0831_2016-->

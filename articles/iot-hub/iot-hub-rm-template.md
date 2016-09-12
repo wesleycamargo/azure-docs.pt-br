@@ -181,7 +181,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um Hub IoT em seu grup
 
 ## Compilar e executar o aplicativo
 
-Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** antes de compilá-lo e executá-lo.
+Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** antes de compilá-lo e de executá-lo.
 
 1. Adicione o seguinte código ao final do método **Main**:
 
@@ -200,9 +200,9 @@ Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** ante
 
 ## Próximas etapas
 
-Agora que você implantou um Hub IoT usando um modelo do Resource Manager com um programa C#, convém explorar ainda mais:
+Agora que você implantou um Hub IoT usando um modelo do Azure Resource Manager com um programa C#, convém explorar ainda mais:
 
-- Leia sobre os recursos da [API REST do Provedor de Recursos do Hub IoT][lnk-rest-api].
+- Leia sobre as funcionalidades da [API REST do provedor de recursos Hub IoT][lnk-rest-api].
 - Leia a [Visão geral do Gerenciador de Recursos do Azure][lnk-azure-rm-overview] para saber mais sobre os recursos do Gerenciador de Recursos do Azure.
 
 Para saber mais sobre como desenvolver para o Hub IoT, consulte o seguinte:
@@ -233,4 +233,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

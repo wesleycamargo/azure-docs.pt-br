@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um serviço de Pesquisa do Azure usando o portal do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-	description="Saiba como provisionar um serviço de Pesquisa do Azure usando o Portal do Azure."
+	pageTitle="Criar um serviço de Azure Search usando o portal do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	description="Saiba como provisionar um serviço de Azure Search usando o Portal do Azure."
 	services="search"
 	authors="ashmaka"
 	documentationCenter=""/>
@@ -11,25 +11,25 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/13/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
-# Criar um serviço de Pesquisa do Azure usando o portal do Azure
+# Criar um serviço de Azure Search usando o portal do Azure
 
-Este guia o orientará ao longo do processo de criação (ou de provisionamento) de um serviço de Pesquisa do Azure usando o [Portal do Azure](https://portal.azure.com/).
+Este guia o orientará ao longo do processo de criação (ou de provisionamento) de um serviço de Azure Search usando o [Portal do Azure](https://portal.azure.com/).
 
 Este guia pressupõe que você já tem uma assinatura do Azure e pode fazer logon no Portal do Azure.
 
-## Encontre a Pesquisa do Azure no Portal do Azure
+## Encontre a Azure Search no Portal do Azure
 1. Acesse o [Portal do Azure](https://portal.azure.com/) e faça logon.
 1. Clique no sinal de adição ("+") no canto superior esquerdo.
 2. Selecione **Dados + Armazenamento**.
-3. Selecione **Pesquisa do Azure**.
+3. Selecione **Azure Search **.
 
 ![](./media/search-create-service-portal/find-search.png)
 
 ## Escolha um nome de serviço e o ponto de extremidade de URL para o serviço
-1. O nome do serviço fará parte da URL do ponto de extremidade do seu serviço de Pesquisa do Azure no qual você fará suas chamadas à API a fim de gerenciar e usar o serviço de pesquisa.
+1. O nome do serviço fará parte da URL do ponto de extremidade do seu serviço de Azure Search no qual você fará suas chamadas à API a fim de gerenciar e usar o serviço de pesquisa.
 2. Digite o nome do serviço no campo **URL**. O nome do serviço:
   * deve conter apenas letras minúsculas, dígitos ou traços ("-")
   * não pode usar um traço ("-") como os dois primeiros caracteres ou o último caractere
@@ -38,16 +38,16 @@ Este guia pressupõe que você já tem uma assinatura do Azure e pode fazer logo
 
 
 ## Selecione uma assinatura na qual você manterá seu serviço
-Se você tiver mais de uma assinatura, poderá selecionar qual incluirá nesse serviço de Pesquisa do Azure.
+Se você tiver mais de uma assinatura, poderá selecionar em qual delas esse serviço de Azure Search estará incluído.
 
 ## Selecione um grupo de recursos para seu serviço
-Crie um novo grupo de recursos ou selecione um existente. Um grupo de recursos é uma coleção de serviços e recursos do Azure que são usados juntos. Por exemplo, se você estiver usando a Pesquisa do Azure para indexar um banco de dados SQL, esses dois serviços deverão fazer parte do mesmo grupo de recursos.
+Crie um novo grupo de recursos ou selecione um existente. Um grupo de recursos é uma coleção de serviços e recursos do Azure que são usados juntos. Por exemplo, se você estiver usando a Azure Search para indexar um banco de dados SQL, esses dois serviços deverão fazer parte do mesmo grupo de recursos.
 
 ## Selecione o local onde o serviço será hospedado
-Como um serviço do Azure, a Pesquisa do Azure está disponível para ser hospedado em datacenters em todo o mundo. Observe que os [preços podem variar](https://azure.microsoft.com/pricing/details/search/) de acordo com a geografia.
+Como um serviço do Azure, a Azure Search está disponível para ser hospedado em datacenters em todo o mundo. Observe que os [preços podem variar](https://azure.microsoft.com/pricing/details/search/) de acordo com a geografia.
 
 ## Selecione seu tipo de preço
-[A Pesquisa do Azure é oferecida atualmente em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Standard. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
+[A Azure Search é oferecida atualmente em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Standard. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
 
 Nesse caso, escolhemos o tipo Standard para nosso serviço.
 
@@ -57,7 +57,7 @@ Nesse caso, escolhemos o tipo Standard para nosso serviço.
 
 ## Dimensione seu serviço
 
-Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Se você tiver escolhido o tipo Standard para o serviço de Pesquisa do Azure, você pode dimensionar seu serviço em duas dimensões: réplicas e partições. Se você tiver escolhido o tipo Básico, só poderá adicionar réplicas.
+Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Se você tiver escolhido o tipo Standard para o serviço de Azure Search, você pode dimensionar seu serviço em duas dimensões: réplicas e partições. Se você tiver escolhido o tipo Básico, só poderá adicionar réplicas.
 
 *__Partições__* permitem que seu serviço armazene e pesquise mais documentos.
 
@@ -72,8 +72,8 @@ Depois que o serviço é fornecido, você pode dimensioná-lo para atender às s
 ![](./media/search-create-service-portal/scale-service.png)
 
 ## Avançar
-Após o provisionamento de um serviço de Pesquisa do Azure, você estará pronto para [definir um índice de Pesquisa do Azure](search-what-is-an-index.md) para que possa carregar e pesquisar os dados.
+Após o provisionamento de um serviço de Azure Search, você estará pronto para [definir um índice de Azure Search](search-what-is-an-index.md) para que possa carregar e pesquisar os dados.
 
-Confira [Introdução à Pesquisa do Azure no portal](search-get-started-portal.md) para obter um tutorial rápido.
+Confira [Introdução à Azure Search no portal](search-get-started-portal.md) para obter um tutorial rápido.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

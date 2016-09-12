@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Extrair dados do SQL para um Hub de Eventos do Azure
@@ -34,12 +34,12 @@ Depois que o aplicativo tiver lido o arquivo de configuração, ele entrará em 
 
 1. O aplicativo se baseia na suposição de que a tabela SQL esteja sendo atualizada por um processo externo e que você deseja enviar todas as atualizações e apenas elas para um Hub de Eventos.
 2. A tabela SQL precisa ter um campo com um número exclusivo e cada vez maior, por exemplo, um número de registro. Isso pode ser tão simples como um campo chamado "Id" ou qualquer outra coisa incrementada, como atualizações em que o banco de dados adiciona registros como "Creation\_time" ou "Sequence\_number". O aplicativo anota e armazena o valor do campo em cada iteração. Em cada passagem subsequente pelo loop, o aplicativo essencialmente consulta a tabela em busca de todos os registros onde o valor do campo excede o valor visto pela última vez no loop. Estamos chamando esse último valor de “deslocamento”.
-3. Na inicialização, o aplicativo cria uma tabela "TableOffsets" para armazenar os deslocamentos. A tabela é criada com a consulta "CreateOffsetTableQuery" definida no arquivo de configuração. 
+3. Na inicialização, o aplicativo cria uma tabela "TableOffsets" para armazenar os deslocamentos. A tabela é criada com a consulta "CreateOffsetTableQuery" definida no arquivo de configuração.
 4. Há várias consultas usadas para trabalhar com a tabela de deslocamento, definida no arquivo de configuração como "OffsetQuery", "UpdateOffsetQuery" e "InsertOffsetQuery". Você não deve alterá-las.
-5. Por fim, a consulta "DataQuery" definida no arquivo de configuração é a consulta que será executada para obter os registros da tabela SQL. Atualmente, ela está limitada a 1.000 registros principais em cada passagem pelo loop para fins de otimização. Se, por exemplo, 25.000 registros tiverem sido adicionados ao banco de dados desde a última consulta, a execução da consulta poderá demorar. Ao limitar a consulta a 1.000 registros por vez, as consultas tornam-se muito mais rápidas. A seleção dos 1.000 registros principais simples envia por push sucessivos lotes de 1.000 registros para o hub de eventos.    
+5. Por fim, a consulta "DataQuery" definida no arquivo de configuração é a consulta que será executada para obter os registros da tabela SQL. Atualmente, ela está limitada a 1.000 registros principais em cada passagem pelo loop para fins de otimização. Se, por exemplo, 25.000 registros tiverem sido adicionados ao banco de dados desde a última consulta, a execução da consulta poderá demorar. Ao limitar a consulta a 1.000 registros por vez, as consultas tornam-se muito mais rápidas. A seleção dos 1.000 registros principais simples envia por push sucessivos lotes de 1.000 registros para o hub de eventos.
 
 ## Próximas etapas
 
 Para implantar a solução, clone ou baixe o aplicativo SqlToEventHub, edite o arquivo App.config, compile-o e, por fim, o publique. Após publicar o aplicativo, é possível vê-lo em execução no portal clássico do Azure, em Serviços de Nuvem, e monitorar os eventos que chegam ao hub de eventos. Observe que a frequência será determinada por duas coisas: a frequência das atualizações para a tabela do SQL e o intervalo de suspensão especificado no arquivo de configuração do aplicativo.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

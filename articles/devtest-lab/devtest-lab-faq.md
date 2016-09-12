@@ -13,12 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/29/2016"
 	ms.author="tarcher"/>
 
 # Perguntas frequentes do DevTest Labs
 
 Este artigo responde algumas das perguntas mais comuns sobre o DevTest Labs.
+
+## E se dúvida não foi respondida aqui?
+Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta.
+
+- Poste uma pergunta sobre este artigo no [Thread do Disqus](#comments) no final desta seção de perguntas frequentes e entre em contato com a equipe do Cache do Azure e outros membros da comunidade.
+- Para atingir um público mais amplo, poste uma pergunta no [Fórum do Azure DevTest Labs no MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs) e entre em contato com a equipe do Azure DevTest Labs e outros membros da comunidade.
+- Para fazer uma solicitação de recurso, envie solicitações e ideias para o [User Voice do Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+
+## Introdução
+- [Como faço para começar a usar os DevTest Labs?](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
 ## Geral
 - [Por que devo usar os DevTest Labs?](#why-should-i-use-devtest-labs)
@@ -161,7 +171,7 @@ Artefatos são elementos personalizáveis que podem ser usados para implantar os
 Temos um [repositório Github de modelos do Azure Resource manager de laboratório](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Cada um desses modelos possui um link que você pode clicar para implantar o laboratório DevTest Labs em sua própria assinatura do Azure.
  
 ### Por que todas as minhas VMs foram criadas em grupos de recursos diferentes com nomes arbitrários? Posso renomear ou modificar esses grupos de recursos? 
-Grupos de recursos são criados dessa maneira para que o DevTest Labs gerencie as permissões e acessos de usuário às máquinas virtuais. Estamos trabalhando para melhorar essa experiência a fim de permitir mais flexibilidade, mas você pode renomear esses grupos de recursos conforme a necessidade. É recomendável que você não mova VMs para grupos de recursos diferentes a fim de evitar a modificação de permissões acidentalmente.
+Grupos de recursos são criados dessa maneira para que o DevTest Labs gerencie as permissões e acessos de usuário às máquinas virtuais. Embora você possa mover a VM para outro grupo de recursos com seu nome desejado, isso não é recomendável. Estamos trabalhando na melhoria dessa experiência para proporcionar mais flexibilidade.
  
 ### Quantos laboratórios posso criar na mesma assinatura? 
 Não há nenhum limite específico do número de laboratórios que podem ser criados por assinatura, mas os recursos usados são limitados por assinatura. Você pode ler sobre os [limites e cotas impostas às assinaturas do Azure](../azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
@@ -175,4 +185,4 @@ Consulte a postagem do blog [Como solucionar problemas de falha de Artefatos no 
 ### Por que a minha rede virtual existente não está salvando corretamente?  
 Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso, tente remover os pontos ou substituí-los por hifens e tente salvar a rede virtual novamente.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

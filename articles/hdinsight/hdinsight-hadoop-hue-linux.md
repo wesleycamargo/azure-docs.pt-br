@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Instalar e usar o Hue em clusters de Hadoop do HDInsight
@@ -22,7 +22,7 @@ Saiba como instalar o Hue em clusters Linux do HDInsight e usar o túnel para ro
 
 ## O que é o Hue?
 
-O Hue é um conjunto de aplicativos da Web usado para interagir com um cluster de Hadoop. Você pode usar o Hue para procurar o armazenamento associado a um cluster de Hadoop (WASB, no caso de clusters do HDInsight), executar trabalhos de Hive e scripts do Pig, etc. Os componentes a seguir são disponibilizados com as instalações do Hue em um cluster Hadoop do HDInsight.
+A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop. Você pode usar o Hue para procurar o armazenamento associado a um cluster de Hadoop (WASB, no caso de clusters do HDInsight), executar trabalhos de Hive e scripts do Pig, etc. Os componentes a seguir são disponibilizados com as instalações do Hue em um cluster Hadoop do HDInsight.
 
 * Editor de Hive Beeswax
 * Pig
@@ -137,4 +137,4 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

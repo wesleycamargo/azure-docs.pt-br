@@ -41,7 +41,7 @@ DirSyncFeature | Comentário
 
 Depois que você habilitar um recurso, ele não poderá ser desabilitado novamente.
 
->[AZURE.NOTE] A partir de 22 de agosto de 2016 o recurso *Duplicar a resiliência do atributo* é habilitado por padrão para novos diretórios do Azure AD. Este recurso também será distribuído e habilitado em diretórios criados antes dessa data. Você receberá uma notificação por email quando o diretório estiver prestes a habilitar esse recurso.
+>[AZURE.NOTE] A partir de 24 de agosto de 2016 o recurso *Duplicar a resiliência do atributo* é habilitado por padrão para novos diretórios do Azure AD. Este recurso também será distribuído e habilitado em diretórios criados antes dessa data. Você receberá uma notificação por email quando o diretório estiver prestes a habilitar esse recurso.
 
 As configurações a seguir são definidas pelo Azure AD Connect e não podem ser modificadas por `Set-MsolDirSyncFeature`:
 
@@ -98,4 +98,4 @@ Depois de habilitar esse recurso, os valores existentes de userPrincipalName per
 - [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 - [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

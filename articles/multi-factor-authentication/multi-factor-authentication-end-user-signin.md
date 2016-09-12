@@ -62,10 +62,11 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 ![A Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- Atenda o telefone e pressione a tecla de verificação.
+- Atenda o telefone e pressione a tecla de verificação. Se sua empresa exigir um PIN, ele será solicitado de você aqui.
 
 ![Verificar](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
 
+![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - Agora você deve estar conectado.
 
@@ -84,6 +85,8 @@ As informações a seguir descrevem a experiência de usar autenticação multif
 - Abra o aplicativo Microsoft Authenticator em seu telefone e digite o código na caixa de conexão.
 
 ![Obter o código](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+
+
 
 - Agora você deve estar conectado.
 
@@ -104,4 +107,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

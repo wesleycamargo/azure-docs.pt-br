@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## Restrições e recursos não suportados
+
+Os seguintes recursos da API do Service Bus do .NET não são atualmente suportados com o uso do AMQP:
+
+ * Transações
+ * Enviar por meio de destino da transferência
+
+Para saber mais,confira [Recursos sem suporte, restrições e diferenças de comportamento](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
+
 ## Resumo
 
 Este artigo mostrou como acessar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
@@ -307,4 +316,4 @@ Agora que você leu uma visão geral do Barramento de Serviço e do AMQP com o .
  
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

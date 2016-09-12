@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Ativar e desativar o dispositivo StorSimple 
@@ -189,39 +189,13 @@ Um dispositivo StorSimple em execução poderá precisar ser desligado se estive
 
 ### Dispositivo com o compartimento primário <a name="8100a"> 
 
-Atualmente, não é possível desligar um dispositivo StorSimple em execução no Portal clássico do Azure. A única maneira de desligá-lo é usando o Windows PowerShell para StorSimple. Para desligar o dispositivo de forma controlada e ordenada, acesse o Windows PowerShell para StorSimple e siga as etapas abaixo.
+Você pode desligar o dispositivo de forma ordenada e controlada por meio do Portal Clássico do Azure ou do Windows PowerShell para o StorSimple.
 
 >[AZURE.IMPORTANT] Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 >
 >Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No Portal Clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status de Hardware**.
 
-Você pode se conectar ao Windows PowerShell para StorSimple por meio do console serial do dispositivo ou da comunicação remota do Windows PowerShell. Depois de acessar o Windows PowerShell para StorSimple, execute as etapas a seguir para desligar um dispositivo em execução.
-
-#### Para desligar um dispositivo em execução
-
-1. Conecte-se ao console serial do dispositivo.
-
-2. No menu que aparece, verifique se o controlador ao qual você está conectado é o controlador **Em espera**. Se não for o controlador em espera, desconecte-se do controlador e conecte-se ao controlador.
-
-3. No menu do console serial, selecione a **Opção 1** para fazer logon no controlador em espera com acesso completo.
-
-4. No prompt, digite:
-
-    `Stop-HCSController`
-
-    Isso deve desligar o controlador em espera atual.
-
-    >[AZURE.IMPORTANT] Aguarde até o controlador desligar completamente antes de prosseguir para a próxima etapa.
-
-5. Para verificar se o desligamento foi concluído, verifique a parte traseira do dispositivo. O LED de falha do controlador deverá estar vermelho sólido.
-
-6. Conecte-se ao controlador ativo por meio do console serial e siga as mesmas etapas para desligá-lo.
-
-7. Depois que os dois controladores terem desligado completamente, os LEDs de status em ambos os controladores devem estar piscando em vermelho.
-
-8. Se você precisar desligar o dispositivo completamente neste momento, coloque os interruptores nos dois PCMs (Módulos de Energia e Refrigeração) na posição DESLIGADO.
-
-9. Para verificar se o dispositivo foi completamente desligado, verifique se todas as luzes na parte de trás do dispositivo estão desativadas.
+Depois de acessar o Windows PowerShell para o StorSimple ou o Portal Clássico do Azure, siga as etapas em [Desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
 
 ### Dispositivo com o compartimento EBOD <a name="8600a">
 
@@ -229,7 +203,7 @@ Você pode se conectar ao Windows PowerShell para StorSimple por meio do console
 
 #### Para desligar um dispositivo em execução com o compartimento EBOD
 
-1. Siga todas as etapas listadas em [Dispositivo com apenas o compartimento primário](#8100a).
+1. Siga as etapas listadas em [Desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) para o compartimento principal.
 
 2. Depois que o compartimento primário for desligado, desligue o EBOD invertendo os dois interruptores PCM (Módulo de Energia e Refrigeração).
 
@@ -241,4 +215,4 @@ Você pode se conectar ao Windows PowerShell para StorSimple por meio do console
 
 [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

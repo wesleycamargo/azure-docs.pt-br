@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artigo destaca as noções básicas sobre como abordar a convenções de nomenclatura para todos os vários recursos do Azure, a fim de criar um conjunto de recursos lógico e facilmente identificável em seu ambiente.
+Este artigo destaca as noções básicas sobre como abordar as convenções de nomenclatura para todos os vários recursos do Azure para compilar um conjunto de recursos lógico e facilmente identificável em seu ambiente.
 
 ## Diretrizes de implementação de convenções de nomenclatura
 
@@ -31,7 +31,7 @@ Decisões:
 
 Tarefas:
 
-- Definir os afixos usados entre os recursos para que a consistência seja mantida.
+- Definir os afixos que serão usados entre os recursos para que a consistência seja mantida.
 - Definir os nomes de conta de armazenamento de acordo com o requisito para que elas possam ser globalmente exclusivas.
 - Documentar a convenção de nomenclatura a ser usada e distribuí-la para todas as partes envolvidas, a fim de garantir a consistência entre as implantações.
 
@@ -39,9 +39,9 @@ Tarefas:
 
 Você deve ter uma boa convenção de nomenclatura definida para criar qualquer coisa no Azure. Uma convenção de nomenclatura garante que todos os recursos tenham um nome previsível, o que ajuda a reduzir a carga administrativa associada ao gerenciamento desses recursos.
 
-Você pode optar por seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para os indivíduos das organizações estabelecerem regras implícitas ao trabalharem com os recursos do Azure, quando uma equipe precisa trabalhar em um projeto no Azure, esse modelo não se adapta bem.
+Você pode optar por seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para as pessoas das organizações estabelecerem regras implícitas ao trabalharem com recursos do Azure, você precisa ter a capacidade de dimensionar para equipes que trabalham juntas no Azure.
 
-Vocês devem concordar sobre um conjunto de convenções de nomenclatura antecipadamente. Há algumas considerações sobre convenções de nomenclatura que abrangem vários conjuntos de regras.
+Entrem em um acordo sobre um conjunto de convenções de nomenclatura antecipadamente. Há algumas considerações sobre convenções de nomenclatura que abrangem vários conjuntos de regras.
 
 ## Afixos
 
@@ -70,11 +70,11 @@ Ao estabelecer as convenções de nomenclatura, verifique se elas determinam cla
 
 ## Datas
 
-Muitas vezes é importante determinar a data da criação do nome de um recurso. Recomendamos que o formato de data seja AAAAMMDD. Esse formato garante não apenas que a data completa seja registrada, mas também que dois recursos cujos nomes diferem apenas na data sejam classificados em ordem alfabética e em ordem cronológica ao mesmo tempo.
+Muitas vezes é importante determinar a data da criação do nome de um recurso. Recomendamos que o formato de data seja AAAAMMDD. Esse formato garante não apenas que a data completa seja registrada, mas também que dois recursos cujos nomes diferem apenas na data sejam classificados em ordem alfabética e cronológica.
 
 ## Recursos de nomenclatura
 
-Você deve definir cada tipo de recurso na convenção de nomenclatura, que deve ter regras para definir como atribuir nomes a cada recurso criado. Essas regras devem se aplicar a todos os tipos de recursos, por exemplo:
+Defina cada tipo de recurso na convenção de nomenclatura, que deve ter regras que definem como atribuir nomes a cada recurso criado. Essas regras devem se aplicar a todos os tipos de recursos, por exemplo:
 
 - Assinaturas
 - Contas
@@ -92,15 +92,15 @@ Para garantir que o nome possa fornecer informações suficientes para determina
 
 ## Nomes de computadores
 
-Quando você cria uma VM (máquina virtual), o Microsoft Azure exige um nome da VM de até 15 caracteres que é usado para o nome do recurso. O Azure usa o mesmo nome para o sistema operacional instalado na VM. No entanto, esses nomes nem sempre serão os mesmos.
+Quando você cria uma VM (máquina virtual), o Azure exige um nome da VM de até 64 caracteres que é usado para o nome do recurso. O Azure usa o mesmo nome para o sistema operacional instalado na VM. No entanto, esses nomes nem sempre serão os mesmos.
 
-No caso de uma VM ser criada por meio de um arquivo de imagem .vhd que já contenha um sistema operacional, o nome da VM no Azure poderá ser diferente do nome do computador do sistema operacional da VM. Essa situação pode adicionar um grau de dificuldade ao gerenciamento da VM, que, portanto, não é recomendável. Atribua ao recurso da VM do Azure o mesmo nome do computador atribuído ao sistema operacional da VM.
+Se uma VM for criada por meio de um arquivo de imagem .vhd que já contenha um sistema operacional, o nome da VM no Azure poderá ser diferente do nome do computador do sistema operacional da VM. Essa situação pode adicionar um grau de dificuldade ao gerenciamento da VM, que, portanto, não é recomendável. Atribua ao recurso da VM do Azure o mesmo nome do computador atribuído ao sistema operacional da VM.
 
 Recomendamos que o nome da VM do Azure seja igual ao nome do computador do sistema operacional subjacente.
 
 ## Nomes de contas de armazenamento
 
-As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para saber mais. Além disso, o nome da conta de armazenamento, em combinação com core.windows.net, deve ser um nome DNS exclusivo globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
+As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para saber mais. Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 - minhacontadearmazenamento.blob.core.windows.net
 - minhacontadearmazenamento.table.core.windows.net
@@ -110,4 +110,4 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 ## Próximas etapas
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

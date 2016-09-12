@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: locatários de produção e escala versus locatários de visualização do B2C
@@ -47,7 +47,7 @@ Locatários de produção-escala podem ser dimensionados para centenas de milhõ
 Se você criou um locatário do B2C durante o período de visualização do Azure AD B2C, é provável que seu **Tipo de locatário** seja **Locatário de visualização**. Se esse for o caso, você DEVERÁ usar o locatário somente para fins de teste e desenvolvimento e NÃO para aplicativos de produção.
 
 > [AZURE.IMPORTANT]
-Não há um caminho de migração de um locatário do B2C de visualização para um locatário do B2C de produção-escala.
+Não há um caminho de migração de um locatário do B2C de visualização para um locatário do B2C de produção-escala. Observe que há problemas conhecidos quando você exclui um locatário B2C de visualização e recria um locatário B2C de escala de produção com o mesmo nome de domínio. Você precisa criar um locatário B2C de escala de produção com um nome de domínio diferente.
 
 ![Captura de tela de um locatário de visualização](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
 
@@ -55,8 +55,10 @@ Não há um caminho de migração de um locatário do B2C de visualização para
 
 Atualmente o Azure AD B2C NÃO está disponível fora da América do Norte. No entanto, você pode criar e usar locatários de produção-escala para fins de desenvolvimento e teste em um dos seguintes países ou regiões: Argélia, Áustria, Azerbaijão, Bahrein, Belarus, Bélgica, Bulgária, Croácia, Chipre, República Tcheca, Dinamarca, Egito, Estônia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quênia, Kuwait, Líbano, Letônia, Liechtenstein, Lituania, Luxemburgo, ARI da Macedônia, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega , Omã, Paquistão, Polônia, Portugal, Catar, Romênia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovênia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
 
+Depois que o Azure AD B2C anunciar o lançamento nos países ou regiões acima, você poderá continuar a usar esses locatários de escala de produção e ativar seus aplicativos de produção, sem perda de dados.
+
 ## Disponibilidade de locatários do B2C
 
 Os locatários do B2C estão indisponíveis no momento nos seguintes países ou regiões: Afeganistão, Argentina, Austrália, Brasil, Chile, Colômbia, Equador, RAE de Hong Kong, Índia, Indonésia, Iraque, Japão, Coreia, Malásia, Nova Zelândia, Paraguai, Peru, Filipinas, Cingapura, Sri Lanka, Taiwan, Tailândia, Uruguai e Venezuela. Planejamos incluí-los no futuro.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>
 
 # Desabilitar senhas SSH na sua VM Linux configurando o SSHD
 
-Este artigo se concentra em como bloquear a segurança de logon da sua VM Linux. Assim que a porta SSH 22 é aberta para o mundo, os bots começam a tentar fazer logon adivinhando senhas. O que vamos fazer neste artigo é desabilitar os logons de senha via SSH. Ao remover completamente a capacidade de usar senhas, protegemos a VM Linux contra esse tipo de ataque de força bruta. A vantagem disso é que vamos configurar o SSHD do Linux para permitir apenas logons via chaves públicas e privadas do SSH, definitivamente a forma mais segura de fazer logon no Linux. Suas combinações possíveis exigiriam adivinhar a chave privada, que é imensa e, portanto, desencoraja os bots a tentar um ataque de força bruta às chaves SSH.
+Este artigo se concentra em como bloquear a segurança de logon da sua VM Linux. Assim que a porta SSH 22 é aberta para o mundo, os bots começam a tentar fazer logon adivinhando senhas. O que vamos fazer neste artigo é desabilitar os logons de senha via SSH. Ao remover completamente a capacidade de usar senhas, protegemos a VM Linux contra esse tipo de ataque de força bruta. A vantagem disso é que vamos configurar o SSHD do Linux para permitir apenas logons via chaves públicas e privadas do SSH, definitivamente a forma mais segura de fazer logon no Linux. As combinações possíveis exigiriam adivinhar a chave privada, que é imensa e, portanto, desencoraja os bots a tentar um ataque de força bruta às chaves SSH.
 
 
 ## Metas
@@ -37,13 +37,13 @@ Este artigo se concentra em como bloquear a segurança de logon da sua VM Linux.
 
 [Definido por SSH](https://en.wikipedia.org/wiki/Secure_Shell)
 
-O SSHD é o Servidor SSH que é executado na VM Linux. O SSH é um cliente que é executado em um shell no seu MacBook ou estação de trabalho Linus. O SSH também é o protocolo usado para proteger e criptografar a comunicação entre sua estação de trabalho e a VM Linux.
+O SSHD é o Servidor SSH executado na VM Linux. O SSH é um cliente executado em um shell no seu MacBook ou estação de trabalho Linux. O SSH também é o protocolo usado para proteger e criptografar a comunicação entre sua estação de trabalho e a VM Linux.
 
 Para este artigo, é muito importante manter um logon aberto na sua VM Linux durante todo o passo a passo. Por esse motivo, abriremos dois terminais e o SSH para a VM Linux em ambos. Usaremos o primeiro terminal para fazer as mudanças no arquivo de configuração do SSHD e reiniciar o serviço SSHD. Usaremos o segundo terminal para testar essas mudanças assim que o serviço for reiniciado. Como estamos desabilitando as senhas SSH e dependendo estritamente das chaves SSH, se suas chaves SSH não estiverem corretas e você fechar a conexão com a VM, a VM será bloqueada permanentemente e ninguém poderá fazer logon nela, exigindo que ela seja excluída e recriada.
 
 ## Pré-requisitos
 
-- [Criar chaves SSH em VMs Linux e em VMs Mac para Linux no Azure](link)
+- [Criar chaves SSH em VMs Linux e em VMs Mac para Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Conta do Azure
   - [assinatura de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)
   - [Portal do Azure](http://portal.azure.com)
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 As senhas agora estão desabilitadas na sua VM, protegendo-a contra tentativas de logon de senha por força bruta. Apenas com as chaves SSH permitidas, você poderá fazer logon mais rapidamente e com muito mais segurança.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

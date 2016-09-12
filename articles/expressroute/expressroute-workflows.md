@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
@@ -50,7 +50,7 @@ Cada circuito de Rota Expressa tem dois estados:
 - Estado de provisionamento do provedor de serviço
 - Status
 
-O status representa o estado de provisionamento da Microsoft. Essa propriedade pode estar em um dos seguintes estados: *Habilitado*, *Habilitando* ou *Desabilitando*. O circuito da Rota Expressa deve estar no estado Habilitado para que você possa usá-lo.
+O status representa o estado de provisionamento da Microsoft. Essa propriedade é definida como Habilitada quando você cria um circuito de ExpressRoute
 
 O estado de provisionamento do provedor de conectividade representa o estado no lado do provedor de conectividade. Ele pode ser *Não Provisionado*, *Provisionando* ou *Provisionado*. O circuito da Rota Expressa deverá estar no estado Provisionado para que possa usá-lo.
 
@@ -83,24 +83,18 @@ Você verá o circuito da Rota Expressa no seguinte estado assim que o provedor 
 
 Provisionado e Habilitado são os únicos estados nos quais o circuito pode estar para você poder usá-lo. Se você estiver usando um provedor de camada 2, configure o roteamento para o circuito somente quando ele estiver nesse estado.
 
-#### Se o desprovisionamento tiver sido iniciado primeiro no lado da Microsoft
+#### Quando o provedor de conectividade estiver desprovisionando o circuito
 
-Você verá o circuito da Rota Expressa no seguinte estado assim que executar o cmdlet do PowerShell para excluir um circuito da Rota Expressa.
-
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
-
-Entre em contato com seu provedor de conectividade para desprovisionar o circuito da Rota Expressa. **Importante:** a Microsoft continuará a cobrar pelo circuito até que você execute o cmdlet do PowerShell para desprovisioná-lo.
-
-#### Se o desprovisionamento tiver sido iniciado no lado do provedor de serviço
-
-Se você tiver solicitado ao provedor de serviços primeiro o desprovisionamento do circuito da Rota Expressa, verá o circuito definido com o estado a seguir, após o provedor de serviços ter concluído o processo de desprovisionamento.
+Se você tiver solicitado ao provedor de serviços o desprovisionamento do circuito do ExpressRoute, verá o circuito definido com o estado a seguir, após o provedor de serviços ter concluído o processo de desprovisionamento.
 
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
 
-Você pode optar por habilitá-lo novamente se for necessário, ou executar cmdlets do PowerShell para excluir o circuito. **Importante:** a Microsoft continuará a cobrar pelo circuito até que você execute o cmdlet do PowerShell para desprovisioná-lo.
+
+Você pode optar por habilitá-lo novamente se for necessário, ou executar cmdlets do PowerShell para excluir o circuito.
+
+>[AZURE.IMPORTANT] Se você executar o cmdlet do PowerShell para excluir o circuito quando a ServiceProviderProvisioningState for Provisionando ou Provisionado, a operação falhará. Trabalhe com seu provedor de conectividade para desprovisionar o circuito de ExpressRoute primeiro e, em seguida, exclua o circuito. A Microsoft continuará a cobrar pelo circuito até que você execute o cmdlet do PowerShell para exclui-lo.
 
 
 ## Estado de configuração da sessão de roteamento
@@ -122,4 +116,4 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
 	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

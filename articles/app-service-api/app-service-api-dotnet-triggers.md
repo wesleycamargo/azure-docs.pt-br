@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="08/25/2016" 
 	ms.author="rachelap"/>
 
-# Gatilhos de aplicativo de API do serviço de aplicativo do Azure
+# Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
 
 >[AZURE.NOTE] Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
 
@@ -342,4 +342,4 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
     }
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

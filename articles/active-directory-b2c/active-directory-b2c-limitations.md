@@ -24,6 +24,8 @@ Há vários recursos e funcionalidades do Azure AD (Azure Active Directory) B2C 
 
 Se você tiver problemas durante a [criação de um locatário do Azure AD B2C](active-directory-b2c-get-started.md), veja [Criar um locatário do Azure AD ou um locatário do Azure AD B2C -- problemas e resoluções](active-directory-b2c-support-create-directory.md) para obter diretrizes.
 
+Observe que há problemas conhecidos quando você exclui um locatário B2C existente e o recria com o mesmo nome de domínio. Você precisa criar um locatário B2C com um nome de domínio diferente.
+
 ## Observação sobre cotas de locatário B2C
 
 Por padrão, o número de usuários em um locatário do B2C é limitado a 50.000 usuários. Se você precisar aumentar a cota de seu locatário do B2C, contate o suporte.
@@ -90,7 +92,7 @@ Recursos de B2C são acessíveis no Portal do Azure. No entanto, você pode usar
 
 ## Problemas com a redefinição de senha iniciada pelo administrador no Portal Clássico do Azure
 
-Se você redefinir a senha para um consumidor baseado em conta local no Portal Clássico do Azure (o comando **Redefinir Senha** na guia **Usuários**), o consumidor não poderá alterar a senha no próximo logon, se for utilizada uma política de logon ou de inscrição, e terá seus aplicativos bloqueados. Como alternativa, use o [API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) para redefinir a senha do consumidor (sem data de vencimento de senha) ou usar uma política de Logon em vez de uma política de Inscrição ou de Logon.
+Se você redefinir a senha para um consumidor baseado em conta local no Portal Clássico do Azure (o comando **Redefinir Senha** na guia **Usuários**), o consumidor não poderá alterar a senha no próximo logon, se for utilizada uma política de logon ou de inscrição e terá seus aplicativos bloqueados. Como alternativa, use o [API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) para redefinir a senha do consumidor (sem data de vencimento de senha) ou usar uma política de Logon em vez de uma política de Inscrição ou de Logon.
 
 ## Problemas com a criação de um atributo personalizado
 
@@ -107,4 +109,4 @@ Solicitações para políticas de entrada (com MFA ativado) falham intermitentem
 - Use a "política de inscrição ou entrada" em vez da "política de entrada".
 - Reduza o número de **declarações de aplicativo** solicitadas na sua política.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

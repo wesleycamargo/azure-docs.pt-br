@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="ganesr"/>
 
 
@@ -50,7 +50,7 @@ Verifique as assinaturas da conta:
 
 	Get-AzureRmSubscription
 
-Selecione a assinatura para a qual você deseja criar um circuito da Rota Expressa:
+Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute:
 
 	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
@@ -389,15 +389,15 @@ Você pode alterar a SKU de um circuito de Rota Expressa usando o seguinte trech
 Confira as instruções em [Mover os circuitos de Rota Expressa do modelo de implantação Clássico para o Resource Manager](expressroute-howto-move-arm.md).
 
 
-## Excluindo e desprovisionando um circuito da Rota Expressa
+## Desprovisionamento e exclusão de um circuito do ExpressRoute
 
 Observe o seguinte:
 
 - Você deve desvincular todas as redes virtuais do circuito da Rota Expressa. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
 
-- Se o estado de provisionamento do provedor de serviços do circuito da Rota Expressa estiver habilitado, o status passará de *Desabilitando* para um estado habilitado. Trabalhe com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+- Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado** você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 
-- Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como *Não provisionado*) antes da execução do cmdlet anterior, desprovisionaremos o circuito e interromperemos a cobrança.
+- Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito
 
 Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
@@ -412,4 +412,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -132,13 +132,13 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure-classic/provider1.png)
 
-7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+7. Em **Instalação ** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure-classic/provider2.png)
 
 8. Após a instalação continue para registrar o servidor no cofre.
 
-9. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
 	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 
@@ -186,8 +186,7 @@ Em que os parâmetros incluem:
 
 	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
->[AZURE.NOTE] Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos.
-
+>[AZURE.NOTE] 1. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos. 2. [Migração de contas de armazenamento](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 ## Etapa 5: criar e configurar grupos de proteção
 
@@ -215,7 +214,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
 >[AZURE.NOTE] Proteger VMs que executam o Linux com um endereço IP estático sem suporte.
 
-1. Na guia **Máquinas** do grupo de proteção, clique** em Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
+1. Na guia **Computadores** do grupo de proteção, clique** em Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
 2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
 
 	![Habilitar a proteção da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -243,6 +242,8 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 		- **Rede Azure**: especifique a rede na qual a máquina virtual devem executar failover. Se a máquina virtual tiver vários adaptadores de rede, todos deverão estar conectados à mesma rede do Azure.
 		- **Sub-rede** Para cada adaptador de rede na máquina virtual, selecione a sub-rede na rede do Azure à qual a máquina deve se conectar após o failover.
 		- **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover. Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
+		
+        > [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
 
 		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
@@ -299,4 +300,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

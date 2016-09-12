@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Solucionar problemas de conexão no Banco de Dados SQL do Azure
 
 Quando a conexão com o banco de dados SQL falha, você recebe [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que ajuda a solucionar problemas de conectividade do Banco de Dados SQL do Azure. Ele apresenta [as causas comuns](#cause) de problemas de conexão, recomenda [uma ferramenta de solução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identificar o problema e fornece etapas de solução de problemas para resolver [erros transitórios](#troubleshoot-transient-errors) e [erros persistentes ou não transitórios](#troubleshoot-the-persistent-errors). Por fim, ele lista [todos os artigos relevantes sobre problemas de conectividade do Banco de Dados SQL](#all-topics-for-azure-sql-database-connection-problems).
 
-Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
@@ -66,7 +65,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do 
 3.	Verifique a cadeia de conexão e outras configurações de conexão. Confira a seção Cadeia de Conexão do [tópico sobre problemas de conectividade](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
 
-## Todos os tópicos sobre problemas de conexão do Banco de Dados SQL do Azure
+## Todos os tópicos sobre problemas de conexão de Banco de Dados SQL do Azure
 
 A tabela a seguir lista todos os tópicos sobre problemas de conexão que se aplicam diretamente ao serviço do Banco de Dados SQL do Azure.
 
@@ -88,7 +87,7 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 
 - [Solucionar problemas de desempenho no Banco de Dados SQL do Azure](sql-database-troubleshoot-performance.md)
 - [Solucionar problemas de permissões no Banco de Dados SQL do Azure](sql-database-troubleshoot-permissions.md)
-- [Ver todos os tópicos sobre o serviço do Banco de Dados SQL do Azure](sql-database-index-all-articles.md)
+- [Consulte todos os tópicos sobre o serviço do Banco de Dados SQL do Azure](sql-database-index-all-articles.md)
 - [Pesquisar a documentação do Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 - [Exibir as atualizações mais recentes ao serviço do Banco de Dados SQL do Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -101,4 +100,4 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 - [O roteiro de aprendizagem para usar o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->
