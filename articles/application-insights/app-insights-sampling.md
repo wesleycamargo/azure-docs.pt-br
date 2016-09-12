@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 #  Amostragem no Application Insights
@@ -29,7 +29,7 @@ A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
 * A amostragem retém 1 em registros *n* e descarta o resto. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%.
 * A amostragem acontece automaticamente se o seu aplicativo enviar muita telemetria. A amostragem automática só é ativada em grandes volumes e somente em aplicativos de servidor de web do ASP.NET.
 * Você também pode definir a amostragem manualmente no portal na página de preços (para reduzir o volume de telemetria retido e manter a sua cota mensal); ou no SDK do ASP.NET no arquivo .config, para também reduzir o tráfego de rede.
-* A taxa de amostragem atual é uma propriedade de cada registro. Na janela Pesquisar, abra um evento, como uma solicitação. Expanda as reticências "..." para acessar as propriedades completas e localizar a propriedade "* count" - chamada, por exemplo,"contagem de solicitações"ou"contagem de eventos", dependendo do tipo de telemetria. Se ele for > 1, amostragem está ocorrendo. Uma contagem de 3 significaria que a amostragem é 33%: cada registro mantido representa 3 registros originalmente gerados.
+* A taxa de amostragem atual é uma propriedade de cada registro. Na janela Pesquisar, abra um evento, como uma solicitação. Expanda as reticências "..." para acessar as propriedades completas e localizar a propriedade "* count" - chamada, por exemplo,"contagem de solicitações"ou"contagem de eventos", dependendo do tipo de telemetria. Se ele for > 1, amostragem está ocorrendo. Uma contagem de 3 significaria que a amostragem é 33%: cada registro mantido representa três registros originalmente gerados.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
 * Se você escrever consultas de Análise, deverá [levar em conta a amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
@@ -58,6 +58,8 @@ Os pontos de dados que são descartados pela amostragem não estão disponíveis
 
 A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa com base no SDK estiver em operação. Se a taxa de amostragem no SDK for menor que 100%, a taxa de amostragem de ingestão definida será ignorada.
 
+> [AZURE.WARNING] O valor mostrado no bloco indica o valor definido para amostragem de ingestão. Ele não representará a taxa de amostragem real se a amostragem do SDK estiver em operação.
+
 
 ## Amostragem adaptável em seu servidor Web
 
@@ -78,7 +80,7 @@ Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-    A taxa de destino desejada pelo algoritmo adaptável para **um host de servidor único**. Se o seu aplicativo Web for executado em muitos hosts, convém reduzir esse valor para permanecer dentro de sua taxa de destino de tráfego no portal do Application Insights.
+    A taxa de destino desejada pelo algoritmo adaptável **em cada host de servidor**. Se o seu aplicativo Web for executado em muitos hosts, reduza esse valor para permanecer dentro de sua taxa de destino de tráfego no portal do Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
@@ -291,6 +293,17 @@ As principais vantagens da amostragem são:
 Caso contrário, recomendamos a amostragem adaptável. Ela está habilitada por padrão no SDK do servidor ASP.NET, versão 2.0.0-beta3 ou posterior. Ela não reduz o tráfego até uma determinada taxa mínima e, portanto, não afetará um site de baixa utilização.
 
 
+## Como saber se a amostragem está em operação?
+
+Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](app-insights-analytics.md) como esta:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+Em cada registro retido, o `itemCount` indica o número de registros originais que ele representa, igual a 1 + o número de registros descartados anteriormente.
+
+
 ## Como funciona a amostragem?
 
 As amostragens de taxa fixa e adaptável são um recurso do SDK nas versões do ASP.NET a partir da 2.0.0. A amostragem de ingestão é um recurso do serviço Application Insights e poderá estar em operação se o SDK não estiver executando a amostragem.
@@ -336,11 +349,11 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 * Uma maneira é iniciar com a amostragem adaptável, descobrir qual taxa se adequa (consulte a pergunta anterior) e, em seguida, alternar para a amostragem de taxa fixa usando essa taxa.
 
-    Caso contrário, é preciso adivinhar. Analise o uso atual da telemetria na AI, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugerirá quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
+    Caso contrário, é preciso adivinhar. Analise o uso atual da telemetria na AI, observe qualquer limitação que esteja ocorrendo e estime o volume da telemetria coletada. Essas três entradas, junto com seu tipo de preço selecionado, sugere o quanto você talvez queira reduzir o volume da telemetria coletada. No entanto, um aumento no número de usuários ou alguma outra mudança no volume de telemetria pode invalidar sua estimativa.
 
 *O que acontece se eu configurar o percentual de amostragem com um valor muito baixo?*
 
-* Um percentual de amostragem excessivamente baixo (amostragem superagressiva) reduzirá a precisão das aproximações quando o Application Insights tentar compensar a visualização dos dados para a redução do volume de dados. Além disso, a experiência de diagnóstico pode ser afetada negativamente, já que algumas das solicitações lentas ou raramente com falhas podem ser amostradas.
+* Um percentual de amostragem excessivamente baixo (amostragem superagressiva) reduz a precisão das aproximações quando o Application Insights tenta compensar a visualização dos dados para a redução do volume de dados. Além disso, a experiência de diagnóstico pode ser afetada negativamente, já que algumas das solicitações lentas ou raramente com falhas podem ser amostradas.
 
 *O que acontece se eu configurar o percentual de amostragem com um valor muito alto?*
 
@@ -356,4 +369,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="rachelap"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -97,4 +97,4 @@ Se você usar o Visual Studio Team Services, é possível configurar a implanta�
 
   
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

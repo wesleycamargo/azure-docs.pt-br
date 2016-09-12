@@ -51,7 +51,7 @@ A seção a seguir fornece informações sobre como você pode exibir as tabelas
 Verifique se você tem o seguinte antes de prosseguir
 
  - Um circuito de Rota Expressa válido configurado com pelo menos um emparelhamento. O circuito deve ser totalmente configurado pelo provedor de conectividade. Você (ou seu provedor de conectividade) deve ter configurado pelo menos um dos emparelhamentos (particular do Azure, público do Azure e Microsoft) neste circuito.
- - Os intervalos de endereços IP usados para configurar os emparelhamentos (particular do Azure, público do Azure e Microsoft). Revise os exemplos de atribuição de endereço ip na [página de requisitos de roteamento da Rota Expressa](expressroute-routing.md) para entender como os endereços IP são mapeados para interfaces em seu lado e no lado da Rota Expressa. Saiba mais sobre a configuração de emparelhamento conferindo a [página de configuração de emparelhamento da Rota Expressa](expressroute-howto-routing-arm.md).
+ - Os intervalos de endereços IP usados para configurar os emparelhamentos (particular do Azure, público do Azure e Microsoft). Reveja os exemplos de atribuição de endereço IP na [página de requisitos de roteamento do ExpressRoute](expressroute-routing.md) para entender como os endereços IP são mapeados para interfaces em seu lado e no lado do ExpressRoute. Saiba mais sobre a configuração de emparelhamento conferindo a [página de configuração de emparelhamento da Rota Expressa](expressroute-howto-routing-arm.md).
  - Informações de sua equipe de rede/provedor de conectividade sobre os endereços MAC de interfaces usadas com esses endereços IP.
  - Você deve ter o módulo mais recente do PowerShell do Azure (versão 1.50 ou mais recente).
 
@@ -128,10 +128,10 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
 
 ### Tabela ARP quando um circuito está no estado operacional (estado esperado)
 
- - A tabela ARP terá uma entrada para o lado local com um endereço IP válido e um endereço MAC e uma entrada semelhante para o lado da Microsoft. 
+ - A tabela ARP terá uma entrada para o lado local com um endereço IP válido e um endereço MAC e uma entrada semelhante para o lado da Microsoft.
  - O último octeto do endereço IP local sempre será um número ímpar.
  - O último octeto do endereço IP da Microsoft sempre será um número par.
- - O mesmo endereço MAC aparecerá no lado da Microsoft para todos os três emparelhamentos (primário/secundário). 
+ - O mesmo endereço MAC aparecerá no lado da Microsoft para todos os três emparelhamentos (primário/secundário).
 
 
 		Age InterfaceProperty IpAddress  MacAddress    
@@ -141,7 +141,7 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
 
 ### Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
 
- - Apenas uma entrada será exibida na tabela ARP. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
+ - Apenas uma entrada será exibida na tabela ARP. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft.
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
@@ -152,15 +152,15 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
 
 ### Tabela ARP quando o lado da Microsoft apresentar problemas
 
- - Você não verá uma tabela ARP para um emparelhamento se houver problemas no lado da Microsoft. 
- -  Abra um tíquete com o suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que você tem um problema de conectividade de camada 2. 
+ - Você não verá uma tabela ARP para um emparelhamento se houver problemas no lado da Microsoft.
+ -  Abra um tíquete com o suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que você tem um problema de conectividade de camada 2.
 
 ## Próximas etapas
 
  - Validar as configurações de Camada 3 para o circuito de Rota Expressa
-	 - Obter o resumo de rota para determinar o estado das sessões BGP 
+	 - Obter o resumo de rota para determinar o estado das sessões BGP
 	 - Obter a tabela de rota para determinar quais prefixos são anunciados pela Rota Expressa
  - Validar a transferência de dados examinando os bytes de entrada/saída
  - Abra um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

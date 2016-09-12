@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Conceder permissões de usuário para políticas específicas do laboratório
@@ -28,9 +28,9 @@ Como discutido no artigo [Controle de acesso baseado em função do Azure](../ac
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
-Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política **Tamanhos de VM permitidos**, você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuir os usuários adequados para esta função personalizada no escopo do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política **Tamanhos de VM permitidos**, você criaria uma função personalizada que funcionaria com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuiria os usuários adequados a essa função personalizada no escopo de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para saber mais sobre as funções personalizadas no RBAC, consulte a seção [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) do artigo [Controle de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md) artigo.
+Para saber mais sobre as funções personalizadas no RBAC, veja a seção [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) do artigo [Controle de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Criar uma função personalizada do laboratório usando o PowerShell
 Para começar, você precisará ler o seguinte artigo, que explica como instalar e configurar os cmdlets do Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -70,7 +70,7 @@ No exemplo a seguir, o **ObjectId** do usuário *SomeUser* é 05DEFF7B-0AC3-4ABF
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Depois que tiver o **ObjectId** para o usuário e um nome de função personalizado, você pode atribuir essa função ao usuário com o cmdlet **New-AzureRmRoleAssignment**:
+Depois que tiver o **ObjectId** para o usuário e um nome de função personalizado, você poderá atribuir essa função ao usuário com o cmdlet **New-AzureRmRoleAssignment**:
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
@@ -80,6 +80,8 @@ No exemplo anterior, a política **AllowedVmSizesInLab** é usada. Você pode us
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
 - LabVmsShutdown
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Próximas etapas
 
@@ -95,4 +97,4 @@ Após você tiver concedido permissões de usuário para políticas específicas
 
 - [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

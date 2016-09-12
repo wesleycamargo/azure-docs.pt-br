@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/31/2016"
 	ms.author="juliako"/>
 
 #Configurar políticas de entrega de ativos usando o SDK do .NET
@@ -23,7 +23,7 @@
 
 Se você planeja entregar ativos criptografados, uma das etapas do fluxo de trabalho de fornecimento de conteúdo de Serviços de Mídia é configurar políticas de entrega de ativos. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
 
-Este tópico discute por que e como criar e configurar políticas de entrega de ativos.
+Este tópico discute como e por que criar e configurar políticas de entrega de ativos.
 
 >[AZURE.NOTE]Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 >
@@ -157,7 +157,7 @@ Os Serviços de Mídia do Azure também permitem que você adicione criptografia
 
 ##Política de entrega de ativos DynamicEnvelopeEncryption 
 
-O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para protocolos HLS e DASH (outros protocolos serão bloqueados no streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para Smooth Streaming, protocolos HLS e DASH (se você optar por não especificar outros protocolos, eles serão bloqueados do streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **EnvelopeEncryption**. Para obter mais informações, consulte: [Criando uma chave de conteúdo](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types).
@@ -189,7 +189,7 @@ Para obter informações sobre os valores que você pode especificar ao criar um
             _context.AssetDeliveryPolicies.Create(
                         "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
         // Add AssetDelivery Policy to the asset
@@ -361,4 +361,4 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

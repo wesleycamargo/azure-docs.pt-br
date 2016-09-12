@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Sobre as configurações do Gateway de VPN
 
-O Gateway de VPN é uma coleção de configurações que são usadas para enviar o tráfego de rede entre as redes virtuais e os locais. Você também pode usar o Gateway de VPN para enviar tráfego entre redes virtuais no Azure. As seções neste artigo analisam as configurações relacionadas ao Gateway de VPN.
+O Gateway de VPN é uma coleção de recursos usados para enviar o tráfego de rede entre as redes virtuais e as localizações locais. Você também pode usar o Gateway de VPN para enviar tráfego entre redes virtuais no Azure. As seções neste artigo abordam os recursos e as configurações relacionadas ao Gateway de VPN.
 
-Às vezes, isso ajuda a exibir as configurações disponíveis usando diagramas de conexão. Você pode encontrar diagramas de como implantar cada configuração na seção [Sobre conexões do Gateway de VPN](vpn-gateway-topology.md) do artigo.
+Você pode achar útil exibir as configurações disponíveis usando diagramas de conexão. É possível encontrar os diagramas que mostram como implantar cada configuração no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 
 
 ## <a name="gwsku"></a>SKUs do Gateway
@@ -49,7 +49,7 @@ A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada
 
 ## <a name="gwtype"></a>Tipos de gateway
 
-O tipo de gateway especifica como o gateway se conecta e é uma definição de configuração necessária para o modelo de implantação do Resource Manager. Não confunda o tipo de gateway com o tipo VPN, que especifica o tipo de roteamento para a VPN. Os valores disponíveis para o `-GatewayType` são:
+O tipo de gateway especifica como o gateway se conecta e é uma definição de configuração necessária para o modelo de implantação do Resource Manager. Cada rede virtual pode ter apenas um gateway de rede virtual de cada tipo. Os valores disponíveis para o `-GatewayType` são:
 
 - Vpn
 - Rota Expressa
@@ -70,7 +70,7 @@ Cada configuração exige um tipo específico de conexão. Os valores disponíve
 - Rota Expressa
 - VPNClient
 
-No exemplo a seguir do PowerShell, criamos uma conexão S2S que exige o tipo de conexão "IPsec".
+No exemplo do PowerShell a seguir, criamos uma conexão S2S que exige o tipo de conexão “IPsec”.
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
@@ -133,7 +133,7 @@ Para obter recursos técnicos e requisitos de sintaxe específicos ao usar as AP
 
 ## Próximas etapas
 
-Consulte [Conexões do Gateway de VPN](vpn-gateway-topology.md) para obter mais informações sobre as configurações de conexão disponíveis.
+Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) para obter mais informações sobre as configurações de conexão disponíveis.
 
 
 
@@ -143,4 +143,4 @@ Consulte [Conexões do Gateway de VPN](vpn-gateway-topology.md) para obter mais 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

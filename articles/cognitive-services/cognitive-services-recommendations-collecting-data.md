@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/31/2016"
 	ms.author="luisca"/>
 
 #  Coletando Dados para Treinar seu Modelo #
@@ -53,11 +53,11 @@ Com recursos:
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. | 
-| Nome do Item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item | 
-|Categoria do Item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de Culinária, Drama…); pode estar vazio. | 
-| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4.000; | Descrição desse item. | 
-| Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4.000; Número máx. de recursos: 20 | A lista separada por vírgulas do nome do recurso=valor do recurso que pode ser usada para otimizar a recomendação do modelo.|
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador exclusivo de um item |
+| Nome do Item | Sim | Qualquer caractere alfanumérico<br> Comprimento máximo: 255 | Nome do item. |
+| Categoria do Item | Sim | Qualquer caractere alfanumérico <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de Culinária, Drama...); pode estar vazia. |
+| Descrição | Não, a menos que os recursos estejam presentes (mas pode estar vazia) | Qualquer caractere alfanumérico <br> Comprimento máximo: 4000 | Descrição deste item. |
+| Lista de recursos | Não | Qualquer caractere alfanumérico <br> Comprimento máximo: 4.000; Número máximo de recursos: 20 | Lista separada por vírgulas de nome do recurso = valor do recurso que pode ser usada para aperfeiçoar a recomendação.|
 
 #### Carregando um arquivo de Catálogo
 
@@ -97,10 +97,10 @@ Um arquivo de uso é um arquivo CSV (valores separados por vírgula) no qual cad
 
 | Nome | Obrigatório | Tipo | Descrição
 |-------|------------|------|---------------
-|Id de usuário| Sim|[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máx.: 255 |Identificador exclusivo de um usuário. 
-|Id do item|Sim|[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máx.: 50|Identificador exclusivo de um usuário. 
-|Hora|Sim|Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)|Hora dos dados. 
-|Evento|Não | Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| O tipo da transação. |
+|Id de usuário| Sim|[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 255 |Identificador exclusivo de um usuário.
+|Id do item|Sim|[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50|Identificador exclusivo de um item
+|Hora|Sim|Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)|Hora dos dados.
+|Evento|Não | Um dos seguintes:<br>• clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Compra| O tipo de transação. |
 
 #### Linhas de Exemplo em um Arquivo de Uso
 
@@ -129,4 +129,4 @@ Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto
 
 Depois de criar um modelo, você poderá executar uma [avaliação offline](cognitive-services-recommendations-buildtypes.md) para verificar o quanto seu modelo provavelmente será bem executado.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

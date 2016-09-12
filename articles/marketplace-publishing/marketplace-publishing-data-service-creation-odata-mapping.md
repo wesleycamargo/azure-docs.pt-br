@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Mapeamento de um serviço Web existente para OData por meio de CSDL
+
+>[AZURE.IMPORTANT] **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, saiba mais [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
 
 Este artigo fornece uma visão geral sobre como usar uma CSDL para mapear um serviço existente para um serviço OData compatível. Ele explica como criar o documento de mapeamento (CSDL) que transforma a solicitação de entrada do cliente por meio de uma chamada de serviço e a saída (dados) de volta para o cliente por meio de um feed OData compatível. O Microsoft Azure Marketplace expõe serviços aos usuários finais usando o protocolo OData. Os serviços expostos pelos provedores de conteúdo (Proprietários de Dados) são expostos de diversas formas, como REST, SOAP etc.
 
@@ -308,4 +310,4 @@ Conecta-se a um serviço que expõe uma tabela ou modo de exibição de banco de
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

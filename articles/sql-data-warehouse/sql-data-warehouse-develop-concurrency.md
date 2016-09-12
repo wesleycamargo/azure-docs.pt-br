@@ -3,7 +3,7 @@
    description="Compreender o gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse do Azure para desenvolvimento de soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/30/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
 
-Para oferecer um desempenho previsível em escala, o SQL Data Warehouse do Microsoft Azure ajuda a controlar os níveis de simultaneidade, bem como as alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse. O gerenciamento de carga de trabalho do SQL Data Warehouse destina-se a ajudá-lo a dar suporte a ambientes multiusuários. Ele não se destina a cargas de trabalho multilocatários.
+Para oferecer um desempenho previsível em escala, o SQL Data Warehouse do Microsoft Azure ajuda a controlar os níveis de simultaneidade e as alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse. O gerenciamento de carga de trabalho do SQL Data Warehouse destina-se a ajudá-lo a dar suporte a ambientes multiusuários. Ele não se destina a cargas de trabalho multilocatários.
 
 ## Limites de simultaneidade
 
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Alterar um exemplo de classe de recurso de usuário
 
-1. **Criar logon:** abra uma conexão com o banco de dados **mestre** no SQL Data Warehouse e execute os comandos a seguir.
+1. **Criar logon:** abra uma conexão com o banco de dados **mestre** no SQL Server hospedando seu banco de dados do SQL Data Warehouse e execute os comandos a seguir.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] É recomendável criar usuários para logons no banco de dados mestre, no banco de dados SQL do Azure e no Azure SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em **mestre** para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No Banco de Dados SQL do Azure e SQL Data Warehouse, essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente do SQL Server. Para obter mais detalhes, consulte o artigo [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][].
+	> [AZURE.NOTE] É uma boa ideia criar um usuário no banco de dados mestre para os usuários do Azure SQL Data Warehouse. A criação de um usuário mestre permite que um usuário faça logon usando ferramentas, como o SSMS, sem especificar um nome de banco de dados. Ela também permite que o usuário utilize o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server. Para obter mais detalhes sobre como criar e gerenciar usuários, consulte [Proteger um banco de dados no SQL Data Warehouse][].
 
-2. **Criar conta de usuário:** abra uma conexão com o banco de dados **SQL Data Warehouse** e execute o comando a seguir.
+2. **Criar um usuário do SQL Data Warehouse:** abra uma conexão com o banco de dados **SQL Data Warehouse** e execute o comando a seguir.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ Você pode usar o DMV `sys.dm_pdw_exec_requests` para identificar consultas que 
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 A consulta a seguir mostra a qual função cada usuário está atribuído.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -420,12 +420,13 @@ Para obter mais informações sobre como gerenciar usuários de banco de dados e
 <!--Image references-->
 
 <!--Article references-->
-[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Recriando índices para melhorar a qualidade de segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

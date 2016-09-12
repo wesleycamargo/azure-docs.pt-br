@@ -31,7 +31,7 @@ Este tópico fornece as diretrizes e limitações gerais do Banco de Dados SQL d
 
 ## SQL Server Agent/trabalhos
 
-O Banco de Dados SQL do Microsoft Azure não dá suporte ao SQL Server Agent ou a trabalhos. No entanto, você pode executar o SQL Server Agent em seu SQL Server local e se conectar ao Banco de Dados SQL do Microsoft Azure.
+O Banco de Dados SQL do Microsoft Azure não dá suporte ao SQL Server Agent, porém você pode usar os trabalhos Elásticos de executar trabalhos de um a diversos bancos de dados. Para obter mais informações sobre trabalhos elásticos, consulte [Trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
 ## Suporte ao agrupamento do SQL Server
 
@@ -63,4 +63,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

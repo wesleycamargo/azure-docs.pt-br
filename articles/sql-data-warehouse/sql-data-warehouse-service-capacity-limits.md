@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/31/2016"
+   ms.date="08/25/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de capacidade do SQL Data Warehouse
 
-As tabelas abaixo contêm os valores máximos permitidos para vários componentes do SQL Data warehouse do Azure.
+As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 
 ## Gerenciamento de carga de trabalho
@@ -28,7 +28,7 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 | [DWU (Unidades de Data Warehouse)][]| Computação, memória e recursos de E/S | 6000 |
 | Conexão de banco de dados | Sessões abertas simultâneas | 1\.024<br/><br/>Damos suporte a um máximo de 1.024 conexões ativas e cada uma pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento.|
 | Conexão de banco de dados | Memória máxima para instruções preparadas | 20 MB |
-| [Gerenciamento de carga de trabalho][] | Máximo de consultas simultâneas | 32<br/><br/> Por padrão, o SQL Data Warehouse executará até 32 consultas simultâneas e colocará em fila as consultas restantes.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar.|
+| [Gerenciamento de carga de trabalho][] | Máximo de consultas simultâneas | 32<br/><br/> Por padrão, o SQL Data Warehouse pode executar até 32 consultas simultâneas e colocar as consultas restantes em fila.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior ou quando o SQL Data Warehouse é configurado com uma DWU baixa. Algumas consultas, como as consultas DMV, sempre têm permissão para executar.|
 | [Tempdb][] | Tamanho máximo de Tempdb | 399 GB por DW100. Portanto, no DWU1000, Tempdb é dimensionado para 3,99 TB |
 
 
@@ -36,12 +36,12 @@ As tabelas abaixo contêm os valores máximos permitidos para vários componente
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Banco de dados | Tamanho máx. | 240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 1 PB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão).|
+| Banco de dados | Tamanho máx. | 240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes. A compactação do columnstore clusterizado é estimada em cinco vezes. Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão).|
 | Tabela | Tamanho máx. | 60 TB compactados em disco |
 | Tabela | Tabelas por banco de dados | 2 bilhões |
 | Tabela | Colunas por tabela | 1024 colunas |
-| Tabela | Bytes por coluna | 8000 bytes |
-| Tabela | Bytes por linha, tamanho definido | 8\.060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página ativada. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha que permite que colunas de comprimento variável sejam empurradas para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Para obter mais informações, confira o tópico [Dados de estouro de linha excedendo 8 KB][] nos Manuais Online do SQL Server.<br/><br/>Para obter uma lista dos tamanhos de tipo de dados do SQL Data Warehouse, confira [CREATE TABLE (Azure SQL Data Warehouse)][] \(CRIAR TABELA (SQL Data Warehouse do Azure)). |
+| Tabela | Bytes por coluna | Dependente do [tipo de dados][] da coluna. O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX.|
+| Tabela | Bytes por linha, tamanho definido | 8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite que as **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, confira o artigo [Dados de estouro de linha excedendo 8 KB][] do MSDN.|
 | Tabela | Partições por tabela | 15\.000<br/><br/>Para ter um alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento.|
 | Tabela | Caracteres por valor de limite de partição.| 4000 |
 | Índice | Índices não clusterizados por tabela. | 999<br/><br/>Aplica-se somente às tabelas rowstore.|
@@ -106,10 +106,10 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [Visão geral de referência do SQL Data Warehouse]: ./sql-data-warehouse-overview-reference.md
 [Gerenciamento de carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
+[tipo de dados]: ./sql-data-warehouse-tables-data-types.md
 
 <!--MSDN references-->
 [Dados de estouro de linha excedendo 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Erro interno: foi atingido um limite dos serviços de expressão]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

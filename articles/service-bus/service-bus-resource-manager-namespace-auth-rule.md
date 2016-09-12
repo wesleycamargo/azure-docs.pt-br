@@ -26,7 +26,7 @@ Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barr
 
 >[AZURE.NOTE] Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 >
->-    [Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores](service-bus-resource-manager-namespace-event-hub.md)
+>-    [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 >-    [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 >-    [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 >-    [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
@@ -37,7 +37,7 @@ Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barr
 
 Com esse modelo, você implantará uma regra de autorização do Barramento de Serviço para um namespace e uma entidade de sistema de mensagens (nesse caso, uma fila).
 
-O modelo usa [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas-overview.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma chave de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
+O modelo usa [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas-overview.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma tecla de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
@@ -177,4 +177,4 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Modelo de regra de autorização do Barramento de Serviço]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

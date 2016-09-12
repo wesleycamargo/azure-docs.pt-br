@@ -33,7 +33,7 @@ Este artigo supõe que você:
 
 - **Uma máquina virtual executando o Windows**: existem várias ferramentas para a criação de máquinas virtuais locais. Por exemplo, consulte [Instalar a função Hyper-V e configurar uma máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). Para obter informações sobre os sistemas operacionais Windows com suporte no Azure, consulte [Suporte de software de servidor Microsoft para máquinas virtuais do Microsoft Azure](https://support.microsoft.com/kb/2721672).
 
-- Verifique se as funções de servidor em execução na VM dão suporte ao Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+- Verifique se as funções de servidor em execução na VM dão suporte ao Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Faça backup da VM antes de executar o Sysprep.
 
 
 ## Verifique se a VM está no formato de arquivo correto
@@ -160,7 +160,7 @@ Esse comando pode demorar um pouco para ser concluído, dependendo da conexão d
 
 ## Criar uma rede virtual
 
-Crie a vNet e a sub-rede da [rede virtual](../virtual-network/virtual-networks-overview.md).
+Crie a rede virtual e a sub-rede da [rede virtual](../virtual-network/virtual-networks-overview.md).
 
 1. Substitua o valor das variáveis pelas suas próprias informações. Forneça o prefixo do endereço da sub-rede no formato CIDR. Crie as variáveis e a sub-rede.
 
@@ -254,4 +254,4 @@ Ao concluir, a nova VM criada deverá aparecer no [Portal do Azure](https://port
 
 Para gerenciar a nova máquina virtual usando o Azure PowerShell, leia [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

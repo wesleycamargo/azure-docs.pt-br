@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Gerenciar fórmulas de Laboratórios de Desenvolvimento/Teste para criar VMs
@@ -42,7 +42,7 @@ As etapas a seguir o orientarão durante o processo de criação de uma nova fó
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -84,7 +84,7 @@ As etapas a seguir o orientarão durante o processo de criação de uma fórmula
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -105,7 +105,7 @@ Para modificar uma fórmula, siga estas etapas:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -122,7 +122,7 @@ Para excluir uma fórmula, siga estas etapas:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -142,11 +142,13 @@ Para excluir uma fórmula, siga estas etapas:
 
     ![Menu de contexto da Fórmula](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Postagens de blogs relacionadas
 
 - [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## Próximas etapas
-Após criar uma fórmula para uso durante a criação de uma VM, a próxima etapa é [adicionar uma VM ao laboratório](./devtest-lab-add-vm-with-artifacts.md).
+Depois de criar uma fórmula para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

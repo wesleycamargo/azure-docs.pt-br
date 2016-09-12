@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/07/2016"
+     ms.date="08/25/2016"
      ms.author="dobett"/>
 
 # Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto
@@ -36,7 +36,7 @@ Você pode concluir este tutorial em qualquer sistema operacional, como Windows 
 
 ## Configurar o dispositivo Node.js simulado
 
-1. No painel de monitoramento remoto, clique em **+ Adicionar um dispositivo** e, em seguida, adicione um novo dispositivo personalizado. Anote o nome de host do Hub IoT, id do dispositivo e chave do dispositivo. Você precisará deles mais tarde neste tutorial ao preparar o aplicativo cliente de dispositivo remote\_monitoring.js.
+1. No painel de monitoramento remoto, clique em **+ Adicionar um dispositivo** e, em seguida, adicione um dispositivo personalizado. Anote o nome de host do Hub IoT, id do dispositivo e chave do dispositivo. Você precisará deles mais tarde neste tutorial ao preparar o aplicativo cliente de dispositivo remote\_monitoring.js.
 
 2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Execute `node --version` em um prompt de comando ou em um shell para verificar a versão. Para obter informações sobre como usar um gerenciador de pacotes para instalar o Node.js no Linux, confira [Instalação do Node.js por meio do gerenciador de pacotes][node-linux].
 
@@ -84,13 +84,13 @@ Se você selecionar dispositivo simulado Node.js executado na seção anterior, 
 
 A solução de monitoramento remoto detecta automaticamente o tipo de telemetria adicional de temperatura externa e o adiciona ao gráfico no painel.
 
-## Adicionar um novo tipo de telemetria
+## Adicionar um tipo de telemetria
 
 A próxima etapa é substituir a telemetria gerada pelo dispositivo simulado Node.js por um novo conjunto de valores:
 
 1. Interrompa o dispositivo simulado Node.js digitando **Ctrl + C** no prompt de comando ou no shell.
 
-2. No arquivo remote\_monitoring.js, você pode ver os valores de dados base para a telemetria existente de temperatura, umidade e temperatura externa. Adicione um novo valor de dados base para **rpm** da seguinte maneira:
+2. No arquivo remote\_monitoring.js, você pode ver os valores de dados base para a telemetria existente de temperatura, umidade e temperatura externa. Adicione um valor de dados base para **rpm** da seguinte maneira:
 
     ```
     // Sensors data
@@ -100,7 +100,7 @@ A próxima etapa é substituir a telemetria gerada pelo dispositivo simulado Nod
     var rpm = 200;
     ```
 
-3. O dispositivo simulado Node.js gera a telemetria adicionando um incremento aleatório aos valores de dados base usando a função **generateRandomIncrement** no arquivo remote\_monitoring.js. Torne o valor de **rpm** aleatório adicionando uma linha de código após as aleatorizações existentes da seguinte maneira:
+3. O dispositivo simulado Node.js usa a função **generateRandomIncrement** no arquivo remote\_monitoring.js para adicionar um incremento aleatório aos valores de dados base. Torne o valor de **rpm** aleatório adicionando uma linha de código após as aleatorizações existentes da seguinte maneira:
 
     ```
     temperature += generateRandomIncrement();
@@ -135,7 +135,7 @@ A próxima etapa é substituir a telemetria gerada pelo dispositivo simulado Nod
 
 ## Personalizar a exibição do painel
 
-A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telemetria que o dispositivo pode enviar para o Hub IoT. Esses metadados podem especificar os tipos de telemetria enviados pelo dispositivo. Modifique o valor de **deviceMetaData** no arquivo remote\_monitoring.js a fim de incluir uma definição de **Telemetria** logo após a definição de **Comandos**, conforme mostra o trecho de código a seguir (não se esqueça de adicionar um `,` após a definição de **Comandos**):
+A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telemetria que o dispositivo pode enviar para o Hub IoT. Esses metadados podem especificar os tipos de telemetria enviados pelo dispositivo. Modifique o valor de **deviceMetaData** no arquivo remote\_monitoring.js a fim de incluir uma definição de **Telemetria** logo após a definição de **Comandos**. O seguinte trecho de código mostra a definição **Comandos** (não se esqueça de adicionar um `,` após a definição de **Comandos**):
 
 ```
 'Commands': [{
@@ -168,7 +168,7 @@ A mensagem **Informações do Dispositivo** pode incluir metadados sobre a telem
 
 > [AZURE.NOTE] A solução de monitoramento remoto usa uma correspondência que diferencia maiúsculas e minúsculas a fim de comparar a definição de metadados com os dados no fluxo de telemetria.
 
-A adição de uma definição de **Telemetria**, como a acima, ao exemplo, não altera o comportamento do painel. No entanto, os metadados também podem incluir um atributo **DisplayName** para personalizar a exibição no painel. Atualize a definição de metadados de **Telemetria** da seguinte maneira:
+A adição de uma definição de **Telemetria**, como mostra o trecho de código acima, não altera o comportamento do painel. No entanto, os metadados também podem incluir um atributo **DisplayName** para personalizar a exibição no painel. Atualize a definição de metadados de **Telemetria** conforme mostra o trecho a seguir:
 
 ```
 'Telemetry': [
@@ -226,7 +226,7 @@ A **Temperatura Externa** não aparece mais no gráfico:
 
 ![Filtrar a telemetria no painel][image5]
 
-Observe que isso afeta somente a exibição de gráfico, os valores de **ExternalTemperature** ainda serão armazenados e disponibilizados para o processamento de qualquer back-end.
+Essa alteração afeta somente a exibição do gráfico. Os valores de **ExternalTemperature** ainda são armazenados e disponibilizados para o processamento de qualquer back-end.
 
 > [AZURE.NOTE] Talvez seja necessário desabilitar e, em seguida, habilitar o dispositivo Node.js na página **Dispositivos** no painel, para ver a alteração imediatamente.
 
@@ -251,4 +251,4 @@ Agora que você já viu como usar a telemetria dinâmica, saiba mais sobre como 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

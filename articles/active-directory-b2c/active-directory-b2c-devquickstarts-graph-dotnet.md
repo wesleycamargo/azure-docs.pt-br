@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C: usar a API do Graph
@@ -35,7 +35,7 @@ Antes de criar o aplicativo ou os usuários ou interagir com o Azure AD, você p
 
 Agora que tem um locatário B2C, você precisa criar seu aplicativo de serviço usando os cmdlets do PowerShell do Azure AD. Primeiro, baixe e instale o [Assistente de Conexão do Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Em seguida, baixe e instale o [Módulo do Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]
+> [AZURE.IMPORTANT]
 Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o PowerShell. Siga as instruções neste artigo para fazer isso. Você não pode usar seus aplicativos B2C já existentes que registrou no Portal do Azure novamente.
 
 Depois de instalar o módulo do PowerShell, abra o PowerShell e conecte-se ao locatário B2C. Depois de executar o `Get-Credential`, você será solicitado a fornecer um nome de usuário e uma senha. Insira o nome de usuário e a senha de sua conta de administrador do locatário B2C.
@@ -362,4 +362,4 @@ Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerencia
 
 Se você tiver perguntas ou solicitações de ações que deseja executar usando a API do Graph em seu locatário B2C, deixe um comentário sobre este artigo ou apresente um problema no repositório de código de exemplo do GitHub.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="mimig"/>
 
 # Níveis de consistência no Banco de Dados de Documentos
@@ -83,14 +83,14 @@ A tabela a seguir captura várias garantias de consistência correspondentes aos
 
 ## Configurando o nível de consistência padrão
 
-1.  No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**.
+1.  No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)**.
 
-2. Na folha **Contas do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
+2. Na folha **DocumentDB (NoSQL)**, escolha a conta do banco de dados a ser modificada.
 
-3. Na folha da conta, clique em **Consistência Padrão**.
+3. Na folha da conta, clique em **Consistência padrão**.
 
 
-4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**.
+4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
 
 	![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
@@ -119,4 +119,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

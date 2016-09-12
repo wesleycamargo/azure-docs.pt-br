@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Configurar uma rede virtual para Laboratórios de Desenvolvimento/Teste
@@ -27,7 +27,7 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -47,7 +47,7 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 
 	![Selecionar uma rede virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
-1. Na folha **Escolher rede virtual**, selecione a rede virtual desejada. A folha mostra todas as redes virtuais que estão na mesma região da assinatura que o laboratório.
+1. Na folha **Escolher rede virtual**, selecione a rede virtual desejada. A folha mostra todas as redes virtuais que estão na mesma região da assinatura do que o laboratório.
 
 1. Depois de selecionar uma rede virtual e retornar à folha **Rede Virtual**, você verá que vários campos foram habilitados.
 
@@ -65,8 +65,10 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 
 1. Agora que a rede virtual está configurada, ela poderá ser selecionada durante a criação de uma nova VM. Isso é explicado no artigo, [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Próximas etapas
 
 Depois de adicionar as redes virtuais desejadas ao seu laboratório, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

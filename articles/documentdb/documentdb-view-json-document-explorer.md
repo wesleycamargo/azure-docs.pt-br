@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos
@@ -25,17 +25,13 @@ Observe que o Gerenciador de documentos não está habilitado em contas do Banco
 
 ## Iniciar o Gerenciador de Documentos
 
-1. No portal do Azure, no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e então clique em **Contas do Banco de Dados de Documentos**.
+1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
 
-2. Na parte superior da folha **Conta do Banco de Dados de Documentos**, clique em **Gerenciador de Documentos**.
+2. No menu de recursos, clique em **Gerenciador de Documentos**.
  
 	![Captura de tela do comando do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] O Gerenciador de Consultas também aparece nas folhas do banco de dados e da coleção.
-
-    Na folha **Gerenciador de Documentos**, as listas suspensas **Bancos de dados** e **Coleções** são populadas com antecedência, dependendo do contexto no qual você tiver iniciado o Gerenciador de Documentos.
-
-	![Captura de tela da folha Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorerinitial.png)
+    Na folha **Gerenciador de Documentos**, as listas suspensas **Bancos de dados** e **Coleções** são preenchidas com antecedência, dependendo do contexto no qual você tiver iniciado o Gerenciador de Documentos.
 
 ## Criar um documento
 
@@ -43,7 +39,7 @@ Observe que o Gerenciador de documentos não está habilitado em contas do Banco
 
 2. Na folha **Gerenciador de Documentos**, clique em **Criar Documento**.
 
-    Um trecho mínimo de JSON é fornecido na folha **Document**.
+    Um trecho mínimo de JSON é fornecido na folha **Documento**.
 
 	![Captura de tela da experiência de criação de documentos do Gerenciador de Documentos, onde você pode exibir JSON e editar JSON](./media/documentdb-view-json-document-explorer/createdocument.png)
 
@@ -106,7 +102,7 @@ Por padrão, o Gerenciador de Documentos carrega os 100 primeiros documentos na 
 
 	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings2.png)
 
-	O Gerenciador de Documentos atualiza automaticamente os resultados com os documentos que correspondem à consulta de filtro. Leia mais sobre a gramática SQL do Banco de Dados de Documentos no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima uma cópia da [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
+	O Gerenciador de Documentos atualiza automaticamente os resultados com os documentos que correspondem à consulta de filtro. Leia mais sobre a gramática SQL do DocumentDB no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima uma cópia da [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 
     As caixas das listas suspensas **Banco de Dados** e **Coleção** podem ser usadas para alterar a coleção cujos documentos estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Documentos novamente.
 
@@ -152,12 +148,20 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 
 O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados para o Banco de Dados de Documentos.
+Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do DocumentDB para importar rapidamente os dados para o DocumentDB.
+
+## Solucionar problemas
+
+**Sintoma**: o Gerenciador de Documentos retorna **Nenhum documento encontrado**.
+
+**Solução**: verifique se você selecionou a assinatura, o banco de dados e a coleção correta na qual os documentos foram inseridos. Além disso, verifique se você está operando dentro de suas cotas de taxa de transferência. Se você estiver operando com seu nível máximo de taxa de transferência e estiver sofrendo limitação, reduza o uso do aplicativo a fim de operar com a cota máxima de taxa de transferência para a coleção.
+
+**Explicação**: o portal é um aplicativo como qualquer outro, fazendo chamadas para o banco de dados e a coleção do seu DocumentDB. Se as suas solicitações estiverem sofrendo restrições no momento devido a chamadas feitas de um aplicativo separado, o portal também poderá sofrer restrições, fazendo com que os recursos não apareçam no portal. Para solucionar o problema, resolva a causa do alto uso de produtividade e, em seguida, atualize a folha do portal. Informações sobre como medir e reduzir o uso da produtividade podem ser encontradas na seção [Produtividade](documentdb-performance-tips.md#throughput) do artigo [Dicas de desempenho](documentdb-performance-tips.md).
 
 ## Próximas etapas
 
-Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
+Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o Banco de Dados de Documentos.
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

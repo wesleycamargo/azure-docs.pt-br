@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
@@ -33,21 +33,21 @@ As predefinições personalizadas que executam as seguintes tarefas de codifica�
 - [Predefinições somente de áudio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenar dois ou mais arquivos de vídeo](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Cortar vídeos com o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#crop)
+- [Inserir uma faixa de vídeo quando a entrada não tiver vídeo](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
-
-##<a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
+##<a id="encoding_with_dotnet"></a>Codificação com o SDK .NET dos Serviços de Mídia
 
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 - Crie um trabalho de codificação.
-- Obtenha uma referência para o Media Encoder Standard.
+- Obtenha uma referência para o Codificador de Mídia Padrão.
 - Carregar a predefinição personalizada de XML ou JSON. É possível salvar esse XML ou JSON (por exemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) em um arquivo e usar o código a seguir para carregar o arquivo.
 
 		// Load the XML (or JSON) from the local file.
 	    string configuration = File.ReadAllText(fileName);  
 - Adicione uma tarefa de codificação para o trabalho.
 - Especifique o ativo de entrada a ser codificado.
-- Crie um ativo de saída que conterá o ativo codificado.
+- Crie um ativo de saída contendo o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
 - Enviar o trabalho.
 	
@@ -240,7 +240,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 ##Suporte para tamanhos relativos
 
-Ao gerar miniaturas, você não precisa sempre especificar a largura e altura da saída em pixels. Você pode especificá-los em porcentagens, no intervalo de [% 1, …, 100%].
+Ao gerar miniaturas, você não precisa sempre especificar a largura e a altura da saída em pixels. Você pode especificá-los em porcentagens, no intervalo de [% 1, …, 100%].
 
 ###Predefinição JSON 
 	
@@ -256,7 +256,7 @@ Ao gerar miniaturas, você não precisa sempre especificar a largura e altura da
 
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
 
->[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como verdadeira se você estiver codificando para um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de múltiplas taxas de bits e definir **SceneChangeDetection** como verdadeiro, o codificador retornará um erro.
+>[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como true se você estiver codificando para um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de múltiplas taxas de bits e definir **SceneChangeDetection** como true, o codificador retornará um erro.
 
 
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tópico.
@@ -447,22 +447,22 @@ As seguintes considerações se aplicam:
 - O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
 - Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
 
-	- Número de quadro se eles forem números inteiros não negativos, por exemplo: "Start": "120",
-	- Relativos à duração da origem se expressos com sufixo %, por exemplo: "Start": "15%" OU
-	- Carimbo de data/hora se expresso no formato HH:MM:SS… Por exemplo, "Start": "00:01:00"
+	- Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
+	- Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
+	- Carimbo de data/hora se expresso no formato HH:MM:SS, por exemplo, "Início": "00:01:00"
 
 	Você pode combinar as notações como desejar.
 	
 	Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
 	
 	- Padrões: Start:{Best}
-- O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
+- O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
-##<a id="trim_video"></a>Cortar um vídeo (distorção)
+##<a id="trim_video"></a>Cortar um vídeo (recorte)
 
 Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo capturado ou arquivado em uma transmissão ao vivo. Os detalhes desse processo estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo). O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro do vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 e mais. No exemplo abaixo, estamos supondo que o vídeo de entrada tenha um carimbo de data/hora inicial igual a zero. Observe que **Fontes** deve ser colocado no início da predefinição.
+Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (conforme mostrado abaixo). O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro do vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 e mais. No exemplo abaixo, estamos supondo que o vídeo de entrada tenha um carimbo de data/hora inicial igual a zero. O elemento **Fontes** deve ser colocado no início da predefinição.
  
 ###<a id="json"></a>Predefinição JSON
 	
@@ -586,7 +586,7 @@ Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas 
 
 ###Predefinição XML
 	
-Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo).
+Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (conforme mostrado abaixo).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -885,7 +885,7 @@ Você pode usar qualquer uma das predefinições MES documentadas [aqui](https:/
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Desabilitar o desentrelaçamento automático
+##<a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
 
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
@@ -968,7 +968,7 @@ Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e 
 
 ##<a id="concatenate"></a>Concatenar dois ou mais arquivos de vídeo
 
-O exemplo a seguir ilustra como você pode gerar uma predefinição para concatenar dois ou mais arquivos de vídeo. O cenário mais comum é quando você deseja adicionar um cabeçalho ou um rodapé ao vídeo principal. O uso pretendido é quando os arquivos de vídeo que estão sendo editados juntos compartilham as mesmas propriedades (resolução de vídeo, taxa de quadros, contagem de faixa de áudio, etc.). Você deve ter cuidado para não misturar vídeos de taxas de quadros diferentes, ou com um número diferente de faixas de áudio.
+O exemplo a seguir ilustra como você pode gerar uma predefinição para concatenar dois ou mais arquivos de vídeo. O cenário mais comum é quando você deseja adicionar um cabeçalho ou um rodapé ao vídeo principal. O uso pretendido é quando os arquivos de vídeo que estão sendo editados juntos compartilham propriedades (resolução de vídeo, taxa de quadros, contagem de faixa de áudio, etc.). Você deve ter cuidado para não misturar vídeos de taxas de quadros diferentes, ou com um número diferente de faixas de áudio.
 
 ###Requisitos e considerações
 
@@ -1079,6 +1079,58 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 
 Veja o tópico [Cortar vídeos com o Codificador de Mídia Padrão](media-services-crop-video.md).
 
+##<a id="no_video"></a>Inserir uma faixa de vídeo quando a entrada não tiver vídeo
+
+Por padrão, se você enviar uma entrada para o codificador que contenha apenas áudio e sem vídeo, o ativo de saída conterá os arquivos contendo apenas dados de vídeo. Alguns reprodutores, incluindo o Player de Mídia do Azure (consulte [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) talvez não sejam capazes de lidar com esses fluxos. Você pode usar essa configuração para forçar o codificador a adicionar uma faixa de vídeo monocromático à saída nesse cenário.
+
+>[AZURE.NOTE]Forçar o codificador para inserir uma faixa de vídeo de saída aumenta o tamanho do ativo de saída e, consequentemente, o custo incorrido para a tarefa de codificação. Você deve executar testes para certificar-se de que esse aumento resultante tem apenas um impacto pequeno sobre os encargos mensais.
+
+### Inserindo vídeo somente com a taxa de bits mais baixa
+
+Suponha que você está usando uma predefinição de codificação de taxa de bits múltipla como ["H264 com taxa de bits múltipla de 720p"](https://msdn.microsoft.com/library/mt269960.aspx) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático somente na menor taxa de bits, em vez de inserir vídeo em cada taxa de bits de saída. Para fazer isso, você precisa especificar o sinalizador "InsertBlackIfNoVideoBottomLayerOnly".
+
+Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
+
+#### Predefinição JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Predefinição XML
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Inserindo vídeo em todas as taxas de bits de saída
+
+Suponha que você está usando uma predefinição de codificação de taxa de bits múltipla como ["H264 com taxa de bits múltipla de 720p"](https://msdn.microsoft.com/library/mt269960.aspx) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático em todas as taxas de bits de saída. Isso garante que seus ativos de saída sejam todos homogêneos quanto ao número de faixas de vídeo e de faixas de áudio. Para fazer isso, você precisa especificar o sinalizador "InsertBlackIfNoVideo".
+
+Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
+
+#### Predefinição JSON
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### Predefinição XML
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
+
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -1091,4 +1143,4 @@ Veja o tópico [Cortar vídeos com o Codificador de Mídia Padrão](media-servic
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

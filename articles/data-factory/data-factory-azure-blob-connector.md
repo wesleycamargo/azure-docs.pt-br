@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aprenda a copiar/mover conjuntos de dados do Azure Blob Datasets|do Azure Data Factory" 
+	pageTitle="Copiar dados para/do Armazenamento de Blobs do Azure | Azure Data Factory" 
 	description="Saiba como copiar dados de blob no Azure Data Factory. O(s) exemplo(s) a seguir mostra(m) como copiar dados de e para o Armazenamento de Blobs do Azure e o Banco de Dados SQL do Azure." 
     keywords="dados de blob, cópia de blobs do azure"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do blob do Azure usando o Azure Data Factory
@@ -38,7 +38,7 @@ O exemplo a seguir mostra:
 4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	Um [pipeline](data-factory-create-pipelines.md) com Atividade de cópia que usa [BlobSource](#azure-blob-copy-activity-type-properties) e [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-O exemplo copia os dados de série temporal de um blob do Azure para uma tabela no banco de dados SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia os dados de série temporal de um blob do Azure para uma tabela SQL do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
 **Serviço vinculado do SQL Azure:**
 
@@ -210,7 +210,7 @@ O exemplo a seguir mostra:
 4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) e [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-O exemplo copia os dados de série temporal de uma tabela no banco de dados SQL do Azure para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia os dados de série temporal de uma tabela SQL do Azure para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
 **Serviço vinculado do SQL Azure:**
 
@@ -433,7 +433,7 @@ Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis
 
 
 ## Propriedades de tipo de atividade de cópia de Blob do Azure  
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, várias políticas, etc. estão disponíveis para todos os tipos de atividade.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, conjuntos de dados de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de Cópia, elas variam de acordo com os tipos de fonte e coletor
 
@@ -441,17 +441,34 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Especifica se deve-se tratar a cadeia de caracteres nula ou vazia como valor nulo. <br/><br/>Quando a propriedade **quoteChar** é especificada, uma cadeia de caracteres vazia entre aspas também pode ser tratada como null com essa propriedade. | TRUE (padrão) <br/>FALSE | Não |
-| skipHeaderLineCount | Indica quantas linhas precisam ser ignoradas. É aplicável somente quando o conjunto de dados de entrada usa **TextFormat**. | Inteiro de 0 ao máximo. | Não | 
 | recursiva | Indica se os dados são lidos recursivamente por meio de subpastas ou somente da pasta especificada. | True (valor padrão), False | Não | 
-
 
 **BlobSink** dá suporte às seguintes propriedades na seção **typeProperties**:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Especifica se deseja adicionar o cabeçalho de definições de coluna. | TRUE<br/>FALSE (padrão) | Não |
 | copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | **PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><br/>**MergeFiles**: (padrão) mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. | Não |
+
+**BlobSource** também oferece suporte a essas duas propriedades que serão desativadas em breve.
+
+- **treatEmptyAsNull**: especifica se deve-se tratar a cadeia de caracteres nula ou vazia como valor nulo.
+- **skipHeaderLineCount** - Especifica quantas linhas precisam ser ignoradas. É aplicável somente quando o conjunto de dados de entrada usa TextFormat.
+
+Da mesma forma, **BlobSink** oferece suporte à seguinte propriedade que será desativada em breve.
+
+- **blobWriterAddHeader**: especifica se deve adicionar um cabeçalho de definições de coluna ao gravar em um conjunto de dados de saída.
+
+Agora, os conjuntos de dados oferecem suporte às seguintes propriedades que implementam a mesma funcionalidade: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+
+A tabela a seguir fornece orientação sobre como usar as novas propriedades do conjunto de dados em vez de propriedades de fonte/coletor de blob que serão desativadas em breve.
+
+| Propriedade de Atividade de Cópia | Propriedade de Conjunto de Dados |
+| :---------------------- | :---------------- | 
+| skipHeaderLineCount em BlobSource | skipLineCount e firstRowAsHeader. As linhas são ignoradas primeiro e, em seguida, a primeira linha é lida como um cabeçalho. |
+| treatEmptyAsNull em BlobSource | treatEmptyAsNull no conjunto de dados de entrada |
+| blobWriterAddHeader em BlobSink | firstRowAsHeader no conjunto de dados de saída | 
+
+Confira a seção [Especificar TextFormat](#specifying-textformat) para obter informações detalhadas sobre essas propriedades.
 
 ### exemplos de recursive e copyBehavior
 Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
@@ -475,6 +492,6 @@ false | mergeFiles | Para uma pasta de origem Pasta1 com a seguinte estrutura:<b
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

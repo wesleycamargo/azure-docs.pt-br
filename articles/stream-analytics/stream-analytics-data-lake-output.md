@@ -15,25 +15,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/30/2016"
 	ms.author="jeffstok"
 />
 
 # Saída do Repositório Data Lake do Stream Analytics
 
-Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. Este artigo aborda a autorização, configuração e renovação da autorização de um Repositório Azure Data Lake no Portal Clássico do Azure no Stream Analytics.
-
-> [AZURE.NOTE] No momento, há suporte para a criação e configuração das saídas do Repositório Data Lake **apenas** no Portal Clássico do Azure.
+Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias.
 
 ## Autorizar uma conta do Repositório Data Lake
 
 1.  Quando o Repositório Data Lake é selecionado como uma saída no portal de Gerenciamento do Azure, é solicitado que você autorize o uso de seu Repositório Data Lake existente ou solicite acesso à Preview do Repositório Data Lake por meio do Portal Clássico do Azure.
 
-    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
+    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)
 
 2.  Se você já tiver acesso ao Repositório Data Lake, clique em "Autorizar agora" e, por um curto período, uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e você verá a página que permite configurar a saída do Repositório Data Lake.
 
-Se não tiver feito a inscrição para a Preview do Repositório Data Lake, você pode seguir o link "Inscrever-se agora" para iniciar a solicitação ou executar as [instruções de início](../data-lake-store/data-lake-store-get-started-portal.md).
+Se não tiver feito a inscrição para a Preview do Data Lake Store, você poderá seguir o link "Inscrever-se agora" para iniciar a solicitação ou executar as [instruções de início](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## Configurar as propriedades de saída do Repositório Data Lake
 
@@ -90,6 +88,6 @@ Atualmente, há uma limitação em que o token de autenticação deve ser atuali
 
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Repositório Data Lake. Clique no link "Renovar autorização" e por um curto período uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e, se for bem-sucedida, indicará "A autorização foi renovada com êxito". Em seguida, você precisa clicar em "Salvar" na parte inferior da página e poderá continuar reiniciando seu trabalho da última vez em que foi interrompido para evitar perda de dados.
 
-![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
+![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

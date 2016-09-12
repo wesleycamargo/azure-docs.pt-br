@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -39,11 +39,12 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 
 - Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 - Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
+- Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
 - Não há suporte para backup e restauração entre regiões.
 - O backup de máquinas virtuais usando o serviço Backup do Azure tem suporte em todas as regiões públicas do Azure (confira a [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões com suporte). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
 - O backup de máquinas virtuais usando o serviço Backup do Azure tem suporte somente para determinadas versões de sistema operacional:
-  - **Linux**: o Backup do Azure suporta [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux. Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
+  - **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) exceto o principal sistema operacional Linux. Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 - A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. Máquinas virtuais que você criar usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -92,19 +93,19 @@ Para criar um cofre de backup:
 
 Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
 
-- [Lista branca de intervalos de IP de datacenter do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653): consulte o artigo para obter instruções sobre como colocar os endereços IP na lista branca.
+- [lista de autorizados de intervalos de IP de datacenter do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653): consulte o artigo para obter instruções sobre como colocar os endereços IP na lista de autorizados.
 - Implante um servidor de proxy HTTP para rotear o tráfego.
 
 Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, controle granular e custo.
 
 |Opção|Vantagens|Desvantagens|
 |------|----------|-------------|
-|Intervalos de IPs na lista branca| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
+|Intervalos de IPs na lista de autorizados| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
 |Proxy HTTP| É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Ponto único de acesso à Internet nas VMs, <br>Não está sujeito a alterações do endereço IP do Azure| Custos adicionais para a execução de uma VM com o software do proxy|
 
-### Realizar a lista branca de intervalos de IP do datacenter do Azure
+### Realizar a lista de autorizados de intervalos de IP do datacenter do Azure
 
-Para colocar os intervalos IP do datacenter do Azure na lista branca, consulte o [site do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
+Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, consulte o [site do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
 ### Usando um proxy HTTP para backups de uma VM
 Ao fazer backup de uma VM, a extensão de backup na VM envia os comandos de gerenciamento de instantâneo para o Armazenamento do Azure usando a API de HTTPS. Roteie o tráfego da extensão de backup por meio do proxy HTTP, pois ele é o único componente configurado para dar acesso à Internet pública.
@@ -172,7 +173,7 @@ HttpProxy.Port=<proxy port>
 
     ![Abrir o Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-2. No diálogo Firewall do Windows, clique com botão direito do mouse em **Regras de Entrada** e clique em **Nova Regra...**.
+2. No diálogo Firewall do Windows, clique com o botão direito do mouse em **Regras de Entrada** e clique em **Nova Regra...**.
 
     ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-02.png)
 
@@ -238,4 +239,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 - [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

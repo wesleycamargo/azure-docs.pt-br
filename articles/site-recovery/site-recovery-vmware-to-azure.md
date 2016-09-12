@@ -139,10 +139,14 @@ Para se preparar para a implantação, você precisará:
 - [Conheça](../vpn-gateway/vpn-gateway-site-to-site-create.md) os modelos de implantação com suporte para conexões VPN de site a site e saiba como [configurar uma conexão](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Como alternativa, você pode configurar a [Rota Expressa do Azure](../expressroute/expressroute-introduction.md). [Saiba mais](../expressroute/expressroute-howto-vnet-portal-classic.md) sobre como configurar uma rede com a Rota Expressa do Azure.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+
 ### Configurar uma conta de armazenamento do Azure
 
 - Você precisará de uma conta de armazenamento do Azure padrão ou premium para reter os dados replicados para o Azure. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. Dependendo do modelo de recurso que deseja usar para fazer failover das VMs do Azure, você configurará uma conta no [modo ARM](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
 - Se você estiver usando uma conta premium para os dados replicados, precisará configurar uma conta padrão adicional para armazenar os logs de replicação que capturam as alterações contínuas nos dados locais.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 ### Preparar uma conta para a descoberta automática
 
@@ -549,8 +553,8 @@ Os instaladores estão disponíveis no servidor de processo em **C:\\Arquivos de
 
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
-Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
 SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
@@ -859,4 +863,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -28,7 +28,7 @@ Antes de continuarmos, convém salvar os recursos a seguir. Eles o ajudarão ao 
 
 
 
-> [AZURE.NOTE] Antes que você possa configurar e executar obter o exemplo de introdução do Power BI Embedded, você precisa criar pelo menos uma **Coleção de Espaço de Trabalho** em sua assinatura do Azure. Para aprender a criar um **Coleção de Espaço de Trabalho** no Portal do Azure, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
+> [AZURE.NOTE] Antes que você possa configurar e executar o exemplo de introdução do Power BI Embedded, você precisa criar pelo menos uma **Coleção de Espaço de Trabalho** em sua assinatura do Azure. Para aprender a criar um **Coleção de Espaço de Trabalho** no Portal do Azure, consulte [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## Configurar o aplicativo de exemplo
 
@@ -36,21 +36,21 @@ Vamos orientar você sobre como configurar seu ambiente de desenvolvimento do Vi
 
 1. Baixe e descompacte a amostra [Power BI Embedded - Integrar um relatório em um aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
 
-2. Abra **PowerBI-embedded.sln** no Visual Studio.
+2. Abra **PowerBI-embedded.sln** no Visual Studio. Talvez seja necessário executar o comando **Update-Package** no Console do Gerenciador de Pacotes do NuGET para atualizar os pacotes usados nesta solução.
 
 3. Compilar a solução.
 
 4. Execute o aplicativo de console **ProvisionSample**. No aplicativo de console de exemplo, você provisiona um espaço de trabalho e importa um arquivo PBIX.
 
-5. Para provisionar um novo **Espaço de Trabalho**, selecione a opção 5, **Provisionar um novo espaço de trabalho em uma coleção de espaços de trabalho existente**.
+5. Para provisionar um novo **Espaço de trabalho**, selecione a opção 5, **Provisionar um novo espaço de trabalho em uma coleção de espaços de trabalho existente**.
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Insira o nome da sua **Coleção de Espaços de Trabalho** e a sua **Chave de Acesso**. Você pode obtê-los no **Portal do Azure**. Para saber mais sobre como obter sua **Chave de Acesso**, consulte [Exibir Chaves de Acesso de API do Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) na Introdução ao Microsoft Power BI Embedded.
+6. Insira o nome da sua **Coleção de Espaços de Trabalho** e a sua **Tecla de Acesso**. Você pode obtê-los no **Portal do Azure**. Para saber mais sobre como obter sua **Tecla de Acesso**, consulte [Exibir Chaves de Acesso de API do Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) na Introdução ao Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
-7. Copie e salve a **ID do Espaço de Trabalho** recém-criada para usar posteriormente neste artigo. Após a **ID do Espaço de Trabalho** ser criada, você poderá encontrá-la no **Portal do Azure**.
+7. Copie e salve a **ID do Espaço de Trabalho** recém-criada a usar posteriormente neste artigo. Após a **ID do Espaço de Trabalho** ser criada, você poderá encontrá-la no **Portal do Azure**.
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
@@ -67,7 +67,7 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] Se o arquivo PBIX contiver quaisquer conexões de consulta direta, execute a opção 7 para atualizar as cadeias de conexão.
 
-Neste ponto, você tem um relatório PBIX do Power BI importado para o seu **Espaço de Trabalho**. Agora, vejamos como executar aplicativo Web de exemplo de introdução do **Power BI Embedded**.
+Neste ponto, um relatório PBIX do Power BI é importado para o seu **Espaço de Trabalho**. Agora, vejamos como executar aplicativo Web de exemplo de introdução do **Power BI Embedded**.
 
 ## Executar o aplicativo Web de exemplo
 
@@ -222,14 +222,14 @@ Task<ActionResult> Report(string reportId)
 
 ### Integrar um relatório em seu aplicativo
 
-Quando tiver um **Relatório**, use um **IFrame** para incorporar o **Relatório** do Power BI. Veja um trecho de código do powerbi.js na amostra do **Microsoft Power BI Embedded**.
+Quando tiver um **Relatório**, você deverá usar um **IFrame** para inserir o **Relatório** do Power BI. Veja um trecho de código do powerbi.js na amostra do **Microsoft Power BI Embedded**.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
 ## Filtrar relatórios inseridos no seu aplicativo
 
-Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** à sua url src do iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** à sua URL de origem do iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

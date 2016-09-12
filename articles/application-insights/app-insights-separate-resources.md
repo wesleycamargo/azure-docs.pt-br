@@ -90,7 +90,7 @@ A iKey também é usada nas páginas da Web do aplicativo, no [script que você 
     // Modify this part:
     }({instrumentationKey:  
       // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
+      "@Microsoft.ApplicationInsights.Extensibility.
          TelemetryConfiguration.Active.InstrumentationKey"
     }) // ...
 
@@ -127,4 +127,4 @@ Você precisará das chaves de instrumentação de todos os recursos aos quais s
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

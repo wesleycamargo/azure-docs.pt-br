@@ -526,7 +526,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
 
 	- **Simultaneidade** é definido como **2** para que duas fatias sejam processadas em paralelo por 2 VMs no pool do Lote do Azure.
 	- Há uma atividade na seção de atividades, que é do tipo **DotNetActivity**.
-	- **AssemblyName** é definido como o nome da DLL **MyActivities.dll**.
+	- **AssemblyName** é definido para o nome da DLL: **MyDotnetActivity.dll**.
 	- **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** é definido como **AzureStorageLinkedService** que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, criará outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 	- **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: containerforthezip/nameofthezip.zip.
@@ -896,4 +896,4 @@ Amostra | Qual atividade personalizada realiza
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,16 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/31/2016"
     ms.author="sethm;shvija"/>
 
-# Criar um namespace Hub de Evento com um Hub de Evento e grupo de consumidores usando um modelo do Azure Resource Manager
+# Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
 
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Hub de Evento com um Hub de Eventos e um grupo de consumidores. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Hubs de Evento com um Hub de Eventos e um grupo de consumidores. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][].
 
-Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Eventos do Barramento de Serviço][] no GitHub.
+Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Eventos][] no GitHub.
 
 >[AZURE.NOTE] Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 >
@@ -31,17 +31,17 @@ Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Event
 >-    [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 >-    [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 >
->Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Barramento de Serviço.
+>Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Hubs de Eventos.
 
 ## O que você implantará?
 
-Com este modelo, você implantará um namespace Hub de Evento com um Hub de Evento e grupo de consumidores.
+Com este modelo, você implantará um namespace Hubs de Evento com um Hub de Evento e grupo de consumidores.
 
 [Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
-[![Implantar no Azure](./media/service-bus-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-eventhub-and-consumergroup%2Fazuredeploy.json)
+[![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## Parâmetros
 
@@ -51,7 +51,7 @@ O modelo define os parâmetros a seguir.
 
 ### eventHubNamespaceName
 
-O nome do namespace Hub de Evento a criar.
+O nome do namespace Hubs de Evento a criar.
 
 ```
 "eventHubNamespaceName": {
@@ -61,7 +61,7 @@ O nome do namespace Hub de Evento a criar.
 
 ### eventHubName
 
-O nome do Hub de Evento criado no namespace Hub de Evento.
+O nome do Hub de Evento criado no namespace Hubs de Evento.
 
 ```
 "eventHubName": {
@@ -71,7 +71,7 @@ O nome do Hub de Evento criado no namespace Hub de Evento.
 
 ### eventHubConsumerGroupName
 
-O nome do grupo de consumo criado para o Hub de Eventos no namespace do Barramento de Serviço.
+O nome do grupo de consumo criado para o Hub de Evento.
 
 ```
 "eventHubConsumerGroupName": {
@@ -79,59 +79,59 @@ O nome do grupo de consumo criado para o Hub de Eventos no namespace do Barramen
 }
 ```
 
-### serviceBusApiVersion
+### apiVersion
 
-A versão da API do Barramento de Serviço do modelo.
+A versão da API do modelo.
 
 ```
-"serviceBusApiVersion": {
+"apiVersion": {
 "type": "string"
 }
 ```
 
 ## Recursos a implantar
 
-Cria um namespace do Barramento de Serviço do tipo **Hub de Eventos**, com um Hub de Eventos e um grupo de consumo.
+Cria um namespace do tipo **Hubs de Eventos**, com um Hub de Eventos e um grupo de consumo.
 
 ```
-"resources": [
-        {
-            "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('eventHubNamespaceName')]",
-            "type": "Microsoft.EventHub/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "EventHub",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
-            },
-            "resources": [
-                {
-                    "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('eventHubName')]",
-                    "type": "EventHubs",
-                    "dependsOn": [
-                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-                    ],
-                    "properties": {
-                        "path": "[parameters('eventHubName')]"
-                    },
-                    "resources": [
-                        {
-                            "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('eventHubConsumerGroupName')]",
-                            "type": "ConsumerGroups",
-                            "dependsOn": [
-                                "[parameters('eventHubName')]"
-                            ],
-                            "properties": {
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+"resources":[  
+      {  
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('namespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{  
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources":[  
+            {  
+               "apiVersion":"[variables('ehVersion')]",
+               "name":"[parameters('eventHubName')]",
+               "type":"EventHubs",
+               "dependsOn":[  
+                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+               ],
+               "properties":{  
+                  "path":"[parameters('eventHubName')]"
+               },
+               "resources":[  
+                  {  
+                     "apiVersion":"[variables('ehVersion')]",
+                     "name":"[parameters('consumerGroupName')]",
+                     "type":"ConsumerGroups",
+                     "dependsOn":[  
+                        "[parameters('eventHubName')]"
+                     ],
+                     "properties":{  
+
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ],
 ```
 
 ## Comandos para executar a implantação
@@ -141,7 +141,7 @@ Cria um namespace do Barramento de Serviço do tipo **Hub de Eventos**, com um H
 ## PowerShell
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## CLI do Azure
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Tem
 ```
 azure config mode arm
 
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-eventhub-and-consumergroup/azuredeploy.json][]
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
 ## Próximas etapas
@@ -164,6 +164,6 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [Modelo de grupo de consumo e do Hub de Eventos do Barramento de Serviço]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
+  [Modelo de grupo de consumo e do Hub de Eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

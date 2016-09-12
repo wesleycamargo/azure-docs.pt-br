@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/30/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -75,6 +75,7 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 - Application Gateway
 - Application Insights
 - Rota Expressa
+- Cofre dos Serviços de Recuperação - não mova também os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação.
 - Conjuntos de Escala de Máquinas Virtuais
 - Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 - Gateway de VPN
@@ -273,4 +274,4 @@ Com o corpo da solicitação:
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

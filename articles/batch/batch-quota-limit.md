@@ -94,7 +94,7 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 ## Tópicos relacionados
 
-* [Criar e gerenciar uma conta do Lote do Azure](batch-account-create-portal.md)
+* [Criar uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md)
 
 * [Visão geral dos recursos do Lote do Azure](batch-api-basics.md)
 
@@ -106,4 +106,4 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

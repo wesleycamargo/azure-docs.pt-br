@@ -279,11 +279,15 @@ R2. Um alerta é gerado dentro de 5 minutos na falha do backup do Azure.
 
 **P3. Há um caso em que um email não será enviado se as notificações forem configuradas?**
 
-R3. Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora, um email não será enviado.
+R3. A seguir, os casos quando a notificação não será enviada para reduzir o ruído de alerta:
+
+   - Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
+   - o Trabalho será cancelado.
+   - O segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento.
 
 ## Próximas etapas
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um novo recurso do Application Insights" 
+	pageTitle="Criar um novo recurso do Application Insights | Microsoft Azure" 
 	description="Configure o monitoramento do Application Insights para um novo aplicativo ativo. Abordagem baseada na Web." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# Criar um novo recurso do Application Insights
+# Criar um recurso do Application Insights
 
 O Visual Studio Application Insights exibe dados sobre seu aplicativo no *recurso* do Microsoft Azure. Por isso, criar um novo recurso faz parte da [configuração do Application Insights para monitorar um novo aplicativo][start]. Em muitos casos, isso pode ser feito automaticamente pelo IDE e que é a maneira recomendada, se disponível. Mas, em alguns casos, você pode criar um recurso manualmente.
 
@@ -25,7 +25,7 @@ Depois de criar o recurso, você pode obter sua chave de instrumentação e usá
 
 Se você ainda não tiver uma [conta da Microsoft, obtenha uma agora mesmo](http://live.com). (Se usar serviços como Outlook.com, OneDrive, Windows Phone ou XBox Live, você já tem uma conta da Microsoft.)
 
-Primeiro, você precisa de uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela usando seu Windows Live ID.
+Você também precisará de uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela usando seu Windows Live ID.
 
 Ou então você pode criar uma nova assinatura. A conta gratuita permite que experimentar de tudo no Azure. Depois que o período de avaliação expira, você pode achar a assinatura pré-paga apropriada, já que você não será cobrado pelos serviços gratuitos.
 
@@ -40,7 +40,7 @@ No [portal.azure.com](https://portal.azure.com), adicione um recurso do Applicat
 ![Clique em Novo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
 
-* O **tipo de aplicativo** afeta o que você vê na folha de visão geral e as propriedades disponíveis no [explorador de métricas][metrics]. Se você não vir o tipo de aplicativo, escolha um dos tipos da Web para páginas da Web e um dos tipos de telefone para outros dispositivos.
+* O **tipo de aplicativo** afeta o que você vê na folha de visão geral e as propriedades disponíveis no [explorador de métricas][metrics]. Se você não vir seu tipo de aplicativo, escolha o ASP.NET.
 * **Grupo de recursos** é uma conveniência para o gerenciamento de propriedades, como controle de acesso. Se você já criou outros recursos do Azure, poderá optar por colocar esse novo recurso no mesmo grupo.
 * **Assinatura** é a sua conta de pagamento no Azure.
 * **Local** é onde podemos manter seus dados. Atualmente ele não pode ser alterado.
@@ -78,7 +78,12 @@ Se você estiver esperando mais dados, clique em Atualizar depois de alguns segu
 
 Você pode escrever um [script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso automaticamente.
 
+## Próximas etapas
 
+* [Criar um painel](app-insights-dashboards.md)
+* [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md)
+* [Explorar métricas](app-insights-metrics-explorer.md)
+* [Escrever consultas do Analytics](app-insights-analytics.md)
 
 
 <!--Link references-->
@@ -90,4 +95,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0831_2016-->

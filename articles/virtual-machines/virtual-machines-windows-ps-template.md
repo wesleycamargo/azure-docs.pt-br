@@ -23,7 +23,7 @@ Este artigo apresenta um modelo do Azure Resource Manager e mostra como usar o P
 
 Deve levar cerca de 20 minutos para executar as etapas neste artigo.
 
-> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, você precisará adicioná-la ao conjunto ao criar a VM. Atualmente não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
+> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, você precisará adicioná-la ao conjunto ao criar a VM. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
 
 ## Etapa 1: Criar o arquivo do modelo
 
@@ -216,11 +216,13 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
           }
         }
 
+    >[AZURE.NOTE] Veja mais sobre os [requisitos de nome de usuário e senha](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 2. Salve o arquivo de parâmetros.
 
 ## Etapa 3: Instalar o Azure PowerShell
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que deseja usar e entrar na sua conta do Azure.
 
 ## Etapa 4: Criar um grupo de recursos
 
@@ -249,7 +251,7 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 
 ### Etapa 5: Criar os recursos com o modelo e os parâmetros
 
-1. Substitua o valor **$deployName** pelo nome da implantação. Substitua o valor de **$templatePath** pelo caminho e nome do arquivo do modelo. Substitua o valor de **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis.
+1. Substitua o valor **$deployName** pelo nome da implantação. Substitua o valor **$templatePath** pelo caminho e nome do arquivo de modelo. Substitua o valor **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis.
 
         $deployName="deployment name"
         $templatePath = "template path"
@@ -281,7 +283,7 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 
 ## Próximas etapas
 
-- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
+- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

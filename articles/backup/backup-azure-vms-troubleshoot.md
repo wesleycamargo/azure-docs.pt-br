@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk;jimpark;"/>
 
 
@@ -48,7 +48,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Operação | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Cancelar trabalho | Não há suporte para cancelamento deste tipo de trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
-| Cancelar trabalho | O trabalho não está em um estado cancelável - Aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável — Aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
+| Cancelar trabalho | O trabalho não está em um estado cancelável - aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável - aguarde até que o trabalho seja concluído.| Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
 | Cancelar trabalho | Não é possível cancelar o trabalho porque ele não está em andamento - há suporte para cancelamento apenas de trabalhos que estão em andamento. Tente cancelar um trabalho em andamento. | Isso ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento |
 | Cancelar trabalho | Falha ao cancelar o trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
 
@@ -117,7 +117,7 @@ O backup de VM depende da emissão do comando de instantâneo para o armazenamen
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
 3.  Status da VM informado incorretamente porque a VM está desligada em RDP. <br> Se você desligou a máquina virtual em RDP, verifique no portal que o status da VM esteja refletido corretamente. Se não estiver, desligue a máquina virtual no portal usando a opção 'Desligar' no painel da VM.
-4.  Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, configure várias políticas de backup para preparar os tempos de backup para que não haja mais de quatro backups de VM iniciados ao mesmo tempo. Tente distribuir os tempos de início de backup em intervalos de uma hora entre políticas. 
+4.  Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, configure várias políticas de backup para preparar os tempos de backup para que não haja mais de quatro backups de VM iniciados ao mesmo tempo. Tente distribuir os tempos de início de backup em intervalos de uma hora entre políticas.
 5.  A VM está executando com alta utilização de CPU/memória.<br> Se a máquina virtual está em execução com alta utilização de CPU (>90%) ou memória, a tarefa de instantâneo é enfileirada, atrasada e eventualmente atingirá o tempo limite. Tente o backup sob demanda em tais situações.
 
 <br>
@@ -143,4 +143,4 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
 
 >[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

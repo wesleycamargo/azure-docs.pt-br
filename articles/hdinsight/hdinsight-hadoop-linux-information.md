@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -96,13 +96,13 @@ O HDInsight usa o armazenamento de Blob do Azure como armazenamento padrão, o q
 
 Como é o armazenamento padrão para o HDInsight, você normalmente não precisa fazer nada para usá-lo. Por exemplo, o comando a seguir listará arquivos na pasta **/example/data**, armazenada no armazenamento de Blob do Azure:
 
-	hadoop fs -ls /example/data
+	hdfs dfs -ls /example/data
 
 Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **wasb://** ou **wasbs://**.
 
 O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
-	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### Que armazenamento de Blob o cluster está usando?
 
@@ -130,7 +130,7 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
     
 2. Obtenha a chave da conta de armazenamento. Substitua __NOMEDOGRUPO__ pelo Grupo de recursos criado na seção anterior: Substitua __NOMEDACONTA__ pelo nome da conta de armazenamento:
 
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.[0].value'
 
     Isso retornará a chave primária da conta.
 
@@ -227,7 +227,6 @@ Ações de Script são scripts Bash executados durante o provisionamento do clus
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Para saber mais sobre como desenvolver suas próprias ações de script, consulte [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -257,4 +256,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

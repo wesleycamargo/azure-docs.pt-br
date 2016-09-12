@@ -110,7 +110,7 @@ O disco de uma máquina virtual é armazenado como um blob de páginas no Armaze
 
 O Banco de Dados SQL do Azure fornece banco de dados como serviço. Ele permite que aplicativos sejam provisionados rapidamente, insiram dados e consultem bancos de dados relacionais. Ele fornece muitos dos recursos e funcionalidades conhecidos do SQL Server, ao mesmo tempo que abstrai a carga de hardware, configuração, aplicação de patch e resiliência.
 
->[AZURE.NOTE] O Banco de Dados do SQL Azure não fornece paridade de recurso um para um com o SQL Server. Ele foi desenvolvido para atender a um conjunto diferente de requisitos — um que seja exclusivamente adequado para aplicativos de nuvem (escala elástica, banco de dados como serviço para reduzir custos de manutenção e assim por diante). Para saber mais, confira [Escolher uma opção do SQL Server de nuvem: Banco de Dados SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+>[AZURE.NOTE] O Banco de Dados do SQL Azure não fornece paridade de recurso um para um com o SQL Server. Ele foi desenvolvido para atender a um conjunto diferente de requisitos — um que seja exclusivamente adequado para aplicativos de nuvem (escala elástica, banco de dados como serviço para reduzir custos de manutenção e assim por diante). Para obter mais informações, consulte [Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Replicação
 
@@ -223,4 +223,4 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

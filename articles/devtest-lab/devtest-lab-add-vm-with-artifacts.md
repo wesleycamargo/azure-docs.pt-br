@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Adicionar uma VM com artefatos a um laboratório
@@ -64,7 +64,7 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base. **Observação:** se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, vá para a seção [Adicionar um artefato existente a uma VM](#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
 
-1. Para exibir ou copiar o modelo de ARM, vá para a seção [Salvar modelo de ARM](#save-arm-template) e retorne aqui quando terminar.
+1. Se quiser exibir ou copiar o modelo do Azure Resource Manager, pule para a seção [Salvar modelo do Azure Resource Manager](#save-arm-template) e retorne para cá quando terminar.
 
 1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
 
@@ -116,9 +116,9 @@ As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefa
 
 1. Selecione **OK** para fechar a folha **Artefatos Selecionados**.
 
-## Salvar o modelo de ARM
+## Salvar o modelo do Azure Resource Manager
 
-Um modelo de ARM fornece uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo de ARM para a VM que está sendo criada. Depois de salvo, você pode usar o modelo ARM para [implantar novas VMs com o Azure PowerShell](../resource-group-overview.md#template-deployment).
+Um modelo do Azure Resource Manager é uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo do Azure Resource Manager para a VM que está sendo criada. Depois de salvo, você pode usar o modelo do Azure Resource Manager para [implantar novas VMs com o Azure PowerShell](../resource-group-overview.md#template-deployment).
 
 1. Na folha **VM do Laboratório**, selecione **Exibir Modelo ARM**.
 
@@ -134,10 +134,12 @@ Um modelo de ARM fornece uma forma declarativa de definir uma implantação repe
 
 1. Salve o arquivo para uso posterior.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Próximas etapas
 
 - Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
-- Saiba como [criar artefatos personalizados para sua VM de Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
-- Explore a [galeria de modelos de Início Rápido de ARM de Laboratórios de Desenvolvimento/Teste](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+- Saiba como [criar artefatos personalizados para sua VM do DevTest Labs](devtest-lab-artifact-author.md).
+- Explorar a [galeria de modelos de Início Rápido do ARM do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

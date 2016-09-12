@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Provisionar nós de computação Linux em pools do Lote do Azure
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Lista de imagens de máquina virtual
 
-A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que são compatíveis com os agentes do nó do Lote disponíveis no momento que este artigo foi escrito. É importante observar que essa lista não é definitiva, uma vez que imagens e agentes do nó podem ser adicionados ou removidos a qualquer momento. É recomendável que os aplicativos e serviços do Lote sempre usem [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(.NET do Lote) para determinar e selecionar entre os SKUs disponíveis no momento.
+A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que são compatíveis com os agentes do nó do Lote disponíveis quando este artigo foi atualizado pela última vez. É importante observar que essa lista não é definitiva, uma vez que imagens e agentes do nó podem ser adicionados ou removidos a qualquer momento. É recomendável que os aplicativos e serviços do Lote sempre usem [list\_node\_agent\_skus][py_list_skus] \(Python) e [ListNodeAgentSkus][net_list_skus] \(.NET do Lote) para determinar e selecionar entre os SKUs disponíveis no momento.
 
 > [AZURE.WARNING] A lista a seguir pode ser alterada a qualquer momento. Sempre use os métodos do **SKU do agente do nó da lista** disponíveis nas APIs do Lote para relacionar e, então, selecionar dentre os SKUs do agente do nó e a máquina virtual compatíveis ao executar seus trabalhos do Lote.
 
@@ -209,19 +209,20 @@ A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que s�
 | Canônico | UbuntuServer | 14\.04.2-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 14\.04.3-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 14\.04.4-LTS | mais recente | batch.node.ubuntu 14.04 |
-| Canônico | UbuntuServer | 15\.10 | mais recente | batch.node.debian 8 |
+| Canônico | UbuntuServer | 14\.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
 | Canônico | UbuntuServer | 16\.04.0-LTS | mais recente | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | mais recente | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | mais recente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | mais recente | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | mais recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7\.1 | mais recente | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | mais recente | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7\.0 | mais recente | batch.node.centos 7 |
-| SUSE | SLES | 12 | mais recente | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | mais recente | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | mais recente | batch.node.opensuse 42.1 |
 | SUSE | openSUSE | 13\.2 | mais recente | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42\.1 | mais recente | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | mais recente | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | mais recente | batch.node.opensuse 42.1 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | mais recente | batch.node.windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | mais recente | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | mais recente | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | mais recente | batch.node.windows amd64 |
@@ -234,31 +235,54 @@ Durante o desenvolvimento ou durante a solução de problemas, talvez seja neces
 O trecho de código Python a seguir cria um usuário em cada nó em um pool, requerido para conexão remota. Ele imprime as informações de conexão SSH (secure shell) para cada nó.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
@@ -327,4 +351,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nível de pacotes de aplicativos"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

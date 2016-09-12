@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/29/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Noções básicas sobre o esquema de nós para mapear um serviço web existente para OData por meio de CSDL
+
+>[AZURE.IMPORTANT] **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, saiba mais [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
+
 Este documento ajudará a esclarecer a estrutura de nó para o mapeamento de um protocolo OData para CSDL. É importante observar que a estrutura de nó é um XML bem estruturado. Então o esquema raiz, pai e filho é aplicável ao desenhar o seu mapeamento de OData.
 
 ## Elementos ignorados
@@ -242,7 +245,7 @@ A expressão XPath aqui seria ./bar/baz0 para obter o nó baz0 do serviço do pr
 
 **d:IsReturned** - É o valor booliano que determina se o serviço expõe esse valor ao cliente. Exemplo de CSDL de DataService
 
-**d:IsQueryable** - é o Booliano que determina se a coluna pode ser usada em uma consulta de banco de dados. Exemplo de CSDL de DataService
+**d:IsQueryable** – é o booliano que determina se a coluna pode ser usada em uma consulta de banco de dados. Exemplo de CSDL de DataService
 
 **d:OrdinalPosition** - É a posição da coluna numérica de aparência, x, na tabela ou exibição, onde x vai de 1 até o número de colunas na tabela. Exemplo de CSDL de DataService
 
@@ -272,4 +275,4 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 - Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 - Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

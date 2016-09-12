@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -30,7 +30,7 @@ Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo 
 
 1. Recuperar as informações do Banco de Dados de Documentos com o suporte de protocolo para as informações de conexão do MongoDB usando as instruções que constam [aqui](documentdb-connect-mongodb-account.md).
 
-	![Captura de tela da folha de cadeia de conexão](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![Captura de tela da folha de cadeia de conexão](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**
 
@@ -132,4 +132,4 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

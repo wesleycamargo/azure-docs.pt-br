@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="08/25/2016"
    ms.author="nitinme"/>
 
 # Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
@@ -37,8 +37,8 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 | [Apache Spark](http://spark.apache.org/) | HDInsight 3.4 |
 
 
-## Consulte também
+## Confira também
 
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

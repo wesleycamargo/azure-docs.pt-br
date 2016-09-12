@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/19/2016"
+   ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Detalhes de migração para o Armazenamento Premium
@@ -47,9 +47,9 @@ Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenam
 | Centro-Sul dos Estados Unidos | 27 de maio de 2016 |
 | Sudeste Asiático | 24 de maio de 2016 |
 | Europa Ocidental | 25 de maio de 2016 |
-| Centro-Oeste dos EUA | Armazenamento Premium ainda não disponível |
+| Centro-Oeste dos EUA | 26 de agosto de 2016 |
 | Oeste dos EUA | 26 de maio de 2016 |
-| Oeste dos EUA 2 | Armazenamento Premium ainda não disponível |
+| Oeste dos EUA 2 | 26 de agosto de 2016 |
 
 ## Detalhes da migração automática
 Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local da sua região durante o [cronograma de migração automática][] abaixo. Seu Data Warehouse existente ficará inutilizável durante a migração. Estimamos que a migração levará cerca de uma hora por TB de armazenamento por Data Warehouse. Também vamos garantir que não haja cobrança durante nenhuma parte da migração automática.
@@ -133,7 +133,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 >	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
 ## Próximas etapas
-Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Caso você encontre problemas de desempenho, recomendamos que recrie seus Índices Columnstore Clusterizados usando o script a seguir. O script abaixo funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
+Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Para maximizar os benefícios de desempenho dessa mudança, recomendamos que recrie seus Índices Columnstore Clusterizados usando o script a seguir. O script abaixo funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
 
 **Pré-requisitos:**
 
@@ -208,4 +208,4 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Use o SQL Server Management Studio para Determinar a compatibilidade do Banco de Dados SQL antes da migração para o Banco de Dados SQL do Azure
@@ -38,11 +38,11 @@ Neste artigo que você aprenderá a determinar se um banco de dados do SQL Serve
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. No assistente de exportação, clique em **Avançar** e, na guia **Configurações**, configure a exportação para salvar o arquivo BACPAC em um disco local ou em um blob do Azure. Um arquivo BACPAC só será salvo se você não tiver nenhum problema de compatibilidade de banco de dados. Se houver problemas de compatibilidade, eles serão exibidos no console.
+4. No assistente de exportação, clique em **Avançar** e, na guia **Configurações**, configure a exportação para salvar o arquivo BACPAC em um disco local ou em um blob do Azure. Um arquivo BACPAC é salvo se você não tem nenhum problema de compatibilidade de banco de dados. Se houver problemas de compatibilidade, eles serão exibidos no console.
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. Clique na **guia Avançado** e desmarque a caixa de seleção **Selecionar Tudo** para ignorar a exportação de dados. Neste ponto, nosso objetivo será apenas testar a compatibilidade.
+5. Para ignorar a exportação de dados, clique na **guia Avançado** e desmarque a caixa de seleção **Selecionar Tudo**. Neste ponto, nosso objetivo será apenas testar a compatibilidade.
 
 	![Exportar configurações](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
@@ -67,4 +67,4 @@ Neste artigo que você aprenderá a determinar se um banco de dados do SQL Serve
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Adicionar um repositório de artefatos do Git a um laboratório
@@ -53,7 +53,7 @@ Para adicionar um repositório de artefatos do GitHub ao seu laboratório, você
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -117,8 +117,10 @@ Para adicionar um repositório de artefatos Git do Visual Studio no seu laborat�
     3. Insira o **Token de Acesso Pessoal** salvo no repositório de artefatos.
     4. Selecione **Salvar**.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Postagens de blogs relacionadas
 - [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 - [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

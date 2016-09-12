@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C: criar um locatário do Azure Active Directory B2C | Microsoft Azure"
-	description="Um tópico sobre como criar um locatário Active Directory B2C do Azure"
+	description="Um tópico sobre como criar um locatário zure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.topic="article"
     ms.devlang="na"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: criar um locatário do Azure AD B2C
@@ -42,7 +42,7 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualm
 6. O locatário foi criado e aparecerá na extensão do Active Directory. Um Administrador Global do locatário também pode ser criado. Você pode adicionar outros Administradores Globais conforme necessário.
 
     > [AZURE.IMPORTANT]
-	Se você está planejando usar um locatário B2C para um aplicativo de produção, leia o artigo sobre [escala de produção versus locatários de visualização do B2C](active-directory-b2c-reference-tenant-type.md).
+	Se você está planejando usar um locatário B2C para um aplicativo de produção, leia o artigo sobre [escala de produção versus locatários de visualização do B2C](active-directory-b2c-reference-tenant-type.md). Observe que há problemas conhecidos quando você exclui um locatário B2C existente e o recria com o mesmo nome de domínio. Você precisa criar um locatário B2C com um nome de domínio diferente.
 
 ## Etapa 3: navegar até a folha de Recursos do B2C no Portal do Azure
 
@@ -79,4 +79,4 @@ Para melhorar a capacidade de descoberta, adicionamos um atalho para a folha de 
 
 Saiba como registrar um aplicativo com o Azure AD B2C e compilar um aplicativo de Início Rápido lendo [Azure Active Directory B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

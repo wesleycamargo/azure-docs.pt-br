@@ -19,7 +19,6 @@
 
 # Perguntas frequentes sobre as Máquinas Virtuais Linux 
 
-
 Este artigo trata de algumas das perguntas mais comuns feitas sobre as máquinas virtuais Linux criadas no Azure com o modelo de implantação do Gerenciador de Recursos. Para a versão deste tópico para o Windows, confira [Perguntas frequentes sobre Máquinas Virtuais do Windows](virtual-machines-windows-faq.md)
 
 ## O que eu posso executar em uma VM do Azure?
@@ -34,28 +33,91 @@ Cada disco de dados pode ter até 1 TB. O número de discos de dados que você p
 Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um arquivo .vhd armazenado como um blob de páginas. Para obter detalhes sobre preços, veja [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 
-
 ## Como posso acessar minha máquina virtual?
 
-Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando SSH (Secure Shell). Veja as instruções sobre como conectar [do Windows](virtual-machines-linux-ssh-from-windows.md) ou [do Linux e do Mac](virtual-machines-linux-mac-create-ssh-keys.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
+Estabeleça uma conexão remota para fazer logon na máquina virtual, usando o SSH (Secure Shell). Veja as instruções sobre como conectar [do Windows](virtual-machines-linux-ssh-from-windows.md) ou [do Linux e do Mac](virtual-machines-linux-mac-create-ssh-keys.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 
 Se você estiver tendo problemas, confira [Solucionar problemas de conexões SSH (Secure Shell)](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
+
 ## Posso usar o disco temporário (/dev/sdb1) para armazenar os dados?
 
-Não use o disco temporário (/dev/sdb1) para armazenar os dados. Ele só existe para armazenamento temporário. Você correrá o risco de perder dados que não podem ser recuperados.
+Não use o disco temporário (/dev/sdb1) para armazenar os dados. Ele existe somente para armazenamento temporário. Você corre o risco de perder dados que não podem ser recuperados.
+
 
 ## Posso copiar ou clonar uma VM do Azure existente?
 
 Sim. Para obter instruções, veja [Como criar uma cópia de uma máquina virtual do Linux no modelo de implantação do Resource Manager](virtual-machines-linux-copy-vm.md).
 
+
 ## Por que não vejo as regiões Central e Leste do Canadá por meio do Azure Resource Manager?
 
 As duas novas regiões, Central do Canadá e Leste do Canadá, não são registradas automaticamente para a criação de máquinas virtuais para as assinaturas existentes do Azure. Esse registro é feito automaticamente quando uma máquina virtual é implantada por meio do Portal do Azure para qualquer outra região usando o Azure Resource Manager. Depois que uma máquina virtual é implantada em qualquer outra região do Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
+
 
 ## Posso adicionar um NIC à minha VM depois que ela é criada?
 
 Não. A adição de uma NIC só pode ser feita no momento da criação.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+## Há algum requisito de nome do computador?
+
+Sim. O nome do computador pode ter, no máximo, 64 caracteres. Consulte [Diretrizes de nomenclatura de infraestrutura](virtual-machines-linux-infrastructure-naming-guidelines.md) para obter mais informações sobre como nomear seus recursos.
+
+
+## Quais são os requisitos de nome de usuário ao criar uma VM?
+
+Os nomes de usuário devem ter de 1 a 64 caracteres.
+
+Os seguintes nomes de usuário não são permitidos:
+
+<table>
+	<tr>
+		<td style="text-align:center">administrator </td><td style="text-align:center"> administrador </td><td style="text-align:center"> usuário </td><td style="text-align:center"> user1</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">julio </td><td style="text-align:center"> proprietário </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+	</tr>
+</table>
+
+
+## Quais são os requisitos de senha ao criar uma VM?
+
+As senhas devem ter de 6 a 72 caracteres e atender a três dos quatro requisitos de complexidade a seguir:
+
+- Ter caracteres minúsculos
+- Tem caracteres maiúsculos
+- Tem um dígito
+- Tem um caractere especial (Correspondência de regex [\\W\_])
+
+As seguintes senhas não são permitidas:
+
+<table>
+	<tr>
+		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+	</tr>
+</table>
+
+<!---HONumber=AcomDC_0831_2016-->

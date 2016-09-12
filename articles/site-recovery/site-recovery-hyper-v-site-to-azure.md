@@ -113,12 +113,15 @@ Configure uma rede do Azure. Você precisará dela para que as VMs do Azure cria
 - Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará a rede do Azure no [modo ARM](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - É recomendável configurar uma rede antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
 
 ### Configurar uma conta de armazenamento do Azure
 
 - Você precisará de uma conta de armazenamento padrão do Azure para armazenar os dados replicados para o Azure.
 - Dependendo do modelo de recurso que deseja usar para failover de VMs do Azure, você definirá uma conta no [modo ARM](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
 - É recomendável que você configure uma conta de armazenamento antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 
 ### Preparar os hosts do Hyper-V
 
@@ -189,15 +192,15 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 
 1. Execute o de arquivo de instalação do Provedor.
 2. Em **Microsoft Update**, você pode aceitar as atualizações para que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
-3. Em **Instalação**, aceite ou modifique a localização de instalação padrão do Provedor e clique em **Instalar**.
-5. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre baixado. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+3. Em **Instalação**, aceite ou modifique o local de instalação padrão do Provedor e clique em **Instalar**.
+5. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre baixado. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
 	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
 4\. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
 
 - Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
-- Se quiser conectar com o proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
+- Se quiser se conectar ao proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
 - Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, selecione **Connect with custom proxy settings (Conectar com as configurações personalizadas do proxy)**.
 - Se você usar um proxy personalizado, precisará especificar o endereço, a porta e as credenciais
 - Se você estiver usando um proxy, verifique se as URLs descritas nos [pré-requisitos](#on-premises-prerequisites) são permitidas através dele.
@@ -206,7 +209,7 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 
 5\. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre. ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Configurações** > **Infraestrutura de Recuperação de Site** > folha **Hosts do Hyper-V**.
+6\. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na folha **Configurações** > **Infraestrutura do Site Recovery** > **Hosts do Hyper-V**.
 
 
 ### Instalação de linha de comando
@@ -229,24 +232,24 @@ O Provedor e o agente do Azure Site Recovery também podem ser instalados usando
 - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
 - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
 - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
-- **/proxyPassword**: parâmetro opcional que especifica a Senha para autenticação com o servidor proxy (se o proxy exige autenticação).
+- **/proxyPassword**: parâmetro opcional que especifica a senha para autenticação com o servidor proxy (se o proxy exigir autenticação).
 
 
 ## Etapa 3: Configurar o ambiente de origem
 
 Especifique a conta de armazenamento do Azure a ser usada para a replicação e a rede do Azure à qual as VMs do Azure se conectarão após o failover.
 
-1.	Clique em **Preparar a Infraestrutura** > **Destino** e selecione a assinatura do Azure que você deseja usar.
+1.	Clique em **Preparar infraestrutura** > **Destino** e selecione a assinatura do Azure que você deseja usar.
 2.	Especifique o modelo de implantação que você deseja usar para as VMs após o failover.
 3.	A Recuperação de Site verifica se você tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
 	![Armazenamento](./media/site-recovery-hyper-v-site-to-azure/select-target.png)
 
-4.	Se você não tiver criado uma conta de armazenamento e se desejar criar uma usando o ARM, clique em conta **+Armazenamento** para fazer isso de forma embutida. Na folha **Criar conta de armazenamento**, especifique um nome de conta, um tipo, uma assinatura e uma localização. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
+4.	Se você não tiver criado uma conta de armazenamento e se desejar criar uma usando o ARM, clique em **+Conta de armazenamento** para fazer isso de forma embutida. Na folha **Criar conta de armazenamento**, especifique um nome de conta, um tipo, uma assinatura e uma localização. A conta deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
 	![Armazenamento](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
-	Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso no [portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
+	Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
 	
 5.	Se você não tiver criado uma rede do Azure e se quiser criar uma usando o ARM, clique em **+Rede** para fazer isso de forma embutida. Na folha **Criar rede virtual**, especifique um nome de rede, um intervalo de endereços, detalhes de sub-rede, uma assinatura e uma localização. A rede deve estar no mesmo local do que o cofre dos Serviços de Recuperação.
 
@@ -432,7 +435,7 @@ Para executar o failover de teste, faça o seguinte:
 
 	![Failover de teste](./media/site-recovery-hyper-v-site-to-azure/run-failover2.png)
 
-4. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** em **Configurações** > **Trabalhos da Recuperação de Site**.
+4. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** em **Configurações** > **Trabalhos do Site Recovery**.
 5. Quando o failover atingir a fase **Testes concluídos**, faça o seguinte:
 	1. Visualize a máquina virtual de réplica no portal do Azure. Verifique se a máquina virtual foi iniciada com êxito.
 	2. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
@@ -455,7 +458,7 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 	![Conceitos básicos](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 
-2. No bloco **Integridade**, você pode monitorar os servidores de site que estejam enfrentando o problema, além dos eventos gerados pela Recuperação de Site nas últimas 24 horas.
+2. No bloco **Integridade**, você pode monitorar os servidores de site que estejam enfrentando o problema, além dos eventos gerados pelo Site Recovery nas últimas 24 horas.
 3. Você pode gerenciar e monitorar a replicação nos blocos **Itens Replicados**, **Planos de Recuperação** e **Trabalhos de Recuperação de Site**. Você pode analisar detalhadamente os trabalhos em **Configurações** -> **Trabalhos** -> **Trabalhos de Recuperação de Site**.
 
 
@@ -466,4 +469,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

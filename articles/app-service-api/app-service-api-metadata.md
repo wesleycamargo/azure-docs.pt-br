@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/30/2016"
 	ms.author="rachelap"/>
 
 # Metadados de Aplicativos de API do Serviço de Aplicativo para geração de códigos e descoberta de API 
@@ -60,4 +60,4 @@ Para obter um tutorial passo a passo que oriente você durante a criação, a im
 
 Se você usar o Gerenciamento de API do Azure com aplicativos de API, pode usar metadados Swagger para importar sua API para o Gerenciamento de API. Para saber mais, confira [Como importar a definição de uma API com operações no Gerenciamento de API do Azure](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

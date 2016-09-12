@@ -153,18 +153,19 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Esse arquivo define as configurações de rede virtual, como nome, espaço de endereço, sub-redes e endereços dos servidores DNS necessários. Observe que os endereços de sub-rede devem ser incluídos pelo espaço de endereço de rede virtual.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json#L4-L21 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -177,24 +178,23 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. Esse arquivo contém as definições de regras NSGs e NSG. O parâmetro `name` no bloco `virtualNetworkSettings` especifica a rede virtual à qual o NSG está conectado. O parâmetro `subnets` no bloco `networkSecurityGroupSettings` identifica todas as sub-redes que aplicam as regras NSG na rede virtual. Eles devem ser itens definidos no arquivo **virtualNetwork.parameters.json**.
 
 	A regra de segurança mostrada no exemplo permite que um usuário se conecte à VM por meio de uma conexão SSH. Você pode abrir portas adicionais (ou negar o acesso através de portas específicas) adicionando mais itens à matriz `securityRules`.
-
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json#L4-L36 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -223,17 +223,18 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
 	azure vm image list westus redhat rhel
 	```
 
-	O parâmetro `subnetName` na seção `nics` especifica a sub-rede para a VM. Da mesma forma, o parâmetro `name` no `virtualNetworkSettings` identifica a rede virtual para usar. Ele deve ser o nome de uma sub-rede e a rede virtual definida no arquivo **virtualNetwork.parameters.json**.
+	O parâmetro `subnetName` na seção `nics` especifica a sub-rede para a VM. Da mesma forma, o `name` parâmetro o `virtualNetworkSettings` identifica a rede virtual para usar. Esses valores devem ser o nome de uma sub-rede e de uma VNet definida no arquivo **virtualNetwork.parameters.json**.
 
 	Você pode criar várias VMs que compartilham uma conta de armazenamento ou com suas próprias contas de armazenamento ao modificar as configurações na seção `buildingBlockSettings`. Se você criar várias VMs, você também deverá especificar o nome de um conjunto de disponibilidade para usar ou criar na seção `availabilitySet`.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json#L4-L63 -->
 	```json
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "linux",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -241,16 +242,19 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
         "imageReference": {
-          "publisher": "RedHat",
-          "offer": "RHEL",
-          "sku": "7.2",
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.5-LTS",
           "version": "latest"
         },
         "dataDisks": {
@@ -264,22 +268,17 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -287,9 +286,6 @@ O script faz referência a arquivos de parâmetro para compilar a VM e a infraes
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -321,8 +317,9 @@ Para executar o script que implanta a solução:
 
 5. Edite o arquivo Deploy-ReferenceArchitecture.ps1 na pata Scripts e altere a linha a seguir para especificar o grupo de recursos que deve ser criado ou usado para reter a VM e os recursos criados pelo script:
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Edite cada um dos arquivos JSON na pasta Modelos/Linux para definir os parâmetros para a rede virtual, um NSG e uma VM, conforme descrito na seção Componentes da Solução acima.
 
@@ -387,11 +384,11 @@ Para que o [SLA para Máquinas Virtuais][vm-sla] seja aplicado, é necessário i
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/deploy-reference-architecture.sh
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroup.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Única arquitetura de VM do Linux no Azure"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->
