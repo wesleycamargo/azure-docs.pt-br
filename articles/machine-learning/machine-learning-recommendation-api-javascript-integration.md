@@ -187,7 +187,11 @@ Esse evento deve ser usado após o logon do usuário em seu site.
 
 Parâmetros:
 * evento (cadeia de caracteres) – “userlogin”
-* usuário (cadeia de caracteres) – identificação exclusiva do usuário. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* usuário (cadeia de caracteres) – identificação exclusiva do usuário. 
+
+		<script>
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4. Usar Recomendações via JavaScript
 O código que usa a recomendação é inicializado por um evento JavaScript pela página da Web do cliente. A resposta de recomendação inclui as Ids dos itens recomendados, seus nomes e suas classificações. É melhor usar essa opção apenas para exibir uma lista dos itens recomendados – uma manipulação mais complexa (como adicionar os metadados do item) deve ser feita na integração no lado do servidor.
@@ -223,6 +227,6 @@ Exemplo: O código a seguir solicita oito recomendações para o item "64f6eb0d-
 [1]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing1.png
 [2]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing2.png
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->
