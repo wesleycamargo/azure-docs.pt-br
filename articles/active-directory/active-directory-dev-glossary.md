@@ -132,7 +132,7 @@ Os escopos são cadeias de caracteres definidas por recursos (por exemplo "Mail.
 Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada sobre os escopos expostos pela API do Graph do Azure AD, confira [Escopos de permissão da API do Graph][AAD-Graph-Perm-Scopes]. Para escopos expostos por serviços do Office 365, confira [Referência de permissões de API do Office 365][O365-Perm-Ref].
 
 ## token de segurança
-Um documento assinado que contém declarações, como um token OAuth2 ou uma asserção SAML 2.0. Para uma [concessão de autorização](#authorization-grant) OAuth2, um [token de acesso](#access-token) (OAuth2) e um [Token de ID] (OpenID Connect) são tipos de tokens de segurança que são implementados como um [JWT (Token Web JSON)][JWT].
+Um documento assinado que contém declarações, como um token OAuth2 ou uma asserção SAML 2.0. Para uma [concessão de autorização](#authorization-grant) OAuth2, um [token de acesso](#access-token) \(OAuth2) e um [Token de ID] \(OpenID Connect) são tipos de tokens de segurança que são implementados como um [JWT (Token Web JSON)][JWT].
 
 ## objeto de entidade de serviço
 Quando você registra/atualiza um aplicativo no [portal clássico do Azure][AZURE-classic-portal], o portal cria/atualiza um objeto de aplicativo e um [objeto de entidade de serviço](#application-object) correspondente para esse locatário. O objeto de aplicativo *define* a configuração de identidade do aplicativo globalmente (em todos os locatários em que o aplicativo associado recebeu acesso) e é o modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso localmente em tempo de execução (em um locatário específico).

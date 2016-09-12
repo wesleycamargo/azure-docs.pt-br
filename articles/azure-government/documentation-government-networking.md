@@ -39,7 +39,7 @@ Para que os serviços de rede ofereçam suporte a soluções e aplicativos de cl
 
 Todos os clientes que utilizam uma arquitetura de conectividade privada devem validar se uma implementação apropriada foi estabelecida e mantida para a conexão de cliente com o ponto de demarcação de roteador de borda GN/C (Rede/cliente de gateway) para o Azure Governamental. Da mesma forma, sua organização deve estabelecer a conectividade de rede entre seu ambiente local e o ponto de demarcação de roteador de borda GN/C (Rede/cliente de gateway) para o Azure Governamental.
 
-ExpressRoute está disponível no Azure Governamental. Para saber mais (incluindo parceiros e locais de emparelhamento), confira a <a href="https://azure.microsoft.com/pt-BR/documentation/services/expressroute/"> Documentação pública do ExpressRoute </a>.
+ExpressRoute está disponível no Azure Governamental. Para saber mais (incluindo parceiros e locais de emparelhamento), confira a <a href="https://azure.microsoft.com/documentation/services/expressroute/"> Documentação pública do ExpressRoute </a>.
 
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 

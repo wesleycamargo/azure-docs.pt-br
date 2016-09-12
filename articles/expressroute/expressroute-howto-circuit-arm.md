@@ -40,7 +40,7 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando os 
 
 ## Criar e provisionar um circuito da Rota Expressa
 
-### 1\. Entre na sua conta do Azure e selecione sua assinatura
+### 1. Entre na sua conta do Azure e selecione sua assinatura
 
 Para iniciar sua configuração, entrar na sua conta do Azure. Para obter mais informações sobre o PowerShell, consulte [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md). Use o exemplo a seguir para ajudar a conectar:
 
@@ -54,7 +54,7 @@ Selecione a assinatura para a qual você deseja criar um circuito do ExpressRout
 
 	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### 2\. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### 2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
@@ -72,7 +72,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito da Rota Expressa.
 
-### 3\. Criar um circuito da Rota Expressa
+### 3. Criar um circuito da Rota Expressa
 
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito da Rota Expressa. Faça isso ao executar o seguinte comando:
 
@@ -99,7 +99,7 @@ A resposta conterá a chave de serviço. Você pode obter descrições detalhada
 	get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### 4\. Listar todos os circuitos da Rota Expressa
+### 4. Listar todos os circuitos da Rota Expressa
 
 Para obter uma lista de todos os circuitos da Rota Expressa criados, execute o comando `Get-AzureRmExpressRouteCircuit`:
 
@@ -168,7 +168,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 
 	get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### 5\. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### 5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -190,7 +190,7 @@ Para que você consiga usar um circuito da Rota Expressa, ele deverá estar no s
 	ServiceProviderProvisioningState : Provisioned
 	CircuitProvisioningState         : Enabled
 
-### 6\. Verifique periodicamente o status e o estado da chave do circuito
+### 6. Verifique periodicamente o status e o estado da chave do circuito
 
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
@@ -223,14 +223,14 @@ A resposta será semelhante ao seguinte exemplo:
 	ServiceKey                       : **************************************
 	Peerings                         : []
 
-### 7\. Criar sua configuração de roteamento
+### 7. Criar sua configuração de roteamento
 
 Para obter instruções passo a passo, confira o artigo [configuração do roteamento de circuito da Rota Expressa](expressroute-howto-routing-arm.md) para criar e modificar os emparelhamentos de circuito.
 
 
 >[AZURE.IMPORTANT] Estas instruções aplicam-se apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-### 8\. Vincular uma rede virtual a um circuito de Rota Expressa
+### 8. Vincular uma rede virtual a um circuito de Rota Expressa
 
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Use o artigo [Vincular redes virtuais a circuitos da Rota Expressa](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 

@@ -28,7 +28,7 @@ As informações a seguir identificam o limite do Azure Governamental para o Arm
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dados inseridos, armazenados e processados em um produto de Armazenamento do Azure podem conter dados de exportação controlados. Autenticadores estáticos, como senhas e PINs de cartão inteligente para acesso aos componentes da plataforma Azure. Chaves privadas de certificados usados para gerenciar os componentes da plataforma Azure. Outros informações/segredos de segurança, como certificados, chaves de criptografia, chaves mestras e chaves de armazenamento armazenadas nos serviços do Azure. | Metadados do Armazenamento do Azure não podem conter dados de exportação controlados. Esses metadados incluem todos os dados de configuração inseridos durante a criação e manutenção de seu produto de armazenamento. Não insira dados Regulamentados/controlados nos seguintes campos: Grupos de recursos, Nomes de implantação, Nomes de recursos, Marcas de recurso  
 
-Para saber mais, consulte a <a href=https://azure.microsoft.com/pt-BR/documentation/services/storage/> Documentação pública do Armazenamento do Azure</a>.
+Para saber mais, consulte a <a href=https://azure.microsoft.com/documentation/services/storage/> Documentação pública do Armazenamento do Azure</a>.
 
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
@@ -42,7 +42,7 @@ As informações a seguir identificam o limite do Azure Governamental para o Arm
 
 O Banco de Dados SQL v1.1 está disponível no Azure Governamental.
 
-Consulte o <a href="https://msdn.microsoft.com/pt-BR/library/bb510589.aspx"> Microsoft Security Center para o mecanismo de Banco de Dados SQL </a> e a <a href="https://azure.microsoft.com/pt-BR/documentation/services/sql-database/"> Documentação pública do Banco de Dados SQL do Azure </a> para obter orientação adicional sobre a configuração de visibilidade de metadados e práticas recomendadas de proteção.
+Consulte o <a href="https://msdn.microsoft.com/pt-BR/library/bb510589.aspx"> Microsoft Security Center para o mecanismo de Banco de Dados SQL </a> e a <a href="https://azure.microsoft.com/documentation/services/sql-database/"> Documentação pública do Banco de Dados SQL do Azure </a> para obter orientação adicional sobre a configuração de visibilidade de metadados e práticas recomendadas de proteção.
 
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 

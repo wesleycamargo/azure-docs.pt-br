@@ -62,7 +62,7 @@ Em seguida, conecte o **banco de dados do SQL Data Warehouse** com seu logon de 
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Se um usuário realizar operações adicionais, como criar logons ou novos bancos de dados, ele também precisará ser atribuído ao `Loginmanager` e às funções `dbmanager` no banco de dados mestre. Para obter mais informações sobre essas funções adicionais e como fazer a autenticação em um Banco de Dados SQL, confira [Managing databases and logins in Azure SQL Database][] (Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure). Para obter mais detalhes sobre o Azure AD para SQL Data Warehouse, confira [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Conexão com o SQL Data Warehouse usando a autenticação do Azure Active Directory).
+Se um usuário realizar operações adicionais, como criar logons ou novos bancos de dados, ele também precisará ser atribuído ao `Loginmanager` e às funções `dbmanager` no banco de dados mestre. Para obter mais informações sobre essas funções adicionais e como fazer a autenticação em um Banco de Dados SQL, confira [Managing databases and logins in Azure SQL Database][] \(Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure). Para obter mais detalhes sobre o Azure AD para SQL Data Warehouse, confira [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Conexão com o SQL Data Warehouse usando a autenticação do Azure Active Directory).
 
 
 ## Autorização

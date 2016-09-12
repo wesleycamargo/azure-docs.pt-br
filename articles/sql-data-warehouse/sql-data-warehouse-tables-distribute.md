@@ -292,7 +292,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 Para saber mais sobre o design da tabela, confira os artigos [Distribuir][], [Índice][], [Partição][], [Tipos de dados][], [Estatísticas][] e [Tabelas temporárias][Temporary].
 
-Para obter uma visão geral das práticas recomendadas, confira [SQL Data Warehouse Best Practices][] (Práticas recomendadas para o SQL Data Warehouse).
+Para obter uma visão geral das práticas recomendadas, confira [SQL Data Warehouse Best Practices][] \(Práticas recomendadas para o SQL Data Warehouse).
 
 
 <!--Image references-->

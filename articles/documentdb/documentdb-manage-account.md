@@ -29,7 +29,8 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 
 1. No [portal do Azure](https://portal.azure.com/), acesse sua conta do DocumentDB.
 2. Na folha da conta, clique em **Consistência padrão**.
-3. Na folha **Consistência Padrão**, escolha o novo nível de consistência e clique em **Salvar**. ![Sessão de consistência padrão][5]
+3. Na folha **Consistência Padrão**, escolha o novo nível de consistência e clique em **Salvar**. 
+	![Sessão de consistência padrão][5]
 
 ## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
 Quando você cria uma conta do Banco de Dados de Documentos, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Banco de Dados de Documentos é acessada. Ao fornecer as duas chaves de acesso, o Banco de Dados de Documentos permite regenerar as chaves sem interrupção para a sua conta do Banco de Dados de Documentos.
@@ -100,7 +101,7 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/pt-BR/regions/#services
-[offers]: https://azure.microsoft.com/pt-BR/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0831_2016-->

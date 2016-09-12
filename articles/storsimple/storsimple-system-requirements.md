@@ -96,8 +96,8 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Serviço StorSimple Manager<br>Serviço de Controle de Acesso<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
-|`https://*.backup.windowsazure.us`|Registro de dispositivos| Somente DATA 0|
-|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |Interfaces de rede habilitadas para nuvem |
+| `https://*.backup.windowsazure.us`|Registro de dispositivos| Somente DATA 0|
+| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |Interfaces de rede habilitadas para nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
 | `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |IPs fixados pelo controlador somente |
@@ -138,7 +138,12 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 	| Interface de rede | Habilitado para nuvem | Desabilitado para a nuvem com o gateway |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
+	| Data 5 | 6 | 60 |
 
 
 - A ordem na qual o tráfego da nuvem será roteado pelas interfaces de rede é:

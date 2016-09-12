@@ -61,7 +61,7 @@ WHERE   [label] = 'My Query';
 
 Nos resultados da consulta anterior, **observe a ID da Solicitação** da consulta que você deseja investigar.
 
-As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm\_pdw\_waits com um tipo de UserConcurrencyResourceType. Confira [Concurrency and workload management][] (Gerenciamento de simultaneidade e carga de trabalho) para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios. Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][] mais adiante neste artigo.
+As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm\_pdw\_waits com um tipo de UserConcurrencyResourceType. Confira [Concurrency and workload management][] \(Gerenciamento de simultaneidade e carga de trabalho) para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios. Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][] mais adiante neste artigo.
 
 Para simplificar a pesquisa de uma consulta na tabela sys.dm\_pdw\_exec\_requests, use o [RÓTULO][] para atribuir um comentário à consulta que pode ser pesquisada no modo de exibição sys.dm\_pdw\_exec\_requests.
 

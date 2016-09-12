@@ -33,7 +33,7 @@ O que você está fazendo?|Descrição
 [Entrando com o aplicativo Microsoft Authenticator usando o código de verificação](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Isso é o que você pode esperar ao usar o aplicativo Microsoft Authenticator com um código de verificação.
 [Conectando-se com um método alternativo](#signing-in-with-an-alternate-method)|Isso mostrará o que esperar se você desejar usar um método alternativo.
 
-## Conectando-se com o telefone celular ou comercial
+<h2 id="1">Conectando-se com o telefone celular ou comercial</h2>
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com seu telefone celular ou comercial.
 
@@ -50,7 +50,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 
 - Agora você deve estar conectado.</li>
 
-## Entrando com o aplicativo Microsoft Authenticator usando notificação
+<h2 id="2">Entrando com o aplicativo Microsoft Authenticator usando notificação</h2>
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com o aplicativo Microsoft Authenticator quando você recebe uma notificação.
 
@@ -71,7 +71,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 - Agora você deve estar conectado.
 
 
-## Entrando com o aplicativo Microsoft Authenticator usando o código de verificação
+<h2 id="3"> Entrando com o aplicativo Microsoft Authenticator usando o código de verificação</h2>
 
 As informações a seguir descrevem a experiência de usar autenticação multifator com o aplicativo Microsoft Authenticator quando você o usa com um código de verificação.
 
@@ -91,7 +91,7 @@ As informações a seguir descrevem a experiência de usar autenticação multif
 - Agora você deve estar conectado.
 
 
-## Conectando-se com um método alternativo
+<h2 id="4">Conectando-se com um método alternativo</h2>
 
 
 A seção a seguir mostrará como se conectar com um método alternativo quando seu método principal não estiver disponível.

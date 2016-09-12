@@ -248,7 +248,8 @@ Use este método se você efetuou logon no Windows usando suas credenciais do Az
 
 1. Inicie o Management Studio ou o Data Tools e, na caixa de diálogo **Conectar ao Servidor** (ou **Conectar ao Mecanismo de Banco de Dados**), na caixa **Autenticação**, selecione **Autenticação Integrada do Active Directory**. Nenhuma senha é necessária ou pode ser inserida porque suas credenciais existentes serão apresentadas para a conexão. ![Selecione Autenticação Integrada do AD][11]
 
-2. Clique no botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual deseja se conectar. ![Selecione o nome do banco de dados][13]
+2. Clique no botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual deseja se conectar. 
+	![Selecione o nome do banco de dados][13]
 
 
 #### Conectar-se usando a autenticação de senha do Active Directory

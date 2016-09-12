@@ -26,7 +26,7 @@ O Serviço de Aplicativo usa uma identidade federada, na qual um provedor de ide
 
 Se você deseja começar agora mesmo, veja um dos seguintes tutoriais:
 
-- [Adicionar autenticação ao aplicativo iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova])
+- [Adicionar autenticação ao aplicativo iOS][iOS] \(ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova])
 - [Autenticação de usuário para Aplicativos de API no Serviço de Aplicativo do Azure][apia-user]
 - [Introdução ao Serviço de Aplicativo do Azure - parte 2][web-getstarted]
 

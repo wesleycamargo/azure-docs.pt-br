@@ -40,7 +40,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1\. Registrar um Aplicativo
+## 1. Registrar um Aplicativo
 - Entre no Portal de Gerenciamento do Azure.
 - Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
@@ -52,7 +52,7 @@ O aplicativo completo também é fornecido no final deste tutorial.
     - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
 
-## 2\. Adicionar pré-requisitos ao seu diretório
+## 2. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -71,7 +71,7 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
+## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
@@ -244,7 +244,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4\. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
+## 4. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
 
 Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O `passport-azure-ad` cuidou de todos os detalhes para criar as mensagens de autenticação, validar tokens no Azure AD e manter a sessão do usuário. Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
 
@@ -308,7 +308,7 @@ app.listen(3000);
 ```
 
 
-## 5\. Criar as exibições e as rotas no express para exibir o usuário no site
+## 5. Criar as exibições e as rotas no express para exibir o usuário no site
 
 Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
