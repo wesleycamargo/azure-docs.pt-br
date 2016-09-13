@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/07/2016"
 	ms.author="juliako"/>
 
 
 # Criar uma conta do Serviços de Mídia do Azure com o portal do Azure
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -36,7 +41,7 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 	O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o portal do Azure para criar contas do Serviço de Mídia e realizar diversas tarefas descritas aqui. No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
 	
 	- Sul do Brasil: somente as Unidades Reservadas para Codificação Standard e Básico estão disponíveis.
-	- Índia Ocidental, Sul da Índia, para arquivos de mídia e deve estar localizada na mesma região geográfica que a conta do Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
+	- Índia Ocidental, Sul da Índia: forneça blobs de armazenamento para arquivos de mídia; as contas de armazenamento devem estar localizadas na mesma região geográfica do que a conta do Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
 
 ## Criar uma conta do AMS
 
@@ -98,4 +103,4 @@ Agora você pode carregar arquivos em sua conta do AMS. Para saber mais, veja [C
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -75,7 +75,7 @@ As conexões da Rota Expressa permitem o acesso aos seguintes serviços:
 
 - Serviços do Microsoft Azure
 - Serviços do Microsoft Office 365
-- Serviços do Microsoft CRM Online 
+- Serviços do Microsoft CRM Online
  
 Visite a página de [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter uma lista detalhada dos serviços com suporte por meio da Rota Expressa.
 
@@ -118,9 +118,9 @@ Você pode aumentar a largura de banda do circuito da Rota Expressa (em uma base
 
 Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos modelos de cobrança listados abaixo. Consulte as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-- **Dados ilimitados**. O circuito da Rota Expressa é cobrado com base em uma taxa mensal, e todas as transferências de dados de entrada e de saída são incluídas gratuitamente. 
+- **Dados ilimitados**. O circuito da Rota Expressa é cobrado com base em uma taxa mensal, e todas as transferências de dados de entrada e de saída são incluídas gratuitamente.
 - **Dados limitados**. O circuito da Rota Expressa será cobrado com base em uma taxa mensal. Todas as transferências de dados de entrada são gratuitas. A cobrança pelas transferências de dados de saída ocorrem de acordo com a quantidade de GB da transferência de dados. As taxas de transferência de dados variam de acordo com a região.
-- **Complemento Rota Expressa premium**. O Rota Expressa premium é um complemento para o circuito da Rota Expressa. O complemento premium da Rota Expressa fornece os seguintes recursos: 
+- **Complemento Rota Expressa premium**. O Rota Expressa premium é um complemento para o circuito da Rota Expressa. O complemento premium da Rota Expressa fornece os seguintes recursos:
 	- Aumento dos limites de rota para emparelhamento público e privado do Azure de 4.000 para 10.000 rotas.
 	- Conectividade global para serviços. Um circuito da Rota Expressa criado em qualquer região (excluindo nuvens nacionais) terá acesso a recursos em qualquer região do mundo. Por exemplo, uma rede virtual criada na Europa Ocidental pode ser acessada por meio de um circuito da Rota Expressa provisionado no Vale do Silício.
 	- Aumento do número de links de Rede Virtual por circuito da Rota Expressa de 10 para um limite maior, dependendo da largura de banda do circuito.
@@ -136,4 +136,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

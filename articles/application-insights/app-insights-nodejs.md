@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@ O [Application Insights do Visual Studio](app-insights-overview.md) monitora seu
 
 O SDK fornece coleta automática de taxas de solicitações HTTP de entrada e respostas, contadores de desempenho (CPU, memória, RPS) e exceções sem tratamento. Além disso, você pode adicionar chamadas personalizadas para rastrear dependências, métricas ou outros eventos.
 
-![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-asp-net-manual/10-perf.png)
+![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Antes de começar
@@ -40,7 +40,7 @@ Você precisa de:
 
 Entre no [Portal do Azure][portal] e crie um novo recurso do Application Insights. Um [recurso][roles] no Azure é uma instância de um serviço. Este recurso é o local no qual a telemetria enviada do seu aplicativo será analisada e apresentada a você.
 
-![Clique em Novo, Application Insights](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Clique em Novo, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 Escolha Outro como o tipo de aplicativo. A escolha do tipo de aplicativo define o conteúdo de padrão de folhas de recursos e as propriedades visíveis no [Metrics Explorer][metrics].
 
@@ -48,7 +48,7 @@ Escolha Outro como o tipo de aplicativo. A escolha do tipo de aplicativo define 
 
 A chave identifica o recurso, e você a instalará em breve no SDK para direcionar os dados ao recurso.
 
-![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Instale o SDK em seu aplicativo
@@ -84,7 +84,7 @@ Volte para o [Portal do Azure](https://portal.azure.com) e navegue até o seu re
 
 Procure os dados na página de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
-![Clique por mais dados](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Clique por mais dados](./media/app-insights-windows-services/12-first-perf.png)
 
 Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## Próximas etapas
+
+* [Monitorar sua telemetria no portal](app-insights-dashboards.md)
+* [Escrever consultas de análise sobre a telemetria (app-insights-analytics-tour.md)
 
 
 
@@ -224,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

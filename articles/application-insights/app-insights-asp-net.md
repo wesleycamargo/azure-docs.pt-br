@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurar análise de aplicativo Web do ASP.NET com o Application Insights" 
+	pageTitle="Configurar análise de aplicativo da Web do ASP.NET com o Application Insights | Microsoft Azure" 
 	description="Configurar análise de desempenho, disponibilidade e uso para seu site ASP.NET, hospedado no local ou no Azure." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -117,17 +117,17 @@ O comando fazia três coisas:
 2. Criar um recurso do Application Insights no [portal do Azure](https://portal.azure.com/). É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
 3. Insere a chave de instrumentação em `ApplicationInsights.config`, de modo que o SDK possa enviar telemetria ao portal.
 
-Se desejar, você poderá executar essas etapas manualmente para [ASP.NET 4](app-insights-asp-net-manual.md) ou [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Se desejar, você poderá executar essas etapas manualmente para [ASP.NET 4](app-insights-windows-services.md) ou [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ### Como atualizar para versões futuras do SDK
 
-Para atualizar para uma [nova versão do SDK](app-insights-release-notes-dotnet.md), abra o Gerenciador de pacotes do NuGet e filtre os pacotes instalados. Selecione Microsoft.ApplicationInsights.Web e escolha Atualizar.
+Para atualizar para uma [nova versão do SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), abra o Gerenciador de pacotes do NuGet e filtre os pacotes instalados. Selecione Microsoft.ApplicationInsights.Web e escolha Atualizar.
 
 Se você fez todas as personalizações no ApplicationInsights.config, salve uma cópia antes de atualizar e, depois, mescle suas alterações à nova versão.
 
 
 
-## O que vem a seguir?
+## Próximas etapas
 
 | | 
 |---|---
@@ -135,4 +135,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 |**[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual studio](./media/app-insights-asp-net/62.png)
 |**[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

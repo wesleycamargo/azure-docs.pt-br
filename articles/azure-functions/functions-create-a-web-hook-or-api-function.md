@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/07/2016"
+   ms.date="08/30/2016"
    ms.author="glenga"/>
    
 # Criar um webhook ou um Azure Function de API
@@ -84,9 +84,9 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para codificação de funções.
 + [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
++ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.
 
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

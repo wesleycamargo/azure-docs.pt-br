@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure no portal
@@ -23,7 +23,7 @@ Esta introdução sem código ajuda você a começar a usar a Pesquisa do Micros
 
 Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Documentos do Azure](#apdx-sampledata) simples para criar usando nossos dados e instruções, mas também é possível adaptar estas etapas aos dados existentes no Banco de Dados de Documentos ou no Banco de Dados SQL.
 
-> [AZURE.NOTE] Este tutorial requer uma [Assinatura do Azure](../../includes/free-trial-note.md) e um [serviço de Pesquisa do Azure](search-create-service-portal.md).
+> [AZURE.NOTE] Este tutorial requer uma [Assinatura do Azure](../../includes/free-trial-note.md) e um [serviço Azure Search](search-create-service-portal.md).
  
 ## Localizar o serviço
 
@@ -72,9 +72,9 @@ Ainda no assistente, clique em **Índice** e veja a superfície de design usada 
 
 Embora os campos e os tipos de dados sejam configurados, você ainda precisa atribuir atributos. As caixas de seleção na parte superior da lista de campos são os *atributos do índice* que controlam como o campo é usado.
 
-- **Recuperável** significa que ele aparece na lista de resultados da pesquisa. Você pode marcar campos individuais como fora dos limites para os resultados de pesquisa ao desmarcar essa caixa de seleção, por exemplo, quando os campos forem usados somente em expressões de filtro. 
-- **Filtrável**, **Classificável** e **Com faceta** determinam se um campo pode ser usado em um filtro, em uma classificação ou em uma estrutura de navegação com facetas. 
-- **Pesquisável** significa que um campo é incluído na pesquisa de texto completo. As cadeias de caracteres geralmente são pesquisáveis. Campos numéricos e boolianos geralmente são marcados como não pesquisáveis. 
+- **Recuperável** significa que ele aparece na lista de resultados da pesquisa. Você pode marcar campos individuais como fora dos limites para os resultados de pesquisa ao desmarcar essa caixa de seleção, por exemplo, quando os campos forem usados somente em expressões de filtro.
+- **Filtrável**, **Classificável** e **Com faceta** determinam se um campo pode ser usado em um filtro, em uma classificação ou em uma estrutura de navegação com facetas.
+- **Pesquisável** significa que um campo é incluído na pesquisa de texto completo. As cadeias de caracteres geralmente são pesquisáveis. Campos numéricos e boolianos geralmente são marcados como não pesquisáveis.
 
 Antes de você sair dessa página, marque os campos no índice para usar as opções a seguir (Recuperável, Pesquisável e assim por diante). A maioria dos campos é Recuperável. A maioria dos campos de cadeia de caracteres é Pesquisável (você não precisa tornar a chave pesquisável). Alguns campos, como gênero, orderableOnline, classificação e marcas também são Filtrável, Classificável e Com faceta.
 	
@@ -155,7 +155,7 @@ As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se
 ### Criar musicstoredb para este tutorial
 
 1. [Clique aqui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para baixar um arquivo ZIP com os arquivos de dados JSON do repositório de músicas. Fornecemos 246 documentos JSON para este conjunto de dados.
-2. Adicione o Banco de Dados de Documentos à sua assinatura e abra o painel de serviço.
+2. Adicione o DocumentDB à sua assinatura e abra o painel de serviço.
 2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparecerá em um bloco de banco de dados mais abaixo na página, após sua criação.
 2. Clique no nome do banco de dados para abrir a folha de banco de dados.
 3. Clique em **Adicionar Coleção** para criar uma coleção com a ID `musicstorecoll`.
@@ -183,4 +183,4 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -27,24 +27,24 @@
 - [CLI do Azure](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma conta do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre o Data Lake, veja [Repositório Azure Data Lake](data-lake-store-overview.md).
+Saiba como usar o [SDK do .NET do Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) para criar uma conta do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta etc. Para obter mais informações sobre o Data Lake, veja [Repositório Azure Data Lake](data-lake-store-overview.md).
 
 ## Pré-requisitos
 
 * Visual Studio 2013 ou 2015. As instruções abaixo usam o Visual Studio 2015.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de você poder autenticar usando o Azure Active Directory - **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
-	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, você deve criar um **Aplicativo cliente nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
-		- Obter a **ID do cliente** e o **URI de redirecionamento** para o aplicativo
+* **Habilite sua assinatura do Azure** para a visualização pública do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory: **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
+	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, é necessário criar um **aplicativo Cliente Nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
+		- Obter a **ID do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
 
-	* **Para a autenticação não interativa** - no Azure Active Directory, você deve criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
-		- Obter a **ID do cliente**, **segredo do cliente** e **URI de redirecionamento** para o aplicativo
+	* **Para a autenticação não interativa** - no Azure Active Directory, é necessário criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
+		- Obter a **ID do cliente**, o **segredo do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
 		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos.
 
-	Consulte o [aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
+	Veja [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
 
 ## Criar um aplicativo .NET
 
@@ -122,7 +122,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 			}
 		}
 
-Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticar usuários, criar conta de Repositório Data Lake, carregar arquivos, etc. Se você estiver procurando um exemplo completo sobre como trabalhar com o Repositório Data Lake, consulte o [Apêndice](#appendix-sample-code) no final deste artigo.
+Nas seções restantes do artigo, você pode ver como usar o métodos do .NET disponíveis para executar operações como autenticar usuários, criar conta de Repositório Data Lake, carregar arquivos, etc. Se você estiver procurando um exemplo completo sobre como trabalhar com o Data Lake Store, consulte o [Apêndice](#appendix-sample-code) no final deste artigo.
 
 ## Autenticar o usuário
 
@@ -139,7 +139,7 @@ O trecho a seguir mostra um método `AuthenticateUser` que você pode usar para 
  	// Authenticate the user with AAD through an interactive popup.
     // You need to have an application registered with AAD in order to authenticate.
     //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-create-service-principal-portal/
+    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -157,7 +157,7 @@ O trecho a seguir mostra um método `AuthenticateApplication` que você pode usa
 	// Authenticate the application with AAD through the application's secret key.
 	// You need to have an application registered with AAD in order to authenticate.
 	//   For more information and instructions on how to register your application with AAD, see:
-	//   https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-create-service-principal-portal/
+	//   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -170,7 +170,7 @@ O trecho a seguir mostra um método `AuthenticateApplication` que você pode usa
 	
 ## Criar uma conta do Repositório Data Lake
 
-O trecho a seguir mostra um método `CreateAccount` que você pode usar para criar uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `CreateAccount` que você pode usar para criar uma conta de Data Lake Store.
 
 	// Create Data Lake Store account
     public static void CreateAccount()
@@ -179,9 +179,9 @@ O trecho a seguir mostra um método `CreateAccount` que você pode usar para cri
         _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
     } 
 
-## Listar todas as contas de Repositório Data Lake em uma assinatura
+## Listar todas as contas do Data Lake Store em uma assinatura
 
-O trecho a seguir mostra um método `ListAdlStoreAccounts` que você pode usar para listar todas as contas de Repositório Data Lake em uma determinada assinatura do Azure.
+O trecho a seguir mostra um método `ListAdlStoreAccounts` que você pode usar para listar todas as contas do Data Lake Store em uma determinada assinatura do Azure.
 
 	// List all ADLS accounts within the subscription
 	public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
@@ -200,7 +200,7 @@ O trecho a seguir mostra um método `ListAdlStoreAccounts` que você pode usar p
 
 ## Criar um diretório
 
-O trecho a seguir mostra um método `CreateDirectory` que você pode usar para criar um diretório em uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `CreateDirectory` que você pode usar para criar um diretório em uma conta de Data Lake Store.
 
 	// Create a directory
     public static void CreateDirectory(string path)
@@ -210,7 +210,7 @@ O trecho a seguir mostra um método `CreateDirectory` que você pode usar para c
 
 ## Carregar um arquivo no Repositório Data Lake
 
-O trecho a seguir mostra um método `UploadFile` que você pode usar para carregar arquivos para uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `UploadFile` que você pode usar para carregar arquivos para uma conta de Data Lake Store.
 
 	// Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
@@ -221,9 +221,11 @@ O trecho a seguir mostra um método `UploadFile` que você pode usar para carreg
         uploader.Execute();
     }
 
+DataLakeStoreUploader dá suporte ao upload e ao download recursivos entre um caminho de arquivo (ou pasta) local para o Data Lake Store.
+
 ## Obter informações do arquivo ou diretório
 
-O trecho a seguir mostra um método `GetItemInfo` que você pode usar para recuperar informações sobre um arquivo ou diretório disponível no Repositório Data Lake.
+O trecho a seguir mostra um método `GetItemInfo` que você pode usar para recuperar informações sobre um arquivo ou diretório disponível no Data Lake Store.
 
 	// Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
@@ -233,7 +235,7 @@ O trecho a seguir mostra um método `GetItemInfo` que você pode usar para recup
 
 ## Listar arquivos ou diretórios
 
-O trecho a seguir mostra um método `ListItem` que você pode usar para listar os arquivos e diretórios em uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `ListItem` que você pode usar para listar os arquivos e diretórios em uma conta de Data Lake Store.
 	
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
@@ -253,7 +255,7 @@ O trecho a seguir mostra um método `ConcatenateFiles` que você pode usar para 
 
 ## Anexar a um arquivo
 
-O trecho a seguir mostra um método `AppendToFile` que você usa para acrescentar dados a um arquivo já armazenado em uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `AppendToFile` que você usa para acrescentar dados a um arquivo já armazenado em uma conta de Data Lake Store.
 
 	// Append to file
     public static void AppendToFile(string path, string content)
@@ -265,7 +267,7 @@ O trecho a seguir mostra um método `AppendToFile` que você usa para acrescenta
 
 ## Baixar um arquivo
 
-O trecho a seguir mostra um método `DownloadFile` que você pode usar para baixar um arquivo de uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `DownloadFile` que você pode usar para baixar um arquivo de uma conta de Data Lake Store.
 
 	// Download file
     public static void DownloadFile(string srcPath, string destPath)
@@ -280,7 +282,7 @@ O trecho a seguir mostra um método `DownloadFile` que você pode usar para baix
 
 ## Excluir uma conta do Repositório do Data Lake
 
-O trecho a seguir mostra um método `DeleteAccount` que você pode usar para excluir uma conta de Repositório Data Lake.
+O trecho a seguir mostra um método `DeleteAccount` que você pode usar para excluir uma conta de Data Lake Store.
 
 	// Delete account
     public static void DeleteAccount()
@@ -290,7 +292,7 @@ O trecho a seguir mostra um método `DeleteAccount` que você pode usar para exc
 
 ## Apêndice: código de exemplo
 
-O trecho a seguir é um exemplo de código abrangente que você pode copiar e colar em seu aplicativo para ver uma operação de ponta a ponta em um Repositório Data Lake. Antes de executar o trecho de código, forneça os valores necessários, como o nome do Repositório Data Lake, o nome do grupo de recursos, etc. Você também deve fornecer os valores necessários para a autenticação do Azure Active Directory, como **<APPLICATION-CLIENT-ID>** , **<APPLICATION-REPLY-URI>** e **<SUBSCRIPTION-ID>**.
+O trecho a seguir é um exemplo de código abrangente que você pode copiar e colar em seu aplicativo para ver uma operação de ponta a ponta em um Repositório Data Lake. Antes de executar o trecho de código, forneça os valores necessários, como o nome do Repositório Data Lake, o nome do grupo de recursos, etc. Você também deve fornecer os valores necessários para a autenticação do Azure Active Directory, como **<ID-DE CLIENTE-DO-APLICATIVO>** , **<URI-DE-RESPOSTA-DO-APLICATIVO>** e **<ID-DA-ASSINATURA>**.
 
 Mesmo que o trecho de código a seguir forneça métodos para ambas as abordagens, interativa e não interativa, o bloco de código não interativo é comentado. Esse método interativo exige que você forneça a ID do cliente e o URI de redirecionamento do aplicativo AAD. O link mostrado nos pré-requisitos fornece instruções sobre como obtê-los.
 
@@ -400,7 +402,7 @@ Finalmente, o caminho local e o nome de arquivo fornecido aqui têm que existir 
             // Authenticate the user with AAD through an interactive popup.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -415,7 +417,7 @@ Finalmente, o caminho local e o nome de arquivo fornecido aqui têm que existir 
             // Authenticate the application with AAD through the application's secret key.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/pt-BR/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -525,5 +527,7 @@ Finalmente, o caminho local e o nome de arquivo fornecido aqui têm que existir 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Referência do SDK do .NET do Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Referência do REST do Azure Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

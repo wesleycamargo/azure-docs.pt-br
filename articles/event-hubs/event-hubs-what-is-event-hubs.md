@@ -30,8 +30,6 @@ Hubs de Eventos é um serviço de processamento de eventos que fornece processam
 
 Alguns outros recursos dos Hubs de Eventos importantes incluem o comportamento de rastreamento de aplicativos móveis, informações do tráfego de web farms, captura de eventos de jogos em jogos de console ou telemetria coletada de máquinas industriais ou veículos conectados.
 
-Ao contrário de [tópicos e filas do Barramento de Serviço](../service-bus/service-bus-messaging-overview.md), o Hubs de Eventos concentra-se em fornecer processamento de fluxo em escala. Os recursos dos Hubs de Eventos são diferentes dos tópicos do Barramento de Serviço, por exemplo, no sentido de que são eficientes nos cenários de alta produtividade e processamento de eventos. Como resultado, o Hubs de Eventos não implementa alguns dos recursos de mensagens que estão disponíveis para [tópicos](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Se você precisa desses recursos, os tópicos continuam sendo a melhor opção.
-
 ## Próximas etapas
 
 Para obter informações detalhadas sobre Hubs de Eventos, consulte os tópicos a seguir.
@@ -45,4 +43,4 @@ Para obter informações detalhadas sobre Hubs de Eventos, consulte os tópicos 
 [Tutorial de Hub de Eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

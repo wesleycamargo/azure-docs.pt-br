@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -25,7 +25,7 @@
 
 Bem-vindo ao tutorial do NoSQL para o SDK do .NET do Banco de Dados de Documentos do Azure! Depois de obter o projeto de Início Rápido ou concluir o tutorial, você terá um aplicativo de console que cria e consultas de recursos do Banco de Dados de Documentos.
 
-- **[QuickStart](#quickstart)**: baixe o projeto de exemplo, adicione as informações de conexão e tenha um aplicativo do Banco de Dados de Documentos em execução em menos de cinco minutos.
+- **[Início Rápido](#quickstart)**: baixe o projeto de exemplo, adicione as informações de conexão e tenha um aplicativo do DocumentDB em execução em menos de dez minutos.
 - **[Tutorial](#tutorial)**: crie o aplicativo de Início Rápido do zero em 30 minutos.
 
 ## Pré-requisitos
@@ -36,7 +36,7 @@ Bem-vindo ao tutorial do NoSQL para o SDK do .NET do Banco de Dados de Documento
 
 ## QuickStart
 
-1. Baixe o projeto de exemplo do [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Baixe o projeto de exemplo. zip do [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) ou clone o repositório [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. Use o Portal do Azure para [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 3. No arquivo App.config, substitua os valores EndpointUri e PrimaryKey pelos valores recuperados do [portal do Azure](https://portal.azure.com/), navegando para a folha **Banco de Dados de Documentos (NoSQL)**, clicando no **Nome da conta** e clicando em **Chaves** no menu de recursos. ![Captura de tela de EndpointUri e do valor PrimaryKey a ser substituído em App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Compile o projeto. A janela do console mostra os novos recursos que estão sendo criados, consultados e limpos.
@@ -599,4 +599,4 @@ Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

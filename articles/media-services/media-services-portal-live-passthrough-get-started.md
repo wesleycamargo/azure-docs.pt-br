@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/30/2016" 
+	ms.date="09/05/2016" 
 	ms.author="juliako"/>
 
 
 #Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
 
-Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem.
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-live-passthrough-get-started.md)
+- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem.
 
 ##Pré-requisitos
 
@@ -73,12 +77,13 @@ Se você quiser exibir as notificações e erros produzidos pelo portal do Azure
 
 ##Configurar os pontos de extremidade de streaming 
 
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming ou HDS, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
+Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming ou HDS, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
 
 Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma unidade de transmissão para o ponto de extremidade da transmissão a partir do qual planeja fornecer seu conteúdo.
 
 Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
 
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
 
 2. Clique no ponto de extremidade da transmissão padrão.
@@ -87,7 +92,7 @@ Para criar e alterar o número de unidades reservadas de transmissão, faça o s
 
 3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão**.
 
-	![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Unidades de streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Clique no botão **Salvar** para salvar as alterações.
 
@@ -130,11 +135,15 @@ Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao 
 	A janela **CRIAR UM NOVO CANAL** é exibida.
 4. Nomeie o novo canal e clique em **Criar**.
 
-	Isso criará um canal de passagem com o protocolo de ingestão RTMP.
+	Isso cria um canal de passagem com o protocolo de ingestão RTMP.
 
-	O canal também adiciona, inicia e publica um programa/evento ao vivo padrão. Esse evento é configurado para ter oito horas de janela de arquivo.
+##Criar eventos
 
-	Para adicionar mais eventos, pressione o botão **Evento ao Vivo**.
+1. Selecione um canal para o qual você deseja adicionar um evento.
+2. Pressione o botão **Evento ao Vivo**.
+
+![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Obter URLs de ingestão
 
@@ -142,13 +151,13 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 ![Criado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Assista a um evento
+##Assistir ao evento
 
 Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha.
  
 ![Criado](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-O evento ao vivo se converterá automaticamente no conteúdo sob demanda quando estiver parado.
+O evento ao vivo é convertido automaticamente no conteúdo sob demanda quando estiver parado.
 
 ##Limpar
 
@@ -165,7 +174,9 @@ Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 ![Ativos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -173,4 +184,4 @@ Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

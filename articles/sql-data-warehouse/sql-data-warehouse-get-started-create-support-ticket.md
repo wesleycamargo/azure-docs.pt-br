@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Como criar um tíquete de suporte para o SQL Data Warehouse
  
@@ -38,7 +38,7 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
 
     ![Tipo de solicitação](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma **Cota de DTU** de 45.000. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota criando um tíquete de suporte e selecionando *Cota* como o tipo de solicitação. Para calcular suas necessidades de DTU, você precisa saber que cada 100 [DWU][] do SQL Data Warehouse consome 750 DTU. Portanto, a cota padrão de 45.000 permitirá que você crie até um DW6000 (45.000/750) ou vários bancos de dados menores com menos DWU. Se, por exemplo, você quiser hospedar dois DW6000s em um SQL Server, deverá solicitar uma cota DTU de 90.000. Você pode exibir o consumo atual de DTU na folha do SQL Server no portal. Os bancos de dados em pausa e retomados contam como a cota de DTU.
+    >[AZURE.NOTE]  Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma **Cota de DTU** de 45.000. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota criando um tíquete de suporte e selecionando *Cota* como o tipo de solicitação. Para calcular suas necessidades de DTU, multiplique 7.5 pelo total de [DWU][] necessário. Por exemplo, você gostaria de hospedar dois DW6000s em um SQL Server, então, deve solicitar uma cota DTU de 90.000. Você pode exibir o consumo atual de DTU na folha do SQL Server no portal. Os bancos de dados em pausa e retomados contam como a cota de DTU.
 
 5. Selecione a **Assinatura** que hospeda o banco de dados com o problema que você está relatando.
 
@@ -50,7 +50,7 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
 
 7. Selecione seu [Plano de suporte do Azure][].
 
-    - O suporte do **gerenciamento de assinaturas, cobrança e cotas ** está disponível em todos os níveis de suporte.
+    - O suporte do **gerenciamento de assinaturas, cobrança e cotas** está disponível em todos os níveis de suporte.
     - O suporte do **conserto** é fornecido por meio do suporte do [Desenvolvedor][], [Standard][], [Professional Direct][] ou [Premier][]. As questões que exigem reparos são problemas vivenciados pelo cliente ao usar o Azure, em que se espera que o problema tenha sido causado pela Microsoft.
     - O **aconselhamento de desenvolvedores** e os **serviços de consultoria** estão disponíveis nos níveis de suporte [Professional Direct][] e [Premier][].
     
@@ -103,4 +103,4 @@ Além disso, você pode conectar a comunidade do SQL Data Warehouse no [Stack Ov
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Fórum MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

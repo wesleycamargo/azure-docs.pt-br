@@ -42,8 +42,8 @@ As regras NSG contêm as propriedades a seguir.
 |**Protocolo**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *|O uso do * como um protocolo inclui ICMP (apenas tráfego Leste-Oeste), bem como UDP e TCP, pode reduzir o número de regras necessárias<br/>Ao mesmo tempo, o uso do * pode ser uma abordagem muito ampla. Portanto, use-o quando for realmente necessário|
 |**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos. <br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/> Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
 |**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
-|**Prefixo de endereço de origem**|Prefixo ou marca de endereço de origem para fazer a correspondência da regra|Endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
-|**Prefixo de endereço de destino**|Prefixo ou marca de endereço de destino para fazer a correspondência da regra|endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
+|**Prefixo de endereço de origem**|Prefixo ou marca de endereço de origem para fazer a correspondência da regra|Endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
+|**Prefixo de endereço de destino**|Prefixo ou marca de endereço de destino para fazer a correspondência da regra|endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#default-tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Direção**|Direção do tráfego para fazer a correspondência da regra|entrada ou saída|Regras de entrada e saída são processadas separadamente, com base na direção|
 |**Prioridade**|As regras são verificadas em ordem de prioridade, e depois que uma regra é aplicada, nenhuma outra é testada quanto à correspondência|Número entre 100 e 4096|Considere a criação de regras que pulem prioridades, a cada 100 para cada regra, para deixar espaço para novas regras que surgem entre as existentes|
 |**Access**|Tipo de acesso a ser aplicado se a regra for correspondente|permitir ou negar|Lembre-se, se uma regra de permissão não for encontrada para um pacote, ele será descartado|
@@ -124,13 +124,13 @@ Você pode implementar NSGs nos modelos clássicos ou de implantação do Gerenc
 
 |Ferramenta de implantação|Clássico|Gerenciador de Recursos|
 |---|---|---|
-|Portal clássico|![Não][red]|![Não][red]|
-|Portal do Azure|![Sim][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Sim][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Sim][green]|[](virtual-networks-create-nsg-arm-ps.md)![Sim][green]|
-|CLI do Azure|[](virtual-networks-create-nsg-classic-cli.md)![Sim][green]|[](virtual-networks-create-nsg-arm-cli.md)![Sim][green]|
-|Modelo de ARM|![Não][red]|[](virtual-networks-create-nsg-arm-template.md)![Sim][green]|
+|Portal clássico|![Não](./media/virtual-network-nsg-overview/red.png)|![Não](./media/virtual-network-nsg-overview/red.png)|
+|Portal do Azure|![Sim](./media/virtual-network-nsg-overview/green.png)|[![Sim][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Sim][green]](virtual-networks-create-nsg-classic-ps.md)|[![Sim][green]](virtual-networks-create-nsg-arm-ps.md)|
+|CLI do Azure|[![Sim][green]](virtual-networks-create-nsg-classic-cli.md)|[![Sim][green]](virtual-networks-create-nsg-arm-cli.md)|
+|Modelo de ARM|![Não](./media/virtual-network-nsg-overview/red.png)|[![Sim][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Chave**|![Sim][green] Com suporte. Clique para ver o artigo.|![Não][red] Sem suporte.|
+|**Chave**|![Sim](./media/virtual-network-nsg-overview/green.png) Com suporte.|![Não](./media/virtual-network-nsg-overview/red.png) Sem suporte.|
 |---|---|---|
 
 ## Planejamento
@@ -154,7 +154,7 @@ Você precisa considerar os limites abaixo ao projetar seus NSGs.
 |**Descrição**|**Limite padrão**|**Implicações**|
 |---|---|---|
 |Número de NSGs que podem ser associados a uma sub-rede, VM ou NIC|1|Isso significa que não é possível combinar NSGs. Verifique se todas as regras necessárias para um determinado conjunto de recursos estão incluídas em um único NSG.|
-|NSGs por região e assinatura|100|Por padrão, um novo NSG é criado para cada VM que você cria no portal do Azure. Se você permitir esse comportamento padrão, seu limite de NSGs será atingido rapidamente. Lembre-se desse limite durante o design e separe seus recursos por várias regiões ou assinaturas, se necessário. |
+|NSGs por região e assinatura|100|Por padrão, um novo NSG é criado para cada VM que você cria no portal do Azure. Se você permitir esse comportamento padrão, seu limite de NSGs será atingido rapidamente. Lembre desse limite durante o design e separe seus recursos em várias regiões ou assinaturas, se necessário. |
 |Regras de NSG por NSG|200|Use um amplo intervalo de IPs e de portas para garantir que você não ultrapasse esse limite. |
 
 >[AZURE.IMPORTANT] Exiba todos os [limites relacionados aos serviços de rede no Azure](../azure-subscription-service-limits.md#networking-limits) antes de projetar sua solução. Alguns limites podem ser aumentados abrindo um tíquete de suporte.
@@ -282,4 +282,4 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->
