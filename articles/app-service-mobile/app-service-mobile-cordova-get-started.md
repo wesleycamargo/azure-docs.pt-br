@@ -79,9 +79,9 @@ Saiba como usar os SDKs.
 [Adicionar autenticação]: app-service-mobile-cordova-get-started-users.md
 [Adicionar notificações por push]: app-service-mobile-cordova-get-started-push.md
 [Autenticação]: app-service-mobile-auth.md
-[Notificações por Push]: ../notification-hubs/notification-hubs-overview.md
+[Notificações por Push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

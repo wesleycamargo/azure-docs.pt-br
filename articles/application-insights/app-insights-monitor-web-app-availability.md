@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 
-Após ter implantado seu aplicativo Web para qualquer host, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O [Application Insights do Visual Studio](app-insights-overview.md) envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
+Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O [Visual Studio Application Insights](app-insights-overview.md) envia solicitações da Web ao aplicativo a intervalos regulares de pontos em todo o mundo. Ele o alertará se o aplicativo não responder ou responder lentamente.
 
 ![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou H
 
 Há dois tipos de teste da Web:
 
-* [Teste de ping de URL](#set-up-a-url-ping-test): um teste simples que você pode criar no Portal do Azure.
+* [Teste de ping de URL](#create): um teste simples que você pode criar no Portal do Azure.
 * [Teste da web de várias etapas](#multi-step-web-tests): criado no Visual Studio Ultimate ou Visual Studio Enterprise e carregado no portal.
 
 Você pode criar até 10 testes na Web por recurso de aplicativo.
 
+## <a name="create"></a>1. Criar um recurso para os relatórios de teste
 
-## Configurar um teste de ping de URL
-
-### <a name="create"></a>1. Criar um novo recurso?
-
-Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os dados de disponibilidade no mesmo local.
+Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os relatórios de disponibilidade no mesmo local.
 
 Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [Portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights.
 
 ![Novo > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-A folha de Visão Geral para o novo recurso é aberta. Para encontrá-los a qualquer momento no [Portal do Azure](https://portal.azure.com), clique em **Procurar**.
+Clique em **Todos os recursos** para abrir a folha de Visão geral do novo recurso.
 
-### <a name="setup"></a>2. Crie um teste na Web
+## <a name="setup"></a>2. Criar um teste de ping de URL
 
 Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Clique para abrir a folha de testes da Web para seu aplicativo e adicione um teste da Web.
 
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta&#151. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.
-- **Analisar solicitações dependentes**: imagens, scripts, arquivos de estilo e outros recursos da página são solicitados como parte do teste. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro.
+- **Analisar solicitações dependentes**: imagens, scripts, arquivos de estilo e outros recursos da página são solicitados como parte do teste, e o tempo de resposta gravado inclui esses tempos. O teste falhará se todos esses recursos não puderem ser baixados com êxito dentro do tempo limite para o teste inteiro.
 - **Habilitar tentativas**: quando o teste falha, ele é repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. (Recomendamos essa configuração. Em média, aproximadamente 80% das falhas desaparecem na repetição.)
 - **Frequência de teste**: define a frequência com que o teste é executado em cada local de teste. Com uma frequência de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.
 - Os **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
@@ -68,14 +65,14 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 
     Você pode configurar um [webhook](../azure-portal/insights-webhooks-alerts.md), que é chamado quando um alerta é gerado. (Mas observe que, no momento, os parâmetros de consulta não são passados como Propriedades.)
 
-#### Testar mais URLs
+### Testar mais URLs
 
 Adicione mais testes. Por exemplo, além de testar a página inicial, você pode verificar se o banco de dados está sendo executado testando a URL para uma pesquisa.
 
 
-### <a name="monitor"></a>3. Exibir relatórios de disponibilidade
+## <a name="monitor"></a>3. Ver seus resultados de teste na Web
 
-Depois de 1 ou 2 minutos, clique em **Atualizar** na folha de testes de disponibilidade/Web. (Ele não atualiza automaticamente.)
+Depois de 1 a 2 minutos, os resultados aparecem na
 
 ![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Clique em qualquer barra no gráfico de resumo para obter uma exibição mais de
 
 Esses gráficos combinam os resultados de todos os testes da Web desse aplicativo.
 
-#### Componentes da sua página da Web
 
-Imagens, folhas de estilos, scripts e outros componentes estáticos da página da Web que você está testando são solicitados como parte do teste.
-
-O tempo de resposta gravado é o tempo transcorrido até que o carregamento de todos os componentes tenha sido concluído.
-
-Se algum componente não for carregado, o teste será marcado com falha.
-
-## <a name="failures"></a>Se você encontrar falhas...
+## <a name="failures"></a>Se você encontrar falhas
 
 Clique em um ponto vermelho.
 
@@ -333,4 +323,4 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

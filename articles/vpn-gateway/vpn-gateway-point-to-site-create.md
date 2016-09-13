@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurar uma conexão VPN ponto a site para uma Rede Virtual do Azure usando o portal clássico| Microsoft Azure"
-   description="Conecte-se com segurança à Rede Virtual do Azure criando uma conexão VPN ponto a site."
+   pageTitle="Configurar uma conexão de gateway VPN Ponto a Site com uma Rede Virtual do Azure usando o portal clássico| Microsoft Azure"
+   description="Conecte com segurança a Rede Virtual do Azure criando uma conexão de gateway VPN Ponto a Site."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Clássico](vpn-gateway-point-to-site-create.md)
 
-Uma configuração Ponto a Site (P2S) permite que você crie uma conexão segura de um computador cliente individual para uma rede virtual. Uma conexão P2S é útil quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando há apenas alguns clientes que precisam se conectar a uma rede virtual.
+Uma configuração Ponto a Site (P2S) permite que você crie uma conexão segura de um computador cliente individual com uma rede virtual. Uma conexão P2S é útil quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando há apenas alguns clientes que precisam se conectar a uma rede virtual.
 
 Este artigo fornece uma orientação sobre a criação de uma VNet com uma conexão Ponto a Site no **modelo de implantação clássica** usando o portal clássico. No momento, você não pode criar essa configuração de ponta a ponta para o modelo de implantação clássico no Portal do Azure.
 
@@ -144,16 +144,30 @@ Para se conectar à rede virtual, também será necessário configurar um client
 
 3. Depois de gerar e baixar o pacote de cliente VPN no portal clássico do Azure, você pode instalar o pacote do cliente no computador cliente por meio do qual deseja se conectar à sua rede virtual. Se você planeja instalar o pacote do cliente VPN em vários computadores cliente, certifique-se de que cada um deles também tenha um certificado de cliente instalado.
 
-### Parte 2: instalar o pacote de configuração de VPN no cliente e iniciar a conexão
+### Parte 2: Instalar o pacote de configuração VPN no cliente
 
-1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. O pacote de configuração não está assinado pela Microsoft. Convém assinar o pacote usando o serviço de assinatura de sua organização ou assiná-lo você mesmo usando [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote.
-2. No computador cliente, navegue até Conexões VPN e localize a conexão VPN que você criou. Ele será nomeado com o mesmo nome da sua rede virtual. Clique em **Conectar**.
-3. Será exibida uma mensagem pop-up, que é usada para criar um certificado autoassinado para o ponto de extremidade do Gateway. Clique em **Continuar** para usar privilégios elevados.
-4. Na página de status da **Conexão**, clique em **Conectar** para iniciar a conexão.
-5. Se for exibida uma tela de **Selecionar certificado**, verifique se o certificado de cliente mostrado é o que você deseja usar para se conectar. Se não for, use a seta suspensa para selecionar o certificado correto e clique em **OK**.
-6. Agora você está conectado à sua rede virtual e tem acesso total a qualquer serviço e máquina virtual hospedados em sua rede virtual.
+1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe.
 
-### Parte 3: verificar a conexão VPN
+2. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. O pacote de configuração não está assinado pela Microsoft. Convém assinar o pacote usando o serviço de assinatura de sua organização ou assiná-lo você mesmo usando [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote.
+
+3. No computador cliente, navegue até **Configurações de Rede** e clique em **VPN**. Você verá a conexão listada. Ela mostrará o nome da rede virtual a qual se conectará e terá uma aparência parecida com esta:
+
+	![Cliente VPN](./media/vpn-gateway-point-to-site-create/vpn.png "Cliente VPN")
+
+
+### Parte 3: Conectar-se ao Azure
+
+1. Para se conectar à sua rede virtual, no computador cliente, navegue até conexões VPN e localize a conexão VPN que você criou. Ele terá o mesmo nome da sua rede virtual. Clique em **Conectar**. Uma mensagem pop-up pode ser exibida sobre o uso do certificado. Se isso acontecer, clique em **Continuar** para usar os privilégios elevados.
+
+2. Na página de status da **Conexão**, clique em **Conectar** para iniciar a conexão. Se for exibida uma tela de **Selecionar certificado**, verifique se o certificado de cliente mostrado é o que você deseja usar para se conectar. Se não for, use a seta suspensa para selecionar o certificado correto e clique em **OK**.
+
+	![Cliente VPN 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "Conexão de cliente VPN")
+
+3. Sua conexão já deve ter sido estabelecida.
+
+	![Cliente VPN 3](./media/vpn-gateway-point-to-site-create/connected.png "Conexão de cliente VPN 2")
+
+### Parte 4: Verificar a conexão VPN
 
 1. Para verificar se a conexão VPN está ativa, abra um prompt de comandos com privilégios elevados e execute *ipconfig/all*.
 2. Exiba os resultados. Observe que o endereço IP que você recebeu está dentro do intervalo de endereços de conectividade ponto a site que você especificou quando criou a sua VNet. Os resultados devem ser algo semelhante a isto:
@@ -179,4 +193,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar um
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal Clássico do Azure" 
-	description="Este tutorial explica as etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única e a codifica em uma transmissão de múltiplas taxas de bits usando o Portal Clássico do Azure." 
+	pageTitle="Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal do Azure | Microsoft Azure" 
+	description="Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="juliako"/>
 
 
-#Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal Clássico do Azure
+#Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -47,23 +47,23 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
-3. Crie um programa (que também criará um ativo).
-1. Publica o programa (que vai criar um localizador OnDemand para o ativo associado).
+3. Crie um evento/programa (que também criará um ativo).
+1. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).
 
-	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
-1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
+	Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
+1. Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-1. Exclua o programa (e, opcionalmente, exclua o ativo).
+1. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
+1. Exclua o evento (e, opcionalmente, exclua o ativo).
 
 ##Neste tutorial
 
-Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes tarefas:
+Neste tutorial, o portal do Azure é usado para realizar as seguintes tarefas:
 
 2.  Configure os pontos de extremidade de streaming.
 3.  Crie um canal que esteja habilitado para realizar a codificação ao vivo.
 1.  Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal.
-1.  Criar um programa (e um ativo)
+1.  Criar um evento/programa (e um ativo)
 1.  Publicar o ativo e obter URLs de streaming
 1.  Reproduzir o conteúdo
 2.  Limpando
@@ -75,78 +75,69 @@ Os itens a seguir são necessários para concluir o tutorial.
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
 
-##Configurar ponto de extremidade de streaming usando o Portal
+##Configurar os pontos de extremidade de streaming 
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
+Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming ou HDS, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
-Ao trabalhar com a transmissão ao vivo, um codificador ao vivo local (no nosso caso Wirecast) recebe uma transmissão ao vivo com múltiplas taxas de bits em seu canal. Quando o fluxo é solicitado por um usuário, o Serviços de Mídia usa empacotamento dinâmico para empacotar novamente o fluxo de origem no fluxo de taxa de bits adaptável solicitado (HLS, DASH ou Smooth).
+Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma unidade de transmissão para o ponto de extremidade da transmissão a partir do qual planeja fornecer seu conteúdo.
 
-Para tirar proveito do empacotamento dinâmico, você precisa obter pelo menos uma unidade de streaming para o **ponto de extremidade** de streaming por meio do qual você planeja fornecer seu conteúdo.
+Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
 
-Para alterar o número de unidades de streaming reservadas, faça o seguinte:
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
 
-1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços de Mídia**. Em seguida, clique no nome do serviço de mídia.
+2. Clique no ponto de extremidade da transmissão padrão.
 
-2. Selecione a página de PONTOS DE EXTREMIDADE DE STREAMING. Então, clique no ponto de extremidade que deseja modificar.
+	A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
 
-3. Para especificar o número de unidades de streaming, selecione a guia ESCALA e mova o controle deslizante **capacidade reservada**.
+3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão**.
 
-	![Página Escala](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
+	![Unidades de streaming](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. Pressione o botão SALVAR para salvar as alterações.
+4. Clique no botão **Salvar** para salvar as alterações.
 
-	A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
+	>[AZURE.NOTE]A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
 
-	 
-	>[AZURE.NOTE] No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
-	>
-	> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
-
- 
 ##Criar um CANAL
 
-1.	No [Portal Clássico do Azure](http://manage.windowsazure.com/), clique em Serviços de Mídia e no nome da conta dos Serviços de Mídia.
-2.	Selecione a página CANAIS.
-3.	Selecione Adicionar+ para adicionar um novo canal.
+1. No [Portal do Azure](https://portal.azure.com/), clique em Serviços de Mídia e no nome da conta dos Serviços de Mídia.
+2. Escolha **Transmissão ao Vivo**.
+3. Escolha **Criação personalizada**. Essa opção permitirá a criação de um canal habilitado para codificação ativa.
 
-Escolha tipos de codificação **Padrão**. Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+	![Criar um canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+	
+4. Clique em **Configurações**.
+	
+	1.  Escolha o tipo de canal **Codificação Ativa**. Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md). Clique em OK.
+	2. Especifique o nome do canal.
+	3. Clique em OK na parte inferior da tela.
+	
+5. Selecione a guia **Ingestão**.
 
-![standard0][standard0]
+	1. Nessa página, você pode selecionar um protocolo de streaming. Para o tipo de canal **Codificação Ativa**, as opções de protocolo válidas são:
+		
+		- MP4 fragmentado de taxa de bits única (Smooth Streaming)
+		- RTMP de taxa de bits única
+		- RTP (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.
+		
+		Para obter explicações detalhadas sobre cada protocolo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+	
+		Você não pode alterar a opção de protocolo enquanto o Canal ou seus eventos/programas associados estão em execução. Se você precisar de protocolos diferentes, crie canais separados para cada protocolo de streaming.
 
-Para o tipo de codificação **Padrão**, as opções de protocolo de ingestão válidas são:
+	2. Você pode aplicar a restrição de IP na ingestão.
+	
+		Você pode definir os endereços IP que têm permissão para ingerir vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, '10.0.0.1(255.255.252.0)').
 
-- MP4 fragmentado de taxa de bits única (Smooth Streaming)
-- RTMP de taxa de bits única
-- RTP (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.
+		Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
 
-Para obter explicações detalhadas sobre cada protocolo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+6. Na guia **Visualização**, aplique a restrição de IP na visualização.
+7. Na guia **Codificação**, especifique a predefinição de codificação.
 
-![standard1][standard1]
-
-Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
-
-Na página **Configuração de publicidade**, você pode especificar a origem para sinais de marcadores de anúncio. Ao usar o Portal você pode selecionar apenas API, que indica que o codificador ao vivo no canal deve escutar buscando um API de marcador de anúncio assíncrono. Ao usar o Portal, você só pode selecionar API.
-
-Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
-
-![standard2][standard2]
-
-Na página **Predefinição de codificação**, você pode selecionar as predefinições do sistema. Atualmente, o único sistema de predefinição que você pode selecionar é **Padrão 720p**.
-
-![standard3][standard3]
-
-Na página **Criação de canal**, você pode definir os endereços IP que têm permissão para publicar vídeo nesse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
-
-Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
-
-
-![standard4][standard4]
+	Atualmente, o único sistema de predefinição que você pode selecionar é **Padrão 720p**. Para especificar uma predefinição personalizada, abra um tíquete de suporte da Microsoft. Em seguida, insira o nome da predefinição criada para você.
 
 >[AZURE.NOTE] Atualmente, a inicialização do Canal pode levar até 30 minutos. A redefinição de canal pode levar até 5 minutos.
 
-Uma vez criado o canal, você pode selecionar a guia **CODIFICADOR**, onde você pode exibir as configurações de canais. Você também pode gerenciar slates e anúncios.
-
-![standard5][standard5]
+Após a criação do Canal, clique no canal e selecione **Configurações**. Nesse local você pode exibir as configurações de seus canais.
 
 Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -155,94 +146,65 @@ Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviço
 
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![readychannel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ready-channel.png)
-
-
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Criar e gerenciar um programa
+##Criar e gerenciar eventos
 
 ###Visão geral
 
-Um canal é associado a programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
+Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos/programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo**. Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o evento, definindo a duração da **Janela de Arquivo**. Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os eventos podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada programa está associado um ativo. Para publicar o programa, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
+Cada evento está associado um Ativo. Para publicar o evento, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
-Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
+Um canal dá suporte a até três eventos em execução simultânea para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um evento, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois eventos em execução simultânea. Um evento é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro evento é definido para 10 minutos e esse programa é publicado.
 
 Você não deve reutilizar os programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento.
 
-Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
+Inicie um evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
 
-Para excluir o conteúdo arquivado, interrompa e exclua o programa e, em seguida, exclua o ativo associado. Não é possível excluir um ativo se este for usado por um programa; o programa deve ser excluído primeiro.
+Para excluir o conteúdo arquivado, interrompa e exclua o evento, em seguida, exclua o ativo associado. Não será possível excluir um ativo se este for usado pelo evento; o evento deve ser excluído primeiro.
 
-Mesmo depois que você parar e excluir o programa, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo.
+Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo.
 
 Se desejar manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
 
-###Criar/iniciar/interromper programas
+###Criar/iniciar/interromper eventos
 
 Uma vez que o fluxo está fluindo para o canal, você pode começar o evento de transmissão criando um ativo, programa e localizador de Streaming. Isso vai arquivar o fluxo e torná-lo disponível para usuários por meio do ponto de extremidade de Streaming.
 
 Há duas maneiras de começar o evento:
 
-1. Na página **CANAL**, pressione **ADICIONAR** para adicionar um novo programa.
+1. Na página **Canal**, pressione **Evento Ativo** para adicionar um novo evento.
 
-	Especifique: nome do programa, nome do ativo, janela de arquivo e opção de criptografia.
+	Especifique: nome do evento, nome do ativo, janela de arquivo e opção de criptografia.
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	Se você deixou **Publicar este programa agora** marcada, o programa PUBLICANDO URLS será criado.
+	Se você deixou a opção **Publicar este evento agora** marcada, o evento PUBLICANDO URLS será criado.
 	
-	Você pode pressionar **INICIAR** sempre que você estiver pronto para transmitir o programa.
+	Você pode pressionar **Iniciar** sempre que estiver pronto para transmitir o evento.
 
-	Depois de iniciar o programa, você pode pressionar REPRODUZIR para iniciar a reprodução do conteúdo.
+	Depois de iniciar o evento, você pode pressionar **Assistir** para iniciar a reprodução do conteúdo.
 
+2. Como alternativa, você pode usar um atalho e pressionar o botão **Ativar** na página **Canal**. Isso criará um Ativo, Programa e Localizador de Streaming padrão.
 
-	![createdprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-created-program.png)
+	O evento é chamado **default** e a janela de arquivo é definida como oito horas.
 
-2. Como alternativa, você pode usar um atalho e pressionar o botão **INICIAR STREAMING** na página **CANAL**. Isso criará um ativo, programa e localizador de Streaming.
+Você pode assistir ao evento publicado na página **Evento ativo**.
 
-	O programa é chamado DefaultProgram e a janela de arquivo é definida como 1 hora.
-
-	Você pode executar o programa publicado da página CANAL.
-
-	![channelpublish](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-channel-play.png)
+Se você clicar em **Fora do ar**, todos os eventos ativos serão interrompidos.
 
 
-Se você clicar em **PARAR STREAMING** na página **CANAL**, o programa padrão será interrompido e excluído. O ativo ainda estará lá e você pode publicá-lo ou cancelar sua publicação na página **CONTEÚDO**.
+##Assistir ao evento
 
-Se você alternar para a página **CONTEÚDO**, você verá os ativos que foram criados para os programas.
+Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha.
+ 
+![Criado](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-![contentasset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-content-assets.png)
-
-
-##Reprodução de conteúdo
-
-Para fornecer a seu usuário uma URL que possa ser usada para transmitir seu conteúdo, você precisa primeiro "publicar" seu ativo (conforme descrito na seção anterior), criando um localizador (quando você publica um ativo usando o Portal, os localizadores são criados para você). Os localizadores fornecem acesso aos arquivos contidos no ativo.
-
-Dependendo de qual protocolo de transmissão você deseja usar para reproduzir o conteúdo, talvez seja necessário modificar a URL obtida pelo link **PUBLICAR URL** do canal\\programa.
-
-O empacotamento dinâmico se encarregará do empacotamento do fluxo ao vivo para o protocolo especificado.
-
-Por padrão, uma URL de transmissão tem o formato a seguir, e você pode usá-la para reproduzir ativos de Smooth Streaming:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-Para criar uma URL de streaming HLS, anexe (format=m3u8-aapl) à URL.
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-Para criar uma URL de streaming MPEG DASH, anexe (format=mpd-time-csf) à URL.
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
-
-Para obter mais informações sobre o fornecimento do seu conteúdo, consulte [Fornecimento de conteúdo](media-services-deliver-content-overview.md).
-
-Você pode reproduzir Smooth Stream usando o [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) ou usar dispositivos iOS e Android para reproduzir HLS versão 3.
+O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido.
 
 ##Limpar
 
@@ -252,6 +214,13 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 - Pare o canal. Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
 - Você pode parar seu ponto de extremidade de Streaming, a menos que você deseje continuar a fornecer o arquivo morto do evento ao vivo como um fluxo sob demanda. Se o canal estiver no estado Parado, ele não incorrerá em nenhum encargo.
   
+##Exibir conteúdo arquivado
+
+Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro.
+
+Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
+
+![Ativos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ##Considerações
 
@@ -259,7 +228,9 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 - Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -267,13 +238,6 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+ 
 
-
-[standard0]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png
-[standard1]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard1.png
-[standard2]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard2.png
-[standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
-[standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
-[standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

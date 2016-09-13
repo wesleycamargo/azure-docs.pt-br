@@ -3,7 +3,7 @@
    description="Power BI Embedded, interagir com relatórios usando a API JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # Interagir com relatórios do Power BI usando a API JavaScript
 
@@ -137,4 +137,4 @@ Para saber mais sobre a API JavaScript do Power BI, confira os links a seguir:
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [Demonstração ao vivo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

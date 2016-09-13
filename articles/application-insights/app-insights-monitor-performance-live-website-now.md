@@ -283,11 +283,7 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
 * [Adicionar telemetria do cliente Web][usage] para ver as exceções no código da página da Web e permitir que você insira chamadas de rastreamento.
 * [Adicionar SDK do Application Insights ao seu código de serviço Web][greenbrown] para que você possa inserir o rastreamento e chamadas de log no código do servidor.
 
-## Vídeo
 
-#### Monitoramento de desempenho
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -300,4 +296,4 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
