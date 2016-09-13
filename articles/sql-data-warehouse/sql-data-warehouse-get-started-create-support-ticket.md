@@ -50,7 +50,7 @@ Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte
 
 7. Selecione seu [Plano de suporte do Azure][].
 
-    - O suporte do **gerenciamento de assinaturas, cobrança e cotas ** está disponível em todos os níveis de suporte.
+    - O suporte do **gerenciamento de assinaturas, cobrança e cotas** está disponível em todos os níveis de suporte.
     - O suporte do **conserto** é fornecido por meio do suporte do [Desenvolvedor][], [Standard][], [Professional Direct][] ou [Premier][]. As questões que exigem reparos são problemas vivenciados pelo cliente ao usar o Azure, em que se espera que o problema tenha sido causado pela Microsoft.
     - O **aconselhamento de desenvolvedores** e os **serviços de consultoria** estão disponíveis nos níveis de suporte [Professional Direct][] e [Premier][].
     
