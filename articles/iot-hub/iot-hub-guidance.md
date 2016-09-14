@@ -1,6 +1,6 @@
 <properties
  pageTitle="Orientação sobre a solução do Hub IoT | Microsoft Azure"
- description="Tópicos de orientação sobre gateways, provisionamento de dispositivo e autenticação para desenvolvimento de soluções IoT usando o Azure Hub IoT."
+ description="Tópicos de orientação sobre gateways, provisionamento de dispositivo e autenticação para desenvolvimento de soluções IoT usando o Hub IoT do Azure."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -81,7 +81,7 @@ Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao 
 
 ### Comparação com um gateway personalizado
 
-O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo disso é o [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway de protocolo][lnk-protocols].
+O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. É recomendável porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, há casos nos quais o esquema de autenticação personalizado está tão entremeado com o protocolo que é necessário ter um serviço que processe todo o tráfego (*gateway personalizado*). Um exemplo disso é o [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway do protocolo][lnk-protocols].
 
 ## Pulsação do dispositivo <a id="heartbeat"></a>
 
@@ -138,4 +138,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-sas-token]: iot-hub-sas-tokens.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

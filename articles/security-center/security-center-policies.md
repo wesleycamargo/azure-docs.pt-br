@@ -26,7 +26,7 @@ Por exemplo, os recursos usados para desenvolvimento ou teste podem ter requisit
 
 ## Como definir políticas de segurança para assinaturas
 
-É possível configurar políticas de segurança para cada grupo de recursos ou assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador daquela assinatura. Acesse o portal do Azure e siga as etapas anteriores para configurar as políticas de segurança na Central de Segurança:
+É possível configurar políticas de segurança para cada grupo de recursos ou assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador daquela assinatura. Acesse o Portal do Azure e execute as etapas a seguir para configurar as políticas de segurança na Central de Segurança:
 
 1. Clique no bloco **Política** no painel Central de Segurança.
 
@@ -106,4 +106,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

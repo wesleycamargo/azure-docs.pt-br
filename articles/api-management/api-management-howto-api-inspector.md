@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
@@ -229,7 +229,6 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
--	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
 -	Assista a uma demonstração das expressões da política de rastreamento no [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance até 21:00 para assistir à demonstração.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
-[Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,6 +1,6 @@
  <properties
-	pageTitle="Usar o plug-in do HDInsight para IntelliJ IDEA para depurar remotamente os aplicativos executados em clusters HDInsight Spark | Microsoft Azure"
-	description="Saiba como usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para depurar aplicativos Spark remotamente para um cluster do HDInsight Spark."
+	pageTitle="Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar remotamente os aplicativos executados em clusters HDInsight Spark | Microsoft Azure"
+	description="Saiba como usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar remotamente os aplicativos executados em clusters HDInsight Spark."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para depurar aplicativos Spark remotamente para um cluster do HDInsight Spark Linux
+# Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar aplicativos Spark remotamente para um cluster do HDInsight Spark Linux
 
-Este artigo oferece diretrizes passo a passo sobre como usar o plug-in de ferramentas do HDInsight para IntelliJ IDEA para enviar um trabalho do Spark no cluster HDInsight Spark e depurá-lo remotamente do seu computador desktop. Para fazer isso, você deve executar as seguintes etapas de alto nível:
+Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para enviar um trabalho do Spark no cluster HDInsight Spark e depurá-lo remotamente do seu computador desktop. Para fazer isso, você deve executar as seguintes etapas de alto nível:
 
 1. Crie uma Rede Virtual do Azure site a site ou ponto a site. As etapas neste documento pressupõem que você esteja usando uma rede site a site.
 
@@ -42,7 +42,7 @@ Este artigo oferece diretrizes passo a passo sobre como usar o plug-in de ferram
  
 * IntelliJ IDEA. Este artigo usa a versão 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
  
-* Plug-in Ferramentas do HDInsight para IntelliJ IDEA. O plug-in Ferramentas do HDInsight para IntelliJ IDEA está disponível como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, veja [Instalando o Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij-installation.md).
+* Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ. As Ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, veja [Instalando o Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * Durante a execução do aplicativo Spark Scala para depuração remota em um computador com Windows, você pode receber uma exceção, conforme explicado em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), que ocorre devido a à ausência do WinUtils.exe no Windows. Para solucionar esse erro, você deve [baixar aqui o executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\\WinUtils\\bin**. Em seguida, adicione uma variável de ambiente **HADOOP\_HOME** e defina o valor da variável como **C\\WinUtils**.
 
@@ -97,7 +97,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 7. Repita estas etapas no outro nó de cabeçalho.
 
-## Etapa 4: Criar um aplicativo Scala Spark usando o plug-in IntelliJ IDEA do HDInsight e o configure para a depuração remota
+## Etapa 4: Criar um aplicativo Scala Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ e configurá-lo para a depuração remota
 
 1. Inicie o IntelliJ IDEA e crie um novo projeto. Na caixa de diálogo Novo Projeto, faça o seguinte e, em seguida, clique em **Avançar**.
 
@@ -105,7 +105,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 	* No painel esquerdo, escolha **HDInsight**.
 	* No painel direito, escolha **Spark no HDInsight (Scala)**.
-	* Clique em **Próximo**.
+	* Clique em **Avançar**.
 
 2. Na próxima janela, forneça os detalhes do projeto.
 
@@ -328,9 +328,9 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 ### Ferramentas e extensões
 
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -346,4 +346,4 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

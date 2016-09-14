@@ -95,11 +95,9 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 
 Os seguintes recursos da API .NET do Barramento de Serviço não são atualmente suportados com o uso do AMQP:
 
--   Transações.
+-   Transações
 
--   Enviar por meio de destino da transferência.
-
--   Recebimento dimensionado.
+-   Enviar por meio de destino da transferência
 
 Também há algumas pequenas diferenças no comportamento da API .NET do Barramento de Serviço ao usar AMQP, em comparação com o protocolo padrão:
 
@@ -139,4 +137,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba mais sobre as políticas disponíveis para configurar o Gerenciamento de API." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
 
@@ -36,12 +36,14 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
 	-	[Encaminhar solicitação][] -Encaminha a solicitação ao serviço de back-end.
 	-	[Registrar em log no Hub de Eventos][] - Envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Repetir](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.
 	-	[Retornar resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.
 	-	[Enviar solicitação unidirecional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.
 	-	[Enviar solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Envia uma solicitação para a URL especificada.
 	-	[Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
 	-	[Definir status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
 	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
+	-	[Rastreamento](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](../api-management/api-management-howto-api-inspector.md).
 	-	[Aguardar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Aguarda a conclusão da solicitação de Envio embutida, Obtenção do valor do cache ou Controle de políticas de fluxo antes de continuar.
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
@@ -51,6 +53,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Armazenar em cache][] - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.
 	-	[Obter valor do cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Recupere um item em cache por chave.
 	-	[Armazenar valor em cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -Armazene um item no cache por chave.
+	-	[Remover o valor do cache](https://msdn.microsoft.com/pt-BR/library/dn894086.aspx#RemoveCacheByKey) - remove um item no cache por chave.
 -	[Políticas entre domínios][]
 	-	[Permitir chamadas entre domínios][] - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
 	-	[CORS][] - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
@@ -119,4 +122,4 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

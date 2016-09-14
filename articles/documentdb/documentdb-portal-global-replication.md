@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Como executar a replicação de banco de dados global do Banco de Dados de Documentos usando o Portal do Azure
@@ -31,11 +31,10 @@ O Banco de Dados de Documentos está disponível na maioria das [regiões do Azu
 
 1. No [Portal do Azure](https://portal.azure.com/), no Jumpbar, clique em **Contas do Banco de Dados de Documentos**.
 2. Na folha **Conta do Banco de Dados de Documentos**, selecione a conta do banco de dados a ser modificada.
-3. Na folha da conta, clique em **Adicionar/Remover Regiões** no menu. ![Adicionar regiões em conta do Banco de Dados de Documentos > Adicionar/Remover Regiões][1]
+3. Na folha da conta, clique em **Adicionar/Remover Regiões** no menu.
+4. Na folha **Adicionar/Remover Regiões**, selecione as regiões a serem adicionadas ou removidas e clique em **OK**. Há um custo para adicionar regiões. Veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/) ou o artigo [Distribuir dados globalmente com o Banco de Dados de Documentos](documentdb-distribute-data-globally.md) para obter mais informações.
 
-5. Na folha **Adicionar/Remover Regiões**, selecione as regiões a serem adicionadas ou removidas e clique em **OK**. Há um custo para adicionar regiões. Veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/) ou o artigo [Distribuir dados globalmente com o Banco de Dados de Documentos](documentdb-distribute-data-globally.md) para obter mais informações.
-
-    ![Clicar nas regiões no mapa para adicioná-las ou removê-las][2]
+    ![Clicar nas regiões no mapa para adicioná-las ou removê-las][1]
 
 ### Selecionar regiões de bancos de dados globais
 
@@ -54,9 +53,9 @@ While all regions associated with your DocumentDB database account can serve rea
 1. In the **DocumentDB Account** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
+    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][2]
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
+    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
 ## <a id="next"></a>Próximas etapas
@@ -66,10 +65,9 @@ Saiba como gerenciar a consistência de sua conta globalmente replicada lendo [N
 Para obter informações sobre como a replicação de banco de dados global funciona no Banco de Dados de Documentos, veja [Distribuir dados globalmente com o Banco de Dados de Documentos](documentdb-distribute-data-globally.md). Para obter informações sobre a replicação de dados de forma programática em várias regiões, veja [Desenvolver com contas do Banco de Dados de Documentos de várias regiões](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
-[1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
-[2]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
-[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
-[4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
+[1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
+[2]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
+[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
@@ -77,4 +75,4 @@ Para obter informações sobre como a replicação de banco de dados global func
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

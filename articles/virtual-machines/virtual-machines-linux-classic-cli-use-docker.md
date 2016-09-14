@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="01/04/2016"
+	ms.date="08/29/2016"
 	ms.author="rasquill"/>
 
 # Usando a extensão VM Docker da interface de linha de comando do Azure (CLI do Azure)
@@ -44,7 +44,7 @@ Para instalar e configurar a CLI do Azure, confira [Como instalar a Interface de
 > [AZURE.NOTE] O Docker tem ferramentas para Windows, o [Computador do Docker](https://docs.docker.com/installation/windows/), que também pode ser usado para automatizar a criação de um cliente docker que você pode usar para trabalhar com VMs do Azure como hosts do docker.
 
 ### Conectar a CLI do Azure à sua conta do Azure
-Antes de poder usar a CLI do Azure, você deve associar as credenciais de conta do Azure com a CLI do Azure em sua plataforma. A seção [Como se conectar à assinatura do Azure](../xplat-cli-connect.md) explica como baixar e importar o arquivo **.publishsettings** ou associar a linha de comando da CLI do Azure a uma ID organizacional.
+Antes de poder usar a CLI do Azure, você deve associar as credenciais de conta do Azure com a CLI do Azure em sua plataforma. A seção [How to connect to your Azure subscription](../xplat-cli-connect.md) (Como se conectar à assinatura do Azure) explica como baixar e importar o arquivo **.publishsettings** ou associar a linha de comando da CLI do Azure a uma ID organizacional.
 
 > [AZURE.NOTE] Há algumas diferenças no comportamento ao usar um ou os outros métodos de autenticação, portanto, não deixe de ler o documento acima para entender as diferentes funcionalidades.
 
@@ -176,4 +176,4 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
  
 [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -223,6 +223,8 @@ Nesse caso, o modelo abaixo pedirá:
 - Um nome de domínio a ser usado pelo mundo exterior.
 - Um número de versão do Servidor do Ubuntu, mas apenas um de uma lista será aceito.
 
+Confira mais sobre os [requisitos de nome de usuário e senha](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Após decidir quanto a esses valores, você estará pronto para criar um grupo e implantar esse modelo em sua assinatura do Azure.
 
     {
@@ -1278,4 +1280,4 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usa
 
 Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

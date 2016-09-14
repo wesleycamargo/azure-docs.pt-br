@@ -39,7 +39,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 ## Tutoriais
 
-- [Instalar a pilha LAMP em uma máquina virtual Linux no Azure](virtual-machines-linux-install-lamp-stack.md)
+- [Instalar a pilha LAMP em uma máquina virtual Linux no Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Aplicativo Web Ruby on Rails Web em uma VM do Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [Como instalar o Apache Qpid Proton-C para AMQP e barramento de serviço](../service-bus/service-bus-amqp-apache.md)
 
@@ -189,4 +189,4 @@ Como o mundo dos desenvolvimentos, gerenciamento e otimização é muito extenso
 
 - [Plug-in Packer para o Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

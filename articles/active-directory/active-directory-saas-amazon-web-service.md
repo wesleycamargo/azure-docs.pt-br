@@ -21,9 +21,9 @@
 
 O objetivo deste tutorial é mostrar como integrar o AWS (Amazon Web Service) ao Azure Active Directory (Azure AD). A integração do AWS (Amazon Web Service) ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no AD do Azure quem tem acesso ao AWS (Amazon Web Service) 
+- Você pode controlar no AD do Azure quem tem acesso ao AWS (Amazon Web Service)
 - Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Service) (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -41,14 +41,14 @@ Para configurar a integração do AD do Azure com o AWS (Amazon Web Service), vo
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando o AWS (Amazon Web Service) da galeria 
-2. Configurar e testar o logon único do Azure AD
+1. Adicionando o AWS (Amazon Web Service) da galeria
+2. Configurar e testar o logon único do AD do Azure
 
 
 ## Adicionando o AWS (Amazon Web Service) da galeria
@@ -56,7 +56,7 @@ Para configurar a integração do AWS (Amazon Web Service) com o AD do Azure, vo
 
 ### Para adicionar o AWS (Amazon Web Service) por meio da galeria, execute as seguintes etapas:
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -244,7 +244,10 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
      a. Na caixa de texto **Nome do Atributo**, digite **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. Na caixa de texto **Valor do atributo**, digite **userprincipalname**.
+     b. Na caixa de texto **Valor do Atributo**, digite ou selecione **user.userprincipalname** na lista suspensa.
+     
+	![Configurar o logon único][35]
+	
 
      c. Clique em **Concluir** para fechar a caixa de diálogo **Adicionar atributo de usuário**.
 
@@ -275,17 +278,17 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png)
  
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)
 
   1. Em Tipo de Usuário, selecione Novo usuário na organização.
   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-  3. Clique em Próximo.
+  3. Clique em Avançar.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -299,7 +302,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	d. Na lista **Função**, selecione **Usuário**.
   
-	e. Clique em **Próximo**.
+	e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -345,7 +348,7 @@ O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no AWS (
 
 
 
-### Atribuição do usuário de teste do Azure AD
+### Atribuição do usuário de teste do AD do Azure
 
 O objetivo desta seção é habilitar Simon Britta a usar o logon único do Azure, concedendo o acesso ao serviço AWS (Amazon Web Service).
 
@@ -416,5 +419,6 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
+[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

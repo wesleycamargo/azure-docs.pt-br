@@ -122,7 +122,7 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 1. Se você já tiver executado Sysprep nessa máquina virtual, selecione a caixa **executei o Sysprep na máquina virtual**.
 
-    O Sysprep é uma ferramenta que, entre outras coisas, remove dados específicos de sistemas da versão da máquina virtual do Windows, facilitando o modelo que outras pessoas podem usar. Consulte [como capturar uma Máquina Virtual do Windows para usar como modelo](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter mais informações.
+    O Sysprep é uma ferramenta que, entre outras coisas, remove dados específicos de sistemas da versão da máquina virtual do Windows, facilitando o modelo que outras pessoas podem usar. Consulte [como capturar uma Máquina Virtual do Windows para usar como modelo](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) para obter mais informações. Faça backup da VM antes de executar o Sysprep.
 
 1. Depois de terminar de definir as configurações de captura, escolha o botão **capturar** para criar o ponto de verificação.
 
@@ -158,4 +158,4 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

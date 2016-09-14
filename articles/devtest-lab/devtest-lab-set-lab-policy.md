@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Definir políticas de laboratório
@@ -30,7 +30,7 @@ Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Procurar** e, em seguida, **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.
 
@@ -128,13 +128,15 @@ A política de início automático permite que você especifique quando as VMs d
 
 1. Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra a folha da VM e altere sua configuração de **Início automático**
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Próximas etapas
 
 Depois de definir e aplicar as várias configurações da política de VM em seu laboratório, aqui estão algumas opções para você tentar em seguida:
 
-- [Configurar gerenciamento de custos](./devtest-lab-configure-cost-management.md) - Este artigo ilustra como usar o gráfico **Tendência de custo estimado mensal** para exibir o custo estimado até a data do mês atual, bem como o custo projetado do final do mês para o mês atual.
-- [Criar imagem personalizada](./devtest-lab-create-template.md) - Durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
-- [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) - Os Laboratórios de Desenvolvimento/Teste dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
-- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md): ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
+- [Configurar gerenciamento de custos](./devtest-lab-configure-cost-management.md) — ilustra como usar o gráfico **Tendência de custo estimado mensal** para exibir o custo estimado até a data do mês atual, bem como o custo projetado do final do mês.
+- [Criar imagem personalizada](./devtest-lab-create-template.md) — durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
+- [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) — os DevTest Labs dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
+- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md) — ilustra como criar uma nova VM de uma imagem base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

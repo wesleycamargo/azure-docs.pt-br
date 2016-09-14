@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Consultar o SQL Data Warehouse do Azure (sqlcmd)
 
@@ -32,9 +32,12 @@ Para começar com o [sqlcmd][], abra o prompt de comando e digite **sqlcmd** seg
 
 + **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
 + **Banco de dados (-d):** nome do banco de dados.
++ **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
+
+Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
+
 + **Usuário (-U):** usuário do servidor no formato `<`Usuário`>`
 + **Senha (-P):** senha associada ao usuário.
-+ **Habilitar Identificadores entre Aspas (-I):** os identificadores entre aspas devem ser habilitados para se conectarem a uma instância do SQL Data Warehouse.
 
 Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 
@@ -42,7 +45,17 @@ Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] A opção -I, que permite identificadores entre aspas, atualmente é necessária para conectar ao SQL Data Warehouse.
+Para usar a autenticação Integrada do Azure Active Directory, você precisa adicionar os parâmetros do Azure Active Directory:
+
++ **Autenticação do Azure Active Directory (-G):** usar o Azure Active Directory para a autenticação
+
+Por exemplo, a cadeia de conexão pode parecer com o seguinte:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Você precisa [habilitar a Autenticação do Azure Active Directory](sql-data-warehouse-authentication.md) para autenticar usando o Active Directory.
 
 ## 2\. Consultar
 
@@ -79,4 +92,4 @@ Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opç
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

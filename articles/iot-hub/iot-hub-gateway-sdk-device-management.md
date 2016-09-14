@@ -81,7 +81,7 @@ Quando você configurar a placa Edison e instalar os drivers necessários em sua
 
 Você também precisa concluir estas tarefas
 
-- [Criar um hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisa do nome de seu hub para concluir este tutorial. Se você ainda não tem uma assinatura do Azure, é possível obter uma [conta gratuita][lnk-free-trial].
+- [Criar um hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisa do nome de seu hub para concluir este tutorial. Se você ainda não tiver uma assinatura do Azure, é possível obter uma [conta gratuita][lnk-free-trial].
 - Adicione três dispositivos (**GW-ble1-demo**, **GW-ble2-demo** e **GW-device**) ao seu hub IoT e anote suas ids e chaves do dispositivo. É possível usar as ferramentas [Gerenciador de Dispositivos ou iothub-explorer][lnk-explorer-tools] para adicionar esses dispositivos ao hub IoT criado na etapa anterior e recuperar suas chaves. Você usa dois desses dispositivos (**GW-ble1-demo** e **GW-ble2-demo**) como dispositivos BLE simulados conectados ao gateway e um dispositivo (**GW-device**) para identificar o dispositivo do gateway Edison como um cliente de gerenciamento de dispositivos que você pode gerenciar a partir de seu Hub IoT.
 
 ### Preparar o ambiente de criação e verificar se é possível criar uma imagem personalizada
@@ -425,4 +425,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

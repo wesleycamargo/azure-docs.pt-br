@@ -1,5 +1,5 @@
  <properties
-	pageTitle="Criar aplicativos Scala Spark usando o plug-in do HDInsight para IntelliJ IDEA | Microsoft Azure"
+	pageTitle="Criar aplicativos Spark Scala usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ | Microsoft Azure"
 	description="Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar aplicativos Spark para um cluster do HDInsight Spark Linux
+# Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux
 
-Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster HDInsight Spark usando o plug-in do HDInsight para IntelliJ IDEA. Você pode usar o plug-in de algumas maneiras diferentes:
+Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster HDInsight Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ. Você pode usar as ferramentas de algumas maneiras diferentes:
 
 * Para desenvolver e enviar um aplicativo Scala Spark em um cluster HDInsight Spark
 * Para acessar os recursos de cluster do Azure HDInsight Spark
@@ -38,9 +38,9 @@ Você também pode acompanhar um video [aqui](https://mix.office.com/watch/1nqkq
 * Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IntelliJ IDEA. Este artigo usa a versão 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
 
-## Instalar o plug-in Ferramentas do HDInsight para IntelliJ IDEA
+## Instalar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ
 
-O plug-in Ferramentas do HDInsight para IntelliJ IDEA está disponível como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, veja [Instalando o Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij-installation.md).
+As Ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, veja [Instalando o Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Executar um aplicativo Scala Spark em um cluster HDInsight Spark
 
@@ -138,12 +138,12 @@ O plug-in Ferramentas do HDInsight para IntelliJ IDEA está disponível como par
 
         ![Resultado do Aplicativo Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
-    Na próxima seção, você aprenderá a acessar a saída do trabalho usando o plug-in do HDInsight para IntelliJ IDEA.
+    Na próxima seção, você aprenderá a acessar a saída do trabalho usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ.
 
 
-## Acessar e gerenciar clusters HDInsight Spark usando o plug-in do HDInsight para IntelliJ
+## Acessar e gerenciar clusters HDInsight Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ
 
-Você pode executar várias operações usando o plug-in do HDInsight.
+Você pode executar várias operações usando as ferramentas do HDInsight, que fazem parte do Kit de ferramentas do Azure para IntelliJ.
 
 ### Acessar o contêiner de armazenamento do cluster
 
@@ -157,7 +157,7 @@ Você pode executar várias operações usando o plug-in do HDInsight.
 
 4. Clique no nome do contêiner de armazenamento associado ao cluster. No painel à direita, você verá uma pasta chamada **HVACOut**. Clique duas vezes para abrir a pasta e exibir os arquivos **part-***. Abra um desses arquivos para ver a saída do aplicativo.
 
-### Acesse a exibição do trabalho no plug-in
+### Acessar a exibição de trabalho diretamente das Ferramentas do HDInsight
 
 1. No **HDInsight Explorer**, expanda o nome do cluster Spark e clique em **Trabalhos**.
 
@@ -181,12 +181,12 @@ No **Gerenciador do HDInsight**, clique com o botão direito do mouse no nome do
 
 ### Gerenciar assinaturas do Azure
 
-Por padrão, o plug-in do HDInsight lista os clusters Spark de todas as suas assinaturas do Azure. Se for necessário, especifique as assinaturas das quais você deseja acessar o cluster. No **HDInsight Explorer**, clique com o botão direito do mouse no nó raiz **HDInsight** e clique em **Gerenciar Assinaturas**. Na caixa de diálogo, desmarque as caixas de seleção com base na assinatura que você não deseja acessar e clique em **Fechar**. Você também poderá clicar em **Sair** se quiser fazer logoff da sua assinatura do Azure.
+Por padrão, as ferramentas do HDInsight listam os clusters Spark de todas as suas assinaturas do Azure. Se for necessário, especifique as assinaturas das quais você deseja acessar o cluster. No **HDInsight Explorer**, clique com o botão direito do mouse no nó raiz **HDInsight** e clique em **Gerenciar Assinaturas**. Na caixa de diálogo, desmarque as caixas de seleção com base na assinatura que você não deseja acessar e clique em **Fechar**. Você também poderá clicar em **Sair** se quiser fazer logoff da sua assinatura do Azure.
 
 
 ## Executar um aplicativo Scala Spark localmente
 
-Você pode usar o plug-in Ferramentas do HDInsight para IntelliJ IDEA para executar aplicativos Spark Scala localmente em sua estação de trabalho. Normalmente, esses aplicativos não precisam acessar recursos de cluster como o contêiner de armazenamento e podem ser executados e testados localmente.
+Você pode usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para executar aplicativos Spark Scala localmente em sua estação de trabalho. Normalmente, esses aplicativos não precisam acessar recursos de cluster como o contêiner de armazenamento e podem ser executados e testados localmente.
 
 ### Pré-requisito
 
@@ -224,9 +224,9 @@ Durante a execução do aplicativo Spark Scala local em um computador Windows, v
 
 	![Resultado da execução local do Aplicativo Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## Converter aplicativos IntelliJ IDEA existentes para usar o plug-in de Ferramentas HDInsight
+## Converter aplicativos IntelliJ IDEA existentes a fim de usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ
 
-Você também pode converter os aplicativos Spark Scala existentes criados no IntelliJ IDEA para serem compatíveis com o plug-in de Ferramentas do HDInsight. Isso permitirá que você use a ferramenta para enviar os aplicativos a um cluster HDInsight Spark. Faça isso executando as seguintes etapas:
+Você também pode converter os aplicativos Spark Scala existentes criados no IntelliJ IDEA para serem compatíveis com as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ. Isso permitirá que você use a ferramenta para enviar os aplicativos a um cluster HDInsight Spark. Faça isso executando as seguintes etapas:
 
 1. Para um aplicativo Scala Spark existente criado usando IntelliJ IDEA, abra o arquivo .iml associado.
 2. No nível raiz, você verá um elemento **module** como o seguinte:
@@ -237,7 +237,7 @@ Você também pode converter os aplicativos Spark Scala existentes criados no In
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-4. Salve as alterações. Agora, seu aplicativo deve ser compatível com o plug-in de Ferramentas do HDInsight. Você pode testar isso clicando com o botão direito do mouse no nome do projeto no Gerenciador de Projetos. Agora, o menu pop-up deve ter a opção para **Enviar Aplicativo Spark ao HDInsight**.
+4. Salve as alterações. Seu aplicativo deve ser compatível com as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ. Você pode testar isso clicando com o botão direito do mouse no nome do projeto no Gerenciador de Projetos. Agora, o menu pop-up deve ter a opção para **Enviar Aplicativo Spark ao HDInsight**.
 
 
 ## Solucionar problemas
@@ -298,9 +298,9 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 
 ### Ferramentas e extensões
 
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -316,4 +316,4 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral de mensagens retransmitidas pelo Barramento de Serviço | Microsoft Azure"
+	pageTitle="Visão geral da Retransmissão do Barramento de Serviço| Microsoft Azure"
 	description="Visão geral da retransmissão do Barramento de Serviço"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 
-# Sistema de mensagens de retransmissão do Barramento de Serviço
+# Visão geral da retransmissão do Barramento de Serviço
 
-O componente central do Barramento de Serviço é um serviço de retransmissão centralizado (mas com alto balanceamento de carga) que permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local. O serviço de retransmissão oferece suporte a vários protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. A retransmissão do Barramento de Serviço facilita seus aplicativos híbridos permitindo que você exiba com segurança os serviços da Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
+Um componente importante do Barramento de Serviço é um serviço de *retransmissão* centralizado (mas com alto balanceamento de carga) que permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local. A Retransmissão do Barramento de Serviço oferece suporte a vários protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O serviço de retransmissão facilita seus aplicativos híbridos permitindo que você exiba com segurança os serviços da Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
 
 ![Conceitos de retransmissão](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -38,4 +38,4 @@ Para obter detalhes sobre a retransmissão do Barramento de Serviço, veja os t�
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0907_2016-->

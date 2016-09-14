@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Solucionar problemas excluindo contas de armazenamento, contêineres ou VHDs do Azure
@@ -26,7 +26,7 @@ Você pode receber erros ao tentar excluir a conta de armazenamento, o contêine
 
 -	Ainda há uma concessão em um disco ou o blob que está associado ao disco.
 
-Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou no @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure, escolhendo **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
+Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou no @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure escolhendo **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## Resolução
 Para resolver os problemas mais comuns, tente o seguinte método:
@@ -50,7 +50,7 @@ Para resolver os problemas mais comuns, tente o seguinte método:
 
 > [AZURE.WARNING] Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Não é possível restaurar uma conta de armazenamento excluída nem recuperar qualquer conteúdo que ela tinha antes da exclusão. Isso também vale para todos os recursos na conta: depois de excluir um VHD, um blob, uma tabela, uma fila ou um arquivo, eles são permanentemente excluídos. Assegure-se de que o recurso não esteja em uso.
 
-## Sintoma
+## Problemas comuns
 
 A seção a seguir lista erros comuns que você pode receber ao tentar excluir contas de armazenamento, contêineres ou VHDs do Azure.
 
@@ -60,51 +60,52 @@ Ao navegar para a conta de armazenamento do [portal do Azure](https://portal.azu
 
 **No portal do Azure**:
 
-*Falha ao excluir a conta de armazenamento<vm-storage-account-name>. Não é possível excluir a conta de armazenamento <vm-storage-account-name>: “A conta de armazenamento <vm-storage-account-name> tem algum disco e/ou imagem ativo. Garanta que esses discos e/ou essas imagens sejam removidos(as) antes de excluir essa conta de armazenamento.'*.
+*Falha ao excluir a conta de armazenamento <vm-storage-account-name>. Não é possível excluir a conta de armazenamento <vm-storage-account-name>: a conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.'*.
 
-**No portal clássico do Azure**:
+**No Portal Clássico do Azure**:
 
-*A conta de armazenamento <vm-storage-account-name> tem algum disco e/ou imagem ativo, por exemplo, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Garanta que esses discos e/ou essas imagens sejam removidos(as) antes de excluir essa conta de armazenamento.*
+*A conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos, por exemplo, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.*
 
 Você também poderá ver este erro:
 
-**No portal do Azure**:
+**No Portal do Azure**:
 
-*A conta de armazenamento <vm-storage-account-name> tem um contêiner com artefatos de imagem e/ou disco ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento*.
+*A conta de armazenamento <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento*.
 
-**No portal clássico do Azure**:
+**No Portal Clássico do Azure**:
 
-*A conta de armazenamento com falha no envio <vm-storage-account-name> tem um contêiner com artefatos de imagem e/ou disco ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento. Quando você tentar excluir uma conta de armazenamento e ainda houver discos ativos associados a ela, uma mensagem informando que há discos ativos que precisam ser excluídos será exibida*.
+*A conta de armazenamento com falha no envio <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento. Quando você tentar excluir uma conta de armazenamento e ainda houver discos ativos associados a ela, uma mensagem informando que há discos ativos que precisam ser excluídos será exibida*.
 
 ### Cenário 2: Não é possível excluir um contêiner
 
 Ao tentar excluir o contêiner de armazenamento, o seguinte erro poderá ser exibido:
 
-*Falha ao excluir o contêiner de armazenamento <container name>. Erro: 'Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação*.
+*Falha ao excluir o contêiner de armazenamento <nome do contêiner>. Erro: 'Atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação*.
 
 ### Cenário 3: Não é possível excluir um VHD
 
 Depois de excluir uma VM e então tentar excluir os blobs para os VHDs associados, você pode receber a seguinte mensagem:
 
-*Falha ao excluir o blob 'caminho/XXXXXX-XXXXXX-os-1447379084699.vhd'. Erro: 'Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação*.
+*Falha ao excluir o blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Erro: 'Atualmente, há uma concessão no blob e nenhuma ID de concessão foi especificada na solicitação*.
 
-## Mais informações
+## Sobre o status Parado (desalocado)
 
-Máquinas virtuais que criadas no modelo de implantação clássico e retidas terão o status **Parado (desalocado)** no [portal do Azure](https://portal.azure.com/) ou no [portal clássico do Azure](https://manage.windowsazure.com/).
+As VMs que foram criadas no modelo de implantação clássico e retidas terão o status **Parado (desalocado)** no [Portal do Azure](https://portal.azure.com/) ou no [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
-**Portal clássico do Azure**:
-
-![Status Parado (desalocado) para VMs no portal clássico do Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
-
-**Portal do Azure**:
+**Portal Clássico do Azure**:
 
 ![Status Parado (Desalocado) para VMs no portal do Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
 
+
+**Portal do Azure**:
+
+![Status Parado (desalocado) para VMs no portal clássico do Azure.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
+
 Um status "Parado (desalocado)" libera recursos do computador, como CPU, memória e rede. No entanto, os discos ainda são mantidos para que o usuário possa rapidamente recriar a VM, se necessário. Esses discos são criados sobre os VHDs cujos backups são feitos pelo armazenamento do Azure. A conta de armazenamento tem esses VHDs e os discos têm concessões nesses VHDs.
 
-## Referências
+## Próximas etapas
 
 - [Excluir uma conta de armazenamento](storage-create-storage-account.md#delete-a-storage-account)
 - [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Como interromper a liberação de bloqueio do armazenamento de blobs no Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0831_2016-->

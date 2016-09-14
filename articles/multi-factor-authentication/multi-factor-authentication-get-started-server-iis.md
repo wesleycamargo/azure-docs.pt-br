@@ -74,6 +74,6 @@ Os IPs Confiáveis permitem que os usuários ignorem o Azure Multi-Factor Authen
 1. Na seção Autenticação IIS, clique na guia de IPs Confiáveis.
 2. Clique no botão Adicionar...
 3. Quando a caixa de diálogo Adicionar IPs Confiáveis aparecer, selecione o botão de opção IP Único, Intervalo de IP ou Sub-rede.
-4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão OK. A lista branca agora foi adicionada.
+4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista de autorizados. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão OK. A lista de autorizados agora foi adicionada.
 
 <!---HONumber=AcomDC_0810_2016-->

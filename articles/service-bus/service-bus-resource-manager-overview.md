@@ -32,7 +32,7 @@ Esses modelos do Azure Resource Manager de Barramento de Serviço e de Hubs de E
 - [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 - [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 - [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
-- [Criar um namespace do Barramento de Serviço com um Hub de Eventos e grupo de consumo](service-bus-resource-manager-namespace-event-hub.md)
+- [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
 ## Implantação com o PowerShell
 
@@ -146,7 +146,7 @@ Para usar um arquivo de parâmetros opcionais, copie o arquivo [201-servicebus-c
 
 Para saber mais, confira o tópico [Arquivo de parâmetro](../resource-group-template-deploy.md#parameter-file).
 
-### Entrar no Azure e definir a assinatura do Azure
+### Fazer logon no Azure e definir a assinatura do Azure
 
 Em um prompt do PowerShell, execute o seguinte comando:
 
@@ -154,13 +154,13 @@ Em um prompt do PowerShell, execute o seguinte comando:
 Login-AzureRmAccount
 ```
 
-Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir suas assinaturas disponíveis.
+Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir as assinaturas disponíveis.
 
 ```
 Get-AzureRMSubscription
 ```
 
-Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que você deseja usar.
+Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que deseja usar.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -253,4 +253,4 @@ Agora você já viu o fluxo de trabalho básico e os comandos para implantar um 
 [Implantar recursos com modelos do Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galeria de Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

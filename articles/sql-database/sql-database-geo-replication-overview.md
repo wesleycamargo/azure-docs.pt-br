@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # Visão geral: Replicação Geográfica Ativa para o Banco de Dados SQL
@@ -39,6 +39,9 @@ Você pode fazer o failover para um secundário usando o [Portal do Azure](sql-d
 - [Failover: Portal do Azure](sql-database-geo-replication-failover-portal.md)
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
+
+Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
+
 
 O recurso de Replicação Geográfica Ativa implementa um mecanismo para fornecer a redundância de banco de dados na mesma região do Microsoft Azure ou em regiões diferentes (redundância geográfica). A Replicação Geográfica Ativa replica de forma assíncrona as transações confirmadas de um banco de dados para até quatro cópias do banco de dados em servidores diferentes usando o RCSI (isolamento de instantâneo confirmando por leitura) para o isolamento. Quando a Replicação Geográfica Ativa é configurada, um banco de dados secundário é criado no servidor especificado. O banco de dados original se torna o banco de dados primário. O banco de dados primário replica de forma assíncrona as transações confirmadas para cada um dos bancos de dados secundários. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de sempre serem transacionalmente consistentes com as alterações confirmadas no banco de dados primário.
 
@@ -132,5 +135,6 @@ Conforme discutido acima, além do Portal do Azure, a Replicação geográfica a
 - Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
 - Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 - Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).
+- Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

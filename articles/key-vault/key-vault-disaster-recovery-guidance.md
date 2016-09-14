@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/26/2016"
 	ms.author="sumedhb;aglick"/>
 
 
@@ -46,4 +46,4 @@ Há algumas advertências às quais você deve estar atento:
  * backup
 * Após o failback de um failover, todos os tipos de solicitação (ou seja, solicitações de leitura ___e___ de gravação) são disponibilizados.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

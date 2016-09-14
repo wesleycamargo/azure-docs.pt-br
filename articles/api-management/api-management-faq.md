@@ -3,7 +3,7 @@
 	description="Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure" 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # Perguntas frequentes sobre Gerenciamento de API do Azure
 
@@ -155,4 +155,4 @@ Se você estiver usando o Gerenciador de Credenciais do GIT ou tentando clonar o
 
 Sim!
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

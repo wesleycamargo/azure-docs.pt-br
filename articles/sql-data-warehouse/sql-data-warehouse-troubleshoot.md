@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Solução de problemas do Azure SQL Data Warehouse
@@ -24,9 +24,11 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 
 | Problema | Resolução |
 | :----------------------------------| :---------------------------------------------- |
-| Erro CTAIP | Esse erro pode ocorrer quando um logon tiver sido criado no banco de dados mestre do SQL Server, mas não no banco de dados do SQL Data Warehouse. Se você encontrar esse erro, examine o artigo [Visão geral de segurança][]. Este artigo explica como criar um logon no mestre e, em seguida, como criar um usuário no banco de dados do SQL Data Warehouse.|
+| Falha de logon do usuário 'NT AUTHORITY\\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre. Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre. Confira o artigo [Visão geral de segurança][] para obter mais detalhes.|
+|A entidade de segurança do servidor "MyUserName" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário 'MyUserName'. (Microsoft SQL Server, erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre. Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre. Confira o artigo [Visão geral de segurança][] para obter mais detalhes.|
+| Erro CTAIP | Esse erro pode ocorrer quando um logon tiver sido criado no banco de dados mestre do SQL Server, mas não no banco de dados do SQL Data Warehouse. Se você encontrar esse erro, examine o artigo [Visão geral de segurança][]. Este artigo explica como criar um logon e um usuário no mestre e, em seguida, como criar um usuário no banco de dados do SQL Data Warehouse.|
 | Bloqueado pelo firewall |Bancos de Dados SQL do Azure são protegidos pelo servidor e firewalls de nível de banco de dados para garantir que somente os endereços IP conhecidos possam acessar um bancos de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente um endereço IP ou um intervalo de endereços antes de se conectar. Para configurar seu firewall para acesso, siga as etapas na seção [Configurar o acesso ao servidor de firewall para o IP do cliente][] das [instruções de provisionamento][].|
-| Não é possível conectar-se com a ferramenta ou driver | O SQL Data Warehouse recomenda o uso do [Visual Studio 2013 ou 2015][] para consultar os dados. Para conectividade de cliente, recomendamos o [SQL Server Native Client (ODBC) 10/11][].|
+| Não é possível conectar-se com a ferramenta ou driver | O SQL Data Warehouse recomenda o uso do [SSMS][], do [SSDT para Visual Studio 2015][] ou do [sqlcmd][] para consultar os dados. Para obter mais detalhes sobre os drivers e como se conectar ao SQL Data Warehouse, confira os artigos [Drivers do Azure SQL Data Warehouse][] e [Conectar-se ao SQL Data Warehouse do Azure][].|
 
 
 ## Ferramentas
@@ -72,7 +74,6 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 | Não há suporte para a instrução MERGE | Confira [Substituir instruções MERGE][].|
 | Limitações de procedimento armazenado | Confira [Limitações de procedimentos armazenados][] para entender algumas dessas limitações.|
 | UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs. Confira [CREATE FUNCTION][] para ver a sintaxe para a qual damos suporte. |
-'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Próximas etapas
 
@@ -91,6 +92,10 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 
 <!--Article references-->
 [Visão geral de segurança]: ./sql-data-warehouse-overview-manage-security.md
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSDT para Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[Drivers do Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
+[Conectar-se ao SQL Data Warehouse do Azure]: ./sql-data-warehouse-connect-overview.md
 [Criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Dimensionando seu SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,7 +103,6 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Aprendendo a monitorar suas consultas]: ./sql-data-warehouse-manage-monitor.md
 [instruções de provisionamento]: ./sql-data-warehouse-get-started-provision.md
 [Configurar o acesso ao servidor de firewall para o IP do cliente]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 ou 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 [Tamanhos da tabela]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Recursos de tabela sem suporte]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,14 +121,14 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Substituição da junção ANSI para instruções UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [Substituição de junção ANSI para instruções DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [Substituir instruções MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Limitações de procedimentos armazenados]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[Limitações de procedimentos armazenados]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
 [Autenticação do Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Solução alternativa para o requisito de PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[SQL Server Native Client (ODBC) 10/11]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -135,4 +139,4 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

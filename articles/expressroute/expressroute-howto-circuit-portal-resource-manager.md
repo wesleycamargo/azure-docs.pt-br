@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa
@@ -136,15 +136,15 @@ Você pode fazer o seguinte sem tempo de inatividade:
 Para saber mais sobre limites e limitações, confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md).
 
 
-## Excluindo e desprovisionando um circuito da Rota Expressa
+## Desprovisionamento e exclusão de um circuito do ExpressRoute
 
 Você pode excluir seu circuito da Rota Expressa selecionando o ícone **Excluir**. Observe o seguinte:
 
 - Você deve desvincular todas as redes virtuais do circuito da Rota Expressa. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
 
-- Se o estado de provisionamento do provedor de serviços do circuito da Rota Expressa estiver habilitado, o status passará de **Desabilitando** para um estado habilitado. Trabalhe com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+- Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado** você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 
-- Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**) antes da execução do cmdlet anterior, desprovisionaremos o circuito e interromperemos a cobrança.
+- Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito
 
 ## Próximas etapas
 
@@ -153,4 +153,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-portal-resource-manager.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

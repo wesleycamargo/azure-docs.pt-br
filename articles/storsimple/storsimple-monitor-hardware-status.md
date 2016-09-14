@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
@@ -46,7 +46,7 @@ Um dispositivo 8600 tem componentes adicionais que correspondem ao compartimento
 
 Execute as etapas a seguir para exibir o status de hardware de um componente de dispositivo:
 
-1. Navegue até **dispositivos**, selecione um dispositivo StorSimple específico. Clique para ir para o menu de nível de dispositivo e clique na guia **Manutenção**. 
+1. Navegue até **dispositivos**, selecione um dispositivo StorSimple específico. Clique para ir para o menu de nível de dispositivo e clique na guia **Manutenção**.
 2. Localize a seção **Status de Hardware** e escolha os componentes disponíveis (como descrito acima). Basta clicar em uma seta que precede o rótulo de componente para expandir a lista e exibir o status de vários componentes do dispositivo. Consulte a [lista detalhada de componentes para o compartimento primário](#component-list-for-primary-enclosure-of-storsimple-device) e a [lista detalhada de componentes para o compartimento EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
 2. Use o seguinte esquema de codificação por cor para interpretar o status do componente:
@@ -136,4 +136,4 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 
 - Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

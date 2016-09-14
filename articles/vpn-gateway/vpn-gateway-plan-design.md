@@ -80,7 +80,7 @@ A lista a seguir descreve o fluxo de trabalho comum para conectividade de nuvem:
 
 ### <a name="topologies"></a>Topologias de conexão
 
-Comece examinando os diagramas no artigo [Topologias de conexão](vpn-gateway-topology.md). O artigo contém diagramas básicos, os modelos de implantação para cada topologia (Resource Manager ou clássica) e quais ferramentas de implantação você pode usar para implantar sua configuração.
+Comece examinando os diagramas no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md). O artigo contém diagramas básicos, os modelos de implantação para cada topologia (Resource Manager ou clássica) e quais ferramentas de implantação você pode usar para implantar sua configuração.
 
 ### <a name="designbasics"></a>Noções básicas sobre design
 
@@ -161,4 +161,4 @@ Consulte os artigos [Perguntas frequentes sobre o gateway de VPN](vpn-gateway-vp
 
 Para obter mais informações sobre configurações de gateway específicas, consulte [Sobre as configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

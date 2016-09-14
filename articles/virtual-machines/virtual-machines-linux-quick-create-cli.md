@@ -19,8 +19,6 @@
 
 # Criar uma VM do Linux no Azure usando a CLI
 
-> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
-
 Este artigo mostra como implantar rapidamente uma nova Máquina Virtual do Linux no Azure usando o comando `azure vm quick-create` da CLI do Azure. O comando `quick-create` implanta uma Máquina Virtual cercada de uma infraestrutura básica que você pode usar para criar um protótipo ou testar um conceito rapidamente. O artigo requer uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e [a CLI do Azure](../xplat-cli-install.md) conectada (`azure login`) e no modo do gerenciador de recursos (`azure config mode arm`). Você também pode implantar rapidamente uma VM do Linux usando o [portal do Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumo rápido do comando
@@ -170,4 +168,4 @@ O `azure vm quick-create` é a maneira de implantar rapidamente uma VM para que 
 - [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md).
 - [Criar uma VM do Linux Protegida por SSH no Azure usando Modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

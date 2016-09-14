@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Rastrear e depurar trabalhos em execução no cluster do Apache Spark no HDInsight Linux
@@ -27,7 +27,7 @@ Você deve ter o seguinte:
 
 - Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-- Você deve ter começado a executar o notebook **[Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este notebook, siga o link.  
+- Você deve ter começado a executar o notebook **[Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLLib](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este notebook, siga o link.
 
 ## Rastrear um aplicativo na interface do usuário do YARN
 
@@ -84,7 +84,7 @@ Na interface do usuário do Spark, é possível fazer drill down em trabalhos do
 6. Outras guias na interface do usuário do Spark fornecem informações úteis sobre a instância do Spark.
 
 	* Guia Armazenamento: se seu aplicativo criar RDDs, você encontrará informações sobre isso na guia Armazenamento.
-	* Guia Ambiente: esta guia fornece muitas informações úteis sobre sua instância do Spark, como a 
+	* Guia Ambiente: esta guia fornece muitas informações úteis sobre sua instância do Spark, como a
 		* Versão da escala
 		* Diretório de log de eventos associado ao cluster
 		* Número de núcleos de executor do aplicativo
@@ -132,7 +132,7 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -146,4 +146,4 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

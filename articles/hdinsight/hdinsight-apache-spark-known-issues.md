@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Problemas conhecidos do cluster do Apache Spark no HDInsight Linux
@@ -29,8 +29,8 @@ Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a re
 
 Use o procedimento a seguir para contornar o problema:
 
-1. SSH no nó principal. 
-2. Execute o seguinte comando para encontrar as IDs de aplicativo dos trabalhos interativos iniciados por Livy. 
+1. SSH no nó principal.
+2. Execute o seguinte comando para encontrar as IDs de aplicativo dos trabalhos interativos iniciados por Livy.
 
         yarn application –list
 
@@ -56,10 +56,10 @@ Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFo
 
 **Atenuação:**
  
-1. Adicione hdiuser ao grupo Hadoop. 
-2. Forneça 777 permissões em /var/log/spark após a criação do cluster. 
-3. Atualize o local do log spark usando o Ambari para ser um diretório com 777 permissões.  
-4. Execute spark-submit como sudo.  
+1. Adicione hdiuser ao grupo Hadoop.
+2. Forneça 777 permissões em /var/log/spark após a criação do cluster.
+3. Atualize o local do log spark usando o Ambari para ser um diretório com 777 permissões.
+4. Execute spark-submit como sudo.
 
 ## Problemas relacionados aos notebooks do Jupyter
 
@@ -104,7 +104,7 @@ Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no noteboo
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-##Consulte também
+##Confira também
 
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
@@ -146,4 +146,4 @@ Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no noteboo
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

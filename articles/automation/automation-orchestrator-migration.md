@@ -18,7 +18,7 @@
 
 # Migrando do Orchestrator para a Automação do Azure (Beta)
 
-Os runbooks no [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell. Os [runbooks gráficos](automation-runbook-types#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
+Os runbooks no [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell. Os [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
 
 O [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) inclui ferramentas para ajudá-lo na conversão de runbooks do Orchestrator para a Automação do Azure. Além de converter os próprios runbooks, você deve converter os pacotes de integração com as atividades que os runbooks usam para os módulos de integração com os cmdlets do Windows PowerShell.
 
@@ -96,7 +96,7 @@ A sintaxe de **ConvertFrom-SCORunbook** é a seguinte:
 
 - RunbookPath: caminho do arquivo de exportação que contém os runbooks para converter.
 - Module: lista delimitada por vírgula dos módulos de integração que contêm atividades nos runbooks.
-- OutputFolder: o caminho da pasta para criar runbooks gráficos convertidos. 
+- OutputFolder: o caminho da pasta para criar runbooks gráficos convertidos.
 
 
 O comando de exemplo a seguir converte os runbooks em um arquivo de exportação chamado **MyRunbooks.ois\_export**. Esses runbooks usam os pacotes de integração do Data Protection Manager e o Active Directory.
@@ -158,6 +158,7 @@ Os runbooks no Orchestrator iniciam outros runbooks com a atividade **Invocar Ru
 - [Automação de Gerenciamento de Serviço](https://technet.microsoft.com/library/dn469260.aspx)
 - [Runbook Worker Híbrido](automation-hybrid-runbook-worker.md)
 - [Atividades padrão do Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
+- [Baixar o System Center Orchestrator Migration Toolkit](https://www.microsoft.com/pt-BR/download/details.aspx?id=47323)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0831_2016-->

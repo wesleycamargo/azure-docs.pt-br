@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # Usar tarefas de várias instâncias para executar aplicativos de MPI (interface de transmissão de mensagens) no Lote do Azure
 
-Com tarefas de várias instâncias, você pode executar uma tarefa do Lote do Azure em vários nós de computação simultaneamente para habilitar cenários de computação de alto desempenho, como aplicativos de MPI (interface de transmissão de mensagens). Neste artigo, você aprenderá como executar tarefas de várias instâncias usando a biblioteca [.NET do Lote][api_net].
+As tarefas de várias instâncias permitem que você execute uma tarefa do Lote do Azure em vários nós de computação simultaneamente. Essas tarefas permitem cenários de computação de alto desempenho, como aplicativos MPI (Interface de Transmissão de Mensagens) no Lote. Neste artigo, você aprende a executar tarefas de várias instâncias usando a biblioteca [.NET do Lote][api_net].
 
 ## Visão geral da tarefa de várias instâncias
 
@@ -30,8 +30,8 @@ Quando você envia uma tarefa com as configurações de várias instâncias para
 
 1. O serviço do Lote divide a tarefa automaticamente em uma tarefa **principal** e várias **subtarefas**. Em seguida, o Lote agenda a tarefa principal e as subtarefas para execução nos nós de computação do pool.
 2. Essas tarefas, tanto a principal quanto as subtarefas, baixam os **arquivos de recurso comum** que você especificar nas configurações de várias instâncias.
-3. Depois que os arquivos de recursos comuns foram baixados, o **comando de coordenação** que você especificar nas configurações de várias instâncias é executado pela tarefa principal e pelas subtarefas. Esse comando de coordenação normalmente é usado para iniciar um serviço em segundo plano (como `smpd.exe` do [Microsoft MPI][msmpi_msdn]) e também pode verificar se os nós estão prontos para processar as mensagens entre nós.
-4. Quando o comando de coordenação é concluído com êxito pela tarefa principal e por todas as subtarefas, a **linha de comando** da tarefa de várias instâncias (o "comando de aplicativo") é executado *somente* pela **tarefa principal**. Por exemplo, em uma solução baseada em [MS-MPI][msmpi_msdn], é onde você executa seu aplicativo habilitado por MPI usando `mpiexec.exe`.
+3. Depois que os arquivos de recursos comuns tiverem sido baixados, a tarefa principal e as subtarefas executarão o **comando de coordenação** especificado nas configurações de várias instâncias. Esse comando de coordenação normalmente é usado para iniciar um serviço em segundo plano (como `smpd.exe` do [Microsoft MPI][msmpi_msdn]) e também pode verificar se os nós estão prontos para processar as mensagens entre nós.
+4. Quando o comando de coordenação tiver sido concluído com êxito pela tarefa principal e por todas as subtarefas, *somente* a **tarefa principal** executará a **linha de comando** da tarefa de várias instâncias (o “comando de aplicativo”). Por exemplo, em uma solução baseada em [MS-MPI][msmpi_msdn], é onde você executa seu aplicativo habilitado por MPI usando `mpiexec.exe`.
 
 > [AZURE.NOTE] Embora seja funcionalmente distinto, a “tarefa de várias instâncias" não é um tipo de tarefa exclusivo como o [StartTask][net_starttask] ou o [JobPreparationTask][net_jobprep]. A tarefa de várias instâncias é simplesmente uma tarefa do Lote Standard ([CloudTask][net_task] no .NET do Lote) cujas configurações de várias instâncias foram configuradas. Neste artigo, nos referimos a isso como a **tarefa de várias instâncias**.
 
@@ -53,13 +53,13 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-Além disso, as tarefas de várias instâncias executarão *somente* em nós nos **pools criados após 14 de dezembro de 2015**.
+Além disso, as tarefas de várias instâncias poderão ser executadas *somente* em nós nos **pools criados após 14 de dezembro de 2015**.
 
 > [AZURE.TIP] Ao usar [nós de computação de tamanho A8 ou A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) em seu pool do Lote, o aplicativo MPI poderá tirar proveito da rede RDMA (acesso remoto direto à memória) de alto desempenho e baixa latência do Azure. Você pode ver a lista completa de tamanhos de nós de computação disponíveis para pools do Lote em [Tamanhos para Serviços de Nuvem](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Use um StartTask para instalação do aplicativo de MPI
 
-Para executar aplicativos de MPI com uma tarefa de várias instâncias, você primeiro precisará colocar o software MPI nos nós de computação do pool. Isso é um ótimo momento para usar uma [StartTask][net_starttask], que é executada sempre que um nó ingressa em um pool ou é reiniciado. Este trecho de código cria um StartTask que especifica o pacote de instalação do MS-MPI como um [arquivo de recurso][net_resourcefile] e a linha de comando que será executada depois de baixar o arquivo de recurso para o nó.
+Para executar aplicativos de MPI com uma tarefa de várias instâncias, você primeiro precisará colocar o software MPI nos nós de computação do pool. Isso é um ótimo momento para usar uma [StartTask][net_starttask], que é executada sempre que um nó ingressa em um pool ou é reiniciado. Este trecho de código cria um StartTask que especifica o pacote de instalação do MS-MPI como um [arquivo de recurso][net_resourcefile] e a linha de comando executada depois de baixar o arquivo de recurso para o nó.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -82,7 +82,7 @@ await myCloudPool.CommitAsync();
 
 ## Criar uma tarefa de várias instâncias com o .NET do Lote
 
-Agora que já abordamos os requisitos de pool e a instalação do pacote MPI, vamos criar a tarefa de várias instâncias. Neste trecho de código, criamos um padrão [CloudTask][net_task], e configuramos sua propriedade [MultiInstanceSettings][net_multiinstance_prop]. Conforme mencionado acima, a tarefa de várias instâncias não é um tipo de tarefa distinto, mas uma tarefa do Lote Standard definida com configuração de várias instâncias.
+Agora que já abordamos os requisitos de pool e a instalação do pacote MPI, vamos criar a tarefa de várias instâncias. Neste trecho de código, criamos um padrão [CloudTask][net_task], e configuramos sua propriedade [MultiInstanceSettings][net_multiinstance_prop]. Conforme mencionado anteriormente, a tarefa de várias instâncias não é um tipo de tarefa distinto, mas uma tarefa do Lote Standard definida com configuração de várias instâncias.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -118,9 +118,9 @@ int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## Comandos de coordenação e aplicativo
+## Comando de coordenação
 
-O **comando de coordenação** é executado pela tarefa principal e subtarefas. Depois que a tarefa principal e todas as subtarefas concluírem a execução do comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *somente* pela tarefa principal. Chamaremos essa linha de comando de **comando do aplicativo** para distingui-lo do comando de coordenação.
+O **comando de coordenação** é executado pela tarefa principal e subtarefas.
 
 A invocação do comando de coordenação está bloqueando. O Lote não executa o comando do aplicativo até que o comando de coordenação retorne com êxito para todas as subtarefas. O comando de coordenação, portanto, deve iniciar todos os serviços em segundo plano necessários, verificar se eles estão prontos para uso e sair. Por exemplo, este comando de coordenação para uma solução com a versão 7 do MS-MPI inicia o serviço SMPD no nó e sai:
 
@@ -130,11 +130,39 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 Observe o uso de `start` neste comando de coordenação. Isso é necessário porque o aplicativo `smpd.exe` não retorna imediatamente após a execução. Sem usar o comando [Iniciar][cmd_start], esse comando de coordenação não retornaria e, portanto, bloquearia a execução do comando do aplicativo.
 
-O **comando do aplicativo**, a linha de comando especificada para a tarefa de várias instâncias, é executada *somente* pela tarefa principal. Para aplicativos do MS-MPI, esta será a execução do seu aplicativo habilitado pelo MPI usando `mpiexec.exe`. Por exemplo, eis um comando do aplicativo para uma solução usando o MS-MPI versão 7:
+## Comando de aplicativo
+
+Depois que a tarefa principal e todas as subtarefas concluírem a execução do comando de coordenação, a linha de comando da tarefa de várias instâncias é executada *somente* pela tarefa principal. Nós o chamamos de **comando de aplicativo** para distingui-lo do comando de coordenação.
+
+Para os aplicativos MS-MPI, use o comando de aplicativo para executar o aplicativo habilitado para MPI com `mpiexec.exe`. Por exemplo, eis um comando do aplicativo para uma solução usando o MS-MPI versão 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
+
+>[AZURE.NOTE] Como o `mpiexec.exe` do MS-MPI usa a variável `CCP_NODES` por padrão (veja [Variáveis de ambiente](#environment-variables)), a linha de comando do aplicativo de exemplo acima a exclui.
+
+## Variáveis de ambiente
+
+Essas variáveis de ambiente estão disponíveis no nó de computação para aplicativos e scripts executadas pelo comando de aplicativo da tarefa principal:
+
+* `CCP_NODES`
+
+  * **Disponibilidade**: pools de CloudServiceConfiguration e VirtualMachineConfiguration
+  * **Formato**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **Exemplo**: `2 10.0.0.4 1 10.0.0.5 1`
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **Disponibilidade**: pools de CloudServiceConfiguration e VirtualMachineConfiguration
+  * **Formato**: `nodeIP;nodeIP`
+  * **Exemplo**: `10.0.0.4;10.0.0.5`
+
+* `AZ_BATCH_HOST_LIST`
+
+  * **Disponibilidade**: pools de VirtualMachineConfiguration
+  * **Formato**: `nodeIP,nodeIP`
+  * **Exemplo**: `10.0.0.4,10.0.0.5`
 
 ## Arquivos de recurso
 
@@ -144,7 +172,7 @@ Você pode especificar um ou mais **arquivos de recurso comum** nas configuraç�
 
 Os arquivos de recursos que você especifica para a própria tarefa de várias instâncias são baixados para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`, *somente* pela tarefa principal; as subtarefas não baixam os arquivos de recurso especificados para a tarefa de várias instâncias.
 
-O conteúdo de `AZ_BATCH_TASK_SHARED_DIR` é acessível pela tarefa primária e todas as subtarefas que são executadas em um nó. Um diretório compartilhado de tarefa de exemplo é `tasks/mybatchjob/job-1/mymultiinstancetask/`. A tarefa principal e cada subtarefa também têm uma pasta de trabalho que pode ser acessada somente por essa tarefa, e é acessada usando a variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`.
+O conteúdo de `AZ_BATCH_TASK_SHARED_DIR` é acessível pela tarefa primária e todas as subtarefas que são executadas em um nó. Um diretório compartilhado de tarefa de exemplo é `tasks/mybatchjob/job-1/mymultiinstancetask/`. A tarefa principal e cada subtarefa também têm um diretório de trabalho que só pode ser acessado por essa tarefa, e é acessado usando a variável de ambiente `AZ_BATCH_TASK_WORKING_DIR`.
 
 Observe que nos exemplos de código neste artigo, não especificamos arquivos de recurso para a tarefa de várias instâncias em si, apenas para a StartTask do pool e [CommonResourceFiles][net_multiinsance_commonresfiles] das configurações de várias instâncias.
 
@@ -158,9 +186,9 @@ Se qualquer uma das subtarefas falhar, sair com um código de retorno diferente 
 
 Quando você exclui uma tarefa de várias instâncias, a tarefa principal e todas as subtarefas são também excluídas pelo serviço do Lote. Todos os diretórios de subtarefa e seus arquivos serão excluídos dos nós de computação, como ocorre com uma tarefa padrão.
 
-[TaskConstraints][net_taskconstraints] para uma tarefa de várias instâncias, como as propriedades [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] e [RetentionTime][net_taskconstraint_retention], são respeitadas, já que são para uma tarefa padrão e se aplicam à tarefa principal e a todas as subtarefas. No entanto, se você alterar a propriedade [RetentionTime][net_taskconstraint_retention] depois de adicionar a tarefa de várias instâncias ao trabalho, essa alteração será aplicada somente à tarefa principal. Todas as subtarefas continuarão a usar o [RetentionTime][net_taskconstraint_retention] original.
+[TaskConstraints][net_taskconstraints] para uma tarefa de várias instâncias, como as propriedades [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock] e [RetentionTime][net_taskconstraint_retention], são respeitadas, já que são para uma tarefa padrão e se aplicam à tarefa principal e a todas as subtarefas. No entanto, se você alterar a propriedade [RetentionTime][net_taskconstraint_retention] depois de adicionar a tarefa de várias instâncias ao trabalho, essa alteração será aplicada somente à tarefa principal. Todas as subtarefas continuam a usar o [RetentionTime][net_taskconstraint_retention] original.
 
-A lista de tarefas recentes de um nó de computação refletirá a id da subtarefa se a tarefa recente fizer parte de uma tarefa de várias instâncias.
+A lista de tarefas recentes de um nó de computação reflete a id da subtarefa se a tarefa recente fizer parte de uma tarefa de várias instâncias.
 
 ## Obtenha informações sobre subtarefas
 
@@ -247,4 +275,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Visão geral de várias instâncias"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

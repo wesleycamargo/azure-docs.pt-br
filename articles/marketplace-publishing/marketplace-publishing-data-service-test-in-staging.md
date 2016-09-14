@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Testando sua oferta do Serviço de Dados no preparo
-Depois de concluir as duas primeiras etapas de [Criar sua conta de Desenvolvedor da Microsoft](marketplace-publishing-accounts-creation-registration.md) e [Criar sua oferta de Serviço de Dados no Portal de Publicação](marketplace-publishing-data-service-creation.md), você estará pronto para disponibilizar sua oferta no Azure Marketplace. Este tópico explica a primeira etapa, intermediária, chamada “Preparo”
+
+>[AZURE.IMPORTANT] **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, saiba mais [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
+
+Depois de concluir as duas primeiras etapas de [Criar sua conta de Desenvolvedor da Microsoft](marketplace-publishing-accounts-creation-registration.md) e [Criar sua oferta de Serviço de Dados no Portal de Publicação](marketplace-publishing-data-service-creation.md), você estará pronto para disponibilizar sua oferta no Azure Marketplace. Este tópico explica a primeira etapa, intermediária chamada “Preparo”
 
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparecerá no preparo como se o cliente tivesse implantado.
 
@@ -86,4 +89,4 @@ Se você estiver satisfeito e pronto para publicar sua oferta, leia a documenta�
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

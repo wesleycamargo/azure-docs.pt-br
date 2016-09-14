@@ -67,7 +67,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 
 <!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
+[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

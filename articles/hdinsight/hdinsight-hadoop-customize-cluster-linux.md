@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/25/2016"
 	ms.author="larryfr"/>
 
 # Personalizar clusters HDInsight baseados em Linux usando a Ação de Script
@@ -120,7 +120,7 @@ Nome | Script
 
 ## Usar uma Ação de Script durante a criação do cluster
 
-Esta seção fornece exemplos sobre as diferentes maneiras como você pode usar ações de script ao criar um cluster HDInsight - no Portal do Azure, usando um modelo ARM, CMDlets do PowerShell e o SDK do .NET.
+Esta seção fornece exemplos sobre as diferentes maneiras como você pode usar ações de script ao criar um cluster HDInsight – no portal do Azure, usando um modelo do Azure Resource Manager, CMDlets do PowerShell e o SDK do .NET.
 
 ### Usar uma Ação de Script durante a criação do cluster no Portal do Azure
 
@@ -143,19 +143,19 @@ Esta seção fornece exemplos sobre as diferentes maneiras como você pode usar 
 
 ### Usar uma Ação de Script em modelos do Gerenciador de Recursos do Azure
 
-Nesta seção, usamos modelos do ARM (Gerenciador de Recursos do Azure) para criar um cluster HDInsight e também usamos uma ação de script para instalar componentes personalizados (R, neste exemplo) no cluster. Esta seção fornece uma amostra de modelo ARM para criar um cluster usando a ação de script.
+Nesta seção, usamos modelos do Azure Resource Manager para criar um cluster HDInsight e também usamos uma ação de script para instalar componentes personalizados (R, neste exemplo) no cluster. Esta seção fornece uma amostra de modelo para criar um cluster usando a ação de script.
 
-> [AZURE.NOTE] As etapas nesta seção demonstram como criar um cluster usando uma ação de script. Para obter um exemplo de criação de um cluster de um modelo ARM usando um aplicativo do HDInsight, consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+> [AZURE.NOTE] As etapas nesta seção demonstram como criar um cluster usando uma ação de script. Para obter um exemplo de criação de um cluster de um modelo usando um aplicativo do HDInsight, consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 #### Antes de começar
 
 * Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-* Para obter instruções sobre como criar modelos ARM, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+* Para obter instruções sobre como criar modelos, confira [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 * Se você ainda não utilizou o PowerShell do Azure com o Gerenciador de recursos, consulte [Uso do PowerShell do Azure com o Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md).
 
 #### Criar clusters usando a Ação de Script
 
-1. Copie o modelo a seguir para um local no computador. Esse modelo instala R no nó de cabeçalho, bem como nós de trabalho no cluster. Você também pode verificar se o modelo JSON é válido. Cole o modelo de conteúdo em [JSONLint](http://jsonlint.com/), uma ferramenta online para validação do JSON.
+1. Copie o modelo a seguir para um local no computador. Esse modelo instala Giraph no nó de cabeçalho, bem como nós de trabalho no cluster. Você também pode verificar se o modelo JSON é válido. Cole o modelo de conteúdo em [JSONLint](http://jsonlint.com/), uma ferramenta online para validação do JSON.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -252,7 +252,7 @@ Nesta seção, usamos modelos do ARM (Gerenciador de Recursos do Azure) para cri
 		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
 		                            "isDefault": true,
 		                            "container": "[parameters('clusterStorageAccountContainer')]",
-		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
 		                        }
 		                    ]
 		                },
@@ -272,8 +272,8 @@ Nesta seção, usamos modelos do ARM (Gerenciador de Recursos do Azure) para cri
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installR",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "name": "installGiraph",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -323,7 +323,7 @@ Nesta seção, usamos modelos do ARM (Gerenciador de Recursos do Azure) para cri
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE] Você pode usar `Get-AzureRmSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, que inclui a ID de assinatura de cada uma delas.
+    > [AZURE.NOTE] Você pode usar `Get-AzureRmSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, o que inclui a Id de assinatura de cada uma delas.
 
 5. Se você não tiver um grupo de recursos existente, crie um novo grupo de recursos. Forneça o nome do grupo de recursos e o local necessários para sua solução. Um resumo do novo grupo de recursos é retornado.
 
@@ -390,11 +390,11 @@ Execute as seguintes etapas:
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. Use o cmdlet **Add-AzureRmHDInsightScriptAction** para invocar o script. O seguinte exemplo usa um script que instala o R no cluster:
+3. Use o cmdlet **Add-AzureRmHDInsightScriptAction** para invocar o script. O seguinte exemplo usa um script que instala o Giraph no cluster:
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
 	O cmdlet **Add-AzureRmHDInsightScriptAction** usa os seguintes parâmetros:
 
@@ -452,8 +452,8 @@ Esta seção fornece exemplos sobre as diferentes maneiras como você pode aplic
 
 5. Na folha Adicionar Ação de Script, insira as informações a seguir.
 
-    * __Nome__: o nome amigável a usar para esta Ação de Script. Neste exemplo, `R`.
-    * __URI DO SCRIPT__: o URI para o script. Neste exemplo, `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`
+    * __Nome__: o nome amigável a usar para esta Ação de Script. Neste exemplo, `Giraph`.
+    * __URI DO SCRIPT__: o URI para o script. Neste exemplo, `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`
     * __Cabeçalho__, __Trabalho__ e __Zookeeper__: verifique os nós aos quais esse script deve ser aplicado. Neste exemplo, Cabeçalho e Trabalho são verificados.
     * __PARÂMETROS__: se o script aceita parâmetros, insira-os aqui.
     * __PERSISTENTE__: verifique esta entrada se você quiser manter o script para que ele seja aplicado aos novos nós de trabalho quando escalar verticalmente o cluster.
@@ -485,8 +485,8 @@ Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Az
 
         OperationState  : Succeeded
         ErrorMessage    :
-        Name            : R
-        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        Name            : Giraph
+        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
 
@@ -630,10 +630,10 @@ Se a criação de cluster falhou devido a um erro na ação de script, os logs d
 
 	![Captura de tela de operações](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos incluem:
-	* **Nó de cabeçalho** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nó de trabalho** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nó zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos são:
+	* **Nó de cabeçalho** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **Nó de Trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nó Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-*.txt** e um **errors-*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. Por exemplo,
 
@@ -691,7 +691,6 @@ Há duas exceções:
 Consulte as informações e exemplos a seguir sobre como criar e usar scripts para personalizar um cluster:
 
 - [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)
-- [Instalar e usar R em clusters do HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
@@ -699,4 +698,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

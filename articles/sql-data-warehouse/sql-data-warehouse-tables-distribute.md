@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="08/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuindo tabelas no SQL Data Warehouse
@@ -137,24 +137,28 @@ As colunas de distribuição não são atualizáveis. Portanto, selecione uma co
 
 ### Selecionar a coluna de distribuição que distribuirá os dados uniformemente
 
-Como a velocidade máxima de um sistema distribuído é a sua distribuição mais lenta, é importante dividir o trabalho igualmente entre as distribuições para conseguir uma execução equilibrada em todo o sistema. A forma como o trabalho é dividido em um sistema distribuído baseia-se em onde residem os dados de cada distribuição. Isso faz com que a seleção da coluna de distribuição correta para distribuir os dados seja muito importante, para que cada distribuição possua a mesma quantidade de trabalho e leve o mesmo tempo para concluir sua parte do trabalho. Quando o trabalho é bem dividido em todo o sistema, é uma execução equilibrada. Quando os dados não são divididos uniformemente em um sistema e não estão bem equilibrados, nós chamamos de **distorção de dados**.
+Como a velocidade máxima de um sistema distribuído é a sua distribuição mais lenta, é importante dividir o trabalho igualmente entre as distribuições para conseguir uma execução equilibrada em todo o sistema. A forma como o trabalho é dividido em um sistema distribuído baseia-se em onde residem os dados de cada distribuição. Isso faz com que a seleção da coluna de distribuição correta para distribuir os dados seja muito importante, para que cada distribuição possua a mesma quantidade de trabalho e leve o mesmo tempo para concluir sua parte do trabalho. Quando o trabalho é bem dividido em todo o sistema, os dados são equilibrados entre as distribuições. Quando os dados não são equilibrados igualmente, chamamos esse evento de **distorção de dados**.
 
 Para dividir os dados uniformemente e evitar a distorção de dados, considere o seguinte ao selecionar a coluna de distribuição:
 
 1. Selecione uma coluna quem contenha um número significativo de valores distintos.
-2. Evite a distribuição de dados em colunas com alta frequência de poucos valores ou alta frequência de valores nulos.
-3. Evite a distribuição de dados em colunas de data.
-4. Evite a distribuição em colunas com menos de 60
+2. Evite a distribuição de dados em colunas com poucos valores distintos.
+3. Evite a distribuição de dados em colunas com uma alta frequência de valores nulos.
+4. Evite a distribuição de dados em colunas de data.
 
-Já que cada valor é distribuído por hash para uma das 60 distribuições, para conseguir uma distribuição uniforme, você deverá selecionar uma coluna que seja altamente exclusiva e fornecer mais de 60 valores exclusivos. Para ilustrar, considere o caso extremo em que a coluna tenha apenas 40 valores exclusivos. Se esta coluna fosse selecionada como a chave de distribuição, os dados da tabela seriam espalhados apenas por uma parte do sistema, deixando 20 distribuições sem nenhum processamento ou dados. Por outro lado, as outras 40 distribuições teriam mais trabalho a fazer do que se os dados fossem espalhados uniformemente entre as 60 distribuições.
+Já que cada valor é distribuído por hash para uma das 60 distribuições, para conseguir uma distribuição uniforme, você deverá selecionar uma coluna que seja altamente exclusiva e que forneça mais de 60 valores exclusivos. Para ilustrar, considere o caso em que a coluna tenha apenas 40 valores exclusivos. Se esta coluna tivesse sido selecionada como a chave de distribuição, os dados da tabela acabariam em 40 distribuições no máximo, deixando 20 distribuições sem nenhum processamento ou dados. Por outro lado, as outras 40 distribuições teriam mais trabalho a fazer do que se os dados fossem espalhados uniformemente entre as 60 distribuições. Esse cenário é um exemplo de distorção de dados.
 
-Se você distribuir uma tabela em uma coluna altamente anulável, todos os valores nulos serão levados para a mesma distribuição e esta terá mais trabalho do que outras distribuições, o que irá retardar o sistema inteiro. A distribuição em uma coluna de data também pode causar distorção no processamento quando as consultas são altamente seletivas em data e apenas algumas datas estão envolvidas em uma consulta.
+No sistema MPP, cada etapa de consulta aguarda todas as distribuições concluírem sua parte do trabalho. Se uma distribuição estiver fazendo mais trabalho do que as outras, o recurso das outras distribuições serão essencialmente desperdiçados enquanto aguardam a distribuição ocupada. Quando o trabalho não é distribuído de maneira uniforme entre todas as distribuições, nós chamamos este evento de **distorção de processamento**. A distorção de processamento fará com que as consultas sejam executadas de forma mais lenta do que se a carga de trabalho pudesse ser distribuída de modo uniforme entre as distribuições. A distorção de dados levará à distorção de processamento.
+
+Evite distribuir na coluna altamente anulável, uma vez que os valores nulos serão levados na mesma distribuição. A distribuição em uma coluna de data também pode causar a distorção de processamento porque todos os dados de uma determinada data serão levados para a mesma distribuição. Se vários usuários estiverem executando consultas e todos estiverem filtrando na mesma data, apenas uma das 60 distribuições estará fazendo todo o trabalho, visto que uma determinada data estará somente em uma distribuição. Neste cenário, as consultas provavelmente serão executadas de forma 60 vezes mais lenta do que se os dados fossem divididos igualmente por todas as distribuições.
 
 Quando não há colunas adequadas, considere o uso de round robin como método de distribuição.
 
 ### Selecione a coluna de distribuição que irá minimizar a movimentação de dados
 
-Minimizar a movimentação de dados selecionando a coluna de distribuição correta é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse. A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações. As colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` todas são candidatas à **boa** distribuição de hash. Por outro lado, colunas na cláusula `WHERE` **não** são boas para coluna de hash porque elas limitam quais distribuições participam da consulta.
+Minimizar a movimentação de dados selecionando a coluna de distribuição correta é uma das estratégias mais importantes para otimizar o desempenho do SQL Data Warehouse. A movimentação de dados geralmente surge quando tabelas são unidas ou são executadas agregações. Todas as colunas usadas nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` são candidatas à **boa** distribuição de hash.
+
+Por outro lado, as colunas na cláusula `WHERE` **não** são boas para a coluna de hash porque elas limitam quais distribuições participam da consulta, causando a distorção do processamento. Um bom exemplo de uma coluna que pode ser convidativa para distribuir, mas geralmente pode causar essa distorção de processamento, é uma coluna de data.
 
 Em termos gerais, se tiver duas tabelas de fatos grande frequentemente envolvidas em uma associação, você obterá mais desempenho distribuindo ambas as tabelas em uma das colunas de junção. Se você tiver uma tabela que nunca foi unida a outra tabela de fatos grande, procure as colunas que estão frequentemente na cláusula `GROUP BY`.
 
@@ -163,7 +167,7 @@ Há alguns critérios principais que devem ser atendidos para evitar a movimenta
 1. As tabelas envolvidas na junção devem ser distribuídas por hash em **uma** das colunas que participam da junção.
 2. Os tipos de dados das colunas de junção devem ser correspondentes entre as duas tabelas.
 3. As colunas devem ser associadas com um operador equals.
-4. O tipo de associação pode não ser `CROSS JOIN`.
+4. O tipo de associação pode não ser uma `CROSS JOIN`.
 
 
 ## Solucionando problemas de distorção de dados
@@ -288,7 +292,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 Para saber mais sobre o design da tabela, confira os artigos [Distribuir][], [Índice][], [Partição][], [Tipos de dados][], [Estatísticas][] e [Tabelas temporárias][Temporary].
 
-Para obter uma visão geral das práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse][].
+Para obter uma visão geral das práticas recomendadas, confira [SQL Data Warehouse Best Practices][] \(Práticas recomendadas para o SQL Data Warehouse).
 
 
 <!--Image references-->
@@ -304,7 +308,7 @@ Para obter uma visão geral das práticas recomendadas, confira [Práticas recom
 [Estatísticas]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporário]: ./sql-data-warehouse-tables-temporary.md
-[Práticas recomendadas para o Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Consultar monitoramento]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
@@ -313,4 +317,4 @@ Para obter uma visão geral das práticas recomendadas, confira [Práticas recom
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Criar e executar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
@@ -23,19 +23,15 @@ Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados
 
 ## Iniciar Gerenciador de Script
 
-1. No portal do Azure, no Jumpbar, clique em **Contas do Banco de Dados de Documentos**. Se **Contas do Banco de Dados de Documentos** não estiver visível, clique em **Procurar** e clique em **Contas do Banco de Dados de Documentos**.
+1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **Contas do DocumentDB** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
 
-2. Na parte superior da folha **Conta do Banco de Dados de Documentos**, clique em **Gerenciador de Script**.
+2. No menu de recursos, clique em **Gerenciador de Scripts**.
 
 	![Captura de tela do comando do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] O Gerenciador de Script também aparece nas folhas do banco de dados e da coleção.
-
     As caixas das listas suspensas **Banco de dados** e **Coleção** são preenchidas previamente dependendo do contexto em que você inicia o Gerenciador de Script. Por exemplo, se você iniciá-lo por meio de uma lâmina de banco de dados, o banco de dados atual será preenchido. Se iniciá-lo por meio de uma lâmina de coleção, a coleção atual será preenchida.
 
-	![Captura de tela do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorerinitial.png)
-
-4.  Use as caixas das listas suspensas **Banco de dados** e **Coleção** para alterar a coleção cujos scripts estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Script novamente.
+4.  Use as caixas das listas suspensas **Banco de dados** e **Coleção** para alterar a coleção cujos scripts estejam sendo exibidos sem precisar fechar e iniciar o Gerenciador de Script novamente.
 
 5. O Gerenciador de Script também dá suporte à filtragem do conjunto de scripts carregado atualmente segundo a propriedade de ID. Digite na caixa de filtro e os resultados da lista do Gerenciador de Script são filtrados com base nos critérios fornecidos.
 
@@ -53,7 +49,7 @@ Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados
 
 O Gerenciador de Script permite que você execute facilmente operações de CRUD em artefatos de programação do Banco de Dados de Documentos do lado do servidor.
 
-- Para criar um script, basta clicar no comando criar aplicável no Explorador de script , fornecer uma id, inserir o conteúdo do script e clicar em **Salvar**.
+- Para criar um script, basta clicar no comando de criação aplicável no gerenciador de scripts , fornecer uma id, inserir o conteúdo do script e clicar em **Salvar**.
 
 	![Captura de tela da opção Criar do Gerenciador de Script mostrando o editor de JavaScript](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
@@ -89,7 +85,7 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 
 ## Executar um procedimento armazenado
 
-> [AZURE.WARNING] A execução de procedimentos armazenados no Gerenciador de Script ainda não tem suporte para coleções particionadas do lado do servidor. Para obter mais informações, visite [Particionar e dimensionar dados no Banco de Dados de Documentos](documentdb-partition-data.md).
+> [AZURE.WARNING] A execução de procedimentos armazenados no Gerenciador de Script ainda não tem suporte para coleções particionadas do lado do servidor. Para saber mais, visite [Particionar e dimensionar dados no DocumentDB](documentdb-partition-data.md).
 
 O Gerenciador de Script permite que você execute os procedimentos armazenados no servidor usando o portal do Azure.
 
@@ -115,8 +111,8 @@ O Gerenciador de Script no portal do Azure é apenas uma maneira de trabalhar co
 
 ## Próximas etapas
 
-Saiba mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md).
+Saiba mais sobre programação no lado do servidor do DocumentDB no artigo [UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md).
 
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o Banco de Dados de Documentos.
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

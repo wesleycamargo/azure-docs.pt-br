@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -73,25 +73,15 @@ Os operadores a seguir podem ser usados:
 Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Por exemplo, o * (multiplicador) não é avaliado antes - (subtração). 2*(5+3) não é o mesmo que 2*5+3. Os parênteses ( ) são usados para alterar a ordem de avaliação quando a ordem de avaliação da direita à esquerda não é apropriada.
 
 ## Atributos de vários valores
-
-### Fluxos de atributo para atributos de vários valores
 As funções podem operar em atributos de valor único e de vários valores. Para atributos com vários valores, a função opera sobre cada valor e aplica a mesma função para cada valor.
 
 Por exemplo: `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor com um símbolo @, substitua o domínio por @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
-### Mesclando valores de atributo
-Nos fluxos de atributo, há uma configuração para determinar se os atributos com vários valores devem ser mesclados de vários conectores diferentes. O valor padrão é **Update**, que indica que a regra de sincronização com precedência mais alta deve prevalecer.
-
-![Tipos de mesclagem](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)
-
-Também há **Merge** e **MergeCaseInsensitive**. Essas opções permitem mesclar valores de diferentes origens. Por exemplo, esses valores podem ser usados para mesclar o membro ou o atributo proxyAddresses de várias florestas diferentes. Quando você usa essa opção, todas as regras de sincronização no escopo de um objeto devem usar o mesmo tipo de mesclagem. Não é possível definir **Update** de um conector e **Merge** de outro. Se tentar, você receberá um erro.
-
-A diferença entre **Merge** e **MergeCaseInsensitive** é como processar valores de atributo duplicados. O mecanismo de sincronização garante que os valores duplicados não sejam inseridos no atributo de destino. Com **MergeCaseInsensitive**, os valores duplicados com uma diferença apenas no caso não estarão presentes. Por exemplo, você não verá "SMTP:bob@contoso.com" e "smtp:bob@contoso.com" no atributo de destino. **Merge** está examinando apenas os valores exatos e múltiplos valores onde há apenas uma diferença no caso pode estar presente.
-
-A opção **Replace** é igual a **Update**, mas não é usada.
-
 ## Recursos adicionais
 
-[Sincronização do Azure AD Connect: referência de funções](active-directory-aadconnectsync-functions-reference.md) [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md) [Integração de suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md)
+- [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

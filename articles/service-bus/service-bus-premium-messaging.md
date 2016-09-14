@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/02/2016"
 	ms.author="darosa;sethm"/>
 
 # Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço 
 
-O sistema de mensagens agenciado do Barramento de Serviço, que inclui entidades de mensagens, como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O sistema de mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
+O sistema de mensagens do Barramento de Serviço, que inclui entidades de mensagens, como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O sistema de mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
 
 A camada *Premium* do sistema de mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do sistema de mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
 
 Algumas diferenças de alto nível são destacadas na tabela abaixo.
 
-| Premium | Padrão |
+| Premium | Standard |
 |---------------------------------------|--------------------------------|
 | Alta taxa de transferência | Taxa de transferência variável |
 | Desempenho previsível | Latência variável |
@@ -40,13 +40,13 @@ Esse desempenho não é apenas o mais previsível e disponível, mas também o m
 
 A seguir, algumas diferenças entre as camadas dos sistemas de mensagens Premium e Standard.
 
-### Entidades particionadas
+### Filas e tópicos particionados
 
-Há suporte às entidades particionadas no sistema de mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do sistema de mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário. Além disso, a contagem de partições foi alterada, de 16 partições no sistema de mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, veja as [Entidades de mensagens particionadas](service-bus-partitioning.md).
+Há suporte para filas e tópicos no sistema de mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do sistema de mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário. Além disso, a contagem de partições foi alterada, de 16 partições no sistema de mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### Entidades expressas
 
-Como ele é executado em um ambiente de tempo de execução totalmente isolado, não há mais a necessidade de entidades expressas no sistema de mensagens Premium. Consequentemente, as entidades expressas não têm suporte em namespaces Premium. Para saber mais sobre o recurso express, consulte a propriedade [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
+Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para saber mais sobre o recurso express, consulte a propriedade [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx).
 
 ## Próximas etapas
 
@@ -58,4 +58,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

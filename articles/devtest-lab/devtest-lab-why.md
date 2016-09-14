@@ -44,8 +44,10 @@ Capture e compartilhe modelos e artefatos de ambiente com sua equipe ou organiza
 
 Aproveite plug-ins pré-fabricados ou nossa API para provisionar ambientes de Desenvolvimento/Teste diretamente da sua ferramenta de CI (integração contínua), IDE (ambiente de desenvolvimento integrado) ou pipeline de liberação automatizada preferido. Você também pode usar nossa ferramenta de linha de comando abrangente.
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Próximas etapas
 
 [Conceitos dos Laboratórios de Desenvolvimento/Teste](devtest-lab-concepts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

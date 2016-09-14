@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Solucionar problemas de conexão no Banco de Dados SQL do Azure
@@ -66,7 +66,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do 
 3.	Verifique a cadeia de conexão e outras configurações de conexão. Confira a seção Cadeia de Conexão do [tópico sobre problemas de conectividade](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
 
-## Todos os tópicos sobre problemas de conexão do Banco de Dados SQL do Azure
+## Todos os tópicos sobre problemas de conexão de Banco de Dados SQL do Azure
 
 A tabela a seguir lista todos os tópicos sobre problemas de conexão que se aplicam diretamente ao serviço do Banco de Dados SQL do Azure.
 
@@ -88,7 +88,7 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 
 - [Solucionar problemas de desempenho no Banco de Dados SQL do Azure](sql-database-troubleshoot-performance.md)
 - [Solucionar problemas de permissões no Banco de Dados SQL do Azure](sql-database-troubleshoot-permissions.md)
-- [Ver todos os tópicos sobre o serviço do Banco de Dados SQL do Azure](sql-database-index-all-articles.md)
+- [Consulte todos os tópicos sobre o serviço do Banco de Dados SQL do Azure](sql-database-index-all-articles.md)
 - [Pesquisar a documentação do Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 - [Exibir as atualizações mais recentes ao serviço do Banco de Dados SQL do Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -101,4 +101,4 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 - [O roteiro de aprendizagem para usar o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

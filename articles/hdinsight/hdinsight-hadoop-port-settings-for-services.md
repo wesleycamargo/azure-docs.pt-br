@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/14/2016"
+ms.date="08/30/2016"
 ms.author="larryfr"/>
 
 # Portas e URIs usados pelo HDInsight
@@ -64,6 +64,8 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 
 ## Portas não públicas
 
+> [AZURE.NOTE] Alguns serviços só estão disponíveis em tipos de cluster específicos. Por exemplo, HBase só está disponível em tipos de cluster HBase.
+
 ### Portas HDFS
 
 | O Barramento de | Nó(s) | Port | Protocolo | Descrição |
@@ -74,6 +76,7 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | DataNode | Todos os nós de trabalho | 30010 | &nbsp; | Transferência de dados |
 | DataNode | Todos os nós de trabalho | 30020 | IPC | Operações de metadados |
 | NameNode secundário | Nós de cabeçalho | 50090 | HTTP | Ponto de verificação para metadados do NameNode |
+
 ### Portas YARN
 
 | O Barramento de | Nó(s) | Port | Protocolo | Descrição |
@@ -133,4 +136,11 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | Servidor de região | Todos os nós de trabalho | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | A porta que os clientes usam para se conectar ao ZooKeeper |
 
-<!---HONumber=AcomDC_0713_2016-->
+### Portas Kafka
+
+| O Barramento de | Nó(s) | Port | Protocolo | Descrição |
+| ------- | ------- | ---- | -------- | ----------- |
+| Agente | Nós de trabalho | 9092 | [Protocolo Kafka Wire ](http://kafka.apache.org/protocol.html) | Usado para comunicação do cliente |
+| &nbsp; | Nós do Zookeeper | 2181 | &nbsp; | A porta que os clientes usam para se conectar ao Zookeeper |
+
+<!---HONumber=AcomDC_0831_2016-->

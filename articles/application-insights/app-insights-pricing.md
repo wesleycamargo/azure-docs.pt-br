@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/27/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -77,7 +77,7 @@ Se seu aplicativo enviar mais do que a cota mensal, você pode:
 * Não faça nada. Dados de sessão continuarão a ser gravados, mas outros dados não aparecerão na pesquisa de diagnóstico ou no Metrics Explorer.
 
 
-### Quantos dados estou enviando?
+## Quantos dados estou enviando?
 
 O gráfico na parte inferior da folha de preços mostra o volume de ponto de dados do aplicativo, agrupados por tipo de ponto de dados. (Você também pode criar esse gráfico no Gerenciador de métricas).
 
@@ -86,6 +86,8 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
 
 O gráfico mostra o volume de dados que chegam ao serviço Application Insights após a [amostragem](app-insights-sampling.md).
+
+Se o volume de dados atingir sua cota mensal, uma anotação será exibida no gráfico.
 
 
 ## Taxa de dados
@@ -112,7 +114,7 @@ Caso ocorra uma limitação, será exibido um aviso de notificação que isso ac
 * Ou, no Metrics Explorer, adicione um novo gráfico e selecione **Volume de pontos de dados** como a métrica. Ative o Agrupamento e agrupe por **Tipo de dados**.
 
 
-### Dicas para reduzir a sua taxa de dados
+## Para reduzir a taxa de dados
 
 Se você encontrar as limitações, aqui há algumas coisas que você pode fazer:
 
@@ -124,16 +126,30 @@ Se você encontrar as limitações, aqui há algumas coisas que você pode fazer
 
 ## Amostragem
 
-A [amostragem](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. A amostragem o ajuda a se manter dentro de sua cota mensal.
-
-Há várias formas de amostragem. Recomendamos a [amostragem adaptável](app-insights-sampling.md), que se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido. É possível usá-la se a estrutura do aplicativo Web for o .NET: basta instalar a versão (beta) mais recente do SDK.
-
-Como alternativa, é possível definir a *amostragem de ingestão* na folha Cotas e Preço. Essa forma de amostragem opera no ponto em que a telemetria de seu aplicativo entra no serviço do Application Insights. Ela não afeta o volume de telemetria enviado de seu aplicativo, mas reduz o volume retido pelo serviço.
-
-![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
+A [amostragem](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas.
 
 A amostragem é uma maneira eficiente de reduzir encargos e permanecer dentro de sua cota mensal. O algoritmo de amostragem retém itens de telemetria relacionados, para que, por exemplo, quando a Pesquisa for utilizada, seja possível encontrar a solicitação relacionada a uma exceção específica. O algoritmo também retém contagens corretas, para que você veja os valores corretos no Gerenciador de Métricas referentes a taxas de solicitação, taxas de exceção e outras contagens.
 
+Há várias formas de amostragem.
+
+* A [amostragem adaptável](app-insights-sampling.md) é o padrão para o SDK do ASP.NET, que se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera automaticamente no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido.
+* A *amostragem de ingestão* é uma alternativa que opera no ponto em que a telemetria de seu aplicativo entra no serviço do Application Insights. Ela não afeta o volume de telemetria enviado de seu aplicativo, mas reduz o volume retido pelo serviço. Você pode usá-la para reduzir a cota usada pela telemetria de navegadores e de outros SDKs.
+
+Para definir a amostragem de ingestão, defina o controle na folha Cotas + Preços:
+
+![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
+
+> [AZURE.WARNING] O valor mostrado no bloco Exemplos Retidos indica somente o valor definido para amostragem de ingestão. Ele não mostra a taxa de amostragem operando com o SDK em seu aplicativo.
+> 
+> Se a telemetria de entrada já tiver sido obtida como amostra no SDK, a amostragem de ingestão não será aplicada.
+ 
+Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](app-insights-analytics.md) como esta:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+Em cada registro retido, o `itemCount` indica o número de registros originais que ele representa, igual a 1 + o número de registros descartados anteriormente.
 
 ## Examine a conta da sua assinatura do Azure
 
@@ -145,7 +161,7 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
 ## Limites de nome
 
-1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os [ nomes de propriedades e métricas][api] são globais por chave de instrumentação.
+1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os [ nomes de propriedades e métricas][api] são globais por chave de instrumentação.
 2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento apenas enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que o número de valores exclusivos exceder 100, ainda é possível pesquisar a propriedade, mas não a use mais para filtros ou agrupamentos.
 3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
@@ -165,4 +181,4 @@ Se você achar que seu aplicativo está excedendo esses limites, considere divid
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

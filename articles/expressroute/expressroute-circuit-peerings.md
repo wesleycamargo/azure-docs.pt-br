@@ -75,7 +75,7 @@ A tabela abaixo compara os três domínios de roteamento.
 |---|---|---|---|
 |**Número máximo de prefixos com suporte por emparelhamento**|4000 por padrão, 10.000 com a Rota Expressa Premium|200|200|
 |**Intervalos de endereços IP com suporte**|Todos os endereços IPv4 válidos em sua WAN.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|
-|**Requisitos do número do AS**|Números públicos e privados do AS. É necessário ter um número público do AS. | Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos.| Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos.|
+|**Requisitos do número do AS**|Números públicos e privados do AS. Você deve possuir número público do AS, se você optar por usar um. | Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos.| Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos.|
 |**Roteando endereços IP de interface**|RFC1918 e endereços IP públicos|Endereços IP públicos registrados para você em registros de roteamento.| Endereços IP públicos registrados para você em registros de roteamento.|
 |**Suporte a Hash MD5**| Sim|Sim|Sim|
 
@@ -92,4 +92,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 	- [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

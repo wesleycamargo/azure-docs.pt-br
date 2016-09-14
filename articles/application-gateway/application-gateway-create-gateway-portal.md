@@ -26,7 +26,7 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 - [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
-
+- [CLI do Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -49,7 +49,7 @@ Este cenário:
 
 ## Antes de começar
 
-O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um Application Gateway a uma sub-rede, apenas Application Gateways adicionais poderão ser adicionados à sub-rede.
+O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
 
 ## Criar o Application Gateway
 
@@ -57,7 +57,7 @@ O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virt
 
 Navegue até o portal do Azure, clique em **Novo** > **Rede** > **Application Gateway**
 
-![Criando um novo Application Gateway][1]
+![Criação de um gateway de aplicativo][1]
 
 ### Etapa 2
 
@@ -66,10 +66,10 @@ Em seguida, preencha as informações básicas sobre o Application Gateway. Ao c
 As informações necessárias para as configurações básicas são:
 
 - **Name** - o nome para o Application Gateway.
-- **Tamanho do SKU** - esse é o tamanho do Application Gateway, as opções disponíveis são (pequeno, médio e grande).
+- **Tamanho do SKU** - essa configuração é o tamanho do gateway de aplicativo, as opções disponíveis são (Pequeno, Médio e Grande).
 - **Contagem de instâncias** - o número de instâncias; esse valor deve ser um número entre 2 e 10.
-- **Grupo de recursos** - o grupo de recursos para manter o application gateway; ele pode ser um grupo de recursos existente ou um novo.
-- **Localização** - a região do Application Gateway; esse é a mesma localização no grupo de recursos. *Isso é importante porque a rede virtual e o IP público devem estar na mesma localização que o gateway*.
+- **Grupo de recursos** - o grupo de recursos para manter o gateway de aplicativo; ele pode ser um grupo de recursos existente ou um novo.
+- **Localização** - a região do gateway de aplicativo; essa é a mesma localização no grupo de recursos. *O local é importante porque a rede virtual e o IP público devem estar na mesma localização do que o gateway*.
 
 ![folha mostrando configurações básicas][2]
 
@@ -78,7 +78,7 @@ As informações necessárias para as configurações básicas são:
 
 ### Etapa 3
 
-Quando as configurações básicas forem definidas, a próxima etapa será definir a rede virtual a ser usada. A rede virtual conterá o aplicativo para qual o Application Gateway faz balanceamento de carga.
+Quando as configurações básicas forem definidas, a próxima etapa será definir a rede virtual a ser usada. A rede virtual contém o aplicativo para o qual o gateway de aplicativo faz balanceamento de carga.
 
 Clique em **Escolher uma rede virtual** para configurar a rede virtual.
 
@@ -141,7 +141,7 @@ Quando o Application Gateway tiver sido criado, navegue até ele no portal para 
 
 ![Modo de exibição de recursos do Application Gateway][10]
 
-Isso cria um Application Gateway básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido
+Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido
 
 ## Próximas etapas
 
@@ -162,4 +162,4 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

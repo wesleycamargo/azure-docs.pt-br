@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rachelap"/>
 
 # Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -24,7 +24,7 @@ Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-Você aprenderá a:
+O que você aprenderá:
 
 * Quais funções de gerenciamento de aplicativo Web do Azure estão disponíveis no Visual Studio.
 * Como usar a exibição remota do Visual Studio para fazer alterações rápidas em um aplicativo Web remoto.
@@ -728,4 +728,4 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

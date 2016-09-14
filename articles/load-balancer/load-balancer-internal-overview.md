@@ -13,35 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 
 # Visão geral do balanceador de carga interno
 
-ILB (Balanceador de Carga Interno) é um aprimoramento de segurança pelo balanceador de carga atual para a Internet oferecido no Azure. O acesso ao ILB só pode ser feito pelos recursos dentro do serviço de nuvem ou usando a VPN para acessar a infraestrutura do Azure e alcançar o ILB.
-
-A infraestrutura restringe a acessibilidade e cria um limite de confiança entre os endereços IP virtuais de balanceamento de carga e um serviço de nuvem ou uma rede virtual e nunca será exposta a um ponto de extremidade da Internet diretamente. Isso permite que aplicativos de linha de negócios internos sejam executados no Azure e acessados na nuvem ou no local.
+Ao contrário do balanceador de carga voltado para a Internet, o ILB (Balanceador de Carga Interno) usa somente os recursos dentro do serviço de nuvem ou usa VPN para acessar a infraestrutura do Azure. A infraestrutura restringe o acesso aos VIPs (endereços IP virtuais) de balanceamento de carga de um Serviço de nuvem ou uma Rede virtual, de modo que nunca será exposta diretamente a um ponto de extremidade da Internet. Isso permite que aplicativos de linha de negócios internos sejam executados no Azure e acessados na nuvem ou nos recursos locais.
 
 ## Cenários para balanceador de carga interno
 
-Você pode usar o ILB em muitas configurações novas, incluindo o seguinte:
-
 O ILB (Balanceamento de Carga Interno) do Azure fornece balanceamento de carga entre máquinas virtuais que residem em um serviço de nuvem ou em uma rede virtual com escopo regional. Para obter informações sobre o uso e a configuração de redes virtuais com escopo regional, consulte [Redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) no blog do Azure. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
 
-O ILB habilite os novos tipos de balanceamento de carga a seguir:
+O ILB permite os seguintes cenários:
 
 - Dentro de um serviço de nuvem, de máquinas virtuais a um conjunto de máquinas virtuais que residem no mesmo serviço de nuvem (veja a Figura 1).
-
 - Em uma rede virtual, de máquinas virtuais na rede virtual a um conjunto de máquinas virtuais que residem no mesmo serviço de nuvem da rede virtual (veja a Figura 2).
-
 - Para uma rede virtual entre instalações, de computadores locais a um conjunto de máquinas virtuais que residem no mesmo serviço de nuvem da rede virtual (veja a Figura 3).
-
-O balanceamento de carga do Azure existente fornece apenas balanceamento de carga entre computadores na Internet e máquinas virtuais em um serviço de nuvem. O ILB habilita novos recursos para hospedar máquinas virtuais no Azure.
-
 - Aplicativos para a Internet de diversas camadas, cujas camadas de back-end não são para a Internet, mas exigem balanceamento de carga para tráfego da camada para a Internet.
 - Balanceamento de carga para aplicativos de linha de negócios (LOB) hospedados no Azure sem exigir hardware ou software do balanceador de carga adicional. Incluindo servidores locais, no conjunto de computadores, cujo tráfego é de balanceamento de carga.
-- As seções a seguir descrevem essas configurações em mais detalhes.
 
 ## Aplicativos para a Internet de diversas camadas
 
@@ -72,10 +62,13 @@ Tráfego de clientes em redes locais tem balanceamento de carga em um conjunto d
 
 O computador cliente terá acesso a um endereço IP do serviço de VPN do Azure, usando VPN ponto a site. Ela permitirá o uso do aplicativo LOB hospedado atrás do ponto de extremidade ILB.
 
+A figura 3
 
 ![Balanceamento de carga interno usando VPN ponto a site](./media/load-balancer-internal-overview/IC744148.png)
 
 Outro cenário para LOB é ter uma VPN site a site na rede virtual na qual o ponto de extremidade ILB está configurado. Isso permitirá que o tráfego da rede local seja roteado para o ponto de extremidade ILB.
+
+Figura 4
 
 ![Balanceamento de carga interno usando VPN site a site](./media/load-balancer-internal-overview/IC744150.png)
 
@@ -90,4 +83,4 @@ Outro cenário para LOB é ter uma VPN site a site na rede virtual na qual o pon
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

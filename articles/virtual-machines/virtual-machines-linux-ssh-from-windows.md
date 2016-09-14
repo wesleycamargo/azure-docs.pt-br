@@ -14,7 +14,7 @@ description="Saiba como gerar e usar chaves SSH em um computador Windows para se
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #Como usar SSH com Windows no Azure
@@ -161,11 +161,11 @@ A maneira mais fácil de resolver esse problema é definir a variável de ambien
 
 	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	Antes de selecionar **Abrir**, clique na guia Conexão > SSH > Autenticação para escolher a chave. Consulte a captura de tela abaixo para ver o campo a ser preenchido:
+4.	Antes de selecionar **Abrir**, clique na guia Conexão > SSH > Autenticação para escolher a chave privada. Consulte a captura de tela abaixo para ver o campo a ser preenchido:
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

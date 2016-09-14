@@ -13,16 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2016" 
+	ms.date="08/26/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão para o Gateway de Gerenciamento de Dados
+Um dos desafios da integração de dados moderna é mover dados continuamente para e do local para a nuvem. O Data Factory torna perfeita essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
-Um dos desafios da integração de dados moderna é mover dados continuamente para e do local para a nuvem. O data factory torna perfeita essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
+Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados e como usá-lo:
 
-Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) e [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter mais informações.
+- [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md)
+- [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
-## VERSÃO ATUAL (2.1.6040.1)
+## Versão atual (2.2.6072.1)
+
+- Permite a configuração do proxy HTTP para o gateway usando o Gerenciador de Configurações do Gateway. Se configurado, o Blob do Azure, a Tabela do Azure, o Azure Data Lake e o DocumentDB serão acessados por meio do proxy HTTP.
+- Dá suporte ao tratamento de cabeçalho para TextFormat na cópia de dados dentro e fora do Blob do Azure, Azure Data Lake Store, Sistema de Arquivos Local e HDFS local.
+- Dá suporte à cópia de dados do Blob de Acréscimos e Blob de Páginas com o Blob de Blocos já com suporte.
+- Introduz um novo status de gateway **Online (Limitado)**, que indica se a funcionalidade principal do gateway funciona, com exceção do suporte à operação interativa do Assistente de Cópia.
+- Aprimora a robustez do registro de gateway usando a chave do Registro.
+
+## Versões anteriores
+
+## 2\.1.6040.1
 
 - O driver DB2 agora está incluído no pacote de instalação do gateway. Você não precisa instalá-lo separadamente.
 - O driver DB2 agora oferece suporte ao z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, Unix e Windows).
@@ -30,17 +42,15 @@ Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Fac
 - Dá suporte à cópia dos dados de/para o armazenamento de blobs quente/frio junto com a conta de armazenamento de uso geral já com suporte.
 - Permite que você conecte o SQL Server local por meio do gateway com privilégios de logon remoto.
 
-## Versões anteriores
-
 ## 2\.0.6013.1
 
 - Você pode selecionar o idioma/cultura a ser usada por um gateway durante a instalação manual.
-- Quando o gateway não funciona conforme o esperado, você pode optar por enviar logs de gateway dos últimos sete dias à Microsoft para facilitar a solução de problemas do problema. Se gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar logs de gateway.
+- Quando o gateway não funcionar conforme o esperado, você poderá optar por enviar logs de gateway dos últimos sete dias à Microsoft para facilitar a solução do problema. Se gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar logs de gateway.
 - Aprimoramentos na interface do usuário para o gerenciador de configuração de gateway:
 	- Torne o status do gateway mais visível na guia Página Inicial.
 	- Controles reorganizados e simplificados.
-- Você pode copiar os dados de um armazenamento que não seja o Blob do Azure para o Azure SQL Data Warehouse via Polybase e blob de preparo usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Consulte [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
-- Você pode aproveitar o Gateway de Gerenciamento de Dados para ingerir dados diretamente de um banco de dados do SQL Server local para o Aprendizado de Máquina do Azure.
+- Você pode copiar dados de um armazenamento usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
+- Você pode aproveitar o Gateway de Gerenciamento de Dados para inserir dados diretamente de um banco de dados SQL Server local no Azure Machine Learning.
 - Aprimoramentos de desempenho
 	- Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de visualização de cópia sem código.
 
@@ -53,7 +63,7 @@ Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Fac
 
 - O tamanho máximo do log de eventos do gateway foi aumentado de 1 MB para 40 MB.
 - Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde.
-- Em caso de falha da atualização automática, instalador do gateway tentará novamente executar a atualização automática 3 vezes no máximo.
+- Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 - Aprimoramentos de desempenho
 	- Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
 - Correções de bug
@@ -92,7 +102,7 @@ Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Fac
 
 ### 1\.6.5735.1
 
-- Suporte local a coletor/fonte HDFS
+- Suporte à fonte/coletor do HDFS local
 - Aprimoramentos de desempenho
 - Correções de bug
 
@@ -165,9 +175,4 @@ Consulte os artigos [Mover dados entre o local e a nuvem usando o Azure Data Fac
 
 - Nenhuma alteração que afeta os cenários do Azure Data Factory.
 
-## Perguntas/respostas
-
-### Por que o Gerenciador de Fonte de Dados está tentando se conectar a um gateway?
-Esse é um design de segurança em que você só pode configurar fontes de dados locais para acesso à nuvem na rede corporativa, e suas credenciais não fluirão para fora do firewall corporativo. Verifique se o seu computador pode acessar o computador em que o gateway está instalado.
-
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

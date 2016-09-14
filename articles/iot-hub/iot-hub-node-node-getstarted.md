@@ -48,7 +48,7 @@ Nesta seção, você cria um aplicativo do console do Node.js que cria uma nova 
     npm init
     ```
 
-2. No prompt de comando, na pasta **createdeviceidentity**, execute o seguinte comando para instalar o pacote **azure-iothub**:
+2. No prompt de comando, na pasta **createdeviceidentity**, execute o seguinte comando para instalar o pacote **azure-iothub** do SDK do Serviço:
 
     ```
     npm install azure-iothub --save
@@ -108,7 +108,7 @@ Nesta seção, você cria um aplicativo do console do Node.js que cria uma nova 
 
 ## Receber mensagens do dispositivo para a nuvem
 
-Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-process-d2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com o Hub de Eventos do Hub IoT.
+Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-process-d2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com o Hubs de Eventos do Hub IoT.
 
 > [AZURE.NOTE] O ponto de extremidade compatível com os Hubs de Eventos para ler mensagens do dispositivo para a nuvem sempre usa o protocolo AMQPS.
 
@@ -184,7 +184,7 @@ Nesta seção, você criará um aplicativo do console do Node.js que simula um d
     npm init
     ```
 
-2. No prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para instalar o pacote **azure-iot-device-amqp**:
+2. No prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-amqp**:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -201,7 +201,7 @@ Nesta seção, você criará um aplicativo do console do Node.js que simula um d
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo. Substitua **{youriothostname}** pelo nome do hub IoT que você criou na seção *Criar um Hub IoT* e **{yourdevicekey}** pelo valor de chave de dispositivo que gerou na seção *Criar uma identidade de dispositivo*:
+5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo. Substitua **{nomedehostdoseuiot}** pelo nome do hub IoT que você criou na seção *Criar um Hub IoT* e **{chavedoseudispositivo}** pelo valor de chave de dispositivo que gerou na seção *Criar uma identidade de dispositivo*:
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -312,4 +312,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

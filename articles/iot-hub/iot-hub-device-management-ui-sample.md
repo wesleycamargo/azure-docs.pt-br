@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/08/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Explorar o gerenciamento de dispositivo do Hub IoT do Azure usando a interface do usuário de exemplo
@@ -52,15 +52,15 @@ A tela inicial padrão para o exemplo de interface do usuário de gerenciamento 
 
 A [Visão geral do gerenciamento de dispositivo][lnk-dm-overview] apresentou o conceito de *dispositivo gêmeo*, que representa um dispositivo físico (ou simulado) no Hub IoT do Azure. Na grade do dispositivo, você pode selecionar qualquer dispositivo registrado na lista de dispositivos para exibir e editar o dispositivo gêmeo para esse dispositivo.
 
-Entre nesse modo de exibição detalhado em seu primeiro dispositivo simulado, **Device11 7ce4a850**, selecionando a linha correspondente do dispositivo e, em seguida, clicando no botão **Editar** (você também pode clicar duas vezes na linha ou inserir a ID do dispositivo na caixa de pesquisa).
+Para inserir essa exibição detalhada no primeiro dispositivo simulado (**Device11-7ce4a850**), selecione a linha correspondente do dispositivo. Em seguida, clique no botão **Editar** (você também pode clicar duas vezes na linha ou inserir a ID do dispositivo na caixa de pesquisa).
 
-Agora você está vendo a representação completa dos componentes do dispositivo gêmeo, na qual você pode atualizar as propriedades graváveis e executar outras operações de dispositivo, conforme detalhado abaixo:
+Agora você está vendo a representação completa dos componentes do dispositivo gêmeo, na qual você pode atualizar as propriedades graváveis e executar outras operações de dispositivo da seguinte maneira:
 
 ![][2]
 
-1.  **Editar um Dispositivo Gêmeo**: isso inclui uma opção de **Habilitado/Desabilitado** para o dispositivo.
+1.  **Editar um Dispositivo Gêmeo**: essa opção inclui uma opção de **Habilitado/Desabilitado** para o dispositivo.
 
-2.  **Propriedades do Serviço**: isso inclui **Marcas** do dispositivo.
+2.  **Propriedades do Serviço**: essa opção inclui **Marcas** do dispositivo.
 
 3.  **Propriedades do Dispositivo**: clique para expandir esta seção.
 
@@ -104,10 +104,10 @@ Agora você criou um único trabalho pai que envolve três trabalhos filhos, cad
 
 ![][8]
 
-A atualização dessa tela após alguns instantes altera o status do trabalho pai e dos três trabalhos filhos para **concluído**, indicando que as operações de reinicialização foram bem-sucedidas e confirmadas pelos dispositivos simulados. Use a coluna **ID de Dispositivo** para determinar quais trabalhos estão associados a quais dispositivos.
+Atualize essa tela após alguns instantes para ver a alteração no status do trabalho pai e dos trabalhos de três filhos para **concluída**. Os novos valores de status mostram que as operações de reinicialização tiveram êxito e foram confirmadas pelos dispositivos simulados. Use a coluna **ID de Dispositivo** para determinar quais trabalhos estão associados a quais dispositivos.
 
 
-> [AZURE.NOTE] Se os trabalhos filho retornarem o status "Falha", verifique se os dispositivos simulados ainda estão em execução no sistema de teste. Caso contrário, execute o script simulate.bat ou simulate.sh novamente e repita as etapas do trabalho de reinicialização de dispositivo acima.
+> [AZURE.NOTE] Se os trabalhos filho retornarem o status "Falha", verifique se os dispositivos simulados ainda estão em execução no sistema de teste. Caso contrário, execute o script simulate.bat ou simulate.sh novamente e repita as etapas do trabalho de reinicialização de dispositivo da seção anterior.
 
 ## Próximas etapas
 
@@ -152,4 +152,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

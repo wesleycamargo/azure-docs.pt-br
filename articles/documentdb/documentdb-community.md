@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="08/30/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -210,7 +210,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Parceiro de aprendizagem | Descrição |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/pt-BR/training-courses/developing-solutions-with-azure-documentdb-10554) | O [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/pt-BR/training-courses/developing-solutions-with-azure-documentdb-10554) oferece treinamento ministrado pelas pessoas que ajudaram a compilar o Banco de Dados de Documentos do Azure. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/pt-BR/training-courses/deploying-web-apps-to-azure-app-service-16629) | O [**Microsoft Virtual Academy**](https://mva.microsoft.com/pt-BR/training-courses/deploying-web-apps-to-azure-app-service-16629) oferece treinamento ministrado pelas pessoas que ajudaram a compilar o Banco de Dados de Documentos do Azure. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | A [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) é uma parceira fundamental da Microsoft que oferece treinamento do Azure. Se você for assinante do MSDN, use seus benefícios para acessar o treinamento do Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | A [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) oferece treinamento técnico aprofundado sobre o Microsoft Azure. Obtenha treinamento com instrutores no local ou em uma sala de aula à distância com treinadores reconhecidos no mercado. |
 
@@ -268,4 +268,4 @@ Assistente | Imagem
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

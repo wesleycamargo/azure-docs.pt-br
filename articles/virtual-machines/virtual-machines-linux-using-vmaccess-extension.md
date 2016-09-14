@@ -15,29 +15,48 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="08/30/2016"
     ms.author="v-livech"
 />
 
 # Gerenciar usuários, SSH e verificar ou reparar discos em VMs do Linux do Azure usando a extensão VMAccess
 
-Este artigo mostra como usar a extensão de VM VMAcesss [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) para verificar ou reparar o disco, redefinir o acesso do usuário, gerenciar contas de usuário ou a configuração SSHD no Linux. Este artigo exige [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/), [chaves SSH](virtual-machines-linux-mac-create-ssh-keys.md), uma máquina Virtual do Linux do Azure e a CLI do Azure instalada e alternada para o modo ARM usando `azure config mode arm`.
+Este artigo mostra como usar a extensão VMAcesss do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário ou redefinir a configuração do SSHD no Linux.
+
+Os pré-requisitos são: [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/), [chaves pública e privada SSH](virtual-machines-linux-mac-create-ssh-keys.md) e a CLI do Azure instalada e alternada para o modo Azure Resource Manager usando `azure config mode arm`.
 
 ## Comandos rápidos
 
 Há duas maneiras de usar VMAccess em suas VMs do Linux:
 
 - Usando a CLI do Azure e os parâmetros necessários.
-- Usando os arquivos JSON brutos que a VMAccess processará e usará.
+- Usando os arquivos JSON brutos que a VMAccess processa e usa.
 
-Para a seção de comando rápido, usaremos o método `azure vm reset-access` da CLI do Azure. Nos exemplos de comandos a seguir, substitua os valores entre &lt; e &gt; pelos valores de seu próprio ambiente.
+Para a seção de comando rápido, vamos usar o método `azure vm reset-access` da CLI do Azure. Nos exemplos de comandos a seguir, substitua os valores que contêm “exemplo” pelos valores de seu próprio ambiente.
+
+## Criar um Grupo de Recursos e uma VM do Linux
+
+```bash
+azure group create resourcegroupexample westus
+```
+
+```bash
+azure vm quick-create \
+-M ~/.ssh/id_rsa.pub \
+-u userexample \
+-g resourcegroupexample \
+-l westus \
+-y Linux \
+-n debianexamplevm \
+-Q Debian
+```
 
 ## Redefinir a senha raiz
 
 Para redefinir a senha raiz:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePassword>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
 ```
 
 ## Redefinição de chave SSH
@@ -45,21 +64,21 @@ azure vm reset-access -g <resource group> -n <vm name> -u root -p <examplePasswo
 Para redefinir a chave SSH de um usuário não raiz:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
 ```
 
 ## Criar um usuário
 
-Para criar um novo usuário:
+Para criar um usuário:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
 ```
 
 ## Remover um usuário
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 ```
 
 ## Redefinir SSHD
@@ -67,7 +86,7 @@ azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
 Para redefinir a configuração de SSH:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -r
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 ```
 
 
@@ -75,15 +94,15 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess definido:
 
-O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefiniu a senha raiz para sua VM do Linux ou excluiu acidentalmente sua chave privada SSH. Se isso acontecesse nos primeiros anos dos datacenters, você teria dirigido até lá, teria destrancado a porta usando suas digitais, entrado no compartimento para abrir o KVM e chegar até o console do servidor. Considere a Extensão VMAccess do Azure como o comutador KVM que permite que você acesse o console para redefinir o acesso para o Linux ou para realizar a manutenção no nível de disco.
+O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefiniu a senha raiz para sua VM do Linux ou excluiu acidentalmente sua chave privada SSH. Se isso tiver ocorrido na época do datacenter, você precisará ir até lá e abrir o KVM para acessar o console do servidor. Considere a Extensão VMAccess do Azure como o comutador KVM que permite que você acesse o console para redefinir o acesso para o Linux ou para realizar a manutenção no nível de disco.
 
-Para obter o passo a passo detalhado, usaremos a forma longa da VMAccess que usa arquivos json brutos. Esses arquivos json da VMAccess também podem ser chamados desde os Modelos do Azure.
+Para obter o passo a passo detalhado, vamos usar a forma longa da VMAccess, que usa arquivos JSON brutos. Esses arquivos json da VMAccess também podem ser chamados desde os Modelos do Azure.
 
 ### Usar a VMAccess para verificar ou reparar o disco de uma VM do Linux
 
-Usando a VMAccess, você pode executar o fsck no disco em sua VM do Linux. Você pode fazer uma verificação de disco e então um reparo de disco, se encontrar erros.
+Usando a VMAccess, você pode executar o fsck no disco em sua VM do Linux. Você também pode fazer uma verificação e um reparo de disco usando uma VMAccess.
 
-Para verificar e então reparar o disco, use este script VMAccess:
+Para verificar e reparar o disco, use este script da VMAccess:
 
 `disk_check_repair.json`
 
@@ -104,9 +123,9 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Usar a VMAccess para redefinir o acesso do usuário para Linux
 
-Se você tiver perdido o acesso à raiz na sua VM do Linux, poderá iniciar um script VMAccess para redefinir a senha raiz.
+Se você tiver perdido o acesso à raiz em sua VM do Linux, poderá iniciar um script da VMAccess para redefinir a senha raiz.
 
-Para redefinir a senha raiz, use este script VMAccess:
+Para redefinir a senha raiz, use este script da VMAccess:
 
 `reset_root_password.json`
 
@@ -125,7 +144,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
 
-Para redefinir a chave SSH de um usuário não raiz, use este script VMAccess:
+Para redefinir a chave SSH de um usuário não raiz, use este script da VMAccess:
 
 `reset_ssh_key.json`
 
@@ -148,7 +167,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 A VMAccess é um script Python que pode ser usado para gerenciar usuários em sua VM do Linux sem logon, usando sudo ou a conta raiz.
 
-Para criar um novo usuário, use este script VMAccess:
+Para criar um novo usuário, use este script da VMAccess:
 
 `create_new_user.json`
 
@@ -168,7 +187,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
 
-Para criar um novo usuário, use este script VMAccess:
+Para criar um usuário:
 
 `remove_user.json`
 
@@ -186,9 +205,9 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
 
-### Usar a VMAccess para redefinir a configuração do SSHD no Linux
+### Usar a VMAccess para redefinir a configuração do SSHD
 
-Se você alterar a configuração do SSHD de VMs do Linux e fechar a conexão SSH antes de verificar as alterações, talvez não consiga usar o SSH novamente. A VMAccess pode ser usada para redefinir a configuração do SSHD para uma configuração válida.
+Se você alterar a configuração do SSHD de VMs do Linux e fechar a conexão SSH antes de verificar as alterações, talvez não consiga usar o SSH novamente. A VMAccess pode ser usada para redefinir a configuração do SSHD para uma configuração válida conhecida sem estar conectado por SSH.
 
 Para redefinir a configuração do SSHD use esse script VMAccess:
 
@@ -208,4 +227,14 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+## Próximas etapas
+
+A atualização do Linux com as Extensões VMAccess do Azure é um método para fazer alterações em uma VM do Linux em execução. Você também pode usar ferramentas como inicialização de nuvem e os Modelos do Azure para modificar a VM do Linux na inicialização.
+
+[Sobre os recursos e extensões de máquina virtual](virtual-machines-linux-extensions-features.md)
+
+[Criando modelos do Azure Resource Manager com extensões de VM do Linux](virtual-machines-linux-extensions-authoring-templates.md)
+
+[Uso de cloud-init para personalizar uma VM do Linux durante a criação](virtual-machines-linux-using-cloud-init.md)
+
+<!---HONumber=AcomDC_0831_2016-->

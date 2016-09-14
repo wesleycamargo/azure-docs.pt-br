@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # Como criar uma coleção do Banco de Dados de Documentos usando o portal do Azure
@@ -22,11 +22,11 @@ Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma 
 
 Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Banco de Dados de Documentos?](#what-is-a-documentdb-collection)
 
-1.  No [Portal do Azure](https://portal.azure.com/), na barra de navegação, clique em **Contas do Banco de Dados de Documentos** e, na folha **Contas do Banco de Dados de Documentos**, selecione a conta à qual você deseja adicionar uma coleção.
+1.  No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)** e, na folha **DocumentDB (NoSQL)**, escolha a conta à qual você deseja adicionar uma coleção.
 
     ![Captura de tela realçando as contas do Banco de Dados de Documentos no Jumpbar, a conta na folha do Banco de Dados de Documentos e o banco de dados na folha da conta do Banco de Dados de Documentos, nas lentes dos Bancos de Dados](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    Se **Contas do Banco de Dados de Documentos** não estiver visível na barra de navegação, clique em **Mais Serviços** e em **Contas do Banco de Dados de Documentos**. Se não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
+    Se **Contas do DocumentDB** não estiver visível na barra de atalhos, clique em **Mais Serviços** e em **DocumentDB (NoSQL)**. Se não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 
 2. Na folha **Contas do Banco de Dados de Documentos** da conta selecionada, na lente **Bancos de dados**, selecione o banco de dados ao qual deseja adicionar uma coleção.
 
@@ -91,4 +91,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

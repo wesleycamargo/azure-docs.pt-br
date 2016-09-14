@@ -73,7 +73,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 A seção de informações da conta identifica informações pertinentes relacionadas ao seu uso e perfil.
 
-	![cabeçalho](./media/billing-understand-your-bill/Header.png)
+![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 | Termo | Descrição |
 |---------------------|-----------------------------------------------------------------------------------------------------|

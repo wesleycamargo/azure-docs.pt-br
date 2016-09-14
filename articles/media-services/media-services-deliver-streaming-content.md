@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia" 
+	pageTitle="Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#Como fornecer conteúdo de Streaming
+# Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
  
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish.md)
 
 ##Visão geral
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável.
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável.
 
 >[AZURE.NOTE]Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador.
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e criar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
   	 
 ##Criar um localizador de streaming sob demanda
 
@@ -171,4 +171,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 
 [Baixar ativos](media-services-deliver-asset-download.md) [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

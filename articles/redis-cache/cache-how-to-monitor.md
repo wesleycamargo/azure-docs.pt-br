@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2016" 
+	ms.date="08/30/2016" 
 	ms.author="sdanie"/>
 
 # Como monitorar o Cache Redis do Azure
@@ -24,7 +24,7 @@ Quando o diagnóstico de cache é habilitado, métricas para instâncias do Cach
 
 As métricas de cache são coletadas usando o comando [INFO](http://redis.io/commands/info) do Redis. Para saber mais sobre os diferentes valores INFO usados para cada métrica de cache, confira [Métricas disponíveis e intervalos de relatórios](#available-metrics-and-reporting-intervals).
 
-Para exibir as métricas de cache [procure](cache-configure.md) sua instância de cache no [Portal do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha **Métricas do Redis**.
+Para exibir as métricas de cache [procure](cache-configure.md#configure-redis-cache-settings) sua instância de cache no [portal do Azure](https://portal.azure.com). As métricas para instâncias do Cache Redis do Azure são acessadas na folha **Métricas do Redis**.
 
 ![Métricas do Redis][redis-cache-redis-metrics-blade]
 
@@ -36,7 +36,7 @@ A folha **Métricas do Redis** tem gráficos de **Monitoramento** que exibem as 
 
 ## Habilitar o diagnóstico de cache
 
-O Cache Redis do Azure fornece a capacidade de ter dados de diagnóstico armazenados em uma conta de armazenamento para que você possa usar as ferramentas desejadas para acessar e processar os dados diretamente. Para que o diagnóstico de cache seja coletado, armazenado e exibido no Portal do Azure, uma conta de armazenamento deve ser configurada. Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
+O Cache Redis do Azure fornece a capacidade de ter dados de diagnóstico armazenados em uma conta de armazenamento para que você possa usar as ferramentas desejadas para acessar e processar os dados diretamente. Para que o diagnóstico de cache seja coletado, armazenado e exibido no portal do Azure, uma conta de armazenamento deve ser configurada. Os caches na mesma região e assinatura compartilham a mesma conta de armazenamento de diagnóstico e, quando a configuração é alterada, se aplica a todos os caches na assinatura que estão nessa região.
 
 Para habilitar e configurar o diagnóstico de cache, navegue até a folha do **Cache Redis** de sua instância de cache. Se o diagnóstico ainda não estiver habilitado, uma mensagem será exibida em vez de um gráfico de diagnóstico.
 
@@ -54,11 +54,11 @@ Clique na seta à direita de **Conta de Armazenamento** para selecionar uma cont
 
 Quando as configurações de diagnóstico estiverem definidas, clique em **Salvar** para salvar a configuração. Observe que pode levar alguns minutos para que as alterações entrem em vigor.
 
->[AZURE.IMPORTANT] Os caches na mesma região e assinatura compartilham as mesmas configurações de armazenamento de diagnóstico e, quando a configuração é alterada (diagnóstico habilitado/desabilitado ou alteração da conta de armazenamento), ela é aplicada a todos os caches na assinatura que está na região.
+>[AZURE.IMPORTANT] Os caches na mesma região e assinatura compartilham as mesmas configurações de armazenamento de diagnóstico e, quando a configuração é alterada (diagnóstico habilitado/desabilitado ou alteração da conta de armazenamento), ela é aplicada a todos os caches na assinatura que estão nessa região.
 
-Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do Portal do Azure, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
+Para exibir as métricas armazenadas, examine as tabelas em sua conta de armazenamento com nomes que começam com `WADMetrics`. Para obter mais informações sobre como acessar as métricas armazenadas fora do portal do Azure, consulte o exemplo [Acessar dados de monitoramento do Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE] Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no Portal do Azure. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no Portal do Azure.
+>[AZURE.NOTE] Apenas as métricas que estão armazenadas na conta de armazenamento selecionada são exibidas no portal do Azure. Se você alterar contas de armazenamento, os dados na conta de armazenamento configurada anteriormente permanecerão disponíveis para download, mas não serão exibidos no portal do Azure.
 
 ## Métricas disponíveis e intervalos de relatórios
 
@@ -82,8 +82,8 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Memória Usada | A quantidade de memória de cache usada para os pares de chave/valor no cache, em MB, durante o intervalo de relatório especificado. Esse valor é mapeado para `used_memory` do comando INFO do Redis. Isso não inclui metadados ou fragmentação. |
 | Memória RSS Usada | A quantidade de memória de cache usada, em MB, durante o intervalo de relatório especificado, incluindo fragmentação e metadados. Esse valor é mapeado para `used_memory_rss` do comando INFO do Redis. |
 | CPU | A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)\% Processor Time` do sistema operacional. |
-| Cache Lido | A quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. **Esse valor corresponde à largura de banda da rede usada por esse cache. Se você deseja configurar alertas para limites de largura de banda de rede no servidor, crie-os usando o contador `Cache Read`. Confira [esta tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e tipos de preço de cache.** |
-| Gravação no Cache | A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
+| Cache Lido | A quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. **Esse valor corresponde à largura de banda da rede usada por esse cache. Se você deseja configurar alertas para limites de largura de banda de rede no servidor, crie-os usando o contador `Cache Read`. Confira [esta tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e tipos de preço de cache.** |
+| Gravação no Cache | A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
 
 
 ## Como exibir métricas e personalizar gráficos
@@ -116,7 +116,7 @@ A folha **Métricas do Redis** contém os gráficos a seguir.
 
 Para obter uma visão mais detalhada das métricas em um gráfico específico e personalizar o gráfico, clique no gráfico desejado na folha** Métricas do Redis** para exibir a folha **Métrica** desse gráfico.
 
-![Lâmina Métrica][redis-cache-metric-blade]
+![Folha Métrica][redis-cache-metric-blade]
 
 Todos os alertas definidos nas métricas exibidas por um gráfico são listados na parte inferior da folha **Métrica** do gráfico.
 
@@ -241,11 +241,11 @@ Para obter informações sobre como exibir as métricas e personalizar os gráfi
 
 ### Gráficos de uso
 
-A seção **Uso** tem gráficos de **Carga do Servidor Redis**, **Uso de Memória**, **Largura de Banda de Rede** e **Uso de CPU** e também exibe a **Camada de preços** para a instância de cache.
+A seção **Uso** tem gráficos de **Carga do Servidor Redis**, **Uso de Memória**, **Largura de Banda de Rede** e **Uso de CPU** e também exibe a **Tipo de preço** para a instância de cache.
 
 ![Gráficos de uso][redis-cache-usage-part]
 
-A **Camada de preços** exibe a camada de preços do cache e pode ser usada para [dimensionar](cache-how-to-scale.md) o cache para uma camada de preços diferente.
+A **Tipo de preço** exibe a tipo de preço do cache e pode ser usada para [dimensionar](cache-how-to-scale.md) o cache para um tipo de preço diferente.
 
 Os gráficos de **Uso** exibem as métricas a seguir.
 
@@ -296,4 +296,4 @@ Para obter informações sobre como exibir as métricas e personalizar os gráfi
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

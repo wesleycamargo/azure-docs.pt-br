@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrar seus dados
-Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas. Cópia do ADF, SSIS e bcp podem ser usados para atingir esse objetivo. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
+Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas. A cópia do ADF, o SSIS e o bcp podem ser usados para cumprir essa meta. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
 
 Em primeiro lugar, este artigo descreve os cenários de migração simples por Cópia do ADF, SSIS e bcp. Em seguida, o artigo se aprofunda um pouco em como a migração pode ser otimizada.
 
 ## Cópia do ADF (Azure Data Factory)
 A [Cópia do ADF][] faz parte do [Azure Data Factory][]. Você pode usar a Cópia do ADF para exportar dados para arquivos simples que residem no armazenamento local, arquivos simples remotos mantidos no armazenamento de blob do Azure ou diretamente no SQL Data Warehouse.
 
-Se seus dados começam em arquivos simples, você precisará transferi-los para o blob de armazenamento antes de carregá-los no SQL Data Warehouse. Depois que os dados são transferidos para o armazenamento de blobs do Azure, você poderá optar por usar a [Cópia do ADF][] novamente para enviar os dados por push ao SQL Data Warehouse.
+Se seus dados começarem em arquivos simples, você precisará transferi-los para o Azure Storage Blob antes de carregá-los no SQL Data Warehouse. Depois que os dados são transferidos para o armazenamento de blob do Azure, você poderá optar por usar a [Cópia do ADF][] novamente para enviar os dados ao SQL Data Warehouse.
 
-O PolyBase também fornece uma opção de desempenho bastante alto para carregamento dos dados. No entanto, isso significa usar duas ferramentas em vez de uma. Se precisar de melhor desempenho, use o PolyBase. Se deseja uma experiência de ferramenta única (e os dados não forem pesados), o ADF é a melhor opção.
+O PolyBase também fornece uma opção de desempenho alto para carregamento dos dados. No entanto, isso significa usar duas ferramentas em vez de uma. Se precisar de melhor desempenho, use o PolyBase. Se deseja uma experiência de ferramenta única (e os dados não forem pesados), o ADF é a melhor opção.
 
 > [AZURE.NOTE] O PolyBase exige que os arquivos de dados estejam em UTF-8. Essa é a codificação padrão da Cópia do ADF; sendo assim, nada precisa ser alterado. Este é apenas um lembrete para não mudar o comportamento padrão da Cópia do ADF.
 
@@ -46,7 +46,7 @@ Além disso, sempre há a possibilidade de que um pacote possa falhar devido a p
 Para saber mais, consulte a [documentação do SSIS][].
 
 ## bcp
-O bcp é um utilitário de linha de comando desenvolvido para importação e exportação de dados de arquivo simples. Há possibilidade de transformação durante a exportação dos dados. Para executar transformações simples, use uma consulta para selecionar e transformar os dados. Depois de exportados, os arquivos simples podem ser carregados diretamente no banco de dados do SQL Data Warehouse de destino.
+O bcp é um utilitário de linha de comando desenvolvido para importação e exportação de dados de arquivo simples. Algumas transformações podem ocorrer durante a exportação de dados. Para executar transformações simples, use uma consulta para selecionar e transformar os dados. Depois de exportados, os arquivos simples podem ser carregados diretamente no banco de dados do SQL Data Warehouse de destino.
 
 > [AZURE.NOTE] Uma boa prática recomendada é encapsular as transformações usadas durante a exportação de dados em uma exibição no sistema de origem. Isso garante que a lógica seja mantida e o processo possa ser repetido.
 
@@ -75,7 +75,7 @@ Um processo de migração de dados SQLDW pode ser dividido efetivamente em três
 Cada etapa pode ser otimizada individualmente para criar um processo de migração robusto, reinicializável e flexível que maximize o desempenho em cada etapa.
 
 ## Otimizando o carregamento de dados
-Observando-as na ordem inversa por um momento, a maneira mais rápida de carregar dados é pelo PolyBase. Otimizar um processo de carregamento do PolyBase impõe pré-requisitos nas etapas anteriores, de modo que é melhor entendê-los de antemão. Eles são:
+Observando-as na ordem inversa por um momento, a maneira mais rápida de carregar dados é pelo PolyBase. A otimização de um processo de carregamento do PolyBase impõe pré-requisitos nas etapas anteriores, de modo que é melhor entendê-los de antemão. Eles são:
 
 1. Codificação dos arquivos de dados
 2. Formatação dos arquivos de dados
@@ -118,7 +118,7 @@ A [Rota Expressa][] é vantajosa em muitos cenários; não apenas na migração.
 Interessado? Para saber mais e obter informações sobre preços, acesse a [documentação da Rota Expressa][].
 
 ### Serviço de Importação e Exportação do Azure
-O Serviço de Importação e Exportação do Azure é um processo de transferência de dados desenvolvido para transferências de volumes de dados grandes (GB++) e em massa (TB++) para o Azure. Ele envolve gravar os dados em discos e enviá-los a um data center do Azure. O conteúdo do disco é carregado no Blob de Armazenamento do Azure em seu nome.
+O Serviço de Importação e Exportação do Azure é um processo de transferência de dados desenvolvido para transferências de volumes de dados grandes (GB++) e em massa (TB++) para o Azure. Ele envolve gravar os dados em discos e enviá-los a um data center do Azure. O conteúdo do disco é carregado nos Blobs de Armazenamento do Azure em seu nome.
 
 Exibição de alto nível do processo de importação/exportação:
 
@@ -173,6 +173,7 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
+[Cópia do ADF]: ../data-factory/data-factory-data-movement-activities.md
 [exemplos de ADF]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
 [Visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
@@ -194,4 +195,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

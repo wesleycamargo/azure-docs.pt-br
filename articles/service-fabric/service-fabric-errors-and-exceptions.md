@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Exceções e erros comuns ao trabalhar com as APIs FabricClient
@@ -44,4 +44,4 @@ Alguns erros [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.
 |InvalidSubjectName|O nome da entidade é inválido.|
 |InvalidAllowedCommonNameList|O formato da cadeia de caracteres de lista de nome comum é inválido. Ele deve ser uma lista separada por vírgulas.|
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

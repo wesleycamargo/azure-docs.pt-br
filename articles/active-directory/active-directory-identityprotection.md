@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -31,9 +31,13 @@ A visualização do Azure Active Directory Identity Protection está disponível
 
 ### Identity Protection e domínios federados
 
-A visualização do Azure Active Directory Identity Protection tem as seguintes limitações em conjunto com domínios federados:
+O Azure Active Directory Identity Protection tem as seguintes limitações em conjunto com domínios federados:
 
-- Somente a política de segurança de risco de entrada funciona para os domínios federados. Atualmente, a política de segurança de risco do usuário não funciona para os domínios federados
+- Para que a política de segurança de Risco de Usuário funcione para domínios federados
+
+	- O [Write-back de senha](active-directory-passwords-getting-started.md) deve ser habilitado para o domínio federado, para que a alteração da senha na nuvem possa ser gravada no local.
+
+	- Uma licença do Azure AD Premium deve ser atribuída ao usuário final.
 
 - Eventos de risco só são detectados em relação a aplicativos em federação com o Azure Active Directory
 
@@ -245,7 +249,7 @@ O Azure AD Identity Protection ajuda a gerenciar a mitigação e correção de u
 - definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara o bloqueio de um usuário:
 <br><br>
 ![Política de risco do usuário](./media/active-directory-identityprotection/503.png "Política de risco do usuário")
-<br>
+ <br>
 
 - alternar o estado de sua política:
 <br><br>
@@ -332,7 +336,7 @@ O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arris
 - alternar o estado de sua política:
 <br><br>
 ![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-<br>
+ <br>
 
 - examinar e avaliar o impacto de uma alteração antes de ativá-la:
 <br><br>
@@ -423,7 +427,7 @@ O Azure AD Identity Protection ajuda a gerenciar a implementação do registro d
 
 Para obter uma visão geral da experiência do usuário relacionada, confira:
 
-- [Fluxo do registro de autenticação multifator](active-directory-identityprotection-flows.md#multi-factor-authentication-registration)
+- [Fluxo do registro de autenticação multifator](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).
 
 - [Registro da autenticação multifator durante a entrada arriscada](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
 
@@ -440,7 +444,7 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 
 
-## Consulte também
+## Confira também
 
  - [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [Tipos de eventos de risco detectados pelo Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
@@ -448,7 +452,7 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
  - [Notificações do Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
  - [Fluxos do Azure Active Directory Identity Protection](active-directory-identityprotection-flows.md)
  - [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
- - [Glossário do Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md).
+ - [Glossário do Azure Active Directory Identity Protection.](active-directory-identityprotection-glossary.md)
  - [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->
