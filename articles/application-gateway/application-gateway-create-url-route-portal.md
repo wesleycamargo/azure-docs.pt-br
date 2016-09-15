@@ -67,7 +67,7 @@ A folha **Adicionar regra com base no caminho** tem duas seções. A primeira se
 - **Pool de back-end**: essa configuração é a que define o back-end a ser usado para a regra padrão
 - **Configuração HTTP**: essa configuração é a que define as configurações HTTP a serem usadas para a regra.
 
->[AZURE.IMPORTANT] Caminhos: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um "*" é permitido, é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*.
+>[AZURE.IMPORTANT] Caminhos: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um "\*" é permitido, é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*.
 
 ![Folha Adicionar regra com base no caminho com informações preenchidas][2]
 

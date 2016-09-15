@@ -156,7 +156,7 @@ A parte do endereço desse arquivo RDP tem:
 
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\*UserName* (exemplo: CORP\\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
