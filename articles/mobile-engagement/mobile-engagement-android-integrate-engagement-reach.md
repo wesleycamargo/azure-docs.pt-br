@@ -249,7 +249,7 @@ Quando você modifica os layouts fornecidos, pode modificar também a aparência
 
 Para registrar um manipulador de categorias para suas notificações, você precisa adicionar uma chamada quando o aplicativo é inicializado.
 
-> [AZURE.IMPORTANT] Leia o aviso sobre o atributo android: process <android-sdk-engagement-process> no tópico Como integrar contratos Android antes de continuar.
+> [AZURE.IMPORTANT] Leia o aviso sobre o atributo android: process \<android-sdk-engagement-process\> no tópico Como integrar contratos Android antes de continuar.
 
 O exemplo a seguir pressupõe que você confirmou o recebimento do aviso anterior e utilizará uma subclasse de `EngagementApplication`:
 

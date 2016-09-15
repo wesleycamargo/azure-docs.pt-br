@@ -137,13 +137,13 @@ Nesta seção, você habilitará o Logon Único do Microsoft Azure AD no portal 
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Aravo e forneça o seguinte:
 
-	- O arquivo de **Certificado baixado**
+	- O arquivo de **Certificado baixado**
 
-	- A **Url do Emissor**
+	- A **Url do Emissor**
 
-	- A **URL de SSO do SAML**
+	- A **URL de SSO do SAML**
 
-	-A **URL do Serviço de Logoff Único**
+	- A **URL do Serviço de Logoff Único**
 
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
