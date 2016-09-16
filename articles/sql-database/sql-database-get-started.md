@@ -137,4 +137,4 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e criou um banco de
 
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->
