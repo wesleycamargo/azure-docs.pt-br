@@ -947,7 +947,7 @@ __Modelo__
 #### Implantação de uma imagem de VM
 Para carregar uma VM ou VHD existente da rede local para usá-lo como uma imagem de VM do Azure, essa VM ou VHD precisa atender aos requisitos listados no capítulo [Preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] deste documento.
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture]
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture]
 * Fazer logon na assinatura com _Login-AzureRmAccount_
 * Definir a assinatura de seu contexto com _Set-AzureRmContext_ e o parâmetro SubscriptionId ou SubscriptionName - confira <https://msdn.microsoft.com/library/mt619263.aspx>
 * Carregar o VHD em uma Conta de Armazenamento do Azure com _Add-AzureRmVhd_ - confira <https://msdn.microsoft.com/library/mt603554.aspx>
@@ -956,7 +956,7 @@ Para carregar uma VM ou VHD existente da rede local para usá-lo como uma imagem
 
 __CLI do Azure__
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
 * Mudar para o modo do Azure Resource Manager com _azure config mode arm_
 * Fazer logon na assinatura com _logon do azure_
 * Selecione a assinatura com _conjunto de contas do azure `<subscription name or id`>_
@@ -965,7 +965,7 @@ __CLI do Azure__
 
 __Modelo__
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
 * Carregar o VHD com o Powershell ou a CLI do Azure
 * Implantar a VM com um modelo JSON referenciando o VHD da imagem, conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 

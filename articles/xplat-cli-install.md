@@ -52,7 +52,7 @@ Os seguintes pacotes de instalador da CLI também estão disponíveis para downl
 
 * [Windows installer][windows-installer]
 
-* [Arquivo tar do Linux][linux-installer] (requer o Node.js e o npm) – instale executando `sudo npm install -g <path to downloaded tar file>`
+* [Arquivo tar do Linux][linux-installer] \(requer o Node.js e o npm) – instale executando `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Opção 3. Usar um contêiner do Docker

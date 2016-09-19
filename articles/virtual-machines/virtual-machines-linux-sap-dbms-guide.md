@@ -447,7 +447,7 @@ ___
 >
 > Há suporte apenas para MDADM e LVM (Logical Volume Manager) para criar um RAID de software no Linux. Para obter mais informações, leia os seguintes artigos:
 >
-> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid] (para MDADM)
+> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid] \(para MDADM)
 > * [Configurar o LVM em uma VM Linux no Azure][virtual-machines-linux-configure-lvm]
 
 
@@ -539,7 +539,8 @@ Eles precisam ser configurados por finalidade ao distribuir VMs, como visto aqui
 Se quisermos criar configurações de alta disponibilidade de implantações de DBMS (independentemente da funcionalidade de HA do DBMS utilizada), as VMs de DBMS precisarão:
 
 * Adicionar as VMs à mesma Rede Virtual do Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
-* As VMs da configuração de HA também devem estar na mesma sub-rede. A resolução de nomes entre as diferentes sub-redes não é possível em implantações somente em nuvem, apenas a resolução de IP funcionará. Usando a conectividade de Rota Expressa ou site a site para implantações entre instalações, uma rede com pelo menos uma sub-rede já estará estabelecida. A resolução de nomes será feita de acordo com a infraestrutura de rede e políticas de AD locais. [comentário]: <> (MSSedusch TODO Testar se ainda é verdadeiro no ARM)
+* As VMs da configuração de HA também devem estar na mesma sub-rede. A resolução de nomes entre as diferentes sub-redes não é possível em implantações somente em nuvem, apenas a resolução de IP funcionará. Usando a conectividade de Rota Expressa ou site a site para implantações entre instalações, uma rede com pelo menos uma sub-rede já estará estabelecida. A resolução de nomes será feita de acordo com a infraestrutura de rede e políticas de AD locais. 
+[comentário]: <> (MSSedusch TODO Testar se ainda é verdadeiro no ARM)
 
 #### Endereços IP
 É altamente recomendável definir as VMs para configurações de HA de forma resiliente. Confiar em endereços IP para endereçar os parceiros de HA na configuração de HA não é confiável no Azure a menos que sejam usados endereços IP estáticos. Há dois conceitos de "Desligamento" no Azure:
@@ -758,14 +759,26 @@ Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade s�
 
 * O uso de um ouvinte de grupo de disponibilidade é possível apenas com o Windows Server 2012 ou Windows Server 2012 R2 como o SO convidado da VM. Para o Windows Server 2012, você precisa se certificar de que o patch esteja aplicado: <https://support.microsoft.com/kb/2854082>
 * Para o Windows Server 2008 R2 esse patch não existe e AlwaysOn precisaria ser usado da mesma maneira que o espelhamento de banco de dados especificando um parceiro de failover na cadeia de conexões (feito por meio do parâmetro default.pfl do SAP dbs/mss/server, consulte a Nota SAP [965908]).
-* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs por acaso sejam desligadas, deve-se atribuir endereços IP estáticos para as interfaces de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo) [comentário]: <> (Blogs antigo) [comentário]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
+* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs por acaso sejam desligadas, deve-se atribuir endereços IP estáticos para as interfaces de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo) 
+[comentário]: <> (Blogs antigo) 
+[comentário]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * Há etapas especiais necessárias ao criar a configuração de cluster de WSFC em que o cluster precisa de um endereço IP especial atribuído, pois o Azure com sua funcionalidade atual atribuiria ao nome do cluster o mesmo endereço IP que o nó em que o cluster foi criado. Isso significa que uma etapa manual deve ser executada para atribuir um endereço IP diferente ao cluster.
 * O ouvinte do grupo de disponibilidade será criado no Azure com pontos de extremidade TCP/IP que são atribuídos às VMs executando as réplicas primária e secundária do grupo de disponibilidade.
 * Pode haver a necessidade de proteger esses pontos de extremidade com ACLs.
 
-[comentário]: <> (TODO blog antigo) [comentário]: <> (As etapas e necessidades detalhadas da instalação de uma configuração AlwaysOn no Azure são melhor experienciadas ao percorrer o tutorial disponível [aqui][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) [comentário]: <> (Configuração do AlwaysOn pré-configurada por meio da galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) [comentário]: <> (A criação de um ouvinte de grupo de disponibilidade é melhor descrita [neste][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) [comentário]: <> (A proteção de pontos de extremidade de rede com ACLs é explicada melhor aqui:) [comentário]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) [comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
+[comentário]: <> (TODO blog antigo) 
+[comentário]: <> (As etapas e necessidades detalhadas da instalação de uma configuração AlwaysOn no Azure são melhor experienciadas ao percorrer o tutorial disponível [aqui][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]) 
+[comentário]: <> (Configuração do AlwaysOn pré-configurada por meio da galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>) 
+[comentário]: <> (A criação de um ouvinte de grupo de disponibilidade é melhor descrita [neste][virtual-machines-windows-classic-ps-sql-int-listener] tutorial) 
+[comentário]: <> (A proteção de pontos de extremidade de rede com ACLs é explicada melhor aqui:) 
+[comentário]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>) 
+[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> ) 
+[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>) 
+[comentário]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade de rede virtual para rede virtual do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]). [comentário]: <> (TODO blog antigo) [comentário]: <> (A configuração de grupos de disponibilidade AlwaysOn do SQL Server nesse cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
+É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade de rede virtual para rede virtual do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]). 
+[comentário]: <> (TODO blog antigo) 
+[comentário]: <> (A configuração de grupos de disponibilidade AlwaysOn do SQL Server nesse cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
 
 #### Resumo da alta disponibilidade do SQL Server no Azure
 Devido ao fato de que o armazenamento do Azure está protegendo o conteúdo, há um motivo a menos para insistir em uma imagem de espera ativa. Isso significa que seu cenário de alta disponibilidade precisa proteger apenas contra os seguintes casos:
@@ -1125,7 +1138,8 @@ Se mais IOPS forem necessários, será altamente recomendável usar pools de arm
 Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem suporte da mesma maneira que o Hyper-V e sistemas operacionais Windows Server standard. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
 
 #### Alta disponibilidade
-[comentário]: <> (o link se refere ao ASM) O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nessa][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
+[comentário]: <> (o link se refere ao ASM) 
+O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nessa][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
 #### Outros
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.

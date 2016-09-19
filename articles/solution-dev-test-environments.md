@@ -69,7 +69,7 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *replace with your password*
+ - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1devdb*
 
 4. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetros do ambiente de Teste criado na Etapa 3, substituindo os valores listados à direita dos valores de parâmetro no arquivo pelos *valores* listados à direita dos **parâmetros** abaixo:
@@ -79,7 +79,7 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *replace with your password*
+ - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1testdb*
 
 5. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetro de Pré-produção que você criou na Etapa 3. Substitua todo o conteúdo do arquivo pelos itens abaixo:
