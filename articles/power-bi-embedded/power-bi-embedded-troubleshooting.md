@@ -3,7 +3,7 @@
    description="Solução de problemas da Preview do Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="06/29/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Solução de problemas da Preview do Microsoft Power BI Embedded
 Este artigo fornece respostas para saber como solucionar problemas do **Power BI Inserido**.
@@ -40,4 +40,4 @@ Em um caso em que você tenha as credenciais para um ambiente de preparo ou de d
 - [Introdução a exemplos](power-bi-embedded-get-started-sample.md)
 - [O que é o Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

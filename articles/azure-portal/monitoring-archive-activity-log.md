@@ -23,7 +23,7 @@ Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do 
 Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Log de Atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
 
 ## Perfil de Log
-Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você deverá definir o **Log de Perfil** para uma assinatura. O Perfil de Log define o tipo de eventos armazenados ou transmitidos e as saídas — conta de armazenamento e/ou hub de eventos. Ele também define a política de retenção (número de dias para manter) para eventos armazenados em uma conta de armazenamento. Se a política de retenção for definida como zero, os eventos serão armazenados indefinidamente. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você deverá definir o **Log de Perfil** para uma assinatura. O Perfil de Log define o tipo de eventos armazenados ou transmitidos e as saídas — conta de armazenamento e/ou hub de eventos. Ele também define a política de retenção (número de dias para manter) para eventos armazenados em uma conta de armazenamento. Se a política de retenção for definida como zero, os eventos serão armazenados indefinidamente. Caso contrário, isso pode ser definido como qualquer valor entre 1 e 2147483647. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
 ## Arquivar o Log de Atividades usando o portal
 1. No portal, clique no link **Log de atividades** na barra de navegação do lado esquerdo. Se você não vir um link para o Log de Atividades, clique no link **Mais Serviços** primeiro.
@@ -46,8 +46,8 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Propriedade | Obrigatório | Descrição |
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | Não | A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| Locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazena os logs indefinidamente. |
+| Locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/pt-BR/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
 | Categorias | Sim | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 ## Arquivar o Log de Atividades por meio da CLI
 ```
@@ -58,8 +58,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name | Sim | Nome de seu perfil de log. |
 | storageId | Não | A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazenará os logs indefinidamente. |
+| locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/pt-BR/regions) ou usando [a API REST do Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| retentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará os logs indefinidamente (para sempre). |
 | categorias | Sim | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 ## Esquema de armazenamento do Log de Atividades
@@ -156,4 +156,4 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 - [Transmitir o Log de Atividades para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 - [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -33,7 +33,7 @@ Os Logs de Diagnóstico para os recursos de Não Computação são configurados 
 
 - Para onde os Logs de Diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Log Analytics do OMS).
 - Quais Categorias de Log são enviadas.
-- Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+- Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Esse valor pode variar de 1 a 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
 
 Essas configurações são facilmente definidas via folha Diagnóstico para um recurso no Portal do Azure, via Azure PowerShell e comandos da CLI ou via [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -50,13 +50,17 @@ A coleção de Logs de Diagnóstico pode ser habilitada como parte da criação 
 Você pode habilitar os Logs de Diagnóstico no Portal do Azure ao criar alguns tipos de recursos fazendo o seguinte:
 
 1.	Vá para **Novo** e escolha o recurso em que você está interessado.
-2.	Depois de definir as configurações básicas e selecionar um tamanho, na folha **Configurações**, em **Monitoramento**, selecione **Habilitado** e escolha uma conta de armazenamento na qual você gostaria de armazenar os Logs de Diagnóstico. Você será cobrado pelas taxas de dados normais para o armazenamento e as transações quando enviar diagnósticos para uma conta de armazenamento. ![Habilitar Logs de Diagnóstico durante a criação de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	Depois de definir as configurações básicas e selecionar um tamanho, na folha **Configurações**, em **Monitoramento**, selecione **Habilitado** e escolha uma conta de armazenamento na qual você gostaria de armazenar os Logs de Diagnóstico. Você será cobrado pelas taxas de dados normais para o armazenamento e as transações quando enviar diagnósticos para uma conta de armazenamento.
+
+    ![Habilitar Logs de Diagnóstico durante a criação de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Clique em **OK** e crie o recurso.
 
 Para habilitar os Logs de Diagnóstico no Portal do Azure depois de um recurso ser criado, faça o seguinte:
 
 1.	Vá para a folha do recurso e abra folha **Diagnóstico**.
-2.	Clique em **Ativar** e selecione uma Conta de Armazenamento e/ou Hub de Eventos. ![Habilitar Logs de Diagnóstico depois da criação de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	Clique em **Ativar** e selecione uma Conta de Armazenamento e/ou Hub de Eventos.
+
+    ![Habilitar Logs de Diagnóstico depois da criação de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	Em **Logs**, selecione quais **Categorias de Log** você gostaria de coletar ou transmitir.
 4.	Clique em **Salvar**.
 
@@ -91,7 +95,7 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 
 Para alterar as Configurações de Diagnóstico usando a API REST do Insights, confira [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
-## Serviços e Esquema com Suporte para os Logs de Diagnóstico
+## Serviços e esquema com suporte para os Logs de Diagnóstico
 O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categoria do log. Abaixo estão os serviços com suporte e seu esquema.
 
 | O Barramento de | Esquema e Documentos |
@@ -104,10 +108,35 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 | Repositório Data Lake | [Acessando os logs de diagnóstico do Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Análises Data Lake | [Acessando os logs de diagnóstico do Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Aplicativos Lógicos | Nenhum esquema disponível. |
+| Lote do Azure | Nenhum esquema disponível. |
+| Automação do Azure | Nenhum esquema disponível. |
+
+## Categorias de log com suporte por tipo de recurso
+
+|Tipo de recurso|Categoria|Nome de exibição da categoria|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
+|Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
+|Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
+|Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
+|Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
+|Microsoft.DataLakeStore/accounts|Solicitações|Logs de solicitação|
+|Microsoft.KeyVault/vaults|AuditEvent|Logs de Auditoria|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de tempo de execução do fluxo de trabalho|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
+|Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 
 ## Próximas etapas
 - [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Alterar as Configurações de Diagnóstico usando a API REST do Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

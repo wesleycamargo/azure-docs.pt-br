@@ -35,11 +35,12 @@ O serviço deve definir pelo menos duas instâncias de uma função para que ess
 Este tópico aborda as seguintes informações sobre as atualizações do Azure:
 
 -   [Alterações permitidas no serviço durante uma atualização](#AllowedChanges)
+-   [Como uma atualização é realizada](#howanupgradeproceeds)
 -   [Reversão de uma atualização](#RollbackofanUpdate)
 -   [Inicialização de várias operações de mutação em uma implantação em andamento](#multiplemutatingoperations)
 -   [Distribuição de funções em domínios de atualização](#distributiondfroles)
--   [Como uma atualização é realizada](#howanupgradeproceeds)
 
+<a name="AllowedChanges"></a>
 ## Alterações permitidas no serviço durante uma atualização
 A tabela a seguir mostra as alterações permitidas em um serviço durante uma atualização:
 
@@ -72,6 +73,7 @@ Os itens a seguir não têm suporte durante uma atualização:
 
 Se você estiver fazendo outras atualizações na definição do serviço, como a redução do tamanho do recurso local, será necessário executar uma atualização de permuta de VIP. Para saber mais, consulte, consulte [Implantação de permuta](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
+<a name="howanupgradeproceeds"></a>
 ## Como uma atualização é realizada
 Você pode decidir se deseja atualizar todas as funções ou uma única função no serviço. Em ambos os casos, todas as instâncias de cada função que está sendo atualizada e pertence ao primeiro domínio de atualização serão interrompidas, atualizadas e colocadas novamente online. Quando estiverem online novamente, as instâncias no segundo domínio de atualização serão interrompidas, atualizadas e colocadas novamente online. Um serviço de nuvem pode ter no máximo uma atualização ativa por vez. A atualização é sempre executada na versão mais recente do serviço de nuvem.
 
@@ -124,6 +126,7 @@ Durante uma atualização automática, o Azure Fabric Controller avalia periodic
 ### Tempo limite de inicialização de instância de função
 O controlador de malha aguardará 30 minutos para cada instância de função atingir um estado iniciado. Se a duração do tempo limite expirar, o controlador de malha prosseguirá para a próxima instância de função.
 
+<a name="RollbackofanUpdate"></a>
 ## Reversão de uma atualização
 O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão só pode ser realizada quando uma atualização (mudança de configuração) ou upgrade estiver no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Obter Propriedades do Serviço de Nuvem](https://msdn.microsoft.com/library/azure/ee460806.aspx), está definido como true.
 
@@ -132,7 +135,7 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a implantação:
 
 -   Quaisquer instâncias de função que ainda não foram atualizadas para a nova versão não serão atualizadas, porque essas instâncias já estão executando a versão de destino do serviço.
--   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (\*.cspkg) do serviço ou do arquivo de configuração (\*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
+-   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 
@@ -153,6 +156,7 @@ Um exemplo de quando a reversão de uma atualização pode ser útil é se você
 
 Durante a implantação da atualização você chama a [Implantação de atualização](https://msdn.microsoft.com/library/azure/ee460793.aspx) no modo manual e começa a percorrer os domínios de atualização. Se, em algum momento, enquanto monitora a atualização, você observar algumas instâncias de função nos primeiros domínios de atualização ficarem sem resposta, chame a operação [Reversão de atualização ou upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) na implantação, e isso deixará as instâncias que ainda não tinham sido atualizadas sem alteração e reverterá as instâncias que foram atualizadas para o pacote de serviço e configuração anteriores.
 
+<a name="multiplemutatingoperations"></a>
 ## Inicialização de várias operações de mutação em uma implantação em andamento
 Em alguns casos, convém iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto a atualização estiver sendo revertida em seu serviço, convém fazer algumas alterações por exemplo, reverter a atualização, aplicar outra atualização ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver um código com bugs que faz com que uma instância de função atualizada apresente falhas repetidamente. Nesse caso, o controlador de malha do Azure não poderá progredir com a aplicação dessa atualização, pois há um número insuficiente de instâncias íntegras no domínio atualizado. Esse estado é conhecido como *implantação paralisada*. Você pode resolver a paralisação da implantação revertendo a atualização ou aplicando uma nova atualização sobre a atualização com falha.
 
@@ -166,6 +170,7 @@ Duas operações, [Obter a implantação](https://msdn.microsoft.com/library/azu
 
 Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01" ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
+<a name="distributiondfroles"></a>
 ## Distribuição de funções em domínios de atualização
 O Azure distribui instâncias de uma função uniformemente por um determinado número de domínios de atualização, que pode ser configurado como parte do arquivo de definição (.csdef) do serviço. O número máximo de domínios de atualização é de 20 e o padrão é cinco. Para saber mais sobre como modificar o arquivo de definição de serviço, consulte [Esquema de definição de serviço do Azure (arquivo .csdef)](cloud-services-model-and-package.md#csdef).
 
@@ -182,4 +187,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## Próximas etapas
 [Como gerenciar os Serviços de Nuvem](cloud-services-how-to-manage.md) [Como monitorar os Serviços de Nuvem](cloud-services-how-to-monitor.md) [Como configurar os Serviços de Nuvem](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

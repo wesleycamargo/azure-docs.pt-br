@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/16/2016"
+	ms.date="09/06/2016"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Eventos
@@ -64,7 +64,7 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[portal clássico do Azure]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

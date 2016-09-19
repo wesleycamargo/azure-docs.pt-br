@@ -19,8 +19,8 @@
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
 
 > [AZURE.SELECTOR]
-- [C# da Windows Store](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
-- [iOS](notification-hubs-ios-send-localized-breaking-news.md)
+- [C# da Windows Store](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+- [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ##Visão geral
 
@@ -46,7 +46,7 @@ O Visual Studio 2012 ou posterior também é necessário.
 
 Em [Usar Hubs de Notificação para envio de últimas notícias] você criou um aplicativo que usou **marcas** para assinar notificações para diferentes categorias de notícias. No entanto, muitos aplicativos são destinados a vários mercados e requerem localização. Isso significa que o próprio conteúdo das notificações deve ser localizado e entregue para o conjunto de dispositivos correto. Neste tópico, mostraremos como usar o recurso **template** de Hubs de Notificação para entregar facilmente notificações de últimas notícias localizadas.
 
-Observação: uma maneira de enviar notificações localizadas é criar várias versões de cada marca. Por exemplo, para oferecer suporte a inglês, francês e mandarim, precisamos de três marcas diferentes para notícias do mundo: "world\_en", "world\_fr" e "world\_ch". Em seguida, precisamos enviar uma versão localizada das notícias do mundo para cada uma dessas marcas. Neste tópico, usamos modelos para evitar a proliferação de marcas e a necessidade de enviar várias mensagens.
+Observação: uma maneira de enviar notificações localizadas é criar várias versões de cada marca. Por exemplo, para oferecer suporte a inglês, francês e mandarim, precisamos de três marcas diferentes para notícias do mundo: "world\_en", "world\_fr" e "world\_ch". Em seguida, precisamos enviar uma versão localizada das notícias do mundo para cada uma dessas marcas. Neste tópico, usamos modelos para evitar a proliferação de marcações e a necessidade de enviar várias mensagens.
 
 Em um alto nível, os modelos são uma maneira de especificar como um dispositivo específico deve receber uma notificação. O modelo especifica o formato exato da carga referindo-se às propriedades que fazem parte da mensagem enviada por seu aplicativo de back-end. Em nosso caso, enviaremos uma mensagem independente de localidade contendo todos os idiomas com suporte:
 
@@ -73,7 +73,7 @@ Os modelos são um recurso muito avançado sobre o qual você pode aprender em n
 
 ##A interface do usuário do aplicativo
 
-Agora vamos modificar o aplicativo Breaking News que você criou no tópico [Usar Hubs de Notificação para envio de últimas notícias] para enviar últimas notícias localizadas usando modelos.
+Agora vamos modificar o aplicativo Últimas Notícias que você criou no tópico [Usar os Hubs de Notificação para enviar as últimas notícias] para enviar as últimas notícias localizadas usando modelos.
 
 Em seu aplicativo da Windows Store:
 
@@ -211,6 +211,7 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Usar Hubs de Notificação para enviar últimas notícias]: /manage/services/notification-hubs/breaking-news-dotnet
 [Usar Hubs de Notificação para envio de últimas notícias]: /manage/services/notification-hubs/breaking-news-dotnet
+[Usar os Hubs de Notificação para enviar as últimas notícias]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -228,4 +229,4 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
-Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este tópico descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou desastre.
+Os aplicativos de missão crítica devem funcionar continuamente, mesmo na presença de interrupções ou de desastres não planejados. Este tópico descreve técnicas que podem ser usadas para proteger aplicativos do Barramento de Serviço contra uma potencial interrupção de serviço ou um desastre.
 
 Uma interrupção é definida como a indisponibilidade temporária do Barramento de Serviço do Azure. A interrupção pode afetar alguns componentes do Barramento de Serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. Depois que o problema tiver sido corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de falha de um componente é a indisponibilidade de um repositório de mensagens específico. Um exemplo de uma paralisação de todo o datacenter é uma falha de energia do datacenter ou uma chave de rede do datacenter com defeito. Uma falha pode durar de alguns minutos até alguns dias.
 
@@ -25,7 +25,7 @@ Um desastre é definido como a perda permanente de uma unidade de escala ou de u
 
 ## Arquitetura atual
 
-O Barramento de Serviço usa vários repositórios de mensagens para armazenar mensagens enviadas para filas ou tópicos. Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações naquela fila ou tópico falharão.
+O Barramento de Serviço usa vários repositórios de mensagens para armazenar mensagens enviadas para filas ou tópicos. Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão.
 
 Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço não habilita a replicação geográfica automática de dados, nem permite que um namespace se estenda para vários data centers.
 
@@ -35,9 +35,9 @@ Se você estiver usando as credenciais do ACS e ele ficar indisponível, os clie
 
 Para proteger contra interrupções do ACS, use tokens de Assinatura de Acesso Compartilhado (SAS). Nesse caso, o cliente autenticará diretamente no Barramento de Serviço assinando um token sem uso com uma chave secreta. As chamadas ao ACS não são mais necessárias. Para saber mais sobre tokens SAS, confira [Autenticação do Barramento de Serviço][].
 
-## Protegendo filas e tópicos contra falhas do armazenamento de mensagens
+## Protegendo filas e tópicos contra falhas do repositório de mensagens
 
-Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações naquela fila ou tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para obter mais informações sobre entidades particionadas, veja as [Entidades de mensagens particionadas][].
+Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações na fila ou no tópico falharão. Uma fila particionada, por outro lado, consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. Se o repositório de mensagens correspondente não estiver disponível, o Barramento de Serviço grava a mensagem em um fragmento diferente, se possível. Para obter mais informações sobre entidades particionadas, veja as [Entidades de mensagens particionadas][].
 
 ## Proteção contra interrupções ou desastres de datacenter
 
@@ -55,7 +55,7 @@ O exemplo [Replicação geográfica com mensagens retransmitidas do Barramento d
 
 ## Protegendo filas e tópicos contra interrupções ou desastres do datacenter
 
-Para obter resiliência contra interrupções de datacenter ao usar o sistema de mensagens agenciado, o Barramento de Serviço oferecerá suporte a duas abordagens: replicação *ativa* e *passiva*. Para cada abordagem, se uma determinada fila ou tópico deve permanecer acessível em caso de falha do datacenter, você pode criá-lo em ambos os namespaces. Ambas as entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser acessada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto sua equivalente pode ser acessada em **contosoSecondary.servicebus.windows.net/myQueue**.
+Para obter resiliência contra interrupções de datacenter ao usar o sistema de mensagens agenciado, o Barramento de Serviço oferecerá suporte a duas abordagens: replicação *ativa* e *passiva*. Para cada abordagem, se um determinado tópico ou fila deve permanecer acessível em caso de falha do datacenter, você poderá criá-lo em ambos os namespaces. Ambas as entidades podem ter o mesmo nome. Por exemplo, uma fila primária pode ser acessada em **contosoPrimary.servicebus.windows.net/myQueue**, enquanto sua equivalente pode ser acessada em **contosoSecondary.servicebus.windows.net/myQueue**.
 
 Se o aplicativo não exigir comunicação permanente do remetente para receptor, o aplicativo poderá implementar uma fila durável do lado do cliente para evitar a perda de mensagens e proteger o remetente de erros transitórios do Barramento de Serviço.
 
@@ -85,14 +85,6 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 
 O exemplo [Replicação geográfica com o sistema de mensagens agenciado do Barramento de Serviço][] demonstra a replicação passiva de entidades do sistema de mensagens.
 
-## Fila durável do lado do cliente
-
-Se o aplicativo puder tolerar a indisponibilidade de uma entidade do Barramento de Serviço, mas não puder perder mensagens, o remetente poderá empregar uma fila durável do lado do cliente que armazene localmente todas as mensagens que não puderem ser enviadas para o Barramento de Serviço. Depois que a entidade do Barramento de Serviço ficar disponível novamente, todas as mensagens armazenadas em buffer serão enviadas para essa entidade. O exemplo [Remetente de mensagem durável][] implementa uma fila com a ajuda do MSMQ. Como alternativa, as mensagens poderão ser gravadas no disco local.
-
-Uma fila durável do lado do cliente preserva a ordem das mensagens e protege o aplicativo cliente de exceções caso a entidade do Barramento de Serviço não esteja disponível. Ela pode ser usada com transações simples e distribuídas.
-
-> [AZURE.NOTE] Este exemplo funciona bem em cenários de IaaS (infraestrutura como serviço) em que um disco local ou um disco para o MSMQ é mapeado para uma conta de armazenamento e as mensagens são armazenadas de forma confiável com o MSMQ. Isso não é adequado para cenários de PaaS (plataforma como serviço), como serviços de nuvem e aplicativos da Web.
-
 ## Próximas etapas
 
 Para saber mais sobre a recuperação de desastres, confira estes artigos:
@@ -102,13 +94,12 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
   [Autenticação do Barramento de Serviço]: service-bus-authentication-and-authorization.md
   [Entidades de mensagens particionadas]: service-bus-partitioning.md
-  [Padrões de mensagens assíncronas e alta disponibilidade]: service-bus-async-messaging.md
+  [Padrões de mensagens assíncronas e alta disponibilidade]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [Replicação geográfica com mensagens retransmitidas do Barramento de Serviço]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Replicação geográfica com o sistema de mensagens agenciado do Barramento de Serviço]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [Remetente de mensagem durável]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuidade dos negócios no Banco de dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientações técnicas de resiliência do Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # SDK do dispositivo IoT do Microsoft Azure para C – mais informações sobre o serializador
@@ -22,7 +22,7 @@ O [primeiro artigo](iot-hub-device-sdk-c-intro.md) desta série apresentou o **S
 
 O artigo de introdução descreve como usar a biblioteca do **serializador** para enviar eventos ao Hub IoT e receber mensagens dele. Neste artigo, estenderemos a discussão com uma explicação mais completa de como modelar seus dados com a linguagem de macro do **serializador**. O artigo também inclui mais detalhes sobre como a biblioteca serializa as mensagens (e, em alguns casos, como você pode controlar o comportamento da serialização). Descreveremos alguns parâmetros que você poderá modificar e que determinam o tamanho dos modelos criados por você.
 
-Por fim, o artigo revê alguns tópicos abordados em artigos anteriores, como a manipulação de mensagens e de propriedades. Como veremos, esses recursos funcionam da mesma forma ao usar a biblioteca do **serializador** e a biblioteca **IoTHubClient**.
+Por fim, o artigo revê alguns tópicos abordados em artigos anteriores, como o tratamento de mensagens e de propriedades. Como veremos, esses recursos funcionam da mesma forma ao usar a biblioteca do **serializador** e a biblioteca **IoTHubClient**.
 
 Todo o conteúdo do artigo baseia-se nas amostras do SDK do **serializador**. Se você quiser acompanhar, confira os aplicativos **simplesample\_amqp** e **simplesample\_http** incluídos no SDK do dispositivo IoT do Azure para C.
 
@@ -70,7 +70,7 @@ Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do *
 | int16\_t | inteiro de 16 bits |
 | int32\_t | inteiro de 32 bits |
 | int64\_t | inteiro de 64 bits |
-| bool | booleano |
+| bool | Booliano |
 | ascii\_char\_ptr | Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET | diferença de data e horário |
 | EDM\_GUID | GUID |
@@ -572,7 +572,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Como mencionado anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. O nome do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
+Como mencionado anteriormente, **DECLARE\_MODEL** é apenas uma macro de C. Os nomes do modelo e a instrução **WITH\_DATA** (outra macro) são parâmetros de **DECLARE\_MODEL**. O **nMacroParameters** define quantos parâmetros podem ser incluídos em **DECLARE\_MODEL**. Efetivamente, isso define quantos eventos de dados e declarações de ação você pode ter. Dessa forma, com o limite padrão de 124, isso significa que você pode definir um modelo com uma combinação de cerca de 60 ações e eventos de dados. Se você tentar exceder esse limite, receberá erros do compilador parecidos com o seguinte:
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
@@ -616,7 +616,7 @@ Conforme descrito em um [artigo anterior](iot-hub-device-sdk-c-iothubclient.md),
 
 Essas APIs são demonstradas em **simplesample\_amqp**.
 
-Há também um conjunto semelhante de APIs de nível inferior.
+Há também um conjunto análogo de APIs de nível inferior.
 
 -   IoTHubClient\_LL\_CreateFromConnectionString
 
@@ -685,4 +685,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

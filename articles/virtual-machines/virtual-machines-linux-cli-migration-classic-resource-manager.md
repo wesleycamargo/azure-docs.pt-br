@@ -58,8 +58,26 @@ Agora mude a CLI para o modo `asm`.
 
 	azure config mode asm
 
+## Etapa 3: Verifique se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou VNET
 
-## Etapa 3: Opção 1 – Migrar máquinas virtuais em um serviço de nuvem 
+Nesta etapa, você precisará alternar para o modo `arm`. Faça isso com o seguinte comando.
+
+```
+azure config mode arm
+```
+
+Você pode usar o seguinte comando da CLI para verificar a quantidade atual de núcleos no Azure Resource Manager. Para saber mais sobre cotas de núcleos, veja [Limites e o Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+
+```
+azure vm list-usage -l "<Your VNET or Deployment's Azure region"
+```
+
+Quando você terminar de verificar esta etapa, volte para o modo `asm`.
+
+	azure config mode asm
+
+
+## Etapa 4: Opção 1 – Migrar máquinas virtuais em um serviço de nuvem 
 
 Obtenha a lista de serviços de nuvem usando o comando a seguir e escolha o serviço de nuvem que deseja migrar. Observe que, se as VMs no serviço de nuvem estiverem em uma rede virtual ou se tiverem funções web/de trabalho, você receberá uma mensagem de erro.
 
@@ -93,7 +111,7 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 
 
 	
-## Etapa 3: Opção 2 – Migrar máquinas virtuais em uma rede virtual
+## Etapa 4: Opção 2 – Migrar máquinas virtuais em uma rede virtual
 
 Selecione a rede virtual que você deseja migrar. Observe que, se a rede virtual contiver funções web/de trabalho ou VMs com configurações sem suporte, você receberá uma mensagem de erro de validação.
 
@@ -119,7 +137,7 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 
 	azure network vnet commit-migration <virtualNetworkName>
 
-## Etapa 4: Migrar uma conta de armazenamento
+## Etapa 5: Migrar uma conta de armazenamento
 
 Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
 
@@ -140,4 +158,4 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 - [Migração de recursos de IaaS com suporte da plataforma do Clássico para o Gerenciador de Recursos](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

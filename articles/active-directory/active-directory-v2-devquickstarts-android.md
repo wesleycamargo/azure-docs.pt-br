@@ -49,7 +49,8 @@ Crie um novo aplicativo no [Portal de registro de aplicativos](https://apps.dev.
 
 - Copiar a **ID do Aplicativo** atribuída ao seu aplicativo, pois você precisará dela em breve.
 - Adicione a plataforma **Móvel** de seu aplicativo.
-- Copiar o **URI de redirecionamento** do portal. Você deve usar o valor padrão de `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+
+> Observação: o portal de registro de aplicativo fornece um valor de **URI de redirecionamento**. No entanto, neste exemplo, você deve usar o valor padrão de `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
 ## Baixar a biblioteca de terceiros NXOAuth2 e criar um espaço de trabalho
@@ -196,4 +197,4 @@ Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Prot
 
 É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

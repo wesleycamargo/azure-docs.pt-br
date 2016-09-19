@@ -35,7 +35,7 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 
 | Problema | Resolução |
 | :----------------------------------| :---------------------------------------------- |
-| O Pesquisador de objetos do Visual Studio não tem usuários de AAD | Esse é um problema conhecido. Como alternativa, exiba os usuários em [sys.database\_principals][]. Confira [Autenticação do Azure SQL Data Warehouse][] para saber mais sobre como usar o Active Directory do Azure com o SQL Data Warehouse.|
+| O Pesquisador de objetos do Visual Studio não tem usuários de AAD | Esse é um problema conhecido. Como alternativa, exiba os usuários em [sys.database\_principals][]. Confira [Autenticação do Azure SQL Data Warehouse][] para saber mais sobre como usar o Azure Active Directory com o SQL Data Warehouse.|
 
 ## Desempenho
 
@@ -52,7 +52,7 @@ Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clien
 
 | Problema | Resolução |
 | :----------------------------------| :---------------------------------------------- |
-| Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Produtividade do Banco de Dados permitida de 45.000. | Reduza o [DWU][] do banco de dados que você está tentando criar ou [solicite um aumento de cota][].|
+| Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Transação de Banco de Dados permitida de 45000. | Reduza o [DWU][] do banco de dados que você está tentando criar ou [solicite um aumento de cota][].|
 | Investigação da utilização de espaço | Confira [Tamanhos da tabela][] para entender a utilização do espaço de seu sistema.|
 | Ajuda com o gerenciamento de tabelas | Confira o artigo [Visão geral da tabela][Overview] para obter ajuda com o gerenciamento de suas tabelas. Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela][Data types], [Distribuindo uma tabela][Distribute], [Indexando uma tabela][Index], [Particionando uma tabela][Partition], [Mantendo as estatísticas da tabela][Statistics] e [Tabelas temporárias][Temporary].|
 
@@ -128,7 +128,7 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 <!--MSDN references-->
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -139,4 +139,4 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

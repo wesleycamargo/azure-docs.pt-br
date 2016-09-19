@@ -60,7 +60,7 @@ Correção:
 + Verifique se você forneceu as credenciais corretas de entrada da conta do Azure.
 + No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
 + [Adicione o Application Insights ao seu projeto existente](app-insights-asp-net.md): no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
-+ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-asp-net-manual.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto.
++ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-windows-services.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto.
 
 ## <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 
@@ -143,7 +143,7 @@ Correção:
 
 ## <a name="q03"></a> Nenhum dado do servidor (ou nenhum dado)
 
-*Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
+* Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
 
 + Execute seu aplicativo em modo de depuração no Visual Studio (F5). Use o aplicativo para gerar alguma telemetria. Verifique se você pode ver os eventos registrados na janela de saída do Visual Studio.
 
@@ -215,4 +215,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/20/2016"
+   ms.date="09/06/2016"
    ms.author="toddabel"/>
 
 
@@ -49,8 +49,8 @@ Para projetos criados dos **modelos de serviço** (com ou sem estado), basta pro
 
 Para projetos criados de **modelos de ator** (com ou sem estado):
 
-1. Abra o arquivo **"ProjectName".cs**, onde *ProjectName* é o nome escolhido para seu projeto do Visual Studio.  
-2. Localize o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync*. Este é um exemplo de um rastreamento ETW personalizado escrito a partir do código do aplicativo.  
+1. Abra o arquivo **"ProjectName".cs**, onde *ProjectName* é o nome escolhido para seu projeto do Visual Studio.
+2. Localize o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync*. Este é um exemplo de um rastreamento ETW personalizado escrito a partir do código do aplicativo.
 3. No arquivo **ActorEventSource.cs**, você encontrará uma sobrecarga para o método `ActorEventSource.ActorMessage` que deve ser usado para eventos de alta frequência por motivos de desempenho.
 
 Depois de adicionar o rastreamento ETW personalizado ao código de serviço, você pode criar, implantar e executar o aplicativo novamente para ver seus eventos no Visualizador de Eventos de Diagnóstico. Se você depurar o aplicativo com **F5**, o Visualizador de Eventos de Diagnóstico será aberto automaticamente.
@@ -60,4 +60,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Usando ElasticSearch como um repositório de rastreamento do aplicativo de Malha de Serviços](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

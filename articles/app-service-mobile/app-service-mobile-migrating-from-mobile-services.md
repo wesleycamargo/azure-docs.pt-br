@@ -42,7 +42,7 @@ Para obter mais informações sobre os benefícios do Serviço de Aplicativo do 
 
 Antes de começar qualquer trabalho importante no seu site, você deve [fazer backup dos scripts do serviço móvel] e do Banco de Dados SQL.
 
-Se você quiser testar o processo de migração antes de migrar seu site de produção, duplique seu serviço móvel do Azure de produção dentro de uma nova [região do Azure] \(completo com uma cópia da fonte de dados) e teste a migração em relação à nova URL. Você também precisará de uma implementação de cliente de teste que aponte para o site de teste para testar adequadamente o site migrado.
+Se você quiser testar o processo de migração antes de migrar seu site de produção, duplique seu serviço móvel do Azure de produção dentro de uma nova [região do Azure] (completo com uma cópia da fonte de dados) e teste a migração em relação à nova URL. Você também precisará de uma implementação de cliente de teste que aponte para o site de teste para testar adequadamente o site migrado.
 
 ## <a name="migrating-site"></a>Migrando seus sites
 
@@ -353,7 +353,7 @@ Se você tiver um site do ASP.NET, as alterações no arquivo `Web.config` não 
 </configuration>
 ```
 
-Para obter mais informações, consulte a documentação [XDT Transform Samples] \(Exemplos de Transformação XDT) no GitHub.
+Para obter mais informações, consulte a documentação [XDT Transform Samples] (Exemplos de Transformação XDT) no GitHub.
 
 ### Os Serviços Móveis migrados não podem ser adicionados ao Gerenciador de Tráfego
 
@@ -381,17 +381,17 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Dimensionamento automático]: ../app-service-web/web-sites-scale.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
-[região do Azure]: https://azure.microsoft.com/regions/
+[região do Azure]: https://azure.microsoft.com/pt-BR/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
 [implantar continuamente]: ../app-service-web/app-service-continuous-deployment.md
-[Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Converter seus namespaces mistos]: https://azure.microsoft.com/pt-BR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -400,7 +400,7 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [Registro em log]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis vs. Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
+[Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoramento de desempenho]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [fazer backup dos scripts do serviço móvel]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +409,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

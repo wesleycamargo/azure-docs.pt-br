@@ -19,13 +19,13 @@
 # Registrar o usuário atual para notificações por push usando o ASP.NET
 
 > [AZURE.SELECTOR]
-- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 
 
 ##Visão geral
 
-Este tópico mostra como solicitar o registro de notificações por push com os Hubs de Notificação do Azure, quando o registro é executado pela API Web ASP.NET. Este tópico estende o tutorial [Notificar usuários com Hubs de Notificação]. Você já deve ter concluído as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação aos usuários, consulte [Notificar os usuários com os Hubs de Notificação].
+Este tópico mostra como solicitar o registro de notificações por push com os Hubs de Notificação do Azure, quando o registro é executado pela API Web ASP.NET. Este tópico estende o tutorial [Notificar usuários com os Hubs de Notificação]. Você já deve ter concluído as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação aos usuários, consulte [Notificar os usuários com os Hubs de Notificação].
 
 ##Atualizar seu aplicativo  
 
@@ -235,7 +235,8 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Notificar os usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 [Notificar os usuários com os Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 [Notificar usuários com Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
+[Notificar usuários com os Hubs de Notificação]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

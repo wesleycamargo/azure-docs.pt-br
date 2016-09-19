@@ -101,57 +101,17 @@ A versão atual do Barramento de Serviço não dá suporte a regras SAS para ass
 
 Na ausência de autenticação SAS para grupos de consumidores individuais, você pode utilizar chaves SAS para proteger todos os grupos de consumidores com uma chave comum. Essa abordagem permite que um aplicativo consuma dados de qualquer um dos grupos de consumidores de um Hub de Eventos.
 
-### Criar identidades de serviço, partes confiáveis e regras no ACS
-
-O ACS dá suporte a várias maneiras de criar identidades de serviço, terceiras partes confiáveis e regras, mas a maneira mais fácil de fazer isso é usando o [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Por exemplo:
-
-1. Crie uma identidade de serviço para um **EventHubSender**. Essa operação retorna o nome da identidade de serviço que foi criada e sua chave:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Conceda “Declarações de Envio” de **EventHubSender** ao Hub de Eventos:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Crie uma identidade de serviço de um receptor para o Grupo de Consumidores 1:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Conceda “Declarações de Escuta” de `consumergroup1receiver` a **ConsumerGroup1**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Crie uma identidade de serviço de um receptor para o **Grupo de Consumidores 2**:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Conceda “Declarações de Escuta” de `consumergroup2receiver` a **ConsumerGroup2**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Próximas etapas
 
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 - [Visão geral de Hubs de Evento]
-- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 - Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

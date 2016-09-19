@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Provisionar clusters do HBase na Rede Virtual do Azure
@@ -40,7 +40,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Para executar scripts do PowerShell do Azure, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte [Usando o cmdlet Set-ExecutionPolicy][2].
 
-	Antes de executar scripts do PowerShell do Azure, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
+	Antes de executar os scripts do Azure PowerShell, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
 		Add-AzureAccount
 
@@ -106,7 +106,7 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 8. Tome nota do nome da conta de armazenamento e da chave de acesso primária (ou a chave de acesso secundária; qualquer uma das chaves funciona). Você precisará deles mais tarde no tutorial.
 9. No topo da página, clique em **CONTÊINER**.
 10. No final da página, clique em **ADICIONAR**.
-11. Insira o nome do contêiner. Este contêiner será usado como contêiner padrão para este cluster do HBase. Por padrão, o nome do contêiner padrão corresponde ao nome do cluster. Mantenha o campo **ACESSO** como **Privado**.  
+11. Insira o nome do contêiner. Este contêiner será usado como contêiner padrão para este cluster do HBase. Por padrão, o nome do contêiner padrão corresponde ao nome do cluster. Mantenha o campo **ACESSO** como **Privado**.
 12. Clique na marca de seleção para criar o contêiner.
 
 **Para provisionar um cluster HBase usando o Portal Clássico do Azure**
@@ -166,19 +166,19 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 			<ul>
 				<li><strong>Usar Armazenamento Existente</strong></li>
 				<li><strong>Criar Novo Armazenamento</strong></li>
-				<li><strong>Usar Armazenamento de Outra Assinatura</strong></li>
+				<li><strong>Usar o Armazenamento de Outra Assinatura</strong></li>
 			</ul>
 			</td></tr>
 		<tr><td>Nome da conta</td>
 			<td><ul>
 				<li>Se você optar por usar um armazenamento existente, para <strong>Nome da conta</strong>, selecione uma conta de armazenamento existente. A lista suspensa exibe somente as contas de armazenamento localizadas no mesmo datacenter onde você optou por provisionar o cluster.</li>
-				<li>Se você selecionar uma das opções <strong>Criar novo armazenamento</strong> ou <strong>Usar armazenamento de outra assinatura</strong>, deverá fornecer o nome da conta de armazenamento.</li>
+				<li>Se escolher a opção <strong>Criar novo armazenamento</strong> ou a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, você deverá fornecer o nome da conta de armazenamento.</li>
 			</ul></td></tr>
 		<tr><td>Chave de conta</td>
-			<td>Se você escolheu a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta do Armazenamento.</td></tr>
+			<td>Se escolher a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta de armazenamento.</td></tr>
 		<tr><td>Contêiner padrão</td>
 			<td><p>Especifique o contêiner padrão da conta do Armazenamento que é utilizado como sistema de arquivos padrão para o cluster HDInsight. Se você tiver escolhido <strong>Usar Armazenamento Existente</strong> no campo <strong>Conta de Armazenamento</strong> e não existir nenhum contêiner nessa conta, por padrão, o contêiner será criado com o mesmo nome que o nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner. Por exemplo, meucontêiner1, meucontêiner2 e assim por diante. No entanto, se a conta do Armazenamento tiver um contêiner com um nome diferente do nome do cluster especificado, você poderá usar esse contêiner também.</p>
-	        <p>Se você optou por criar um novo armazenamento ou usar o armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
+	        <p>Caso opte por criar um novo armazenamento ou usar um armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
 	    </td></tr>
 		<tr><td>Contas de armazenamento adicionais</td>
 			<td>Se necessário, especifique contas de armazenamento adicionais para o cluster. O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de <strong>Conta de Armazenamento</strong> ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, nenhuma conta de armazenamento adicional está selecionada, e portanto, não ocorre adição de uma página extra ao assistente.</td></tr>
@@ -436,4 +436,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

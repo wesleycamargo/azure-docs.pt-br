@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
 #  Perguntas frequentes sobre cobrança e assinatura do Azure
@@ -34,6 +34,7 @@ Este artigo responde a algumas das perguntas mais comuns sobre assinatura e cobr
 
 - [Como faço para obter uma cópia da minha fatura?](#how-do-i-get-a-copy-of-my-invoice)
 - [Não encontro uma fatura para o último período de cobrança. Por quê?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [Como faço um pagamento?](#how-do-i-make-a-payment)
 
 ## Avaliação gratuita
 
@@ -312,6 +313,12 @@ As assinaturas de Avaliação Gratuita não estão qualificadas para os aumentos
 
 Visite a [página de oferta da Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) e leia as [Perguntas frequentes oficiais sobre a avaliação gratuita](https://azure.microsoft.com/pricing/free-trial-faq/).
 
-> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+> [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+### Como faço um pagamento?
+
+Se você tiver configurado um cartão de crédito ou débito como a forma de pagamento, o pagamento será feito automaticamente.
+
+Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.microsoft.com/pricing/invoicing/), envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, [entre em contato com o suporte](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0907_2016-->

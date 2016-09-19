@@ -64,7 +64,7 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
 	
 	- **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, o que permite acessar informações de configuração detalhadas do cluster.
 	- **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
-	- **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
+    - **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
 	- **Escalar Cluster**: permite alterar o número de nós de trabalho deste cluster.
 	- **Excluir**: exclui o cluster.
 	- **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: exibe informações que ajudarão você a começar a usar o HDInsight.
@@ -86,7 +86,6 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
 
 	- **Logs de auditoria**:
     - **Início Rápido**: exibe informações que o ajudarão a começar a usar o HDInsight.
-	- **Logon do Cluster**: altere o nome de usuário e a senha do HTTP de cluster.
 	- **Dimensionar o Cluster**: aumente e diminua o número de nós de trabalho do cluster.
     - **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
     - **Parceiro HDInsight**: adicione/remova o Parceiro HDInsight atual.
@@ -201,6 +200,8 @@ Para saber mais sobre preços, consulte [Preços do HDInsight](https://azure.mic
 Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do Ambari Web para alterar o nome de usuário e a senha da conta de usuário do cluster e ações de script para alterar a conta de usuário do SSH
 
 ###Alterar a senha de usuário do cluster
+
+Você pode usar a interface do usuário do Ambari Web para alterar a senha do usuário do cluster. Para fazer logon no Ambari, você precisa usar o nome de usuário e a senha existente do cluster.
 
 > [AZURE.NOTE] Se você alterar a senha de usuário (admin) do cluster, isso poderá fazer com que ações de script executadas em relação a esse cluster falhem. Se você tiver ações de script persistente direcionadas para nós de trabalho, elas poderão falhar quando você adicionar nós ao cluster por meio de operações de redimensionamento. Para saber mais sobre as Ações de Script, confira [Personalizar clusters HDInsight usando ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -332,4 +333,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -23,7 +23,7 @@ Se tiver um aplicativo Web já em execução no servidor J2EE, você poderá com
 
 Você precisará de uma assinatura do [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE] O procedimento nesta página adiciona o SDK ao seu aplicativo Web no tempo de execução. Essa instrumentação de tempo de execução será útil se você não quiser atualizar ou recompilar o código-fonte. Mas, se possível, recomendamos que você [adicione o SDK para o código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever o código para rastrear a atividade do usuário.
+> [AZURE.NOTE] O procedimento nesta página adiciona o SDK ao seu aplicativo Web no tempo de execução. Essa instrumentação de tempo de execução será útil se você não quiser atualizar nem recompilar o código-fonte. Mas, se possível, recomendamos que você [adicione o SDK para o código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever o código para rastrear a atividade do usuário.
 
 ## 1\. Obter uma chave de instrumentação do Application Insights
 
@@ -107,9 +107,9 @@ Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos
 
 Talvez você precise [definir exceções de firewall para enviar dados de saída](app-insights-ip-addresses.md).
 
-## 5\. Reiniciar seu aplicativo Web
+## 6\. Reiniciar seu aplicativo Web
 
-## 6\. Exibir sua telemetria no Application Insights
+## 7\. Exibir sua telemetria no Application Insights
 
 Retorne para seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -118,7 +118,7 @@ Se o aplicativo acessa recursos em nome do usuário conectado, você deve conced
 
 1. Escolha **Adicionar aplicativo**.
 
-2. Na lista, escolha a **API de Gerenciamento de Serviços do Azure**. Em seguida, clique no ícone Concluído.
+2. Na lista, escolha a **API de Gerenciamento de Serviço do Microsoft Azure**. Em seguida, clique no ícone Concluído.
 
       ![selecionar aplicativo](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 - Para aprender a especificar políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 - Para obter uma demonstração em vídeo dessas etapas, confira [Habilitando o gerenciamento programático de um Recurso do Azure Resource com o Active Directory do Azure](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

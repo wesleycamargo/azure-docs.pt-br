@@ -14,5 +14,7 @@ Quando ocorrer uma falha nas verificações de validação do DNS reverso, tamb�
 Não há suporte para o DNS reverso em Sites do Azure. Há suporte para o DNS reverso em funções de PaaS e em máquinas virtuais IaaS do Azure.
 ### Posso configurar vários registros DNS reversos para meu Serviço de Nuvem?
 Não. O Azure dá suporte a um único registro DNS reverso por Serviço de Nuvem do Azure. No entanto, cada Serviço de Nuvem do Azure pode ter seu próprio registro DNS reverso.
+### Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
+Não. De acordo com [estas informações](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), os Serviços de Computação do Azure não oferecem suporte ao envio de emails a domínios externos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/04/2016" 
+	ms.date="08/04/2016" 
 	ms.author="heidist"/>
 
 # Como usar os perfis de pontuação na Pesquisa do Azure
@@ -29,7 +29,7 @@ O aplicativo de exemplo demonstra comportamentos de pontuação usando dados fic
 
 O aplicativo de exemplo é escrito em C# usando o Visual Studio 2013. Experimente gratuitamente o [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) se você ainda não tiver uma cópia do Visual Studio.
 
-Você precisará de uma assinatura do Azure e um serviço de Pesquisa do Azure para concluir este tutorial. Consulte [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter ajuda com o serviço de configuração.
+Você precisará de uma assinatura do Azure e um serviço Azure Search para concluir o tutorial. Consulte [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter ajuda com o serviço de configuração.
 
 [AZURE.INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:](../../includes/free-trial-note.md)]
 
@@ -126,4 +126,4 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

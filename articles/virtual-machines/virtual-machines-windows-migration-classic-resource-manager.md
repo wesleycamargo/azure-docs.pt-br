@@ -83,7 +83,7 @@ Provedor de recursos | Recurso
 Computação | Discos de máquina virtual não associados.
 Computação | Imagens de máquinas virtuais.
 Rede | ACLs de ponto de extremidade.
-Rede | Gateways de rede virtual (site a site, Rota Expressa do Azure, Application Gateway, ponto a site).
+Rede | Gateways de rede virtual (site a site, Rota Expressa do Azure, Gateway de Aplicativo, ponto a site).
 Rede | Redes virtuais usando Emparelhamento VNet. (Migrar a VNet para o ARM e emparelhar) Saiba mais sobre o [Emparelhamento VNet](../virtual-network/virtual-network-peering-overview.md).
 Rede | Perfis do Gerenciador de Tráfego.
 
@@ -97,13 +97,14 @@ Gerenciador de Recursos | RBAC (Controle de Acesso Baseado em Função) para rec
 Computação | Várias sub-redes associadas a uma VM | Atualize a configuração de sub-rede para fazer referência apenas às sub-redes.
 Computação | Máquinas virtuais que pertencem a uma rede virtual, mas que não têm uma sub-rede explícita atribuída | Opcionalmente, você pode excluir a VM.
 Computação | Máquinas virtuais que têm alertas e políticas de Escala Automática | A migração passa e essas configurações serão descartadas. É altamente recomendável que você avalie seu ambiente antes de fazer a migração. Se preferir, você pode redefinir as configurações de alerta após a conclusão da migração.
-Computação | Extensões de VM do XML (Depurador, Implantação da Web e Depuração Remota do Visual Studio) | Não há suporte para isso. Recomenda-se a remoção dessas extensões da máquina virtual para continuar a migração.
+Computação | Extensões de VM do XML (BGInfo 1.*, Depurador, Implantação da Web e Depuração Remota do Visual Studio) | Não há suporte para isso. Recomendamos que você remova essas extensões da máquina virtual para continuar a migração, ou elas serão eliminadas automaticamente durante o processo de migração.
 Computação | Diagnóstico de inicialização com o armazenamento Premium | Desabilite o recurso de Diagnóstico de Inicialização para as VMs antes de continuar com a migração. Você pode habilitar novamente o diagnóstico de inicialização na pilha do Gerenciador de Recursos após a migração ser concluída. Além disso, os blobs que estão sendo usados para captura de tela e logs seriais devem ser excluídos para que você não seja cobrado por eles.
 Computação | Serviços de nuvem que contêm funções de trabalho/web | Não há suporte para esse recurso no momento.
 Rede | Redes virtuais que contêm máquinas virtuais e funções de trabalho/web | Não há suporte para esse recurso no momento.
 Serviço de aplicativo do Azure | Redes virtuais que contêm ambientes do Serviço de Aplicativo | Não há suporte para esse recurso no momento.
 Azure HDInsight | Redes virtuais que contêm serviços do HDInsight | Não há suporte para esse recurso no momento.
 Serviços de Ciclo de Vida do Microsoft Dynamics | Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics | Não há suporte para esse recurso no momento.
+Computação | Extensões da Central de Segurança do Azure com uma Rede Virtual que tenha um gateway de VPN ou um gateway de ER com o servidor DNS local | A Central de Segurança do Azure instala automaticamente extensões em suas Máquinas Virtuais a fim de monitorar a segurança e emitir alertas. Essas extensões normalmente são instaladas automaticamente se a política da Central de Segurança do Azure for habilitada na assinatura. Como a migração do gateway não tem suporte no momento, e o gateway precisa ser excluído antes de prosseguir com a confirmação da migração, o acesso à internet para a conta de armazenamento da VM é perdido quando o gateway é excluído. A migração não continuará quando isso acontece, pois o blob de status do agente convidado não pode ser preenchido. Recomendamos a desabilitação da política da Central de Segurança do Azure na assinatura três horas antes de continuar com a migração.
 
 ## A experiência de migração
 
@@ -205,7 +206,7 @@ Durante a migração, os recursos se transformam do clássico para o Gerenciador
 
 **E se eu estiver usando o Azure Site Recovery ou o Backup do Azure hoje?**
 
-O suporte ao Azure Site Recovery e ao Backup do Azure para VMs no Gerenciador de Recursos foi adicionado recentemente. Estamos trabalhando para habilitar a funcionalidade de dar suporte à migração de VMs no Gerenciador de Recursos também. Recomendamos não executar a migração caso você esteja usando essas funcionalidades.
+Para migrar sua máquina virtual habilitada para backup, veja [Fiz backup de minhas VMs clássicas no cofre de backup. Agora quero migrar minhas VMs do modo clássico para o modo do Gerenciador de Recursos. Como fazer backup delas no cofre dos serviços de recuperação?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **Posso validar minha assinatura ou meus recursos para ver se eles podem fazer a migração?**
 
@@ -227,6 +228,7 @@ Todos os recursos para os quais você fornecer nomes explicitamente no modelo de
 
 Essa mensagem é recebida quando a VM não tem conectividade de saída com a Internet. O agente de VM utiliza conectividade de saída para acessar a conta de armazenamento do Azure para atualizar o status do agente a cada cinco minutos.
 
+
 ## Próximas etapas
 Agora que você compreende a migração de recursos clássicos de IaaS para o Gerenciador de Recursos, poderá começar a migrar os recursos.
 
@@ -235,4 +237,4 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 - [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

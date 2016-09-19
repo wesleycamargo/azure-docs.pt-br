@@ -30,6 +30,27 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.281.0
+Lançamento: agosto de 2016
+
+**Problemas corrigidos:**
+
+- Não ocorrerão alterações no intervalo de sincronização até após a conclusão do próximo ciclo de sincronização.
+- O assistente do Azure AD Connect não aceita uma conta do Azure AD cujo nome de usuário começa com um sublinhado (\_).
+- Falha do Assistente do Azure AD Connect ao autenticar a conta do Azure AD fornecida se a senha da conta contém muitos caracteres especiais. A mensagem de erro "Não foi possível validar as credenciais. Erro inesperado." será retornada.
+- Desinstalar o servidor de preparo desabilita a sincronização de senha no locatário do Azure AD e causa a falha da sincronização de senha com o servidor ativo.
+- A sincronização de senha falha em casos incomuns quando não há hash de senha armazenado no usuário.
+- Quando o servidor do Azure AD Connect está habilitado para o modo de preparo, o write-back de senha não é temporariamente desabilitado.
+- O assistente do Azure AD Connect não mostra a sincronização de senha real e a configuração de write-back de senha quando o servidor está no modo de preparo. Ele sempre os mostra como desabilitados.
+- As alterações de configuração na sincronização de senha e no write-back de senha não são mantidas pelo Assistente do Azure AD Connect quando o servidor está no modo de preparo.
+
+**Aperfeiçoamentos:**
+
+- Cmdlet Start-ADSyncSyncCycle atualizado para indicar se pode iniciar um novo ciclo de sincronização com êxito ou não.
+- Cmdlet Stop-ADSyncSyncCycle adicionado para encerrar o ciclo de sincronização e a operação que estão atualmente em andamento.
+- Cmdlet Stop-ADSyncScheduler atualizado para encerrar o ciclo de sincronização e a operação que estão atualmente em andamento.
+- Ao configurar [Extensões de Diretório](active-directory-aadconnectsync-feature-directory-extensions.md) no Assistente do Azure AD Connect, o atributo do AD do tipo "Cadeia de caracteres Teletex" pode ser selecionado.
+
 ## 1\.1.189.0
 Lançamento: junho de 2016
 
@@ -293,4 +314,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

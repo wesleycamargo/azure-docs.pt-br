@@ -26,7 +26,7 @@ Primeiro, a resposta curta:
 
 * Os módulos de telemetria padrão que executam "prontos de fábrica" têm pouca probabilidade de enviar dados confidenciais para o serviço. A telemetria está relacionada a carga, a métricas de desempenho e uso, a relatórios de exceção e a outros dados de diagnóstico. Os principais dados de usuário visíveis nos relatórios de diagnóstico são as URLs; mas seu aplicativo, em qualquer caso, não deve colocar dados confidenciais em texto sem formatação em uma URL.
 * Você pode escrever código que envie a telemetria personalizada adicional para ajudá-lo com o uso de monitoramento e diagnóstico. (Essa extensibilidade é um ótimo recurso do Application Insights.) Seria possível, por engano, escrever esse código de modo que ele incluísse dados pessoais e outros dados confidenciais. Se seu aplicativo trabalhar com esses dados, você deverá aplicar processos de revisão de alta segurança para todo o código que escrever.
-* Ao desenvolver e testar seu aplicativo, é fácil inspecionar o que está sendo enviado pelo SDK. Os dados aparecem nas janelas de saída de depuração do IDE e do navegador. 
+* Ao desenvolver e testar seu aplicativo, é fácil inspecionar o que está sendo enviado pelo SDK. Os dados aparecem nas janelas de saída de depuração do IDE e do navegador.
 * Os dados são mantidos em servidores do [Microsoft Azure](http://azure.com) nos EUA. (Mas seu aplicativo pode ser executado em qualquer lugar). O Azure tem [fortes processos de segurança e cumpre uma ampla gama de padrões de conformidade](https://azure.microsoft.com/support/trust-center/). Somente você e a sua equipe designada têm acesso aos seus dados. A equipe da Microsoft pode ter acesso restrito a eles apenas em circunstâncias limitadas específicas e com o seu conhecimento. Eles são criptografados em trânsito, embora não nos servidores.
 
 O restante deste artigo aborda mais detalhadamente essas respostas. Ele foi projetado para ser independente, para que possa mostrá-lo aos colegas que não fazem parte de sua equipe.
@@ -67,7 +67,7 @@ As principais categorias são:
 * [Páginas da Web](app-insights-javascript.md) - contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções. Chamadas Ajax.
 * Contadores de desempenho - memória, CPU, E/S, ocupação de rede.
 * Contexto de cliente e servidor - sistema operacional, localidade, tipo de dispositivo, navegador, resolução da tela.
-* [Exceções](app-insights-asp-net-exceptions.md) e falhas - **despejos de pilha**, id da compilação, tipo de CPU. 
+* [Exceções](app-insights-asp-net-exceptions.md) e falhas - **despejos de pilha**, id da compilação, tipo de CPU.
 * [Dependências](app-insights-asp-net-dependencies.md) - chamadas a serviços externos, como REST, SQL, AJAX. Cadeia de conexão ou URI, duração, sucesso, comando.
 * [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) - duração do teste e etapas, respostas.
 * [Logs de rastreamento](app-insights-search-diagnostic-logs.md) e [telemetria personalizada](app-insights-api-custom-events-metrics.md) - **qualquer elemento que você codifique nos seus logs ou telemetria**.
@@ -112,11 +112,11 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 ## Onde os dados são mantidos? 
 
-* Nos EUA. 
+* Nos EUA.
 
 #### Eles podem ser armazenados em outro local, por exemplo na Europa? 
 
-* Não no momento. 
+* Não no momento.
 
 #### Isso significa que o aplicativo deve ser hospedado nos EUA?
 
@@ -192,11 +192,10 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 Sua ação | Classes de dados coletados (consulte a tabela a seguir)
 ---|---
-[Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] | ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Sessão<br/>usuários
+[Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] | ServerContext<br/>Inferidos<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Sessão<br/>usuários
 [Instalar o Monitor de Status no IIS][redfield]|Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho
 [Adicionar o Application Insights a um aplicativo Web Java][java]|ServerContext<br/>Inferido<br/>Solicitação<br/>Sessão<br/>usuários
 [Adicionar SDK do JavaScript à página da Web][client]|ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax
-[Adicionar o SDK a aplicativo da Windows Store][windows]|DeviceContext<br/>Usuários<br/>Falha de dados
 [Definir propriedades padrão][apiproperties]|**Propriedades** em todos os eventos padrão e personalizados
 [Chamar TrackMetric][api]|Valores numéricos<br/>**Propriedades**
 [Chamar Track*][api]|Nome do evento<br/>**Propriedades**
@@ -235,7 +234,7 @@ Diagnóstico do SDK | Mensagem de rastreamento ou exceção
 Você pode [desativar alguns dos dados editando ApplicationInsights.config][config]
 
 
-## Créditos
+## Credits
 
 Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http://www.maxmind.com](http://www.maxmind.com).
 
@@ -264,8 +263,7 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

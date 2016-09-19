@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/07/2016"
     ms.author="sdanie" />
 
 # Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure
 
-Migrar seus aplicativos que usam o Serviço de Cache Gerenciado do Azure para Cache Redis do Azure pode ser feito com alterações mínimas no seu aplicativo, dependendo dos recursos do Serviço de Cache Gerenciado usados pelo seu aplicativo de cache. Apesar das APIs não serem exatamente a mesmo coisa elas são semelhantes e grande parte do seu código existente que usa o Serviço de Cache Gerenciado para acessar um cache pode ser reutilizado com alterações mínimas. Este tópico mostra como fazer as alterações de configuração e aplicativo necessárias para migrar seus aplicativos de Serviço de Cache Gerenciado para usar o Cache Redis do Azure e mostra como alguns dos recursos de Cache Redis do Azure podem ser usados para implementar a funcionalidade de um cache de Serviço de Cache Gerenciado.
+Migrar seus aplicativos que usam o Serviço de Cache Gerenciado do Azure para Cache Redis do Azure pode ser feito com alterações mínimas no seu aplicativo, dependendo dos recursos do Serviço de Cache Gerenciado usados pelo seu aplicativo de cache. Apesar das APIs não serem exatamente a mesmo coisa elas são semelhantes e grande parte do seu código existente que usa o Serviço de Cache Gerenciado para acessar um cache pode ser reutilizado com alterações mínimas. Este tópico mostra como fazer as alterações de configuração e aplicativo necessárias para migrar seus aplicativos do Serviço de Cache Gerenciado para usar o Cache Redis do Azure. Além disso, mostra como alguns dos recursos do Cache Redis do Azure podem ser usados para implementar a funcionalidade de um cache do Serviço de Cache Gerenciado.
 
 ## Etapas da migração
 
@@ -33,7 +33,7 @@ As etapas a seguir são necessárias para migrar um aplicativo de Serviço de Ca
 	-	Conectar-se ao cache usando a classe ConnectionMultiplexer
 	-	Tipos de dados primitivos de acesso no cache
 	-	Trabalhar com objetos .NET no cache
--	Migrar o Estado de sessão do ASP.NET e cache de saída para o Cache Redis do Azure 
+-	Migrar o Estado de sessão do ASP.NET e cache de saída para o Cache Redis do Azure
 
 ## Mapear recursos do Serviço de Cache Gerenciado para o Cache Redis do Azure
 
@@ -42,7 +42,7 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 |Recurso do Serviço de Cache Gerenciado|Suporte do Serviço de Cache Gerenciado|Suporte do Cache Redis do Azure|
 |---|---|---|
 |Caches nomeados|Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado.|Os Caches Redis do Azure possuem um número configurável de bancos de dados (padrão de 16) que podem ser usados para implementar uma funcionalidade semelhante em caches nomeados. Para obter mais informações, confira [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).|
-|Alta Disponibilidade|Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. Gravações no cache secundário são feitas de forma síncrona.|Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).|
+|Alta disponibilidade|Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. Gravações no cache secundário são feitas de forma síncrona.|Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, confira [Preço do Cache Redis do Azure](https://azure.microsoft.com/pricing/details/cache/).|
 |Notificações|Permite que os clientes recebam notificações assíncronas quando várias operações de cache ocorrem em um cache nomeado.|Aplicativos cliente podem usar o Redis pub/sub ou [Notificações de keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para obter uma funcionalidade semelhante para notificações.|
 |Cache local|Armazena uma cópia dos objetos armazenados em cache localmente no cliente para acesso extremamente rápido.|Os aplicativos cliente precisariam implementar essa funcionalidade usando um dicionário ou uma estrutura de dados semelhantes.|
 |Política de remoção|Nenhuma ou LRU. A política padrão é LRU.|O Cache Redis do Azure suporta as seguintes políticas de remoção: volatile-lru, allkeys-lru, volatil-random, allkeys-random, volatile-ttl, noeviction. A política padrão é volatile-lru. Para obter mais informações, confira [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).|
@@ -80,7 +80,7 @@ Antes dos aplicativos cliente poderem ser configurados para o Cache Redis do Azu
 
 Para desinstalar o pacote NuGet do Serviço de Cache Gerenciado, clique com o botão direito do mouse no projeto do cliente no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Selecione o nó **Pacotes instalados** e digite W**indowsAzure.Caching** na caixa Pesquisar pacotes instalados. Selecione **Windows** **Cache do Azure** (ou **Windows** **Caching do Azure** dependendo da versão do pacote NuGet), clique em **Desinstalar**, e, em seguida, clique em **Fechar**.
 
-![Desinstalar Packag de NuGet do Serviço de Cache Gerenciado do Azure](./media/cache-migrate-to-redis/IC757666.jpg)
+![Desinstalar o pacote NuGet do Serviço de Cache Gerenciado do Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
 Desinstalar o pacote NuGet de Serviço de Cache Gerenciado remove os assemblies do Serviço de Cache Gerenciado e as entradas do Serviço de Cache Gerenciado no app.config ou web.config do aplicativo cliente. Como algumas configurações personalizadas não podem ser removidas quando você desinstala o pacote NuGet, abra web.config ou app.config e certifique-se de que os seguintes elementos são completamente removidos.
 
@@ -179,4 +179,4 @@ O Cache Redis do Azure possui provedores de Estado da Sessão ASP.NET e o cachin
 
 Explore a [documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) e veja os tutoriais, exemplos, vídeos e muito mais.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

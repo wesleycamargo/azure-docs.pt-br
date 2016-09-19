@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # SDK do dispositivo IoT do Microsoft Azure para o C — mais sobre o IoTHubClient
@@ -22,9 +22,9 @@ O [primeiro artigo](iot-hub-device-sdk-c-intro.md) desta série apresentou o **S
 
 O artigo anterior descreveu como usar a biblioteca **IoTHubClient** para enviar eventos ao Hub IoT e receber mensagens. Este artigo estende a discussão explicando como gerenciar com mais precisão *o momento em que* você envia e recebe dados, apresentando as **APIs de nível inferior**. Também vamos explicar como anexar propriedades aos eventos (e recuperá-las de mensagens) usando os recursos de tratamento de propriedade na biblioteca **IoTHubClient**. Por fim, forneceremos uma explicação adicional sobre as diferentes formas de manipular as mensagens recebidas do Hub IoT.
 
-O artigo é concluído com a abordagem de diversos tópicos, incluindo mais sobre as credenciais do dispositivo e como alterar o comportamento de **IoTHubClient** por meio das opções de configuração.
+O artigo é concluído com a abordagem de diversos tópicos, incluindo mais sobre as credenciais do dispositivo e como alterar o comportamento do **IoTHubClient** por meio das opções de configuração.
 
-Vamos usar os exemplos do SDK da **IoTHubClient** para explicar esses tópicos. Se você deseja acompanhar, veja os aplicativos **iothub\_client\_sample\_http** e **iothub\_client\_sample\_amqp** que estão incluídos no SDK do dispositivo IoT do Azure para o C. Tudo o que é descrito nas seções a seguir é demonstrado nestes exemplos.
+Usaremos os exemplos do SDK do **IoTHubClient** para explicar esses tópicos. Se você deseja acompanhar, veja os aplicativos **iothub\_client\_sample\_http** e **iothub\_client\_sample\_amqp** que estão incluídos no SDK do dispositivo IoT do Azure para o C. Tudo o que é descrito nas seções a seguir é demonstrado nestes exemplos.
 
 Você pode encontrar o **SDK do dispositivo IoT do Azure para C** no repositório GitHub dos [SDKs do Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdks) e exibir os detalhes da API na [referência da API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
@@ -69,7 +69,7 @@ No entanto, há funções complementares para cada uma dessas APIs:
 
 Todas essas funções incluem "LL" no nome da API. Além disso, os parâmetros de cada uma dessas funções são idênticos aos de seus equivalentes não LL. No entanto, o comportamento dessas funções tem uma diferença importante.
 
-Quando você chama **IoTHubClient\_CreateFromConnectionString**, as bibliotecas subjacentes criam um novo thread, que é executado em segundo plano. Esse thread envia eventos para o Hub IoT e recebe mensagens dele. Nenhum thread desse tipo é criado quando se trabalha com as APIs “LL”. A criação do thread de segundo plano é uma conveniência para o desenvolvedor. Você não precisa se preocupar em enviar eventos explicitamente e em receber mensagens do Hub IoT – isso acontece automaticamente em segundo plano. Em contrapartida, as APIs “LL” dão a você controle explícito sobre a comunicação com o Hub IoT, caso você precise disso.
+Quando você chama **IoTHubClient\_CreateFromConnectionString**, as bibliotecas subjacentes criam um novo thread, que é executado em segundo plano. Esse thread envia eventos para o Hub IoT e recebe mensagens dele. Nenhum thread desse tipo é criado quando se trabalha com as APIs “LL”. A criação do thread de segundo plano é uma conveniência para o desenvolvedor. Você não precisa se preocupar em enviar eventos explicitamente e em receber mensagens do Hub IoT – isso acontece automaticamente em segundo plano. Em contrapartida, as APIs “LL” dão a você um controle explícito sobre a comunicação com o Hub IoT, caso seja necessário.
 
 Para entender isso melhor, vamos ver um exemplo:
 
@@ -117,7 +117,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-Esse código chama **IoTHubClient\_LL\_DoWork** até que todos os eventos no buffer tenham sido enviados ao Hub IoT. Observe que isso também não significa que todas as mensagens na fila foram recebidas. Parte do motivo para isso é que a verificação de “todas” as mensagens não é tão determinística como uma ação. O que acontece se você recuperar "todas" as mensagens, mas então outra é enviada para o dispositivo imediatamente depois? Uma maneira melhor de lidar com isso é com um tempo limite programado. Por exemplo, a função de retorno de chamada de mensagem pode redefinir um timer sempre que for invocada. Você poderá, então, escrever a lógica para continuar processando se, por exemplo, nenhuma mensagem tiver sido recebida nos últimos *X* segundos.
+Esse código chama **IoTHubClient\_LL\_DoWork** até que todos os eventos no buffer tenham sido enviados ao Hub IoT. Observe que isso também não significa que todas as mensagens em fila tenham sido recebidas. Parte do motivo para isso é que a verificação de “todas” as mensagens não é tão determinística como uma ação. O que acontece se você recuperar "todas" as mensagens, mas então outra é enviada para o dispositivo imediatamente depois? Uma maneira melhor de lidar com isso é com um tempo limite programado. Por exemplo, a função de retorno de chamada de mensagem pode redefinir um timer sempre que for invocada. Você poderá, então, escrever a lógica para continuar processando se, por exemplo, nenhuma mensagem tiver sido recebida nos últimos *X* segundos.
 
 Quando terminar de inserir os eventos e receber mensagens, certifique-se de chamar a função correspondente para limpar os recursos.
 
@@ -125,7 +125,7 @@ Quando terminar de inserir os eventos e receber mensagens, certifique-se de cham
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Basicamente, há apenas um conjunto de APIs para enviar e receber dados com um thread em segundo plano e outro conjunto de APIs que faz a mesma coisa sem o thread em segundo plano. Muitos desenvolvedores podem preferir as APIs não LL, mas as APIs de nível inferior são úteis quando o desenvolvedor desejar controle explícito sobre transmissões de rede. Por exemplo, alguns dispositivos coletam dados ao longo do tempo e apenas inserem eventos em intervalos especificados (por exemplo, de hora em hora ou uma vez por dia). As APIs de nível inferior permitem controlar explicitamente o momento em que você envia e recebe dados do Hub IoT. Outras pessoas simplesmente vão preferir a simplicidade oferecida pelas APIs de nível inferior. Tudo acontece no thread principal, em vez de algum trabalho acontecendo em segundo plano.
+Basicamente, há apenas um conjunto de APIs para enviar e receber dados com um thread em segundo plano e outro conjunto de APIs que faz a mesma coisa sem o thread em segundo plano. Muitos desenvolvedores podem preferir as APIs não LL, mas as APIs de nível inferior são úteis quando o desenvolvedor desejar ter um controle explícito sobre as transmissões de rede. Por exemplo, alguns dispositivos coletam dados ao longo do tempo e apenas inserem eventos em intervalos especificados (por exemplo, de hora em hora ou uma vez por dia). As APIs de nível inferior permitem controlar explicitamente o momento em que você envia e recebe dados do Hub IoT. Outras pessoas simplesmente preferirão a simplicidade oferecida pelas APIs de nível inferior. Tudo acontece no thread principal, em vez de algum trabalho acontecendo em segundo plano.
 
 Seja qual for o modelo escolhido, seja consistente em relação às APIs usadas. Se você começar chamando **IoTHubClient\_LL\_CreateFromConnectionString**, lembre-se de usar apenas as APIs de nível inferior correspondentes para qualquer trabalho de acompanhamento:
 
@@ -139,7 +139,7 @@ Seja qual for o modelo escolhido, seja consistente em relação às APIs usadas.
 
 O contrário também é verdadeiro. Se você começar com **IoTHubClient\_CreateFromConnectionString**, use as APIs não LL para qualquer processamento adicional.
 
-No SDK do dispositivo IoT do Azure para o C, veja o aplicativo **iothub\_client\_sample\_http** para ver um exemplo completo das APIs de nível inferior. O aplicativo **iothub\_client\_sample\_amqp** pode ser referenciado para um exemplo completo das APIs não LL.
+No SDK do dispositivo IoT do Azure para o C, veja o aplicativo **iothub\_client\_sample\_http** para obter um exemplo completo das APIs de nível inferior. O aplicativo **iothub\_client\_sample\_amqp** pode ser referenciado para um exemplo completo das APIs não LL.
 
 ## Manipulação de propriedades
 
@@ -296,4 +296,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -75,7 +75,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um Hub IoT em seu grup
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto, clique em **Adicionar** e em **Novo Item**. Adicione um arquivo JSON chamado **template.json** ao seu projeto.
 
-2. Substitua o conteúdo de **template.json** pela seguinte definição de recurso para adicionar um Hub IoT padrão à região **Leste dos EUA**:
+2. Substitua o conteúdo do **template.json** pela seguinte definição de recurso para adicionar um Hub IoT padrão à região **Leste dos EUA** (para obter a lista atual de regiões que dão suporte ao Hub IoT, confira o [Status do Azure][lnk-status]):
 
     ```
     {
@@ -220,6 +220,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -233,4 +234,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="09/02/2016" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
@@ -39,17 +39,18 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+- 990: canal de controle para FTPS. Essa porta poderá ser bloqueada com segurança se o FTPS não estiver sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
 - 10001-10020: canais de dados para FTP. Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado. Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
 - 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado. Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 
 ## Requisitos de DNS e conectividade de saída ##
-Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE pode ser encontrada na seção "Conectividade de rede necessária" do artigo [Configuração de rede para a Rota Expressa](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
+Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE pode ser encontrada na seção "Conectividade de rede necessária" do artigo [Configuração de rede para o ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
 Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Acionar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente de Serviço de Aplicativo no [Portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
 
-Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo. Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
+Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente do Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente do Serviço de Aplicativo. Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
@@ -140,4 +141,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

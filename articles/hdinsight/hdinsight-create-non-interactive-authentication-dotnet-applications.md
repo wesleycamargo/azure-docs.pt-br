@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Criar aplicativos .NET HDInsight de autenticação não interativa
@@ -23,9 +23,9 @@ Você pode executar seu aplicativo .NET do Azure HDInsight na própria identidad
 
 No aplicativo .NET, você precisará:
 
-- Da sua ID de locatário da assinatura do Azure
+- da sua ID de locatário da assinatura do Azure
 - Da ID de cliente do aplicativo do Azure Directory
-- Da chave secreta do aplicativo do Azure Directory  
+- Da chave secreta do aplicativo do Azure Directory
 
 O processo principal inclui as seguintes etapas:
 
@@ -36,7 +36,7 @@ O processo principal inclui as seguintes etapas:
 
 ##Pré-requisitos
 
-- Cluster HDInsight. Você pode criar um usando as instruções encontradas no [tutorial de introdução](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+- Cluster HDInsight. Você pode criar um usando as instruções encontradas no [tutorial de introdução](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
@@ -115,11 +115,11 @@ ou o CLI do Azure:
     azure account show --json
 
       
-## Consulte também
+## Confira também
 
 - [Enviar trabalhos Hadoop no HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md)
 - [Autenticação de uma entidade de serviço com o Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

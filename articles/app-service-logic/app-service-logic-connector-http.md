@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/19/2016"
+   ms.date="08/31/2016"
    ms.author="prkumar"/>
 
 
@@ -46,7 +46,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 5.	Clique em **OK** para criar.
 6.	Depois de criar a instância do aplicativo de API, abra as configurações para configurar a segurança. O ouvinte HTTP atualmente dá suporte à Autenticação básica. Você pode configurar isso usando a opção de segurança quando abre o ouvinte HTTP: ![][3]
   
-	**Problema conhecido** *As configurações de segurança mostram “Nenhum” como o valor padrão, mas isso é indefinido. Você deve alterar a configuração básica e voltar para Nenhum antes de salvá-la para garantir que o ouvinte HTTP esteja configurado corretamente.*
+	**Problema conhecido** * As configurações de segurança mostram “Nenhum” como o valor padrão, mas isso é indefinido. Você deve alterar a configuração básica e voltar para Nenhum antes de salvá-la para garantir que o ouvinte HTTP esteja configurado corretamente.*
 
 7. Por fim, defina as configurações de segurança do aplicativo de API como Público (Anônimo) para permitir que clientes externos acessem o ponto de extremidade. Essa configuração está disponível em "Todas as configurações > Configurações do Aplicativo" do Aplicativo de API do ouvinte HTTP:![][10]
 
@@ -89,4 +89,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

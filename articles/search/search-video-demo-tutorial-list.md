@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 #Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
@@ -45,7 +45,7 @@ Esses sites são aplicativos Web totalmente funcionais que usam a Pesquisa do Az
 Aqui estão alguns dos nossos tutoriais e vídeos mais populares para a Pesquisa do Azure.
 
 - O [Vídeo: Introdução à Pesquisa do Azure da Microsoft Virtual Academy](https://mva.microsoft.com/pt-BR/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) é um excelente recurso para incrementar a Pesquisa do Azure.
-- O [Vídeo: AzureCon 2015: melhores práticas da Pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) oferece recomendações práticas sobre como escalar horizontalmente, otimização de desempenho e como atingir a eficiência de codificação ao criar aplicativos para cenários na Web e móveis. 
+- O [Vídeo: AzureCon 2015: melhores práticas da Pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) oferece recomendações práticas sobre como escalar horizontalmente, otimização de desempenho e como atingir a eficiência de codificação ao criar aplicativos para cenários na Web e móveis.
 - O [exemplo de código para a biblioteca de cliente do .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) é um aplicativo ASP.NET MVC 5 que usa a biblioteca de cliente do .NET para operações de pesquisa.
 - [Tutorial: Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)|Configurar e executar um aplicativo Web do Visual Studio de exemplo que é integrado à Pesquisa do Azure.
 - O [Tutorial: Introdução à Pesquisa do Azure no portal](search-get-started-portal.md) é um passo a passo totalmente baseada no portal que fornece um índice e dados sem a necessidade de escrever nenhum código. Esse tutorial é útil para aprender a executar tarefas comuns no portal.
@@ -84,10 +84,10 @@ Passo a passo|Descrição
 [Introdução à Pesquisa do Azure no NodeJS](search-get-started-nodejs.md)|Aprenda como trabalhar com a Pesquisa do Azure em NodeJS.
 [Introdução à Pesquisa do Azure em Java](search-get-started-java.md)|Tutorial para programadores de Java usando o Eclipse e o servidor Apache Tomcat para criar e executar um aplicativo de exemplo que use a Pesquisa do Azure.
 [Recursos e cenários de Pesquisa do Azure](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Publicação de blog que abrange os principais cenários habilitados pela funcionalidade atual.
-[Como adicionar sugestões aos aplicativos de pesquisa](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Aprenda a implementar as sugestões, normalmente chamadas de preenchimento automático. Esta demonstração apresenta uma série de tópicos, incluindo a criação de aplicativos MVC4 que aproveitam as sugestões de Pesquisa do Azure, o uso da biblioteca Twitter typeahead.js para criar um componente de sugestão automática eficaz em JavaScript e o uso de sugestões imperfeitas para permitir a recuperação de sugestões mesmo quando o usuário digitar a palavra incorretamente.
+[Como adicionar sugestões aos aplicativos de pesquisa](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Aprenda a implementar as sugestões, normalmente chamadas de preenchimento automático. Esta demonstração apresenta uma série de tópicos, incluindo a criação de aplicativos MVC4 que aproveitam as sugestões do Azure Search, o uso da biblioteca Twitter typeahead.js para criar um componente de sugestão automática eficaz em JavaScript e o uso de sugestões imperfeitas para permitir a recuperação de sugestões mesmo quando o usuário digitar a palavra incorretamente.
 [Laboratório virtual do TechNet: construindo um aplicativo de Pesquisa do Microsoft Azure](http://go.microsoft.com/?linkid=9874663)|Laboratório virtual que fornece um ambiente de desenvolvimento, ferramentas, documentação e dados. Você precisará de uma conta do Azure, uma assinatura de avaliação ou assinatura do Azure pessoal para concluir o laboratório.
 [Sincronizar dados do SQL Server com a Pesquisa do Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Publicação de blog que explica como carregar dados de bancos de dados relacionais do SQL Server para um índice da Pesquisa do Azure.
 [Tutorial de perfis de pontuação](search-get-started-scoring-profiles.md)|Testar perfis de pontuação usando um aplicativo de console.
 [Tutorial da API REST de gerenciamento da Pesquisa do Azure](search-get-started-management-api.md)|Como usar a API REST de gerenciamento para provisionar o serviço e gerenciar chaves de api de administração ou de consulta.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

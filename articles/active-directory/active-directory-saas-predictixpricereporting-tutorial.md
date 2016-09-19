@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ a integração do Predictix Price Reporting com o Azure AD oferece os seguintes 
 
 - Você pode controlar no Azure AD quem tem acesso ao Predictix Price Reporting
 - Você pode permitir que seus usuários façam logon automaticamente no Predictix Price Reporting (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -94,7 +94,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o Predictix Price Reporting, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste Predictix Price Reporting](#creating-a-predictix-price-reporting-test-user)** – para ter um equivalente de Brenda Fernandes no Predictix Price Reporting vinculado à representação dela do Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
@@ -129,7 +129,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Predictix Price Reporting e forneça o seguinte:
@@ -140,7 +140,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 	• A **URL de SSO do SAML**
 
-	• A **URL do Serviço de Saída Única**
+	• A **URL do Serviço de Logoff Único**
 
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 	
@@ -169,19 +169,19 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -191,7 +191,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -270,4 +270,4 @@ Quando você clica no bloco Predictix Price Reporting no Painel de Acesso, deve 
 [204]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

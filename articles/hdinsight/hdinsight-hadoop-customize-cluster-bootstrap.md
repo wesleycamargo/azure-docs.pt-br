@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Personalizar clusters do HDInsight usando a Inicialização
@@ -46,7 +46,7 @@ Há três métodos para usar a Inicialização:
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
 - Usar o SDK do .NET
-- Usar o modelo de ARM
+- Usar o modelo do Azure Resource Manager
 
 Para obter informações sobre como instalar componentes adicionais no cluster do HDInsight durante o tempo de criação, consulte:
 
@@ -91,7 +91,7 @@ Um script do PowerShell em funcionamento completo pode ser encontrado no [Apênd
 7. Selecione a guia **Configurações**.
 8. Clique em **Hive** no menu à esquerda.
 9. Selecione a guia **Avançado**.
-10. Role para baixo e, em seguida, expanda **Site Hive Avançado**.
+10. Role para baixo e expanda **Site Hive Avançado**.
 11. Procure **hive.metastore.client.socket.timeout** na seção.
 
 Alguns outros exemplos de personalização de outros arquivos de configuração:
@@ -114,9 +114,9 @@ Para obter mais informações, confira o blog de Azim Uddin chamado [Personaliza
 
 Veja [Criar clusters baseados em Linux no HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Usar o modelo de ARM do Azure
+## Usar modelo do Resource Manager
 
-Você pode usar a Inicialização no modelo do ARM:
+Você pode usar o bootstrap no modelo do Resource Manager:
 
     "configurations": {
         …
@@ -128,11 +128,11 @@ Você pode usar a Inicialização no modelo do ARM:
     }
 
 
-![hdinsight, hadoop, personalizar cluster, inicialização, modelo de arm](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight, hadoop, personalizar cluster, inicialização, modelo do azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
-## Consulte também
+## Confira também
 
 - [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster] fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 - [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-write-script]
@@ -261,4 +261,4 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
 
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

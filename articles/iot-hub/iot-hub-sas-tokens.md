@@ -18,7 +18,7 @@
 
 # Usar tokens de segurança do Hub IoT e certificados X.509
 
-O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. [SDKs do Hub IoT do Azure][lnk-apis-sdks] geram tokens automaticamente sem a necessidade de qualquer configuração especial. No entanto, alguns cenários exigem que o usuário gere e use tokens de segurança diretamente. Entre esses cenários estão o uso direto de superfícies HTTP, MQTT ou AMQP, ou a implementação do padrão de serviço de token, conforme explicado na [Orientação sobre Hub IoT][lnk-guidance-security].
+O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves durante a transmissão. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. [SDKs do Hub IoT do Azure][lnk-apis-sdks] geram tokens automaticamente sem a necessidade de qualquer configuração especial. No entanto, alguns cenários exigem que o usuário gere e use tokens de segurança diretamente. Entre esses cenários estão o uso direto de superfícies MQTT, AMQP ou HTTP, ou a implementação do padrão de serviço de token, conforme explicado nas [Diretrizes sobre o Hub IoT][lnk-guidance-security].
 
 O Hub IoT também permite que os dispositivos se autentiquem no Hub IoT usando certificados X.509. O Hub IoT oferece suporte à autenticação baseada em X.509 para dispositivos sobre AMQP, AMQP sobre os protocolos HTTP e WebSockets.
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usar um certificado de cliente X.509 durante operações em tempo de execução
 
-O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] \(versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
+O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
 
 ### Suporte a C#
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

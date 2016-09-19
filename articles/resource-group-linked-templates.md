@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
@@ -29,7 +29,7 @@ Para criar um vínculo entre dois modelos, adicione um recurso de implantação 
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -53,7 +53,7 @@ O serviço do Resource Manager deve ser capaz de acessar o modelo vinculado. Voc
 
 Embora o modelo vinculado precise estar disponível externamente, ele não precisa estar disponível para o público. Você pode adicionar o modelo a uma conta de armazenamento privada que pode ser acessada somente pelo proprietário da conta de armazenamento. Em seguida, você cria um token SAS (assinatura de acesso compartilhado) para permitir o acesso durante a implantação. Você pode adicionar esse token SAS ao URI para o modelo vinculado. Para ver as etapas para configurar um modelo em uma conta de armazenamento e gerar um token SAS, consulte [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md) ou [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md).
 
-O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo aninhado é acessado com um token SAS que é transmitido como um parâmetro.
+O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo vinculado é acessado com um token SAS que é transmitido como um parâmetro.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -61,7 +61,7 @@ O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo aninh
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ Forneça esse valor variável para o recurso de implantação.
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -200,7 +200,7 @@ A exemplo a seguir mostra o modelo **existingStorageAccount.json**.
       }
     }
 
-A próximo exemplo mostra o modelo **newStorageAccount.json**. Observe que, assim como o modelo da conta de armazenamento existente, o objeto da conta de armazenamento retorna nas saídas. O modelo mestre funciona com qualquer modelo aninhado.
+A próximo exemplo mostra o modelo **newStorageAccount.json**. Observe que, assim como o modelo da conta de armazenamento existente, o objeto da conta de armazenamento retorna nas saídas. O modelo mestre funciona com qualquer modelo vinculado.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -247,7 +247,7 @@ O arquivo **parent.json** consiste em:
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ O arquivo **parent.json** consiste em:
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }
@@ -300,4 +300,4 @@ Você recebe uma solicitação para fornecer o token SAS como um parâmetro. Voc
 - Para saber mais sobre como definir a ordem de implantação para seus recursos, confira [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md)
 - Para saber como definir um recurso, mas criando várias instâncias dele, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

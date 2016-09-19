@@ -3,7 +3,7 @@
    description="Detalhes sobre segurança de nível de linha com o Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Segurança de nível de linha com o Power BI Embedded
 
@@ -99,7 +99,7 @@ Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo par
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## Consulte também
+## Confira também
 [RLS (segurança em nível de linha) com Power](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -18,7 +18,7 @@
 
 # Hospedagem de alta densidade no Serviço de Aplicativo do Azure#
 
-Quando você usar o Serviço de Aplicativo do Azure, seu aplicativo será desassociado da capacidade alocada por 2 conceitos:
+Ao usar o Serviço de Aplicativo, o aplicativo será desassociado da capacidade alocada por 2 conceitos:
 
 - **O Aplicativo:** representa o Aplicativo e sua configuração de tempo de execução. Por exemplo, ele inclui a versão do .NET que o tempo de execução deve carregar, as configurações de aplicativo etc.
 
@@ -101,4 +101,4 @@ Siga estas etapas para configurar a hospedagem de alta densidade para seus aplic
 
 1. O número de trabalhadores pode ser configurado independentemente por site, a fim de conceder recursos adicionais conforme necessário. Por exemplo, um site de alto uso poderia definir **numberOfWorkers** como **3** para ter mais capacidade de processamento para este aplicativo, enquanto sites de baixo uso poderiam definir **numberOfWorkers** como **1**.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

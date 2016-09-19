@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,9 +21,9 @@
 
 O objetivo desse tutorial é mostrar como integrar o SciQuest Spend Director ao Azure AD (Azure Active Directory). A integração do SciQuest Spend Director ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar, no Azure AD, quem tem acesso ao SciQuest Spend Director 
+- Você pode controlar, no Azure AD, quem tem acesso ao SciQuest Spend Director
 - Você pode habilitar seus usuários a fazerem logon automaticamente no SciQuest Spend Director (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -41,14 +41,14 @@ Para configurar a integração do Azure AD com o SciQuest Spend Director, você 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adição do SciQuest Spend Director por meio da galeria 
-2. Configurar e testar o logon único do Azure AD
+1. Adição do SciQuest Spend Director por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
 
 
 ## Adição do SciQuest Spend Director por meio da galeria
@@ -56,7 +56,7 @@ Para configurar a integração do SciQuest Spend Director com o Azure AD, você 
 
 **Para adicionar o SciQuest Spend Director por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -114,11 +114,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clás
 
 	![Definir configurações de aplicativo][10]
  
-     3\.1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo SciQuest Spend Director usando o seguinte padrão: **https://.*sciquest.com/.**
+     3\.1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo SciQuest Spend Director usando o seguinte padrão: *https://.*sciquest.com/.**
 
      3\.2. Na caixa de texto **URL de Resposta**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**.
 
-     3\.3. Clique em **Próximo**.
+     3\.3. Clique em **Avançar**.
  
 4. Na página **Configurar logon único no SciQuest Spend Director**, clique em **Baixar metadados** e salve o arquivo de metadados localmente em seu computador.
 
@@ -155,7 +155,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![O que é o Azure AD Connect][102]
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![O que é o Azure AD Connect][103]
 
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
   
 	c. Clique em Avançar.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![O que é o Azure AD Connect][104]
 
@@ -177,9 +177,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
   
 	d. Na lista **Função**, selecione **Usuário**.
   
-	e. Clique em **Próximo**.
+	e. Clique em **Avançar**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![O que é o Azure AD Connect][105]
 
@@ -270,4 +270,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->
