@@ -146,7 +146,8 @@ A tabela a seguir lista as Ofertas de Criptografia e Autenticação IPsec SA. Of
 | 14 | AH MD5 com ESP DES HMAC nulo, sem tempos de vida propostos | AH MD5 com ESP DES MD5, sem tempos de vida |
 | 15 | AH SHA1 com ESP DES SHA1, sem tempos de vida | ESP SHA, sem tempos de vida |
 | 16 | AH MD5 com ESP DES MD5, sem tempos de vida | ESP MD5, sem tempos de vida |
-| 17 | - | AH SHA, sem tempos de vida | | 18 | - | AH MD5, sem tempos de vida |
+| 17 | - | AH SHA, sem tempos de vida | 
+| 18 | - | AH MD5, sem tempos de vida |
 
 
 - Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN RouteBased e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso nos cenários de comunicação entre VNets ou quando a criptografia está sendo aplicada em outro lugar na solução.
