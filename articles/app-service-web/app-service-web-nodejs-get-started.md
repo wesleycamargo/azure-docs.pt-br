@@ -52,8 +52,9 @@ Este tutorial mostra como criar um aplicativo [Node.js][NODEJS] simples e implan
 
     No navegador, navegue até <http://localhost:3000> para verificar se você pode ver a home page do Express. Depois de verificar se o aplicativo é executado corretamente, use `Ctrl-C` para interrompê-lo.
     
-1. Faça logon no Azure da seguinte forma (é necessária a [CLI do Azure](#prereq) para isso):
+1. Mude para o modo ASM e faça logon no Azure (é necessário ter a [CLI do Azure](#prereq) para isso):
 
+        azure config mode asm
         azure login
 
     Siga o prompt para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
@@ -236,4 +237,4 @@ Para habilitar o Node-Inspector, siga estas etapas:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -55,4 +55,4 @@ Para começar com o PowerShell do Aprendizado de Máquina, baixe o [pacote de ve
 
 O módulo PowerShell continuará a ser aprimorado e expandido durante esse período de visualização. Fique atento ao [Blog do Cortana Intelligence e do Aprendizado de Máquina](https://blogs.technet.microsoft.com/machinelearning/) para obter mais informações e notícias.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

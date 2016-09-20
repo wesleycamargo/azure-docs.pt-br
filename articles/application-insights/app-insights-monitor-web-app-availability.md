@@ -72,7 +72,7 @@ Adicione mais testes. Por exemplo, além de testar a página inicial, você pode
 
 ## <a name="monitor"></a>3. Ver seus resultados de teste na Web
 
-Depois de 1 a 2 minutos, os resultados aparecem na
+Depois de 1 a 2 minutos, os resultados aparecem na folha de Teste na Web.
 
 ![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -323,4 +323,4 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -18,7 +18,11 @@
 
 # Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory
 
-Este artigo explica como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras. Para saber mais sobre como adicionar novos usuários da sua organização e como adicionar os usuários com contas da Microsoft, veja [Adicionar novos usuários ao Azure Active Directory](active-directory-create-users.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
+> [AZURE.SELECTOR]
+- [Portal do Azure](active-directory-create-users-external-azure-portal.md)
+- [Portal clássico do Azure](active-directory-create-users-external.md)
+
+Este artigo explica como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras. Para saber mais sobre como adicionar novos usuários da sua organização e como adicionar os usuários com contas da Microsoft, confira [Adicionar novos usuários ao Azure Active Directory](active-directory-create-users.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
 
 ## Adicionar um usuário
 
@@ -31,7 +35,7 @@ Este artigo explica como adicionar usuários de outros diretórios ao Azure Acti
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione:
 
 	- **Usuário em outro diretório do AD do Azure** – adiciona uma conta de usuário a seu diretório originado de outro diretório do AD do Azure. Você só poderá selecionar um usuário em outro diretório se também for membro desse diretório.
-	- **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório (veja [Colaboração B2B do Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Você precisará [carregar um arquivo CSV especificando endereços de email](active-directory-b2b-references-csv-file-format.md).
+	- **Usuários em empresas parceiras** - para convidar e autorizar os usuários da empresa parceira para o diretório (confira [Colaboração B2B do Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Você precisará [carregar um arquivo CSV especificando endereços de email](active-directory-b2b-references-csv-file-format.md).
 
 6. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e uma função de usuário da lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar Multi-Factor Authentication** para o usuário.
 
@@ -66,7 +70,7 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - **Portal clássico do Azure**: permite que um usuário que é administrador de vários diretórios gerencie cada um desses diretórios.
 - **SharePoint Online**: se o compartilhamento externo estiver habilitado, permite que um usuário externo acesse recursos autorizados do SharePoint Online.
 - **Dynamics CRM**: se o usuário for licenciado por meio do PowerShell, permite que um usuário externo acesse recursos autorizados no Dynamics CRM.
-- **Dynamics AX**: se o usuário for licenciado por meio do PowerShell, permite que um usuário externo acesse recursos autorizados no Dynamics AX. As limitações de [usuários externos do AD do Azure](#known-limitations-of-azure-ad-external-users) e de [Usuários convidados](#guest-user-management-and-limitations) também se aplicam a usuários externos no Dynamics AX.
+- **Dynamics AX**: se o usuário for licenciado por meio do PowerShell, permite que um usuário externo acesse recursos autorizados no Dynamics AX. As limitações de [usuários externos do Azure AD ](#known-limitations-of-azure-ad-external-users) e de [Usuários convidados](#guest-user-management-and-limitations) também se aplicam a usuários externos no Dynamics AX.
 
 ### Limitações conhecidas dos usuários externos do AD do Azure:
 
@@ -84,4 +88,4 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 - [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

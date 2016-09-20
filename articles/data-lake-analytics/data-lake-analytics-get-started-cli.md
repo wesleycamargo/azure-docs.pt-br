@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Introdução à Análise Azure Data Lake usando a Interface de linha de comando do Azure | Microsoft Azure" 
-   description="Saiba como usar a interface de linha de comando do Azure para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando U-SQL e enviar o trabalho." 
+   description="Saiba como usar a interface de linha de comando do Azure para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando U-SQL e enviar o trabalho. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -32,12 +32,12 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **CLI do Azure**. Consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+- **CLI do Azure** Consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
 	- Baixe e instale o **pré-lançamento das** [ferramentas de CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 - **Autenticação**, usando o seguinte comando:
 
 		azure login
-	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
+	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, veja [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
 - **Alterne para o modo Gerenciador de Recursos do Azure** usando o seguinte comando:
 
 		azure config mode arm
@@ -46,7 +46,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
 
-- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
+- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.
 
 	Para enumerar os grupos de recursos em sua assinatura:
     
@@ -153,7 +153,7 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 	azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
 	azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## Consulte também
+## Confira também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
@@ -162,4 +162,4 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Autenticar Runbooks com o Gerenciador de Recursos e o Gerenciamento de Serviços do Azure
@@ -26,7 +26,7 @@ Este artigo descreve as etapas que você deve executar para configurar uma conta
 2. Selecione **Active Directory** e selecione o nome do diretório da sua organização.
 3. Selecione a guia **Usuários** e, na área de comando, selecione **Adicionar Usuário**.
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione **Novo usuário na sua organização**.
-5. Insira um nome de usuário.  
+5. Insira um nome de usuário.
 6. Selecione o nome do diretório associado à sua assinatura do Azure na página do Active Directory.
 7. Na página **Perfil** do usuário, forneça um nome e um sobrenome, um nome amigável e Usuário na lista **Funções**. Não selecione **Habilitar Multi-Factor Authentication**.
 8. Anote o nome completo do usuário e a senha temporária.
@@ -45,10 +45,10 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 1. Faça logon no Portal Clássico do Azure como administrador de serviço para a assinatura do Azure que você deseja gerenciar.
 2. Selecione **Automação**.
 3. Na página **Automação**, selecione **Criar uma Conta de Automação**.
-4. Na caixa **Criar uma Conta de Automação**, digite um nome para a nova conta de Automação e selecione uma **Região** na lista suspensa.  
+4. Na caixa **Criar uma Conta de Automação**, digite um nome para a nova conta de Automação e selecione uma **Região** na lista suspensa.
 5. Clique em **OK** para aceitar as configurações e criar a conta.
 6. Após ser criada, ela será listada na página **Automação**.
-7. Clique na conta e você será levado para página Painel.  
+7. Clique na conta e você será levado para página Painel.
 8. Na página Painel de Automação, selecione **Ativos**.
 9. Na página **Ativos**, selecione a opção **Adicionar Configurações**, localizada na parte inferior da página.
 10. Na página **Adicionar Configurações**, selecione **Adicionar Credencial**.
@@ -64,7 +64,7 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 3. Na folha Contas de Automação, clique em **Adicionar**.<br>![Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. Na folha **Adicionar Conta de Automação**, na caixa **Nome**, digite um nome para a nova conta de Automação.
 5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
-3. Selecione o valor **Não** para a opção **Criar conta Executar como do Azure** e clique no botão **Criar**.  
+3. Selecione o valor **Não** para a opção **Criar conta Executar como do Azure** e clique no botão **Criar**.
 
     >[AZURE.NOTE] Se você optar por não criar a conta Executar como ao selecionar a opção **Não**, verá uma mensagem de aviso na folha **Adicionar Conta de Automação**. Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura. Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do ARM.
 
@@ -87,4 +87,4 @@ Repita essas linhas após qualquer [ponto de verificação](http://technet.micro
 ## Próximas etapas
 * Examine os diferentes tipos de runbook e as etapas para criar seus próprios runbooks no artigo [Tipos de runbook da Automação do Azure](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

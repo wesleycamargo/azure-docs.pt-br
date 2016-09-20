@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando a linha de comando do Azure
@@ -36,24 +36,23 @@ A CLI do Azure é implementada no Node. js. Ela pode ser usada em qualquer plata
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **CLI do azure** - consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter informações de instalação e configuração. Certifique-se de reinicializar o computador depois de instalar a CLI.
 
-##Faça logon na sua assinatura do Azure
+##Faça logon em sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](../xplat-cli-connect.md) e conectar à sua assinatura usando o método de __logon__.
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
 
 
 ## Criar uma conta do Repositório Azure Data Lake
 
 Abra uma sessão de prompt, shell ou terminal de comando e execute os comandos a seguir.
 
-1. Faça logon na sua assinatura do Azure:
+1. Entre na sua assinatura do Azure:
 
 		azure login
 
-	Você precisará abrir uma página da Web e inserir um código de autenticação. Siga as instruções na página para fazer logon em sua assinatura do Azure.
+	Você precisará abrir uma página da Web e inserir um código de autenticação. Siga as instruções na página para entrar na assinatura do Azure.
 
 2. Alterne para modo Gerenciador de Recursos do Azure usando o seguinte comando:
 
@@ -65,7 +64,7 @@ Abra uma sessão de prompt, shell ou terminal de comando e execute os comandos a
 		azure account list
 
 
-4. Se você tiver várias assinaturas do Azure, use o comando a seguir para definir a assinatura que os comandos do Azure CLI vai usar:
+4. Se você tiver várias assinaturas do Azure, use o seguinte comando para definir a assinatura que os comandos da CLI do Azure vão usar:
 
 		azure account set <subscriptionname>
 
@@ -189,4 +188,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

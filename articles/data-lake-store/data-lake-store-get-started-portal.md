@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório do Azure Data Lake usando o Portal do Azure
@@ -35,17 +35,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Habilitar sua assinatura do Azure para a visualização pública do Repositório Data Lake
-
-Primeiro você precisa solicitar a habilitação de sua assinatura do Azure para a visualização pública do Repositório Data Lake. Execute as etapas abaixo.
-
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
-2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Repositório Azure Data Lake**.
-3. Na folha **Novo Repositório Data Lake**, clique em **Inscreva-se para visualizar**. Revise as informações e clique em **OK**. Você receberá um email quando sua assinatura tiver sido habilitada para a Visualização Pública.
-
-	![Inscrever-se para a Visualização Pública](./media/data-lake-store-get-started-portal/preview-signup.png "Criar uma nova conta do Azure Data Lake")
-
-## Você aprenderá rapidamente com vídeos?
+## Você aprende rapidamente com vídeos?
 
 Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
 
@@ -62,7 +52,7 @@ Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
 
 	![Criar uma nova conta do Repositório Azure Data Lake](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Criar uma nova conta do Azure Data Lake")
 
-	- **Assinatura**. Selecione a assinatura na qual você deseja criar uma nova conta do Repositório Data Lake.
+	- **Assinatura**. Selecione a assinatura na qual você deseja criar uma nova conta do Data Lake Store.
 	- **Grupo de Recursos**. Selecione um grupo de recursos existente ou clique em **Criar um grupo de recursos** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](resource-group-overview.md#resource-groups).
 	- **Local**: selecione um local no qual você deseja criar a conta do Data Lake.
 
@@ -138,4 +128,4 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Acessar os logs de diagnóstico do Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Controle de acesso com base em função na Automação do Azure
@@ -127,7 +127,7 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 
 ## Configurar o RBAC para sua Conta de Automação usando o Portal do Azure
 
-1.	Faça logon no [Portal do Azure](https://portal.azure.com/) e abra sua conta de Automação na folha Contas de Automação.  
+1.	Faça logon no [Portal do Azure](https://portal.azure.com/) e abra sua conta de Automação na folha Contas de Automação.
 
 2.	Clique no controle **Acesso** no canto superior direito. Isso abre a folha **Usuários** onde você pode adicionar novos usuários, grupos e aplicativos para gerenciar sua Conta de Automação e exibir as funções existentes que podem ser configuradas para ela.
 
@@ -137,7 +137,7 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 
 ### Adicionar um novo usuário e atribuir uma função
 
-1.	Na folha Usuários, clique em **Adicionar** para abrir a opção **Adicionar folha de acesso** onde você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.  
+1.	Na folha Usuários, clique em **Adicionar** para abrir a opção **Adicionar folha de acesso** onde você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.
 
     ![Adicionar usuário](media/automation-role-based-access-control/automation-02-add-user.png)
 
@@ -231,4 +231,4 @@ Nos exemplos acima, substitua a **Id de entrada**, a **Id da assinatura**, o **n
 - Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
 - Para obter informações sobre os diferentes tipos de runbook, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
