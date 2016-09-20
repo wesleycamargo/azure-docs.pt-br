@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="09/09/2016"
 	ms.author="garye"/>
 
 # O que é o Estúdio de Aprendizado de Máquina do Azure?
@@ -29,7 +29,7 @@ O Estúdio de Aprendizado de Máquina é onde a ciência de dados, as análises 
 
 Para desenvolver um modelo de análise preditiva, normalmente você usa dados de uma ou mais fontes, transforma e analisa esses dados com várias funções de manipulação de dados e estatísticas e gera um conjunto de resultados. Desenvolver um modelo como este é um processo iterativo. À medida que você modifica as diversas funções e seus parâmetros, seus resultados convergem até que você esteja satisfeito, com um modelo treinado e eficiente.
 
-O **Estúdio de Aprendizado de Máquina do Azure** oferece um espaço de trabalho visual e interativo para compilar, testar e iterar em um modelo de análise preditivo. Você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em ***telas*** interativas conectando-as para formar um ***teste***, o qual você ***executa*** no Estúdio de Aprendizado de Máquina. Para iterar em seu design de modelo, você ***edita*** o teste, ***salva*** uma cópia, se desejado, e executa-o novamente. Quando você estiver pronto, você poderá converter sua ***teste de treinamento*** em uma ***experiência preditiva***, e, em seguida, ***publicar*** -la como um ***serviço Web*** para que seu modelo possa ser acessado por outros.
+O **Estúdio de Aprendizado de Máquina do Azure** oferece um espaço de trabalho visual e interativo para compilar, testar e iterar em um modelo de análise preditivo. Você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em telas interativas conectando-as para formar um ***teste***, o qual você executa no Estúdio de Aprendizado de Máquina. Para iterar em seu design de modelo, você edita o teste, salva uma cópia, se desejado, e executa-o novamente. Quando você estiver pronto, você poderá converter seu ***teste de treinamento*** em uma ***experiência preditiva*** e, em seguida, publicá-la como um ***serviço Web*** para que seu modelo possa ser acessado por outras pessoas.
 
 >[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
@@ -59,7 +59,7 @@ Clique na guia **Estúdio** e será solicitado que você entre usando a conta da
 
 Clique na guia **Galeria** guia e você será levado para a Galeria do Cortana Intelligence. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
 
-Para obter mais informações sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+Para saber mais sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componentes de um teste
 
@@ -116,4 +116,4 @@ Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

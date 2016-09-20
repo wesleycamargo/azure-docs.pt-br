@@ -422,7 +422,7 @@ O exemplo a seguir cria uma política de acesso compartilhado em um compartilham
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para saber mais sobre como criar e usar as assinaturas de acesso compartilhado, confira [Assinaturas de Acesso Compartilhado: Compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o armazenamento de blobs](storage-dotnet-shared-access-signature-part-2.md).
+Para saber mais sobre como criar e usar as assinaturas de acesso compartilhado, confira [Como usar SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar arquivos
 
@@ -667,4 +667,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

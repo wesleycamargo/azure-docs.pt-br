@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -39,7 +39,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Criar um aplicativo de console
 
-Neste tutorial, você processará alguns logs de pesquisa. O log de pesquisa pode ser armazenado no Repositório Azure Data Lake ou no armazenamento de Blob do Azure.
+Neste tutorial, você processará alguns logs de pesquisa. O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
 Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do Azure. No aplicativo, você baixará o arquivo em sua estação de trabalho e o carregará na conta padrão do Repositório Azure Data Lake.
 
@@ -256,7 +256,7 @@ Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do A
 
 6. Pressione **F5** para executar o aplicativo.
 
-## Consulte também
+## Confira também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
@@ -265,4 +265,4 @@ Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do A
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, veja [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

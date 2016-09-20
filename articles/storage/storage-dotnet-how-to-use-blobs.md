@@ -365,7 +365,7 @@ Por padrão, o Armazenamento do Azure mantém seus dados seguros limitando o ace
 Por padrão, os dados de blob em sua conta de armazenamento só podem ser acessados pelo proprietário da conta de armazenamento. A autenticação de solicitações no Armazenamento de Blobs requer a chave de acesso da conta, por padrão. No entanto, talvez você queira disponibilizar determinados dados de blobs para outros usuários. Você tem duas opções:
 
 - **Acesso anônimo:** você pode tornar um contêiner ou seus blobs publicamente disponíveis para acesso anônimo. Confira [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md) para saber mais.
-- **Assinaturas de acesso compartilhado:** você pode fornecer aos clientes uma SAS (assinatura de acesso compartilhado), que fornece acesso delegado a um recurso em sua conta de armazenamento, com permissões e em um intervalo que você especifica. Confira [Assinaturas de Acesso Compartilhado: noções básicas do modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
+- **Assinaturas de acesso compartilhado:** você pode fornecer aos clientes uma SAS (assinatura de acesso compartilhado), que fornece acesso delegado a um recurso em sua conta de armazenamento, com permissões e em um intervalo que você especifica. Confira [Usando Assinaturas de Acesso Compartilhado (SAS)](storage-dotnet-shared-access-signature-part-1.md) para saber mais.
 
 ### Criptografia de dados de blobs
 
@@ -407,4 +407,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blobs, siga e
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

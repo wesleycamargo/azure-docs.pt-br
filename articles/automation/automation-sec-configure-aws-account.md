@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Autenticar runbooks com o Amazon Web Services
@@ -36,4 +36,4 @@ Após criar e copiar as chaves de segurança do AWS, você precisará criar um a
 
 - Examine o artigo sobre solução [Automatização da implantação de uma VM no Amazon Web Services](../automation/automation-scenario-aws-deployment.md) para saber como criar runbooks para automatizar tarefas no AWS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

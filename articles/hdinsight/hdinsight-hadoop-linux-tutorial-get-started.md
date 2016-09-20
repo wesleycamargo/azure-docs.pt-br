@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # Tutorial do Hadoop: introdução ao uso do Hadoop baseado em Linux no HDInsight
@@ -35,20 +35,19 @@ Antes de começar este tutorial, você deverá ter o seguinte:
 
 ## Criar cluster
 
-A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o [Modelo de ARM do Azure](../resource-group-template-deploy.md). O Modelo do ARM é totalmente personalizável; ele facilita a criação de recursos do Azure, como o HDInsight. Não é necessário ter experiência com o Modelo de ARM do Azure para seguir este tutorial. Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). O modelo ARM usado neste tutorial está localizado em um contêiner de blob público, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json).
+A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o [modelo do Azure Resource Manager](../resource-group-template-deploy.md). O modelo do Resource Manager é totalmente personalizável; ele facilita a criação de recursos do Azure, como o HDInsight. Não é necessário ter experiência com o modelo do Resource Manager para seguir este tutorial. Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). O modelo do Resource Manager usado neste tutorial está localizado em um contêiner de blob público, [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json).
 
-1. Clique na imagem a seguir para entrar no Azure e abra o modelo ARM no Portal do Azure. 
+1. Clique na imagem a seguir para entrar no Azure e abra o modelo do Resource Manager no Portal do Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us
-    /documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Na folha **Parâmetros**, insira o seguinte:
 
-    ![Modelo arm de introdução do HDInsight para Linux no portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![HDInsight Linux Introdução ao modelo do Resource Manager no portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
 
     - **ClusterName**: insira um nome para o cluster Hadoop que você criará.
     - **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.
-    - **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**. Você pode renomeá-lo. 
+    - **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**. Você pode renomeá-lo.
     
     Outros parâmetros são opcionais para seguir este tutorial. Você pode deixá-los como estão.
     
@@ -57,8 +56,8 @@ A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um clust
 3. Clique em **OK** para salvar os parâmetros.
 4. Na folha **Implantação personalizada**, digite **Nome do novo grupo de recursos** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros itens. O local do grupo de recursos pode ser diferente do local do cluster.
 5. Clique em **Termos legais** e em **Criar**.
-6. Verifique se a caixa de seleção **Fixar no painel** está marcada e clique em **Criar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo**. A criação de um cluster demora cerca de 20 minutos. 
-7.  Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. O portal abre automaticamente duas folhas com o cluster e as configurações de cluster. 
+6. Verifique se a caixa de seleção **Fixar no painel** está marcada e clique em **Criar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo**. A criação de um cluster demora cerca de 20 minutos.
+7.  Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. O portal abre automaticamente duas folhas com o cluster e as configurações de cluster.
 
     ![Configurações de cluster de introdução do HDInsight para Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
 
@@ -109,7 +108,7 @@ Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dado
 
 ## Próximas etapas
 
-Neste tutorial, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo ARM e como executar consultas básicas do Hive.
+Neste tutorial, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo do Resource Manager e como executar consultas básicas do Hive.
 
 Para saber mais sobre como trabalhar com o HDInsight, confira:
 
@@ -162,4 +161,4 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -43,11 +43,11 @@ Consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learnin
 
 **Onde estão listados os meus serviços Web clássicos? Onde estão listados meus novos serviços Web baseados em ARM?**
 
-Os serviços Web clássicos estão listados no [Estúdio de Aprendizado de Máquina](http://studio.azureml.net) na guia Serviços Web. Novos serviços Web baseadas em ARM são listados no portal [Serviços Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/). Não há listagem cruzada disponível.
+Os serviços Web clássicos estão listados no [Estúdio de Aprendizado de Máquina](http://studio.azureml.net) na guia Serviços Web. Novos serviços Web baseados em ARM são listados no portal [Serviços Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/). Não há listagem cruzada disponível.
 
 ## Perguntas sobre o serviço Web de Aprendizado de Máquina do Microsoft Azure
 
-**O que são os Serviços Web AM do Azure?**
+**O que são os Serviços Web de AM do Azure?**
 
 Com o serviço Web de Aprendizado de Máquina do Azure, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho de Aprendizado de Máquina em tempo real. Uma chamada do serviço Web de Aprendizado de Máquina retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web de Aprendizado de Máquina, transmita uma chave de API que foi criada quando você implantou o serviço Web. O serviço Web de Aprendizado de Máquina baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
@@ -112,7 +112,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Importar Dados][import-data]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
+Para saber mais sobre como gerenciar os serviços Web implantados, veja [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure][import-data]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -244,7 +244,7 @@ Depois que um modelo de previsão for implantado, você poderá monitorá-lo no 
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][export-data].
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou em uma tabela usando o módulo [Exportar Dados][export-data].
 
 **Posso criar serviços Web apenas de modelos criados no Estúdio de Aprendizado de Máquina?**
 
@@ -258,7 +258,7 @@ Confira [Códigos de erro do módulo de Aprendizado de Máquina](https://msdn.mi
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e os serviços Web a 10.000 pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensioná-lo com até 200 solicitações simultâneas por ponto de extremidade, e os serviços Web com até 10.000 pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
@@ -268,7 +268,7 @@ Nº
 
 **Quantos dados posso usar para treinamento?**
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Azure ou de pré-processamento com módulos [Aprendizado por contagens][counts] antes da ingestão.
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Azure ou do Hive, ou fazer o pré-processamento com módulos [Aprendizado por contagens][counts] antes do uso.
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
@@ -298,7 +298,7 @@ Nº
 
 ## Segurança e disponibilidade
 
-**Quem tem acesso ao ponto de extremidade HTTP para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
+**Quem tem acesso, por padrão, ao ponto de extremidade HTTP para o serviço Web? Como faço para restringir o acesso ao ponto de extremidade?**
 
 Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Outros pontos de extremidade podem ser adicionados com suas próprias chaves no portal clássico do Azure ou de forma programática usando as APIs de Gerenciamento de Serviços Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
@@ -343,15 +343,15 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 
 Há dois componentes do serviço Aprendizado de Máquina do Azure. O Estúdio de Aprendizado de Máquina e os Serviços Web de Aprendizado de Máquina.
 
-Enquanto você estiver avaliando o Estúdio de Aprendizado de Máquina, poderá usar a camada gratuita. A Camada gratuita também permite que você implante um serviço Web clássico com capacidade limitada.
+Enquanto você estiver avaliando o Estúdio de Aprendizado de Máquina, poderá usar a camada de cobrança gratuita. A Camada gratuita também permite que você implante um serviço Web clássico com capacidade limitada.
 
-Depois de decidir que o Aprendizado de Máquina do Azure atende às suas necessidades, você poderá se inscrever na camada Standard. Para se inscrever, você precisa ter uma assinatura do Microsoft Azure.
+Depois de decidir que o Aprendizado de Máquina do Azure atende às suas necessidades, você poderá se inscrever na camada Standard. Para se inscrever, você precisa ter uma Assinatura do Microsoft Azure.
 
 Na camada Standard, você será cobrado mensalmente por estação para o uso do Estúdio de Aprendizado de Máquina. Quando executa um teste no estúdio, você é cobrado por recursos de computação durante a execução do teste. Quando você implanta um serviço Web clássico, as transações e horas de computação são PAYG (pré-pagas).
 
 Os novos serviços Web de Aprendizado de Máquina apresentam planos de cobrança que permitem maior previsibilidade dos custos. As camadas de preço servem para clientes que precisam de muita capacidade, mas apresentam ofertas de desconto.
 
-Quando cria um plano, você se compromete com um custo fixo que vem com uma quantidade incluída da horas de computação de API e transações de API. Se você precisar de mais quantidades incluídas, poderá adicionar mais instâncias ao seu plano. Se precisar de muito mais quantidades incluídas, você poderá escolher um plano de camada superior que tenha quantidades incluídas ainda maiores e uma melhor taxa de desconto.
+Quando você cria um plano, assume um custo fixo com uma quantidade incluída de horas de computação de API e de transações de API. Se você precisar de mais quantidades incluídas, poderá adicionar mais instâncias ao seu plano. Se precisar de muito mais quantidades incluídas, você poderá escolher um plano de camada superior que tenha quantidades incluídas ainda maiores e uma melhor taxa de desconto.
 
 Depois que as quantidades incluídas em instâncias existentes forem consumidas, o uso adicional será cobrado na taxa excedente associada à camada de plano de cobrança.
 
@@ -361,7 +361,7 @@ Para saber mais sobre preços e cobrança, confira [Preços do Aprendizado de M�
 
 **O Aprendizado de Máquina tem uma avaliação gratuita?**
 
- O Aprendizado de Máquina do Azure tem uma opção de assinatura gratuita (confira [Preços do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes), e o Estúdio de Aprendizado de Máquina tem uma avaliação rápida de 8 horas disponível (faça logon no [Estúdio de Aprendizado de Máquina](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
+ O Aprendizado de Máquina do Azure tem uma opção de assinatura gratuita (consulte [Preços do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes) e o Estúdio de Aprendizado de Máquina tem uma avaliação rápida de 8 horas disponível (faça logon no [Estúdio de Aprendizado de Máquina](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
  
  Além disso, quando você se inscrever em uma avaliação gratuita do Azure, poderá experimentar qualquer serviço do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas frequentes sobre a avaliação gratuita do Azure](/pricing/free-trial-faq/).
 
@@ -379,7 +379,7 @@ Uma hora de computação de API é a unidade de cobrança do tempo que leva para
 
 **Quanto tempo demora uma chamada típica à API de produção?**
 
-As horas de produção de chamada à API podem variar significativamente, indo geralmente de centenas de milissegundos a alguns segundos, mas podem exigir minutos, dependendo da complexidade do processamento dos dados e do modelo de aprendizado de máquina. A melhor forma de estimar os tempos de chamada à API de produção é submeter um modelo a benchmark no serviço Aprendizado de Máquina.
+As horas de produção de chamada à API podem variar significativamente, oscilando geralmente de centenas de milissegundos a alguns segundos, mas podem exigir minutos, dependendo da complexidade do processamento dos dados e do modelo de aprendizado de máquina. A melhor forma de estimar os tempos de chamada à API de produção é submeter um modelo a benchmark no serviço Aprendizado de Máquina.
 
 **O que é uma hora de computação do Estúdio?**
 
@@ -387,15 +387,15 @@ Uma hora de computação do Estúdio é a unidade de cobrança para o tempo agre
 
 **Nos novos serviços Web, para que serve a camada de desenvolvimento e teste?**
 
-Os novos serviços Web fornecem várias camadas que você pode usar para provisionar seu plano de cobrança. A camada de desenvolvimento e teste é uma camada que fornece quantidades incluídas limitadas e permite que você avalie seu teste como novo serviço Web sem incorrer em custos. Você tem a oportunidade de "tirar as correias de segurança" para ver como ele funciona.
+Os novos serviços Web fornecem várias camadas que você pode usar para provisionar seu plano de cobrança. A camada de desenvolvimento e teste é uma camada que fornece quantidades incluídas limitadas e permite que você avalie seu teste como novo serviço Web sem incorrer em custos. Você tem a oportunidade de "mergulhar nesta experiência" para ver como ele funciona.
 
 **Existem encargos de armazenamento separados?**
 
-A camada Gratuita do Aprendizado de Máquina não exige ou permite armazenamento separado. A camada Standard do Aprendizado de Máquina exige que os usuários tenham uma conta de armazenamento do Azure. O Armazenamento do Azure [é cobrado separadamente](https://azure.microsoft.com/pricing/details/storage/).
+A camada Gratuita do Aprendizado de Máquina não exige nem permite armazenamento separado. A camada Standard do Aprendizado de Máquina exige que os usuários tenham uma conta de armazenamento do Azure. O Armazenamento do Azure [é cobrado separadamente](https://azure.microsoft.com/pricing/details/storage/).
 
 **Como funciona a alta disponibilidade do suporte do Aprendizado de Máquina?**
 
-As horas de produção de chamada à API podem variar significativamente, indo geralmente de centenas de milissegundos a alguns segundos, mas podem exigir minutos, dependendo da complexidade do processamento dos dados e do modelo de aprendizado de máquina. A melhor forma de estimar os tempos de chamada à API de produção é submeter um modelo a benchmark no serviço Aprendizado de Máquina.
+As horas de produção de chamada à API podem variar significativamente, oscilando geralmente de centenas de milissegundos a alguns segundos, mas podem exigir minutos, dependendo da complexidade do processamento dos dados e do modelo de aprendizado de máquina. A melhor forma de estimar os tempos de chamada à API de produção é submeter um modelo a benchmark no serviço Aprendizado de Máquina.
 
 **Em quais tipos específicos de recursos de computação minhas chamadas à API de produção serão executadas?**
 
@@ -405,7 +405,7 @@ O serviço Aprendizado de Máquina é um serviço multilocatário, cujos recurso
 
 **O que acontece se eu excluir meu plano?**
 
-O plano será removido da sua assinatura e você será cobrado por uso rateado.
+O plano é removido de sua assinatura e você é cobrado pelo uso rateado.
 
 Observação: você não pode excluir um plano que está sendo usado por um serviço Web. Para excluir o plano, atribua um novo plano ao serviço Web ou exclua o serviço Web.
 
@@ -433,7 +433,7 @@ As quantidades incluídas estão incluídas em uma base rateada e podem levar at
 
 **O que acontece quando eu excluo uma instância de um plano?**
 
-A instância é removida da sua assinatura e você será cobrado pelo uso rateado.
+A instância é removida de sua assinatura e você é cobrado pelo uso rateado.
 
 
 ### Inscrevendo-se em planos de novos serviços Web
@@ -502,7 +502,7 @@ O serviço API do AM do Azure é cobrado dependendo da sua natureza como serviç
 
 Os encargos abaixo são agregados por espaço de trabalho para sua assinatura.
 
-* Assinatura de Estação de AM - a assinatura de estação de AM é uma taxa mensal que dá acesso a um espaço de trabalho do Estúdio AM e é necessária para executar testes no estúdio e utilizando as APIs de produção.
+* Assinatura de Estação de AM: a Assinatura de Estação de AM é uma taxa mensal que dá acesso a um espaço de trabalho do Estúdio AM e é necessária para executar testes no estúdio e utilizar as APIs de produção.
 * Horas de Teste no Estúdio – esse medidor agrega todas as cobranças de computação vencidas ao executar testes no Estúdio AM e executar chamadas de API de produção no ambiente de preparo.
 * Dados de acesso por conexão com um servidor SQL local em seus modelos para treinamento e pontuação.
 * Para serviços Web clássicos:
@@ -524,7 +524,7 @@ Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Ap
 
 **Como faço para me inscrever na camada Standard de Aprendizado de Máquina do Azure?**
 
-Primeiro, é necessário ter acesso a uma assinatura do Azure para criar um espaço de trabalho do Aprendizado de Máquina Standard. Você pode se inscrever em uma avaliação gratuita de 30 dias e atualizar posteriormente para pagar pela assinatura do Azure ou comprar uma assinatura do Azure imediatamente. Em seguida, é possível criar um espaço de trabalho do Aprendizado de Máquina no portal clássico do Microsoft Azure depois de obter acesso à assinatura. Veja as [instruções detalhadas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Primeiro, é necessário ter acesso a uma assinatura do Azure para criar um espaço de trabalho do ML Standard. Você pode inscrever-se em uma assinatura do Azure com avaliação gratuita de 30 dias e atualizar posteriormente para uma assinatura paga ou comprar uma assinatura do Azure paga imediatamente. Em seguida, é possível criar um espaço de trabalho do Machine Learning no portal clássico do Microsoft Azure depois de ter acesso à assinatura. Veja as [instruções detalhadas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Se preferir, é possível ser convidado por um proprietário de espaço de trabalho de Aprendizado de Máquina Standard para acessar o espaço de trabalho do proprietário.
 
@@ -553,9 +553,9 @@ Para copiar seus testes da camada Gratuita para a camada Standard, siga as etapa
 
 ### Espaço de trabalho do Estúdio
 
-**O que é uma Assinatura de Estação de Aprendizado de Máquina e quando preciso de uma?**
+**O que é Assinatura da Estação de Aprendizado de Máquina e quando preciso de uma?**
 
-Uma Estação de Aprendizado de Máquina representa um espaço de trabalho. Recomenda-se que todos os testes do usuário em execução no Estúdio AM ou um serviço API de produção sejam cobertos por uma Assinatura de Estação de Aprendizado de Máquina.
+Uma Estação de Aprendizado de Máquina representa um espaço de trabalho. Recomenda-se que todos os testes do usuário em execução no Estúdio AM ou um serviço API de produção sejam cobertos por uma Assinatura da Estação de Aprendizado de Máquina.
 
 **Existem faturas diferentes para espaços de trabalho diferentes?**
 
@@ -582,4 +582,4 @@ O Acesso de Convidado é uma experiência teste restrita que permite que você c
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

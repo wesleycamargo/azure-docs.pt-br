@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""
     tags="azure-portal"/>
 
@@ -183,4 +183,4 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

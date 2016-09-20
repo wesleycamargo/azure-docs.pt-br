@@ -6,7 +6,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/28/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 
@@ -94,4 +94,4 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Carregar dados do arquivo CSV no Banco de Dados SQL do Azure (bcp) | Microsoft Azure"
    description="Para um tamanho de dados pequeno, use bcp para importar dados para o Banco de Dados SQL."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microso
 
 Se você estiver experimentando este tutorial com seus próprios dados, eles precisarão usar a codificação ASCII ou UTF-16, já que bcp não oferece suporte a UTF-8.
 
-O PolyBase oferece suporte a UTF-8, mas ainda não oferece suporte a UTF-16. Observe que se você quiser combinar bcp com o PolyBase, será necessário transformar os dados em UTF-8 após a exportação do SQL Server.
-
-
 ## 1\. Criar uma tabela de destino
 
-Defina uma tabela no SQL Data Warehouse que será a tabela de destino para a carga. As colunas na tabela devem corresponder aos dados em cada linha do arquivo de dados.
+Defina uma tabela no Banco de Dados SQL como a tabela de destino. As colunas na tabela devem corresponder aos dados em cada linha do arquivo de dados.
 
 Para criar uma tabela, abra um prompt de comando e use sqlcmd.exe para executar o comando a seguir:
 
@@ -127,4 +124,4 @@ Para migrar um banco de dados do SQL Server, confira [Migração de banco de dad
 <!--Other Web references-->
 [Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

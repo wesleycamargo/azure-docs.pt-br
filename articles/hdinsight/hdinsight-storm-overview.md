@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -57,7 +57,7 @@ Você pode provisionar um novo Storm no cluster HDInsight em minutos. Especifiqu
 
 Após 15 minutos do envio da solicitação, você terá um novo cluster Storm em execução e pronto para o primeiro pipeline de análise em tempo real.
 
-###Fácil de usar
+###Fácil de uso
 
 __Para Storm baseado em Linux nos cluster HDInsight__, você pode se conectar ao cluster usando o SSH e usar o `storm` comando para iniciar e gerenciar topologias. Além disso, você pode usar a Ambari para monitorar o serviço Storm e a profusão de IU para monitorar e gerenciar as topologias em execução.
 
@@ -225,4 +225,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -282,4 +282,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

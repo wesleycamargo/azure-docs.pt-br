@@ -37,7 +37,7 @@ Esses itens são implementações do [Application Insights](app-insights-overvie
 + [ASP.NET – para aplicativos que já estejam ao vivo](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Aplicativos Web e VMs do Aure](../azure-portal/insights-perf-analytics.md)
++ [Aplicativos Web e VMs do Aure](app-insights-azure-web-apps.md)
 + [Serviços de Nuvem do Azure](app-insights-cloudservices.md) &#151; incluindo funções Web e de trabalho
 + [CRM Online do Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -84,4 +84,4 @@ Esses itens são implementações do [Application Insights](app-insights-overvie
 
 Se ainda não houver um SDK para sua linguagem ou plataforma, você gostaria de criar um? Examine o código dos SDKs existentes listados no [Projeto de SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

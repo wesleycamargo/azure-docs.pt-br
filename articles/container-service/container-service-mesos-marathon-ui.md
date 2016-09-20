@@ -60,7 +60,7 @@ Protocolo | TCP
 Se você deseja mapear estaticamente a porta do contêiner para uma porta no agente, precisa usar o Modo JSON. Para fazer isso, alterne o assistente de Novo Aplicativo para **Modo JSON** usando o botão de alternância. Em seguida, digite o seguinte na seção `portMappings` da definição do aplicativo. Este exemplo associa a porta 80 do contêiner à porta 80 do agente DC/OS. Depois de fazer essa alteração, você pode remover o assistente do Modo JSON.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Interface do usuário do novo aplicativo – exemplo de porta 80](media/dcos/dcos13.png)
@@ -101,4 +101,4 @@ Aprofunde seus conhecimentos sobre o Serviço de Contêiner do Azure com o Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

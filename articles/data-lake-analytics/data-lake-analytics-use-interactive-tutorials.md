@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Saiba como usar a Análise do Data Lake e o U-SQL usando os tutoriais interativos do Portal do Azure | Azure" 
-   description="Início rápido para aprender a usar a Análise Data Lake e o U-SQL." 
+   description="Início rápido para aprender a usar a Análise Data Lake e o U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -30,7 +30,7 @@ Para ver outros tutoriais, confira:
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introdução à Análise Data Lake usando o SDK do .NET](data-lake-analytics-get-started-net-sdk.md)
-- [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
+- [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
 **Pré-requisitos**
 
@@ -48,7 +48,7 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 
 1. Entre no [Portal do Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Clique em **Microsoft Azure** no canto superior esquerdo para abrir o quadro inicial.
-3. Clique no bloco **Marketplace**.  
+3. Clique no bloco **Marketplace**.
 3. Digite **Análise Azure Data Lake** na caixa de pesquisa na folha **Tudo** e pressione a tecla **ENTER**. Você deverá ver **Análise Azure Data Lake** na lista.
 4. Clique em **Análise Azure Data Lake** na lista.
 5. Clique em **Criar** na parte inferior da folha.
@@ -59,12 +59,12 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 	- **Nome**: nomeie a conta da Análise.
 	- **Repositório Data Lake**: cada conta da Análise Data Lake tem uma conta dependente do Repositório Data Lake. A conta da Análise Data Lake e a conta dependente do Repositório Data Lake devem ser colocadas no mesmo data center do Azure. Siga as instruções para criar uma nova conta do Repositório Data Lake ou selecione uma existente.
 	- **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
-	- **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md). 
-	- **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake. 
+	- **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+	- **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
 7. Selecione **Fixar no quadro inicial**. Isso é necessário para acompanhar este tutorial.
 8. Clique em **Criar**. Ele leva você para o quadro inicial do portal. Um novo bloco é adicionado à Home page com o rótulo mostrando “Implantando a Análise Azure Data Lake”. Leva alguns minutos para criar uma conta da Análise Data Lake. Após a criação da conta, o portal abrirá a conta em uma nova folha.
 
-	![Folha do portal da Análise Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
+	![Folha do portal de Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
 ##Executar o tutorial interativo da Análise de log de site
 
@@ -80,7 +80,7 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 5. Na folha **Tutoriais Interativos**, clique em **Análise de Log do Site**. O portal abre o tutorial em uma nova folha do portal.
 5. Clique em **1 Introdução** e siga as instruções
 
-##Consulte também
+##Confira também
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
@@ -88,4 +88,4 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->
