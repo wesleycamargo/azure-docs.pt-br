@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Protegendo os dados armazenados no repositório Azure Data Lake
@@ -55,7 +55,7 @@ Ao atribuir usuários ou grupos de segurança às contas do repositório Azure D
 
 	![Atribuir grupo de segurança à conta do repositório Azure Data Lake](./media/data-lake-store-secure-data/adl.select.user.icon.png "Atribuir grupo de segurança à conta do repositório Azure Data Lake")
 
-3. A folha **Usuário** lista por padrão o grupo **Administradores de assinatura** como proprietário.
+3. A folha **Usuário** lista por padrão o grupo **Administradores de assinatura** como um proprietário.
 
 	![Adicionar usuários e funções](./media/data-lake-store-secure-data/adl.add.group.roles.png "Adicionar usuários e funções")
  
@@ -185,4 +185,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 - [Acessar os logs de diagnóstico do Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

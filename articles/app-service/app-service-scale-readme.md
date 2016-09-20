@@ -38,4 +38,4 @@ Esta seção o ajudará a entender todos os fatores e ajudá-lo a conceber uma e
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

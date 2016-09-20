@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/31/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gerenciar e monitorar backups de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Gerenciar backups de VMs do Azure](backup-azure-manage-vms.md)
+- [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
 - [Gerenciar backups de VMs clássicas](backup-azure-manage-vms-classic.md)
 
 Este artigo fornece informações sobre tarefas comuns de gerenciamento e monitoramento para máquinas virtuais do modelo Clássico protegidas no Azure.
 
->[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Confira [Preparar o seu ambiente para o backup das máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Confira [Preparar o seu ambiente para o backup das máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
 
 ## Gerenciar máquinas virtuais protegidas
 
@@ -219,8 +219,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
 
-**OperationName**: terá o formato  
-"Microsoft.Backup/backupvault/<EventName>" em que EventName é um de: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: terá o formato"Microsoft.Backup/backupvault/<NomeDoEvento>" em que NomeDoEvento é um de: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
 **Status**: os valores com suporte são Started, Succeeded e Failed.
 
@@ -228,9 +227,9 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **Name**: nome da regra de alerta.
 
-**CustomEmail**: especifique o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
+**CustomEmail**: especifica o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
 
-**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Ele pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
+**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
 
 ### Limitações sobre alertas
 Os alertas baseados em eventos estão sujeitos às seguintes limitações:
@@ -243,4 +242,4 @@ Os alertas baseados em eventos estão sujeitos às seguintes limitações:
 
 - [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

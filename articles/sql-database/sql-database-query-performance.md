@@ -22,10 +22,7 @@
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
 
 - Mais informações sobre o consumo de recursos de bancos de dados (DTU).
-- As consultas que mais consomem CPU, que potencialmente podem ser ajustadas para melhorar o desempenho.
-  - CPU
-  - Duração
-  - Contagem de execução
+- As principais consultas por contagem de CPU/Duração/Execução, que potencialmente podem ser ajustadas para melhorar o desempenho.
 - A capacidade de analisar os detalhes de uma consulta, exibir o texto e o histórico de utilização de recursos.
 - Anotações de ajuste de desempenho que mostram as ações executadas [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md)
 
@@ -244,4 +241,4 @@ Para obter recomendações adicionais sobre como aprimorar o desempenho do seu b
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

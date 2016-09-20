@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/02/2016"
+	ms.date="08/30/2016"
 	ms.author="glenga"/>
 
 # Associações de Aplicativos Móveis do Azure Functions
@@ -169,4 +169,4 @@ Este exemplo de código Node.js insere um novo registro em um ponto de extremida
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

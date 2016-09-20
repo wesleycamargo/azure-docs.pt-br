@@ -1,6 +1,6 @@
 <properties
     pageTitle="Como usar o Armazenamento de Blob do Azure no iOS | Microsoft Azure"
-	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
+	description="Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -82,50 +82,7 @@ Você precisará incluir a instrução de importação a seguir ao arquivo em qu
     // Include the following import statement to use blob APIs.
     #import <AZSClient/AZSClient.h>
 
-## Configurar seu aplicativo para acessar o armazenamento de blobs
-
-Há duas maneiras de autenticar o aplicativo para acessar os serviços de Armazenamento:
-
-- Chave compartilhada: usar a chave compartilhada somente para fins de teste
-- SAS (Assinatura de Acesso Compartilhado): use a SAS para aplicativos de produção
-
-### Chave compartilhada
-A autenticação de Chave Compartilhada significa que o aplicativo usará seu nome da conta e chave de conta para acessar os serviços de Armazenamento. Para mostrar rapidamente como usar o Armazenamento de Blob do iOS, vamos usar a autenticação de Chave Compartilhada nesta introdução.
-
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Seu nome de conta e chave de conta, que dão acesso completo de leitura/gravação à conta de Armazenamento associada, serão distribuídos a todas as pessoas que baixarem o aplicativo. Isso **não** é uma prática recomendada, pois você corre o risco de ter sua chave comprometida por clientes não confiáveis.
-
-Ao usar a autenticação de Chave Compartilhada, você criará uma cadeia de caracteres de conexão. A cadeia de conexão é composta dos seguintes itens:
-
-- O **DefaultEndpointsProtocol** -você pode escolher HTTP ou HTTPS. No entanto, é altamente recomendável usar HTTPS.
-- O **Nome da Conta** - o nome de sua conta de armazenamento
-- A **Chave da Conta** - Se estiver usando o [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento e clique no ícone **Chaves** para encontrar essa informação. Se usar o [Portal Clássico do Azure](https://manage.windowsazure.com), navegue até a conta de armazenamento no portal e clique em **Gerenciar Chaves de Acesso**.
-
-Veja como será sua aparência no aplicativo:
-
-    // Create a storage account object from a connection string.
-    AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here" error:&accountCreationError];
-
-### SAS (Assinaturas de Acesso Compartilhado)
-Para um aplicativo do iOS, o método recomendado para autenticar uma solicitação por um cliente em relação ao armazenamento de Blob é usar uma SAS (Assinatura de Acesso Compartilhado). A SAS permite conceder a um cliente acesso a um recurso por um período de tempo especificado, com um conjunto de permissões especificado. Como proprietário da conta de armazenamento, você precisará gerar uma SAS a ser consumida por seus clientes do iOS. Para gerar a SAS, provavelmente você desejará escrever um serviço separado que gere a SAS a ser distribuída a seus clientes. Para fins de teste, você pode usar o Gerenciador de Armazenamento do Microsoft Azure para gerar a SAS. Ao criar a SAS, você pode especificar o intervalo de tempo em que a SAS é válida e as permissões que a SAS concede ao cliente.
-
-O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft Azure para gerar uma SAS.
-
-1. Se você ainda não fez isso, [Instale o Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com)
-
-2. Conecte-se as suas assinaturas.
-
-3. Clique em sua conta de armazenamento e clique na guia "Ações" na parte inferior esquerda. Clique em "Get Shared Access Signature" (Obter Assinatura de Acesso Compartilhado) para gerar uma "cadeia de conexão" para a SAS.
-
-4. Aqui está um exemplo de uma cadeia de conexão de SAS que concede permissões leitura e gravação no serviço, contêiner e nível de objeto para o serviço Blob da conta de armazenamento.
-
-        SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net
-
-6. No aplicativo iOS, agora você pode obter uma referência à sua conta usando a cadeia de conexão da seguinte maneira:
-
-		// Get a reference to your Storage account
-    	AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net" error:&accountCreationError];
-
-Como você pode ver, ao usar a SAS, você não expõe seu nome de conta e chave de conta no aplicativo iOS. Você pode saber mais sobre a SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Operações assíncronas
 > [AZURE.NOTE] Todos os métodos que realizam uma solicitação ao serviço são operações assíncronas. Nos exemplos de código, você verá que esses métodos têm um manipulador de conclusão. O código no manipulador de conclusão será executado **após** a solicitação ser concluída. O código depois do manipulador de conclusão será executado **enquanto** a solicitação está sendo feita.
@@ -412,4 +369,4 @@ Agora que você aprendeu como usar o Armazenamento de Blobs do iOS, siga esses l
 
 Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Excedente de pilha](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

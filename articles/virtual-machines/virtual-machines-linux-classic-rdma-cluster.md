@@ -35,11 +35,11 @@ Estes são métodos que é possível usar para criar um cluster de RDMA do Linux
 
 * **Scripts de CLI do Azure** - Conforme mostrado posteriormente neste artigo, use a [Interface de linha de comando do Azure](../xplat-cli-install.md) (CLI) para o script de implantação de um cluster de VMs Linux de tamanho A8 ou A9. A CLI no modo Gerenciamento de Serviços cria os nós do cluster em série no modelo de implantação clássico, então implantar muitos nós de computação pode demorar vários minutos. No modelo de implantação clássico, as VMs A8 ou A9 devem ser implantadas no mesmo serviço de nuvem para se conectar por meio da rede RDMA.
 
-* **Modelos do Azure Resource Manager** - use o modelo de implantação do Resource Manager para implantar várias VMs Linux A8 e A9 para um cluster de cálculo que possa aproveitar a rede RDMA e executar cargas de trabalho MPI. É possível [criar seu próprio modelo](../resource-group-authoring-templates.md) ou verificar os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) para obter modelos com os quais a Microsoft ou a comunidade contribuíram para implantar a solução desejada. Os modelos do Gerenciador de Recursos podem fornecer uma maneira rápida e confiável para implantar um cluster do Linux. No modelo de implantação clássico do Resource Manager, as VMs A8 ou A9 devem ser implantadas no mesmo conjunto de disponibilidade para se conectar por meio da rede RDMA.
+* **Modelos do Azure Resource Manager** - Use o modelo de implantação do Resource Manager para implantar um cluster de VMs A8 e A9 que se conecte à rede RDMA para executar cargas de trabalho MPI. É possível [criar seu próprio modelo](../resource-group-authoring-templates.md) ou verificar os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) para obter modelos com os quais a Microsoft ou a comunidade contribuíram para implantar a solução desejada. Os modelos do Gerenciador de Recursos podem fornecer uma maneira rápida e confiável para implantar um cluster do Linux. No modelo de implantação clássico do Resource Manager, as VMs A8 ou A9 devem ser implantadas no mesmo conjunto de disponibilidade para se conectar por meio da rede RDMA.
 
 ## Implantação de exemplo no modelo clássico
 
-As etapas a seguir ajudarão você a usar a CLI do Azure para implantar uma VM do HPC do SUSE Linux Enterprise Server (SLES) 12 do Azure Marketplace, instalar o Intel MPI Library e outras personalizações e criar uma imagem de máquina virtual personalizada. Em seguida, use a imagem para o script de implantação de um cluster de VMs A8 ou A9.
+As etapas a seguir ajudarão você a usar a CLI do Azure para implantar uma VM do HPC do SUSE Linux Enterprise Server (SLES) 12 do Azure Marketplace, instalar o Intel MPI Library e criar uma imagem de máquina virtual personalizada. Em seguida, use a imagem para o script de implantação de um cluster de VMs A8 ou A9.
 
 >[AZURE.TIP]  Use etapas semelhantes para implantar um cluster de VMs A8 ou A9 baseado na imagem do HPC baseado em CentOS 6.5 ou 7.1 no Azure Marketplace. As diferenças são indicadas nas etapas. Por exemplo, como as imagens do HPC baseado em CentOS incluem a MPI Intel, você não precisará instalar a MPI Intel separadamente em VMs criadas a partir dessas imagens.
 
@@ -107,7 +107,7 @@ Depois que a VM concluir o provisionamento, faça SSH na VM usando o endereço I
     >
     >Nas imagens do HPC baseado em CentOS do Marketplace, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum**. Como os drivers RDMA do Linux são distribuídos como um pacote RPM as atualizações de driver poderão não funcionar caso o kernel seja atualizado.
 
-* **Atualizações de drivers de RDMA Linux** -se você tiver implantado uma VM do HPC do SLES 12, precisará atualizar os drivers RDMA. Veja [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12) para obter detalhes.
+* **Atualizações de drivers de RDMA Linux** -se você tiver implantado uma VM do HPC do SLES 12, precisará atualizar os drivers RDMA. Veja [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12) para obter detalhes.
 
 * **MPI Intel** - se você tiver implantado uma VM do HPC do SLES 12, baixe e instale o tempo de execução do Intel MPI Library 5 do site Intel.com, executando comandos semelhantes aos que se seguem. Esta etapa não será necessária se você tiver implantado uma VM do HPC baseado em CentOS 6.5 ou 7.1.
 
@@ -129,7 +129,7 @@ Depois que a VM concluir o provisionamento, faça SSH na VM usando o endereço I
 
     >[AZURE.NOTE]Para fins de teste, também é possível definir memlock como ilimitado. Por exemplo: `Bloqueio de memória física de <Nome do usuário ou do grupo> ilimitado.
 
-* **Chaves SSH para VMs SLES 12** - gere chaves SSH para estabelecer confiança para sua conta de usuário entre todos os nós de computação no cluster HPC do SLES 12 ao executar trabalhos MPI. (Se você tiver implantado uma VM do HPC baseado em CentOS, não execute esta etapa. Veja as instruções posteriormente neste artigo para configurar a relação de confiança SSH sem senha entre os nós de cluster depois de capturar a imagem e implantar o cluster).
+* **Chaves SSH para VMs SLES 12** - gere chaves SSH para estabelecer confiança para sua conta de usuário entre os nós de computação no cluster HPC do SLES 12 ao executar trabalhos MPI. (Se você tiver implantado uma VM do HPC baseado em CentOS, não execute esta etapa. Veja as instruções posteriormente neste artigo para configurar a relação de confiança SSH sem senha entre os nós de cluster depois de capturar a imagem e implantar o cluster).
 
     Execute o comando a seguir para criar chaves SSH. Quando for solicitado, pressione Enter para gerar as chaves no local padrão, sem definir uma senha.
 
@@ -398,4 +398,4 @@ Você verá uma saída semelhante à seguinte em um cluster ativo com dois nós.
 
 * Experimente um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para criar um cluster Intel Lustre usando uma imagem HPC baseado em CentOS. Consulte esta [postagem de blog](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) para obter detalhes.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

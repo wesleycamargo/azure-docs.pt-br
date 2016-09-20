@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -41,13 +41,13 @@ Para configurar a integração do AD do Azure com o @Task, você precisa dos seg
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando o @Task por meio da galeria 
+1. Adicionando o @Task por meio da galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
@@ -56,7 +56,7 @@ Para configurar a integração do @Task ao AD do Azure, você precisa adicionar 
 
 **Para adicionar o @Task por meio da galeria, realize as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -92,10 +92,10 @@ Para que o logon único funcione, o AD do Azure precisa saber qual usuário do @
  
 Para configurar e testar o logon único do AD do Azure com o @Task, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criando um usuário de teste do @Task](#creating-a-halogen-software-test-user)** - para ter um equivalente de Brenda Fernandes no @Task que esteja vinculado à representação dela no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -116,9 +116,9 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 	![Definir configurações de aplicativo][8]
  
-     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site do @Task (por exemplo: *https://<Tenant name>.attask-ondemand.com*).
+     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para entrar no site do @Task (por exemplo: *https://<Nome do locatário>.attask-ondemand.com*).
 
-     b. Clique em **Próximo**.
+     b. Clique em **Avançar**.
 
 4. Na página **Configurar logon único no @Task**, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador e clique em **Avançar**.
 
@@ -175,11 +175,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_03.png)
  
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_05.png)
 
@@ -187,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -201,7 +201,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Avançar**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png)
  
@@ -263,7 +263,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 	![Atribuir usuário][203]
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. Na lista de usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -311,4 +311,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

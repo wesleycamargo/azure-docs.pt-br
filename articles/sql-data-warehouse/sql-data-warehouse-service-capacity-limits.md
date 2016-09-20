@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="09/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de capacidade do SQL Data Warehouse
@@ -24,8 +24,9 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 ## Gerenciamento de carga de trabalho
 
 | Categoria | Descrição | Máximo |
-| :------------------ | :------------------------------------------- | :----------------- |
-| [DWU (Unidades de Data Warehouse)][]| Computação, memória e recursos de E/S | 6000 |
+| :------------------ | :------------------------------------------------ | :----------------- |
+| [DWU (Unidades de Data Warehouse)][]| DWU máxima para um único Data Warehouse do SQL | 6000 |
+| [DWU (Unidades de Data Warehouse)][]| DWU máxima para um único servidor SQL | 6000 por padrão<br/><br/> cada servidor SQL (por exemplo, meuservidor.bancodedados.windows.net) tem uma Cota de DTU de 45.000, que permite até 6000 DWU. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota[criando um tíquete de suporte][] e selecionando *Cota* como o tipo de solicitação. Para calcular suas necessidades de DTU, multiplique 7.5 pelo total de DWU necessário. Você pode exibir o consumo atual de DTU na folha do SQL Server no portal. Os bancos de dados em pausa e retomados contam como a cota de DTU. |
 | Conexão de banco de dados | Sessões abertas simultâneas | 1\.024<br/><br/>Damos suporte a um máximo de 1.024 conexões ativas e cada uma pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento.|
 | Conexão de banco de dados | Memória máxima para instruções preparadas | 20 MB |
 | [Gerenciamento de carga de trabalho][] | Máximo de consultas simultâneas | 32<br/><br/> Por padrão, o SQL Data Warehouse pode executar até 32 consultas simultâneas e colocar as consultas restantes em fila.<br/><br/>O nível de simultaneidade pode diminuir quando os usuários são atribuídos a uma classe de recurso maior ou quando o SQL Data Warehouse é configurado com uma DWU baixa. Algumas consultas, como as consultas DMV, sempre têm permissão para executar.|
@@ -46,8 +47,6 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 | Tabela | Caracteres por valor de limite de partição.| 4000 |
 | Índice | Índices não clusterizados por tabela. | 999<br/><br/>Aplica-se somente às tabelas rowstore.|
 | Índice | Índices clusterizados por tabela. | 1<br><br/>Aplica-se às tabelas rowstore e columnstore.|
-| Índice | Linhas em um grupo de linhas do índice columnstore | 1\.024<br/><br/>Cada índice columnstore é implementado como vários índices columnstore. Observe que se você inserir 1.024 linhas em um índice columnstore do SQL Data Warehouse, as linhas não irão para o mesmo grupo de linhas.|
-| Índice | Compilações simultâneas de índices columnstore clusterizados. | 32<br/><br/>Aplica-se quando todos os índices columnstore clusterizados estão sendo criados em tabelas diferentes. Apenas um build de índice columnstore clusterizado é permitido por tabela. As solicitações adicionais aguardarão em uma fila.|
 | Índice | Tamanho da chave de índice. | 900 bytes.<br/><br/>Aplica-se somente aos índices rowstore.<br/><br/>Os índices nas colunas varchar com um tamanho máximo de mais de 900 bytes poderão ser criados se os dados existentes nas colunas não excederem 900 bytes quando o índice for criado. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão.|
 | Índice | Colunas de chave por índice. | 16<br/><br/>Aplica-se somente aos índices rowstore. Os índices columnstore clusterizados incluem todas as colunas.|
 | Estatísticas | O tamanho dos valores de coluna combinados. | 900 bytes. |
@@ -107,9 +106,10 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [Gerenciamento de carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [tipo de dados]: ./sql-data-warehouse-tables-data-types.md
+[criando um tíquete de suporte]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 [Dados de estouro de linha excedendo 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Erro interno: foi atingido um limite dos serviços de expressão]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

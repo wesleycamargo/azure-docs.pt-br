@@ -1,6 +1,6 @@
 <properties
 	pageTitle="RBAC: funções internas | Microsoft Azure"
-	description="Este tópico descreve as funções internas para o controle de acesso baseado em função (RBAC)."
+	description="Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -34,7 +34,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador do BizTalk](#biztalk-contributor) | Pode gerenciar os serviços BizTalk |
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) | Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) | Pode gerenciar tudo, exceto o acesso. |
-| [Colaborador da fábrica de dados](#data-factory-contributor) | Pode gerenciar fábricas de dados |
+| [Colaborador da fábrica de dados](#data-factory-contributor) | Pode criar e gerenciar data factories e recursos filho dentro deles. |
 | [Usuário do DevTest Labs](#devtest-labs-user) | Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de Conta do Banco de Dados de Documentos](#documentdb-account-contributor) | Pode gerenciar contas do Banco de Dados de Documentos |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Pode gerenciar contas do Intelligent Systems |
@@ -151,12 +151,12 @@ Pode gerenciar tudo, exceto o acesso.
 | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
 
 ### Colaborador da fábrica de dados
-Pode gerenciar fábricas de dados
+Criar e gerenciar data factories e recursos filho dentro deles.
 
 | **Ações** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-| Microsoft.DataFactory/dataFactories/* | Gerenciar data factories |
+| Microsoft.DataFactory/dataFactories/* | Criar e gerenciar data factories e recursos filho dentro deles. |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
 | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
@@ -534,4 +534,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 - [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 - [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

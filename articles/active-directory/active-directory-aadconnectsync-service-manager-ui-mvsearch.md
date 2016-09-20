@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -24,7 +24,7 @@
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-A guia Pesquisa de Metaverso é útil para solucionar problemas relacionados a dados. Na metade superior, é possível criar uma consulta com base em uma combinação de atributos. Quando estiver satisfeito com a consulta, clique em **Pesquisar**. O resultado estará visível na grade inferior. É possível selecionar quais colunas devem estar visíveis com **Configurações de Coluna**.
+A guia Pesquisa de Metaverso é útil para solucionar problemas relacionados a dados. Na metade superior, é possível criar uma consulta com base em uma combinação de atributos. Quando estiver satisfeito com a consulta, clique em **Pesquisar**. O resultado é visível na grade inferior. É possível selecionar quais colunas devem estar visíveis com **Configurações de Coluna**.
 
 Nos resultados da pesquisa, selecione um objeto e **Propriedades** para ver as [propriedades de objeto do metaverso](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
 
@@ -33,4 +33,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

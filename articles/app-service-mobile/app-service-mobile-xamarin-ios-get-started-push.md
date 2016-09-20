@@ -97,7 +97,7 @@ Agora, seu serviço móvel está configurado para funcionar com notificações p
 
 3. No mesmo arquivo, substitua o evento **RegisteredForRemoteNotifications**: Nesse código, você está se registrando para uma notificação de modelo simples que será enviada em todas as plataformas com suporte do servidor.
 
-	Para saber mais sobre modelos com os Hubs de Notificação, confira [Modelos](../notification-hubs/notification-hubs-templates.md).
+	Para saber mais sobre modelos com os Hubs de Notificação, confira [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -156,4 +156,4 @@ Este tutorial foi concluído com êxito.
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

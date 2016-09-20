@@ -40,9 +40,9 @@ As Ferramentas de Análise para o Desenvolvedor e do Visual Studio oferecem uma 
 ![Ciclo de devops de aplicativo Web](./media/app-insights-developer-analytics/040.png)
 
 * Um desenvolvedor faz check-in no repositório de código ou mescla no branch principal. Nesta ilustração, o repositório é o Git, mas também poderia ser o [Controle de Versão do Team Foundation](https://www.visualstudio.com/docs/tfvc/overview).
-* As alterações disparam um teste de unidade e de compilação. O serviço de compilação pode estar no [Visual Studio Team Services ou em seu equivalente local, o Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview). 
-* Um teste de unidade e de compilação bem-sucedido pode [disparar uma implantação automática](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). O host de aplicativo Web pode ser seu próprio servidor Web ou o Microsoft Azure. 
-* A telemetria do aplicativo dinâmico é enviada para o [Application Insights](app-insights-overview.md), tanto do servidor como [de navegadores cliente](app-insights-javascript.md). Lá, você pode analisar o desempenho dos padrões de uso e do aplicativo. As poderosas [ferramentas de pesquisa](app-insights-analytics.md) ajudam você a diagnosticar problemas. Os [alertas](app-insights-alerts.md) garantem que você fique sabendo de um problema assim que ele ocorre. 
+* As alterações disparam um teste de unidade e de compilação. O serviço de compilação pode estar no [Visual Studio Team Services ou em seu equivalente local, o Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview).
+* Um teste de unidade e de compilação bem-sucedido pode [disparar uma implantação automática](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). O host de aplicativo Web pode ser seu próprio servidor Web ou o Microsoft Azure.
+* A telemetria do aplicativo dinâmico é enviada para o [Application Insights](app-insights-overview.md), tanto do servidor como [de navegadores cliente](app-insights-javascript.md). Lá, você pode analisar o desempenho dos padrões de uso e do aplicativo. As poderosas [ferramentas de pesquisa](app-insights-analytics.md) ajudam você a diagnosticar problemas. Os [alertas](app-insights-alerts.md) garantem que você fique sabendo de um problema assim que ele ocorre.
 * Seu próximo ciclo de desenvolvimento é informado por sua análise da telemetria dinâmica.
 
 ### Aplicativos da área de trabalho e de dispositivo
@@ -71,10 +71,18 @@ Para cada componente do aplicativo - móvel ou Web ou da área de trabalho - as 
 3. Para aplicativos de dispositivo:
  * Carregue uma compilação de depuração no HockeyApp. Dali, você pode distribuí-lo a uma equipe de usuários de teste. Sempre que você carregar as compilações subsequentes, a equipe será notificada.
  * Quando você configura seu serviço de compilação contínuo, crie uma definição de lançamento que use a etapa de plug-in para carregar no HockeyApp.
+
+### Análise e exportação de telemetria do HockeyApp
+
+Você pode investigar a telemetria personalizada e de log do HockeyApp usando os recursos de análise e exportação contínua do Application Insights ao [configurar uma ponte](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## Próximas etapas
  
 Veja as instruções detalhadas para diferentes tipos de aplicativo:
 
-* [Aplicativo Web ASP.NET](app-insights-asp-net.md) 
+* [Aplicativo Web ASP.NET](app-insights-asp-net.md)
 * [Aplicativo Web Java](app-insights-java-get-started.md)
 * [Aplicativo Web Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [Aplicativo iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
@@ -84,4 +92,4 @@ Veja as instruções detalhadas para diferentes tipos de aplicativo:
 * [Aplicativo do Windows Phone 8 e 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [Aplicativo do Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/07/2016" 
 	ms.author="stefsch"/>
 
 # Escala distribuída geograficamente com ambientes de Serviço de Aplicativo
@@ -52,7 +52,7 @@ Quando várias instâncias de um aplicativo são implantadas em vários Ambiente
 - **webfrontend2.fe2ase.p.azurewebsites.net:** uma instância do aplicativo de exemplo implantada no segundo Ambiente de Serviço de Aplicativo.
 - **webfrontend3.fe3ase.p.azurewebsites.net:** uma instância do aplicativo de exemplo implantada no terceiro Ambiente de Serviço de Aplicativo.
 
-A maneira mais fácil de registrar vários pontos de extremidade do Serviço de Aplicativo do Azure, todos executados na **mesma** região do Azure, é com a visualização do [suporte de Gerenciador de Recursos do Azure (ARM) do Gerenciador de Tráfego][ARMTrafficManager] do PowerShell.
+A maneira mais fácil de registrar vários pontos de extremidade do Serviço de Aplicativo do Azure, todos executados na **mesma** região do Azure, é com o [suporte de Azure Resource Manager do Gerenciador de Tráfego][ARMTrafficManager] do Powershell.
 
 A primeira etapa é a criação de um perfil do Gerenciador de Tráfego do Azure. O código abaixo mostra como o perfil foi criado para o aplicativo de exemplo:
 
@@ -62,19 +62,24 @@ Observe como o parâmetro *RelativeDnsName* foi definido como *scalable-ase-demo
 
 O parâmetro *TrafficRoutingMethod* define a política de balanceamento de carga que o Gerenciador de Tráfego usará para determinar como distribuir a carga cliente entre todos os pontos de extremidade disponíveis. Neste exemplo, o método *Weighted* foi o escolhido. Isso fará com que as solicitações de cliente sejam distribuídas entre todos os pontos de extremidade do aplicativo registrado baseadas nos pesos relativos associados a cada ponto de extremidade.
 
-Com o perfil criado, cada instância do aplicativo é adicionada ao perfil como um *ponto de extremidade externo*. O código a seguir mostra as URLs para cada uma das três instâncias do aplicativo que estão sendo adicionadas ao perfil.
+Com o perfil criado, cada instância do aplicativo é adicionada ao perfil como um ponto de extremidade do Azure nativo. O código a seguir busca uma referência para cada aplicativo da web de front-end e, em seguida, adiciona cada aplicativo como um ponto de extremidade do Gerenciador de Tráfego por meio do parâmetro *TargetResourceId*.
 
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend1.fe1ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend2.fe2ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
-    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target webfrontend3.fe3ase.p.azurewebsites.net –EndpointStatus Enabled –Weight 10
+
+    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
+
+    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
     
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-
-Observe como não há uma chamada para *Add-AzureTrafficManagerEndpointConfig* em cada instância do aplicativo individual. O parâmetro *Target* em cada comando Powershell aponta para o FQDN (nome de domínio totalmente qualificado) de cada uma das três instâncias do aplicativo implantadas. Os FQDNs diferentes são os valores que serão usados para percorrer a cadeia de CNAME DNS *scalable-ase-demo.trafficmanager.net* e distribuir a carga de tráfego em todos os pontos de extremidade registrados no perfil do Gerenciador de Tráfego.
+    
+Observe como não há uma chamada para *Add-AzureTrafficManagerEndpointConfig* em cada instância do aplicativo individual. O parâmetro *TargetResourceId* em cada comando do Powershell faz referência a uma das três instâncias do aplicativo implantado. O perfil do Gerenciador de Tráfego distribuirá a carga entre todos os três pontos de extremidade registrados no perfil.
 
 Todos os três pontos de extremidade usam o mesmo valor (10) para o parâmetro *Weight*. Isso faz com que o Gerenciador de Tráfego distribua as solicitações de cliente entre todas as três instâncias do aplicativo de forma quase igual.
 
-*Observação:* já que o suporte ÃRM do Gerenciador de Tráfego está atualmente no modo visualização, os pontos de extremidade do Serviço de Aplicativo do Azure devem definir o parâmetro *Type* como *ExternalEndpoints*. No futuro, os pontos de extremidade do Serviço de Aplicativo do Azure terão suporte nativo como um tipo de ponto de extremidade pela variante ARM do Gerenciador de Tráfego.
 
 ## Apontando o domínio personalizado do aplicativo no domínio do Gerenciador de Tráfego ##
 A última etapa necessária é apontar o domínio personalizado do aplicativo para o domínio do Gerenciador de Tráfego. Para o aplicativo de exemplo, isso significa apontar *www.scalableasedemo.com* para *scalable-ase-demo.trafficmanager.net*. Essa etapa deve ser concluída no registrador de domínio que gerencia o domínio personalizado.
@@ -98,8 +103,8 @@ O resultado final da configuração do Gerenciador de Tráfego e do DNS é que a
 2. A entrada CNAME no registrador de domínio faz com que a pesquisa de DNS seja redirecionada para o Gerenciador de Tráfego do Azure.
 3. Uma pesquisa de DNS é feita para *scalable-ase-demo.trafficmanager.net* em um dos servidores DNS do Gerenciador de Tráfego do Azure.
 4. Baseado na política de balanceamento de carga (o parâmetro *TrafficRoutingMethod* usado anteriormente durante a criação do perfil do Gerenciador de Tráfego), o Gerenciador de Tráfego irá selecionar um dos pontos de extremidade configurados e retornar o FQDN do ponto de extremidade para o navegador ou o dispositivo.
-5.  Já que o FQDN do ponto de extremidade é a URL de uma instância do aplicativo em execução em um Ambiente de Serviço de Aplicativo, o navegador ou dispositivo solicitará que um servidor DNS da Microsoft Azure resolva o FQDN para um endereço IP. 
-6. O navegador ou dispositivo enviará a solicitação HTTP/S para o endereço IP.  
+5.  Já que o FQDN do ponto de extremidade é a URL de uma instância do aplicativo em execução em um Ambiente de Serviço de Aplicativo, o navegador ou dispositivo solicitará que um servidor DNS da Microsoft Azure resolva o FQDN para um endereço IP.
+6. O navegador ou dispositivo enviará a solicitação HTTP/S para o endereço IP.
 7. A solicitação chegará em uma das instâncias do aplicativo em execução em um dos Ambientes de Serviço do Aplicativo.
 
 A imagem do console abaixo mostra uma pesquisa de DNS de domínio personalizado do aplicativo de exemplo resolver com êxito uma instância do aplicativo em execução em dos três Ambientes de Serviço de Aplicativo de exemplo (neste caso, o segundo dos três Ambientes de Serviço de Aplicativo):
@@ -107,9 +112,9 @@ A imagem do console abaixo mostra uma pesquisa de DNS de domínio personalizado 
 ![Pesquisa de DNS][DNSLookup]
 
 ## Informações e links adicionais ##
-Todos os artigos e instruções para os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Documentação sobre a visualização do [suporte de Gerenciador de Recursos do Azure (ARM) do Gerenciador de Tráfego][ARMTrafficManager] do PowerShell.
+Documentação sobre o [suporte de Azure Resource Manager do Gerenciador de Tráfego][ARMTrafficManager] do Powershell.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -127,4 +132,4 @@ Documentação sobre a visualização do [suporte de Gerenciador de Recursos do 
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

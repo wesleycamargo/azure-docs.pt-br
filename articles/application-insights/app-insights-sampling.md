@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Amostragem de telemetria no Application Insights" 
+	pageTitle="Amostragem de telemetria no Application Insights | Microsoft Azure" 
 	description="Como manter o volume de telemetria sob controle." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -20,27 +20,30 @@
 *O Application Insights está em modo de visualização.*
 
 
-A amostragem é um recurso no Application Insights que permite coletar e armazenar um conjunto reduzido de telemetria, ao mesmo tempo que mantém uma análise estatisticamente correta dos dados do aplicativo. Ela reduz o tráfego e ajuda a evitar a [limitação](app-insights-pricing.md#data-rate). Os dados são filtrados de tal forma que itens relacionados sejam permitidos, de modo que você possa navegar entre os itens quando estiver realizando investigações de diagnóstico. Quando as contagens de métrica são apresentadas a você no portal, elas são normalizadas novamente para levar em conta a amostragem, a fim de minimizar qualquer efeito sobre as estatísticas.
+A amostragem é um recurso no [Visual Studio Application Insights](app-insights-overview.md) e é a maneira recomendada para reduzir o tráfego de telemetria e de armazenamento, preservando uma análise estatística correta de dados do aplicativo. O filtro seleciona itens relacionados para que você possa navegar entre os itens quando você estiver realizando investigações de diagnóstico. Quando as contagens de métrica são apresentadas a você no portal, elas são normalizadas novamente para levar em conta a amostragem, a fim de minimizar qualquer efeito sobre as estatísticas.
 
-A amostragem está atualmente na versão Beta e pode ser alterada no futuro.
+A amostragem reduz o tráfego, ajuda a manter a cotas mensais de dados e ajuda a evitar a limitação.
 
 ## Em resumo:
 
 * A amostragem retém 1 em registros *n* e descarta o resto. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%.
-* A amostragem acontece automaticamente se o seu aplicativo enviar muita telemetria. A amostragem automática só é ativada em grandes volumes e somente em aplicativos de servidor de web do ASP.NET.
-* Você também pode definir a amostragem manualmente no portal na página de preços (para reduzir o volume de telemetria retido e manter a sua cota mensal); ou no SDK do ASP.NET no arquivo .config, para também reduzir o tráfego de rede.
-* A taxa de amostragem atual é uma propriedade de cada registro. Na janela Pesquisar, abra um evento, como uma solicitação. Expanda as reticências "..." para acessar as propriedades completas e localizar a propriedade "* count" - chamada, por exemplo,"contagem de solicitações"ou"contagem de eventos", dependendo do tipo de telemetria. Se ele for > 1, amostragem está ocorrendo. Uma contagem de 3 significaria que a amostragem é 33%: cada registro mantido representa três registros originalmente gerados.
+* A amostragem acontece automaticamente se o seu aplicativo enviar muita telemetria em aplicativos de servidor Web do ASP.NET.
+* Você também pode definir a amostragem manualmente, no portal na página de preços; ou no SDK do ASP.NET no arquivo .config, para também reduzir o tráfego de rede.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
+* O divisor de amostragem *n* é relatado em cada registro na propriedade `itemCount`, que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
 * Se você escrever consultas de Análise, deverá [levar em conta a amostragem](app-insights-analytics-tour.md#counting-sampled-data). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
 
 ## Tipos de amostragem
 
+
 Há três módulos de amostragem alternativos:
 
-* A **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Ela é padrão desde o SDK v 2.0.0-beta3.
-* A **amostragem de taxa fixa** reduz o volume de telemetria enviado do seu servidor ASP.NET e dos navegadores dos seus usuários. Você define a taxa.
+* A **amostragem adaptável** ajusta automaticamente o volume da telemetria enviada do SDK para seu aplicativo ASP.NET. Ela é padrão desde o SDK v 2.0.0-beta3. Disponível atualmente somente para telemetria ASP.NET do lado do servidor.
+* A **amostragem de taxa fixa** reduz o volume de telemetria enviado do seu servidor ASP.NET e dos navegadores dos seus usuários. Você define a taxa. O cliente e o servidor sincronizarão suas amostragens para que, na Pesquisa, você possa navegar entre exibições de página e solicitações relacionadas.
 * A **amostragem de ingestão** reduz o volume de telemetria mantido pelo serviço do Application Insights a uma taxa definida por você. Ela não reduz o tráfego de telemetria, mas ajuda você a se manter em sua cota mensal.
+
+Se a amostragem de taxa Adaptável ou Fixa estiver em operação, a amostragem de Ingestão estará desabilitada.
 
 ## Amostragem de ingestão
 
@@ -369,4 +372,10 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+## Próximas etapas
+
+* A [filtragem](app-insights-api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
+
+<!---HONumber=AcomDC_0907_2016-->

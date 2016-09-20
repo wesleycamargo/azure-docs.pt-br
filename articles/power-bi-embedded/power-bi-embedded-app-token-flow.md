@@ -3,7 +3,7 @@
    description="Autenticando e autorizando com o Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/26/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Autenticando e autorizando com o Power BI Embedded
 
@@ -93,4 +93,4 @@ Após o **Power BI Embedded** enviar um relatório para o usuário, o usuário p
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

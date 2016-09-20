@@ -28,6 +28,8 @@ Neste documento, vamos configurar nosso Ambiente do Serviço de Aplicativo por t
 
 ![Arquitetura][Architecture]
 
+> Observação: com a introdução do [suporte ILB para o Ambiente de Serviço de Aplicativo](app-service-environment-with-internal-load-balancer.md), você pode configurar o ASE para ser acessado da DMZ e estar disponível apenas para a rede privada.
+
 ## Configurando o Ambiente do Serviço de Aplicativo ##
 Para configurar um Ambiente de Serviço de Aplicativo, consulte a [nossa documentação](app-service-web-how-to-create-an-app-service-environment.md) sobre o assunto. Depois que você criar um Ambiente do Serviço de Aplicativo, será possível criar [Aplicativos Web](app-service-web-overview.md), [Aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop.md) nesse ambiente e todos eles serão protegidos pelo WAF que configuraremos na próxima seção.
 
@@ -99,4 +101,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

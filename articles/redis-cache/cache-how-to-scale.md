@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/07/2016" 
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
 
 >[AZURE.NOTE] O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização.
 
-O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo mudarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar tipo de preço** no [Portal do Azure](https://portal.azure.com).
+O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal do Azure](https://portal.azure.com).
 
 ## Quando dimensionar
 
@@ -36,20 +36,20 @@ Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é pre
 Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Dimensionar um cache
-Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) no [Portal do Azure](https://portal.azure.com) e clique em **Configurações**, **Tipo de preço**.
+Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) no [portal do Azure](https://portal.azure.com) e clique em **Configurações**, **Tipo de preço**.
 
 Você também pode clicar na parte **Camada de preços** da folha **Cache Redis**.
 
-![Camada de preços][redis-cache-pricing-tier-part]
+![Tipo de preço][redis-cache-pricing-tier-part]
 
 Selecione a camada de preços desejada na folha **Camada de preços** e clique em **Selecionar**.
 
-![Camada de preços][redis-cache-pricing-tier-blade]
+![Tipo de preço][redis-cache-pricing-tier-blade]
 
 >[AZURE.NOTE] Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
 >-	Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
->    -    Você não pode dimensionar para baixo de um cache **Premium** para um cache **Standard** ou **Básico**.
+>    -    Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
 >    -    Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
 >-	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 >-	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
@@ -63,7 +63,7 @@ Quando o dimensionamento for concluído, o status será alterado de **Dimensiona
 
 ## Como automatizar uma operação de dimensionamento
 
-Além de dimensionar instâncias do Cache Redis do Azure no Portal do Azure, você pode dimensionar usando cmdlets do PowerShell do Cache Redis do Azure, a CLI do Azure e a MAML (Bibliotecas de Gerenciamento do Microsoft Azure).
+Além de dimensionar as instâncias do Cache Redis do Azure no portal do Azure, você pode dimensionar usando cmdlets do PowerShell do Cache Redis do Azure, a CLI do Azure e a MAML (Bibliotecas de Gerenciamento do Microsoft Azure).
 
 -	[Dimensionar usando o PowerShell](#scale-using-powershell)
 -	[Dimensionar usando a CLI do Azure](#scale-using-azure-cli)
@@ -145,7 +145,7 @@ Não, o nome do cache e as chaves permanecem inalterados durante uma operação 
 
 -	Quando um cache **Básico** é escalonado para um novo tamanho, todos os dados são perdidos, e o cache fica indisponível durante a operação de colocação em escala.
 -	Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
--	Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache). 
+-	Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ### A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?
 
@@ -181,7 +181,7 @@ O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de d
 
 ### Como saber quando o dimensionamento é concluído?
 
-No Portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
+No portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
 
 ### Por que esse recurso está na visualização?
 
@@ -199,4 +199,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

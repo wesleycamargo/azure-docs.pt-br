@@ -19,7 +19,7 @@
 
 *O Application Insights está em modo de visualização.*
 
-O [Application Insights do Visual Studio](app-insights-get-started.md) e o [HockeyApp](https://hockeyapp.net) permite que você monitore seu aplicativo implantado quanto a uso e desempenho.
+O [Application Insights do Visual Studio](app-insights-overview.md) e o [HockeyApp](https://hockeyapp.net) permite que você monitore seu aplicativo implantado quanto a uso e desempenho.
 
 > [AZURE.IMPORTANT] Recomendamos o [HockeyApp](https://hockeyapp.net) para distribuir e monitorar aplicativos de área de trabalho e dispositivo. Com o HockeyApp, você pode gerenciar a distribuição, testes ao vivo e comentários do usuário, bem como monitorar relatórios de uso e falhas. Você também pode [exportar e consultar a telemetria com o Analytics](app-insights-hockeyapp-bridge-app.md).
 
@@ -89,4 +89,4 @@ O [Application Insights do Visual Studio](app-insights-get-started.md) e o [Hock
 * [Escrever consultas do Analytics](app-insights-analytics.md)
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,22 +13,22 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist" />
 
 # API de gerenciamento: versão 2015-02-28
 
-A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. Este documento descreve a versão **2015-02-28* da API REST de gerenciamento da Pesquisa do Azure. Desde então, foi substituído por versões mais recentes. Para obter a versão mais recente, consulte [API REST de gerenciamento da Pesquisa do Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN.
+A Pesquisa do Azure é um serviço de pesquisa de nuvem hospedado do Microsoft Azure. Este documento descreve a versão **2015-02-28* da API REST de Gerenciamento do Azure Search. Desde então, foi substituído por versões mais recentes. Para obter a versão mais recente, consulte [API REST de gerenciamento da Pesquisa do Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN.
 
 ##Operações de gerenciamento de serviço
 
 A API REST de Gerenciamento do Serviço de Pesquisa do Azure fornece acesso programático a grande parte das funcionalidades disponíveis no portal, permitindo que os administradores automatizem as seguintes operações:
 
 - Criar ou excluir um serviço de Pesquisa do Azure.
-- Criar, gerar novamente ou recuperar `api-keys` para automatizar alterações regulares nas chaves administrativas usadas para autenticar operações de dados de pesquisa. 
+- Criar, gerar novamente ou recuperar `api-keys` para automatizar alterações regulares nas chaves administrativas usadas para autenticar operações de dados de pesquisa.
 - Ajustar a escala de um serviço de Pesquisa do Azure em resposta a alterações nos requisitos de volume de consulta ou de armazenamento.
 
-Para administrar o serviço de forma totalmente programática, você precisará de duas APIs: a API REST de Gerenciamento da Pesquisa do Azure e a [API REST comum do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). A API do Gerenciador de Recursos é usada para operações de uso geral que não são específicas de serviços, como consultar dados de assinatura, listar localizações geográficas e assim por diante. Para criar e gerenciar os serviços da Pesquisa do Azure em sua assinatura, verifique se a solicitação HTTP inclui o ponto de extremidade do Gerenciador de Recursos, a ID da assinatura, o provedor (nesse caso, a Pesquisa do Azure) e a operação específica do serviço de pesquisa.
+Para administrar o serviço de forma totalmente programática, você precisará de duas APIs: a API REST de Gerenciamento da Pesquisa do Azure e a [API REST comum do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). A API do Resource Manager é usada para operações de uso geral que não são específicas de serviços, como consultar dados de assinatura, listar localizações geográficas e assim por diante. Para criar e gerenciar os serviços do Azure Search em sua assinatura, verifique se a solicitação HTTP inclui o ponto de extremidade do Resource Manager, a ID da assinatura, o provedor (nesse caso, o Azure Search) e a operação específica do serviço de pesquisa.
 
 [Introdução à API REST do Gerenciamento da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) é uma explicação passo a passo de um código de exemplo que demonstra operações de configuração de aplicativos e o gerenciamento de serviços. O aplicativo de exemplo emite solicitações para a API do Gerenciador de Recursos do Azure, bem como a API de gerenciamento de serviço para a Pesquisa do Azure, dando a você uma noção de como criar um aplicativo coeso que tire proveito de ambas as APIs.
 
@@ -44,7 +44,7 @@ A versão atual da API REST de Gerenciamento da Pesquisa do Azure é `api-versio
 
 ### Autenticação e controle de acesso###
 
-A API REST de Gerenciamento da Pesquisa do Azure é uma extensão do Gerenciador de Recursos do Azure e compartilha suas dependências. Assim, o Active Directory é um pré-requisito para a administração do serviço de Pesquisa do Azure. Todas as solicitações administrativas do código do cliente devem ser autenticadas usando o Active Directory do Azure antes que a solicitação atinja o gerenciador de recursos.
+A API REST de Gerenciamento da Pesquisa do Azure é uma extensão do Gerenciador de Recursos do Azure e compartilha suas dependências. Assim, o Active Directory é um pré-requisito para a administração do serviço de Pesquisa do Azure. Todas as solicitações administrativas do código do cliente devem ser autenticadas usando o Azure Active Directory antes que a solicitação atinja o gerenciador de recursos.
 
 Observe que se o seu código de aplicativo lidar com *operações de gerenciamento de serviço* bem como *operações de dados* em índices ou em documentos, você usará duas abordagens de autenticação para cada uma das APIs da Pesquisa do Azure:
 
@@ -103,7 +103,7 @@ As operações incluem as APIs a seguir.
 <a name="ServiceOps"></a>
 ##Operações de serviço
 
-Você pode provisionar ou desprovisionar serviços de Pesquisa do Azure emitindo solicitações HTTP em relação à sua assinatura do Azure. Os cenários habilitados por meio dessas operações incluem a criação de ferramentas de administração personalizadas ou a preparação de um ambiente de produção ou desenvolvimento de ponta a ponta (desde criar o serviço até preencher um índice). Da mesma forma, os fornecedores de soluções que criam e vendem soluções de nuvem podem querer uma abordagem automatizada e reprodutível para provisionar serviços para cada novo cliente.
+Você pode provisionar ou desprovisionar serviços do Azure Search emitindo solicitações HTTP em relação à sua assinatura do Azure. Os cenários habilitados por meio dessas operações incluem a criação de ferramentas de administração personalizadas ou a preparação de um ambiente de produção ou desenvolvimento de ponta a ponta (desde criar o serviço até preencher um índice). Da mesma forma, os fornecedores de soluções que criam e vendem soluções de nuvem podem querer uma abordagem automatizada e reprodutível para provisionar serviços para cada novo cliente.
 
 **Operações em um serviço**
 
@@ -129,7 +129,7 @@ A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesqu
 
 `resourceGroupName`: obrigatório. O nome do grupo de recursos na assinatura do usuário. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
-`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Nomes de serviço devem conter apenas letras minúsculas, dígitos ou traços, não podem usar um traço como os dois primeiros caracteres ou como o último caractere, não podem conter traços consecutivos e devem ter de 2 a 15 caracteres. Como todos os nomes acabam sendo <name>. search.windows.net, os nomes de serviço devem ser globalmente exclusivos. Não pode haver dois serviços em uma ou mais assinaturas ou em grupos de recursos com o mesmo nome. Você não pode alterar o nome do serviço após a sua criação.
+`serviceName`: obrigatório. O nome do serviço de pesquisa dentro do grupo de recursos especificado. Nomes de serviço devem conter apenas letras minúsculas, dígitos ou traços, não podem usar um traço como os dois primeiros caracteres ou como o último caractere, não podem conter traços consecutivos e devem ter de 2 a 15 caracteres. Como todos os nomes acabam sendo <nome>.search.windows.net, os nomes de serviço devem ser globalmente exclusivos. Não pode haver dois serviços em uma ou mais assinaturas nem grupos de recursos podem ter o mesmo nome. Você não pode alterar o nome do serviço após a sua criação.
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. A versão atual é `2015-02-28`.
 
@@ -211,7 +211,7 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 
 - `free`: cluster compartilhado
 - `standard`: cluster dedicado
-- `standard2`: use somente de acordo com as diretrizes do suporte da Microsoft. 
+- `standard2`: use somente de acordo com as diretrizes do suporte da Microsoft.
 
 `replicaCount`: indica quantas réplicas o serviço tem. Os valores válidos estão incluídos entre 1 e 6.
 
@@ -224,7 +224,7 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 - `deleting`: o serviço de pesquisa está sendo excluído.
 - `degraded`: o serviço de pesquisa é degradado. Isso pode ocorrer quando o cluster encontra um erro que pode ou não impedir que o serviço funcione corretamente.
 - `disabled`: a pesquisa está desabilitada. Nesse estado, o serviço rejeita todas as solicitações da API.
-- `error`: o serviço de pesquisa está em estado de erro. 
+- `error`: o serviço de pesquisa está em estado de erro.
 
 **Observação**: se o serviço estiver no estado `degraded`, `disabled` ou `error`, significa que a equipe da Pesquisa do Azure está investigando ativamente o problema subjacente. Serviços dedicados nesses estados ainda são passíveis de cobrança com base no número de unidades de pesquisa provisionadas.
 
@@ -234,7 +234,7 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 
 - `succeeded`: o provisionamento é concluído com êxito.
 - `provisioning`: o serviço está sendo provisionado.
-- `failed`: o serviço não foi provisionado. 
+- `failed`: o serviço não foi provisionado.
 
 O provisionamento é um estado intermediário que ocorre enquanto a capacidade de serviço está sendo estabelecida. Depois que a capacidade é configurada, o `provisioningState` é alterado para "êxito" ou "falha". Aplicativos cliente podem pesquisar o status de provisionamento (o intervalo de pesquisa recomendado é de 30 segundos a um minuto) usando a operação **Obter Serviço de Pesquisa** para ver quando uma operação é concluída. Se você estiver usando o serviço gratuito, esse valor tenderá a ser retornado como "êxito" diretamente na chamada para criar o serviço. Isso ocorre porque o serviço gratuito usa a capacidade que já está configurada.
 
@@ -262,7 +262,7 @@ A operação **Obter Serviço de Pesquisa** retorna as propriedades para o servi
 
 #### Corpo da solicitação
 
-Nenhum.
+Nenhuma.
 
 
 #### Código de status de resposta
@@ -327,7 +327,7 @@ HTTP 200 (OK), caso bem-sucedido.
 - `deleting`: o serviço de pesquisa está sendo excluído.
 - `degraded`: o serviço de pesquisa é degradado. Isso pode ocorrer quando o cluster encontra um erro que pode ou não impedir que o serviço funcione corretamente.
 - `disabled`: a pesquisa está desabilitada. Nesse estado, o serviço rejeita todas as solicitações da API.
-- `error`: o serviço de pesquisa está em estado de erro. 
+- `error`: o serviço de pesquisa está em estado de erro.
  
 **Observação**: se o serviço estiver no estado `degraded`, `disabled` ou `error`, significa que a equipe da Pesquisa do Azure está investigando ativamente o problema subjacente. Serviços dedicados nesses estados ainda são passíveis de cobrança com base no número de unidades de pesquisa provisionadas.
  
@@ -361,7 +361,7 @@ A operação **Listar Serviços** retorna uma lista de todos os serviços de pes
 
 ####Corpo da solicitação
 
-Nenhum.
+Nenhuma.
 
 ####Resposta
 
@@ -452,7 +452,7 @@ A operação **Excluir serviço** exclui os dados de pesquisa e do serviço de p
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -466,7 +466,7 @@ Você pode usar **Obter API do Serviço de Pesquisa** para sondar o status do se
 
 ###Corpo da resposta###
 
-Nenhum.
+Nenhuma.
 
 <a name="UpdateService"></a>
 ### Atualizar Serviço ##
@@ -590,7 +590,7 @@ Chaves de administração são criadas com o serviço. Há sempre duas chaves, a
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -634,7 +634,7 @@ A operação **Regenerar Chaves de Administração** exclui e regenera a chave p
 - `primary`
 - `secondary`
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos de solicitação###
 
 `Content-Type`: obrigatório. Defina este cabeçalho como application/json.
 
@@ -642,7 +642,7 @@ A operação **Regenerar Chaves de Administração** exclui e regenera a chave p
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -690,13 +690,13 @@ A operação **Criar Chave de Consulta** gera uma nova chave de consulta para o 
 
 `name`: obrigatório. O nome da nova chave.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos de solicitação###
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -742,13 +742,13 @@ A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o 
 	
 `listQueryKeys`: obrigatório. Essa ação recupera as chaves de consulta para o serviço de pesquisa.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos de solicitação###
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -806,13 +806,13 @@ Diferentemente das chaves de administração, as chaves de consulta não são re
 
 `key`: obrigatório. A chave a ser excluída.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos de solicitação###
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
 ###Corpo da solicitação###
 
-Nenhum.
+Nenhuma.
 
 ###Resposta###
 
@@ -826,6 +826,6 @@ O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
 ###Corpo da resposta###
 
-Nenhum.
+Nenhuma.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao Gigya
@@ -64,7 +64,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Gigya](./media/active-directory-saas-gigya-tutorial/IC789527.png "Gigya")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Gigya com a respectiva conta do Azure AD usando a federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base-64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Gigya com a respectiva conta do Azure AD usando a federação baseada no protocolo SAML. Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -98,9 +98,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL do Serviço de Logon Único**.
     4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Gigya**, copie o valor da **Formato do Identificador de Nome** e cole-o na caixa de texto **Formato da ID de Nome**.
-    5.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
+    5.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
         
-		>[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**.
     7.  Clique em **Salvar Configurações**.
@@ -118,7 +118,7 @@ Para permitir que os usuários do Azure AD façam logon no Gigya, eles devem ser
 
 2.  Acesse **Administrador > Gerenciar Usuários** e clique em **Convidar Usuários**.
 
-    ![Gerenciar Usuários](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/active-directory-saas-gigya-tutorial/IC789535.png "Gerenciar usuários")
 
 3.  Na caixa de diálogo Convidar Usuários, execute as seguintes etapas:
 
@@ -133,7 +133,7 @@ Para permitir que os usuários do Azure AD façam logon no Gigya, eles devem ser
 
 ##Atribuindo usuários
   
-Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Gigya, execute as seguintes etapas:
 
@@ -149,4 +149,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

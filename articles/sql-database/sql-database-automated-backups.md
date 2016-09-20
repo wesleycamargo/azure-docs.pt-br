@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Backups automatizados do Banco de Dados SQL
@@ -62,4 +62,4 @@ O período de retenção é determinado pela camada de serviço do banco de dado
 - Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
 - Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

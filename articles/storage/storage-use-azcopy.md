@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/02/2016"
 	ms.author="micurd"/>
 
 # Transferir dados com o Utilitário de Linha de Comando AzCopy
@@ -40,7 +40,7 @@ A sintaxe básica dos comandos do AzCopy é:
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-Abra uma janela de comando e navegue até o diretório de instalação do AzCopy no computador, onde está localizado o arquivo executável `AzCopy.exe`. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (Windows de 64 bits) ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (Windows de 32 bits).
+Abra uma janela de comando e navegue até o diretório de instalação do AzCopy no computador, onde está localizado o arquivo executável `AzCopy.exe`. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 Os exemplos a seguir demonstram vários cenários para cópia de dados entre os Blobs, os Arquivos e as Tabelas do Microsoft Azure. Confira a seção [Parâmetros do AzCopy](#azcopy-parameters) para obter uma explicação detalhada dos parâmetros usados em cada exemplo.
 
@@ -433,7 +433,7 @@ O AzCopy processa esse comando assim como faria se você tivesse incluído todos
 
 	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
-### Especificar uma SAS (Assinatura de Acesso Compartilhado)
+### Especificar uma SAS
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 
@@ -866,4 +866,4 @@ Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos 
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -3,7 +3,7 @@
    description="O Power BI Embedded possibilita que você integre relatórios do Power BI a seus aplicativos móveis ou Web para que não precise compilar soluções personalizadas para visualizar dados para os seus usuários"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # O que é o Microsoft Power BI Embedded?
 
@@ -71,4 +71,4 @@ Esses tokens são usados para as várias fases de suas interações com **Micros
 - [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

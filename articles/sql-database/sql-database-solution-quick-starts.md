@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure
@@ -71,4 +71,4 @@ Este [aplicativo de demonstração da Contoso Clinic](https://github.com/Microso
 
 [Explorar Tutoriais do Banco de Dados SQL do Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

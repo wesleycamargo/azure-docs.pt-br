@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />
 
 # Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
 
@@ -55,7 +55,7 @@ Para usar esse perfil de pontuação, sua consulta é formulada para especificar
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs).
+Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Clique em [Exemplo](#example) para examinar um exemplo mais detalhado de um perfil de pontuação.
 
@@ -175,10 +175,10 @@ As funções são usadas quando cálculos adicionais são necessários para cont
 
   - O tipo de função (freshness, magnitude, distance, tag) deve estar em minúsculas.
   - As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.
-  - As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice](search-api-2015-02-28/#createindex) para obter mais informações sobre campos filtráveis.
+  - As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice](search-api-2015-02-28.md#createindex) para obter mais informações sobre campos filtráveis.
   - As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.
 
-Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice](search-api-2015-02-28-preview/#createindex) e [Adicionar ou atualizar documentos](search-api-2015-02-28-preview/#AddOrUpdateDocuments) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
+Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice](search-api-2015-02-28-preview.md#createindex) e [Adicionar ou atualizar documentos](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
 
 <a name="bkmk_template"></a>
 ## Modelo
@@ -254,12 +254,12 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 | `magnitude:boostingRangeEnd` | Define o valor final do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou um número de ponto flutuante. Para classificações por estrelas de 1 a 4, isso seria 4. |
 | `magnitude:constantBoostBeyondRange` | Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo. |
 | `freshness` | A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. (Observe que também é possível classificar itens, como os eventos de calendário, com datas futuras, de modo que os itens mais próximos à data atual possam ter uma classificação superior do que itens com data mais distantes.) Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A outra extremidade é um momento no passado com base no `boostingDuration`. Para aumentar um intervalo de horários no futuro, use um `boostingDuration` com valor negativo. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1. |
-| `freshness:boostingDuration` | Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration ][#bkmk\_boostdur] na próxima seção para obter a sintaxe e exemplos. |
+| `freshness:boostingDuration` | Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration][#bkmk\_boostdur] na próxima seção para obter a sintaxe e exemplos. |
 | `distance` | A função de pontuação distância é usada para afetar a pontuação de documentos com base em sua distância ou proximidade em relação a um local geográfico de referência. O local de referência é fornecido como parte da consulta em um parâmetro (usando o parâmetro de consulta `scoringParameter`) como um argumento lon,lat. |
-| `distance:referencePointParameter` | Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Confira [Pesquisar documentos](search-api-2015-02-28-preview/#SearchDocs) para obter descrições dos parâmetros de consulta. |
+| `distance:referencePointParameter` | Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview.md#SearchDocs) para obter descrições dos parâmetros de consulta. |
 | `distance:boostingDistance` | Um número que indica a distância em quilômetros do local de referência em que o intervalo de aumento termina. |
 | `tag` | A função de pontuação marca é usada para afetar a pontuação de documentos com base em marcas em documentos e consultas de pesquisa. Documentos com marcas em comum com a consulta de pesquisa serão ser aumentados. As marcações para a consulta de pesquisa são fornecidas como um parâmetro de pontuação em cada solicitação de pesquisa (usando o parâmetro de consulta `scoringParameter`). |
-| `tag:tagsParameter` | Um parâmetro a ser passado em consultas para especificar as marcações para uma solicitação específica. `scoringParameter` é um parâmetro de consulta. Confira [Pesquisar documentos](search-api-2015-02-28-preview/#SearchDocs) para obter descrições dos parâmetros de consulta. |
+| `tag:tagsParameter` | Um parâmetro a ser passado em consultas para especificar as marcações para uma solicitação específica. `scoringParameter` é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview.md#SearchDocs) para obter descrições dos parâmetros de consulta. |
 | `functionAggregation` | Opcional. Aplicável apenas quando funções são especificadas. Os valores válidos incluem: `sum` (padrão), `average`, `minimum`, `maximum` e `firstMatching`. Uma pontuação de pesquisa é um valor único calculado por meio de diversas variáveis, incluindo várias funções. Esses atributos indicam como os aumentos de todas as funções são combinados em um único aumento agregado que, em seguida, é aplicado à pontuação de documento de base. A pontuação de base é fundamentada no valor tf-idf calculado por meio do documento e da consulta de pesquisa. |
 | `defaultScoringProfile` | Ao se executar uma solicitação de pesquisa, se nenhum perfil de pontuação for especificado, a pontuação padrão será usada (somente tf-idf). Um nome de perfil de pontuação padrão pode ser definido aqui, fazendo com que o Azure Search use esse perfil quando nenhum perfil específico for fornecido na solicitação de pesquisa. |
 
@@ -280,7 +280,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 
 `boostingDuration` é um atributo da função de atualização. Você pode usá-lo para definir um período de expiração após o qual o aumento será interrompido para um documento específico. Por exemplo, para aumentar uma linha de produtos ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos. Ou, para aumentar eventos futuros na próxima semana especifique "-P7D".
 
-`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é: `][-]P\[nD]\[T\[nH]\[nM]\[nS]\]]`.
+`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é: `[-]P[nD][T[nH][nM][nS]]`.
 
 A tabela a seguir fornece vários exemplos.
 
@@ -298,4 +298,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

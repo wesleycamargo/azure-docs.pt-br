@@ -3,7 +3,7 @@
 	description="Saiba como fazer backup do SQL Server no Armazenamento do Azure. Explica os benefícios de fazer backup de bancos de dados SQL no Armazenamento do Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="MikeRayMSFT"
 	manager="jhubbard"
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="07/22/2016"
-	ms.author="jroth"/>
+	ms.author="mikeray"/>
 
 # Usar o armazenamento do Azure para o backup e restauração do SQL Server
 
@@ -24,7 +24,7 @@ A partir do SQL Server 2012 SP1 CU2, agora você pode escrever backups do SQL Se
 
 O SQL Server 2016 apresenta novos recursos: você pode usar o [backup de instantâneo de arquivo](http://msdn.microsoft.com/library/mt169363.aspx) para executar backups quase imediatos e restaurações incrivelmente rápidas.
 
-Este tópico explica por que você pode optar por usar o Armazenamento do Azure para backups do SQL e descreve os componentes envolvidos. Você pode usar os recursos fornecidos no final do artigo para acessar o passo a passo e informações adicionais para começar a usar esse serviço com os backups do SQL Server.
+Este tópico explica por que você pode optar por usar o armazenamento do Azure para backups do SQL e descreve os componentes envolvidos. Você pode usar os recursos fornecidos no final do artigo para acessar o passo a passo e informações adicionais para começar a usar esse serviço com os backups do SQL Server.
 
 ## Vantagens de usar o serviço Blob Azure para Backups do SQL Server
 
@@ -50,7 +50,7 @@ Os seguintes componentes do Azure são usados durante o backup para o serviço d
 |---------------------|-------------------------------|
 | **Conta de armazenamento** | A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para acessar um serviço de armazenamento de BLOBs do Azure, primeiro crie uma conta de armazenamento do Azure. Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar o serviço de armazenamento de blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contêiner** | Um contêiner fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de blobs. Para escrever um SQL Server backup para um serviço Blob do Azure, você deve ter pelo menos o contêiner raiz criado. |
-| **Blob** | Um arquivo de qualquer tipo e tamanho. Blobs são endereçáveis usando o seguinte formato de URL: ** conta https://[storage].blob.core.windows.net/[contêiner]/[blob]**. Para obter mais informações sobre blobs de páginas, consulte [Noções gerais sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). |
+| **Blob** | Um arquivo de qualquer tipo e tamanho. Blobs são endereçáveis usando o seguinte formato de URL: **conta https://[storage].blob.core.windows.net/[contêiner]/[blob]**. Para obter mais informações sobre blobs de páginas, consulte [Noções gerais sobre blobs de blocos e blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). |
 
 ## Componentes do SQL Server
 
@@ -74,8 +74,8 @@ Os seguintes componentes do SQL Server são usados durante o backup para o servi
 
 1. Examine a documentação adicional começando com [Backup e Restauração do SQL Server com o Serviço de Armazenamento de Blobs do Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
-Se você tiver problemas, examine o tópico [Backup do SQL Server para práticas recomendadas e solução de problemas de URL](https://msdn.microsoft.com/library/jj919149.aspx).
+Se você tiver problemas, examine o tópico [Práticas recomendadas e solução de problemas de backup do SQL Server para URL](https://msdn.microsoft.com/library/jj919149.aspx).
 
 Para ver outras opções de backup e restauração do SQL Server, consulte [Backup e Restauração do SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

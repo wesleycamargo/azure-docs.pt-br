@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/24/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Criando bancos de dados de nuvem escalonáveis
 
-A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure.
+A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure. [Trabalhos elásticos](sql-database-elastic-jobs-powershell.md) podem ser usados para ajudar a facilitar o gerenciamento desses bancos de dados.
 
-Para instalar a biblioteca, vá para [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Documentação
 1. [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md)
@@ -73,4 +73,4 @@ A biblioteca agora está disponível como software livre no [GitHub](https://git
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

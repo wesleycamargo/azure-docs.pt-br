@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/07/2016"
+   	ms.date="09/02/2016"
    	ms.author="jgao"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
@@ -385,7 +385,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### Executar trabalhos
 
@@ -394,4 +394,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 - [Executar trabalhos do Sqoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Executar trabalhos do Oozie no HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

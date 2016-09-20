@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o ADP GlobalView ao Azure AD 
 
 - No AD do Azure, você poderá controlar quem tem acesso ao ADP GlobalView
 - Você pode permitir que seus usuários façam logon automaticamente no ADP GlobalView (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -57,7 +57,7 @@ Para configurar a integração do ADP GlobalView com o AD do Azure, você precis
 
 **Para adicionar o ADP GlobalView da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -90,7 +90,7 @@ Para que o logon único funcione, o AD do Azure precisa saber qual usuário do A
 
 Para configurar e testar o logon único do AD do Azure com o ADP GlobalView, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criar um usuário de teste do ADP GlobalView](#creating-a-adp-globalview-test-user)**: para ter um equivalente de Brenda Fernandes no ADP GlobalView que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
@@ -127,7 +127,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
     b. Na caixa de texto **URL de Resposta**, digite a URL usada pelo Azure AD para postar a resposta no aplicativo ADP GlobalView, usando um dos seguintes padrões: **“https://<nome do servidor>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://<nome do servidor>.globalview.adp.com/federate/sp/ACS.saml2”**
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 
 4. Na página **Configurar logon único no ADP GlobalView**, execute as seguintes etapas:
@@ -136,7 +136,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do ADP GlobalView e forneça o seguinte:
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_04.png)
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png)
 
@@ -188,9 +188,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png)
 
@@ -202,13 +202,13 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_07.png)
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_08.png)
 
@@ -234,7 +234,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao ADP GlobalView, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -283,4 +283,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

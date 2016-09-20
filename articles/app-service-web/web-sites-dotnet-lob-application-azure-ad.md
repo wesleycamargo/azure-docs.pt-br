@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="08/31/2016" 
+	ms.date="09/01/2016" 
 	ms.author="cephalin"/>
 
 # Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory #
@@ -29,6 +29,7 @@ Você compilará um aplicativo simples de linha de negócios CRUD (Create-Read-U
 
 - Autentica usuários no Active Directory do Azure
 - Consulta usuários de diretório e grupos usando a [API do Graph do Azure Active Directory](http://msdn.microsoft.com/library/azure/hh974476.aspx)
+- Usar o modelo *Sem Autenticação* do ASP.NET MVC
 
 Se você precisar de controle de acesso baseado em função (RBAC) para seu aplicativo de linha de negócios no Azure, confira a [Próxima etapa](#next).
 
@@ -142,19 +143,11 @@ Se você precisar de controle de acesso baseado em função (RBAC) para seu apli
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 
-14. Agora, para testar se você tem o token de autorização para acessar a API do Graph do Azure Active Directory, altere ~\\Controllers\\HomeController.cs para usar o seguinte método de ação `Index()`:
-	<pre class="prettyprint">
-	public ActionResult Index()
-	{
-		return <mark>Content(Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);</mark>
-	}
-	</pre>
+14. Agora, para testar se você tiver o token de autorização para acessar o API do Graph do Azure Active Directory, basta navegar até **https://&lt;*appname*>.azurewebsites.net/.auth/me** em seu navegador. Se você configurou tudo corretamente, veja a propriedade `access_token` na resposta JSON.
 
-15. Publique suas mudanças clicando com o botão direito do mouse em seu projeto e clicando em **Publicar**. Clique em **Publicar** novamente na caixa de diálogo.
+	O caminho da URL de `~/.auth/me` é gerenciado pela Autenticação/Autorização do Serviço de Aplicativo para fornecer todas as informações relacionadas à sua sessão autenticada. Para saber mais, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
-
-	Se a página inicial do aplicativo mostrar agora um token de acesso, seu aplicativo poderá acessar a API do Graph do Azure Active Directory. Fique à vontade para desfazer as alterações em ~\\Controllers\\HomeController.cs.
+	>[AZURE.NOTE] O `access_token` tem um período de expiração. No entanto, a Autenticação/Autorização do Serviço de Aplicativo fornece a funcionalidade de atualização do token com `~/.auth/refresh`. Para saber mais sobre como usá-la, consulte [Repositório de Token do Serviço de Aplicativo](https://cgillum.tech/2016/03/07/app-service-token-store/).
 
 Em seguida, você fará algo útil com os dados do diretório.
 
@@ -194,29 +187,6 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
 10.	Selecione o modelo que você criou e clique em **+** e depois em **Adicionar** para adicionar um contexto de dados e, em seguida, clique em **Adicionar**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-
-9.	Abra ~\\Controllers\\WorkItemsController.cs.
-
-13.	No início dos métodos `Create()` e `Edit(int? id)`, adicione o seguinte código para tornar algumas variáveis disponíveis posteriormente para o JavaScript. `Ctrl`+`.` em cada erro de resolução de nomes para corrigi-lo.
-
-		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-		ViewData["tenant"] =
-			ClaimsPrincipal.Current.Claims
-			.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
-			.Select(c => c.Value).SingleOrDefault();
-
-	> [AZURE.NOTE] Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), sua POSTAGEM HTTP poderá falhar na validação de token antifalsificação em virtude do seguinte:
-
-	> - O Azure Active Directory não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é exigido por padrão pelo token antifalsificação.
-	> - Se o Azure Active Directory for um diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora seja possível configurar o AD FS manualmente para enviar essa declaração.
-
-	> Você cuidará desse problema na próxima etapa.
-
-12.  Em ~\\Global.asax, adicione a seguinte linha de código ao método `Application_Start()`. `Ctrl`+`.` em cada erro de resolução de nomes para corrigi-lo.
-
-		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-	
-	`ClaimTypes.NameIdentifies` especifica a declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, que o Active Directory do Azure fornece.
 
 14.	Em ~\\Views\\WorkItems\\Create.cshtml (um item automaticamente submetido a scaffolding), localize o método auxiliar `Html.BeginForm` e faça as seguintes alterações destacadas:
 	<pre class="prettyprint">
@@ -287,8 +257,11 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
 			var maxResultsPerPage = 14;
 			var input = document.getElementById("AssignedToName");
 	
-			var token = "@ViewData["token"]";
-			var tenant = "@ViewData["tenant"]";
+			// Token de acesso do cabeçalho de solicitação e tenantID de identidade de declarações
+			var token = "@Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]";
+			var tenant ="@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+							.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
+							.Select(c => c.Value).SingleOrDefault())";
 	
 			var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
@@ -303,7 +276,20 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
 	</pre>
 	
 	Observe que `token` e `tenant` são usados pelo objeto `AadPicker` para fazer chamadas da API do Graph do Azure Active Directory. Você adicionará `AadPicker` mais tarde.
-
+	
+	>[AZURE.NOTE] Você também pode obter `token` e `tenant` do lado do cliente com `~/.auth/me`, mas isso seria uma chamada de servidor adicional. Por exemplo:
+	>  
+    >     $.ajax({
+    >         dataType: "json",
+    >         url: "/.auth/me",
+    >         success: function (data) {
+    >             var token = data[0].access_token;
+    >             var tenant = data[0].user_claims
+    >                             .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+    >                             .val;
+    >         }
+    >     });
+	
 15. Faça as mesmas alterações com ~\\Views\\WorkItems\\Edit.cshtml.
 
 15. O objeto `AadPicker` é definido em um script ao qual você precisa adicionar ao seu projeto. Clique com o botão direito do mouse na pasta ~\\Scripts, aponte para **Adicionar** e clique em **arquivo JavaScript**. Digite `AadPickerLibrary` para o nome de arquivo e clique em **OK**.
@@ -350,6 +336,17 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
 
 	Há outras maneiras de alto desempenho para gerenciar arquivos JavaScript e CSS em seu aplicativo. No entanto, para manter a simplicidade, apenas acumule os pacotes carregados com cada exibição.
 
+12. Por fim, em ~\\Global.asax, adicione a seguinte linha de código ao método `Application_Start()`. `Ctrl`+`.` em cada erro de resolução de nomes para corrigi-lo.
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	> [AZURE.NOTE] Você precisa dessa linha de código porque o modelo padrão de MVC usa <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), sua POSTAGEM HTTP poderá falhar na validação de token antifalsificação em virtude do seguinte:
+
+	> - O Azure Active Directory não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é exigido por padrão pelo token antifalsificação.
+	> - Se o Azure Active Directory for um diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora seja possível configurar o AD FS manualmente para enviar essa declaração.
+
+	> `ClaimTypes.NameIdentifies` especifica a declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, que o Active Directory do Azure fornece.
+
 20. Agora, publique suas alterações. Clique com o botão direito do mouse em seu projeto e clique em **Publicar**.
 
 21. Clique em **Configurações**, verifique se há uma cadeia de conexão com seu Banco de Dados SQL, selecione **Atualizar Banco de Dados** para fazer as alterações de esquema no modelo e clique em **Publicar**.
@@ -385,4 +382,4 @@ Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows
@@ -65,13 +65,13 @@ Após cada etapa de solução de problemas, tente se reconectar à VM.
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] Nos exemplos anteriores, `myVMAccessExtension` ou `MyVMAccess` é um nome especificado para a nova extensão a ser instalada como parte do processo. Geralmente, isso é definido como o nome da VM. Caso você tenha trabalhado anteriormente com o VMAccessAgent, será possível obter o nome da extensão existente usando `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` para verificar as propriedades da VM. Em seguida, examine a seção 'Extensões' da saída. Já que apenas um VMAccessAgent pode existir em uma VM, você também precisa adicionar o parâmetro `-ForceReRun` ao usar `Set-AzureRmVMExtension` para registrar o agente novamente.
+	> [AZURE.NOTE] Nos exemplos anteriores, `myVMAccessExtension` ou `MyVMAccess` é um nome especificado para a nova extensão a ser instalada como parte do processo. Geralmente, isso é definido como o nome da VM. Caso você tenha trabalhado anteriormente com o VMAccessAgent, será possível obter o nome da extensão existente usando `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` para verificar as propriedades da VM. Examine a seção 'Extensões' da saída para ver o nome. Já que apenas um VMAccessAgent pode existir em uma VM, você também precisa adicionar o parâmetro `-ForceReRun True` ao usar `Set-AzureRmVMExtension` para registrar o agente novamente.
 
 2. Reinicie a VM para resolver outros problemas de inicialização. Escolha **Procurar** > **Máquinas virtuais** > *sua VM* > **Reiniciar**.
 
 3. [Reimplante a VM em um novo nó do Azure](virtual-machines-windows-redeploy-to-new-node.md).
 
-	Após a conclusão dessa operação, os dados de disco efêmeros serão perdidos e os endereços IP dinâmicos associados à máquina virtual serão atualizados.
+	Após a conclusão dessa operação, os dados de disco efêmeros são perdidos e os endereços IP dinâmicos associados à máquina virtual são atualizados.
 	
 4. Verifique se as [regras do Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) permitem o tráfego RDP (porta TCP 3389).
 
@@ -92,7 +92,7 @@ Após cada etapa de solução de problemas, tente se reconectar à VM.
 
 3. [Reimplante a VM em um novo nó do Azure](virtual-machines-windows-redeploy-to-new-node.md).
 
-	Após a conclusão dessa operação, os dados de disco efêmeros serão perdidos e os endereços IP dinâmicos associados à máquina virtual serão atualizados.
+	Após a conclusão dessa operação, os dados de disco efêmeros são perdidos e os endereços IP dinâmicos associados à máquina virtual são atualizados.
 	
 4. Verifique se o [ponto de extremidade dos Serviços de Nuvem permite o tráfego RDP](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 
@@ -173,8 +173,8 @@ Causa: a VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-- Para contas locais, use a sintaxe *NomeComputador*\\ *NomeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *DomainName*\\ *UserName* (exemplo: CONTOSO\\fabiopena).
+- Para contas locais, use a sintaxe *NomeComputador*\*NomeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *DomainName*\*UserName* (exemplo: CONTOSO\\fabiopena).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 
@@ -210,4 +210,4 @@ Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por 
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

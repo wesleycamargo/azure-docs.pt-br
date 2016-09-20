@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -56,7 +56,7 @@ Para configurar a integração do 10,000ft Plans ao Azure AD, você precisará a
 
 **Para adicionar o 10,000ft Plans da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory][1]
 
@@ -91,9 +91,9 @@ Para que o logon único funcione, o AD do Azure precisa saber qual usuário do10
 Para configurar e testar o logon único do Azure AD com o 10,000ft Plans, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do 10,000ft Plans](#creating-a-10000ft-plans-test-user)** – para ter um equivalente de Brenda Fernandes no Certify que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+4. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do Azure AD
@@ -132,7 +132,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para configurar o SSO para o seu aplicativo, entre em contato com a [equipe de suporte do 10,000ft Plans](mailto:support@10000ft.com), anexo o certificado baixado e forneça a eles a URL do Emissor, a URL de SSO SAML e a URL de Saída.
@@ -165,11 +165,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_05.png)
 
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -274,4 +274,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

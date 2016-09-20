@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o Capriza ao Azure AD (Azure 
 
 - no Azure AD, é possível controlar quem tem acesso ao Capriza
 - você pode habilitar seus usuários a fazerem logon automaticamente no Capriza(Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar a integração do Capriza ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Capriza da galeria, execute as seguintes etapas:**
 
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -89,8 +89,8 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do Capr
 
 Para configurar e testar o logon único do Azure AD com o Capriza, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Simon Britta.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do Capriza](#creating-a-capriza-test-user)** – para ter um equivalente de Brenda Fernandes no Capriza que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - habilitar Simon Britta a usar o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
@@ -118,7 +118,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon no seu aplicativo do Capriza usando o seguinte padrão: **“https://companyname.capriza.com/tenantid”**.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 4. Na página **Configurar logon único no Capriza**, execute as seguintes etapas:
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -187,13 +187,13 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png)
 
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png)
 
@@ -221,7 +221,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 **Para atribuir Brenda Fernandes ao Capriza, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -270,4 +270,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

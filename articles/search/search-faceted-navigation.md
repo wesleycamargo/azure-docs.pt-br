@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 #Como implementar a navegação facetada na Pesquisa do Azure
@@ -57,8 +57,8 @@ O ponto de partida é uma página de aplicativo que oferece navegação facetada
 
 1.	Uma consulta enviada para a Pesquisa do Azure especifica a estrutura de navegação facetada por meio de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta pode incluir `facet=Rating`, talvez com uma opção `:values` ou `:sort` para refinar ainda mais a apresentação.
 2.	A camada de apresentação renderiza uma página de pesquisa que oferece navegação facetada, usando as facetas especificadas na solicitação.
-3.	Dada uma estrutura de navegação facetada que inclui classificação, o usuário clica em "4" para indicar que somente os produtos com uma classificação de 4 ou superior devem ser mostrados. 
-4.	Em resposta, o aplicativo envia uma consulta que inclui `$filter=Rating ge 4` 
+3.	Dada uma estrutura de navegação facetada que inclui classificação, o usuário clica em "4" para indicar que somente os produtos com uma classificação de 4 ou superior devem ser mostrados.
+4.	Em resposta, o aplicativo envia uma consulta que inclui `$filter=Rating ge 4`
 5.	A camada de apresentação atualiza a página, mostrando um conjunto de resultados reduzido apenas com os itens que atendem aos novos critérios (nesse caso, os produtos classificados como 4 e superior).
 
 Uma faceta é um parâmetro de consulta, mas não a confunda com uma entrada de consulta. Ela nunca é usada como critério de seleção em uma consulta. Em vez disso, pense em facetas usadas como parâmetros de consulta como entradas para a estrutura de navegação que retorna como resposta. Para cada parâmetro de consulta de faceta que você fornecer, a Pesquisa do Azure avaliará quantos documentos estão nos resultados parciais para cada valor de faceta.
@@ -153,7 +153,7 @@ Alguns lembretes de pelo que se deve procurar estão listados abaixo:
 - Pergunte-se, para cada campo segundo o qual você deseja realizar a facetagem, se ele contém valores que são adequados como filtros na pesquisa autodirigida. Os valores devem ser curtos, descritivos e suficientemente diferentes para oferecer uma escolha clara entre as opções de concorrentes.
 - Erros de ortografia ou valores quase correspondentes. Se você realiza a facetagem por Cor e os valores de campo incluem Laranja e Laranja (erro), uma facetagem baseada no campo Cor utilizaria ambos.
 - Texto composto  
-de caracteres maiúsculos e minúsculos também pode causar estragos na navegação facetada, com laranja e Laranja aparecendo como dois valores diferentes. 
+de caracteres maiúsculos e minúsculos também pode causar estragos na navegação facetada, com laranja e Laranja aparecendo como dois valores diferentes.
 - Versões do mesmo valor no singular e no plural podem resultar em uma faceta separada para cada uma.
 
 Como você pode imaginar, a auditoria na preparação dos dados é um aspecto essencial para uma navegação facetada eficiente.
@@ -179,7 +179,7 @@ Quando um usuário clica em "Vermelho" para indicar que somente os produtos verm
 
 A lista a seguir resume algumas práticas recomendadas.
 
-- **Precisão**<br/> Utilize filtros. Se você depender apenas de expressões de pesquisa, a lematização pode fazer com que seja retornado um documento que não tenha o valor preciso da faceta em nenhum de seus campos. 
+- **Precisão**<br/> Utilize filtros. Se você depender apenas de expressões de pesquisa, a lematização pode fazer com que seja retornado um documento que não tenha o valor preciso da faceta em nenhum de seus campos.
 
 - **Campos de destino**<br/> Em busca detalhada facetada, você geralmente deseja incluir apenas os documentos que tenham o valor da faceta em um campo específico (facetado), não em qualquer lugar por todos os campos de pesquisa pesquisáveis. A adição de um filtro reforça o campo alvo, direcionando o serviço para pesquisar somente no campo facetado por um valor correspondente.
 
@@ -251,7 +251,7 @@ Em determinadas circunstâncias, você pode achar que as contagens de faceta nã
 
 As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentação. Cada índice de pesquisa tem vários fragmentos, e cada um deles relata as N facetas com maior classificação por contagem de documento, que em seguida são combinadas em um único resultado. Se alguns fragmentos têm muitos valores correspondentes enquanto outros têm menos, você poderá descobrir que alguns valores de faceta estão faltando ou com contagem reduzida nos resultados.
 
-Embora esse comportamento possa mudar a qualquer momento, se você encontrar esse problema hoje, você pode contorná-lo artificialmente aumentando count:<number> para um número muito grande para impor a emissão de relatórios completos de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são realmente altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
+Embora esse comportamento possa mudar a qualquer momento, se você tiver esse problema hoje, poderá contorná-lo artificialmente inflando count:<number> para um número muito grande a fim de impor o relatório completo de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são realmente altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
 
 <a name="rangefacets"></a>
 ##Navegação facetada com base em valores de intervalo
@@ -288,7 +288,7 @@ No aplicativo de exemplo, a expressão de filtro usa os parâmetros **priceFrom*
 
 Há duas funções geoespaciais na pesquisa do Azure, **geo.distance** e **geo.intersects**.
 
-- A função **geo.distance** retorna a distância em quilômetros entre dois pontos, um deles sendo um campo e o outro uma constante passada como parte do filtro. 
+- A função **geo.distance** retorna a distância em quilômetros entre dois pontos, um deles sendo um campo e o outro uma constante passada como parte do filtro.
 
 - A função **geo.intersects** retorna “true” se um determinado ponto está dentro de um polígono determinado, em que o ponto é um campo e o polígono é especificado como uma lista constante de coordenadas passadas como parte do filtro.
 
@@ -299,7 +299,7 @@ Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Pesqui
 
 Demonstração do Adventure Works da Pesquisa do Azure em Codeplex contém os exemplos mencionados neste artigo. Ao trabalhar com os resultados da pesquisa, monitore a URL quanto a alterações na construção de consulta. Esse aplicativo acrescenta facetas ao URI conforme você seleciona cada uma.
 
-1.	Configure o aplicativo de exemplo para usar a URL de serviço e a chave de api. 
+1.	Configure o aplicativo de exemplo para usar a URL de serviço e a chave de api.
 
 	Observe o esquema definido no arquivo Program.cs do projeto CatalogIndexer. Ele especifica os campos facetáveis para cor, listPrice, tamanho, peso, categoryName e modelName. Apenas alguns deles (cor, listPrice e categoryName) são realmente implementados na navegação facetada.
 
@@ -370,4 +370,4 @@ Você também pode assistir [Aprofundamento na Pesquisa do Azure](http://channel
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

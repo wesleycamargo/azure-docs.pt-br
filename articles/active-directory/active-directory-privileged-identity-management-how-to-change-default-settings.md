@@ -23,8 +23,8 @@ Um administrador de função com privilégios pode personalizar o Azure AD PIM (
 ## Gerenciar as configurações de ativação de função
 
 1. Acesse o [portal do Azure](https://portal.azure.com) e selecione o aplicativo **Azure AD Privileged Identity Management** do painel.
-2. Selecione a função que você deseja gerenciar na tabela de funções.
-3. Clique em **Configurações**.
+2. Selecione **Gerenciar funções privilegiadas** > **Configurações** > **Funções Privilegiadas**.
+3. Escolha a função cujas configurações você deseja gerenciar.
 
 Na página de configurações para cada função, há uma série de configurações que você pode realizar. Essas configurações afetam apenas os usuários que são administradores elegíveis, mas não os administradores permanentes.
 
@@ -40,19 +40,24 @@ Na página de configurações para cada função, há uma série de configuraç�
 
 - Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365. Esse é um recurso de segurança, porque estas funções devem ser protegidas com cuidado:
 
-    - Administrador global
-    - Administrador de função com privilégios
-    - Administrador da conta de usuário
+    - Administrador de aplicativos
+    - Administrador do servidor de Proxy de Aplicativo
+    - Administrador de cobrança
+    - Administrador de conformidade
+    - Administrador de serviços do CRM
+    - Aprovador de acesso do Sistema de Proteção de Dados do Cliente
     - Gravador de diretório
+    - Administrador do Exchange
+    - Administrador global
+    - Administrador de serviço do Intune
+    - Administrador de caixa de correio
     - Suporte de camada 1 do parceiro
     - Suporte de camada 2 do parceiro
-    - Administrador de cobrança
+    - Administrador de função com privilégios
     - Administrador de segurança
-    - Administrador do Exchange
-    - Administrador de caixa de correio
-    - Administrador do Skype for Business
     - Administrador do SharePoint
-    - Administrador de conformidade
+    - Administrador do Skype for Business
+    - Administrador da conta de usuário
 
 Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -62,4 +67,4 @@ Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

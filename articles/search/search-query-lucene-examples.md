@@ -15,25 +15,25 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="05/17/2016"
+    ms.date="08/29/2016"
     ms.author="liamca"
 />
 
 # Exemplos de sintaxe de consulta Lucene para criar consultas na Pesquisa do Azure
 
-Ao construir consultas da Pesquisa do Azure, você pode usar a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx) padrão ou alternativa do [Lucene Query Parser na Pesquisa do Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). O Analisador de Consulta Lucene dá suporte a construções de consulta mais complexas, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termos e pesquisa de expressão regular.
+Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). O Analisador de Consulta Lucene dá suporte a construções de consulta mais complexas, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termos e pesquisa de expressão regular.
 
 Neste artigo, você pode percorrer os exemplos que exibem a sintaxe de consulta Lucene e os resultados lado a lado. Os exemplos são executados em um índice pré-carregado da Pesquisa no [JSFiddle](https://jsfiddle.net/), um editor de código online para testar o script e o HTML.
 
 Clique com botão direito do mouse nas URLs de exemplo de consulta para abrir o JSFiddle em uma janela separada do navegador.
 
-> [AZURE.NOTE] Os exemplos a seguir aproveitam um índice de pesquisa que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pela iniciativa [OpenData da cidade de Nova York](https://nycopendata.socrata.com/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft. Você não precisa de uma assinatura do Azure ou da Pesquisa do Azure para experimentar essas consultas.
+> [AZURE.NOTE] Os exemplos a seguir aproveitam um índice de pesquisa que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pela iniciativa [OpenData da cidade de Nova York](https://nycopendata.socrata.com/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft. Você não precisa de uma assinatura do Azure ou do Azure Search para experimentar essas consultas.
 
 ## Exibindo os exemplos neste artigo
 
-Todos os exemplos neste artigo especificam o Lucene Query Parser por meio do parâmetro de pesquisa **queryType**. Ao usar o Lucene Query Parser do seu código, você especificará o **queryType** em cada solicitação. Os valores válidos incluem **simple**|**full**, com **simple** como o padrão e **full** para o Lucene Query Parser. Veja [Pesquisar documentos (API REST do serviço Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes sobre a especificação de parâmetros de consulta.
+Todos os exemplos neste artigo especificam o Lucene Query Parser por meio do parâmetro de pesquisa **queryType**. Ao usar o Lucene Query Parser do seu código, você especificará o **queryType** em cada solicitação. Os valores válidos incluem **simple**|**full**, com **simple** como o padrão e **full** para o Lucene Query Parser. Veja [Pesquisar documentos (API REST do serviço Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes sobre a especificação de parâmetros de consulta.
 
-**Exemplo 1**: clique com o botão direito do mouse no trecho de código da consulta a seguir para abri-la em uma nova página do navegador que carrega o JSFiddle e executa a consulta:
+**Exemplo 1**: clique com o botão direito do mouse no seguinte trecho de código da consulta para abri-la em uma nova página do navegador que carrega o JSFiddle e executa a consulta:
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Essa consulta retorna documentos do nosso índice de Trabalhos (carregado em um serviço de área restrita)
@@ -42,7 +42,7 @@ Na nova janela do navegador, você verá o código-fonte JavaScript e a saída H
 
     http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-Observe que a consulta usa um índice da Pesquisa do Azure pré-configurado chamado nycjobs. O parâmetro **searchFields** restringe a pesquisa a apenas o campo de título de negócios. O **queryType** é definido como **full**, que instrui a Pesquisa do Azure a usar o Lucene Query Parser para essa consulta.
+Observe que a consulta usa um índice da Pesquisa do Azure pré-configurado chamado nycjobs. O parâmetro **searchFields** restringe a pesquisa apenas ao campo de título de negócios. O **queryType** é definido como **full**, que instrui o Azure Search a usar o Lucene Query Parser para essa consulta.
 
 ### Operação de consulta por campo
 
@@ -53,15 +53,15 @@ Você pode modificar os exemplos deste artigo especificando uma construção **n
 
 Coloque várias cadeias de caracteres entre aspas se quiser que ambas as cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo de local. Além disso, verifique se o operador está em maiúsculas, como você pode ver com NÃO e E.
 
-O campo especificado em **nomedocampo:termodepesquisa** deve ser um campo pesquisável. Consulte [Criar índice (API REST do Serviço de Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obter detalhes sobre como os atributos de índice são usados em definições de campo.
+O campo especificado em **nomedocampo:termodepesquisa** deve ser um campo pesquisável. Confira [Create Index (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Criar índice [API REST do Serviço Azure Search]) para obter detalhes sobre como os atributos de índice são usados em definições de campo.
 
 ## Pesquisa difusa
 
-Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas difusas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
+Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
 Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria mar, amar e maré.
 
-**Exemplo 2**: clique com o botão direito do mouse no trecho de consulta a seguir para experimentá-lo. Essa consulta pesquisa cargos com o termo sênior neles, mas não júnior:
+**Exemplo 2**: clique com o botão direito do mouse no trecho de código de consulta a seguir para experimentá-lo. Essa consulta pesquisa cargos com o termo sênior neles, mas não júnior:
 
 - [&queryType=full&search= cargo:sênior NÃO júnior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
@@ -69,7 +69,7 @@ Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única pa
 
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, "hotel aeroporto"~5 encontrará os termos hotel e aeroporto em cinco palavras uma da outra em um documento.
 
-**Exemplo 3**: clique com o botão direito do mouse no trecho de consulta a seguir. Essa consulta pesquisa os trabalhos com o termo associado (onde ele é escrito incorretamente):
+**Exemplo 3**: clique com o botão direito do mouse no trecho código de consulta a seguir. Essa consulta pesquisa os trabalhos com o termo associado (onde ele é escrito incorretamente):
 
 - [&queryType=full&search= cargo:asosiato~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
@@ -77,7 +77,7 @@ As pesquisas de proximidade são usadas para localizar termos que estejam próxi
 
 - [&queryType=full&search=cargo:"analista sênior"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
-**Exemplo 5**: experimente novamente ao remover as palavras entre o termo "analista sênior".
+**Exemplo 5**: experimente novamente remover as palavras entre o termo "analista sênior".
 
 - [&queryType=full&search=cargo:"analista sênior"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
@@ -129,4 +129,4 @@ Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seg
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

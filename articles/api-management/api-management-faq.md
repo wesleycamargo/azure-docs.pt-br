@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Perguntas frequentes sobre Gerenciamento de API do Azure | Microsoft Azure" 
-	description="Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure" 
+	description="Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="miaojiang" 
@@ -18,12 +18,12 @@
 
 # Perguntas frequentes sobre Gerenciamento de API do Azure
 
-Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure
+Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
 
 ## Perguntas frequentes
 
 -	[Como fazer uma pergunta à equipe de Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team)
--	[Se um recurso está em Visualização, o que isso significa?](#what-does-it-mean-if-a-feature-is-in-preview)
+-	[O que significa quando um recurso está em Visualização?](#what-does-it-mean-when-a-feature-is-in-preview)
 -	[Quais são as opções com suporte para proteger a conexão entre o gateway de Gerenciamento de API e meus serviços de back-end?](#what-are-the-supported-options-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services)
 -	[Como copiar uma instância de Gerenciamento de API para uma nova instância?](#how-can-i-copy-an-api-management-instance-to-a-new-instance)
 -	[Posso gerenciar minha instância de Gerenciamento de API por meio de programação?](#can-i-manage-my-api-management-instance-programmatically)
@@ -39,6 +39,7 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 -	[Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Por que estou recebendo falha de autenticação ao tentar clonar o repositório GIT?](#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 -	[O Gerenciamento de API funciona com a Rota Expressa?](#does-api-management-work-with-express-route)
+-	[Posso mover a instância do Gerenciamento de API de uma assinatura para outra?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
 
 ### Como fazer uma pergunta à equipe de Gerenciamento de API?
@@ -47,9 +48,9 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 -	Você pode nos enviar um email para o endereço: `apimgmt@microsoft.com`.
 -	Você pode nos enviar uma [solicitação de recurso](https://feedback.azure.com/forums/248703-api-management).
 
-### Se um recurso está em Visualização, o que isso significa?
+### O que significa quando um recurso está em Visualização?
 
-Um recurso em visualização está funcionalmente completo, mas está em visualização porque estamos buscando ativamente comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver comentários sobre os recursos em preview, informe-nos usando um dos mecanismos descritos em [Como fazer uma pergunta à equipe do Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team).
+Um recurso em visualização está funcionalmente completo, mas está em visualização porque estamos buscando ativamente comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver comentários sobre os recursos em visualização, informe-nos usando um dos mecanismos descritos em [Como fazer uma pergunta à equipe do Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 ### Quais são as opções com suporte para proteger a conexão entre o gateway de Gerenciamento de API e meus serviços de back-end?
 
@@ -84,8 +85,8 @@ Depois disso, o colaborador recém-adicionado pode usar os [cmdlets](https://msd
 
 1. Usar o cmdlet `Login-AzureRmAccount` para fazer logon
 2. Definir o contexto para a assinatura que contém o serviço usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
-3. Obter o token SSO usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
-4. Copie e cole a URL no navegador, e o usuário deverá ter acesso ao portal de administração
+3. Obter a URL de logon único usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Usar a URL para acessar o portal de administração
 
 
 ### Por que a política que desejo adicionar não está habilitada no editor de política?
@@ -101,16 +102,16 @@ Se a política que você quer adicionar não estiver habilitada, verifique se vo
 
 ### Como posso configurar vários ambientes de produção e APIs, por exemplo, Sandbox e Produção?
 
-Neste momento, as opções são:
+Atualmente, as opções são:
 
 -	Você pode hospedar APIs distintas no mesmo locatário
 -	Você pode hospedar as mesmas APIs em locatários diferentes
 
 ### SOAP tem suporte no Gerenciamento de API?
 
-Atualmente, damos suporte limitado a SOAP no Gerenciamento de API do Azure. É um recurso que ainda estamos investigando. Temos bastante interesse em obter exemplos de WSDLs do cliente e uma descrição dos recursos de que eles precisam, pois isso nos ajudaria no nosso raciocínio. Contate-nos usando as informações de contato referenciadas em [Como fazer uma pergunta à equipe de Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team)
+Atualmente, oferecemos suporte limitado para SOAP no Gerenciamento de API do Azure. É um recurso que estamos investigando. Seria interessante obter exemplos dos seus documentos WSDL, pois isso nos ajudaria na validação de nosso pensamento. Contate-nos usando as informações de contato referenciadas em [Como fazer uma pergunta à equipe de Gerenciamento de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-Se você precisa ter isso em funcionamento, algumas de nossas comunidades sugeriram soluções alternativas. Confira [Gerenciamento de API do Azure - APIM, consumindo um serviço WCF SOAP sobre HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
+Se você precisa ter isso em funcionamento, alguns membros da nossa comunidade sugeriram soluções alternativas. Confira [Gerenciamento de API do Azure - APIM, consumindo um serviço WCF SOAP sobre HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
 
 A implementação da solução dessa forma exige algumas configurações manuais de políticas, não dá suporte à importação/exportação de WSDL e os usuários precisarão formar o corpo de solicitações feitas usando o console de teste no portal do desenvolvedor.
 
@@ -133,7 +134,7 @@ Para saber mais sobre como configurar esse cenário, confira [Usando ADFS no Ger
 
 ### Que método de roteamento o Gerenciamento de API usa quando implantado em vários locais geográficos? 
 
-O Gerenciamento de API usa o [Método de roteamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). O tráfego será roteado para o gateway de API mais próximo. Se uma região ficar offline, o tráfego de entrada será automaticamente roteado para o gateway mais próximo. Para obter mais informações sobre métodos de roteamento, confira [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
+O Gerenciamento de API usa o [Método de roteamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). O tráfego é roteado para o gateway de API mais próximo. Se uma região ficar offline, o tráfego de entrada será automaticamente roteado para o gateway mais próximo. Para obter mais informações sobre métodos de roteamento, confira [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Posso criar uma instância do serviço de Gerenciamento de API usando um modelo do ARM?
 
@@ -155,4 +156,8 @@ Se você estiver usando o Gerenciador de Credenciais do GIT ou tentando clonar o
 
 Sim!
 
-<!---HONumber=AcomDC_0831_2016-->
+### Posso mover a instância do Gerenciamento de API de uma assinatura para outra?
+
+Sim! Siga as instruções neste [artigo](../resource-group-move-resources.md).
+
+<!---HONumber=AcomDC_0907_2016-->

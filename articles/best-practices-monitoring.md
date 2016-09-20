@@ -662,6 +662,6 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 - [Como usar filas do Barramento de Serviço](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Business intelligence do SQL Server em máquinas virtuais do Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Receber notificações de alerta](./azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

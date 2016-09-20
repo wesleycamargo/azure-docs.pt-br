@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/11/2016" 
+ ms.date="09/02/2016" 
  ms.author="dobett"/>
 
 # Guia do desenvolvedor do Hub IoT do Azure
@@ -49,7 +49,7 @@ A seguir, uma descrição dos pontos de extremidade:
     - *Receber mensagens da nuvem para o dispositivo*. Um dispositivo usa este ponto de extremidade para receber mensagens direcionadas da nuvem para o dispositivo. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
     - *Inicie os uploads de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do Armazenamento do Azure do Hub IoT para carregar um arquivo. Para saber mais, veja [Carregamentos de arquivo](#fileupload).
 
-    Esses pontos de extremidade são expostos usando os protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível sobre [WebSockets][lnk-websockets] na porta 443.
+    Estes pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível sobre [WebSockets][lnk-websockets] na porta 443.
 * **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade que o seu back-end de aplicativo pode usar para se comunicar com seus dispositivos. Atualmente, esses pontos de extremidade são expostos apenas com o protocolo [AMQP][lnk-amqp].
     - *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [Hubs de Eventos do Azure][lnk-event-hubs]. Um serviço de back-end pode usá-lo para ler todas as mensagens do dispositivo para a nuvem enviadas por seus dispositivos. Para saber mais, consulte [Sistema de mensagens do dispositivo para a nuvem](#d2c).
     - *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de aplicativo envie mensagens confiáveis da nuvem para o dispositivo e receba confirmações de entrega ou de vencimento correspondentes. Para saber mais, consulte [Sistema de mensagens da nuvem para o dispositivo](#c2d).
@@ -108,7 +108,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | status | obrigatório | Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
 | statusReason | opcional | Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime | somente leitura | Um indicador temporal, mostrando a data e hora da última atualização de status. |
-| connectionState | somente leitura | Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente para dispositivos que usam AMQP ou MQTT. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos pode haver falsos positivos, como dispositivos relatados como conectados, mas que na verdade estão desconectados. |
+| connectionState | somente leitura | Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos pode haver falsos positivos, como dispositivos relatados como conectados, mas que na verdade estão desconectados. |
 | connectionStateUpdatedTime | somente leitura | Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
 | lastActivityTime | somente leitura | Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 
@@ -202,7 +202,7 @@ Para saber mais sobre como construir e usar os tokens de segurança, veja o arti
 
 #### Especificações de protocolo
 
-Cada protocolo com suporte, como AMQP, MQTT e HTTP, transporta os tokens de maneiras diferentes.
+Cada protocolo com suporte, como MQTT, AMQP e HTTP, transporta os tokens de maneiras diferentes.
 
 
 O HTTP implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**.
@@ -282,17 +282,23 @@ Esse é o conjunto de propriedades do sistema em mensagens do Hub IoT.
 
 ### Escolha seu protocolo de comunicação <a id="amqpvshttp"></a>
 
-O Hub IoT dá suporte aos protocolos [AMQP][lnk-amqp], AMQP sobre WebSockets, MQTT e HTTP/1 para comunicações do lado do dispositivo. Considere o seguinte sobre seus usos.
+O Hub IoT dá suporte aos protocolos MQTT, [AMQP][lnk-amqp], AMQP sobre WebSockets e HTTP/1 para comunicações do lado do dispositivo. A tabela a seguir fornece as recomendações de alto nível para sua escolha de protocolo:
 
-* **Padrão da nuvem para o dispositivo**. O HTTP/1 não tem uma maneira eficiente de implementar o envio do servidor. Assim, ao usar HTTP/1, os dispositivos sondam o Hub IoT em busca de mensagens da nuvem para o dispositivo. Essa abordagem é muito ineficiente para o dispositivo e para o Hub IoT. De acordo com as diretrizes atuais de HTTP/1, cada dispositivo sonda a cada 25 minutos ou mais. Por outro lado, o AMQP e MQTT dão suporte ao envio por push do servidor ao receber mensagens de nuvem para o dispositivo. Eles permitem envios por push imediatos de mensagens do Hub IoT para o dispositivo. Se a latência de entrega for uma preocupação, AMQP ou MQTT será a melhor opção de protocolo. Para dispositivos conectados raramente, o HTTP/1 funciona também.
+| Protocolo | Quando você deve escolher este protocolo |
+| -------- | ------------------------------------ |
+| MQTT | Use todos os dispositivos que não exigem o uso de WebSockets. |
+| AMQPS | Use em gateways de campo e de nuvem para tirar proveito da multiplexação de conexão entre dispositivos. <br/> Use quando você precisar se conectar à porta 443. |
+| HTTPS | Use para dispositivos que não dão suporte a outros protocolos. |
+
+Você deve considerar os seguintes pontos ao escolher seu protocolo de comunicação do lado do dispositivo:
+
+* **Padrão da nuvem para o dispositivo**. O HTTP/1 não tem uma maneira eficiente de implementar o envio do servidor. Assim, ao usar HTTP/1, os dispositivos sondam o Hub IoT em busca de mensagens da nuvem para o dispositivo. Essa abordagem é muito ineficiente para o dispositivo e para o Hub IoT. De acordo com as diretrizes atuais de HTTP/1, cada dispositivo deve sondar mensagens a cada 25 minutos ou mais. Por outro lado, o MQTT e o AMQP dão suporte ao envio por push do servidor quando recebem mensagens de nuvem para o dispositivo. Eles permitem envios por push imediatos de mensagens do Hub IoT para o dispositivo. Se a latência de entrega for uma preocupação, o AMQP ou o MQTT serão as melhores opções de protocolo. Para dispositivos conectados raramente, o HTTP/1 funciona também.
 * **Gateways de campo**. Ao usar HTTP/1 e MQTT, você não pode conectar vários dispositivos (cada um com suas próprias credenciais por dispositivo) usando a mesma conexão TLS. Assim, para [Cenários de gateway de campo][lnk-azure-gateway-guidance], esses protocolos ficam abaixo do ideal, pois exigem uma conexão TLS entre o gateway de campo e o Hub IoT para cada dispositivo conectado ao gateway de campo.
-* **Dispositivos com poucos recursos**. As bibliotecas de MQTT e HTTP/1 têm uma superfície menor que as bibliotecas de AMQP. Dessa forma, caso o dispositivo tenha poucos recursos (por exemplo, menos de 1 MB de RAM), esses protocolos poderão ser a única implementação de protocolo disponível.
-* **Percurso da rede**. MQTT padrão escuta na porta 8883, o que pode causar problemas em redes que estão fechadas para protocolos diferentes de HTTP. HTTP e AMQP (sobre WebSockets) estão disponíveis para serem usados nesse cenário.
-* **Tamanho da carga**. AMQP e MQTT são protocolos binários, que são significativamente mais compactos que HTTP/1.
+* **Dispositivos com poucos recursos**. As bibliotecas de MQTT e HTTP/1 têm uma superfície menor que as bibliotecas de AMQP. Dessa forma, caso o dispositivo tenha recursos limitados (por exemplo, menos de 1 MB de RAM), esses protocolos poderão ser a única implementação de protocolo disponível.
+* **Percurso da rede**. O MQTT padrão escuta na porta 8883, o que pode causar problemas em redes que estão fechadas para protocolos não HTTP. HTTP e AMQP (sobre WebSockets) estão disponíveis para serem usados nesse cenário.
+* **Tamanho da carga**. O AMQP e o MQTT são protocolos binários, que resultam em cargas significativamente mais compactas que o HTTP/1.
 
-Geralmente, você deve usar o AMQP (ou AMQP sobre WebSockets) sempre que possível e usar MQTT apenas quando as restrições do recurso impedirem o uso de AMQP. Só use HTTP/1 se a passagem de rede e a configuração de rede impedirem o uso de MQTT e AMQP. Além disso, ao usar HTTP/1, cada dispositivo deve sondar se há mensagens da nuvem para o dispositivo a cada 25 minutos ou mais.
-
-> [AZURE.NOTE] Durante o desenvolvimento, é aceitável sondar com mais frequência do que a cada 25 minutos.
+> [AZURE.NOTE] Ao usar o HTTP/1, cada dispositivo deverá sondar se há mensagens da nuvem para o dispositivo a cada 25 minutos ou mais. No entanto, durante o desenvolvimento, é aceitável sondar com mais frequência do que a cada 25 minutos.
 
 <a id="mqtt-support">
 #### Observações sobre o suporte ao MQTT
@@ -637,4 +643,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -39,7 +39,7 @@ Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. C
 - Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
 - Quais categorias de evento (por exemplo, Gravação, Exclusão, Ação) devem ser enviadas
 - Quais regiões (locais) devem ser exportados
-- Por quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs serão mantidos para sempre. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções dos Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+- Por quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs serão mantidos para sempre. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções dos Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
 
 Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal, ou [usando programaticamente a API REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), os cmdlets do PowerShell ou a CLI. Uma assinatura pode ter somente um perfil de log.
 
@@ -52,7 +52,7 @@ Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo
 2. Clique no botão **Exportar** na parte superior da folha.
 
     ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Na folha que aparece, você pode selecionar as regiões para as quais você deseja exportar eventos, a Conta de Armazenamento na qual você gostaria de salvar eventos (bem como o número de dias para manter esses eventos no armazenamento) e o Namespace do Barramento de Serviço no qual você gostaria de criar um Hub de Eventos para transmissão desses eventos.
+3. Na folha que aparece, você pode selecionar as regiões para as quais você deseja exportar eventos, a Conta de Armazenamento na qual você gostaria de salvar eventos (bem como o número de dias para manter esses eventos no armazenamento--0 dias armazerá os logs para sempre) e o Namespace do Barramento de Serviço no qual você gostaria de criar um Hub de Eventos para transmissão desses eventos.
 
     ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | Não | ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
 | serviceBusRuleId | Não | ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Será uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-| RetentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazenará os logs indefinidamente. |
+| RetentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará os logs indefinidamente (para sempre). |
 | Categorias | Não | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### Remover um perfil de log
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId | Não | ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
 | serviceBusRuleId | Não | ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Será uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | locais | Sim | Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-| retentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos. Um valor de zero armazena os logs indefinidamente. |
+| retentionInDays | Sim | Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
 | categorias | Não | Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### Remover um perfil de log
@@ -223,4 +223,4 @@ Cada evento no Log de Atividades tem um blob JSON como este:
 - [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../resource-group-audit.md)
 - [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

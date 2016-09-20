@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Ingressar uma máquina virtual do Red Hat Enterprise Linux 7 em um domínio gerenciado
@@ -26,7 +26,7 @@ Execute as seguintes etapas para provisionar uma máquina virtual do RHEL 7 usan
 
     ![Painel do portal do Azure](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-dashboard.png)
 
-2. Clique em **Novo** no painel à esquerda e digite **Red Hat** na barra de pesquisa, como mostra a captura de tela abaixo. Você deve observar as entradas para Red Hat Enterprise Linux nos resultados da pesquisa. Clique em **Red Hat Enterprise Linux 7.2**.
+2. Clique em **Novo** no painel à esquerda e digite **Red Hat** na barra de pesquisa, como mostra a captura de tela abaixo. As entradas para Red Hat Enterprise Linux aparecem nos resultados de pesquisa. Clique em **Red Hat Enterprise Linux 7.2**.
 
     ![Selecione RHEL nos resultados](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-find-rhel-image.png)
 
@@ -42,11 +42,11 @@ Execute as seguintes etapas para provisionar uma máquina virtual do RHEL 7 usan
 
     ![Criar VM - detalhes básicos](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. Clique em **Configuração Opcional**. Isso deve abrir um painel chamado **Configuração opcional**. No painel **Configuração opcional**, clique em **Rede** como mostrado na captura de tela abaixo.
+6. Em seguida, clique em **Configuração Opcional**. Isso deve abrir um painel chamado **Configuração opcional**. No painel **Configuração Opcional**, clique em **Rede**.
 
     ![Criar VM - configurar rede virtual](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
-7. Isso deve exibir um painel chamado **Rede**. No painel **Rede**, clique em **Rede Virtual** para selecionar a rede virtual à qual a VM do Linux deve ser implantada. Isso deve abrir o painel **Rede Virtual**. No painel **Rede Virtual**, escolha a opção **Usar rede virtual existente**. Em seguida, selecione a rede virtual na qual os Serviços de Domínio do Azure AD estão disponíveis. Neste exemplo, vamos escolher a rede virtual 'MyPreviewVNet'.
+7. Isso abre um painel chamado **Rede**. No painel **Rede**, clique em **Rede Virtual** para selecionar a rede virtual na qual a VM do Linux deve ser implantada. Isso abre o painel **Rede Virtual**. No painel **Rede Virtual**, escolha a opção **Usar rede virtual existente**. Em seguida, selecione a rede virtual na qual os Serviços de Domínio do Azure AD estão disponíveis. Neste exemplo, vamos escolher a rede virtual 'MyPreviewVNet'.
 
     ![Criar VM - selecionar rede virtual](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
 
@@ -99,7 +99,7 @@ Depois de se conectar à máquina virtual, a próxima tarefa é instalar os paco
 
     ![realmd instalado](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 
-3. **Instalar o sssd:** O pacote realmd depende do sssd para executar as operações de ingresso no domínio. No terminal do PuTTY, digite o comando a seguir.
+3. **Instalar o sssd:** o pacote realmd depende do sssd para executar as operações de ingresso no domínio. No terminal do PuTTY, digite o comando a seguir.
 
     sudo yum install sssd
 
@@ -137,7 +137,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
 
     ![Kinit](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-kinit.png)
 
-    Certifique-se de especificar o nome do domínio em letras maiúsculas, caso contrário, o kinit falhará.
+    Especifique o nome do domínio em letras maiúsculas, caso contrário, o kinit falhará.
 
 3. Ingresse a máquina no domínio. No terminal do PuTTY, digite o comando a seguir. Certifique-se especificar o mesmo usuário que aquele especificado na etapa acima ('kinit').
 
@@ -149,17 +149,17 @@ Você deverá receber uma mensagem ("Computador registrado com êxito no realm")
 
 
 ## Verificar o ingresso no domínio
-Você pode verificar rapidamente se a máquina ingressou com êxito no domínio gerenciado. Isso pode ser feito conectando-se à VM do RHEL recém-ingressada no domínio usando o ssh e uma conta de usuário do domínio e, em seguida, verificando para ver se a conta de usuário está sendo resolvida corretamente.
+Você pode verificar rapidamente se a máquina ingressou com êxito no domínio gerenciado. Conecte-se ao domínio recém-associado RHEL VM usando SSH e uma conta de usuário de domínio e, em seguida, verifique se a conta de usuário é resolvida corretamente.
 
-1. No terminal do PuTTY, digite o seguinte comando para se conectar à máquina virtual do RHEL recém-ingressada no domínio usando SSH. Use uma conta de domínio que pertença à conta gerenciada (por exemplo. 'bob@CONTOSO100.COM' neste caso.)
+1. No terminal do PuTTY, digite o seguinte comando para se conectar à máquina virtual do RHEL recém-ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo, 'bob@CONTOSO100.COM' nesse caso.)
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 
-2. No terminal do PuTTY, digite o seguinte comando para ver se o diretório base do usuário foi inicializado corretamente.
+2. No terminal do PuTTY, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.
 
 	pwd
 
-3. No terminal do PuTTY, digite o seguinte comando para ver se os membros do grupo do usuário estão sendo resolvidos corretamente.
+3. No terminal do PuTTY, digite o seguinte comando para ver se as associações de grupo estão sendo resolvidas corretamente.
 
     ID
 
@@ -172,9 +172,15 @@ Abaixo está uma saída de exemplo desses comandos.
 Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) (Solucionando problemas de ingresso no domínio).
 
 
-## Mais informações
-- [Como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
-- [Installing Kerberos](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalando o Kerberos)
-- [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: Guia de integração do Windows)
+## Conteúdo relacionado
+- [Serviços de Domínio do Azure AD - guia de Introdução](./active-directory-ds-getting-started.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Ingressar uma máquina virtual do Windows Server em um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+
+- [Installing Kerberos (Instalando o Kerberos)](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
+- [Red Hat Enterprise Linux 7 - Windows Integration Guide (Red Hat Enterprise Linux 7: Guia de integração do Windows)](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+
+<!---HONumber=AcomDC_0907_2016-->

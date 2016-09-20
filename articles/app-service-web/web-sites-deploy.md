@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="09/06/2016"
 	ms.author="cephalin;dariac"/>
     
 # Implantar seu aplicativo no Serviço de Aplicativo do Azure
@@ -234,4 +234,4 @@ Para saber mais sobre como usar o Controle de Acesso Baseado em Função do Azur
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

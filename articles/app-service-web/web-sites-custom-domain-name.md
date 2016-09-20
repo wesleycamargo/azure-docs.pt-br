@@ -126,7 +126,7 @@ Configure seu registro A da seguinte maneira (@ normalmente representa o domíni
   </tr>
 </table>
 
-O registro TXT adicional assume a convenção que mapeia de &lt;*subdomínio*>.&lt;*domínioraiz*> para &lt;*subdomínio*>. azurewebsites. Configure seu registro TXT da seguinte maneira:
+O registro TXT adicional assume a convenção que mapeia de &lt;*subdomínio*>.&lt;*domínioraiz*> para &lt;*nomedoaplicativo*>.azurewebsites. Configure seu registro TXT da seguinte maneira:
 
 <table cellspacing="0" border="1">
   <tr>
@@ -203,6 +203,32 @@ De volta à folha **Domínios personalizados** no portal do Azure (consulte a [E
 
 8.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
+> [AZURE.NOTE] Se o registro DNS já estiver em uso (domínio ativo atendendo ao cenário de tráfego) e você precisar associar preventivamente seu aplicativo Web a ele para verificação de domínio, basta criar registros TXT como exemplos mostrados na tabela a seguir. O registro TXT adicional assume a convenção que mapeia de &lt;*subdomínio*>.&lt;*domínioraiz*> para &lt;*nomedoaplicativo*>.azurewebsites.
+> <table cellspacing="0" border="1">
+>   <tr>
+>     <th>Exemplo de FQDN</th>
+>     <th>Host TXT</th>
+>     <th>Valor TXT</th>
+>   </tr>
+>   <tr>
+>     <td>contoso.com (raiz)</td>
+>     <td>awverify.contoso.com</td>
+>     <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+>   </tr>
+>   <tr>
+>     <td>www.contoso.com (sub)</td>
+>     <td>awverify.www.contoso.com</td>
+>     <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+>   </tr>
+>     <tr>
+>     <td>*.contoso.com (sub)</td>
+>     <td>awverify.*.contoso.com</td>
+>     <td>&lt;<i>nomeaplicativo</i>>. azurewebsites.net</td>
+>   </tr>
+> </table>
+Depois de criar esse registro DNS, volte ao Portal do Azure e adicione seu nome de domínio personalizado ao seu aplicativo Web.
+ 
+
 <a name="verify"></a>
 ## Verificar propagação de DNS
 
@@ -223,4 +249,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

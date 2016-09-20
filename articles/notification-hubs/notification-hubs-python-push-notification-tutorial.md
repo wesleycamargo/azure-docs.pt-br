@@ -22,8 +22,8 @@
 Você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Python/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] Isso é uma implementação de referência de exemplo para implementar o envia notificação em Python e não é oficialmente suportada notificações Hub Python SDK.
-
-> [AZURE.NOTE] Este exemplo é escrito usando Python 3.4.
+>
+> Este exemplo é escrito usando Python 3.4.
 
 Neste tópico, mostramos como:
 
@@ -371,7 +371,7 @@ Observe que o Formato de cabeçalho HTTP se altera e o corpo da carga é enviado
 
 
 ## Próximas etapas
-Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notificação. A partir daqui, você pode:
+Neste tópico, mostramos como criar um cliente REST simples do Python para os Hubs de Notificação. A partir daqui, você pode:
 
 * Baixe o [exemplo de wrapper REST Python] completo, que contém todo o código acima.
 * Continue a aprender sobre o recurso de marcação dos Hubs de Notificação no [tutorial Últimas notícias]
@@ -392,4 +392,4 @@ Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notif
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

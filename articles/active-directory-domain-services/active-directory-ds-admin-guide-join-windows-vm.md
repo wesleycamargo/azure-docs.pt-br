@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
@@ -28,7 +28,7 @@ Este artigo mostra como ingressar uma máquina virtual executando o Windows Serv
 
 
 ## Etapa 1: Criar a máquina virtual do Windows Server
-Siga as instruções descritas no tutorial [Criar uma máquina virtual executando o Windows no portal clássico do Azure](../virtual-machines/virtual-machines-windows-classic-tutorial.md). É muito importante garantir que essa máquina virtual recém-criada seja ingressada na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. Observe que a opção 'Criação Rápida' não permite que você ingresse a máquina virtual em uma rede virtual. Portanto, você precisará usar a opção 'Da Galeria' para criar a máquina virtual.
+Siga as instruções descritas no tutorial [Criar uma máquina virtual executando o Windows no portal clássico do Azure](../virtual-machines/virtual-machines-windows-classic-tutorial.md). É importante garantir que essa máquina virtual recém-criada seja ingressada na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. A opção 'Criação Rápida' não permite que você ingresse a máquina virtual em uma rede virtual. Portanto, você precisa usar a opção 'Da Galeria' para criar a máquina virtual.
 
 Realize as seguintes etapas para criar uma máquina virtual do Windows ingressada na rede virtual na qual você habilitou os Serviços de Domínio do Azure AD.
 
@@ -40,7 +40,7 @@ Realize as seguintes etapas para criar uma máquina virtual do Windows ingressad
 
     ![Selecionar a imagem](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 
-4. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Use a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. O nome de usuário que você escolherá aqui é um usuário de administrador local no computador. Não digite as credenciais de uma conta usuário de domínio aqui.
+4. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Use a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. O nome de usuário que você escolhe aqui é um usuário de administrador local no computador. Não digite as credenciais de uma conta usuário de domínio aqui.
 
     ![Configurar a máquina virtual](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 
@@ -49,7 +49,7 @@ Realize as seguintes etapas para criar uma máquina virtual do Windows ingressad
     ![Selecionar a rede virtual para a máquina virtual](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
 
     > [AZURE.WARNING]
-    Certifique-se de ingressar a máquina virtual na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. Isso garantirá que a máquina virtual possa 'ver' o domínio e executar tarefas como ingressar no domínio. Se você optar por criar a máquina virtual em uma rede virtual diferente, certifique-se de que a rede virtual esteja conectada à rede virtual na qual você habilitou os Serviços de Domínio do Azure AD.
+    Certifique-se de ingressar a máquina virtual na mesma rede virtual em que você habilitou os Serviços de Domínio do Azure AD. Como resultado, a máquina virtual pode 'ver' o domínio e executar tarefas como ingressar no domínio. Se você optar por criar a máquina virtual em uma rede virtual diferente, certifique-se de que a rede virtual esteja conectada à rede virtual na qual você habilitou os Serviços de Domínio do Azure AD.
 
 6. A quarta tela permite instalar o Agente de VM e configurar algumas das extensões disponíveis.
 
@@ -61,17 +61,17 @@ Realize as seguintes etapas para criar uma máquina virtual do Windows ingressad
 
 
 ## Etapa 2: Conectar-se à máquina virtual do Windows Server usando a conta de administrador local
-Agora, vamos nos conectar à máquina virtual do Windows Server recém-criada, para ingressar no domínio. Use as credenciais de administrador local especificadas durante a criação da máquina virtual, para se conectar a ela.
+Agora, nos conectamos à máquina virtual do Windows Server recém-criada, para ingressar no domínio. Use as credenciais de administrador local especificadas durante a criação da máquina virtual, para se conectar a ela.
 
 Execute as seguintes etapas para se conectar à máquina virtual.
 
-1. Navegue até o nó **Máquinas Virtuais** no portal clássico. Selecione a máquina virtual que você acabou de criar e clique em **Conectar** na barra de comandos na parte inferior da janela.
+1. Navegue até o nó **Máquinas Virtuais** no portal clássico. Selecione a máquina virtual que você criou na Etapa 1 e clique em **Conectar** na barra de comandos na parte inferior da janela.
 
     ![Conectar-se à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. O portal clássico será solicitado a abrir ou salvar um arquivo .rdp, que é usado para conectar-se à máquina virtual. Clique no arquivo. rdp quando o download for concluído.
+2. O portal clássico solicita que você abra ou salve um arquivo com uma extensão '.rdp', que é usada para se conectar à máquina virtual. Clique para abrir o arquivo quando o download for concluído.
 
-3. No prompt de logon, insira as **credenciais de administrador local** que você especificou ao criar a máquina virtual. Por exemplo, 'localhost\\mahesh' no exemplo acima.
+3. No prompt de logon, insira as **credenciais de administrador local** que você especificou ao criar a máquina virtual. Por exemplo, usamos 'localhost\\mahesh' neste exemplo.
 
 Neste ponto, você deve estar conectado à máquina virtual do Windows recém-criada usando as credenciais de administrador local. A próxima etapa é ingressar a máquina virtual no domínio.
 
@@ -79,13 +79,13 @@ Neste ponto, você deve estar conectado à máquina virtual do Windows recém-cr
 ## Etapa 3: Ingressar a máquina virtual do Windows Server no domínio gerenciado do DS do AAD
 Execute as seguintes etapas para ingressar a máquina virtual do Windows Server no domínio gerenciado do DS do AAD.
 
-1. Conecte-se ao Windows Server como mostrado na Etapa 2 acima. Na tela inicial, abra **Gerenciador do Servidor**.
+1. Conecte-se ao Windows Server como mostrado na Etapa 2. Na tela inicial, abra **Gerenciador do Servidor**.
 
 2. Clique em **Servidor Local** no painel esquerdo da janela do Gerenciador do Servidor.
 
     ![Iniciar o Gerenciador do Servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. Clique em **GRUPO DE TRABALHO** na seção **PROPRIEDADES**. Isso abrirá a página de propriedades **Propriedades do Sistema**. Para ingressar no domínio, clique em **Alterar**.
+3. Clique em **GRUPO DE TRABALHO** na seção **PROPRIEDADES**. Isso abre a página de propriedades **Propriedades do Sistema**. Para ingressar no domínio, clique em **Alterar**.
 
     ![Página Propriedades do Sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 
@@ -93,17 +93,17 @@ Execute as seguintes etapas para ingressar a máquina virtual do Windows Server 
 
     ![Especificar o domínio no qual ingressar](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-5. Você será solicitado a inserir suas credenciais para ingressar no domínio. Certifique-se de **especificar as credenciais para um usuário que pertença ao grupo Administradores do DC do AAD**. Somente os membros desse grupo têm privilégios para ingressar computadores no domínio gerenciado.
+5. Você é solicitado a inserir suas credenciais para ingressar no domínio. Certifique-se de **especificar as credenciais para um usuário que pertença ao grupo Administradores do DC do AAD**. Somente os membros desse grupo têm privilégios para ingressar computadores no domínio gerenciado.
 
-    ![Especificar as credenciais para ingressar no domínio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+    ![Especificar credenciais para ingresso no domínio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
 6. Você pode especificar as credenciais das seguintes maneiras:
 
     - Formato UPN: esse é o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário 'bob' é 'bob@domainservicespreview.onmicrosoft.com'.
 
-    - Formato SAMAccountName: você pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário 'bob' precisaria inserir 'CONTOSO100\\bob'. Observe que se vários usuários tiverem o mesmo prefixo UPN (por exemplo, 'bob') no seu locatário do Azure AD, eles encontrarão problemas ao efetuar logon no domínio usando o formato de SAMAccountName. Nesses casos, o formato UPN pode ser usado de forma confiável para fazer logon no domínio.
+    - Formato SAMAccountName: você pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário 'bob' precisaria inserir 'CONTOSO100\\bob'. Observação - se vários usuários tiverem o mesmo prefixo UPN (por exemplo, 'bob') no locatário do Azure AD, encontrarão problemas para fazer logon no domínio usando o formato SAMAccountName. Nesses casos, o formato UPN pode ser usado de forma confiável para fazer logon no domínio.
 
-7. Após o ingresso no domínio ser realizado com êxito, você verá a seguinte mensagem de boas-vindas ao domínio. Você precisará reiniciar a máquina virtual para que a operação de ingresso no domínio seja concluída.
+7. Após o ingresso no domínio ser realizado com êxito, você vê a mensagem de boas-vindas ao domínio a seguir. Reinicie a máquina virtual para que a operação de junção de domínio seja concluída.
 
     ![Bem-vindo ao domínio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -112,7 +112,7 @@ Execute as seguintes etapas para ingressar a máquina virtual do Windows Server 
 ### Problemas de conectividade
 Se a máquina virtual for incapaz de localizar o domínio, consulte as seguintes etapas de solução de problemas:
 
-- Certifique-se de que a máquina virtual esteja conectada à mesma rede virtual na qual você habilitou os Serviços de Domínio. Se esse não for o caso, a máquina virtual não poderá se conectar ao domínio e, portanto, não poderá ingressar no domínio.
+- Certifique-se de que a máquina virtual esteja conectada à mesma rede virtual na qual você habilitou os Serviços de Domínio. Caso contrário, a máquina virtual não pode se conectar ao domínio e, assim, não é possível ingressar no domínio.
 
 - Se a máquina virtual estiver conectada a outra rede virtual, certifique-se de que essa rede virtual esteja conectada à rede virtual na qual você habilitou os Serviços de Domínio.
 
@@ -123,7 +123,7 @@ Se a máquina virtual for incapaz de localizar o domínio, consulte as seguintes
 Se você chegar à caixa de diálogo que solicita credenciais para ingressar no domínio, não terá problemas de conectividade.
 
 
-### Problemas relacionados às credenciais
+### Problemas de credenciais
 Consulte as etapas a seguir se você estiver enfrentando problemas com as credenciais e não conseguir ingressar no domínio.
 
 - Certifique-se de estar usando credenciais de uma conta de usuário que pertença ao grupo Administradores do DC do AAD. Os usuários que não pertencem a esse grupo não podem ingressar computadores no domínio gerenciado.
@@ -134,4 +134,11 @@ Consulte as etapas a seguir se você estiver enfrentando problemas com as creden
 
 - Certifique-se de que já esperou tempo suficiente para a sincronização de senha ser concluída conforme especificado no Guia de Introdução.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+## Conteúdo relacionado
+
+- [Serviços de Domínio do Azure AD - guia de Introdução](./active-directory-ds-getting-started.md)
+
+- [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0907_2016-->

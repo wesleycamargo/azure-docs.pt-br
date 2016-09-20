@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
@@ -38,7 +38,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 <a id="prepimage"> </a>
 ## Etapa 1: preparar a imagem a ser carregada
 
-O Azure dá suporte a várias distribuições do Linux (consulte [Distribuições endossadas](virtual-machines-linux-endorsed-distros.md)). Os seguintes artigos explicam como preparar as diversas distribuições Linux com suporte no Azure. Após concluir as etapas descritas nos guias abaixo, volte a este ponto e você terá um arquivo VHD pronto para upload no Azure:
+O Azure dá suporte a várias distribuições do Linux (consulte [Distribuições endossadas](virtual-machines-linux-endorsed-distros.md)). Os seguintes artigos explicam como preparar as diversas distribuições Linux com suporte no Azure. Após concluir as etapas descritas nos guias abaixo, volte a este ponto quando tiver um arquivo VHD pronto para upload no Azure:
 
 - **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
@@ -71,7 +71,9 @@ Você precisa de uma conta de armazenamento para carregar o arquivo do VHD. Voc�
 Use a CLI do Azure para carregar a imagem utilizando o seguinte comando:
 
 ```bash
-azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+azure vm image create <ImageName> `
+	--blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> `
+	--os Linux <PathToVHDFile>
 ```
 
 No exemplo anterior:
@@ -84,14 +86,17 @@ No exemplo anterior:
 Veja a seguir um exemplo completo:
 
 ```bash
-azure vm image create UbuntuLTS --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd --os Linux /home/ahmet/UbuntuLTS.vhd
+azure vm image create UbuntuLTS `
+	--blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd `
+	--os Linux /home/ahmet/UbuntuLTS.vhd
 ```
 
 ## Etapa 4: criar uma VM da imagem
 Crie uma VM usando o `azure vm create` da mesma forma que faria com uma VM comum. Especifique o nome que você deu à imagem na etapa anterior. No exemplo a seguir, usamos o nome de imagem **UbuntuLTS** fornecido na etapa anterior:
 
 ```bash
-azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
+azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
+	--location "West US" "DeployedUbuntu" UbuntuLTS
 ```
 
 Para criar suas próprias VMs, forneça seu próprio nome de usuário + senha, localização, nome DNS e nome da imagem.
@@ -104,4 +109,4 @@ Para obter mais informações, consulte [Referência da CLI do Azure para o mode
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Auditoria no Azure SQL Data Warehouse
@@ -93,7 +93,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 7. Em **REGISTRO EM LOG POR EVENTO**, clique em **SUCESSO** e **FALHA** para registrar todos os eventos ou escolha categorias de evento individuais.
 
 
-8. Se você estiver configurando a Auditoria para um banco de dados, talvez seja necessário alterar a cadeia de conexão do cliente para garantir que os dados de auditoria sejam capturados corretamente. Verifique o tópico [Modificar o FQDN do servidor na cadeia de conexão](sql-data-warehouse-auditing-downlevel-clients.md) para conexões de cliente de nível inferior.
+8. Se você estiver configurando a Auditoria para um banco de dados, talvez seja necessário alterar a cadeia de conexão do cliente para garantir que os dados de auditoria sejam capturados corretamente. Verifique o tópico [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) (Modificar o FQDN do servidor na cadeia de conexão) para conexões de cliente de nível anterior.
 
 9. Clique em **OK**.
 
@@ -151,4 +151,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

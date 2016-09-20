@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM | Microsoft Azure"
-   	description="Aprenda a criar clusters do Azure HDInsight usando modelos de ARM do Azure."
+   pageTitle="Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager | Microsoft Azure"
+   	description="Aprenda a criar clusters do Azure HDInsight usando modelos do Azure Resource Manager."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM
+# Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
@@ -34,23 +34,31 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## Modelos de ARM
+## Modelos do Gerenciador de Recursos
 
-O modelo de ARM simplifica a criação de clusters HDInsight, seus recursos dependentes (como a conta de armazenamento padrão) e outros recursos (como o Banco de Dados SQL do Azure para usar o Apache Sqoop) para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
+O modelo do Resource Manager simplifica a criação de clusters do HDInsight, seus recursos dependentes (como a conta de armazenamento padrão) e outros recursos (como o Banco de Dados SQL do Azure para usar o Apache Sqoop) para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
 
-Um modelo do ARM para a criação de um cluster HDInsight e a conta dependente do Armazenamento do Azure podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use o [VSCode](https://code.visualstudio.com/#alt-downloads) de plataforma cruzada com a [extensão do ARM](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ou um editor de texto para salvar o modelo em um arquivo da estação de trabalho. Você aprenderá a chamar o modelo usando diferentes métodos.
+Um modelo do Resource Manager para a criação de um cluster do HDInsight e a conta dependente do Armazenamento do Azure podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use o [VSCode](https://code.visualstudio.com/#alt-downloads) de plataforma cruzada com a [extensão do Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ou um editor de texto para salvar o modelo em um arquivo da estação de trabalho. Você aprenderá a chamar o modelo usando diferentes métodos.
 
-Para obter mais informações sobre o modelo de ARM, consulte
+Para obter mais informações sobre o modelo do Resource Manager, consulte
 
 - [Criar modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
 
+Para encontrar o esquema JSON de determinados elementos, você pode seguir o procedimento a seguir:
 
+1. Abra o [portal do Azure](https://porta.azure.com) para criar um cluster HDInsight. Consulte [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
+2. Configure os elementos necessários e os elementos cujo esquema JSON você precisa.
+3. Antes de clicar em **Criar**, clique em **Opções de automação**, conforme mostrado na seguinte captura de tela:
+
+    ![HDInsight, Hadoop, criar cluster, modelo do Resource Manager, automação de esquema, opções](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
+
+    O portal cria um modelo do Resource Manager com base em suas configurações.
 ## Implantação com o PowerShell
 
 O procedimento a seguir cria o cluster HDInsight baseados em Linux.
 
-**Para implantar um cluster usando o modelo do ARM**
+**Para implantar um cluster usando o modelo do Resource Manager**
 
 1. Salve o arquivo JSON encontrado no [Apêndice A](#appx-a-arm-template) em sua estação de trabalho. No script do PowerShell, o nome do arquivo é *C:\\HDITutorials-ARM\\hdinsight-arm-template.json*.
 2. Defina as variáveis e os parâmetros, se necessário.
@@ -110,7 +118,7 @@ Para obter mais informações, veja [Implantar com o PowerShell](../resource-gro
 
 ## Implantar com a CLI do Azure
 
-O exemplo a seguir cria um cluster e sua conta de armazenamento dependente e o contêiner chamando um modelo de ARM:
+O exemplo a seguir cria um cluster e sua conta de armazenamento dependente e o contêiner chamando um modelo do Resource Manager:
 
 	azure login
 	azure config mode arm
@@ -134,15 +142,17 @@ Para obter uma introdução ao uso do Visual Studio com grupos de recursos, veja
 ##Próximas etapas
 Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
-- Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para obter um exemplo detalhado como de implantar um aplicativo, veja [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para ver um exemplo de como implantar recursos por meio da biblioteca de clientes .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](../virtual-machines/virtual-machines-windows-csharp-template.md).
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments.md).
 - Para saber mais sobre as seções do modelo do Azure Resource Manager, veja [Criando modelos](../resource-group-authoring-templates.md).
 - Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../resource-group-template-functions.md).
 
-##Apêndice A: modelo de ARM
+##Appx-A: modelo do Resource Manager
 
 O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop baseado em Linux com a conta de armazenamento do Azure dependente.
+
+> [AZURE.NOTE] O exemplo inclui informações de configuração para o metastore do Hive e o metastore do Oozie. Remova a seção ou configure a seção antes de usar o modelo.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -164,20 +174,20 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         "clusterLoginPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the cluster login."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "sshUserName": {
         "type": "string",
         "defaultValue": "sshuser",
         "metadata": {
-            "description": "These credentials can be used to remotely access the cluster and the edge node virtual machine."
+            "description": "These credentials can be used to remotely access the cluster."
         }
         },
         "sshPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password for the ssh user."
+            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "location": {
@@ -214,19 +224,19 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         "metadata": {
             "description": "The type of the HDInsight cluster to create."
         }
-        },  
+        },
         "clusterWorkerNodeCount": {
         "type": "int",
         "defaultValue": 2,
         "metadata": {
             "description": "The number of nodes in the HDInsight cluster."
         }
-        }      
+        }
     },
     "variables": {
         "defaultApiVersion": "2015-05-01-preview",
         "clusterApiVersion": "2015-03-01-preview",
-        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"      
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
     },
     "resources": [
         {
@@ -234,8 +244,8 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         "type": "Microsoft.Storage/storageAccounts",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('defaultApiVersion')]",
-        "dependsOn": [],
-        "tags": {},
+        "dependsOn": [ ],
+        "tags": { },
         "properties": {
             "accountType": "Standard_LRS"
         }
@@ -245,13 +255,14 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         "type": "Microsoft.HDInsight/clusters",
         "location": "[parameters('location')]",
         "apiVersion": "[variables('clusterApiVersion')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]"
-        ],
-        "tags": {},
+        "dependsOn": [ "[concat('Microsoft.Storage/storageAccounts/',variables('clusterStorageAccountName'))]" ],
+        "tags": {
+
+        },
         "properties": {
-            "clusterVersion": "3.2",
+            "clusterVersion": "3.4",
             "osType": "Linux",
+            "tier": "standard",
             "clusterDefinition": {
             "kind": "[parameters('clusterType')]",
             "configurations": {
@@ -259,7 +270,36 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
                 "restAuthCredential.isEnabled": true,
                 "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
                 "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
-                }
+                },
+                "hive-site": {
+                    "javax.jdo.option.ConnectionDriverName": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "javax.jdo.option.ConnectionURL": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "javax.jdo.option.ConnectionUserName": "johndole",
+                    "javax.jdo.option.ConnectionPassword": "myPassword$"
+                },
+                "hive-env": {
+                    "hive_database": "Existing MSSQL Server database with SQL authentication",
+                    "hive_database_name": "myhive20160901",
+                    "hive_database_type": "mssql",
+                    "hive_existing_mssql_server_database": "myhive20160901",
+                    "hive_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "hive_hostname": "myadla0901dbserver.database.windows.net"
+                },
+                "oozie-site": {
+                    "oozie.service.JPAService.jdbc.driver": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+                    "oozie.service.JPAService.jdbc.url": "jdbc:sqlserver://myadla0901dbserver.database.windows.net;database=myhive20160901;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300",
+                    "oozie.service.JPAService.jdbc.username": "johndole",
+                    "oozie.service.JPAService.jdbc.password": "myPassword$",
+                    "oozie.db.schema.name": "oozie"
+                },
+                "oozie-env": {
+                    "oozie_database": "Existing MSSQL Server database with SQL authentication",
+                    "oozie_database_name": "myhive20160901",
+                    "oozie_database_type": "mssql",
+                    "oozie_existing_mssql_server_database": "myhive20160901",
+                    "oozie_existing_mssql_server_host": "myadla0901dbserver.database.windows.net",
+                    "oozie_hostname": "myadla0901dbserver.database.windows.net"
+                }            
             }
             },
             "storageProfile": {
@@ -278,7 +318,7 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
                 "name": "headnode",
                 "targetInstanceCount": "2",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -291,7 +331,7 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
                 "name": "workernode",
                 "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                 "hardwareProfile": {
-                    "vmSize": "Large"
+                    "vmSize": "Standard_D3"
                 },
                 "osProfile": {
                     "linuxOperatingSystemProfile": {
@@ -313,4 +353,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
     }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

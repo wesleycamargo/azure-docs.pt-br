@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Saídas de transformação de dados: opções de armazenamento e análise | Microsoft Azure"
-	description="Saiba como direcionar as saídas de transformação de dados do Stream Analytics para opções de armazenamento de dados. Além disso, use o Power BI para os resultados da análise."
+	pageTitle="Saídas do Stream Analytics: opções de armazenamento, análise | Microsoft Azure"
+	description="Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise."
 	keywords="transformação de dados, resultados da análise, opções de armazenamento de dados"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
@@ -14,18 +14,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/29/2016"
 	ms.author="jeffstok"/>
 
-# Direcionar as saídas de transformação de dados do Stream Analytics para ferramentas de análise de opções de armazenamento de dados
+# Saídas do Stream Analytics: opções de armazenamento, análise
 
-Ao criar um trabalho do Stream Analytics, considere como a saída do trabalho de transformação de dados será consumida. Como você exibirá os resultados do trabalho do Stream Analytics? Quais ferramentas você usará para mostrar os resultados da análise de dados? É obrigatório ter uma opção de armazenamento de dados?
+Ao criar um trabalho do Stream Analytics, considere como os dados resultantes serão consumidos. Como você exibirá os resultados do trabalho do Stream Analytics e onde os armazenará?
 
 Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure disponibiliza opções diferentes de armazenamento de saída e de exibição dos resultados da análise. Isso facilita a exibição da saída do trabalho e proporciona flexibilidade no consumo e armazenamento da saída do trabalho para data warehouse e outras finalidades. Qualquer saída configurada no trabalho deve existir antes do trabalho ser iniciado e dos eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes do trabalho ASA ser iniciado.
 
 ## Repositório Azure Data Lake
 
 O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esse armazenamento permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. No momento, há suporte para a criação e configuração das saídas do Repositório Data Lake apenas no Portal Clássico do Azure. Além disso, o Stream Analytics deve estar autorizado a acessar o Repositório Data Lake. Detalhes sobre a autorização e como se inscrever para a Preview do Repositório Data Lake (se necessário) são discutidos no [artigo sobre as saídas do Data Lake](stream-analytics-data-lake-output.md).
+
+### Autorizar um Azure Data Lake Store
+
+Quando o Data Lake Store é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar uma conexão com um Data Lake Store existente.
+
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+
+Em seguida, preencha as propriedades da saída do Data Lake Store, conforme mostrado abaixo:
+
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
 
 A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Repositório Data Lake.
 
@@ -40,8 +50,8 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 <td>Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Repositório Data Lake.</td>
 </tr>
 <tr>
-<td>Conta do Repositório Data Lake</td>
-<td>O nome da conta de armazenamento para o qual você está enviando a saída Você verá uma lista suspensa de contas do Repositório Data Lake às quais o usuário conectado ao portal tem acesso.</td>
+<td>Nome da conta</td>
+<td>O nome da conta do Data Lake Store para a qual você está enviando a saída. Você verá uma lista suspensa de contas do Repositório Data Lake às quais o usuário conectado ao portal tem acesso.</td>
 </tr>
 <tr>
 <td>Padrão de prefixo do caminho [<I>opcional</I>]</td>
@@ -74,7 +84,14 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 </tbody>
 </table>
 
-## Banco de dados SQL
+### Renovar autorização do Repositório Data Lake
+
+Você precisará autenticar novamente sua conta do Data Lake Store caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez.
+
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+
+
+## Banco de Dados SQL
 
 Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL (esse é um recurso na fase de visualização). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
 
@@ -190,9 +207,9 @@ Uma vez que a conta do Power BI foi autenticada, você pode configurar as propri
 | Nome da Propriedade | Descrição |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para essa saída do Power BI. |
+| Agrupar o espaço de trabalho | Para permitir o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se não quiser gravar em um grupo. Atualizar um grupo existente requer a renovação da autenticação do Power BI. | 
 | Nome do conjunto de dados | Forneça um nome de conjunto de dados que você deseja que seja usada para a saída do Power BI |
 | Nome da tabela | Forneça um nome de tabela sob o conjunto de dados da saída do Power BI. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados. |
-| Nome do grupo | Para habilitar a compartilhar dados com outros usuários do Power BI, grave os dados em grupos. Você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se você não deseja gravar em um grupo. Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
 
 Para um guia passo a passo de configuração de uma saída do Power BI e do painel, consulte o artigo [Power BI e Stream Analytics do Azure](stream-analytics-power-bi-dashboard.md).
 
@@ -252,7 +269,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de saída | Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para essa tópico de Barramento de Serviço. |
 | Namespace do Barramento de Serviço | Um namespace Barramento de Serviço é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também criou um namespace Barramento de Serviço. |
-| Nome do tópico | Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de alguns dispositivos e serviços diferentes. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas para um tópico não estarão disponíveis a menos que uma assinatura seja criada, portanto, certifique-se de que há uma ou mais assinaturas sob o tópico. |
+| Nome do tópico | Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de alguns dispositivos e serviços diferentes. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas para um tópico não estarão disponíveis a menos que uma assinatura seja criada, portanto, certifique-se de que há uma ou mais assinaturas sob o tópico |
 | Nome da política de tópico | Ao criar um tópico, você também pode criar políticas de acesso compartilhado na guia Configurar tópico. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do tópico | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
 | Formato de serialização do evento | Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
@@ -318,4 +335,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

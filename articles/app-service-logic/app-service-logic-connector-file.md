@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/01/2016"
 	ms.author="rajram"/>
 
 # Introdução ao conector de arquivo e adição dele ao seu Aplicativo lógico
@@ -27,8 +27,10 @@ O conector de arquivo usa o Gerenciador de Conexões Híbridas para a conectivid
 Para usar o conector de arquivo, primeiro você precisa criar uma instância do aplicativo de API do conector de arquivo. Isso pode ser feito da seguinte maneira:
 
 1.	Abra o Azure Marketplace usando a opção + NEW no lado esquerdo do Portal do Azure.
-2.	Navegue até “Marketplace > Aplicativos de API” e pesquise “conector de arquivo”.
-3.	Configure o conector de arquivo da seguinte maneira:![][1]
+2.	Procure "conector de arquivo".
+3.	Selecione **Conector de Arquivo (visualização)** nos resultados da pesquisa.
+4.	Selecione o botão **Criar**
+5.	Configure o conector de arquivo da seguinte maneira:![][1]
 
 	- **Nome** - dê um nome para seu conector de arquivo
 	- **Configurações do pacote**
@@ -70,7 +72,7 @@ Os detalhes das APIs podem ser encontrados em [Definição da API do conector de
 ## Fazer mais com seu conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -87,4 +89,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Definição da API do conector de arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

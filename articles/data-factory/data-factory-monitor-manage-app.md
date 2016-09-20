@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="09/06/2016" 
 	ms.author="spelluru"/>
 
 # Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
@@ -45,31 +45,36 @@ Se não vir janelas de atividade na lista na parte inferior, clique no botão **
 Há três guias (**Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**) à esquerda e a primeira guia (Gerenciador de Recursos) é selecionada por padrão.
 
 ### Gerenciador de Recursos
-Você vê o **modo de exibição de árvore** do Gerenciador de Recursos no painel esquerdo, **Exibição de Diagrama** na parte superior e a lista **Janelas de Atividades** na parte inferior do painel intermediário e as guias **Propriedades**/**Gerenciador de Janelas de Atividade** no painel direito.
+Você verá o seguinte:
 
-Você pode ver todos os recursos (pipelines, conjuntos de dados, serviços vinculados) no data factory em um modo de exibição de árvore. Ao selecionar um objeto no Gerenciador de Recursos, você notará o seguinte:
+- **Modo de exibição de árvore** do Gerenciador de Recursos no painel esquerdo.
+- **Exibição de diagrama** na parte superior.
+- Lista de **Atividade do Windows** na parte inferior no painel central.
+- Guias **Propriedades**/**Gerenciador de Janelas de Atividades** no painel direito.
+
+No Gerenciador de Recursos, você encontra todos os recursos (pipelines, conjuntos de dados, serviços vinculados) no data factory em um modo de exibição de árvore. Ao selecionar um objeto no Gerenciador de Recursos, você nota o seguinte:
 
 - a entidade Data Factory associada está realçada na Exibição de Diagrama.
-- as janelas de atividades associadas (clique [aqui](data-factory-scheduling-and-execution.md) para saber mais sobre as janelas de atividades) estão realçadas na lista Janelas de Atividades na parte inferior.  
-- as propriedades do objeto selecionado na janela Propriedades no painel direito. 
-- Definição de JSON do objeto selecionado, se aplicável. Por exemplo: um serviço vinculado, um conjunto de dados ou um pipeline. 
+- as janelas de atividades associadas (clique [aqui](data-factory-scheduling-and-execution.md) para saber mais sobre as janelas de atividades) estão realçadas na lista Janelas de Atividades na parte inferior.
+- as propriedades do objeto selecionado na janela Propriedades no painel direito.
+- Definição de JSON do objeto selecionado, se aplicável. Por exemplo: um serviço vinculado, um conjunto de dados ou um pipeline.
 
 ![Gerenciador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre a janela de atividades.
 
 ### Exibição de diagrama
-O Modo de exibição de diagrama de uma data factory fornece um único painel onde você pode monitorar e gerenciar a data factory e seus ativos. Ao selecionar uma entidade Data Factory (conjunto de dados/pipeline) na exibição de diagrama, você observará o seguinte:
+O Modo de exibição de diagrama de uma data factory fornece um único painel onde você pode monitorar e gerenciar a data factory e seus ativos. Ao selecionar uma entidade Data Factory (conjunto de dados/pipeline) na exibição de diagrama, você observa o seguinte:
  
 - a entidade Data Factory é selecionada no modo de exibição de árvore
 - as janelas de atividades associadas são destacadas na lista Janelas de Atividades.
 - as propriedades do objeto selecionado na janela Propriedades
 
-Quando o pipeline for habilitado (isto é, quando não estiver em estado pausado), será mostrado com uma linha verde, como mostrado abaixo.
+Quando o pipeline for habilitado (quando não estiver em estado pausado), será mostrado com uma linha verde.
 
 ![Execução do Pipeline](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Observe que há três botões de comando para o pipeline na exibição de diagrama. É possível usar o segundo botão para pausar o pipeline. Isso não encerrará as atividades atualmente em execução e as deixará continuar até a conclusão. O terceiro botão pausará o pipeline e encerrará as atividades de execução existentes. O primeiro botão retoma o pipeline, isto é, cancela a pausa. Quando o pipeline for pausado, você observará a mudança de cor do bloco do pipeline, como a seguir.
+Observe que há três botões de comando para o pipeline na exibição de diagrama. É possível usar o segundo botão para pausar o pipeline. Pausar não encerrará as atividades atualmente em execução e as deixará continuar até a conclusão. O terceiro botão pausa o pipeline e encerra as atividades de execução existentes. O primeiro botão retoma o pipeline. Quando o pipeline for pausado, você observará a mudança de cor do bloco do pipeline, como a seguir.
 
 ![Pausar/Retomar no bloco](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
@@ -85,7 +90,7 @@ Na exibição aberta do pipeline, você verá todas as atividades no pipeline. N
 
 ![Pipeline Aberto](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Na exibição fechada/aberta do pipeline, ao clicar em um conjunto de dados de saída e mover seu mouse sobre o conjunto de dados, você verá o pop-up Janelas de Atividades do conjunto de dados em questão.
+Na exibição do pipeline, ao clicar em um conjunto de dados de saída e mover seu mouse sobre o conjunto de dados, você verá o pop-up Janelas de Atividades do conjunto de dados em questão.
 
 ![Pop-up Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -93,7 +98,7 @@ Na exibição fechada/aberta do pipeline, ao clicar em um conjunto de dados de s
 
 ![Propriedades da janela de atividades](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-No painel direito, alterne para a guia **Gerenciador de Janelas de Atividades** para ver mais detalhes.
+No painel direito, mude para a guia **Gerenciador de Janelas de Atividades** para ver mais detalhes.
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
@@ -101,9 +106,9 @@ Você também verá as **variáveis resolvidas** para cada tentativa de execuç�
 
 ![Variáveis resolvidas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Alterne para a guia **Script** para ver a definição do script JSON para o objeto selecionado.
+Mude para a guia **Script** para ver a definição do script JSON para o objeto selecionado.
 
-![Tabela de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Você pode ver janelas de atividades em três locais:
 
@@ -115,7 +120,7 @@ No pop-up Janelas de Atividades e no Gerenciador de Janelas de Atividades, você
 
 ![Setas para a direita/esquerda do Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Na parte inferior da Exibição de Diagrama, você verá os botões para Ampliar, Reduzir, Ajustar Nível de Zoom, Zoom 100%, Bloquear layout (impede a movimentação acidental de tabelas e de pipelines na exibição de diagrama). O botão Bloquear layout está ATIVADO por padrão. Você pode desativá-lo e mover entidades pelo diagrama. Ao DESATIVÁ-LO, você poderá usar o último botão para posicionar as tabelas e os pipelines automaticamente. Também é possível Ampliar/Reduzir usando o botão de rolagem do mouse.
+Na parte inferior do modo de exibição de diagrama, você deve ver botões Ampliar, Reduzir, Ajustar Nível de Zoom, Zoom 100% e Bloquear layout. O botão Bloquear layout impede que você mova acidentalmente tabelas e pipelines na exibição de diagrama e está ativado por padrão. Você pode desativá-lo e mover entidades pelo diagrama. Ao DESATIVÁ-LO, você poderá usar o último botão para posicionar as tabelas e os pipelines automaticamente. Também é possível Ampliar/Reduzir usando o botão de rolagem do mouse.
 
 ![Comandos Zoom da Exibição de Diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -150,7 +155,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>ActivityResume</td><td>A atividade é pausada e não poderá executar as janelas de atividades até ser retomada.</td>
 </tr>
 <tr>
-<td>Retry</td><td>A execução da atividade será repetida.</td>
+<td>Retry</td><td>A execução da atividade é repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -188,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 </table>
 
 
-Ao clicar em uma janela de atividades na lista, você verá detalhes sobre a janela de atividades na janela **Propriedades** ou no **Gerenciador de Janelas de Atividades** à direita.
+Ao clicar em uma janela de atividades na lista, você verá detalhes sobre ela na janela **Propriedades** ou no **Gerenciador de Janelas de Atividades** à direita.
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
@@ -209,23 +214,23 @@ A janela **Gerenciador de Janelas de Atividades** está no painel mais à direit
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Você pode alternar para outra janela de atividades clicando nela na exibição de calendário na parte superior. Também é possível usar os botões **seta para a esquerda**/**seta para a direita**, na parte superior, para ver as janelas de atividades da semana anterior/próxima semana.
+Você pode mudar para outra janela de atividades clicando nela na exibição de calendário na parte superior. Também é possível usar os botões **seta para a esquerda**/**seta para a direita**, na parte superior, para ver as janelas de atividades da semana anterior/próxima semana.
 
 Você pode usar os botões da barra de ferramentas no painel inferior para **executar novamente** a janela de atividades ou para **atualizar** os detalhes no painel.
 
 ### Script 
 Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados e pipeline).
 
-![Tabela de script](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## Usando as exibições do sistema
 O Aplicativo Monitoramento e Gerenciamento inclui exibições do sistema predefinidas (**Janelas de atividades recentes**, **Janelas de atividades com falha**, **Janelas de atividades em andamento**) que permitem exibir as janelas de atividades recentes/com falha/em andamento do seu data factory.
 
-Alterne para a guia **Exibições de Monitoramento** à esquerda ao clicar nela.
+Mude para a guia **Exibições de Monitoramento** à esquerda ao clicar nela.
 
 ![Guia Exibições de Monitoramento](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Há três exibições do sistema compatíveis no momento. Escolha uma opção para ver as janelas de atividades recentes (ou) as janelas de atividades com falha (ou) as janelas de atividades em andamento na lista Janelas de Atividades (na parte inferior do painel intermediário).
+Atualmente, há três exibições do sistema com suporte. Escolha uma opção para ver as janelas de atividades recentes (ou) as janelas de atividades com falha (ou) as janelas de atividades em andamento na lista Janelas de Atividades (na parte inferior do painel intermediário).
 
 Ao escolher a opção **Janelas de atividades recentes**, você verá todas as janelas de atividades recentes na ordem decrescente da **hora da última tentativa**.
 
@@ -247,7 +252,7 @@ Você pode fazer o seguinte:
 
 - Classificar em ordem crescente.
 - Classificar em ordem decrescente.
-- Filtrar por um ou mais valores (Pronto, Aguardando etc...)
+- Filtrar por um ou mais valores (Pronto, Aguardando etc.)
 
 Ao especificar um filtro em uma coluna, você verá o botão de filtro habilitado para a coluna, indicando que os valores na coluna são valores filtrados.
 
@@ -271,13 +276,13 @@ Você pode selecionar dois ou mais pipelines (usando CTRL) e usar os botões da 
 ![Suspender/Retomar na barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 ## Criando alertas 
-A página Alertas permite criar um novo alerta e exibir/editar/excluir alertas existentes. Também é possível desabilitar/habilitar um alerta. Clique na guia Alertas para ver a página.
+A página Alertas permite criar um alerta e exibir/editar/excluir alertas existentes. Também é possível desabilitar/habilitar um alerta. Para ver a página Alertas, clique na guia Alertas.
 
 ![Guia Alertas](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
 ### Para criar um alerta
 
-1. Clique em **Adicionar Alerta** para adicionar um alerta. Você verá a página Detalhes. 
+1. Clique em **Adicionar Alerta** para adicionar um alerta. Você verá a página Detalhes.
 
 	![Criar Alertas - página Detalhes](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
 1. Especifique o **nome** e a **descrição** para o alerta e clique em **Avançar**. Você verá a página **Filtros**.
@@ -286,8 +291,8 @@ A página Alertas permite criar um novo alerta e exibir/editar/excluir alertas e
 
 2. Escolha o **evento**, o **status** e o **substatus** (opcional) sobre o qual deseja que o serviço Data Factory alerte você e clique em **Avançar**. Você verá a página **Destinatários**.
 
-	![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
-3. Escolha a opção **Enviar email ao administrador da assinatura** e/ou insira o **email adicional de administrador** e clique em **Concluir**. Você deverá ver o alerta na lista. 
+	![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
+3. Escolha a opção **Enviar email ao administrador da assinatura** e/ou insira o **email adicional de administrador** e clique em **Concluir**. Você deverá ver o alerta na lista.
 	
 	![Lista Alertas](./media/data-factory-monitor-manage-app/AlertsList.png)
 
@@ -300,7 +305,7 @@ Nome do evento | Status | Substatus
 -------------- | ------ | ----------
 Execução de Atividade Iniciada | Iniciado | Iniciando
 Execução de Atividade Concluída | Bem-sucedido | Bem-sucedido 
-Execução de Atividade Concluída | Falha| Alocação de Recursos com Falha<br/>Execução com Falha<br/><br/>Tempo Limite Expirado<br/><br/>Validação com Falha<br/><br/>Abandonado<br/>
+Execução de Atividade Concluída | Falha| Alocação de Recursos com Falha<br/><br/>Execução com Falha<br/><br/>Tempo Limite Expirado<br/><br/>Validação com Falha<br/><br/>Abandonado
 Criação de Cluster HDI sob Demanda Iniciada | Iniciado | &nbsp; |
 Cluster HDI sob Demanda Criado com Êxito | Bem-sucedido | &nbsp; |
 Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
@@ -314,4 +319,4 @@ Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

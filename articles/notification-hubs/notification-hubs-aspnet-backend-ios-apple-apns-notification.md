@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usada para autenticar clientes e gerar notificações, como mostrado no tópico de instrução [Registrando-se por meio do back-end do aplicativo](notification-hubs-registration-management.md#registration-management-from-a-backend).
+O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, conforme mostrado no tópico de diretrizes [Registrando-se por meio do back-end do aplicativo](notification-hubs-registration-management.md#registration-management-from-a-backend).
 
 > [AZURE.NOTE] Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md). Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
@@ -44,7 +44,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 	+ **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
 	+ **Log on**: um UIButton chamado imediatamente abaixo do campo de texto de senha e desmarque a opção **Habilitado** no Inspetor de atributos, em *Conteúdo de controle*
 	+ **WNS**: o rótulo e o comutador para habilitar o envio da notificação do Serviço de Notificação do Windows, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Windows](notification-hubs-windows-store-dotnet-get-started.md).
-	+ **GCM**: o rótulo e a opção para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-get-started.md).
+	+ **GCM**: o rótulo e a opção para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-push-notification-google-gcm-get-started.md).
 	+ **APNS**: o rótulo e a opção para habilitar o envio da notificação ao Apple Platform Notification Service.
 	+ **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
 
@@ -262,7 +262,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 
 		@end
 
-	O código acima implementa a lógica explicada no artigo de orientação [Registrando-se a partir do back-end do seu aplicativo](notification-hubs-registration-management.md#registration-management-from-a-backend), utilizando NSURLSession para realizar chamadas de REST para o back-end do seu aplicativo e NSUserDefaults para armazenar localmente o registrationId retornado pelo hub de notificação.
+	O código acima implementa a lógica explicada no artigo de orientação [Registrando-se a partir do back-end do seu aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend), utilizando NSURLSession para realizar chamadas de REST para o back-end do seu aplicativo e NSUserDefaults para armazenar localmente o registrationId retornado pelo hub de notificação.
 
 	Observe que essa classe requer que a propriedade **authorizationHeader** seja configurada para funcionar adequadamente. Essa propriedade é definida pela classe **ViewController** após o logon.
 
@@ -450,7 +450,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 	![][2]
 
 
-3. Você deverá ver um pop-up informando sobre o sucesso da inscrição. Clique em **OK**.
+3. Você verá uma janela pop-up informando o êxito do registro. Clique em **OK**.
 
 	![][3]
 
@@ -465,4 +465,4 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
