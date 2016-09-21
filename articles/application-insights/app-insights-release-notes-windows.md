@@ -16,28 +16,15 @@
  
 # Notas de versão do SDK do Application Insights Windows Phone e Store
 
-O [SDK do Application Insights](app-insights-windows-get-started.md) envia telemetria sobre seu aplicativo ao vivo para o [Application Insights](https://azure.microsoft.com/services/application-insights/), no qual você pode analisar seu uso e o desempenho.
+O SDK do Application Insights envia telemetria sobre seu aplicativo ao vivo para o [Application Insights](https://azure.microsoft.com/services/application-insights/), no qual você pode analisar seu uso e o desempenho.
 
-
-#### Como instalar o SDK em seu aplicativo
-
-Consulte [Introdução aos aplicativos do Application Insights para Windows Phone e Store](app-insights-windows-get-started.md).
-
-#### Como atualizar para o SDK mais recente 
-
-* Faça uma cópia do ApplicationInsights.config, para manter todas as personalizações que você fez.
-* No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar pacotes NuGet**.
-* Defina o filtro para mostrar os pacotes instalados. 
-* Selecione os pacotes instalados do Application Insights e escolha Atualizar.
-* Compare as versões nova e antiga do ApplicationInsights.config. Mescle novamente as personalizações feitas na versão antiga.
-* Recompile sua solução.
 
 ## Versão 1.1.1
 
 ### SDK do Windows
 
-- Correção de uma parada durante uma falha ao usar o SDK do Silverlight do Windows Phone. Após essa alteração, qualquer falha que ocorra após cerca de 2 segundos após a chamada para WindowsAppInitialier.InitializeAsync(...) será mantida em disco e enviada na próxima vez que o aplicativo for iniciado. Se ocorrer uma falha antes de cerca de 2 segundos após a chamada, ela será ignorada.  
-- Defina as dependências do NuGet para uma versão específica do Núcleo e Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
+- Correção de uma parada durante uma falha ao usar o SDK do Silverlight do Windows Phone. Após essa alteração, qualquer falha que ocorra após cerca de 2 segundos após a chamada para WindowsAppInitialier.InitializeAsync(...) será mantida em disco e enviada na próxima vez que o aplicativo for iniciado. Se ocorrer uma falha antes de cerca de 2 segundos após a chamada, ela será ignorada.
+- Defina as dependências do NuGet para uma versão específica do Núcleo e Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).
 
 ### SDK principal
 
@@ -95,4 +82,4 @@ Visualização 2015-04-28
 
 Não há notas de versão disponíveis para versões anteriores.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0907_2016-->

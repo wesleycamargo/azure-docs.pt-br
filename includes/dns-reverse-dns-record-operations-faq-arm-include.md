@@ -20,5 +20,7 @@ Não. Para aproveitar os registros DNS reversos para Endereços IP Públicos, vo
 Não. O Azure não dá suporte à delegação progressiva de zonas ARPA. O Azure hospeda as zonas ARPA para todos os IPs disponíveis e permite aos clientes criar registros DNS reversos nessas zonas ARPA.
 ### Posso hospedar zonas ARPA para meus blocos IP atribuídos pelo ISP no DNS do Azure?
 Não. Atualmente, o DNS do Azure não dá suporte a registros DNS reversos em zonas DNS de clientes.
+### Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
+Não. De acordo com [estas informações](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), os Serviços de Computação do Azure não oferecem suporte ao envio de emails a domínios externos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0907_2016-->

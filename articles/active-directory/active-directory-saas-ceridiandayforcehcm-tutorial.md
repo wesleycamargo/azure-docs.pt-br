@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar como integrar o Ceridian Dayforce HCM ao Az
 
 - No Azure AD, é possível controlar quem tem acesso ao Ceridian Dayforce HCM
 - Você pode permitir que seus usuários façam logon automaticamente no Ceridian Dayforce HCM (Logon Único) com as contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -57,7 +57,7 @@ Para configurar a integração do Ceridian Dayforce HCM ao Azure AD, você preci
 
 **Para adicionar o Ceridian Dayforce HCM a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -145,7 +145,7 @@ Seu aplicativo Ceridian Dayforce HCM espera as declarações SAML em um formato 
 
 	![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png)
 
-3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
+3. Na página do diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png)
 
@@ -172,8 +172,8 @@ Seu aplicativo Ceridian Dayforce HCM espera as declarações SAML em um formato 
 
     - O arquivo de certificado baixado
     - A **URL do Emissor**
-    - A **URL de SSO do SAML** 
-    - A **URL do Serviço de Saída Única** 
+    - A **URL de SSO do SAML**
+    - A **URL do Serviço de Saída Única**
 
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
@@ -207,7 +207,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png)
 
@@ -215,9 +215,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png)
 
@@ -229,9 +229,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png)
 
@@ -275,7 +275,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 	![Atribuir usuário][203]
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. Na lista de usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -312,4 +312,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

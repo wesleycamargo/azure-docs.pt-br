@@ -132,12 +132,20 @@ Se você tiver vários objetos no mesmo espaço do conector associados ao mesmo 
 
 Para esse cenário, você precisa alterar o escopo das regras de sincronização para que os objetos de origem tenham regras de sincronização diferentes no escopo. Isso permite que você defina uma precedência diferente. ![Vários objetos unidos ao mesmo objeto mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)
 
-## Recursos adicionais
+## Próximas etapas
 
-- [Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md)
-- [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
+- Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md).
+- Continue a ler sobre como usuários e contatos funcionam juntos em [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+
+**Tópicos de visão geral**
+
+- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 - [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Tópicos de referência**
+
+- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

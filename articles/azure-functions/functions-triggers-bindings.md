@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
+	keywords="azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
 	ms.service="functions"
@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="chrande"/>
 
 # Referências de gatilhos e de bindings do Azure Functions para desenvolvedores
@@ -24,14 +24,9 @@ Os artigos a seguir explicam como configurar e codificar gatilhos e bindings no 
 
 ## Artigos sobre gatilhos e bindings
 
-* [Gatilhos e bindings HTTP e WebHook](functions-bindings-http-webhook.md)
-* [Gatilho de temporizador](functions-bindings-timer.md)
-* [Gatilhos e bindings do Armazenamento do Azure (filas, blobs, tabelas)](functions-bindings-storage.md)
-* [Gatilhos e bindings (filas, tópicos) do Barramento de Serviço do Azure](functions-bindings-service-bus.md)
-* [Bindings do Azure DocumentDB](functions-bindings-documentdb.md)
-* [Bindings do Hub de Eventos do Azure](functions-bindings-event-hubs.md)
-* [Bindings de Aplicativos Móveis do Azure](functions-bindings-mobile-apps.md)
-* [Bindings de saída do Hub de Notificação do Azure](functions-bindings-notification-hubs.md)
+Clique em um disparador ou associação listados abaixo para saber mais:
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 ## Próximas etapas
 
@@ -40,4 +35,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

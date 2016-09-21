@@ -25,7 +25,7 @@
 
 ##Visão geral
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias para um aplicativo da Windows Store ou do Windows Phone 8.1 (Sem Silverlight). Se você estiver selecionando o Windows Phone 8.1 Silverlight, então refira-se à versão [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos em que as notificações devem ser enviadas a grupos de usuários que tenham expressado anteriormente seu interesse por elas, por exemplo, leitor RSS, aplicativos para fãs de música e assim por diante.
+Este tópico mostra como usar os Hubs de Notificação do Azure para difundir notificações de últimas notícias para um aplicativo da Windows Store ou Windows Phone 8.1 (não Silverlight). Se você estiver selecionando o Windows Phone 8.1 Silverlight, então refira-se à versão [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos em que as notificações devem ser enviadas a grupos de usuários que tenham expressado anteriormente seu interesse por elas, por exemplo, leitor RSS, aplicativos para fãs de música e assim por diante.
 
 Os cenários de transmissão são habilitados por meio da inclusão de um ou mais _rótulos_ durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre marcas, consulte [Expressões de Marca e Roteamento dos Hubs de Notificação](notification-hubs-tags-segment-push-message.md).
 
@@ -115,7 +115,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 
 	Observe que se um dispositivo registrar vários modelos com a mesma marca, uma mensagem de entrada direcionada para aquela marca resultará em várias notificações entregues ao dispositivo (um para cada modelo). Esse comportamento é útil quando a mesma mensagem lógica precisa resultar em várias notificações visuais, por exemplo, mostrando uma notificação e uma notificação do sistema em um aplicativo da Windows Store.
 
-	Para obter mais informações sobre o uso de modelos, consulte [Modelos](notification-hubs-templates.md).
+	Para obter mais informações sobre o uso de modelos, consulte [Modelos](notification-hubs-templates-cross-platform-push-messages.md).
 
 
 
@@ -128,7 +128,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 
 	No código acima, substitua os espaços reservados `<hub name>` e `<connection string with listen access>` pelo nome de seu hub de notificação e a cadeia de conexão para *DefaultListenSharedAccessSignature* obtidos anteriormente.
 
-	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completo é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
+	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço de back-end seguro para enviar notificações e alterar os registros existentes.
 
 5. Em MainPage.xaml.cs, adicione a seguinte linha:
 
@@ -258,4 +258,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

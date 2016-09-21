@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 
 # Passo a passo do aplicativo de exemplo da API de Recomendações
+
+> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
+
 
 ##Finalidade
 
@@ -38,7 +41,7 @@ Depois que um modelo de recomendação é compilado, você pode usá-lo para pre
 
 Para habilitar o cenário anterior, faça o seguinte no serviço de recomendação do Aprendizado de Máquina:
 
-* Crie um modelo: esse é um contêiner lógico que mantém os dados (catálogo e uso) e o(s) modelo(s) de previsão. Cada contêiner do modelo é identificado por uma ID exclusiva, que é alocada quando ele é criado. Essa ID é chamada de ID de modelo e é usada pela maioria das APIs. 
+* Crie um modelo: esse é um contêiner lógico que mantém os dados (catálogo e uso) e o(s) modelo(s) de previsão. Cada contêiner do modelo é identificado por uma ID exclusiva, que é alocada quando ele é criado. Essa ID é chamada de ID de modelo e é usada pela maioria das APIs.
 * Carregue no catálogo: quando um contêiner de modelo é criado, você pode associar um catálogo a ele.
 
 **Observação**: as etapas para criar um modelo e carregar no catálogo geralmente são executadas uma vez para o ciclo de vida do modelo.
@@ -46,18 +49,18 @@ Para habilitar o cenário anterior, faça o seguinte no serviço de recomendaç�
 * Carregar uso: isso adiciona dados de uso ao contêiner do modelo.
 * Compile um modelo de recomendação: depois que tiver dados suficientes, você poderá criar o modelo de recomendação. Essa operação usará os principais algoritmos do Aprendizado de Máquina para criar um modelo de recomendação. Cada compilação está associada a uma ID exclusiva. Você precisa manter um registro dessa ID porque ela é necessária para a funcionalidade de algumas APIs.
 * Monitore o processo de compilação: uma compilação de modelo de recomendação é uma operação assíncrona e pode levar de alguns minutos a várias horas, dependendo da quantidade de dados (catálogo e uso) e dos parâmetros de compilação. Portanto, você precisará monitorar a compilação. Um modelo de recomendação será criado apenas se sua compilação associada for concluída com êxito.
-* (Opcional) Escolha uma compilação de modelo de recomendação ativa. Essa etapa será necessária apenas se você tiver mais de um modelo de recomendação integrado a seu contêiner do modelo. Qualquer solicitação para obter recomendações sem indicar o modelo de recomendação ativo será redirecionada automaticamente pelo sistema para a compilação ativa padrão. 
+* (Opcional) Escolha uma compilação de modelo de recomendação ativa. Essa etapa será necessária apenas se você tiver mais de um modelo de recomendação integrado a seu contêiner do modelo. Qualquer solicitação para obter recomendações sem indicar o modelo de recomendação ativo será redirecionada automaticamente pelo sistema para a compilação ativa padrão.
 
 **Observação**: um modelo de recomendação ativo está pronto para produção e foi projetado para cargas de trabalho de produção. Isso difere de um modelo de recomendação inativo, que permanece em um ambiente de teste (às vezes chamado de preparo).
 
-* Obtenha recomendações: depois que tiver um modelo de recomendação, você poderá disparar recomendações para um único item ou uma lista de itens selecionados. 
+* Obtenha recomendações: depois que tiver um modelo de recomendação, você poderá disparar recomendações para um único item ou uma lista de itens selecionados.
 
 Você normalmente invocará Obter Recomendação por determinado período de tempo. Durante esse período de tempo, você pode redirecionar dados de uso para o sistema de recomendação do Aprendizado de Máquina, que adiciona esses dados ao contêiner do modelo especificado. Quando tiver dados de uso suficientes, você poderá criar um novo modelo de recomendação que incorpora os dados de uso adicionais.
 
 ##Pré-requisitos
 
 * Visual Studio 2013
-* Acesso à Internet 
+* Acesso à Internet
 * Assinatura da API de Recomendações (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Solução de aplicativo de exemplo do Aprendizado de Máquina do Azure
@@ -74,7 +77,7 @@ O aplicativo usa a funcionalidade de recomendação do Aprendizado de Máquina p
 * Disparar compilação: use para criar um modelo de recomendação.
 * Monitorar a execução de compilação: use para monitorar o status de uma compilação de modelo de recomendação.
 * Escolher um modelo criado para a recomendação: use para indicar qual modelo de recomendação usar por padrão para determinado contêiner do modelo. Essa etapa será necessária apenas se você tiver mais de um modelo de recomendação e desejar ativar uma compilação não ativa como o modelo de recomendação ativo.
-* Obter recomendação: use para recuperar o item recomendado de acordo com determinado item único ou um conjunto de itens. 
+* Obter recomendação: use para recuperar o item recomendado de acordo com determinado item único ou um conjunto de itens.
 
 Para obter uma descrição completa das APIs, consulte a documentação do Microsoft Azure Marketplace.
 
@@ -90,4 +93,4 @@ Para obter uma descrição completa das APIs, consulte a documentação do Micro
 O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

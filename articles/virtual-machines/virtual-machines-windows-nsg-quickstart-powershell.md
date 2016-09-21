@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Permitir o acesso externo a uma VM usando o PowerShell | Microsoft Azure"
-   description="Saiba como abrir uma porta/criar um ponto de extremidade que permite o acesso externo à sua VM do Windows usando o modelo de implantação do Gerenciador de Recursos e no Azure PowerShell"
+   pageTitle="Abrir portas para uma VM usando o PowerShell | Microsoft Azure"
+   description="Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Permitir o acesso externo à sua VM usando o PowerShell
+# Abrir portas para uma VM no Azure usando PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandos rápidos
@@ -63,7 +63,7 @@ Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o
 
 Você pode definir Grupos de Segurança de Rede e regras de ACL como parte dos modelos do Azure Resource Manager. Leia mais sobre a [criação de Grupos de Segurança de Rede com modelos](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-Se você precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, será necessário usar um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga para a Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+Se precisar usar o encaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna em sua VM, use um balanceador de carga e regras de NAT (Conversão de Endereços de Rede). Por exemplo, talvez você queira expor a porta TCP 8080 externamente e direcionar o tráfego para a porta TCP 80 em uma VM. Você pode aprender sobre a [criação de um balanceador de carga para a Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
@@ -72,4 +72,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 - [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
 - [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

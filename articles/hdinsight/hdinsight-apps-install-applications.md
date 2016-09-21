@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # Instalar aplicativos do HDInsight
@@ -27,7 +27,7 @@ No momento, há um aplicativo publicado:
 
 >[AZURE.NOTE] No momento, o Datameer só tem suporte em clusters Azure HDInsight versão 3.2.
 
-As instruções fornecidas neste artigo usam o Portal do Azure. Você também pode exportar o modelo do Gerenciador de Recursos do Azure do portal ou obter uma cópia do modelo do Gerenciador de Recursos de fornecedores e usar o Azure PowerShell e a CLI do Azure para implantar o modelo. Confira [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Gerenciador de Recursos](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+As instruções fornecidas neste artigo usam o portal do Azure. Você também pode exportar o modelo do Azure Resource Manager do portal ou obter uma cópia do modelo do Resource Manager de fornecedores e usar o Azure PowerShell e a CLI do Azure para implantar o modelo. Confira [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Gerenciador de Recursos](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Pré-requisitos
 
@@ -56,7 +56,7 @@ O procedimento a seguir mostra como instalar aplicativos do HDInsight em um clus
 
 6. Clique em um dos aplicativos, aceite os termos legais e clique em **Selecionar**.
 
-Você pode ver o status de instalação nas notificações do portal (clique no ícone de sino na parte superior do portal). Depois que o aplicativo for instalado, será exibido na folha Aplicativos Instalados.
+Você pode ver o status de instalação nas notificações do portal (clique no ícone de sino na parte superior do portal). Depois que o aplicativo for instalado, ele será exibido na folha Aplicativos Instalados.
 
 ## Instalar aplicativos durante a criação do cluster
 
@@ -121,5 +121,6 @@ Confira [Solucionar problemas de instalação](hdinsight-apps-install-custom-app
 - [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como definir aplicativos do HDInsight.
 - [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 - [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do Resource Manager para criar clusters HDInsight.
+- [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): saiba como usar um nó de borda vazio para acessar o cluster HDInsight, testar e hospedar aplicativos HDInsight.
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

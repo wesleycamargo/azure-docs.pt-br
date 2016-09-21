@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/09/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o clustering do Redis para um Cache Redis do Azure Premium
@@ -26,10 +26,10 @@ Para obter informações sobre outros recursos de cache premium, veja [Como conf
 ## O que é o Cluster Redis?
 O Cache Redis do Azure oferece o cluster Redis como [implementado no Redis](http://redis.io/topics/cluster-tutorial). Com o Cluster Redis, você obtém os seguintes benefícios:
 
--	A capacidade de dividir automaticamente o conjunto de dados entre vários nós. 
--	A capacidade de continuar as operações quando um subconjunto dos nós estiver apresentando falhas ou não conseguir se comunicar com o restante do cluster. 
--	Mais taxa de transferência: a taxa de transferência aumenta linearmente à medida que o número de fragmentos aumenta. 
--	Mais tamanho de memória: aumenta linearmente à medida que o número de fragmentos aumenta.  
+-	A capacidade de dividir automaticamente o conjunto de dados entre vários nós.
+-	A capacidade de continuar as operações quando um subconjunto dos nós estiver apresentando falhas ou não conseguir se comunicar com o restante do cluster.
+-	Mais taxa de transferência: a taxa de transferência aumenta linearmente à medida que o número de fragmentos aumenta.
+-	Mais tamanho de memória: aumenta linearmente à medida que o número de fragmentos aumenta.
 
 Consulte [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obter mais detalhes sobre o tamanho, taxa de transferência e largura de banda com caches premium.
 
@@ -164,4 +164,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/26/2016" 
 	ms.author="luisca"/>
 
 #Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
 
 
 **O que são as RECOMENDAÇÕES?**
+
+> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
+
+
 
 Para organizações e empresas que utilizam recomendações para venda cruzada e venda de produtos e serviços aos clientes, as RECOMENDAÇÕES no Aprendizado de Máquina do Azure fornecem um mecanismo de recomendações de autoatendimento. É uma implementação de filtragem colaborativa que usa a fatoração de matriz como seu algoritmo central. Os desenvolvedores de aplicativos podem acessar RECOMENDAÇÕES usando APIs REST.
 
@@ -55,7 +59,7 @@ Há uma versão de avaliação gratuita que é restrita a 10.000 transações po
 
 **Quando serei cobrado por Recomendações?**
 
-Uma assinatura paga é qualquer assinatura para a qual há uma taxa mensal. Ao adquirir uma assinatura paga, você é cobrado imediatamente pelo uso do primeiro mês. Você é cobrado pelo valor que está associado à oferta na página de assinatura (além de impostos aplicáveis). A cobrança mensal é feita a cada mês na mesma data de calendário que a da primeira compra até você cancelar a assinatura.
+Uma assinatura paga é qualquer assinatura para a qual há uma taxa mensal. Ao comprar uma assinatura paga, você é cobrado imediatamente pelo uso do primeiro mês. Você é cobrado pelo valor associado à oferta na página de assinatura (além de impostos aplicáveis). A cobrança mensal é feita todos os meses na mesma data de calendário que a da primeira compra até você cancelar a assinatura.
 
 **Como atualizar para um nível superior de serviço?**
 
@@ -63,8 +67,8 @@ Você pode comprar ou atualizar sua assinatura na [página de ofertas](https://d
 
 Quando você atualiza uma assinatura:
 
-* As transações restantes em sua assinatura antiga não são adicionadas à sua nova assinatura. 
-* Você paga o preço total para a nova assinatura, embora haja transações não utilizadas em sua antiga assinatura.
+* As transações restantes em sua assinatura antiga não são adicionadas à sua nova assinatura.
+* Você paga o preço total da nova assinatura, embora haja transações não utilizadas em sua antiga assinatura.
 
 Processo para atualizar uma assinatura:
 
@@ -75,21 +79,21 @@ Processo para atualizar uma assinatura:
 
 **Importante** Leia atentamente a caixa de diálogo antes de atualizar, pois há implicações de cobrança e uso.
 
-**Quando minha assinatura de Recomendações terminará?**
+**Quando minha assinatura de Recomendações será encerrada?**
 
-Sua assinatura será finalizada quando você a cancelar. Se desejar cancelar suas assinaturas, consulte as instruções a seguir.
+Sua assinatura será encerrada quando você a cancelar. Se quiser cancelar suas assinaturas, consulte as instruções a seguir.
 
 **Como cancelo minha assinatura de Recomendações?**
 
-Para cancelar sua assinatura, use as etapas a seguir. Se sua assinatura atual for uma assinatura paga, ela continuará em vigor até o final do período de faturamento atual. Se for necessário que o cancelamento entre em vigor imediatamente, entre em contato conosco por meio do [Suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Para cancelar sua assinatura, use as etapas a seguir. Se sua assinatura atual for uma assinatura paga, ela continuará em vigor até o final do período de cobrança atual. Se for necessário que o cancelamento entre em vigor imediatamente, entre em contato conosco por meio do [Suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
 **Observação** Nenhum reembolso será fornecido se você cancelar antes do fim de um período de cobrança ou para transações não utilizadas em um período de cobrança.
 
 * Navegue até a [página de ofertas](https://datamarket.azure.com/dataset/amla/recommendations).
 * Entre no Marketplace, se você ainda não tiver feito isso.
-* Clique em **Cancelar** à direita do nome do conjunto de dados e status. Você pode usar essa assinatura até o fim do período de faturamento atual ou até o limite de transação ser atingido (o que ocorrer primeiro).
+* Clique em **Cancelar** à direita do nome do conjunto de dados e status. Você pode usar essa assinatura até o fim do período de cobrança atual ou até o limite de transação ser atingido (o que ocorrer primeiro).
 
-Se desejar cancelar a assinatura imediatamente para poder comprar uma nova assinatura, emita um tíquete no [Suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+Se quiser cancelar sua assinatura imediatamente para poder comprar uma nova assinatura, crie um tíquete no [Suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
 ##Introdução às Recomendações
 
@@ -135,4 +139,4 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -21,12 +21,10 @@
 > [AZURE.SELECTOR]
 - [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
 - [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
-- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
 - [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
+- [Transparent Data Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Este artigo apresenta os conceitos básicos da proteção do banco de dados do SQL Data Warehouse do Azure. Especificamente, este artigo apresentará a você recursos para limitar acesso, proteger dados e monitorar atividades em um banco de dados.
 
@@ -34,10 +32,9 @@ Este artigo apresenta os conceitos básicos da proteção do banco de dados do S
 
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
-As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][], [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
+As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o Portal do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][], [sp\_set\_firewall\_rule][] e [sp\_set\_database\_firewall\_rule][].
 
-Conexões com o SQL Data Warehouse podem ser criptografadas, definindo o modo de criptografia na sua cadeia de conexão. A sintaxe para ativar a criptografia para a conexão varia de acordo com o protocolo. Para ajudá-lo a configurar sua cadeia de conexão, navegue até o banco de dados no Portal do Azure. Em *Essentials*, clique em *Mostrar cadeias de conexão do banco de dados*.
-
+As conexões com o SQL Data Warehouse são criptografadas por padrão. A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
 
 ## Autenticação
 
@@ -125,4 +122,4 @@ Para obter detalhes e exemplos sobre como se conectar o SQL Data Warehouse com p
 <!--Other Web references-->
 [Controle de acesso baseado em função no Portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

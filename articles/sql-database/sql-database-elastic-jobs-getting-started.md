@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/06/2016"
 	ms.author="ddove" />
 
 # Introdução a trabalhos de Banco de Dados Elástico
 
 Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-jobs-overview.md).
 
-Este tópico estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você aprenderá a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados.
+Este tópico estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você aprenderá a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. Não é necessário usar as ferramentas de Dimensionamento Elástico para tirar proveito dos benefícios dos Trabalhos elásticos.
 
 ## Pré-requisitos
 
@@ -238,7 +238,7 @@ Atualmente, as políticas de execução permitem definir:
 * Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
 * Intervalo de Repetição Inicial: o intervalo de espera antes de primeira repetição de tentativa.
 * Intervalo Máximo de Repetição: limite de intervalos de repetição a usar.
-* Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas. A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2). 
+* Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas. A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2).
 * Máximo de Tentativas: o número máximo de novas tentativas a repetir em um trabalho.
 
 A política de execução padrão usa os seguintes valores:
@@ -447,4 +447,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

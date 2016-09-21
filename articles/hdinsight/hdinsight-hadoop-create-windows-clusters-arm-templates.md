@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar clusters Hadoop baseados no Windows no HDInsight usando modelos de ARM | Microsoft Azure"
-   	description="Aprenda a criar clusters do Azure HDInsight usando modelos de ARM do Azure."
+   pageTitle="Criar clusters Hadoop baseados em Windows no HDInsight usando modelos do Azure Resource Manager | Microsoft Azure"
+   	description="Aprenda a criar clusters do Azure HDInsight usando modelos do Azure Resource Manager."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,11 +17,11 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-# Criar clusters Hadoop baseados no Windows no HDInsight usando modelos ARM
+# Criar clusters Hadoop baseados em Windows no HDInsight usando modelos do Azure Resource Manager
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a criar clusters HDInsight usando modelos de ARM (Gerenciador de Recursos do Azure). Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a criar clusters do HDInsight usando modelos do Azure Resource Manager. Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ##Pré-requisitos:
 
@@ -35,13 +35,13 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-## Modelos de ARM
+## Modelos do Gerenciador de Recursos
 
-O modelo de ARM simplifica a criação de clusters HDInsight, seus recursos dependentes (como a conta de armazenamento padrão) e outros recursos (como o Banco de Dados SQL do Azure para usar o Apache Sqoop) para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
+O modelo do Resource Manager simplifica a criação de clusters do HDInsight, seus recursos dependentes (como a conta de armazenamento padrão) e outros recursos (como o Banco de Dados SQL do Azure para usar o Apache Sqoop) para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
 
-Um modelo do ARM para a criação de um cluster HDInsight e a conta dependente do Armazenamento do Azure podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use um editor de texto para salvar o modelo em um arquivo na sua estação de trabalho. Você aprenderá a chamar o modelo usando várias ferramentas.
+Um modelo do Resource Manager para a criação de um cluster do HDInsight e a conta dependente do Armazenamento do Azure podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use um editor de texto para salvar o modelo em um arquivo na sua estação de trabalho. Você aprenderá a chamar o modelo usando várias ferramentas.
 
-Para obter mais informações sobre o modelo de ARM, consulte
+Para obter mais informações sobre o modelo do Resource Manager, consulte
 
 - [Criar modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
@@ -51,7 +51,7 @@ Para obter mais informações sobre o modelo de ARM, consulte
 
 O procedimento a seguir cria um cluster do HDInsight.
 
-**Para implantar um cluster usando o modelo do ARM**
+**Para implantar um cluster usando o modelo do Resource Manager**
 
 1. Salve o arquivo JSON encontrado no [Apêndice A](#appx-a-arm-template) em sua estação de trabalho.
 2. Defina os parâmetros, se necessário.
@@ -144,7 +144,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 
 
-##Apêndice A: modelo de ARM
+##Appx-A: modelo do Resource Manager
 
 O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop baseado em Windows com a conta de armazenamento do Azure dependente.
 
@@ -294,4 +294,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         }
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

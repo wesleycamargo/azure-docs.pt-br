@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,9 +21,9 @@
 
 O objetivo desse tutorial é mostrar como integrar o Alcumus Info Exchange ao Azure AD (Azure Active Directory). A integração do Alcumus Info Exchange ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao Alcumus Info Exchange 
+- Você pode controlar no Azure AD quem tem acesso ao Alcumus Info Exchange
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Alcumus Info Exchange (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -32,7 +32,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD com o Alcumus Info Exchange, você precisa dos seguintes itens:
 
 - Uma assinatura do [Azure AD](https://azure.microsoft.com/)
-- Uma assinatura habilitada de logon único do [Alcumus Info Exchange](http://www.alcumusgroup.com/)
+- Uma assinatura do [Alcumus Info Exchange](http://www.alcumusgroup.com/) com logon único habilitado
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -41,14 +41,14 @@ Para configurar a integração do Azure AD com o Alcumus Info Exchange, você pr
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando o Alcumus Info Exchange a partir da galeria 
-2. Configurar e testar o logon único do Azure AD
+1. Adicionando o Alcumus Info Exchange a partir da galeria
+2. Configurar e testar o logon único do AD do Azure
 
 
 ## Adicionando o Alcumus Info Exchange a partir da galeria
@@ -56,7 +56,7 @@ Para configurar a integração do Alcumus Info Exchange ao Azure AD, você preci
 
 **Para adicionar o Alcumus Info Exchange a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -119,7 +119,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     > [AZURE.NOTE] Se você não souber qual é o valor correto, entre em contato com a equipe de suporte do Alcumus Info Exchange via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
-	b. Clique em **Próximo**.
+	b. Clique em **Avançar**.
  
 4. Na página **Configurar logon único no Alcumus Info Exchange**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
 
@@ -160,7 +160,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_05.png)
 
@@ -172,7 +172,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_06.png)
   
@@ -185,10 +185,10 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
   
 	d. Na lista **Função**, selecione **Usuário**.
   
-	e. Clique em **Próximo**.
+	e. Clique em **Avançar**.
 
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
@@ -272,4 +272,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

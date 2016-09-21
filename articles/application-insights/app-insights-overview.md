@@ -17,7 +17,7 @@
  
 # Application Insights – introdução
 
-O [Visual Studio Application Insights](app-insights-get-started.md) é um serviço de análise extensível que monitora seu aplicativo Web online. Com ele, você pode detectar e diagnosticar problemas de desempenho e entender o que os usuários realmente fazem com seu aplicativo. Ele foi projetado para desenvolvedores, a fim de ajudar a aprimorar continuamente o desempenho e a usabilidade. Ele funciona com aplicativos em uma ampla variedade de plataformas incluindo .NET e J2EE, hospedados localmente ou na nuvem.
+O Visual Studio Application Insights é um serviço de análise extensível que monitora seu aplicativo Web online. Com ele, você pode detectar e diagnosticar problemas de desempenho e entender o que os usuários realmente fazem com seu aplicativo. Ele foi projetado para desenvolvedores, a fim de ajudar a aprimorar continuamente o desempenho e a usabilidade. Ele funciona com aplicativos em uma ampla variedade de plataformas incluindo .NET e J2EE, hospedados localmente ou na nuvem.
 
 ![Disponha em gráficos as estatísticas de atividade do usuário ou analise detalhadamente eventos específicos.](./media/app-insights-overview/00-sample.png)
 
@@ -65,18 +65,18 @@ Ferramentas de diagnóstico e análise:
 
 ## Introdução
 
-Application Insights é um dos muitos serviços hospedados no Microsoft Azure e a telemetria é enviada para ele para análise e apresentação. Portanto, antes de fazer qualquer outra coisa, você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pelo [tipo de preço](https://azure.microsoft.com/pricing/details/application-insights/) gratuito do Application Insights. Se sua organização já tiver uma assinatura, sua conta da Microsoft poderá ser adicionada.
+Application Insights é um dos muitos serviços hospedados no Microsoft Azure e a telemetria é enviada para ele para análise e apresentação. Portanto, antes de fazer qualquer outra coisa, você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pelo [tipo de preço](https://azure.microsoft.com/pricing/details/application-insights/) gratuito do Application Insights. Se sua organização já tiver uma assinatura, sua conta da Microsoft poderá ser adicionada a ela.
 
 
 Existem várias maneiras de começar. Comece com o que funciona melhor para você. Você pode adicionar outras posteriormente.
 
 * **Em tempo de execução: instrumente seu aplicativo Web no servidor.** Evita qualquer atualização no código. Você precisa de acesso de administrador para seu servidor.
- * [**IIS local ou em uma máquina virtual**](app-insights-monitor-performance-live-website-now.md)
+ * [**IIS local ou em uma VM**](app-insights-monitor-performance-live-website-now.md)
  * [**Aplicativo Web ou VM do Azure**](app-insights-monitor-performance-live-website-now.md#if-your-app-runs-as-an-azure-web-app)
  * [**J2EE**](app-insights-java-live.md)
 * **Em tempo de desenvolvimento: adicione o Application Insights ao seu código.** Permite que você escreva telemetria personalizada e instrumente aplicativos de back-end e de área de trabalho.
- * Atualização 2 ou mais recente do [Visual Studio](app-insights-asp-net.md) 2013.
- * Java em [Eclipse](app-insights-java-eclipse.md) ou em [outras ferramentas](app-insights-java-get-started.md)
+ * [Visual Studio](app-insights-asp-net.md) 2013 atualização 2 ou posterior.
+ * Java no [Eclipse](app-insights-java-eclipse.md) ou em [outras ferramentas](app-insights-java-get-started.md)
  * [Node.js](app-insights-nodejs.md)
  * [Outras plataformas](app-insights-platforms.md)
 * **[Instrumentar suas páginas da Web](app-insights-javascript.md)** para exibição de página, AJAX e outras telemetrias do lado do cliente.
@@ -86,7 +86,7 @@ Existem várias maneiras de começar. Comece com o que funciona melhor para voc�
 
 ## Explorar Métricas
 
-Execute seu aplicativo - no modo de depuração no computador de desenvolvimento, ou implantando-o em um servidor - e use-o por um tempo. Em seguida, entre no [Portal do Azure](https://portal.azure.com).
+Execute seu aplicativo - no modo de depuração no computador de desenvolvimento, ou implantando-o em um servidor - e use-o por um tempo. Em seguida, entre no [portal do Azure](https://portal.azure.com).
 
 Navegue até a folha de visão geral do Application Insights do aplicativo:
 
@@ -142,7 +142,7 @@ Abra um evento - neste exemplo, a exceção relacionada – e você poderá cria
 
 ## Análise
 
-[Análise](app-insights-analytics.md) é um recurso de pesquisa e análise ainda mais eficiente, no qual você pode escrever consultas SQL sobre os dados de telemetria para procurar problemas específicos ou então para compilar informações estatísticas.
+O [Analytics](app-insights-analytics.md) é um recurso de pesquisa e análise ainda mais eficiente, no qual você pode escrever consultas SQL sobre os dados de telemetria para procurar problemas específicos ou então para compilar informações estatísticas.
 
 ![Análise](./media/app-insights-overview/10.png)
 
@@ -286,7 +286,7 @@ Application Insights oferece três tipos de alerta, que são entregues por email
 
 ### Diagnóstico proativo 
 
-[Diagnóstico proativo](app-insights-nrt-proactive-diagnostics.md)** é configurado automaticamente - você não precisa configurá-lo. Desde que seu site tenha tráfego suficiente, você obterá um email se houver um aumento nas solicitações com falha incomum para a hora do dia ou solicitação de taxa. O alerta contém informações de diagnóstico.
+O [diagnóstico proativo](app-insights-nrt-proactive-diagnostics.md)** é configurado automaticamente - você não precisa configurá-lo. Desde que seu site tenha tráfego suficiente, você obterá um email se houver um aumento nas solicitações com falha incomum para a hora do dia ou solicitação de taxa. O alerta contém informações de diagnóstico.
 
 Veja a seguir um exemplo do alerta.
 
@@ -302,7 +302,7 @@ Você pode configurar [alertas de métrica](app-insights-alerts.md) para inform�
 
 ### Disponibilidade
 
-[Testes de disponibilidade da Web](app-insights-monitor-web-app-availability.md) enviam solicitações para o site de nossos servidores em vários locais em todo o mundo. Eles informam quando seu site está indisponível na Internet ou está respondendo lentamente.
+Os [testes de disponibilidade da Web](app-insights-monitor-web-app-availability.md) enviam solicitações para o site de nossos servidores em vários locais em todo o mundo. Eles informam quando seu site está indisponível na Internet ou está respondendo lentamente.
 
 ![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -310,11 +310,11 @@ Você pode configurar [alertas de métrica](app-insights-alerts.md) para inform�
 
 Há várias maneiras pelas quais você pode obter os dados de telemetria fora do portal do Application Insights:
 
-* A [Exportação contínua](app-insights-export-telemetry.md) será ideal se você quiser manter grandes partes da sua telemetria por mais tempo que o período de retenção padrão.
+* A [Exportação Contínua](app-insights-export-telemetry.md) será ideal se você quiser manter grandes partes da sua telemetria por mais tempo que o período de retenção padrão.
 * [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
-* [Análise](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
+* O [Analytics](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
 * A API REST de acesso a dados pode ser usada para pesquisar e extrair dados. Ele pode executar consultas de Análise.
-* Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), será possível fazer isso sem usar a Exportação Contínua.
+* Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
 
 ![Exibindo dados no Power BI](./media/app-insights-overview/210.png)
  
@@ -383,8 +383,7 @@ Introdução ao tempo de desenvolvimento com:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

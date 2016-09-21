@@ -3,7 +3,7 @@
    description="Use o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.date="09/14/2016"
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
 
@@ -135,4 +135,4 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [carregar dados de exemplo manualmente]: sql-data-warehouse-load-sample-databases.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

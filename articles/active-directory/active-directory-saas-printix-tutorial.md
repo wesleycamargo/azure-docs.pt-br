@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do Printix com o Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no Azure AD quem tem acesso ao Printix
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Printix (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -93,10 +93,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o Printix, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Simon Britta.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do Printix](#creating-a-printix-test-user)**: para ter um equivalente de Brenda Fernandes no Printix que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - habilitar Simon Britta a usar o logon único do AD do Azure.
+4. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do Azure AD
@@ -128,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Faça logon no seu locatário do Printix como administrador.
@@ -190,7 +190,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-printix-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-printix-tutorial/create_aaduser_05.png)
 
@@ -198,7 +198,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -212,13 +212,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-printix-tutorial/create_aaduser_07.png)
 
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-printix-tutorial/create_aaduser_08.png)
 
@@ -232,7 +232,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Printix. O Printix dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Printix, caso ele ainda não exista. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
+Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Printix, caso ele ainda não exista. [Configurando o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)
 
 > [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Printix.
 
@@ -295,4 +295,4 @@ Quando você clica no bloco Printix no Painel de Acesso, você deve ser conectad
 [204]: ./media/active-directory-saas-printix-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-printix-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

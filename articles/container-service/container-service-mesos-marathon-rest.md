@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Gerenciamento de contêiner por meio da API REST
@@ -74,8 +74,6 @@ Você implanta os contêineres formatados pelo Docker por meio do Marathon usand
 Para implantar um contêiner formatado pelo Docker, crie seu próprio arquivo JSON ou use o exemplo fornecido na [demonstração do Serviço de Contêiner do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Armazene-o em um local acessível. Em seguida, para implantar o contêiner, execute o comando a seguir. Especifique o nome do arquivo JSON.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +102,6 @@ Execute o comando a seguir para escalar horizontalmente o aplicativo.
 >[AZURE.NOTE] O URI será http://localhost/marathon/v2/apps/ e então a ID do aplicativo para o dimensionamento. Se você usar o exemplo do Nginx fornecido aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +145,6 @@ Você implanta os contêineres formatados pelo Docker por meio do Marathon usand
 Crie seu próprio arquivo JSON ou use o exemplo fornecido na [demonstração do Serviço de Contêiner do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Armazene-o em um local acessível. Em seguida, para implantar o contêiner, execute o comando a seguir. Especifique o nome do arquivo JSON.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +159,6 @@ Execute o comando a seguir para escalar horizontalmente o aplicativo.
 > [AZURE.NOTE] O URI será http://localhost/marathon/v2/apps/ e então a ID do aplicativo para o dimensionamento. Se você estiver usando o exemplo do Nginx fornecido aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -175,4 +167,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 - [Leia mais sobre os pontos de extremidade HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
 - [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

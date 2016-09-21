@@ -128,7 +128,7 @@ Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo c
 O Application Insights do Visual Studio fornece ferramentas para filtrar e pesquisar logs e para correlacioná-los com solicitações e outros eventos.
 
 1. Adicionar o SDK do Application Insights ao projeto no Visual Studio.
- * Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione Adicionar Application Insights. Você será guiado pelas etapas que incluem a criação de um recurso do Application Insights. [Saiba mais](../application-insights/app-insights-start-monitoring-app-health-usage.md)
+ * Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione Adicionar Application Insights. Você será guiado pelas etapas que incluem a criação de um recurso do Application Insights. [Saiba mais](../application-insights/app-insights-asp-net.md)
 2. Adicionar o pacote do Ouvinte de Rastreamento ao seu projeto.
  * Clique com o botão direito do mouse em seu projeto e escolha Gerenciar Pacotes NuGet. Selecione `Microsoft.ApplicationInsights.TraceListener` [Saiba mais](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Carregue seu projeto e execute-o para gerar dados de log.
@@ -180,7 +180,7 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho**.
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] Se você não instalou a Interface da Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Se você não instalou a Interface de Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Como compreender os logs de diagnóstico
 
@@ -270,4 +270,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

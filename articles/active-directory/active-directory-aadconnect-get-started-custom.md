@@ -5,7 +5,7 @@
     keywords="o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do AD do Azure"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalação personalizada do Azure AD Connect
@@ -43,7 +43,7 @@ Especificar grupos de sincronização personalizados | Por padrão, o Azure Conn
 ### Entrada do usuário
 Depois de instalar os componentes necessários, será solicitado que você selecione o método de logon único de seus usuários. A tabela a seguir fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de entrada, consulte [Entrada do usuário](active-directory-aadconnect-user-signin.md).
 
-![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Entrada do Usuário](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
 Opção de logon único | Descrição
 ------------- | -------------
@@ -51,12 +51,12 @@ Sincronização de senha | Os usuários podem entrar em serviços de nuvem da Mi
 Federação com o AD FS | Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. Os usuários são redirecionados para a instância local do AD FS para entrar e a autenticação ocorre no local.
 Não configurar | Nenhum dos recursos é instalado e configurado. Escolha essa opção se você já tiver um servidor de federação de terceiros ou outra solução existente em vigor.
 
-### Conectar-se ao AD do Azure
+### Conecte-se ao AD do Azure
 Na tela Conectar ao AD do Azure, digite uma senha e uma conta de administrador global. Se você tiver selecionado **Federação com o AD FS** na página anterior, não entre com uma conta de um domínio que planeja habilitar para a federação. Uma recomendação é usar uma conta do domínio **onmicrosoft.com** padrão, que é fornecida com o diretório do Azure AD.
 
-Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente. ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente. ![Entrada do Usuário](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-Se sua conta de administrador global tiver o MFA habilitado, você precisará fornecer a senha novamente no pop-up de entrada e concluir o desafio do MFA. O desafio poderia ser fornecer um código de verificação ou uma chamada telefônica. ![MFA de Entrada do Usuário](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+Se sua conta de administrador global tiver o MFA habilitado, você precisará fornecer a senha novamente no pop-up de entrada e concluir o desafio do MFA. O desafio poderia ser fornecer um código de verificação ou uma chamada telefônica. ![Entrada do usuário no MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 A conta de administrador global também pode ter o [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) habilitado.
 
@@ -65,19 +65,19 @@ Se você encontrar um erro e tiver problemas de conectividade, confira [Solucion
 ## Páginas na seção Sincronização
 
 ### Conectar seus diretórios
-Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa das credenciais de uma conta com permissões suficientes. Você pode inserir a parte do domínio no formato NetBios ou FQDN, isto é, FABRIKAM\\syncuser ou fabrikam.com\\syncuser. Essa conta pode ser uma conta de usuário regular, pois ele precisa apenas de permissões de leitura padrão. No entanto, dependendo do cenário, talvez você precise de mais permissões. Para saber mais, confira [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa das credenciais de uma conta com permissões suficientes. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\\syncuser ou fabrikam.com\\syncuser. Essa conta pode ser uma conta de usuário regular, pois ele precisa apenas de permissões de leitura padrão. No entanto, dependendo do cenário, talvez você precise de mais permissões. Para saber mais, confira [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Conectar-se ao Diretório](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### Configuração de entrada do Azure AD
-Essa página permitirá que você examine os domínios UPN presentes no AD DS local e que foram verificados no Azure AD. Esta página também permitirá que você configure o atributo a ser usado para userPrincipalName.
+Essa página permite que você examine os domínios UPN presentes no AD DS local e que foram verificados no Azure AD. Esta página também permite que você configure o atributo a ser usado para userPrincipalName.
 
-![Domínios não verificados](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png) Examine cada domínio marcado como **Não Adicionado** e **Não Verificado**. Verifique se os que você usa foram verificados no Azure AD. Clique no símbolo de Atualização quando tiver verificado os domínios. Para saber mais, confira [adicionar e verificar o domínio](active-directory-add-domain.md)
+![Domínios não verificados](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png) Examine cada domínio marcado como **Não Adicionado** e **Não Verificado**. Confira se os domínios que você usa foram verificados no Azure AD. Clique no símbolo de Atualização quando tiver verificado os domínios. Para saber mais, confira [adicionar e verificar o domínio](active-directory-add-domain.md)
 
 **UserPrincipalName** ‒ o atributo userPrincipalName é o que os usuários usam ao entrarem no Azure AD e no Office 365. Os domínios usados, também conhecidos como sufixo UPN, devem ser verificados no AD do Azure antes que os usuários sejam sincronizados. A Microsoft recomenda manter o atributo padrão userPrincipalName. Se esse atributo não for roteável e não puder ser verificado, será possível selecionar outro atributo. Por exemplo, você pode selecionar o email como o atributo que contém a ID de entrada. O uso de um atributo diferente de userPrincipalName é conhecido como **ID Alternativa**. O valor do atributo da ID Alternativa deve seguir o padrão RFC822. Uma ID Alternativa pode ser usada com a sincronização de senha e com a federação.
 
 >[AZURE.WARNING]
-Usar uma ID alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, veja [Configurando ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
+Usar uma ID alternativa não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, confira [Configurando ID de logon alternativa](https://technet.microsoft.com/library/dn659436.aspx).
 
 ### Domínio e filtragem de unidade organizacional
 Por padrão, todos os domínios e UOs são sincronizados. Se houver algum domínio ou UO que você não queira sincronizar com o AD do Azure, desmarque-os. ![Filtragem de DomainOU](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Esta página do assistente está configurando a filtragem baseada em domínio. Para saber mais, confira [filtragem baseada em domínio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
@@ -137,7 +137,7 @@ De acordo com os serviços selecionados na etapa anterior, essa página mostrar�
 ![Recursos opcionais - Atributos](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
 >[AZURE.WARNING]
-A remoção de atributos pode afetar a funcionalidade de impacto. Para obter práticas recomendadas e recomendações, confira [atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+A remoção de atributos pode afetar a funcionalidade. Para obter práticas recomendadas e recomendações, confira [atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 
 ### Sincronização de atributo de extensão de diretório
 Você pode estender o esquema no AD do Azure com atributos personalizados adicionados por sua organização ou outros atributos no Active Directory. Para usar esse recurso, selecione **Sincronização do atributo Extensão de Diretório** na página **Recursos Opcionais**. Você pode selecionar mais atributos para sincronizar nesta página.
@@ -154,7 +154,7 @@ Configurar o AD FS com o Azure AD Connect é simples, com apenas alguns cliques.
 - Um certificado SSL para o nome do serviço de federação que você pretende usar (por exemplo, sts.contoso.com)
 
 ### Pré-requisitos de configuração do AD FS
-Para configurar o farm do AD FS usando o Azure AD Connect, verifique se o WinRM está habilitado nos servidores remotos. Além disso, confira o requisito de portas listado na [Tabela 3 ‒ Azure AD Connect e Servidores de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)
+Para configurar o farm do AD FS usando o Azure AD Connect, verifique se o WinRM está habilitado nos servidores remotos. Além disso, confira o requisito de portas listado na [Tabela 3 ‒ Azure AD Connect e Servidores de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### Criar um novo farm do AD FS ou usar um farm do AD FS existente
 Você pode usar um farm do AD FS existente ou pode optar por criar um novo farm do AD FS. Se optar por criar um novo, você precisará fornecer o certificado SSL. Se o certificado SSL estiver protegido por senha, a senha será solicitada.
@@ -247,7 +247,7 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [impe
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](active-directory-aadconnectsync-feature-scheduler.md).
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
 ## Documentação relacionada
 
@@ -258,4 +258,4 @@ Instalar usando as Configurações expressas | [Instalação expressa do Azure A
 Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Contas usadas para instalação | [Mais informações sobre permissões e contas do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

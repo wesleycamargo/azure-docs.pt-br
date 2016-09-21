@@ -678,7 +678,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
 ## Como adicionar notificação por push ao aplicativo
 
-Você pode [ler uma visão geral](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificações do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push,
+Você pode [ler uma visão geral](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificação do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push,
 
 [Neste tutorial](app-service-mobile-android-get-started-push.md), sempre que um registro for inserido, será enviada uma notificação por push.
 
@@ -837,4 +837,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Comece a usar a autenticação]: app-service-mobile-android-get-started-users.md
 [Introdução à autenticação]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

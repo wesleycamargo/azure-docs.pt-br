@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de compactação de arquivo CDN
 
 Este artigo ajuda você a solucionar problemas com a [compactação de arquivo CDN](cdn-improve-performance.md).
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
 ## Sintoma
 
 A compactação do ponto de extremidade está habilitada, mas os arquivos estão sendo retornados descompactados.
+
+>[AZURE.TIP] Para verificar se os arquivos estão sendo retornados compactados, você precisará usar uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) ou as [ferramentas de desenvolvedor](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador. Verifique os cabeçalhos de resposta HTTP retornados com o conteúdo CDN armazenado em cache. Se houver um cabeçalho chamado `Content-Encoding` com um valor **gzip**, **bzip2** ou **deflate**, seu conteúdo será compactado.
+>
+>![Cabeçalho Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 
 ## Causa
 
@@ -36,7 +40,7 @@ Há várias causas possíveis, incluindo:
 
 ## Etapas para solucionar problemas
 
-> [AZURE.TIP] Assim como ocorre com a implantação de novos pontos de extremidade, alterações na configuração da CDN demoram um pouco para serem propagadas pela rede. Na maioria dos casos, você verá as alterações aplicadas em até 90 minutos. Se esta for a primeira vez que você configura a compactação do ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação são propagadas para os POPs.
+> [AZURE.TIP] Assim como ocorre com a implantação de novos pontos de extremidade, alterações na configuração da CDN demoram um pouco para serem propagadas pela rede. Normalmente, as alterações são aplicadas dentro de 90 minutos. Se esta for a primeira vez que você configura a compactação do ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação são propagadas para os POPs.
 
 ### Verificar a solicitação
 
@@ -78,7 +82,7 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de resposta para garantir que o arquivo está armazenado em cache na região em que está sendo solicitado.
 
-- Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo abaixo.
+- Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo a seguir.
 - Verifique o cabeçalho de resposta **X-Cache**. No cabeçalho, deve-se ler **HIT**.
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -97,6 +101,6 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo passada por um servidor proxy. Por padrão, os servidores Web do Microsoft IIS não compactam as respostas quando a solicitação contém um cabeçalho **Via**. Para substituir esse comportamento, execute o seguinte procedimento:
 
 - **IIS 6**: [Defina HcNoCompressionForProxies="FALSE" nas propriedades do IIS Metabase](https://msdn.microsoft.com/library/ms525390.aspx)
-- **IIS 7 and up**: [Defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+- **IIS 7 e superior**: [defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

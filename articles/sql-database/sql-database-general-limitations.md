@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/21/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab" />
 
 # Diretrizes e limitações gerais do Banco de Dados SQL do Azure
@@ -63,4 +63,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

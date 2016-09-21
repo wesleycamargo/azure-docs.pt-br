@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="juliako"/>
 
 # Alterar o tipo de unidade reservada
@@ -27,7 +27,7 @@
 
 ## Visão geral
 
-Para obter mais informações sobre o dimensionamento de processamento de mídia, consulte o tópico [Visão geral](media-services-scale-media-processing-overview.md).
+>[AZURE.IMPORTANT] Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
 
 ## Processamento de mídia de escala
 
@@ -57,4 +57,4 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

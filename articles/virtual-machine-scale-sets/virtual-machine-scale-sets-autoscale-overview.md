@@ -159,7 +159,7 @@ Este exemplo mostra a configuração do recurso no modelo:
 
 No exemplo acima, são criadas duas regras para definir as ações de dimensionamento automático. A primeira regra define a ação de escala horizontal e a segunda regra define a de redução horizontal. Esses valores são fornecidos nas regras:
 
-- **metricName** – é igual ao contador de desempenho que você definiu na variável wadperfcounter para a extensão de diagnóstico. No exemplo acima, usamos o contador Contagem de Threads.  
+- **metricName** – é igual ao contador de desempenho que você definiu na variável wadperfcounter para a extensão de diagnóstico. No exemplo acima, usamos o contador Contagem de Threads.
 - **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual. Esse identificador contém o nome do grupo de recursos, o nome do provedor de recursos e o nome do conjunto de escala a ser dimensionado.
 - **timeGrain** – Esta é a granularidade das métricas que são coletadas. No exemplo acima, os dados são coletados em um intervalo de um minuto. Esse valor é usado junto com timeWindow.
 - **statistic** – Isso determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx.
@@ -228,5 +228,6 @@ O Azure PowerShell pode ser usado para configurar o dimensionamento automático 
 - Veja [Dimensionar automaticamente as máquinas em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-autoscale.md) para ter um exemplo de como criar um conjunto de dimensionamento com o dimensionamento automático configurado.
 - Encontre exemplos de recursos de monitoramento do Azure Insights nos [exemplos de início rápido do PowerShell do Azure Insights](../azure-portal/insights-powershell-samples.md)
 - Saiba mais sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) e [Usar logs de auditoria para enviar notificações de alerta de email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Saiba mais sobre [Cenários de dimensionamento automático avançado](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

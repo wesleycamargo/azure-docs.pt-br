@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/01/2016"
 	ms.author="jimpark; anuragm;trinadhk;markgal"/>
 
 
@@ -78,7 +78,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -123,7 +123,7 @@ PS C:\> MARSAgentInstaller.exe /q
 
 Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu*, a janela do **Windows Update** será aberta ao fim da instalação para verificar se há atualizações.
 
-O agente será exibido na lista de programas instalados. Para ver a lista de programas instalados, vá para **Painel de controle** > **Programas** > **Programas e recursos**.
+O agente será mostrado na lista de programas instalados. Para ver a lista de programas instalados, vá para **Painel de controle** > **Programas** > **Programas e recursos**.
 
 ![Agente instalado](./media/backup-dpm-automation/installed-agent-listing.png)
 
@@ -138,15 +138,15 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - |
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Inscreva no Microsoft Update | - |
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
-| /Ph | Endereço de Host do Proxy | - |
-| /po | Número da porta do Host do Proxy | - |
-| /pu | Nome de usuário do Host do Host | - |
+| /q | Instalação silenciosa | - | 
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
+| /m | Inscreva no Microsoft Update | - | 
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
+| /Ph | Endereço de Host do Proxy | - | 
+| /po | Número da porta do Host do Proxy | - | 
+| /pu | Nome de usuário do Host do Host | - | 
 | /pw | Senha do Proxy | - |
 
 ## Registrar o DPM para um Cofre dos Serviços de Recuperação
@@ -173,7 +173,7 @@ Machine registration succeeded.
 ```
 
 ### Definições de configuração iniciais
-Depois que o Servidor de DPM estiver registrado no cofre dos Serviços de Recuperação, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para começar a alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
+Depois que o Servidor de DPM estiver registrado no cofre dos Serviços de Recuperação, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
@@ -186,7 +186,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 ## Rede
-Se a conectividade do computador de DPM ao serviço de Backup do Azure na Internet é feita por meio de um servidor proxy, as configurações do servidor proxy devem ser fornecidas para que os backups sejam bem-sucedidos. Isso é feito usando os parâmetros ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` e ```ProxyPassword``` com o cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
+Se a conectividade do computador de DPM ao serviço de Backup do Azure na Internet é feita por meio de um servidor proxy, as configurações do servidor proxy devem ser fornecidas para backups bem-sucedidos. Isso é feito usando os parâmetros ```-ProxyServer``` e ```-ProxyPort```, ```-ProxyUsername``` e ```ProxyPassword``` com o cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -262,7 +262,7 @@ A lista dos servidores nos quais o Agente do DPM está instalado e sendo gerenci
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *D:*, que desejamos configurar para o backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o *objeto de grupo de proteção modificável*```$MPG``` para fazer as adições.
+Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *D:*, que desejamos configurar para o backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o *objeto de grupo de proteção modificável* ```$MPG``` para fazer as adições.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -273,7 +273,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 Repita essa etapa quantas vezes for necessário, até adicionar todas as fontes de dados escolhidas ao grupo de proteção. Você também pode começar com apenas uma fonte de dados e concluir o fluxo de trabalho para criar o Grupo de Proteção e, posteriormente, adicionar mais fontes de dados ao Grupo de Proteção.
 
 ### Selecionando o método de proteção de dados
-Depois de adicionar as fontes de dados ao Grupo de Proteção, a próxima etapa é especificar o método de proteção usando o cmdlet [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). Neste exemplo, o Grupo de Proteção será configurado para backup no disco local e na nuvem. Você também precisa especificar a fonte de dados que deseja proteger na nuvem usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) com o sinalizador -Online.
+Depois de adicionar as fontes de dados ao Grupo de Proteção, a próxima etapa é especificar o método de proteção usando o cmdlet [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). Neste exemplo, o Grupo de Proteção é configurado para backup no disco local e na nuvem. Você também precisa especificar a fonte de dados que deseja proteger na nuvem usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) com o sinalizador -Online.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
@@ -283,7 +283,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Onl
 ### Configurando o intervalo de retenção
 Defina a retenção dos pontos de backup usando o cmdlet [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762). Embora possa parecer estranho definir a retenção antes de definir o agendamento de backup, usar o cmdlet ```Set-DPMPolicyObjective``` define automaticamente um agendamento de backup padrão que pode então ser modificado. Sempre é possível definir o agendamento de backup primeiro e a política de retenção posteriormente.
 
-No exemplo abaixo, o cmdlet define os parâmetros de retenção para backups em disco. Isso manterá backups por 10 dias e sincronizará dados entre o servidor de produção e o servidor DPM a cada 6 horas. O ```SynchronizationFrequencyMinutes``` não define a frequência com que um ponto de backup é criado, mas sim a frequência com que os dados são copiados para o servidor DPM; isso impede que os backups fiquem grandes demais.
+No exemplo abaixo, o cmdlet define os parâmetros de retenção para backups em disco. Isso manterá backups por 10 dias e sincronizará dados entre o servidor de produção e o servidor DPM a cada 6 horas. O ```SynchronizationFrequencyMinutes``` não define a frequência em que um ponto de backup é criado, mas a frequência em que os dados são copiados para o servidor DPM. Essa configuração impede que os backups fiquem grandes demais.
 
 ```
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
@@ -314,31 +314,31 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 No exemplo acima, ```$onlineSch``` é uma matriz com quatro elementos que contém o agendamento de proteção online existente para o Grupo de Proteção no esquema GFS:
 
-1. ```$onlineSch[0]``` conterá o agendamento diário
-2. ```$onlineSch[1]``` conterá o agendamento semanal
-3. ```$onlineSch[2]``` conterá o agendamento mensal
-4. ```$onlineSch[3]``` conterá o agendamento anual
+1. ```$onlineSch[0]``` contém a agenda diária
+2. ```$onlineSch[1]``` contém a agenda semanal
+3. ```$onlineSch[2]``` contém a agenda mensal
+4. ```$onlineSch[3]``` contém a agenda anual
 
 Portanto, se precisar modificar o agendamento semanal, você precisa se referir a ```$onlineSch[1]```.
 
 ### Backup inicial
-Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma réplica inicial que criará uma cópia da fonte de dados que será protegida no volume de réplica do DPM. Essa atividade pode ser agendada para um horário específico ou pode ser disparada manualmente usando o cmdlet [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) com o parâmetro ```-NOW```.
+Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma réplica inicial que cria uma cópia completa da fonte de dados que será protegida no volume de réplica do DPM. Essa atividade pode ser agendada para um horário específico ou pode ser disparada manualmente usando o cmdlet [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) com o parâmetro ```-NOW```.
 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
-Você também pode alterar o tamanho do volume de Réplica do DPM, bem como o volume de Cópia de sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx), como no exemplo abaixo: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+Você também pode alterar o tamanho do volume de Réplica do DPM, e o volume de Cópia de Sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx), como no exemplo a seguir: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Confirmando as alterações ao Grupo de Proteção
-Por último, as alterações precisam ser confirmadas antes que o DPM possa fazer o backup de acordo com a nova configuração do Grupo de Proteção. Isso é feito usando o cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
+Por último, as alterações precisam ser confirmadas antes que o DPM possa fazer o backup de acordo com a nova configuração do Grupo de Proteção. Isso pode ser obtido usando o cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
 
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Exibir os pontos de backup
 Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
-- buscar todos os PGs no servidor DPM que serão armazenados em uma matriz ```$PG```
+- buscar todos os PGs no servidor DPM e armazenados em uma matriz ```$PG```
 - obter as fontes de dados correspondente ao ```$PG[0]```
 - obter todos os pontos de recuperação para uma fonte de dados.
 
@@ -351,7 +351,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ## Restaurar dados protegidos no Azure
 A restauração de dados é uma combinação de um objeto ```RecoverableItem``` e um objeto ```RecoveryOption```. Na seção anterior, obtivemos uma lista de pontos de backup para uma fonte de dados.
 
-No exemplo a seguir, demonstramos como restaurar uma máquina virtual Hyper-V por meio do Backup do Azure, combinando os pontos de backup com o destino para recuperação. Isso inclui:
+No exemplo a seguir, demonstramos como restaurar uma máquina virtual Hyper-V por meio do Backup do Azure, combinando os pontos de backup com o destino para recuperação. Este exemplo inclui:
 
 - Criar uma opção de recuperação usando o cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
 - Obter a matriz de pontos de backup usando o cmdlet ```Get-DPMRecoveryPoint```.
@@ -371,6 +371,6 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 ## Próximas etapas
 
-- Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
+- Para saber mais sobre o DPM para o Backup do Azure, confira [Introdução ao Backup do DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

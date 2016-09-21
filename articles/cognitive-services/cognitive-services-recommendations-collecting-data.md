@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.date="09/06/2016"
 	ms.author="luisca"/>
 
 #  Coletando Dados para Treinar seu Modelo #
@@ -45,9 +45,9 @@ Sem recursos:
 
 Com recursos:
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+    AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
+    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
+    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
 #### Detalhes do formato
 
@@ -78,6 +78,25 @@ Dito isso, se o mecanismo conhece as informações sobre esse violino (ou seja, 
 
 Os recursos são importados como parte dos dados do catálogo e sua classificação (ou a importância do recurso no modelo) é associada quando é feita uma compilação da classificação. A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações. A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
 
+
+###Os recursos são categóricos
+
+Isso significa que você deve criar recursos que se assemelhem a uma categoria. Por exemplo, o preço = 9,34 não é um recurso categórico. Por outro lado, um recurso como priceRange = Under5Dollars é um recurso categórico. Outro erro comum é usar o nome do item como um recurso. Isso faria com que o nome de um item fosse exclusivo e, portanto, ele não descreveria uma categoria. Verifique se os recursos representam categorias de itens.
+
+
+###Quantos/quais recursos devo usar?
+
+
+Por fim, a compilação de Recomendações oferece suporte à criação de um modelo com até 20 recursos. Você pode atribuir mais de 20 recursos aos itens do catálogo, mas deve fazer uma compilação de classificação e selecione apenas os recursos de alta classificação. (Um recurso com uma classificação 2,0 ou mais é um recurso muito bom a ser usado!).
+
+
+###Quando os recursos são realmente usados?
+
+Os recursos são usados pelo modelo quando não há dados de transação suficientes para fornecer recomendações apenas sobre as informações de transação. Então, os recursos terão um o maior impacto sobre os "itens frios" – itens com poucas transações. Se todos os itens têm informações suficientes sobre a transação, talvez não seja necessário enriquecer seu modelo com recursos.
+
+
+###Usando recursos do produto
+
 Para usar os recursos como parte da compilação, você precisa:
 
 1. Verificar se o catálogo tem recursos quando você o carrega.
@@ -85,6 +104,9 @@ Para usar os recursos como parte da compilação, você precisa:
 2. Inicializar uma compilação de classificação. Isso fará a análise da importância/classificação dos recursos.
 
 3. Disparar uma compilação das recomendações, definir os seguintes parâmetros de compilação: defina useFeaturesInModel para true, allowColdItemPlacement para true e modelingFeatureList deve ser definido para a lista separada por vírgulas dos recursos que você deseja usar para aprimorar seu modelo. Consulte [Parâmetros do tipo para compilar as recomendações](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) para obter mais informações.
+
+
+
 
 
 ## Dados de uso ##
@@ -129,4 +151,4 @@ Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto
 
 Depois de criar um modelo, você poderá executar uma [avaliação offline](cognitive-services-recommendations-buildtypes.md) para verificar o quanto seu modelo provavelmente será bem executado.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

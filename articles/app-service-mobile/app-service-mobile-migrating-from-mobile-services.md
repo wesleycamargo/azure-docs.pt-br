@@ -353,7 +353,8 @@ Se você tiver um site do ASP.NET, as alterações no arquivo `Web.config` não 
 </configuration>
 ```
 
-Para obter mais informações, consulte a documentação [XDT Transform Samples] \(Exemplos de Transformação XDT) no GitHub.
+Para obter mais informações, consulte a documentação [XDT Transform Samples] \
+(Exemplos de Transformação XDT) no GitHub.
 
 ### Os Serviços Móveis migrados não podem ser adicionados ao Gerenciador de Tráfego
 
@@ -400,7 +401,7 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [Registro em log]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis vs. Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
+[Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [monitoramento de desempenho]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [fazer backup dos scripts do serviço móvel]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -409,4 +410,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

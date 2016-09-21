@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/17/2016" 
+    ms.date="09/07/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o ITRP
@@ -57,18 +57,18 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **ITRP**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galeria de Aplicativos")
 
 7.  No painel de resultados, selecione **ITRP** e clique em **Concluir** para adicionar o aplicativo.
 
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ITRP com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para ITRP exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no ITRP com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para ITRP exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do ITRP, na página de integração de aplicativos do **Zoom**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **ITRP**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurar o logon único")
 
@@ -143,15 +143,15 @@ Para permitir que os usuários do AD do Azure façam logon no ITRP, eles devem s
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao ITRP, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No portal do Azure AD, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **ITRP**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-itrp-tutorial/IC775588.png "Atribuir Usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-itrp-tutorial/IC775588.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
@@ -159,4 +159,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

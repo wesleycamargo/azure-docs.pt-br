@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -46,7 +46,6 @@ Se você ainda não tiver feito essas coisas:
 
 * Adicione o SDK do Application Insights a seu projeto:
  * [Projeto do ASP.NET][greenbrown]
- * [Projeto do Windows][windows]
  * [Projeto Java][java]
  * [JavaScript em cada página da Web][client]
 
@@ -276,7 +275,6 @@ Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa
 
 * ASP.NET: [escrever código para capturar exceções](app-insights-asp-net-exceptions.md)
 * J2EE: [exceções são detectadas automaticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Aplicativos do Windows: [as falhas são detectadas automaticamente](app-insights-windows-crashes.md)
 * JavaScript: detectado automaticamente. Se você quiser desabilitar a coleta automática, adicione uma linha no trecho de código que você inserir em suas páginas da Web:
 
     ```
@@ -353,7 +351,7 @@ Normalmente o SDK envia dados em momentos escolhidos para minimizar o impacto so
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-É importante lembrar que a função é assíncrona para os canais na memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-services.md#persistence-channel).
+É importante lembrar que a função é assíncrona para os canais na memória, mas síncrona se você optar por usar o [canal persistente](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Usuários autenticados
@@ -747,17 +745,16 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 
 * [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [SDK do Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Pacotes do Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [SDK do iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Perguntas
 
 * *Que exceções podem acionar chamadas Track\_()?*
     
-    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará em log mensagens que você verá na saída do console de depuração, e, se as mensagens forem exibidas, na pesquisa de diagnóstico.
+    Nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará em log mensagens que você verá na saída do console de depuração, e, se as mensagens forem exibidas, na pesquisa de diagnóstico.
 
 
 
@@ -788,8 +785,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

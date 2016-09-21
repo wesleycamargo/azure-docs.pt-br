@@ -88,7 +88,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET abai
 	DocumentDBBenchmark completed successfully.
 
 
-**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se a taxa de transferência do seu aplicativo cliente estagnar, iniciar várias instâncias do aplicativo nas mesmas máquinas ou em máquinas diferentes ajudará você atingir o limite configurado em instâncias diferentes. Se você precisar de ajuda com esta etapa, contate-nos em [Pergunte ao Banco de Dados de Documentos](askdocdb@microsoft.com) ou preencha um tíquete de suporte.
+**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se a taxa de transferência do seu aplicativo cliente estagnar, iniciar várias instâncias do aplicativo nas mesmas máquinas ou em máquinas diferentes ajudará você atingir o limite configurado em instâncias diferentes. Se precisar de ajuda com esta etapa, escreva um email para askdocdb@microsoft.com ou preencha um tíquete de suporte.
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](documentdb-indexing-policies.md) e [Níveis de consistência](documentdb-consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 
@@ -103,4 +103,4 @@ Neste artigo, analisamos como você pode executar testes de documentos e dimensi
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

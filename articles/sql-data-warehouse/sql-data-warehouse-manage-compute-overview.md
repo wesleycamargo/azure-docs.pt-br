@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral)
@@ -98,6 +98,10 @@ Para retomar um banco de dados, use qualquer um destes métodos individuais.
 - [Retomar computação com o PowerShell][]
 - [Retomar computação com APIs REST][]
 
+## Permissões
+
+Dimensionar o banco de dados exigirá as permissões descritas em [ALTER DATABASE][]. Pausar e Retomar exigirão a permissão [Colaborador do DB SQL][], especificamente Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Próximas etapas
@@ -140,9 +144,12 @@ Consulte os artigos a seguir para ajudar a entender alguns dos principais concei
 [Práticas recomendadas]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[Colaborador do DB SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

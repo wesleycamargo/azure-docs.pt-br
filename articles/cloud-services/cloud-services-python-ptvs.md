@@ -240,6 +240,8 @@ if (-not $is_emulated){
 
 #### Modificar LaunchWorker.ps1
 
+>[AZURE.NOTE] No caso de um projeto de **função de trabalho**, o arquivo **LauncherWorker.ps1** é necessário para executar o arquivo de inicialização. Em um projeto de **função web**, o arquivo de inicialização é definido nas propriedades do projeto.
+
 O **bin\\LaunchWorker.ps1** foi originalmente criado para grande parte do trabalho de preparação, mas ele não funciona. Substitua o conteúdo desse arquivo pelo script a seguir.
 
 Esse script chama o arquivo **worker.py** do seu projeto python. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será usado; caso contrário, o Python 3.5 será usado.
@@ -365,4 +367,4 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [Python 2.7 de 32 bits]: https://www.python.org/downloads/
 [Python 3.5 de 32 bits]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo desse tutorial é mostrar como integrar o ADP eTime ao Azure AD (Azur
 
 - Você pode controlar no Azure AD quem tem acesso ao ADP eTime
 - É possível permitir que seus usuários façam logon automaticamente no ADP eTime (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -57,7 +57,7 @@ Para configurar a integração do ADP eTime com o Azure AD, você precisa adicio
 
 **Para adicionar o ADP eTime a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -90,10 +90,10 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do ADP 
 
 Para configurar e testar o logon único do Azure AD com o ADP eTime, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criando um usuário de teste do ADP eTime](#creating-a-adpetime-test-user)** –para ter um equivalente de Brenda Fernandes no ADP eTime que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -117,14 +117,14 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
 	![Configurar o logon único](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_03.png)
 
-3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
+3. Na página do diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png)
 
 
     a. Na caixa de texto **URL de Resposta**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do ADP eTime usando o seguinte padrão: `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer`.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 4. Na página **Configurar logon único no ADP eTime**, execute as seguintes etapas:
 
@@ -132,7 +132,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para configurar o SSO em seu aplicativo, entre em contato com a equipe de suporte do ADP eTime e envie o arquivo de metadados baixado por email para que eles possam ser configurados para integração de SSO.
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png)
 
@@ -178,9 +178,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na caixa de texto **Nome de Usuário**, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png)
 
@@ -192,9 +192,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png)
 
@@ -273,4 +273,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

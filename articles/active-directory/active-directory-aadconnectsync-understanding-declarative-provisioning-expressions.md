@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/31/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -77,11 +77,19 @@ As funções podem operar em atributos de valor único e de vários valores. Par
 
 Por exemplo: `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor com um símbolo @, substitua o domínio por @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
-## Recursos adicionais
+## Próximas etapas
 
-- [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
+- Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
+- Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md).
+
+**Tópicos de visão geral**
+
+- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 - [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+**Tópicos de referência**
+
+- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
+
+<!---HONumber=AcomDC_0907_2016-->

@@ -208,4 +208,4 @@ Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte
 [Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0831_2016--->

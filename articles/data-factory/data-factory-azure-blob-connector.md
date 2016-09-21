@@ -18,9 +18,12 @@
 	ms.author="spelluru"/>
 
 # Mover dados para e do blob do Azure usando o Azure Data Factory
-Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados para e de blobs do Azure, fornecendo dados de blob de outro armazenamento de dados. Este artigo se baseia no artigo sobre as atividades de movimentação de dados, que apresenta uma visão geral da movimentação de dados com a atividade de cópia e combinações de repositório de dados permitidas.
+Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados para e de blobs do Azure, fornecendo dados de blob de outro armazenamento de dados. Este artigo se baseia no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia e combinações de repositório de dados permitidas.
 
-> [AZURE.NOTE] Atualmente, o conector de Blob do Azure permite apenas copiar para dentro e fora de blobs de bloco . Ele também permite o Armazenamento do Azure de finalidade geral e o Armazenamento de Blobs Dinâmico/Estático.
+> [AZURE.NOTE]
+A Atividade de Cópia dá suporte à cópia de dados de/para contas de Armazenamento do Azure para fins gerais e para o Armazenamento de Blobs Dinâmico/Estático.
+> 
+> A atividade oferece suporte à leitura de blobs de bloco, de acréscimo ou de página, mas oferece suporte à gravação apenas em blobs de blocos.
 
 ## Assistente de cópia de dados
 A maneira mais fácil de criar um pipeline que copia dados de/para o Armazenamento de Blobs do Azure é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
@@ -449,18 +452,18 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. | **PreserveHierarchy:** preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/>**FlattenHierarchy:** todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><br/>**MergeFiles**: (padrão) mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. | Não |
 
-**BlobSource** também oferece suporte a essas duas propriedades que serão desativadas em breve.
+**BlobSource** também oferece suporte a essas duas propriedades para compatibilidade com versões anteriores.
 
 - **treatEmptyAsNull**: especifica se deve-se tratar a cadeia de caracteres nula ou vazia como valor nulo.
 - **skipHeaderLineCount** - Especifica quantas linhas precisam ser ignoradas. É aplicável somente quando o conjunto de dados de entrada usa TextFormat.
 
-Da mesma forma, **BlobSink** oferece suporte à seguinte propriedade que será desativada em breve.
+Da mesma forma, **BlobSink** oferece suporte à seguinte propriedade para compatibilidade com versões anteriores.
 
 - **blobWriterAddHeader**: especifica se deve adicionar um cabeçalho de definições de coluna ao gravar em um conjunto de dados de saída.
 
 Agora, os conjuntos de dados oferecem suporte às seguintes propriedades que implementam a mesma funcionalidade: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-A tabela a seguir fornece orientação sobre como usar as novas propriedades do conjunto de dados em vez de propriedades de fonte/coletor de blob que serão desativadas em breve.
+A tabela a seguir fornece orientação sobre como usar as novas propriedades do conjunto de dados em vez de propriedades de fonte/coletor de blob.
 
 | Propriedade de Atividade de Cópia | Propriedade de Conjunto de Dados |
 | :---------------------- | :---------------- | 
@@ -494,4 +497,4 @@ false | mergeFiles | Para uma pasta de origem Pasta1 com a seguinte estrutura:<b
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

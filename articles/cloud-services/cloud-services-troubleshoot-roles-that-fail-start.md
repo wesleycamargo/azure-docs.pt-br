@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Solução de problemas de funções do serviço de nuvem com falha de inicialização
@@ -103,7 +103,7 @@ Você pode usar o emulador de computação do Microsoft Azure para diagnosticar 
 
 Para obter melhores resultados ao usar esse método de diagnóstico, você deve usar um computador ou uma máquina virtual com uma instalação limpa do Windows. Para simular melhor o ambiente do Azure, use o Windows Server 2008 R2 x64.
 
-1. Instalar a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads/)
+1. Instalar a versão autônoma do [SDK do Azure](https://azure.microsoft.com/downloads/).
 
 2. No computador de desenvolvimento, compile o projeto do serviço de nuvem.
 
@@ -163,4 +163,4 @@ Confira mais [artigos sobre solução de problemas](https://azure.microsoft.com/
 
 Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -63,7 +63,7 @@ Os seguintes recursos de plataforma são geralmente úteis para sites de produç
 
   Descubra mais sobre [opções de implantação].
 
-- **Rede Virtual** - o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, a Rota Expressa ou conexões híbridas.
+- **Rede Virtual** - o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, o ExpressRoute ou conexões híbridas.
 
   Descubra mais sobre as [conexões híbridas], as [redes virtuais] e a [Rota Expressa].
 
@@ -102,4 +102,4 @@ Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de apr
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizagem]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

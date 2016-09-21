@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -79,7 +79,7 @@ Crie um arquivo zip que contém todos os arquivos necessários para instalar os 
 
 - Todos os scripts obrigatórios.
 
-> [AZURE.NOTE] Os arquivos do aplicativo (incluindo arquivos de aplicativo da web, se houver algum) podem estar localizados em qualquer ponto de extremidade publicamente acessível.
+> [AZURE.NOTE] Os arquivos do aplicativo (incluindo arquivos de aplicativo Web, se houver) podem estar localizados em qualquer ponto de extremidade publicamente acessível.
 
 ## Publicar o aplicativo
 
@@ -99,5 +99,6 @@ Siga as etapas a seguir para publicar um aplicativo do HDInsight:
 - [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.
 - [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 - [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do Resource Manager para criar clusters HDInsight.
+- [Usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md): saiba como usar um nó de borda vazio para acessar o cluster HDInsight, testar e hospedar aplicativos HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

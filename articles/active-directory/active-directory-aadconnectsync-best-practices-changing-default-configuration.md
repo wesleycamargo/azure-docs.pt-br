@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,8 +58,10 @@ Selecione **Sim** para criar uma cópia da regra. Então, a regra clonada é abe
 Na regra clonada, faça as alterações necessárias no escopo, na associação e nas transformações.
 
 ## Próximas etapas
-Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+**Tópicos de visão geral**
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+
+<!---HONumber=AcomDC_0907_2016-->

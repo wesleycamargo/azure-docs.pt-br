@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="05/17/2016" 
+	ms.date="08/29/2016" 
 	ms.author="heidist"/>
 
 # Estudo de caso do desenvolvedor de Pesquisa do Azure
@@ -36,7 +36,7 @@ Nossa tarefa será atrair os compradores com de uma experiência de pesquisa onl
 
  ![][7]
 
-Após a inscrição para uma assinatura, um varejista assume seu perfil existente (criado inicialmente por nós de dados adquiridos), atualizando-o com dados adicionais sobre promoções, marcas em destaque ou anúncios. Recursos internos, como os idiomas falados, moedas aceitas e compras sem cobrança de imposto podem ser automaticamente relatados para melhor atrair os compradores que estão procurando por essas características.
+Após a inscrição para uma assinatura, um varejista assume seu perfil existente (que nós criamos inicialmente de dados adquiridos), atualizando-o com dados adicionais sobre promoções, marcas em destaque ou comunicados. Recursos internos, como os idiomas falados, moedas aceitas e compras sem cobrança de imposto podem ser automaticamente relatados para melhor atrair os compradores que estão procurando por essas características.
 
 ## Quem somos
 
@@ -110,15 +110,15 @@ Depois de assistir ao vídeo, estávamos prontos para criar um protótipo com ba
 
 **Configurar o Serviço de Pesquisa do Azure**
 
-1. Faça logon no Portal clássico do Azure e adicione o serviço de Pesquisa à nossa assinatura. Nós usamos a versão compartilhada (gratuita com nossa assinatura).
+1. Faça logon no Portal Clássico do Azure e adicione o serviço Search à nossa assinatura. Usamos a versão compartilhada (gratuita com nossa assinatura).
 2. Crie um índice. Para o protótipo, usamos o interface do usuário do portal para definir os campos de pesquisa e criar os perfis de pontuação. Nosso perfil de pontuação é baseado em dados de local: país | cidade |endereço (consulte: Adicionar perfis de pontuação).
 3. Copie a URL de serviço e a chave de Api de administrador para nossos arquivos de configuração. Essa chave está na página de serviço de Pesquisa no portal e é usada para autenticar o serviço.
 	
 **Desenvolver um trabalho do indexador de pesquisa – Console do Windows**
 
 1. Faça a leitura de todos os revendedores no banco de dados.
-2. Chame a API do Serviço de Pesquisa do Azure para carregar revendedores individualmente (consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Defina uma propriedade no banco de dados de que o revendedor está indexado para indexação incremental. Fizemos isso adicionando um campo “indexador”, que armazena o status do índice de cada perfil (indexado ou não). 
+2. Chame a API do Serviço Azure Search para carregar revendedores individualmente (consulte: http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Defina uma propriedade no banco de dados de que o revendedor está indexado para indexação incremental. Fizemos isso adicionando um campo “indexador”, que armazena o status do índice de cada perfil (indexado ou não).
 
 Consulte o apêndice do trecho de código que cria o trabalho do indexador.
 
@@ -156,7 +156,7 @@ Cada um dos documentos tem uma propriedade oculta chamada "cidades" criada no ti
 
 ###Armazenamento de dados
 
-Todos os dados (perfil, assinatura e contabilidade) são armazenados no Banco de Dados SQL. Todos os arquivos de mídia são armazenados no armazenamento de BLOB do Azure, incluindo imagens e vídeos fornecidos pelo varejista. Usar armazenamento de BLOB separado isola os efeitos do carregamento de arquivos; arquivos nunca são mesclados ao site, portanto, não precisamos reconstruir o site toda vez que adicionamos arquivos.
+Todos os dados (perfil, assinatura e contabilização) são armazenados no Banco de Dados SQL. Todos os arquivos de mídia são armazenados no armazenamento de BLOB do Azure, incluindo imagens e vídeos fornecidos pelo varejista. Usar armazenamento de BLOB separado isola os efeitos do carregamento de arquivos; arquivos nunca são mesclados ao site, portanto, não precisamos reconstruir o site toda vez que adicionamos arquivos.
 
 Um benefício importante de nosso modelo de armazenamento é que múltiplos desenvolvedores podem compartilhar um único armazenamento para desenvolvimento. Um dos requisitos para o projeto WhatToPedia era ser capaz de criar um ambiente de desenvolvimento em 15 minutos, incluindo vídeos, imagens e dados de revendedor. Ao obter os dados mais recentes do TFS Online, executar um script SQL e executar do trabalho de importação, um ambiente completo pode ser preparado muito rapidamente. Essa prática também aprimora o processo de preparo.
 
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0907_2016-->

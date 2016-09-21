@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/13/2016"
+   ms.date="08/30/2016"
    ms.author="amanbha"/>
 
 
@@ -36,7 +36,7 @@ Quando um ator é desativado, ocorre o seguinte:
 - Quando um ator não é usado por algum tempo, ele é removido da tabela de Atores Ativos.
 - O método `OnDeactivateAsync` (que pode ser substituído na implementação do ator) é chamado. Isso limpa todos os medidores de tempo do ator.
 
-> [AZURE.TIP] O tempo de execução da malha atores emite alguns eventos de [ relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Eles são úteis para diagnóstico e monitoramento de desempenho.
+> [AZURE.TIP] O tempo de execução da malha atores emite alguns eventos de [ relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Eles são úteis no diagnóstico e monitoramento de desempenho.
 
 ### Coleta de Lixo de Ator
 Quando um ator é desativado, as referências ao objeto do ator são liberadas e ele pode ter seu lixo coletado normalmente pelo coletor de lixo CLR (common language runtime). A coleta de lixo elimina apenas o objeto do ator; ela **não** remove o estado armazenado no Gerenciador de Estado do ator. Na próxima vez que o ator for ativado, um novo objeto de ator será criado e seu estado será restaurado.
@@ -129,4 +129,4 @@ Observe que um ator não pode chamar delete por si só de um de seus métodos, p
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

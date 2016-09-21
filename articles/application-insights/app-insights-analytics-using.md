@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -125,11 +125,14 @@ Por padrão, os resultados são exibidos inicialmente como uma tabela e você se
 
 ## Fixar no painel
 
-Você pode fixar um diagrama em um dos seus [painéis compartilhados](app-insights-dashboards.md), basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso).
+Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md), basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso).
 
 ![Clicar no marcador](./media/app-insights-analytics-using/pin-01.png)
 
 Isso significa que, quando você monta um painel para ajudar a monitorar o desempenho ou o uso de seus serviços Web, pode incluir análise bastante complexa juntamente com outras métricas.
+
+Você poderá fixar uma tabela no painel, se ele tiver quatro ou menos colunas. Somente as primeiras sete linhas são exibidas.
+
 
 #### Atualização do painel
 
@@ -183,4 +186,4 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

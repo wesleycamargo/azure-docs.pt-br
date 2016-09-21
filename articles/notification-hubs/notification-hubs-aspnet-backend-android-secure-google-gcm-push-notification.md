@@ -20,9 +20,9 @@
 #Enviar notificações por Push seguro com Hubs de Notificação do Azure
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 ##Visão geral
 
@@ -51,7 +51,7 @@ Este tutorial mostra como enviar notificações por push seguro. Baseia-se no tu
 
 ## Modificar o projeto Android
 
-Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação por push, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida. Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android saiba como se autenticar com o back-end ao receber as notificações por push.
+Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de uma notificação por push, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida. Para atingir essa meta, você precisa certificar-se de que seu aplicativo Android saiba como autenticar-se com o back-end ao receber as notificações de envio.
 
 Agora, modificaremos o fluxo de *logon* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisará usar sem solicitar as credenciais do usuário.
 
@@ -130,8 +130,8 @@ Para executar o aplicativo, faça o seguinte:
 
 2. No Eclipse, execute o aplicativo em um dispositivo Android físico ou no emulador.
 
-3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas elas devem ter o mesmo valor.
 
 4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
