@@ -224,7 +224,9 @@ Em um sistema HDFS, umask normalmente é uma opção de configuração de todo o
 
 | Grupo de usuários | Configuração | Efeito na ACL de Acesso de um novo item filho |
 |------------ |---------|---------------------------------------|
-| Usuário proprietário | --- | Sem efeito | | Grupo proprietário | --- | Sem efeito | | Outros | RWX | Remover Ler + Gravar + Executar |
+| Usuário proprietário | --- | Sem efeito |
+| Grupo proprietário | --- | Sem efeito |
+| Outros | RWX | Remover Ler + Gravar + Executar |
 
 A ilustração a seguir mostra esta umask em ação. O efeito líquido é remover **Ler + Gravar + Executar** para **outro** usuário. Uma vez que a umask não especificou bits para o **usuário proprietário** e o **grupo proprietário**, essas permissões não são transformadas.
 
