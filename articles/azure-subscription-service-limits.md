@@ -63,6 +63,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [Serviços de Mídia](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Serviços Móveis](#mobile-services-limits)
+- [Monitoramento](#monitoring-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Rede](#networking-limits)
 - [Serviço de hub de notificação](#notification-hub-service-limits)
@@ -219,6 +220,10 @@ Para obter informações mais detalhadas sobre outros limites, incluindo o taman
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### Limites de monitoramento
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### Limites de serviço de hub de notificação
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

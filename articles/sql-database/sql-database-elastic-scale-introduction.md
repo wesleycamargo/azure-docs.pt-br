@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/27/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Escalando horizontalmente com o Banco de Dados SQL do Azure
@@ -33,10 +33,10 @@ Neste gráfico, as cores do banco de dados representam esquemas. Bancos de dados
 1. Um conjunto de **bancos de dados SQL do Azure** é hospedado no Azure usando a arquitetura de fragmentação.
 2. A **biblioteca de clientes do Banco de Dados Elástico** é usada para gerenciar um conjunto de fragmentos.
 3. Um subconjunto dos bancos de dados é colocado em um **pool de Banco de Dados Elástico**. (Consulte [O que é um pool?](sql-database-elastic-pool.md)).
-4. Um **trabalho de Banco de Dados Elástico** executa scripts T-SQL em todos os bancos de dados.
+4. Um **trabalho de Banco de Dados Elástico** executa scripts T-SQL agendados ou ad-hoc em todos os bancos de dados.
 5. A **ferramenta de divisão e mesclagem** é usada para mover dados de um fragmento para outro.
 6. A **consulta ao Banco de Dados Elástico** permite gravar uma consulta que se estenda por todos os bancos de dados no conjunto de fragmentos.
-7. **Transações elásticas** permitem a execução de transações que abrangem vários bancos de dados. 
+7. **Transações elásticas** permitem a execução de transações que abrangem vários bancos de dados.
 
 
 ![Ferramentas de Banco de Dados Elástico][1]
@@ -109,4 +109,4 @@ Para ver os detalhes do pool do Banco de Dados Elástico, confira [Consideraçõ
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

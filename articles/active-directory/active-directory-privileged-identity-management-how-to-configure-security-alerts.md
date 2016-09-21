@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Como configurar alertas de segurança no Azure AD Privileged Identity Management
 
 ## Alertas de segurança
-O Azure PIM (Privileged Identity Management) gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou funções que dispararam o alerta.
+O Azure PIM (Privileged Identity Management) gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou as funções que dispararam o alerta.
 
 ![Alertas de segurança do painel PIM – captura de tela][1]
 
@@ -30,7 +30,7 @@ O Azure PIM (Privileged Identity Management) gera alertas quando há atividade s
 | **As funções estão sendo atribuídas fora do PIM** | Um administrador foi atribuído permanentemente a uma função, fora da interface do PIM. | Examine a nova atribuição de função. Já que outros serviços podem atribuir apenas administradores permanentes, altere-a para uma atribuição qualificada, se necessário. |
 | **As funções estão sendo ativadas com muita frequência** | Havia muitas reativações da mesma função durante o tempo permitido nas configurações. | Entre em contato com o usuário para ver por que ele ativou a função tantas vezes. Talvez o limite de tempo seja muito curto para que ele conclua suas tarefas ou talvez ele esteja utilizando scripts para ativar uma função automaticamente. |
 | **Roles don't require multi-factor authentication for activation (As funções não exigem o multi-factor authentication para ativação)** | Há funções sem o MFA habilitado nas configurações. | Exigimos o MFA para as funções mais altamente privilegiadas, mas recomendamos que você habilite o MFA para a ativação de todas as funções. |
-| **Administrators aren't using their privileged roles (Os administradores não estão utilizando suas funções privilegiadas)** | Existem administradores temporários que não ativaram suas funções recentemente. | Inicie uma análise de acesso para determinar os usuários que não precisam mais de acesso. |
+| **Administrators aren't using their privileged roles (Os administradores não estão utilizando suas funções privilegiadas)** | Existem administradores qualificados que não ativaram suas funções recentemente. | Inicie uma análise de acesso para determinar os usuários que não precisam mais de acesso. |
 | **Há muitos administradores globais** | Existem mais administradores globais do que o recomendado. | Caso você tenha um grande número de administradores globais, é provável que os usuários estejam obtendo mais permissões do que eles precisam. Mova os usuários para funções menos privilegiadas ou torne alguns deles qualificados para a função em vez de atribuídos permanentemente. |
 
 ## Definir configurações de alerta de segurança
@@ -53,7 +53,7 @@ Esse alerta será disparado se um usuário ativar a mesma função com privilég
 
 ### Alerta “Há muitos administradores globais”
 
-O PIM disparará esse alerta se dois critérios diferentes forem atendidos, e você poderá configurar ambos. Primeiro, você precisa atingir certo limite de administradores globais. Em segundo lugar, um determinado percentual do seu total de atribuições de função deve ser de administradores globais. Se você atender apenas a uma dessas medidas, o alerta não é exibido.
+O PIM disparará esse alerta se dois critérios diferentes forem atendidos, e você poderá configurar ambos. Primeiro, você precisa atingir certo limite de administradores globais. Em segundo lugar, um determinado percentual do seu total de atribuições de função deve ser de administradores globais. Se você atender apenas a uma dessas medidas, o alerta não será exibido.
 
 - **Número mínimo de Administradores Globais**: especifique o número de administradores globais, de 2 a 100, que você considera uma quantidade não segura.
 
@@ -75,4 +75,4 @@ Esse alerta será disparado se um usuário passar um determinado período sem at
 [1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
@@ -34,16 +34,15 @@ Saiba como usar o Azure PowerShell para criar uma conta do Repositório Azure Da
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 
 
 ##Instalar o Azure PowerShell 1.0 ou superior
 
-Consulte a seção Pré-requisito em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Confira a seção Pré-requisito em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
 ## Criar uma conta do Repositório Azure Data Lake
 
-1. Na área de trabalho, abra uma nova janela do Windows PowerShell e insira o trecho de código a seguir para fazer logon em sua conta do Azure, definir a assinatura e registrar o provedor do Repositório Data Lake. Quando solicitado a fazer logon, lembre-se de fazer logon como o proprietário ou um dos administradores da assinatura:
+1. Na área de trabalho, abra uma nova janela do Windows PowerShell e insira o trecho de código a seguir para entrar em sua conta do Azure, definir a assinatura e registrar o provedor do Data Lake Store. Quando solicitado a entrar, lembre-se de entrar como o proprietário ou um dos administradores da assinatura:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +140,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

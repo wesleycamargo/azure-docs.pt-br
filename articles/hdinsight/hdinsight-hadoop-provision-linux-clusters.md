@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/08/2016"
+   	ms.date="09/06/2016"
    	ms.author="jgao"/>
 
 
@@ -216,6 +216,8 @@ A cobrança é iniciada quando um cluster é criado e para quando o cluster é e
 
 Em alguns casos, você poderá adicionar mais armazenamento ao cluster. Por exemplo, você pode ter várias contas de armazenamento do Azure para diferentes regiões geográficas ou diferentes serviços, mas desejar analisá-los com o HDInsight.
 
+Você pode adicionar contas de armazenamento ao criar um cluster do HDInsight ou depois de um cluster ter sido criado. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+
 Para saber mais sobre o armazenamento de Blobs secundário, veja [Usar o armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
@@ -297,4 +299,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

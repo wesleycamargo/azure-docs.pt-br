@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Redefinir a senha ou a Área de Trabalho Remota em uma VM do Windows | Microsoft Azure"
-	description="Redefina a senha de administrador ou os serviços de Área de Trabalho Remota em uma VM do Windows criada com o modelo de implantação do Gerenciador de Recursos."
+	pageTitle="Redefinir a senha ou a configuração da Área de Trabalho Remota em uma VM do Windows | Microsoft Azure"
+	description="Saiba como redefinir uma senha de conta ou serviços da Área de Trabalho Remota em uma VM do Windows usando o Portal do Azure ou o Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Se não puder se conectar a uma máquina virtual do Windows porque você esqueceu a senha ou devido a um problema com a configuração do serviço Área de Trabalho Remota, poderá redefinir a senha do administrador local ou a configuração do serviço Área de Trabalho Remota. Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha. Se estiver usando o PowerShell, verifique se você tem o módulo do PowerShell mais recente instalado no computador de trabalho e se está conectado à sua assinatura do Azure. Para ver etapas detalhadas, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Você pode redefinir a senha de administrador local ou redefinir a configuração do serviço de Área de Trabalho Remota, se não for possível se conectar a uma máquina virtual do Windows. Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha. Se estiver usando o PowerShell, verifique se você tem o módulo do PowerShell mais recente instalado no computador de trabalho e se está conectado à sua assinatura do Azure. Para ver etapas detalhadas, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 > [AZURE.TIP] Você pode verificar a versão do PowerShell instalada usando `Import-Module Azure, AzureRM; Get-Module Azure, AzureRM | Format-Table Name, Version`
 
 ## VMs do Windows no modelo de implantação Resource Manager
 
 ### Portal do Azure
-Selecione sua VM clicando em **Procurar** > **Máquinas virtuais** > *sua máquina virtual do Windows* > **Todas as configurações** > **Redefinir senha**. A folha de redefinição de senha será exibida conforme mostrado abaixo:
+Selecione sua VM clicando em **Procurar** > **Máquinas virtuais** > *sua máquina virtual do Windows* > **Todas as configurações** > **Redefinir senha**. A folha de redefinição de senha é exibida:
 
 ![Página Redefinir senha](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -93,7 +93,7 @@ Depois de inserir o novo nome de usuário e a senha, clique em **Salvar**.
 
 ### Extensão VMAccess e PowerShell
 
-Verifique se o Agente da VM está instalado na máquina virtual. A extensão VMAccess não precisa ser instalada para que você possa usá-la, desde que o Agente da VM esteja disponível. Verifique se o Agente da VM já está instalado usando o comando a seguir. (Substitua "myCloudService" e "myVM" pelos nomes do seu serviço de nuvem e da sua VM, respectivamente. É possível encontrá-los executando `Get-AzureVM` sem nenhum parâmetro.)
+Verifique se o Agente da VM está instalado na máquina virtual. A extensão VMAccess não precisa ser instalada para que você possa usá-la, desde que o Agente da VM esteja disponível. Verifique se o Agente da VM já está instalado usando o comando a seguir. (Substitua "myCloudService" e "myVM" pelos nomes do seu serviço de nuvem e da sua VM, respectivamente. É possível conhecer esses nomes executando `Get-AzureVM` sem nenhum parâmetro).
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
@@ -143,4 +143,4 @@ Este comando define o valor de Registro fDenyTSConnections como 0, habilitando a
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] \(SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
 
 [AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -64,14 +64,14 @@ Seu código remove uma mensagem de uma fila em duas etapas. Quando você chamar 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get\_messages** para receber 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)		
 
 
 ## Como: alterar o conteúdo de uma mensagem em fila
@@ -80,7 +80,7 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
-		queue_service.update_message('taskqueue', message.message_id, message.pop_receipt, 0, u'Hello World Again')
+		queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 
 ## Como obter o comprimento da fila
 
@@ -108,4 +108,4 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga e
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -381,9 +381,9 @@ Saiba como usar os SDKs.
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/pt-BR/features/cordova-vs.aspx
-[Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
+[Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

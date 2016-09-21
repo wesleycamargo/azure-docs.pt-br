@@ -81,7 +81,7 @@ No código R, aponte a referência de nó de nome para a conta de armazenamento 
 
   Definir contexto de computação do Spark:
 
-    mySparkCluster <- RxSpark(consoleOutput=TRUE)
+    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
   Definir contexto de computação:
 
@@ -136,7 +136,7 @@ myPort <- 0
 bigDataDirRoot <- "/share"  
 
 # Define Spark compute context
-mySparkCluster <- RxSpark(consoleOutput=TRUE)
+mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
 # Set compute context
 rxSetComputeContext(mySparkCluster)
@@ -190,4 +190,4 @@ Agora que você aprendeu os fundamentos para usar o console do R em uma sessão 
 - [Add RStudio Server to HDInsight premium (Adicionar o servidor RStudio ao HDInsight premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

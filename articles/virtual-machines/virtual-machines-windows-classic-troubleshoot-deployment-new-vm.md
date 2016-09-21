@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="06/20/2016"
+  ms.date="09/06/2016"
   ms.author="cjiang"/>
 
 # Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Windows no Azure
@@ -84,4 +84,4 @@ Dependendo das restrições do serviço de nuvem usado para criar a nova VM, voc
 ## Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/08/2016" 
+	ms.date="08/08/2016" 
 	ms.author="heidist"/>
 
 # Introdução à API REST de Gerenciamento de Pesquisa do Azure
@@ -136,10 +136,10 @@ Se você ainda não [baixou o aplicativo de exemplo do Github](https://github.co
 	![][9]
 
 5. Forneça o `TenantID.`
-	- Volte para Active Directory | SearchTutorial (serviço). 
-	- Clique em **Aplicativos** na barra superior. 
-	- Clique em **Visualizar Pontos de Extremidade** na parte inferior da página. 
-	- Copie o Ponto de Extremidade de Autorização OAUTH 2.0 na parte inferior da lista. 
+	- Volte para Active Directory | SearchTutorial (serviço).
+	- Clique em **Aplicativos** na barra superior.
+	- Clique em **Visualizar Pontos de Extremidade** na parte inferior da página.
+	- Copie o Ponto de Extremidade de Autorização OAUTH 2.0 na parte inferior da lista.
 	- Cole o ponto de extremidade em TenantID, cortando o valor de todos os parâmetros URI, exceto a ID do locatário.
 
     Dado "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", exclua tudo, exceto "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
@@ -158,17 +158,17 @@ Se você ainda não [baixou o aplicativo de exemplo do Github](https://github.co
 
 Adicione um ponto de interrupção na primeira chamada de método para que você possa percorrer o programa. Pressione **F5** para executar o aplicativo e pressione **F11** para percorrer o código.
 
-O aplicativo de exemplo cria um serviço gratuito de Pesquisa do Azure para uma assinatura do Azure existente. Se já existir um serviço gratuito para sua assinatura, o aplicativo de exemplo falhará. É permitido somente um serviço gratuito de Pesquisa por assinatura.
+O aplicativo de exemplo cria um serviço Azure Search gratuito para uma assinatura do Azure existente. Se já existir um serviço gratuito para sua assinatura, o aplicativo de exemplo falhará. É permitido somente um serviço Search gratuito por assinatura.
 
-1. Abra Program.cs no Gerenciador de Soluções e acesse a função Main(string void). 
+1. Abra Program.cs no Gerenciador de Soluções e acesse a função Main(string void).
  
 3. Observe que **ExecuteArmRequest** é usado para executar solicitações com relação ao ponto de extremidade do Gerenciador de Recursos do Azure, `https://management.azure.com/subscriptions` para uma `subscriptionID` especificada. Esse método é usado em todo o programa para executar operações usando a API do Gerenciador de Recursos ou a API de gerenciamento de Pesquisa.
 
 3. Solicitações para o Gerenciador de Recursos do Azure devem ser autenticadas e autorizadas. Isso é feito usando o método **GetAuthorizationHeader** chamado pelo método **ExecuteArmRequest**, emprestado da [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx). Observe que **GetAuthorizationHeader** chama `https://management.core.windows.net` para obter um token de acesso.
 
-4. Você precisará entrar com um nome de usuário e senha válidos para sua assinatura.
+4. Será solicitado que você entre com um nome de usuário e uma senha válidos para sua assinatura.
 
-5. Em seguida, um novo serviço de Pesquisa do Azure será registrado com o provedor do Gerenciador de Recursos do Azure. Novamente, esse é o método **ExecuteArmRequest**, usado neste momento para criar o serviço de Pesquisa no Azure para sua assinatura por meio de `providers/Microsoft.Search/register`.
+5. Em seguida, um novo serviço de Pesquisa do Azure será registrado com o provedor do Gerenciador de Recursos do Azure. Novamente, esse é o método **ExecuteArmRequest**, usado neste momento para criar o serviço Search no Azure para sua assinatura por meio de `providers/Microsoft.Search/register`.
 
 6. O restante do programa usa a [API REST de Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx). Observe que a `api-version` para essa API é diferente da versão de api do Gerenciador de Recursos do Azure. Por exemplo, `/listAdminKeys?api-version=2014-07-31-Preview` mostra o `api-version` da API REST de Gerenciamento de Pesquisa do Azure.
 
@@ -208,4 +208,4 @@ Depois de ter concluído este tutorial, você pode querer saber mais sobre geren
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

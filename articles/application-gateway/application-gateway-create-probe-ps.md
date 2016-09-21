@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Criar uma investigação personalizada para o Azure Application Gateway usando o PowerShell do Gerenciador de Recursos do Azure
@@ -23,8 +23,6 @@
 - [Portal do Azure](application-gateway-create-probe-portal.md)
 - [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-
-<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -45,25 +43,23 @@ Use Login-AzureRmAccount para se autenticar.
 
 Verificar as assinaturas da conta.
 
-		get-AzureRmSubscription
-
-Você deve se autenticar com suas credenciais.<BR>
+	Get-AzureRmSubscription
 
 ### Etapa 3
 
 Escolha quais das suas assinaturas do Azure deseja usar.<BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Etapa 4
 
-Crie um novo grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
+Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Application Gateway usam o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Application Gateway usam o mesmo grupo de recursos.
 
 No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o local "Oeste dos EUA".
 
@@ -89,7 +85,7 @@ Crie uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a
 
 Atribua uma variável de sub-rede para as próximas etapas, o que criará um gateway de aplicativo.
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 ## Criar um endereço IP público para a configuração de front-end
 
@@ -101,8 +97,7 @@ Crie um recurso de IP público "publicIP01" no grupo de recursos "appgw-rg" para
 
 ## Criar um objeto de configuração do gateway de aplicativo com uma investigação personalizada
 
-Você precisa configurar todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
-
+Configure todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
 ### Etapa 1
 
@@ -114,7 +109,7 @@ Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Qu
 ### Etapa 2
 
 
-Configure o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
+Configure o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses valores são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP acima para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -126,22 +121,20 @@ A investigação personalizada é configurada nesta etapa.
 
 Os parâmetros usados são:
 
-- **-Interval**: configura as verificações de intervalo de investigação em segundos.
-- **-Timeout**: define o tempo limite da investigação para uma verificação de resposta HTTP.
-- **-Hostname e -path**: caminho completo da URL invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
-- **-UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
+- **Interval**: configura as verificações de intervalo de investigação em segundos.
+- **Timeout**: define o tempo limite da investigação para uma verificação de resposta HTTP.
+- **-Hostname e path**: caminho completo da URL invocado pelo Application Gateway para determinar a integridade da instância. Por exemplo, se você tiver um site http://contoso.com/, a investigação personalizada poderá ser configurada para "http://contoso.com/path/custompath.htm" para verificações de investigação com uma resposta HTTP bem-sucedida.
+- **UnhealthyThreshold**: o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
 
 <BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-
 ### Etapa 4
 
-Define a configuração "poolsetting01" do gateway de aplicativo para o tráfego no pool de back-end. Esta etapa também tem uma configuração de tempo limite para a resposta do pool de back-end a uma solicitação do gateway de aplicativo. Quando uma resposta de back-end atinge um tempo limite, o Application Gateway cancela a solicitação. Isso é diferente de um tempo limite de investigação, que é apenas para a resposta de back-end às verificações de investigação.
+Define a configuração "poolsetting01" do gateway de aplicativo para o tráfego no pool de back-end. Esta etapa também tem uma configuração de tempo limite para a resposta do pool de back-end a uma solicitação do gateway de aplicativo. Quando uma resposta de back-end atinge um tempo limite, o Application Gateway cancela a solicitação. Esse valor é diferente de um tempo limite de investigação, que é apenas para a resposta de back-end às verificações de investigação.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
-
 
 ### Etapa 5
 
@@ -213,7 +206,7 @@ Adicione a investigação à configuração do pool de back-end e o tempo limite
 
 Salve a configuração no Application Gateway usando **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Remover uma investigação de um Application Gateway existente
 
@@ -237,12 +230,16 @@ Remova a configuração de investigação do Application Gateway usando **Remove
 Atualize a configuração do pool de back-end para remover a configuração de investigação e tempo limite usando **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
-	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Etapa 4
 
 Salve a configuração no Application Gateway usando **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
-<!---HONumber=AcomDC_0810_2016-->
+## Próximas etapas
+
+Saiba como configurar o descarregamento de SSL ao visitar [Configurar descarregamento de SSL](application-gateway-ssl-arm.md)
+
+<!---HONumber=AcomDC_0907_2016-->

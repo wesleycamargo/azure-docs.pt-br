@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar seu primeiro data factory (modelo do Resource Manager) | Microsoft Azure"
-	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Gerenciador de Recursos do Azure."
+	description="Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -18,27 +18,20 @@
 
 # Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager
 > [AZURE.SELECTOR]
-- [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
-- [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
-- [Usando a API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Neste artigo, você aprende a usar os modelos do Azure Resource Manager para criar seu primeiro data factory do Azure.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
+## Pré-requisitos adicionais
+Além dos pré-requisitos listados na seção de pré-requisitos acima, instale o seguinte:
 
-## Pré-requisitos
-Além dos pré-requisitos listados no tópico Visão Geral do Tutorial, você precisa instalar o seguinte:
-
-- Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de pré-requisito antes de continuar.
 - **Instale o Azure PowerShell**. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para instalar a última versão do Azure PowerShell no computador.
-- Este artigo não fornece uma visão geral conceitual do serviço Azure Data Factory. Para obter uma visão geral detalhada do serviço, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md).
 - Veja [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
-
-> [AZURE.IMPORTANT]
-Conclua as etapas de pré-requisito na [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) para fazer o passo a passo deste artigo.
 
 ## Criar um modelo do Resource Manager
 
@@ -46,8 +39,8 @@ Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetSta
 
 O modelo permite que você crie as seguintes entidades do Data Factory.
 
-1. Um **data factory** chamado **TutorialDataFactoryARM**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar os dados de entrada em dados de saída do produto.
-2. Dois **serviços vinculados**: **StorageLinkedService** e **HDInsightOnDemandLinkedService**. Esses serviços vinculados vincularão a conta do Armazenamento do Azure e o cluster do Azure HDInsight sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar o script do Hive especificado na atividade do pipeline neste exemplo. Você precisa identificar quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
+1. Um **data factory** chamado **TutorialDataFactoryARM**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar dados de entrada.
+2. Dois **serviços vinculados**: **StorageLinkedService** e **HDInsightOnDemandLinkedService**. Esses serviços vinculados vincularão a conta do Armazenamento do Azure e o cluster do Azure HDInsight sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar o script do Hive especificado na atividade do pipeline neste exemplo. Identifique quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
 3. Dois **conjuntos de dados** (entrada/saída): **AzureBlobInput** e **AzureBlobOutput**. Esses conjuntos de dados representam os dados de entrada e de saída para o processamento do Hive. Esses conjuntos de dados fazem referência ao **StorageLinkedService** que você criou anteriormente neste tutorial. O serviço vinculado aponta para uma conta do Armazenamento do Azure e os conjuntos de dados especificam o contêiner, a pasta e o nome do arquivo no armazenamento que contém os dados de entrada e de saída.
 
 Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo com detalhes sobre as propriedades JSON usadas neste modelo.
@@ -222,7 +215,7 @@ Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo q
 Observe o seguinte:
 
 - O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
-- Você pode usar **seu próprio cluster HDInsight** em vez de usar um cluster HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+- Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
 - O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado em JSON (**linkedServiceName**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído.
 
 	Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: "adf**nomedafábricadedados**-**nomedoserviçovinculado**-carimbodedatahora". Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](http://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
@@ -242,7 +235,7 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 ## Monitorar o pipeline
  
-1.	Depois de fazer logon no [Portal do Azure](https://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. ![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Depois de fazer logon no [portal do Azure](https://portal.azure.com/), clique em **Procurar** e selecione **Data factories**. ![Procurar-> Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	Na folha **Data Factories**, clique no data factory (**TutorialFactoryARM**) que você criou.
 2.	Na folha **Data Factory** do seu data factory, clique em **Diagrama**. ![Bloco Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	Na **Exibição de Diagrama**, você tem uma visão geral dos pipelines e dos conjuntos de dados usados neste tutorial.
@@ -263,7 +256,7 @@ Você também pode usar Monitorar e gerenciar aplicativos para monitorar os pipe
 > [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
 
 ## Modelo do Resource Manager para criar um gateway
-Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógico na parte traseira. Você precisa instalar um gateway em seu computador local ou na VM IaaS do Azure e registrar o gateway no serviço Data Factory usando uma chave. Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes.
+Aqui está um exemplo de modelo do Resource Manager para criar um gateway lógico na parte traseira. Instale um gateway em seu computador local ou na VM IaaS do Azure e registrar o gateway no serviço Data Factory usando uma chave. Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -309,4 +302,4 @@ O modelo cria uma data factory chamada GatewayUsingArmDF com um gateway chamado:
 
   
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

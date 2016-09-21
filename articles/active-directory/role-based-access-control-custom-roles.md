@@ -63,7 +63,7 @@ A propriedade **Actions** de uma função personalizada especifica as operaçõe
 Use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para listar as operações dos provedores de recursos do Azure. Você também pode usar esses comandos para verificar se uma cadeia de operação é válida e para expandir as cadeias de operação curinga.
 
 ```
-Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
@@ -103,7 +103,7 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 
 - Quem pode exibir funções personalizadas? Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição. Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo.
 
-## Consulte também
+## Confira também
 - [Controle de Acesso com Base em Funções](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 - Saiba como gerenciar o acesso com:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
@@ -111,4 +111,4 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Funções internas](role-based-access-built-in-roles.md): obtenha detalhes sobre as funções que são incluídas por padrão no RBAC.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

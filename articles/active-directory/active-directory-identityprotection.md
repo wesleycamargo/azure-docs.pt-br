@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -24,9 +24,6 @@ O Azure Active Directory Identity Protection é um serviço de segurança que fo
 ## Limitações da visualização atual
 Esta seção lista as limitações que se aplicam à visualização atual do Azure Active Directory Identity Protection.
 
-### Limitação de país ou região
-
-A visualização do Azure Active Directory Identity Protection está disponível atualmente apenas para diretórios com um valor **país ou região** **Estados Unidos**. <br><br> ![Correção](./media/active-directory-identityprotection/222.png "Correção")
 
 
 ### Identity Protection e domínios federados
@@ -102,7 +99,7 @@ Alguns desses eventos de risco estão disponíveis por meio dos relatórios de A
 | Entradas de dispositivos infectados | Entradas de dispositivos possivelmente infectados |
 | Entradas de endereços IP anônimos | Entradas de fontes desconhecidas |
 | Entradas de endereços IP com atividade suspeita |	Entradas de endereços IP com atividade suspeita |
-| Entradas de locais desconhecidos | - |
+| Entradas de locais desconhecidos | - | 
 | Eventos de bloqueio (que não estão na preview pública) | - |
 
 Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no Portal de Gerenciamento do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
@@ -236,29 +233,29 @@ Uma política de segurança de risco do usuário é uma política de acesso cond
 
 O Azure AD Identity Protection ajuda a gerenciar a mitigação e correção de usuários sinalizados para riscos, permitindo:
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/501.png "Política de risco do usuário")
+- definir os usuários e grupos aos quais a política se aplica: 
+<br><br> 
+![Política de risco do usuário](./media/active-directory-identityprotection/501.png "Política de risco do usuário") 
 <br>
 
-- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara uma alteração de senha:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/502.png "Política de risco do usuário")
+- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara uma alteração de senha: 
+<br><br> 
+![Política de risco do usuário](./media/active-directory-identityprotection/502.png "Política de risco do usuário") 
 <br>
 
-- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara o bloqueio de um usuário:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/503.png "Política de risco do usuário")
- <br>
-
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
+- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara o bloqueio de um usuário: 
+<br><br> 
+![Política de risco do usuário](./media/active-directory-identityprotection/503.png "Política de risco do usuário") 
 <br>
 
-- examinar e avaliar o impacto de uma alteração antes de ativá-la:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/504.png "Política de risco do usuário")
+- alternar o estado de sua política: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA") 
+<br>
+
+- examinar e avaliar o impacto de uma alteração antes de ativá-la: 
+<br><br> 
+![Política de risco do usuário](./media/active-directory-identityprotection/504.png "Política de risco do usuário") 
 <br>
 
 
@@ -321,26 +318,26 @@ Uma política de segurança de risco de entrada é uma política de acesso condi
 
 O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arriscadas, permitindo:
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/701.png "Política de risco de entrada")
+- definir os usuários e grupos aos quais a política se aplica: 
+<br><br> 
+![Política de risco de entrada](./media/active-directory-identityprotection/701.png "Política de risco de entrada") 
 <br>
 
 - definir o limite do nível de risco de credenciais (baixo, médio ou alto) que dispara um desafio de autenticação multifator para as entradas afetadas: <br><br> ![Política de risco de entrada](./media/active-directory-identityprotection/702.png "Política de risco de entrada") <br>
 
-- definir o limite de nível de risco de credenciais (baixo, médio ou alto) que bloqueia as entradas afetadas:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/703.png "Política de risco de entrada")
+- definir o limite de nível de risco de credenciais (baixo, médio ou alto) que bloqueia as entradas afetadas: 
+<br><br> 
+![Política de risco de entrada](./media/active-directory-identityprotection/703.png "Política de risco de entrada") 
 <br>
 
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
- <br>
+- alternar o estado de sua política: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA") 
+<br>
 
-- examinar e avaliar o impacto de uma alteração antes de ativá-la:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/704.png "Política de risco de entrada")
+- examinar e avaliar o impacto de uma alteração antes de ativá-la: 
+<br><br> 
+![Política de risco de entrada](./media/active-directory-identityprotection/704.png "Política de risco de entrada") 
 <br>
 
  
@@ -405,24 +402,24 @@ Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](.
 
 O Azure AD Identity Protection ajuda a gerenciar a implementação do registro de autenticação multifator configurando uma política que permite:
 
-- exibir o status atual do registro:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/603.png "Registro de MFA")
+- exibir o status atual do registro: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/603.png "Registro de MFA") 
 <br>
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/601.png "Registro de MFA")
+- definir os usuários e grupos aos quais a política se aplica: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/601.png "Registro de MFA") 
 <br>
 
-- definir por quanto tempo eles têm permissão para ignorar o registro:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/602.png "Registro de MFA")
+- definir por quanto tempo eles têm permissão para ignorar o registro: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/602.png "Registro de MFA") 
 <br>
 
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
+- alternar o estado de sua política: 
+<br><br> 
+![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA") 
 <br>
 
 Para obter uma visão geral da experiência do usuário relacionada, confira:
@@ -455,4 +452,4 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
  - [Glossário do Azure Active Directory Identity Protection.](active-directory-identityprotection-glossary.md)
  - [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

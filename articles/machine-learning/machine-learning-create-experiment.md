@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -153,7 +153,7 @@ Como desejamos prever o preço, que é um número, usaremos um modelo de regress
 
 1. Usamos nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir Dados][split] até a tela do teste e conecte-o à porta de saída do último módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
 
-	> [AZURE.TIP] Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudoaleatório.
+	> [AZURE.TIP] Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudo-aleatório.
 
 2. Execute o experimento. Isso permite que os módulos [Selecionar Colunas no Conjunto de Dados][select-columns] e [Dividir Dados][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
 
@@ -246,4 +246,4 @@ Para obter um passo a passo maior e detalhado das técnicas de modelagem de prev
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

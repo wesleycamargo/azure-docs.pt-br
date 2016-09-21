@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # Como iniciar uma análise de acesso no Azure AD Privileged Identity Management
 
-As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de função com privilégios devem revisar regularmente as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de segurança no Azure AD PIM (Privileged Identity Management).
+As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de função com privilégios devem revisar regularmente as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de acesso no Azure AD Privileged Identity Management (PIM).
 
-## Iniciar uma revisão de segurança:
+## Iniciar uma revisão de acesso
 > [AZURE.NOTE] Se você não adicionou o aplicativo PIM ao painel no portal do Azure, consulte as etapas em [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) (Introdução ao Azure Privileged Identity Management)
 
-Na página principal do aplicativo PIM, há três maneiras de iniciar uma revisão de segurança:
+Na página principal do aplicativo PIM, há três maneiras de iniciar uma revisão de acesso:
 
 - **Revisões de acesso** > **Adicionar**
 - **Funções** > botão **Examinar**
@@ -53,13 +53,14 @@ Cada análise se concentra em apenas uma função. A menos que tenha iniciado a 
 
 ### Decidir quem executará a análise
 
-Há duas opções para executar uma análise. Você pode fazer isso sozinho, aprovando ou negando acesso para todos os usuários em uma função. Ou, você pode fazer com que cada usuário examine seu próprio acesso.
+Há três opções para executar uma análise. Você pode atribuir a revisão a alguém para ser concluída, pode fazer isso por conta própria ou deixar que cada usuário revise seu próprios acesso.
 
 1. Navegue até **Selecionar revisores**
 
     ![Selecionar revisores – captura de tela][4]
 
 2. Escolha uma das opções:
+    - **Selecionar revisor**: use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
     - **Me (Eu)**: útil se você deseja visualizar como as análises de acesso funcionam ou se deseja realizar a análise em nome de pessoas que não podem fazê-lo.
     - **Members review themselves (Os membros realizam a própria análise)**: use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
 
@@ -87,4 +88,4 @@ Até o período de análise terminar, você pode lembrar os usuários de conclui
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

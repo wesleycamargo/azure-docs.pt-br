@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Criar um Application Gateway usando o portal
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O aplicativo fornece muitos recursos do Controlador de Entrega de Aplicativos (ADC), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de Secure Sockets Layer (SSL), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Application Gateway](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](application-gateway-create-gateway-portal.md)
@@ -27,10 +27,6 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Modelo do Azure Resource Manager ](application-gateway-create-gateway-arm-template.md)
 - [CLI do Azure](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## Cenário
 
@@ -75,7 +71,6 @@ As informações necessárias para as configurações básicas são:
 
 >[AZURE.NOTE] É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Gateways pequenos devem ser usados para teste de desenvolvimento e não para fins de produção.
 
-
 ### Etapa 3
 
 Quando as configurações básicas forem definidas, a próxima etapa será definir a rede virtual a ser usada. A rede virtual contém o aplicativo para o qual o gateway de aplicativo faz balanceamento de carga.
@@ -88,7 +83,7 @@ Clique em **Escolher uma rede virtual** para configurar a rede virtual.
 
 Na folha *Escolher Rede Virtual*, clique em **Criar Novo**
 
-*Enquanto não é explicada neste cenário, uma Rede Virtual existente pode ser selecionada neste momento*
+Enquanto não é explicada neste cenário, uma Rede Virtual existente pode ser selecionada neste momento. Se uma rede virtual existente for usada, é importante saber que a rede virtual precisa uma sub-rede vazia ou uma sub-rede somente com recursos de gateway de aplicativo a serem usados.
 
 ![escolher folha da rede virtual][4]
 
@@ -147,7 +142,7 @@ Estas etapas criam um gateway de aplicativo básico com configurações padrão 
 
 Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
 
-Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL cara longe dos seus servidores Web visitando [Configurar Descarregamento de SSL](application-gateway-ssl-arm.md)
+Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL cara longe dos seus servidores Web visitando [Configurar Descarregamento de SSL](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
@@ -162,4 +157,4 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

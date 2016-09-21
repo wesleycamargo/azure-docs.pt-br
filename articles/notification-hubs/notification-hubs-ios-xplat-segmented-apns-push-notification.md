@@ -23,7 +23,7 @@
 
 ##Visão geral
 
-Este tópico mostra como usar os Hubs de Notificação do Azure para transmitir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc.
+Este tópico mostra como usar os Hubs de Notificação do Azure para difundir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas; por ex., leitor de RSS, aplicativos para fãs de música, etc.
 
 Os cenários de transmissão são habilitados por meio da inclusão de um ou mais _rótulos_ durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para um rótulo, todos os dispositivos que foram registrados para o rótulo receberão a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre marcas, consulte [Expressões de Marca e Roteamento dos Hubs de Notificação](notification-hubs-tags-segment-push-message.md).
 
@@ -134,7 +134,7 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 
 		self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
 
-	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
+	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço de back-end seguro para enviar notificações e alterar os registros existentes.
 
 
 9. No método **didRegisterForRemoteNotificationsWithDeviceToken** no AppDelegate.m, substitua o código no método com o código a seguir para passar o token do dispositivo para a classe de notificações. A classe notificações executará o registro para notificações nas categorias. Se o usuário altera as seleções de categoria, podemos chamar o método `subscribeWithCategories` em resposta ao botão **assinar** para atualizá-los.
@@ -361,7 +361,7 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: notification-hubs-ios-send-localized-breaking-news.md
+[Usar os Hubs de Notificação para transmitir as últimas notícias localizadas]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
@@ -369,4 +369,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [Portal Clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

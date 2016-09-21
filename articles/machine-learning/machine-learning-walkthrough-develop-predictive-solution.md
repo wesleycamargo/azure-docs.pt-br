@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -43,4 +43,4 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 
 Este passo a passo se baseia em uma versão simplificada do teste de exemplo [Classificação Binária: previsão do risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

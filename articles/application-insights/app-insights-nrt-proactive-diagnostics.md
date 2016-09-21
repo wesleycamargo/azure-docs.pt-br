@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diagnóstico Proativo Quase em Tempo Real no Application Insights" 
+	pageTitle="Diagnóstico proativo quase em tempo real no Application Insights | Microsoft Azure" 
 	description="Alerta sobre padrões de falha incomuns em seu aplicativo e fornece a análise do diagnóstico. Nenhuma configuração é necessária." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@ O [Visual Studio Application Insights](app-insights-overview.md) enviará uma no
 
 Esse recurso funciona para aplicativos Web Java e ASP.NET, hospedados na nuvem ou em seus próprios servidores. Ele também funciona para qualquer aplicativo que gere telemetria de solicitação - por exemplo, se você tiver uma função de trabalho que chame [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Depois de configurar o [Application Insights para seu projeto](app-insights-get-started.md), e desde que o aplicativo gere certa quantidade mínima de telemetria, o Diagnóstico Proativo NRT levará 24 horas para aprender o comportamento normal do aplicativo antes que ele seja ligado e possa enviar alertas.
+Depois de configurar o [Application Insights para seu projeto](app-insights-overview.md), e desde que o aplicativo gere certa quantidade mínima de telemetria, o Diagnóstico Proativo NRT levará 24 horas para aprender o comportamento normal do aplicativo antes que ele seja ligado e possa enviar alertas.
 
 Veja a seguir um exemplo do alerta.
 
@@ -121,14 +121,14 @@ O Diagnóstico Proativo NRT complementa outros recursos distintos, mas parecidos
 
     O Diagnóstico Proativo NRT ajusta automaticamente seu limite em resposta às condições predominantes.
 
-    O Diagnóstico Proativo NRT inicia o trabalho de diagnóstico para você. 
+    O Diagnóstico Proativo NRT inicia o trabalho de diagnóstico para você.
 * A [Detecção Proativa](app-insights-proactive-detection.md) também usa a inteligência de máquina para descobrir padrões incomuns em suas métricas, sem qualquer necessidade de configuração da sua parte. Mas, ao contrário dos Diagnósticos Proativos NRT, a finalidade da Detecção proativa é localizar segmentos de sua utilização diversa que podem estar sendo atendidos de forma inadequada, por exemplo, por páginas específicas em um tipo específico de navegador. A análise é realizada diariamente e, se qualquer resultado for encontrado, provavelmente será muito menos urgente do que um alerta. Por outro lado, a análise do Diagnóstico Proativo NRT é executada continuamente na telemetria recebida, e você receberá uma notificação em questão de minutos, se as taxas de falha do servidor forem maiores do que o esperado.
 
 ## Se você receber um alerta do Diagnóstico Proativo NRT
 
 *Por que eu recebei esse alerta?*
 
-*	Foi detectado um aumento anormal de solicitações com falha em comparação à linha de base normal do período anterior. Após a análise das falhas e a telemetria associada, acreditamos que há um problema que você deve examinar. 
+*	Foi detectado um aumento anormal de solicitações com falha em comparação à linha de base normal do período anterior. Após a análise das falhas e a telemetria associada, acreditamos que há um problema que você deve examinar.
 
 *A notificação significa que, definitivamente, tenho um problema?*
 
@@ -144,7 +144,7 @@ O Diagnóstico Proativo NRT complementa outros recursos distintos, mas parecidos
 
 *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
 
-*	Sim, em Regras de alerta, clique na regra Diagnóstico Proativo para configurá-lo. Você pode desabilitar o alerta ou alterar os destinatários do alerta. 
+*	Sim, em Regras de alerta, clique na regra Diagnóstico Proativo para configurá-lo. Você pode desabilitar o alerta ou alterar os destinatários do alerta.
 
 *Perdi o email. Onde posso encontrar as notificações no portal?*
 
@@ -159,4 +159,17 @@ O Diagnóstico Proativo NRT complementa outros recursos distintos, mas parecidos
 
 *Estamos muito interessados em saber sua opinião sobre isso. Envie seus comentários para:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Próximas etapas
+
+Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
+
+* [Metrics explorer](app-insights-metrics-explorer.md)
+* [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
+* [Analytics - linguagem de consulta poderosa](app-insights-analytics-tour.md)
+
+As detecções proativas são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
+
+* [Alertas de métrica configurados manualmente](app-insights-alerts.md)
+* [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
+
+<!---HONumber=AcomDC_0907_2016-->

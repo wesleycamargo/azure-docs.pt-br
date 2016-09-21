@@ -19,7 +19,9 @@
 
 # Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
 
-O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) tem várias camadas de serviço para lidar com cargas de trabalho diferentes. Você pode [alterar os níveis de serviço](sql-database-scale-up.md) a qualquer momento com tempo de inatividade mínimo para seu aplicativo (tempo médio de quatro segundos). Você também pode [criar um banco de dados individual](sql-database-get-started.md) com características e preços definidos. Ou você pode gerenciar vários bancos de dados [criando um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md). Em ambos os casos, as camadas incluem **Básica**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados autônomos e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados autônomos e pools elásticos.
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece três camadas de serviço com vários níveis de desempenho a fim de lidar com cargas de trabalho diferentes. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, projetado para fornecer uma taxa de transferência crescente. Você pode gerenciar cada banco de dados em sua própria [camada de serviço](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) com seu próprio nível de desempenho. Você também pode gerenciar vários bancos de dados em um [pool Elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) com um conjunto compartilhado de recursos. Os recursos disponíveis para bancos de dados autônomos são expressos em termos de DTUs (Unidades de transação de banco de dados), e para pools elásticos em termos de DTUs elásticos, ou eDTUs. Para saber mais sobre DTUs e eDTUs, confira [O que é um DTU](sql-database-what-is-a-DTU.md).
+
+Nos dois casos, as camadas de serviço incluem **Básico**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados autônomos e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados autônomos e pools elásticos.
 
 ## Opções de camadas de serviço e banco de dados
 Todas as camadas de serviço, Basic, Standard e Premium têm um SLA de tempo de atividade de 99,99% e oferecem desempenho previsível, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
@@ -39,8 +41,6 @@ As características de desempenho listadas aqui se aplicam a bancos de dados cri
 
 [AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
 
-Para entender melhor as DTUs, veja a [seção DTUs](#understanding-dtus) neste tópico.
-
 >[AZURE.NOTE] Para obter uma explicação detalhada de todas as outras linhas nesta tabela de camadas de serviço, consulte [Limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Camadas de serviço e desempenho em eDTUs do pool elástico
@@ -53,10 +53,6 @@ A tabela a seguir descreve as características das camadas de serviço do pool.
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para pools elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Cada banco de dados dentro de um pool também cumpre as características do banco de dados autônomo para essa camada. Por exemplo, o pool Basic tem um limite máximo de sessões por pool de 4800 a 28800, mas um banco de dados individual dentro de um pool Básico tem um limite de banco de dado de 300 sessões.
-
-## Noções básicas sobre DTUs
-
-[AZURE.INCLUDE [Descrição de DTU de Banco de Dados SQL](../../includes/sql-database-understanding-dtus.md)]
 
 ## Como escolher uma camada de serviço
 
@@ -92,4 +88,4 @@ Depois de determinar a camada de serviço para o pool, você estará pronto para
 
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

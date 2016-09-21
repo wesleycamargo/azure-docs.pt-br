@@ -26,7 +26,7 @@
 
 <BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
@@ -47,35 +47,13 @@ Para criar o gateway, use o cmdlet **New-AzureApplicationGateway**, substituindo
 
 O exemplo a seguir cria um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede chamada "subnet-1".
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway**.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Small, Medium e Large.
-
 
  *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
@@ -87,10 +65,9 @@ Você pode configurar o Application Gateway usando XML ou um objeto de configura
 
 No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.
 
-### Etapa 1  
+### Etapa 1
 
 Copie o seguinte texto no bloco de notas.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@ O exemplo a seguir mostra como usar um arquivo de configuração configurando o 
 
 >[AZURE.IMPORTANT] O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
 
-
 Um novo item de configuração <Probe> é adicionado para configurar investigações personalizadas.
 
 Os parâmetros de configuração são:
@@ -183,7 +159,7 @@ Alterar a configuração atual de um Application Gateway exige três etapas: obt
 
 Obtenha o arquivo XML usando get-AzureApplicationGatewayConfig. Isso exporta o XML de configuração a ser modificada para adicionar uma configuração de investigação.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Etapa 2
@@ -200,6 +176,7 @@ Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 Na seção backendHttpSettings do XML, adicione o nome da investigação como mostrado no exemplo a seguir:
 
@@ -214,12 +191,11 @@ Na seção backendHttpSettings do XML, adicione o nome da investigação como mo
 
 Salve o arquivo XML.
 
-
 ### Etapa 3
 
 Atualize a configuração do Application Gateway com o novo arquivo XML usando **Set-AzureApplicationGatewayConfig**. Isso atualiza seu Application Gateway com a nova configuração.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Próximas etapas
@@ -228,4 +204,4 @@ Se você quiser configurar o descarregamento de protocolo SSL, consulte [Configu
 
 Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

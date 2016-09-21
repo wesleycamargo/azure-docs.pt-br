@@ -1,25 +1,25 @@
 #### Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
 
-| | **Baseado em rota** | **Baseado em política** |
-|-----------------------------------|--------------------|------------------|
-| **Site a site** | sim | sim |
-| **Rede Virtual a Rede Virtual** | sim | não |
-| **Multissite** | sim | não |
-| **Coexistência do S2S e da Rota Expressa** | ainda não disponível | não |
-| **Ponto a Site** | sim | não |
-| **Clássico para o Gerenciador de Recursos** | sim | não |
+| | **RouteBased** | **PolicyBased** |
+|-----------------------------------|-------------|------------------|
+| **Site a site** | Suportado | Suportado |
+| **Rede Virtual a Rede Virtual** | Suportado | Sem suporte |
+| **Multissite** | Suportado | Sem suporte |
+| **Coexistência do S2S e da Rota Expressa** | Suportado | Sem suporte |
+| **Ponto a Site** | Suportado | Sem suporte |
+| **Clássico para o Gerenciador de Recursos** | Suportado | Sem suporte |
 
 
 #### Tipo de VPN – modelo de implantação clássico.
 
 
 | | **Dinâmico** | **Estático** |
-|---------------------------------------------|--------------------|--------------|
-| **Site a site** | sim | sim |
-| **Rede Virtual a Rede Virtual** | sim | não |
-| **Multissite** | sim | não |
-| **Coexistência do S2S e da Rota Expressa** | sim | não |
-| **Ponto a Site** | sim | não |
-| **Clássico para o Gerenciador de Recursos** | sim | não |
+|---------------------------------------------|--------------|--------------|
+| **Site a site** | Suportado | Suportado |
+| **Rede Virtual a Rede Virtual** | Suportado | Sem suporte |
+| **Multissite** | Suportado | Sem suporte |
+| **Coexistência do S2S e da Rota Expressa** | Suportado | Sem suporte |
+| **Ponto a Site** | Suportado | Sem suporte |
+| **Clássico para o Gerenciador de Recursos** | Suportado | Sem suporte |
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -18,7 +18,7 @@
 
 # Usando o Azure PowerShell com o Gerenciador de Recursos do Azure
 
-O Gerenciador de Recursos do Azure introduz uma maneira completamente nova de pensar sobre os recursos do Azure. Em vez de criar e gerenciar recursos individuais, você começa imaginando uma solução inteira, como um blog, uma galeria de fotos, um portal do SharePoint ou um wiki. Use um modelo – uma representação declarativa da solução – para criar um grupo de recursos que contém todos os recursos que necessários para dar suporte à solução. Em seguida, você gerencia e implanta esse grupo de recursos como uma unidade lógica.
+O Azure Resource Manager implementa uma abordagem moderna no controle de ciclo de vida de recursos do Azure. Em vez de criar e gerenciar recursos individuais, você começa imaginando uma solução inteira, como um blog, uma galeria de fotos, um portal do SharePoint ou um wiki. Use um modelo – uma representação declarativa da solução – para definir um grupo de recursos que contém todos os recursos que necessários para dar suporte à solução. Em seguida, você gerencia e implanta esse grupo de recursos como uma unidade lógica.
 
 Neste tutorial, você aprenderá a usar o Azure PowerShell com o Azure Resource Manager. Ele orienta você pelo processo de implantação de uma solução e ajuda a trabalhar com essa solução. Você usará o Azure PowerShell e um modelo do Resource Manager para implantar:
 
@@ -376,4 +376,4 @@ Os exemplos de implantação anteriores neste tópico mostraram apenas os cmdlet
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

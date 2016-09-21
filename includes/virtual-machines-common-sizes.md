@@ -163,7 +163,7 @@ MBps = 10^6 bytes por segundo.
 
 | Tamanho | Núcleos de CPU | Memória: GiB | Tamanho do disco de SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | NICs máximas / largura de banda da rede |
 |------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
-| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4\.000 / 32 (43) | 3\.200 / 48 | 4 moderada |
+| Standard\_DS1\_v2 | 1 | 3,5 | 7 | 2 | 4\.000 / 32 (43) | 3\.200 / 48 | Um moderado |
 | Standard\_DS2\_v2 | 2 | 7 | 14 | 4 | 8\.000 / 64 (86) | 6\.400 / 96 | 2 alta |
 | Standard\_DS3\_v2 | 4 | 14 | 28 | 8 | 16\.000 / 128 (172) | 12\.800 / 192 | 4 alta |
 | Standard\_DS4\_v2 | 8 | 28 | 56 | 16 | 32\.000 / 256 (344) | 25\.600 / 384 | 8 alta |
@@ -285,4 +285,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/06/2016" 
 	ms.author="spelluru"/>
 
 
@@ -22,12 +22,25 @@
 - [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Usando o aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md)
 
-O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. Ele ajuda a avaliar rapidamente a integridade de dados de ponta a ponta do pipeline, identificar problemas e tomar uma ação corretiva, se necessário. Você também pode controlar visualmente a linhagem de dados e as relações entre os dados em qualquer uma de suas fontes e ver um histórico completo de execução de trabalhos, integridade do sistema e dependências em um único painel de monitoramento.
+O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. O serviço oferece ajuda do painel de monitoramento que você pode usar para realizar o seguinte:
+
+- Avaliar rapidamente a integridade de dados de ponta a ponta do pipeline.
+- Identificar problemas e tomar uma ação corretiva, se necessário.
+- Acompanhar a linhagem de dados.
+- Acompanhar relações entre seus dados através de qualquer uma das suas fontes.
+- Exibir um histórico de estatísticas de execução do trabalho, a integridade do sistema e as dependências.
 
 Este artigo descreve como monitorar, gerenciar e depurar seus pipelines. Ele também fornece informações sobre como criar alertas e ser notificado sobre falhas.
 
 ## Entenda os pipelines e os estados de atividade
-Com o Portal do Azure, você pode exibir seu data factory como um diagrama, exibir atividades em um pipeline, exibir conjuntos de dados de entrada e saída e muito mais. Esta seção também explica como uma fatia faz a transição de um estado para outro estado.
+Ao usar o portal do Azure, você também pode fazer o seguinte:
+
+- Exibir sua data factory como um diagrama
+- Exibir atividades dentro de um pipeline
+- Exibir conjuntos de dados de entrada e saída
+- e mais.
+
+Esta seção também explica como uma fatia faz a transição de um estado para outro estado.
 
 ### Navegue até sua data factory
 1.	Entre no [Portal do Azure](https://portal.azure.com).
@@ -35,7 +48,7 @@ Com o Portal do Azure, você pode exibir seu data factory como um diagrama, exib
 	
 	![Procurar tudo -> fata Factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
-	Você deve ver todas as data factories na folha **Data factories**. 
+	Você deve ver todas as data factories na folha **Data factories**.
 4. Na folha Data factories, selecione a data factory em que está interessado e você deverá ver a home page (folha **Data factory**) da data factory.
 
 	![Folha Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
@@ -43,20 +56,20 @@ Com o Portal do Azure, você pode exibir seu data factory como um diagrama, exib
 #### Modo de exibição de diagrama de uma data factory
 O Modo de exibição de diagrama de uma data factory fornece um único painel onde você pode monitorar e gerenciar a data factory e seus ativos.
 
-Clique em **Diagrama** na home page da data factory acima para ver a exibição de diagrama de sua data factory.
+Para exibir o diagrama de seu data factory, clique em **Diagrama** na home page da data factory.
 
 ![Exibição de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-É possível ampliar, reduzir, aplicar zoom de 100%, ajustar nível de zoom, bloquear o layout do diagrama, posicionar pipelines e tabelas automaticamente, bem como mostrar informações de linhagem (exibe itens upstream e downstream dos itens selecionados).
+Você pode ampliar, reduzir, ajustar nível de zoom, aplicar zoom 100%, bloquear o layout do diagrama e posicionar automaticamente pipelines e tabelas. Você também pode ver as informações de linhagem de dados (mostrar itens upstream e downstream dos itens selecionados).
  
 
 ### Atividades dentro de um pipeline 
-1. Clique com o botão direito no pipeline e clique em **Abrir pipeline** para ver todas as atividades no pipeline junto com conjuntos de dados de entrada e saída para as atividades. Isso é útil quando o pipeline é composto de mais de uma atividade e você deseja compreender a linhagem operacional de um único pipeline.
+1. Clique com o botão direito do mouse no pipeline e clique em **Abrir pipeline** para ver todas as atividades no pipeline junto com conjuntos de dados de entrada e saída para as atividades. Esse recurso é útil quando o pipeline é composto de mais de uma atividade e você deseja compreender a linhagem operacional de um único pipeline.
 
-	![Menu do pipeline aberto](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
-2. No exemplo a seguir, você vê duas atividades no pipeline com suas entradas e saídas. A atividade denominada **JoinData**, do tipo atividade de Hive do HDInsight, e **EgressDataAzure**, do tipo atividade de cópia, estão neste pipeline de exemplo. 
+	![Menu do pipeline aberto](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)
+2. No exemplo a seguir, você vê duas atividades no pipeline com suas entradas e saídas. A atividade denominada **JoinData**, do tipo atividade de Hive do HDInsight, e **EgressDataAzure**, do tipo atividade de cópia, estão neste pipeline de exemplo.
 	
-	![Atividades dentro de um pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
+	![Atividades dentro de um pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Você pode navegar de volta para a home page da Data Factory clicando no link da Data factory trilha no canto superior esquerdo.
 
 	![Navegue de volta para a data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
@@ -68,7 +81,7 @@ Por exemplo: no exemplo a seguir, **BlobPartitionHiveActivity** foi executado co
 
 ![Estado do pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Clicar duas vezes em **PartitionedProductsUsageTable** no diagrama exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que **BlobPartitionHiveActivity** foi executado com êxito todos os meses nos últimos 8 meses e produziu as fatias com estado **Pronto**.
+Clicar duas vezes em **PartitionedProductsUsageTable** no diagrama exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que **BlobPartitionHiveActivity** foi executado com êxito todos os meses nos últimos oito meses e produziu as fatias com estado **Pronto**.
 
 As fatias de conjunto de dados na data factory podem ter um dos seguintes status:
 
@@ -92,7 +105,7 @@ As fatias de conjunto de dados na data factory podem ter um dos seguintes status
 <td>ActivityResume</td><td>A atividade é pausada e não é possível executar as fatias até que seja retomada.</td>
 </tr>
 <tr>
-<td>Retry</td><td>A execução da atividade será repetida.</td>
+<td>Retry</td><td>A execução da atividade é repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -139,11 +152,11 @@ Se a fatia tiver sido executada várias vezes, você verá várias linhas na lis
 
 ![Execuções de atividade de uma fatia](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-Você pode exibir detalhes sobre uma execução de atividade clicando na entrada da execução na lista **Execuções de atividade**. Isso exibirá todos os arquivos de log junto com uma mensagem de erro, se houver. Isso é muito útil para exibir e depurar logs sem precisar sair de sua data factory.
+Você pode exibir detalhes sobre uma execução de atividade clicando na entrada da execução na lista **Execuções de atividade**. A lista exibirá todos os arquivos de log junto com uma mensagem de erro, se houver. Esse recurso é útil para exibir e depurar logs sem precisar sair de sua data factory.
 
 ![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Se a fatia não estiver no estado **Pronto**, você poderá ver as fatias de upstream que não estão prontas e que estão impedindo a execução da fatia atual na lista **Fatias de upstream que não estão prontas**. Isso é muito útil quando a fatia está no estado **Aguardando** e você quer entender as dependências de upstream em que a fatia está aguardando.
+Se a fatia não estiver no estado **Pronto**, você poderá ver as fatias de upstream que não estão prontas e que estão impedindo a execução da fatia atual na lista **Fatias de upstream que não estão prontas**. Esse recurso é útil quando a fatia está no estado **Aguardando** e você quer entender as dependências de upstream em que a fatia está aguardando.
 
 ![As fatias upstream não estão prontas](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -154,22 +167,22 @@ Quando você implanta uma data factory e os pipelines têm um período de ativid
 
 O fluxo de transição de estado do conjunto de dados na data factory envolve o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
-A fatias começam com um estado **Aguardando** para que as pré-condições sejam atendidas antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para o estado **Em Andamento**. A execução da atividade pode ser bem-sucedida ou falhar e, com base nisso, a fatia passará para o estado **Pronto** ou **Com falha**.
+A fatias começam com um estado **Aguardando** para que as pré-condições sejam atendidas antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para o estado **Em Andamento**. A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha** com base no resultado da execução.
 
-O usuário pode redefinir a fatia para voltar do estado **Pronto** ou **Com falha** para o estado **Aguardando**. O usuário também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
+Você pode redefinir a fatia para voltar do estado **Pronto** ou **Com falha** para o estado **Aguardando**. Você também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
 
 
 ## Gerenciar pipelines
 Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, você pode pausar e retomar pipelines executando cmdlets do Azure PowerShell.
 
 ### Pausar e retomar pipelines
-Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactoryPipeline** do Powershell. Isso é útil quando você já descobriu um problema com os dados e não quer executar o pipeline para processar dados até que o problema seja corrigido.
+Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactoryPipeline** do Powershell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido.
 
 Por exemplo: na captura de tela abaixo, foi identificado um problema com **PartitionProductsUsagePipeline** no data factory **productrecgamalbox1dev** e queremos suspender o pipeline.
 
 ![Pipeline a ser suspenso](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-Execute o seguinte comando do PowerShell para suspender **PartitionProductsUsagePipeline**.
+Para suspender um pipeline, execute o comando do PowerShell a seguir.
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -194,7 +207,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 
 #### Use o Portal do Azure para depurar um erro:
 
-1.	Clique em **Com erros** no bloco **Conjuntos de Dados** na home page da data factory.
+1.	Clique em **Com erros** no bloco **Conjuntos de Dados** na home page do data factory.
 	
 	![Bloco de conjuntos de dados com erro](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	Na folha **Conjuntos de dados com erros**, clique na tabela em que você está interessado.
@@ -258,7 +271,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 		Type                	:
 	
 	
-6. 	Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor de Id que você vê na saída acima e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
+6. 	Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor de Id que você vê na saída e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
 
 	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
@@ -279,7 +292,7 @@ Você pode executar novamente as falhas usando o cmdlet Set-AzureRmDataFactorySl
 
 **Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela "DAWikiAggregatedData" como "Aguardando" no Azure Data Factory "WikiADF".
 
-**Observação:** UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) que são usadas como tabelas de entrada para as atividades no pipeline é definido como "Aguardando". Outro valor possível para esse parâmetro é "Individual".
+UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) é definido como "Aguardando". Outro valor possível para esse parâmetro é "Individual".
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -292,14 +305,14 @@ Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em s
 
 - O Azure Data Factory é criado/atualizado/excluído.
 - O processamento de dados (chamado de Execuções) foi iniciado/concluído.
-- Quando um cluster de HDInsight sob demanda é criado e removido.
+- Um cluster de HDInsight sob demanda é criado e removido.
 
-Você pode criar alertas para esses eventos de usuário e configurá-los para enviar notificações por email para o administrador e os coadministradores da assinatura. Além disso, você pode especificar endereços de email adicionais de usuários que precisem receber notificações por email quando as condições forem atendidas. Isso é muito útil quando você deseja ser notificado sobre falhas e não quer monitorar continuamente sua data factory.
+Você pode criar alertas para esses eventos de usuário e configurá-los para enviar notificações por email para o administrador e os coadministradores da assinatura. Além disso, você pode especificar endereços de email adicionais de usuários que precisem receber notificações por email quando as condições forem atendidas. Esse recurso é útil quando você deseja ser notificado sobre falhas e não quer monitorar continuamente sua data factory.
 
-> [AZURE.NOTE] O portal não mostra alertas em eventos neste momento. Use o [Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para ver todos os alertas.
+> [AZURE.NOTE] Atualmente, o portal não mostra alertas em eventos. Use o [Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para ver todos os alertas.
 
 #### Especificando uma definição de alerta:
-Para especificar uma definição de alerta, você deve criar um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo abaixo, o alerta enviará uma notificação por email para a operação RunFinished. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar (Status = FailedExecution).
+Para especificar uma definição de alerta, você deve criar um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo a seguir, o alerta enviará uma notificação por email para a operação RunFinished. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar (Status = FailedExecution).
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -338,9 +351,9 @@ Para especificar uma definição de alerta, você deve criar um arquivo JSON que
 	    ]
 	}
 
-Da definição do JSON acima, **subStatus** pode ser removido se você não desejar ser alertado sobre uma falha específica.
+Da definição do JSON acima, **subStatus** poderá ser removido se você não desejar ser alertado sobre uma falha específica.
 
-O exemplo acima configura o alerta para todas as fábricas de dados em sua assinatura. Se você quiser que o alerta seja configurado para um data factory específico, é possível especificar o **resourceUri** do data factory no bloco **dataSource** como mostrado abaixo:
+Esse exemplo configura o alerta para todas as fábricas de dados em sua assinatura. Se você quiser que o alerta seja configurado para um data factory específico, será possível especificar o **resourceUri** do data factory no bloco **dataSource**:
 
 	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
@@ -354,7 +367,7 @@ OnDemandClusterCreateStarted | Iniciado
 OnDemandClusterCreateSuccessful | Bem-sucedido
 OnDemandClusterDeleted | Bem-sucedido
 
-Veja [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo acima.
+Veja [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo.
 
 #### Implantando o Alerta 
 Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
@@ -378,7 +391,7 @@ Depois que a implantação do grupo de recursos for concluída com êxito, você
 	Parameters        :
 	Outputs           :
 
-> [AZURE.NOTE] Você pode usar a API REST [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para criar uma regra de alerta. A carga JSON é semelhante ao exemplo JSON acima.
+> [AZURE.NOTE] Você pode usar a API REST [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para criar uma regra de alerta. O conteúdo JSON é semelhante ao exemplo JSON.
 
 #### Recuperando a lista de implantações de grupo de recursos do Azure
 Para recuperar a lista de implantações do Grupo de Recursos do Azure já implantadas, use o cmdlet **Get-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
@@ -468,7 +481,7 @@ O Data Factory permite que você capture várias métricas e crie alertas para a
 - Execuções com falha
 - Execuções com êxito
 
-Essas métricas são muito úteis e permitem que os usuários tenham uma visão geral das execuções com falha e êxito em sua fábrica de dados. Métricas são emitidas sempre que há uma fatia de execução. Ao final de uma hora, essas métricas são agregadas e enviadas para sua conta de armazenamento. Portanto, para habilitar as métricas, você precisará configurar uma conta de armazenamento.
+Essas métricas são úteis e permitem que os usuários tenham uma visão geral das execuções com falha e êxito em sua fábrica de dados. Métricas são emitidas sempre que há uma fatia de execução. Ao final de uma hora, essas métricas são agregadas e enviadas para sua conta de armazenamento. Portanto, para habilitar as métricas, configure uma conta de armazenamento.
 
 #### Habilitando métricas:
 Para habilitar as métricas, clique no seguinte na folha do Data Factory:
@@ -498,7 +511,7 @@ Quando terminar, você deverá ver uma nova regra de alerta habilitada no bloco 
 Parabéns! Você configurou o primeiro alerta de Métricas. Agora, você deve obter notificações sempre que a regra de alerta corresponder no intervalo de tempo determinado.
 
 ### Notificações de alerta:
-Quando a regra configurada corresponder à condição, você deverá receber um email de alerta ativo. Depois que o problema for resolvido e a condição de alerta deixar de corresponder, você receberá um email de alerta resolvido.
+Quando a regra de alerta corresponder à condição, você deverá receber um email de alerta ativo. Depois que o problema for resolvido e a condição de alerta deixar de corresponder, você receberá um email de alerta resolvido.
 
 Esse comportamento é diferente dos eventos, em que uma notificação será enviada em cada caso de falha para o qual a regra de alerta de qualificar.
 
@@ -545,7 +558,7 @@ Você pode implantar alertas para métricas da mesma maneira como faz para event
 	    ]
 	}
  
-Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo acima pelos valores adequados.
+Substitua subscriptionId, resourceGroupName e dataFactoryName no exemplo pelos valores adequados.
 
 *metricName* a partir de agora dá suporte a dois valores:
 - FailedRuns
@@ -585,4 +598,4 @@ Você também pode mover todos os recursos relacionados (como alertas associados
 
 ![Mover a caixa de diálogo Recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0907_2016-->

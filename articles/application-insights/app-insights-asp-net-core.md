@@ -19,7 +19,7 @@
 
 O [Visual Studio Application Insights](app-insights-overview.md) permite que você monitore o seu aplicativo Web, a sua disponibilidade, desempenho e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
-![Exemplo](./media/app-insights-asp-net-five/sample.png)
+![Exemplo](./media/app-insights-asp-net-core/sample.png)
 
 Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços de nuvem da Microsoft. Sua equipe pode ter uma assinatura organizacional do Azure: peça ao proprietário que adicione você a ela usando sua conta da Microsoft.
 
@@ -60,4 +60,4 @@ Os modos de exibição no portal se enquadram em duas categorias principais:
 
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

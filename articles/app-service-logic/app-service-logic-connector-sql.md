@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/16/2016"
+   ms.date="09/01/2016"
    ms.author="sameerch"/>
 
 
@@ -163,4 +163,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

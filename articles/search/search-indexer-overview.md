@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -76,4 +76,4 @@ Agora que você tem as noções básicas, a próxima etapa é examinar os requis
 - [Indexando blobs CSV usando o indexador de Blobs da Pesquisa do AZURE (Visualização)](search-howto-index-csv-blobs.md)
 - [Indexando blobs JSON com o indexador de Blobs da Pesquisa do Azure (Visualização)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

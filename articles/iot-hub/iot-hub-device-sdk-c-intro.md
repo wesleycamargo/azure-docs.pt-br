@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/29/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Introdução ao SDK do dispositivo IoT do Azure para C
@@ -41,11 +41,11 @@ Esse repositório contém a família inteira de SDKs do dispositivo IoT do Azure
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
 * A implementação principal do SDK pode ser encontrada na pasta **iothub\_client**, que contém a implementação da camada de API mais baixa no SDK: a biblioteca **IoTHubClient**. A biblioteca **IoTHubClient** contém APIs que implementam mensagens brutas para enviar mensagens para o Hub IoT, além de receber mensagens dele. Ao usar essa biblioteca, você é responsável por implementar a serialização de mensagens (eventualmente usando a amostra de serializador descrita abaixo), mas outros detalhes da comunicação com o Hub IoT são tratados para você.
-* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. Observe que o uso do serializador não é obrigatório e só é fornecido como uma conveniência. Ao usar a biblioteca **serializer**, você começa definindo um modelo que especifica os eventos que deseja enviar ao Hub IoT, bem como as mensagens que espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite que você trabalhe facilmente com eventos e mensagens sem ter que se preocupar com detalhes de serialização. A biblioteca depende de outras bibliotecas de código-fonte aberto que implementam o transporte usando vários protocolos (AMQP, MQTT).
+* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. Observe que o uso do serializador não é obrigatório e só é fornecido como uma conveniência. Ao usar a biblioteca **serializer**, você começa definindo um modelo que especifica os eventos que deseja enviar ao Hub IoT, bem como as mensagens que espera receber dele. Assim que o modelo é definido, o SDK fornece uma superfície de API que permite a você trabalhar facilmente com eventos e mensagens, sem ter de se preocupar com os detalhes da serialização. A biblioteca depende de outras bibliotecas de software livre que implementam o transporte usando vários protocolos (AMQP, MQTT).
 * A biblioteca **IoTHubClient** depende de outras bibliotecas de software livre:
    * A biblioteca de [utilitários compartilhados do Azure C](https://github.com/Azure/azure-c-shared-utility), que fornece funcionalidades comuns para tarefas básicas (como cadeia de caracteres, manipulação de listas, E/S, etc.) necessárias entre vários SDKs para C relacionados ao Azure
    * A biblioteca [uAMQP do Azure](https://github.com/Azure/azure-uamqp-c) é a implementação do lado do cliente do AMQP otimizada para dispositivos com restrição de recursos.
-   * A biblioteca [uMQTT do Azure](https://github.com/Azure/azure-umqtt-c) é uma biblioteca de finalidade geral, com o protocolo MQTT implementado e otimizada para dispositivos com restrição de recursos.
+   * A biblioteca [uMQTT do Azure](https://github.com/Azure/azure-umqtt-c), que é uma biblioteca de finalidade geral, com o protocolo MQTT implementado e otimizada para dispositivos com restrição de recursos.
 
 Mas é mais fácil entender tudo isso examinando exemplos de código. As seções a seguir explicam alguns exemplos de aplicativo incluídos no SDK. Isso deve dar uma boa ideia dos vários recursos das camadas de arquitetura do SDK, bem como uma introdução ao funcionamento da API.
 
@@ -75,7 +75,7 @@ Eis algumas dicas que ajudam você a concluir o procedimento descrito no guia de
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
 
--   Antes de abrir o **Prompt de Comando do Desenvolvedor para VS2015**, instale as Ferramentas de linha de comando Git. Para instalar essas ferramentas, conclua as seguintes etapas:
+-   Antes de abrir o **Prompt de Comando do Desenvolvedor para VS2015**, instale as ferramentas de linha de comando do Git. Para instalar essas ferramentas, conclua as seguintes etapas:
 
 	1. Inicie o programa de instalação do **Visual Studio 2015** (ou escolha **Microsoft Visual Studio 2015** no painel de controle **Programas e Recursos** e selecione **Alterar**).
 	
@@ -96,7 +96,7 @@ Após concluir todas as etapas descritas na página ["Preparar seu ambiente de d
 
 Agora que o seu ambiente de desenvolvimento está configurado, a última coisa a fazer será obter um conjunto de credenciais de dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao Registro de dispositivo do Hub IoT. Ao adicionar o dispositivo, você terá um conjunto de credenciais de dispositivo de que precisará para que o dispositivo possa se conectar a um Hub IoT. Os aplicativos de exemplo que veremos na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
 
-São fornecidas algumas ferramentas no repositório de código-fonte aberto do SDK para ajudar a gerenciar o Hub IoT. Um é um aplicativo do Windows chamado Gerenciador de Dispositivos, o segundo é uma ferramenta CLI baseada em Node.js para várias plataformas chamada iothub-explorer. Você pode aprender mais sobre essas ferramentas [aqui](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+São fornecidas algumas ferramentas no repositório de código-fonte aberto do SDK para ajudar a gerenciar o Hub IoT. Uma é um aplicativo do Windows chamado Gerenciador de Dispositivos, a segunda é uma ferramenta CLI baseada em Node.js para várias plataformas chamada iothub-explorer. Você pode aprender mais sobre essas ferramentas [aqui](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
 
 Ao executarmos os exemplos do Windows neste artigo, usamos a ferramenta Gerenciador de Dispositivos. Mas também é possível usar o iothub-explorer se preferir ferramentas CLI.
 
@@ -488,4 +488,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

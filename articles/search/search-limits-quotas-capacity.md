@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/03/2016"
 	ms.author="heidist"/>
 
 # Limites de serviço na Pesquisa do Azure
 
 Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual a Pesquisa do Azure é adicionada, que pode ser **Gratuito**, **Básico** ou **Standard**.
 
-- **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure. É uma opção sem custo adicional para assinantes existentes que permite experimentar o serviço antes de se inscrever para obter recursos dedicados. 
+- **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure. É uma opção sem custo adicional para assinantes existentes que permite experimentar o serviço antes de se inscrever para obter recursos dedicados.
 - **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor.
 - **Standard** é executado em máquinas dedicados, com mais capacidade de armazenamento e processamento em cada nível, incluindo a configuração mínima. Standard vem em quatro níveis: S1, S2, S3 e S3 Alta Densidade (S3 HD). S3 e S3 HD estão atualmente em Preview e são oferecidos por uma taxa 50% reduzida durante o período de Preview.
 
@@ -39,7 +39,7 @@ Todas as camadas podem ser [provisionadas no portal](search-create-service-porta
 
 Há uma correspondência entre os limites em índices e aqueles em indexadores. Dado um limite de 200 índices por serviço S2, as fontes de dados do indexador e os indexadores máximos também são 200 para o mesmo serviço.
 
-Recurso|Grátis|Básico |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Recurso|Grátis|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
 ---|---|---|---|---- |---|----
 Índice: campos máximos por índice|1000|100 <sup>1</sup>|1000|1000|1000|1000 
 Índice: máximo de perfis de pontuação por índice|16|16|16|16|16|16 
@@ -55,7 +55,7 @@ Indexador de blob: número máximo de caracteres de conteúdo extraído de um bl
 
 ## Limites de tamanho do documento ##
 
-Recurso|Grátis|Básico |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Recurso|Grátis|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
 ---|---|---|---|---- |---|----
 Tamanho do documento individual por API do Índice|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
 
@@ -65,7 +65,7 @@ Para reduzir o tamanho do documento, lembre-se de excluir dados não consultáve
 
 ## Limites de carga de trabalho (consultas por segundo) ##
 
-Recurso|Grátis|Básico|S1|S2|S3 (Preview)|S3 HD (Preview)
+Recurso|Grátis|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
 ---|---|---|---|----|---|----
 QPS|N/D|~3 por réplica|~15 por réplica|~60 por réplica|>60 por réplica|>60 por réplica
 
@@ -97,4 +97,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de duas chaves de administração por serviço
 - Máximo de 50 chaves de consulta por serviço
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

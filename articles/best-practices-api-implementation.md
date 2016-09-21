@@ -1110,7 +1110,7 @@ Se você tiver implementado sua API da Web usando o modelo de API Web ASP.NET (s
 
 Você pode exibir esses dados em tempo real no Portal de Gerenciamento do Azure. Você também pode criar webtests que monitorem a integridade da API da Web. Um webtest envia uma solicitação periódica para um URI especificado no API da Web e captura a resposta. Você pode especificar a definição de uma resposta bem-sucedida (como o código de status HTTP 200) e, se a solicitação não retornar essa resposta, você pode fazer com que um alerta seja enviado ao administrador. Se necessário, o administrador pode reiniciar o servidor que hospeda a API da Web caso ele tenha falhado.
 
-A página [Application Insights - Iniciar o monitoramento de integridade e uso do seu aplicativo](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) no site da Microsoft fornece mais informações.
+A página [Application Insights - Introdução ao ASP.NET](../articles/application-insights/app-insights-asp-net.md) no site da Microsoft fornece mais informações.
 
 ### Monitoramento de uma API da Web por meio do Serviço de Gerenciamento de API
 
@@ -1147,8 +1147,8 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Gerenciamento de API](https://azure.microsoft.com/services/api-management/) no site da Microsoft descreve como publicar um produto que fornece acesso controlado e seguro a uma API da Web.
 - A página [Referência de API REST de Gerenciamento de API do Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) no site da Microsoft descreve como usar a API REST de Gerenciamento de API para criar aplicativos de gerenciamento personalizados.
 - A página [Métodos de roteamento do Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-routing-methods.md), no site da Microsoft, resume como o Gerenciador de Tráfego do Azure pode ser usado para realizar o balanceamento de carga de solicitações entre várias instâncias de um site que hospeda uma API da Web.
-- A página [Application Insights - Iniciar o monitoramento de integridade e uso do seu aplicativo](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md), no site da Microsoft, fornece informações detalhadas sobre como instalar e configurar o Application Insights em um projeto de API Web ASP.NET.
+- A página [Application Insights - introdução ao ASP. NET](../articles/application-insights/app-insights-asp-net.md), no site da Microsoft, fornece informações detalhadas sobre como instalar e configurar o Application Insights em um projeto de API Web ASP.NET.
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

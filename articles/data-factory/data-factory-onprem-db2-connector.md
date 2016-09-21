@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="09/06/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados do DB2 usando o Azure Data Factory
@@ -21,20 +21,27 @@ Este artigo descreve como você pode usar a atividade de cópia em uma Azure Dat
 
 A data factory dá suporte à conexão com fontes DB2 locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
-**Observação:** é necessário utilizar o gateway para se conectar ao DB2, mesmo se ele estiver hospedado em VMs IaaS do Azure. Se estiver tentando se conectar a uma instância do DB2 hospedada na nuvem, você também pode instalar a instância do gateway na VM de IaaS.
+> [AZURE.NOTE]
+É necessário utilizar o gateway para se conectar ao DB2, mesmo que ele esteja hospedado em VMs IaaS do Azure. Se estiver tentando se conectar a uma instância do DB2 hospedada na nuvem, você também poderá instalar a instância do gateway na VM de IaaS.
 
 Atualmente, a data factory dá suporte apenas para a movimentação de dados do DB2 para outros armazenamentos de dados, não de outros armazenamentos de dados para o DB2.
 
 ## Instalação 
 
-Para que o Gateway de Gerenciamento de Dados se conecte ao Banco de Dados DB2, começando na versão 2.1 do gateway, o Azure Data Factory fornece driver interno com suporte ao DB2 (SQLAM 9 / 10 / 11), incluindo DB2 para LUW (Linux, Unix, Windows), DB2 para z/OS e DB2 para i (também conhecido como AS/400). Desse modo, não é mais preciso instalar manualmente os drivers ao copiar dados do DB2.
+O Gateway de Gerenciamento de Dados fornece um driver DB2 interno que dá suporte ao seguinte:
 
-> [AZURE.NOTE] Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
+- SQLAM 9 / 10 / 11
+- DB2 para LUW (Linux, Unix, Windows)
+- DB2 para z/OS e DB2 para i (também conhecido como AS/400)
+
+Portanto, você não precisa instalar manualmente os drivers ao copiar dados do DB2.
+
+> [AZURE.NOTE] Veja [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## Assistente para Copiar Dados
 A maneira mais fácil de criar um pipeline que copia dados de um Banco de Dados do DB2 é usar o Assistente para cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Os exemplos a seguir fornecem as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados do DB2 e do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados do DB2 e do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
 
 ## Exemplo: copiar dados do DB2 para o Blob do Azure
 
@@ -48,9 +55,9 @@ O exemplo tem as seguintes entidades de data factory:
 4.	Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5.	Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-O exemplo copia dados de um resultado de consulta no banco de dados DB2 para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
+O exemplo copia dados de um resultado de consulta no banco de dados DB2 para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+Primeiro, instale e configure um gateway de gerenciamento de dados. As instruções estão no artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Serviço vinculado do DB2:**
 
@@ -87,7 +94,7 @@ Na primeira etapa, configure o gateway de gerenciamento de dados de acordo com a
 
 O exemplo supõe que você criou uma tabela "MyTable" no DB2 e que ela contém uma coluna chamada "timestamp" para dados de série temporal.
 
-Definir “external”: true e especificar a política externalData informa à data factory que essa é uma tabela externa à data factory e não é produzida por uma atividade nessa data factory. Observe que o **type** é definido como **RelationalTable**.
+Configurar "external": true informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory. Observe que o **type** é definido como **RelationalTable**.
 
 	{
 	    "name": "Db2DataSet",
@@ -171,7 +178,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela Orders.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados da tabela Orders.
 
 	{
 	    "name": "CopyDb2ToBlob",
@@ -236,7 +243,7 @@ Consulte [Definir credenciais e segurança](data-factory-move-data-between-onpre
 
 ## Propriedades de tipo do conjunto de dados do DB2
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo RelationalTable (que inclui o conjunto de dados do DB2) tem as propriedades a seguir.
 
@@ -246,28 +253,28 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 ## Propriedades de tipo da atividade de cópia do DB2
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). Propriedades como nome, descrição, tabelas de entrada e saída, diversas políticas, etc. estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
 
-As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade e, no caso de Atividade de cópia, variam dependendo dos tipos de fontes e coletores.
+As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
-No caso da atividade de Cópia, quando a fonte é do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estão disponíveis na seção typeProperties:
+Para atividade de Cópia, quando a fonte é do tipo **RelationalSource** (que inclui o DB2), as seguintes propriedades estão disponíveis na seção typeProperties:
 
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------- | -------------- |
-| query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: "query": "select * from "MySchema"."MyTable"". | Não (se **tableName** de **dataset** for especificado)|
+| query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""`. | Não (se **tableName** de **dataset** for especificado)|
 
-> [AZURE.NOTE] Nomes de esquema e de tabelas diferenciam maiúsculas de minúsculas e precisam estar entre "" (aspas duplas) na consulta.
+> [AZURE.NOTE] Os nomes de esquema e tabela diferenciam maiúsculas de minúsculas. Coloque os nomes em "" (aspas duplas) na consulta.
 
 **Exemplo:**
 
- "query": "select * from "DB2ADMIN"."Customers""
+	"query": "select * from "DB2ADMIN"."Customers""
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Mapeamento de tipo para DB2
-Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), A atividade de cópia executa conversões automáticas de tipos de fontes para tipos de coletor, com a abordagem em 2 etapas descritas a seguir:
+Conforme mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de Cópia executa conversões automáticas de tipos de fonte em tipos de coletor com a abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -326,4 +333,4 @@ Char | Cadeia de caracteres
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

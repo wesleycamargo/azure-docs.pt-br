@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -268,4 +268,4 @@ Essas ferramentas de BI podem ajudar sua análise de Big Data de diversas formas
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

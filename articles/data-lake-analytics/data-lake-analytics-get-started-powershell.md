@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Introdução à Análise Azure Data Lake usando o Azure PowerShell | Azure" 
-   description="Saiba como usar o Azure PowerShell para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando o U-SQL e enviar o trabalho." 
+   description="Saiba como usar o Azure PowerShell para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando o U-SQL e enviar o trabalho. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Saiba como usar o Azure PowerShell para criar contas da Análise Azure Data Lake, definir trabalhos da Análise Data Lake em [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para contas da Análise Data Lake. Para obter mais informações sobre a Análise Data Lake, confira a [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
+Saiba como usar o Azure PowerShell para criar contas da Análise Azure Data Lake, definir trabalhos da Análise Data Lake em [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para contas da Análise Data Lake. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
 Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção.
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
 
-- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
+- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.
 
 	Para enumerar os grupos de recursos em sua assinatura:
     
@@ -200,7 +200,7 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 	
 	Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
 
-## Consulte também
+## Confira também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
@@ -209,4 +209,4 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

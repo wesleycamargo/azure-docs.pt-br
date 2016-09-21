@@ -3,7 +3,7 @@
    description="Detalhes sobre segurança de nível de linha com o Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Segurança de nível de linha com o Power BI Embedded
 
@@ -83,7 +83,7 @@ Agora, os filtros também podem fluir da tabela Vendas para a tabela **Item**:
 2.	**Arquivo** -> **Opções e Configurações** -> **DirectQuery** -> **Permitir medidas irrestritas no modo DirectQuery**.
 
 
-Para saber mais sobre filtragem cruzada bidirecional, baixe o whitepaper [Filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e no Power BI Desktop] (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional filtragem cruzada no Analysis Services 2016 e Power BI.docx).
+Para saber mais sobre filtragem cruzada bidirecional, baixe o whitepaper [Filtragem cruzada bidirecional no SQL Server Analysis Services 2016 e no Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional filtragem cruzada no Analysis Services 2016 e Power BI.docx).
 
 Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há um mais trabalho que precisa ser feito para tornar as regras de RLS definidas funcionarem no Power BI Embedded. Os usuários são autenticados e autorizados pelo seu aplicativo e Tokens de Aplicativo são usados para conceder acesso de usuário a um relatório de Power BI Embedded específico. O Power BI Embedded não tem nenhuma informação específica sobre quem é o usuário. Para que a RLS funcione, você precisará passar algum contexto adicional como parte de seu token do aplicativo:
 -	**nome de usuário** (opcional) – usado com RLS, é uma cadeia de caracteres que pode ser usada para ajudar a identificar o usuário ao aplicar regras RLS. Confira Usando segurança de nível de linha com o Power BI Embedded
@@ -99,7 +99,7 @@ Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo par
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## Consulte também
+## Confira também
 [RLS (segurança em nível de linha) com Power](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="ACS de Pools de Agente Público e Privado | Microsoft Azure"
+   pageTitle="ACS de pools de agentes do DC/OS públicos e privados | Microsoft Azure"
    description="Como os pools de agente público e privado funcionam com um cluster do Serviço de Contêiner do Azure."
    services="container-service"
    documentationCenter=""
@@ -18,9 +18,9 @@
    ms.date="08/16/2016"
    ms.author="adegeo"/>
 
-# Pools de agente
+# Pools de Agentes DC/OS para o Serviço de Contêiner do Azure
 
-O Serviço de Contêiner do Azure divide agentes em vários pools. E, enquanto cada máquina virtual em um pool é idêntica, cada pool tem sua própria sub-rede. Portanto, cada pool pode ser marcado como público ou privado, afetando a acessibilidade entre computadores no seu serviço de contêiner.
+O Serviço de Contêiner do Azure DC/OS divide agentes em pools públicos ou privados. Uma implantação pode ser feita para um pool, afetando a acessibilidade entre computadores no seu serviço de contêiner. Os computadores podem ser expostos à Internet (público) ou mantidos internamente (privado). Este artigo fornece uma visão geral sobre o motivo da existência de um pool público e privado.
 
 ### Agentes privados
 
@@ -32,10 +32,12 @@ Nós de agente público executam aplicativos e serviços DC/OS por meio de uma r
 
 ## Usando pools de agente
 
-Por padrão, **Maratona** implanta qualquer novo aplicativo a nós de agente *particular*. Você deve explicitamente implantar o aplicativo para o nó *público*. Infelizmente, a implantação para o nó público não é tão direta quanto a marcação de uma caixa. Durante a criação do novo aplicativo, acesse a guia **Opcional** e insira **slave\_public** em **Funções de Recurso Aceitas**. Esse processo está documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e na documentação do [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
+Por padrão, **Maratona** implanta qualquer novo aplicativo a nós de agente *particular*. Você deve implantar explicitamente o aplicativo para o nó *público* durante a criação do aplicativo. Selecione a guia **Opcional** e insira **slave\_public** para o valor **Funções de Recurso Aceitas**. Esse processo está documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e na documentação do [DC\\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
 
 ## Próximas etapas
 
 Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+Saiba como [abrir o firewall](container-service-enable-public-access.md) fornecido pelo Azure para permitir acesso público para o contêiner do seu DC/OS.
+
+<!---HONumber=AcomDC_0907_2016-->

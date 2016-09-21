@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # Introdução ao Conector de Recursos do Azure e adição dele ao seu Aplicativo lógico
@@ -98,4 +98,4 @@ Exiba a referência da API REST do Swagger em [Conectores e Referência dos apli
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

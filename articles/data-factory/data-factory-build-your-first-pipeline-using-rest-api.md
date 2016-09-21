@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Criar seu primeiro data factory do Azure usando a API REST do Data Factory
+# Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [AZURE.SELECTOR]
-- [Visão geral do tutorial](data-factory-build-your-first-pipeline.md)
-- [Como usar o Editor do Data Factory](data-factory-build-your-first-pipeline-using-editor.md)
-- [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Como usar o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Como usar o Modelo do Gerenciador de Recursos](data-factory-build-your-first-pipeline-using-arm.md)
-- [Usando a API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Neste artigo, você aprende a usar a API REST do Data Factory para criar seu primeiro data factory do Azure.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## Pré-requisitos
-
-- Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md). Este artigo ajuda você a entender os conceitos básicos do Azure Data Factory.
+## Pré-requisitos adicionais
 - Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta CURL com comandos REST para criar um data factory.
 - Siga as instruções [deste artigo](../resource-group-create-service-principal-portal.md) para:
 	1. Crie um aplicativo Web chamado **ADFGetStartedApp** no Azure Active Directory.
@@ -405,4 +402,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando as folhas do portal do Azure. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

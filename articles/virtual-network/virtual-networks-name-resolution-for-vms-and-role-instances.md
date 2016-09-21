@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Resolução para máquinas virtuais e instâncias de função"
-   description="Cenários de resolução de nomes para o Azure IaaS, soluções híbridas, entre diferentes serviços de nuvem, Active Directory e usando o seu próprio servidor DNS"
+   description="Cenários de resolução de nomes para o Azure IaaS, soluções híbridas, entre diferentes serviços de nuvem, Active Directory e usando o seu próprio servidor DNS "
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="08/31/2016"
    ms.author="telmos" />
 
 # Resolução de nomes de máquinas virtuais e instâncias de função
@@ -89,9 +89,9 @@ Há uma série de pacotes de armazenamento em cache de DNS diferentes disponíve
 - **Ubuntu (usa resolvconf)**:
 	- apenas instale o pacote de dnsmasq ("sudo apt-get install dnsmasq").
 - **SUSE (usa netconf)**:
-	- instale o pacote de dnsmasq ("sudo zypper install dnsmasq"). 
-	- habilite o serviço dnsmasq ("systemctl enable dnsmasq.service") 
-	- inicie o serviço dnsmasq ("systemctl enable dnsmasq.service") 
+	- instale o pacote de dnsmasq ("sudo zypper install dnsmasq").
+	- habilite o serviço dnsmasq ("systemctl enable dnsmasq.service")
+	- inicie o serviço dnsmasq ("systemctl enable dnsmasq.service")
 	- edite "/etc/sysconfig/network/config" e altere NETCONFIG\_DNS\_FORWARDER = "" para "dnsmasq"
 	- atualize resolv. conf ("netconfig update") para definir o cache do resolvedor DNS local
 - **OpenLogic (usa NetworkManager)**:
@@ -107,8 +107,8 @@ Há uma série de pacotes de armazenamento em cache de DNS diferentes disponíve
 
 O DNS é principalmente um protocolo UDP. Como o protocolo UDP não garante a entrega de mensagens, a lógica de repetição é manipulada no próprio protocolo DNS. Cada cliente DNS (sistema operacional) pode apresentar uma lógica de repetição diferente dependendo da preferência dos criadores:
 
- - Sistemas operacionais Windows tentam novamente depois de 1 segundo e, em seguida, novamente após outros 2, 4 e outros 4 segundos. 
- - As tentativas de instalação do Linux ocorrem, por padrão, depois de 5 segundos. É recomendável alterar para repetir 5 vezes em intervalos de 1 segundo.  
+ - Sistemas operacionais Windows tentam novamente depois de 1 segundo e, em seguida, novamente após outros 2, 4 e outros 4 segundos.
+ - As tentativas de instalação do Linux ocorrem, por padrão, depois de 5 segundos. É recomendável alterar para repetir 5 vezes em intervalos de 1 segundo.
 
 Para verificar as configurações atuais em uma VM do Linux, 'cat /etc/resolv.conf' e examine a linha 'options', por exemplo:
 
@@ -117,13 +117,13 @@ Para verificar as configurações atuais em uma VM do Linux, 'cat /etc/resolv.co
 O arquivo resolv.conf é normalmente gerado automaticamente e não deve ser editado. As etapas específicas para adicionar a linha 'options' variam de acordo com a distribuição:
 
 - **Ubuntu** (usa resolvconf):
-	- adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head' 
+	- adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head'
 	- execute 'resolvconf -u' para atualizar
 - **SUSE** (usa netconf):
-	- adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
+	- adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS = "" em '/ etc/sysconfig/rede/config'
 	- execute 'netconfig update' para atualizar
 - **OpenLogic** (usa NetworkManager):
-	- adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- execute 'service network restart' para atualizar
 
 ## Resolução de nome usando o seu próprio servidor DNS
@@ -139,13 +139,13 @@ Ao usar a resolução de nomes fornecida pelo Azure, um sufixo DNS interno (*.in
 
 Se necessário, o sufixo DNS interno pode ser determinado usando o PowerShell ou a API:
 
--  Para as redes virtuais nos modelos de implantação do Gerenciador de Recursos, o sufixo está disponível por meio do recurso [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou por meio do cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  Para as redes virtuais nos modelos de implantação do Gerenciador de Recursos, o sufixo está disponível por meio do recurso [placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx) ou por meio do cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).
 -  No caso de modelos implantação clássica, o sufixo está disponível por meio da chamada à [API Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou por meio do cmdlet [Get-AzureVM-Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Se o encaminhamento de consultas para o Azure não atender às suas necessidades, você precisará fornecer sua própria solução DNS. A solução DNS precisará:
 
--  Forneça uma resolução de nomes do host apropriada, por exemplo, por meio do [DDNS](virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente. 
+-  Forneça uma resolução de nomes do host apropriada, por exemplo, por meio do [DDNS](virtual-networks-name-resolution-ddns.md). Observe que se você usar DDNS, talvez precise desabilitar a limpeza de registro DNS, já que as concessões de DHCP do Azure são muito longas e a limpeza pode remover os registros DNS prematuramente.
 -  Fornecer a resolução recursiva apropriada para permitir a resolução de nomes de domínio externo.
 -  Ser acessível (TCP e UDP na porta 53) dos clientes a que ela serve e ser capaz de acessar a Internet.
 -  Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
@@ -181,6 +181,6 @@ Modelo de implantação clássico:
 
 - [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710)
 - [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
-- [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md) 
+- [Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

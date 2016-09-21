@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/03/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 # Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure
@@ -118,4 +118,4 @@ Ambas as camadas iniciam com uma réplica e uma partição, contadas como uma SU
 
 O custo por SU é determinado pela camada. Ele é menor para a camada Básica, quando comparada à Standard. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

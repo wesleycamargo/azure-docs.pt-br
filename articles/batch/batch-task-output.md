@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/06/2016"
+	ms.date="09/07/2016"
 	ms.author="marsma" />
 
 # Persistir trabalho de Lote do Azure e saída de tarefa
@@ -24,7 +24,7 @@ Usando a técnica deste artigo, você também poderá exibir a saída da tarefa 
 
 ![Arquivos de saída salvos e Seletores de logs salvos no portal][1]
 
->[AZURE.NOTE] O método de armazenamento e recuperação de arquivos discutido aqui fornece funcionalidade semelhante à forma como **Aplicativos de Lote** (agora preteridos) gerenciavam suas saídas de tarefa.
+>[AZURE.NOTE] A biblioteca de classes .NET [Convenções de Arquivo do Lote do Azure][nuget_package] discutida neste artigo está em visualização atualmente. Alguns dos recursos descritos aqui podem ser alterados antes da disponibilidade geral.
 
 ## Considerações de saída da tarefa
 
@@ -72,9 +72,9 @@ Existem duas ações principais a serem executadas ao salvar a saída de trabalh
 
 ### Criar um contêiner de armazenamento
 
-Antes que suas tarefas comecem a persistir a saída para o armazenamento, você deve criar um contêiner de armazenamento de blobs no qual elas carregarão sua saída. Faça isso chamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como um parâmetro e criará um contêiner nomeado de forma que seu conteúdo seja detectável pelo portal do Azure e os métodos de recuperação discutidos posteriormente neste artigo.
+Antes que suas tarefas comecem a persistir a saída para o armazenamento, você deve criar um contêiner de armazenamento de blobs no qual elas carregarão sua saída. Faça isso chamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como um parâmetro e cria um contêiner nomeado de forma que seu conteúdo seja detectável pelo portal do Azure e os métodos de recuperação discutidos posteriormente neste artigo.
 
-Normalmente, você colocará esse código em seu aplicativo cliente – o aplicativo que cria os pools, trabalhos e tarefas.
+Normalmente, você coloca esse código em seu aplicativo cliente – o aplicativo que cria os pools, trabalhos e tarefas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -113,7 +113,7 @@ O parâmetro de "tipo de saída" categoriza os arquivos persistentes. Há quatro
 
 Esses tipos de saída permitem que você especifique qual tipo de saídas listar ao consultar posteriormente o Lote para obter as saídas persistentes de determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Forneça a saída de *visualização* da tarefa *109*". Mais informações sobre listagem e recuperação de saídas estão disponíveis em [Recuperar saída](#retrieve-output), mais adiante no artigo.
 
->[AZURE.TIP] O tipo de saída também designa onde no portal do Azure um arquivo específico será exibido: arquivos categorizados por *TaskOutput* aparecerão em "Arquivos de saída de tarefa" e arquivos de *TaskLog* aparecerão em "Logs de tarefas".
+>[AZURE.TIP] O tipo de saída também designa onde no portal do Azure um arquivo específico é exibido: arquivos categorizados por *TaskOutput* aparecem em "Arquivos de saída de tarefa" e arquivos de *TaskLog* aparecem em "Logs de tarefas".
 
 ### Armazenar saídas de trabalhos
 
@@ -129,7 +129,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Como com TaskOutputKind para saídas de tarefa, você usa o parâmetro [JobOutputKind][net_joboutputkind] para categorizar os arquivos persistente de um trabalho. Isso permite que você consulte posteriormente para (listar) um tipo específico de saída. O JobOutputKind inclui tipos de saída e visualização e dá suporte à criação de tipos personalizados.
+Como com TaskOutputKind para saídas de tarefa, você usa o parâmetro [JobOutputKind][net_joboutputkind] para categorizar os arquivos persistente de um trabalho. Esse parâmetro permite que você consulte posteriormente para (listar) um tipo específico de saída. O JobOutputKind inclui tipos de saída e visualização e dá suporte à criação de tipos personalizados.
 
 ### Armazenar logs de tarefas
 
@@ -138,23 +138,33 @@ Além de persistir um arquivo de armazenamento durável quando uma tarefa ou tra
 No trecho de código a seguir, usamos [SaveTrackedAsync][net_savetrackedasync] para atualizar `stdout.txt` no Armazenamento do Azure a cada 15 segundos durante a execução da tarefa:
 
 ```csharp
+TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
 	Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
+// The primary task logic is wrapped in a using statement that sends updates to
+// the stdout.txt blob in Storage every 15 seconds while the task code runs.
 using (ITrackedSaveOperation stdout =
-		taskStorage.SaveTrackedAsync(
+		await taskStorage.SaveTrackedAsync(
 		TaskOutputKind.TaskLog,
 		logFilePath,
 		"stdout.txt",
 		TimeSpan.FromSeconds(15)))
 {
 	/* Code to process data and produce output file(s) */
+
+	// We are tracking the disk file to save our standard output, but the
+	// node agent may take up to 3 seconds to flush the stdout stream to
+	// disk. So give the file a moment to catch up.
+ 	await Task.Delay(stdoutFlushDelay);
 }
 ```
 
-`Code to process data and produce output file(s)` é simplesmente um espaço reservado para o código que sua tarefa executa normalmente. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa algum tipo de transformação ou cálculo neles. A parte importante desse trecho de código é demonstrar como você pode encapsular esse código em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
+`Code to process data and produce output file(s)` é simplesmente um espaço reservado para o código que sua tarefa executa normalmente. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa uma transformação ou um cálculo neles. A parte importante desse trecho de código é demonstrar como você pode encapsular esse código em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
->[AZURE.NOTE] Quando você habilita o rastreamento de arquivo com SaveTrackedAsync, apenas *acréscimos* ao arquivo acompanhado são persistidos no Armazenamento do Azure. Você deve usar esse método somente para acompanhar arquivos de log sem giro ou outros arquivos que são acrescentados, ou seja, os dados são adicionados ao fim do arquivo apenas quando ele é atualizado.
+O `Task.Delay` é necessário no final deste bloco `using` para garantir que o agente do nó tenha tempo para liberar o conteúdo do padrão para o arquivo stdout.txt no nó (o agente do nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote). Sem esse atraso, é possível ignorar os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
+
+>[AZURE.NOTE] Quando você habilita o rastreamento de arquivo com SaveTrackedAsync, apenas *acréscimos* ao arquivo acompanhado são persistidos no Armazenamento do Azure. Use esse método somente para acompanhar arquivos de log sem giro ou outros arquivos que são acrescentados, ou seja, os dados são adicionados ao fim do arquivo apenas quando ele é atualizado.
 
 ## Recuperar saída
 
@@ -180,7 +190,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## Saídas de tarefas e o portal do Azure
 
-O portal do Azure exibirá saídas de tarefas e logs que são persistidos para uma conta do Armazenamento do Azure vinculada usando as convenções de nomenclatura encontradas no [arquivo LEIAME de Convenções do Lote do Azure][github_file_conventions_readme]. Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de convenções de arquivo em seus aplicativos .NET.
+O portal do Azure exibe saídas de tarefas e logs que são persistidos para uma conta do Armazenamento do Azure vinculada usando as convenções de nomenclatura encontradas no [arquivo LEIAME de Convenções do Lote do Azure][github_file_conventions_readme]. Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de convenções de arquivo em seus aplicativos .NET.
 
 ### Habilitar a exibição do portal
 
@@ -213,7 +223,7 @@ O recurso de [pacotes de aplicativos](batch-application-packages.md) do lote for
 
 ### Instalação de aplicativos e preparação de dados
 
-Confira a postagem [Instalação de aplicativos e preparação de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparação de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, essa postagem fornece uma boa descrição geral das diferentes maneiras de incluir arquivos (incluindo dados de entrada de tarefas e aplicativos) nos nós de computação, bem como algumas considerações especiais a serem levadas em conta para cada método.
+Confira a postagem [Instalação de aplicativos e preparação de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparação de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, essa postagem fornece uma boa descrição geral das diferentes maneiras de incluir arquivos (incluindo dados de entrada de tarefas e aplicativos) nos nós de computação, bem como algumas considerações especiais para cada método.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/pt-BR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -242,4 +252,4 @@ Confira a postagem [Instalação de aplicativos e preparação de dados em nós 
 [1]: ./media/batch-task-output/task-output-01.png "Arquivos de saída salvos e Seletores de logs salvos no portal"
 [2]: ./media/batch-task-output/task-output-02.png "Folha de saídas de tarefa no portal do Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

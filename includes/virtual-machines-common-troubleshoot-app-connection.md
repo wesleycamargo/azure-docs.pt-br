@@ -1,13 +1,13 @@
-Há vários motivos pelos quais você pode ter problemas ao se conectar a um aplicativo que esteja sendo executado em uma VM (máquina virtual) do Azure, como o aplicativo não estar em execução ou estar escutando nas portas esperadas, estar escutando em portas bloqueadas ou as regras de rede não estarem passando corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
+Há vários motivos pelos quais não é possível iniciar ou conectar-se a um aplicativo em execução em uma VM (máquina virtual) do Azure. Entre eles estão o aplicativo não estar em execução ou não estar escutando nas portas esperadas, a porta de escuta estar bloqueada ou as regras de rede não passarem corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
 
-Se você estiver tendo problemas para se conectar à sua VM usando RDP ou SSH, consulte um dos seguintes artigos primeiro:
+Se você estiver tendo problemas para se conectar à sua VM usando RDP ou SSH, veja um dos seguintes artigos primeiro:
 
  - [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
  - [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 > [AZURE.NOTE] O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../articles/resource-manager-deployment-model.md). Este artigo aborda o uso de ambos os modelos, mas a Microsoft recomenda as mais novas implantações usem o modelo do Gerenciador de Recursos.
 
-Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
 
 ## Início rápido de solução de problemas de conectividade do ponto de extremidade
 
@@ -118,4 +118,4 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

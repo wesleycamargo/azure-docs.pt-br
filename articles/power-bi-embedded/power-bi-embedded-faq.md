@@ -3,7 +3,7 @@
    description="Perguntas Frequentes sobre o Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Perguntas Frequentes sobre o Power BI Embedded
 
@@ -44,7 +44,7 @@ O Power BI Embedded destina-se a seus aplicativos fornecidos para uso por tercei
 
 ## É possível usar o Power BI Embedded para criar aplicativos internos?
 
-Não, o Power BI Embedded é destinado apenas para uso por usuários externos e não pode ser usado em aplicativos de negócios internos. Para inserir conteúdo do Power BI para uso em aplicativos de negócios internos, você deve usar o serviço do Power BI e todos os usuários consumindo esse conteúdo devem ter licença de assinatura de usuário do Power BI Gratuito ou do Power BI Pro. Mais informações sobre como integrar aplicativos internos ao serviço do Power BI estão disponíveis em [https://dev.powerbi.com](https://dev.powerbi.com).
+Não, o Power BI Embedded é destinado apenas para uso por usuários externos e não pode ser usado em aplicativos de negócios internos. Para inserir conteúdo do Power BI para uso em aplicativos de negócios internos, é necessário usar o serviço do Power BI, e todos os usuários que consomem esse conteúdo devem ter uma licença de assinatura de usuário válida do Power BI Gratuito ou do Power BI Pro. Mais informações sobre como integrar aplicativos internos ao serviço do Power BI estão disponíveis em [https://dev.powerbi.com](https://dev.powerbi.com).
 
 ## Este serviço está disponível globalmente?
 
@@ -68,15 +68,15 @@ As renderizações são cobradas a cada 1.000 unidades. Para quantidades de rend
 
 ## O que é uma sessão de relatório e como ela é cobrada?
 
-Uma sessão é um conjunto de interações entre um usuário final e um relatório do Power BI Embedded. Cada vez que um relatório do Power BI Embedded é exibido a um usuário, uma sessão é iniciada e será cobrada uma sessão do titular da assinatura. As sessões são cobradas a uma taxa fixa, independentemente da quantidade de elementos visuais em um relatório ou da frequência com que o conteúdo do relatório é atualizado. Uma sessão termina quando o usuário fecha o relatório ou quando a sessão expira após uma hora.
+Uma sessão é um conjunto de interações entre um usuário final e um relatório do Power BI Embedded. Sempre que um relatório do Power BI Embedded for exibido para um usuário, uma sessão será iniciada e uma sessão do titular da assinatura será cobrada. As sessões são cobradas a uma taxa fixa, independentemente da quantidade de elementos visuais em um relatório ou da frequência com que o conteúdo do relatório é atualizado. Uma sessão termina quando o usuário fecha o relatório ou quando a sessão expira após uma hora.
 
 ## Você oferece ferramentas ou diretrizes para ajudar a estimar quantas renderizações/sessões devem ser esperadas? Como saberei quantas renderizações foram concluídas?
 
-O Portal do Azure fornecerá detalhes de cobrança sobre quantas sessões de relatório/renderizações foram executadas para a sua assinatura.
+O Portal do Azure fornecerá detalhes de cobrança sobre quantas sessões de relatório/renderizações foram executadas em sua assinatura.
 
-## Eu preciso de uma assinatura do Power BI para desenvolver aplicativos com o Power BI Embedded? Como começar?
+## Preciso de uma assinatura do Power BI para desenvolver aplicativos com o Power BI Embedded? Como começar?
 
-Como desenvolvedor de aplicativos, você não precisa ter uma assinatura do Power BI para compilar relatórios e visualizações que deseja usar em seu aplicativo. Você precisará de uma assinatura do Microsoft Azure e do aplicativo Power BI Desktop gratuito.
+Como desenvolvedor de aplicativos, você não precisa ter uma assinatura do Power BI para criar os relatórios e as visualizações que deseja usar em seu aplicativo. Você precisará de uma assinatura do Microsoft Azure e do aplicativo Power BI Desktop gratuito.
 
 Consulte nossa documentação do serviço para obter detalhes sobre como usar o serviço do Power BI Embedded.
 
@@ -102,7 +102,7 @@ Daremos suporte ao acesso a fontes de dados em nuvem que usem credenciais básic
 
 No modelo do Power BI Embedded, não há nenhum requisito explícito para ter seus clientes em locatários do Azure AD. Você pode optar por exigir ou não o Azure AD dos seus clientes. Como resultado, a arquitetura do seu aplicativo e a infraestrutura serão os fatores determinantes para o modelo de locação exigido para o Power BI Embedded.
 
-Os desenvolvedores/funcionários trabalhando para compilar seu aplicativo precisarão ter uma conta de usuário do AAD quando tiverem que gerenciar sua assinatura do Azure e Coleções de Espaço de Trabalho por meio do Portal do Azure. APIs programáticas que permitem aos desenvolvedores importar relatórios, modificar cadeias de conexão e fazer com que as URLs de inserção aproveitem Tokens de Aplicativo para autenticação em seu lugar, de modo que, como resultado, não exigem o AAD. Detalhes sobre como usar nossas APIs e o Portal do Azure podem ser encontrados na [página de documentação do Power BI Embedded no Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
+Os desenvolvedores/funcionários que trabalham em seu aplicativo ou que criam seu aplicativo precisarão ter uma conta de usuário do AAD quando precisarem gerenciar sua Assinatura do Azure e suas Coleções de Espaço de Trabalho por meio do Portal do Azure. APIs programáticas que permitem aos desenvolvedores importar relatórios, modificar cadeias de conexão e fazer com que as URLs de inserção aproveitem Tokens de Aplicativo para autenticação em seu lugar, de modo que, como resultado, não exigem o AAD. Detalhes sobre como usar nossas APIs e o Portal do Azure podem ser encontrados na [página de documentação do Power BI Embedded no Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
 
 ## Onde posso saber mais?
 
@@ -110,11 +110,11 @@ Você pode visitar a [página de documentação do Power BI Embedded](http://go.
 
 ## Como começar?
 
-Você pode começar gratuitamente agora! Se você tiver uma assinatura do Azure, você poderá então provisionar o Power BI Embedded diretamente do portal do Azure. Você também pode criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de provisionar o serviço Power BI Embedded, você poderá usar com facilidade APIs REST do Power BI diretamente ou usar o SDK de desenvolvedor disponível no [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidas amostras de como utilizar o SDK de desenvolvedor.
+Você pode começar gratuitamente agora! Se tiver uma assinatura do Azure, agora você poderá provisionar o Power BI Embedded diretamente no portal do Azure. Você também pode criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de provisionar o serviço Power BI Embedded, você poderá usar com facilidade APIs REST do Power BI diretamente ou usar o SDK de desenvolvedor disponível no [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidas amostras de como utilizar o SDK de desenvolvedor.
 
-## Consulte também
+## Confira também
 
 - [O que é o Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -18,13 +18,13 @@
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> Para a versão de aplicativos móveis equivalente deste tópico, consulte [Adicionar notificações por push ao seu aplicativo Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+> Para obter a versão dos Aplicativos Móveis equivalente deste tópico, consulte [Adicionar notificações por push ao aplicativo Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
  
 &nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo Android. Neste tutorial você adiciona notificações por push usando o serviço de Mensagens de Nuvem do Google (GCM) para o projeto quickstart. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
+Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push ao aplicativo Android. Neste tutorial você adiciona notificações por push usando o serviço de Mensagens de Nuvem do Google (GCM) para o projeto quickstart. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
 Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis] para conectar seu projeto ao serviço móvel. Como tal, esse tutorial também requer o Visual Studio 2013.
 
@@ -116,6 +116,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 [O que são Hubs de Notificação?]: ../notification-hubs-overview.md
 [Enviar notificações de transmissão para assinantes]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Enviar notificações com base no modelo para assinantes]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Enviar notificações com base no modelo para assinantes]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

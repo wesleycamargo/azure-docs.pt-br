@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ O objetivo desse tutorial é mostrar como integrar o AppBlade ao Azure AD (Azure
 
 - É possível controlar no Azure AD quem tem acesso ao AppBlade
 - É possível permitir que seus usuários façam logon automaticamente no AppBlade (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar a integração do AppBlade com o Azure AD, você precisa adicion
 
 **Para adicionar o AppBlade a partir da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
 
@@ -91,10 +91,10 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do AppB
 
 Para configurar e testar o logon único do Azure AD com o AppBlade, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do AppBlade](#creating-a-appblade-test-user)**: para ter um equivalente de Brenda Fernandes no AppBlade que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 
@@ -121,7 +121,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon no seu aplicativo do AppBlade usando o seguinte padrão: **“https://companyname.appblade.com/saml/tenantid”**.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 4. Na página **Configurar logon único no AppBlade**, execute as seguintes etapas:
@@ -130,13 +130,13 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
-5. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do AppBlade usando o endereço **support@appblade.com** e anexe o arquivo de metadados baixado ao email. Além disso, peça para configurar a **URL do Emissor de SSO** como **https://appblade.com/saml**. Essa configuração é necessária para que o logon único funcione.
+5. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do AppBlade usando **support@appblade.com** e anexe o arquivo de metadados baixado ao email. Além disso, peça para configurar a **URL do Emissor de SSO** como **https://appblade.com/saml**. Essa configuração é necessária para que o logon único funcione.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
 
 	![Logon único do AD do Azure][10]
 
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
 6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -212,7 +212,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no AppBla
 
 Se o usuário tiver um endereço de email que termina com o domínio configurado pelo AppBlade para sua conta, o usuário ingressará automaticamente na conta como membro com o nível de permissão especificado por você, que pode ser "Básico" (um usuário básico que só pode instalar aplicativos), "Membro da Equipe" (um usuário que pode carregar novas versões do aplicativo e gerenciar projetos) ou"Administrador" (privilégios totais de administrador na conta). O normal seria escolher Básico e promover os usuários manualmente por meio de um logon de administrador (o AppBlade precisa configurar antecipadamente um logon de administração baseado em email ou promover um usuário em nome do cliente após o logon).
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o AppBlade, caso ainda não exista. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
+Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o AppBlade, caso ainda não exista. [Configurando o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)
 
 > [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do AppBlade.
 
@@ -274,4 +274,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

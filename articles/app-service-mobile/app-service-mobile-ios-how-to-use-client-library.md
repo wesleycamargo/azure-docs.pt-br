@@ -393,6 +393,8 @@ Para chamar uma API personalizada, chame `MSClient.invokeAPI` conforme mostrado 
 Para fazer uma solicitação `GET` em vez de uma solicitação `POST`, defina o parâmetro de `HTTPMethod` como `"GET"` e o parâmetro `body` como `nil` (já que as solicitações GET não têm corpos de mensagem). Se sua API personalizada dá suporte a outros verbos HTTP, altere o `HTTPMethod` adequadamente.
 
 **Objective-C**:
+
+
 ```
 [self.client invokeAPI:@"sendEmail"
                   body:@{ @"contents": @"Hello world!" }
@@ -854,4 +856,4 @@ Você pode usar o SDK do Login do Google para iOS para conectar os usuários ao 
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

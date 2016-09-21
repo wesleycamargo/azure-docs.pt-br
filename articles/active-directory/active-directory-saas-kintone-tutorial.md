@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/09/2016" 
+    ms.date="09/01/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Kintone
@@ -57,7 +57,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Kintone**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-kintone-tutorial/IC785867.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-kintone-tutorial/IC785867.png "Galeria de Aplicativos")
 
 7.  No painel de resultados, selecione **Kintone** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -68,7 +68,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Kintone**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Kintone**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurar o logon único")
 
@@ -100,15 +100,15 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 9.  Selecione **Habilitar a autenticação do SAML**.
 
-    ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Autenticação SAML")
+    ![Autenticação do SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Autenticação SAML")
 
 10. Na seção Autenticação do SAML, execute as seguintes etapas:
 
     ![Autenticação SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Autenticação do SAML")
 
     1.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Kintone**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    2.  No portal do Azure, na página do diálogo **Configurar logon único no Kintone**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    3.  Clique em **Procurar** para carregar o certificado baixado.
+    2.  No portal clássico do Azure, na página do diálogo **Configurar logon único no Kintone**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    3.  Clique em **Pesquisar** para carregar o certificado que você baixou.
     4.  Clique em **Salvar**.
 
 11. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
@@ -149,7 +149,7 @@ Para permitir que os usuários do AD do Azure façam logon no Kintone, eles deve
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Kintone, execute as seguintes etapas:
 
@@ -165,4 +165,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

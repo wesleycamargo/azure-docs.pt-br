@@ -154,8 +154,7 @@ Você tem duas opções de aplicativos:
 Selecionar a opção **Para aplicativos de navegador e nativos** impõe a política de acesso a aplicativos por:
 
 - Navegadores (por exemplo, o Edge no Windows 10, o Safari no iOS, etc.)
-- Aplicativos que usam a ADAL (Biblioteca de  
-Aplicativos do Active Directory) em qualquer plataforma ou na API WAM (Gerenciador de Contas da Web) no Windows 10
+- Aplicativos que usam a ADAL (Biblioteca de Autenticação do Active Directory) em qualquer plataforma ou na API WAM (Gerenciador de Contas da Web) no Windows 10
 
 >[AZURE.NOTE] Para obter mais informações sobre o suporte ao navegador e outras considerações para o usuário final que está acessando os aplicativos protegidos da AC com base no dispositivo, confira [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md).
 
@@ -174,4 +173,4 @@ Nos aplicativos do Office 365 Exchange Online, você tem uma seção adicional c
 
 - [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

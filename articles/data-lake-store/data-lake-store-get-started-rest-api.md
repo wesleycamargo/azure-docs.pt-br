@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando APIs REST
@@ -34,8 +34,7 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 ## Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory - **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
+- **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory: **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
 	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, é necessário criar um **aplicativo Cliente Nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
 		- Obter a **ID do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
@@ -43,7 +42,7 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 	* **Para a autenticação não interativa** - no Azure Active Directory, é necessário criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
 		- Obter a **ID do cliente**, o **segredo do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
-		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. Para obter instruções, veja [Atribuir um aplicativo a uma função](../resource-group-create-service-principal-portal.md#assign-application-to-role).
+		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. Para obter instruções, confira [Atribuir um aplicativo a uma função](../resource-group-create-service-principal-portal.md#assign-application-to-role).
 
 	Veja [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
 
@@ -90,7 +89,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
       		-F client_id=<CLIENT-ID> \
       		-F refresh_token=<REFRESH-TOKEN>
  
-Para obter mais informações sobre a autenticação interativa de usuário, veja [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Para obter mais informações sobre a autenticação interativa de usuário, confira [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
 ### Não interativo
 
@@ -106,13 +105,13 @@ A saída dessa solicitação incluirá um token de autorização (indicado por `
 
 	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
-Este artigo usa uma abordagem **não interativa**. Para obter mais informações sobre (chamadas de serviço a serviço) não interativas, veja [Chamadas de serviço a serviço usando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+Este artigo usa uma abordagem **não interativa**. Para saber mais sobre (chamadas de serviço a serviço) não interativas, confira [Chamadas de serviço a serviço usando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 ## Criar uma conta do Repositório Data Lake
 
 Essa operação se baseia na chamada à API REST definida [aqui](https://msdn.microsoft.com/library/mt694078.aspx).
 
-Use o comando cURL a seguir. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
@@ -130,11 +129,11 @@ No comando acima, substitua <`REDACTED`> pelo token de autorização recuperado 
 
 Essa operação se baseia na chamada à API REST WebHDFS definida [aqui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Use o comando cURL a seguir. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
 
-No comando acima, substitua <`REDACTED`> pelo token de autorização recuperado anteriormente. Esse comando cria um diretório chamado **mytempdir** na pasta raiz da conta do Repositório Data Lake.
+No comando acima, substitua <`REDACTED`> pelo token de autorização recuperado anteriormente. Esse comando cria um diretório chamado **mytempdir** na pasta raiz da conta do Data Lake Store.
 
 Você deverá ver uma resposta como esta caso a operação seja concluída com êxito:
 
@@ -144,7 +143,7 @@ Você deverá ver uma resposta como esta caso a operação seja concluída com �
 
 Essa operação se baseia na chamada à API REST WebHDFS definida [aqui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Use o comando cURL a seguir. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
 
@@ -175,7 +174,7 @@ Essa operação se baseia na chamada à API REST WebHDFS definida [aqui](http://
 
 O carregamento de dados usando a API REST WebHDFS é um processo de duas etapas, como explicado abaixo.
 
-1. Envie uma solicitação HTTP PUT sem enviar os dados do arquivo a ser carregado. No comando a seguir, substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+1. Envie uma solicitação HTTP PUT sem enviar os dados do arquivo a ser carregado. No comando a seguir, substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 		curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
 
@@ -190,7 +189,7 @@ O carregamento de dados usando a API REST WebHDFS é um processo de duas etapas,
 		...
 		...
 
-2. Agora você deve enviar outra solicitação HTTP PUT à URL listada para a propriedade **Local** na resposta. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+2. Agora você deve enviar outra solicitação HTTP PUT à URL listada para a propriedade **Local** na resposta. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 		curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
 
@@ -211,7 +210,7 @@ A leitura de dados de uma conta do Repositório Data Lake é um processo de duas
 * Primeiro você envia uma solicitação GET para o ponto de extremidade `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Isso retornará um local para o qual será enviada a próxima solicitação GET.
 * Em seguida, você enviará a solicitação GET para o ponto de extremidade `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Isso exibirá o conteúdo do arquivo.
 
-No entanto, como não há diferença nos parâmetros de entrada entre a primeira e a segunda etapa, é possível usar o parâmetro `-L` para enviar a primeira solicitação. Basicamente, a opção `-L` combina duas solicitações em uma e fará com que a cURL refaça a solicitação no novo local. Por fim, a saída de todas as chamadas de solicitação é exibida, conforme mostrado abaixo. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+No entanto, como não há diferença nos parâmetros de entrada entre a primeira e a segunda etapa, é possível usar o parâmetro `-L` para enviar a primeira solicitação. Basicamente, a opção `-L` combina duas solicitações em uma e fará com que a cURL refaça a solicitação no novo local. Por fim, a saída de todas as chamadas de solicitação é exibida, conforme mostrado abaixo. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
 
@@ -231,7 +230,7 @@ Você deverá ver um resultado semelhante ao seguinte:
 
 Essa operação se baseia na chamada à API REST WebHDFS definida [aqui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Use o comando cURL a seguir para renomear um arquivo. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir para renomear um arquivo. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
 
@@ -246,7 +245,7 @@ Você deverá ver um resultado semelhante ao seguinte:
 
 Essa operação se baseia na chamada à API REST WebHDFS definida [aqui](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Use o comando cURL a seguir para excluir um arquivo. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir para excluir um arquivo. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
 
@@ -261,7 +260,7 @@ Você verá algo semelhante ao mostrado a seguir:
 
 Essa operação se baseia na chamada à API REST definida [aqui](https://msdn.microsoft.com/library/mt694075.aspx).
 
-Use o comando cURL a seguir para excluir uma conta do Repositório Data Lake. Substitua **<nomedoseurepositório>** pelo nome do Repositório Data Lake.
+Use o comando cURL a seguir para excluir uma conta do Repositório Data Lake. Substitua **<nomedorepositório>** pelo nome do Data Lake Store.
 
 	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
@@ -271,9 +270,9 @@ Você verá algo semelhante ao mostrado a seguir:
 	...
 	...
 
-## Consulte também
+## Confira também
 
 - [Aplicativos de Big Data de software livre compatíveis com o Repositório Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

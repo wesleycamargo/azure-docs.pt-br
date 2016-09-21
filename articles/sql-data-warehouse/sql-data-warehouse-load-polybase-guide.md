@@ -3,7 +3,7 @@
    description="Diretrizes e recomendações para usar o PolyBase em cenários do SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Guia para usar o PolyBase no SQL Data Warehouse
@@ -82,7 +82,7 @@ Consulte [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 ## Criar estatísticas sobre os dados recém-carregados
 
-O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][] no grupo de tópicos Desenvolver. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, consulte o tópico [Estatísticas][] no Grupo de desenvolvimento de tópicos. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -206,4 +206,4 @@ Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Vi
 
 <!-- External Links -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

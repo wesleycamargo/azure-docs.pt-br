@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>
 
 #Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 
@@ -70,7 +70,7 @@ Para habilitar o logon único em aplicativos que não oferecem suporte à federa
 | :---: | --- |
 | Uma introdução ao funcionamento do SSO baseado em senha e uma breve visão geral técnica | [Logon único com base em senha com o AD do Azure](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Um resumo dos cenários relacionados ao compartilhamento de conta e como esses problemas são solucionados pelo AD do Azure | [Compartilhar contas com o AD do Azure](active-directory-sharing-accounts.md) |
-| Alterar automaticamente a senha para determinados aplicativos em intervalos regulares | [Substituição de senha automática (visualização)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| Alterar automaticamente a senha para determinados aplicativos em intervalos regulares | [Substituição de senha automática (visualização)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guias de implantação e de solução de problemas para a versão do Internet Explorer da extensão de gerenciamento de senha do AD do Azure | [Como implantar a extensão Painel de Acesso para o Internet Explorer usando a política de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solução de problemas da extensão Painel de Acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 O logon único baseado em senha está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. O [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos](#managing-access-to-applications). A substituição de senha automática é um recurso do [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -218,7 +218,7 @@ O Active Directory do Azure fornece vários relatórios e alertas para ajudar vo
 
 Para ver quais relatórios estão incluídos em edições diferentes do Azure Active Directory, [clique aqui](active-directory-view-access-usage-reports.md#report-editions).
 
-##Consulte também
+##Confira também
 
 [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
@@ -228,4 +228,4 @@ Para ver quais relatórios estão incluídos em edições diferentes do Azure Ac
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

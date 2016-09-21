@@ -122,6 +122,7 @@ Se sua organização já estiver usando o roaming no Windows 10 com a assinatura
 
 - Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar. Atualizações futuras do Windows 10 poderão resolver esse problema.
 - Você precisará da atualização cumulativa de julho do Windows 10 (build 10586.494 ou superior) para que sincronização de favoritos do Internet Explorer funcione.
+- Dados protegidos com o Windows Information Protection não serão sincronizados por meio de Roaming de Estado da Empresa. Além disso, computadores que têm o Windows Information Protection habilitado não terão a sincronização de tema.
 - Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Azure Multi-Factor Authentication estiver configurada.
     - Se o dispositivo está configurado para exigir [Multi-Factor Authentication](multi-factor-authentication.md) no portal do Azure Active Directory, você pode não conseguir sincronizar configurações ao entrar em um dispositivo Windows 10 usando uma senha. Esse tipo de configuração de Multi-Factor Authentication destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou concluindo o Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
     - A sincronização poderá falhar se o administrador configurar a política de acesso condicional do Multi-Factor Authentication dos Serviços de Federação do Active Directory (AD FS) e o token de acesso do dispositivo expirará. Certifique-se de entrar e sair usando o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou conclua a Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
@@ -135,4 +136,4 @@ Se sua organização já estiver usando o roaming no Windows 10 com a assinatura
 - [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

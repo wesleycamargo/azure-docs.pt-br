@@ -12,20 +12,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Monitorar o desempenho do aplicativo Web do Azure
 
-No [Portal do Azure](https://portal.azure.com) você pode configurar o monitoramento a fim de coletar estatísticas e detalhes sobre as dependências do aplicativo em seus [aplicativos Web do Azure](../app-service-web/app-service-web-overview.md) ou [máquinas virtuais](../virtual-machines/virtual-machines-linux-about.md).
+No [Portal do Azure](https://portal.azure.com), você pode configurar o monitoramento de desempenho de aplicativo dos seus [aplicativos Web do Azure](../app-service-web/app-service-web-overview.md) ou de [máquinas virtuais](../virtual-machines/virtual-machines-linux-about.md). As soluções de monitoramento de desempenho instrumentam seu aplicativo para enviar telemetria sobre suas atividades. As métricas resultantes e a telemetria podem ser usadas para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar o uso.
 
-O Azure oferece suporte ao APM (Monitoramento de desempenho do aplicativo) aproveitando as extensões. Essas extensões são instaladas em seu aplicativo, coletam os dados e informam os serviços de monitoramento.
+## Tempo de execução ou tempo de compilação
 
-O **Application Insights** e **New Relic** são duas das extensões de monitoramento de desempenho que estão disponíveis. Para usá-las, instale um agente em tempo de execução. Com o Application Insights, também há a opção de criar seu código com um SDK. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes.
+Você pode configurar o monitoramento por meio da instrumentação do aplicativo de duas maneiras:
 
-## Application Insights
+* **Tempo de execução** - você pode selecionar um desempenho extensão de monitoramento quando seu aplicativo Web já está ativo. Não é necessário recompilar ou reinstalar o aplicativo. Obtenha um conjunto padrão de pacotes que monitoram os tempos de resposta, taxas de êxito, exceções, dependências e assim por diante.
 
-### (Opcional) Recompile o aplicativo com o SDK...
+    O **Application Insights** e o **New Relic** são duas das extensões de monitoramento de desempenho em tempo de execução que estão disponíveis.
+ 
+* **Tempo de compilação** - você pode instalar um pacote em seu aplicativo em desenvolvimento. Essa opção é mais versátil. Além dos mesmos pacotes padrão, você pode escrever código para personalizar a telemetria ou para enviar sua própria telemetria. Você pode registrar eventos de registro de acordo com a semântica do seu domínio de aplicativo ou de atividades específicas.
+
+    O **Application Insights** fornece pacotes de tempo de compilação.
+
+
+## Compilar o aplicativo com o pacote do Application Insights...
 
 O Application Insights pode fornecer dados de telemetria mais detalhados instalando um SDK em seu aplicativo.
 
@@ -46,7 +53,7 @@ O SDK fornece uma API para que você possa [escrever uma telemetria personalizad
 
 ### ... ou configurar manualmente um recurso
 
-Se você não adicionar o SDK do Visual Studio, será necessário configurar o recurso Application Insights no Azure, onde a telemetria é armazenada, analisada e exibida.
+Se você não adicionar o SDK do Visual Studio, será necessário configurar um recurso Application Insights no Azure, onde a telemetria é armazenada, analisada e exibida.
 
 ![Clique em Adicionar, Serviços de Desenvolvedor, Application Insights. Escolha o tipo de aplicativo ASP.NET.](./media/insights-perf-analytics/01-new.png)
 
@@ -104,4 +111,4 @@ Como eu mudo para enviar dados para um recurso diferente do Application Insights
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](../application-insights/app-insights-web-track-usage.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](../application-insights/app-insights-monitor-web-app-availability.md) para ser alertado se o seu site for desativado.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

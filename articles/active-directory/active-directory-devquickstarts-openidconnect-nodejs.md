@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Entrar e sair de aplicativo Web com o AD do Azure
@@ -21,7 +21,7 @@
 
 Aqui usaremos o Passport para:
 
-- Conectar o usuário ao aplicativo usando o AD do Azure e o modelo de aplicativo v2.0.
+- Entrada do usuário no aplicativo usando o Azure AD.
 - Exibir algumas informações sobre o usuário.
 - Desconectar o usuário do aplicativo.
 
@@ -36,11 +36,11 @@ Para isso, você precisará:
 
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) ou clonar o esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## 1. Registrar um Aplicativo
+## 1\. Registrar um Aplicativo
 - Entre no Portal de Gerenciamento do Azure.
 - Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
@@ -52,7 +52,7 @@ O aplicativo completo também é fornecido no final deste tutorial.
     - O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único. Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
 
-## 2. Adicionar pré-requisitos ao seu diretório
+## 2\. Adicionar pré-requisitos ao seu diretório
 
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
@@ -71,7 +71,7 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## 3. Configurar seu aplicativo para usar a estratégia passport-node-js
+## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
@@ -206,7 +206,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
@@ -244,7 +244,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
+## 4\. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
 
 Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O `passport-azure-ad` cuidou de todos os detalhes para criar as mensagens de autenticação, validar tokens no Azure AD e manter a sessão do usuário. Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
 
@@ -289,9 +289,9 @@ app.get('/logout', function(req, res){
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
+// Use esse middleware de roteiro em qualquer recurso que precise ser protegido.  Se
+//   a solicitação for autenticada (normalmente por meio de uma sessão de logon persistente),
+//   ela continuará. Caso contrário, o usuário será redirecionado para
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -308,7 +308,7 @@ app.listen(3000);
 ```
 
 
-## 5. Criar as exibições e as rotas no express para exibir o usuário no site
+## 5\. Criar as exibições e as rotas no express para exibir o usuário no site
 
 Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
@@ -415,4 +415,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 #Use Sqoop com Hadoop no HDInsight
@@ -44,14 +44,14 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você irá usar as
 
     | Campo | Tipo de dados |
     | ----- | --------- |
-    | clientid | cadeia de caracteres |
-    | querytime | cadeia de caracteres |
-    | market | cadeia de caracteres |
-    | deviceplatform | cadeia de caracteres |
+    | clientid | string |
+    | querytime | string |
+    | market | string |
+    | deviceplatform | string |
     | devicemake | cadeia de caracteres |
-    | devicemodel | cadeia de caracteres |
-    | state | cadeia de caracteres |
-    | country | cadeia de caracteres |
+    | devicemodel | string |
+    | state | string |
+    | country | string |
     | querydwelltime | double |
     | sessionid | bigint |
     | sessionpagevieworder | bigint |
@@ -62,15 +62,15 @@ Primeiro, você exportará o *sample.log* e a *hivesampletable* para o banco de 
 
 ## Criar o cluster e o Banco de dados SQL
 
-Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL para executar o tutorial usando o Portal do Azure e um modelo de ARM. Se você preferir usar o Azure PowerShell, confira o [Apêndice A](#appendix-a---a-powershell-sample).
+Esta seção mostra como criar um cluster e os esquemas do Banco de Dados SQL para executar o tutorial usando o Portal do Azure e um modelo do Azure Resource Manager. Se você preferir usar o Azure PowerShell, confira o [Apêndice A](#appendix-a---a-powershell-sample).
 
-1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure.
+1. Clique na imagem a seguir para abrir um modelo do Resource Manager no Portal do Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    O modelo do ARM está localizado em um contêiner de blobs público, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    O modelo do Resource Manager está localizado em um contêiner de blob público, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    O modelo de ARM chama um pacote bacpac para implantar os esquemas de tabela no banco de dados SQL. O pacote bacpac também está localizado em um contêiner de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
+    O modelo do Resource Manager chama um pacote bacpac para implantar os esquemas de tabela no Banco de Dados SQL. O pacote bacpac também está localizado em um contêiner de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -93,7 +93,7 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
     
 3\. Clique em **OK** para salvar os parâmetros.
 
-4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e depois em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
+4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
 
 5\. Clique em **Termos legais** e em **Criar**.
 
@@ -629,4 +629,4 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -631,34 +631,34 @@ O exemplo a seguir remove os caracteres de espaço em branco do valor de parâme
 
 **uniqueString (baseString, ...)**
 
-Cria uma cadeia de caracteres exclusiva com base nos valores fornecidos como parâmetros.
+Cria uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros.
 
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
 | baseString | Sim | A cadeia de caracteres usada na função de hash para criar uma cadeia de caracteres exclusiva.
 | parâmetros extras conforme necessário | Não | Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade.
 
-Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que representam o nível de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para sua assinatura, grupo de recursos ou implantação.
+Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação.
 
-O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é garantido que ele seja globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome mais fácil de reconhecer. O exemplo a seguir mostra o formato do valor retornado. Obviamente, o valor real poderá variar de acordo com os parâmetros fornecidos.
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. Obviamente, o valor real poderá variar de acordo com os parâmetros fornecidos.
 
     tcvhiyu5h2o5o
 
 Os exemplos a seguir mostram como usar uniqueString para criar um valor exclusivo para níveis usados com mais frequência.
 
-Exclusivo com base na assinatura
+Escopo exclusivo para a assinatura
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Exclusivo com base no grupo de recursos
+Escopo exclusivo para o grupo de recursos
 
     "[uniqueString(resourceGroup().id)]"
 
-Exclusivo com base na implantação de um grupo de recursos
+Escopo exclusivo para a implantação de um grupo de recursos
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos.
+O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos (dentro desse grupo de recursos o nome não é exclusivo se for construído da mesma maneira).
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -1217,4 +1217,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

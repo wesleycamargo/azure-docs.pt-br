@@ -3,9 +3,9 @@
    description="Saiba como usar modelos do Gerenciador de Recursos do Azure para criar e excluir com rapidez e consistência ambientes de desenvolvimento e teste."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""/>
+   authors="tfitzmac"
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/22/2016"
-   ms.author="jdial"/>
+   ms.author="tomfitz"/>
 
 # Ambientes de desenvolvimento e teste no Microsoft Azure
 
@@ -69,7 +69,7 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *replace with your password*
+ - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1devdb*
 
 4. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetros do ambiente de Teste criado na Etapa 3, substituindo os valores listados à direita dos valores de parâmetro no arquivo pelos *valores* listados à direita dos **parâmetros** abaixo:
@@ -79,7 +79,7 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *replace with your password*
+ - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1testdb*
 
 5. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetro de Pré-produção que você criou na Etapa 3. Substitua todo o conteúdo do arquivo pelos itens abaixo:
@@ -361,4 +361,4 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 - [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
 - Monitore os alertas e a cobrança dos recursos do grupo de recursos no [Portal do Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

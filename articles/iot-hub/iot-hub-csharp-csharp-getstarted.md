@@ -13,14 +13,14 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 # Introdução ao Hub IoT do Azure para .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-No final deste tutorial, você terá três aplicativos de console do Windows:
+No final deste tutorial, você tem três aplicativos de console do Windows:
 
 * **CreateDeviceIdentity**, que cria uma identidade do dispositivo e uma chave de segurança associada para conectar o dispositivo simulado.
 * **ReadDeviceToCloudMessages**, que exibe a telemetria enviada pelo dispositivo simulado.
@@ -40,17 +40,17 @@ Agora, você criou o hub IoT e tem o nome do host e a cadeia de conexão necess�
 
 ## Criar uma identidade do dispositivo
 
-Nesta seção, você cria um aplicativo do console do Windows que cria uma nova identidade do dispositivo no registro de identidade em seu hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no registro de identidade do dispositivo. Para obter mais informações, consulte a seção "Registro da identidade do dispositivo" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executar esse aplicativo de console, ele irá gerar uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
+Nesta seção, você cria um aplicativo de console do Windows que cria uma identidade do dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no registro de identidade do dispositivo. Para obter mais informações, consulte a seção "Registro da identidade do dispositivo" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executar esse aplicativo de console, ele irá gerar uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
 
-1. No Visual Studio, adicione um novo projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto **CreateDeviceIdentity**.
+1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto **CreateDeviceIdentity**.
 
 	![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CreateDeviceIdentity** e clique em **Gerenciar Pacotes NuGet**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CreateDeviceIdentity** e clique em **Gerenciar Pacotes Nuget**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao pacote NuGet do [SDK de Serviço IoT do Microsoft Azure][lnk-nuget-service-sdk] e suas dependências.
+3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao pacote Nuget do [SDK de Serviço IoT do Microsoft Azure][lnk-nuget-service-sdk] e suas dependências.
 
-	![Janela do Gerenciador de Pacotes NuGet][11]
+	![Janela Gerenciador de Pacotes Nuget][11]
 
 4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs**:
 
@@ -79,7 +79,7 @@ Nesta seção, você cria um aplicativo do console do Windows que cria uma nova 
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
 
-	Esse método cria uma nova identidade do dispositivo com a ID **myFirstDevice**. (se essa ID do dispositivo já existir no registro, o código simplesmente irá recuperar as informações do dispositivo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no dispositivo simulado para se conectar ao hub IoT.
+	Esse método cria uma identidade do dispositivo com a ID **myFirstDevice**. (se essa ID do dispositivo já existir no registro, o código simplesmente irá recuperar as informações do dispositivo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no dispositivo simulado para se conectar ao Hub IoT.
 
 7. Por fim, adicione as seguintes linhas ao método **Principal**:
 
@@ -103,9 +103,9 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ReadDeviceToCloudMessages** e clique em **Gerenciar Pacotes NuGet**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ReadDeviceToCloudMessages** e clique em **Gerenciar Pacotes Nuget**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, procure **WindowsAzure.ServiceBus**, selecione **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure][lnk-servicebus-nuget] com todas as suas dependências. Este pacote permite que o aplicativo conecte o ponto de extremidade compatível com o Hubs de Eventos em seu Hub IoT.
+3. Na janela **Gerenciador de Pacotes Nuget**, procure **WindowsAzure.ServiceBus**, selecione **Instalar** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure][lnk-servicebus-nuget] com todas as suas dependências. Este pacote permite que o aplicativo conecte o ponto de extremidade compatível com o Hubs de Eventos em seu Hub IoT.
 
 4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs**:
 
@@ -134,7 +134,7 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
             }
         }
 
-    Esse método usa uma instância de **EventHubReceiver** para receber de todas as partições de recebimento do dispositivo para a nuvem do hub IoT. Observe como você passa um parâmetro `DateTime.Now` quando cria o objeto **EventHubReceiver** para que ele receba apenas as mensagens enviadas após iniciar. Isso é útil em um ambiente de teste para que você possa ver o conjunto atual de mensagens, mas em um ambiente de produção, seu código deve garantir o processamento de todas as mensagens. Para obter mais informações, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT][lnk-process-d2c-tutorial].
+    Esse método usa uma instância de **EventHubReceiver** para receber de todas as partições de recebimento do dispositivo para a nuvem do hub IoT. Observe como você passa um parâmetro `DateTime.Now` quando cria o objeto **EventHubReceiver** para que ele receba apenas as mensagens enviadas após iniciar. Esse filtro é útil em um ambiente de teste para que você possa ver o conjunto atual de mensagens. Em um ambiente de produção, seu código deve poder processar todas as mensagens. Para obter mais informações, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT][lnk-process-d2c-tutorial].
 
 7. Por fim, adicione as seguintes linhas ao método **Principal**:
 
@@ -161,15 +161,15 @@ Nesta seção, você cria um aplicativo do console do Windows que lê mensagens 
 
 ## Criar um aplicativo de dispositivo simulado
 
-Nesta seção, você criará um aplicativo do console do Windows que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um hub IoT.
+Nesta seção, você cria um aplicativo do console do Windows que simula um dispositivo que envia mensagens do dispositivo para a nuvem a um Hub IoT.
 
 1. No Visual Studio, adicione um novo projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Chame o projeto de **SimulatedDevice**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e clique em **Gerenciar Pacotes NuGet**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulatedDevice** e clique em **Gerenciar Pacotes Nuget**.
 
-3. Na janela **Gerenciador de Pacotes NuGet**, selecione **Procurar**, procure **Microsoft.Azure.Devices.Client**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Client** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [pacote NuGet do SDK do Dispositivo - IoT do Azure][lnk-device-nuget] e suas dependências.
+3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **Microsoft.Azure.Devices.Client**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices.Client** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo - IoT do Azure][lnk-device-nuget] e suas dependências.
 
 4. Adicione a seguinte instrução `using` na parte superior do arquivo **Program.cs**:
 
@@ -218,7 +218,7 @@ Nesta seção, você criará um aplicativo do console do Windows que simula um d
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-  Por padrão, o método **Create** cria uma instância **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** que permite especificar o protocolo. Se você usar o protocolo HTTPS, também deverá adicionar o pacote NuGet **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
+  Por padrão, o método **Create** cria uma instância **DeviceClient** que usa o protocolo AMQP para se comunicar com o Hub IoT. Para usar o protocolo HTTPS, use a substituição do método **Create** que permite especificar o protocolo. Se você usar o protocolo HTTPS, também deverá adicionar o pacote Nuget **Microsoft.AspNet.WebApi.Client** ao seu projeto para incluir o namespace **System.Net.Http.Formatting**.
 
 Este tutorial apresenta as etapas para criar um cliente de dispositivo do Hub IoT. Você também pode usar a extensão Visual Studio do [Serviço Conectado para o Hub IoT do Azure][lnk-connected-service] para adicionar o código necessário ao aplicativo cliente de seu dispositivo.
 
@@ -244,7 +244,7 @@ Agora você está pronto para executar os aplicativos.
 
 ## Próximas etapas
 
-Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma identidade do dispositivo no registro de identidade do hub. Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para enviar as mensagens entre o dispositivo e a nuvem para o hub. Você também criou um aplicativo que exibe as mensagens recebidas pelo hub.
+Neste tutorial, você configurou um Hub IoT no portal e depois criou uma identidade do dispositivo no registro de identidade do hub. Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para enviar as mensagens entre o dispositivo e a nuvem para o hub. Você também criou um aplicativo que exibe as mensagens recebidas pelo hub.
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 
@@ -282,4 +282,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

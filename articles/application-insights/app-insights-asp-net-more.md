@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aproveite melhor o Application Insights" 
+	pageTitle="Tire o máximo proveito do Application Insights | Microsoft Azure" 
 	description="Após começar a usar o Application Insights, veja um resumo dos recursos que você pode explorar." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Mais telemetria do Application Insights
@@ -60,16 +60,19 @@ Se seu aplicativo for executado como um aplicativo Web, vá para o painel de con
 
 (Você também pode usar esse método para [habilitar o monitoramento do desempenho em tempo de execução](app-insights-monitor-performance-live-website-now.md), mesmo que não instrumente seu aplicativo no Visual Studio.)
 
+## Monitoramento do lado do cliente
 
-## Desempenho do navegador
+Você instalou o SDK que envia dados de telemetria da extremidade do servidor (back-end) do seu aplicativo. Agora, você pode adicionar o monitoramento do lado do cliente. Isso fornece dados sobre usuários, sessões, exibições de página e qualquer exceção ou falha que ocorre no navegador. Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
 
-Adicione o trecho de JavaScript do Application Insights para páginas da Web, a fim de obter a telemetria de navegadores cliente.
+Adicione o trecho de JavaScript do Application Insights para cada página da Web, a fim de obter a telemetria de navegadores cliente.
 
 1. No Azure, abra o recurso Application Insights para seu aplicativo.
 2. Abra Início Rápido, Monitor do Lado do Cliente e copie o trecho de código.
 3. Cole-o para que ele apareça na parte superior de cada página da Web. Normalmente, você pode fazer isso colando na página de layout mestre.
 
 ![Estender no Azure](./media/app-insights-asp-net-more/100.png)
+
+Observe que o código contém a chave de instrumentação que identifica o recurso de aplicativo.
 
 ### O que você obtém?
 
@@ -78,6 +81,27 @@ Adicione o trecho de JavaScript do Application Insights para páginas da Web, a 
 * [Dados de desempenho e de uso do cliente](app-insights-javascript.md) na folha de Navegadores.
 
 ![Estender no Azure](./media/app-insights-asp-net-more/090.png)
+
+
+[Saiba mais sobre rastreamento de página da Web.](app-insights-web-track-usage.md)
+
+
+
+## Rastrear versão do aplicativo
+
+Verifique se `buildinfo.config` foi gerado pelo processo do MSBuild. No arquivo. csproj, adicione:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](app-insights-diagnostic-search.md) ou ao [explorar métricas](app-insights-metrics-explorer.md).
+
+No entanto, observe que o número de versão de compilação é gerado apenas pelo MSBuild, não pela compilação de desenvolvedor no Visual Studio.
+
 
 ## Testes de disponibilidade na Web
 
@@ -121,4 +145,4 @@ Há várias maneiras de explorar seus dados. Se você tiver começado a usar o A
 |**API de acesso a dados**<br/>em breve.|
 |[**Amostragem**](app-insights-sampling.md)<br/>reduz a taxa de dados e ajuda você a permanecer dentro do limite de seu tipo de preço.|![Bloco de amostragem](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

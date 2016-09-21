@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adicionar uma VM com artefatos a um laboratório | Microsoft Azure"
-	description="Saiba como adicionar uma VM com artefatos a Laboratórios de Desenvolvimento/Teste"
+	pageTitle="Adicionar uma VM com artefatos a um Azure DevTest Labs | Microsoft Azure"
+	description="Saiba como adicionar uma VM com artefatos no Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
-# Adicionar uma VM com artefatos a um laboratório
+# Adicionar uma VM com artefatos a um Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
-
-## Visão geral
 
 Você cria uma VM em um laboratório por meio de uma *base* que é uma [imagem personalizada](./devtest-lab-create-template.md), uma [fórmula](./devtest-lab-manage-formulas.md) ou uma [imagem do Marketplace](./devtest-lab-configure-marketplace-images.md).
 
@@ -36,25 +34,23 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Procurar**, e, em seguida, **DevTest Labs** na lista.
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a nova VM.
+1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM.
 
-1. Na folha do laboratório, selecione **+ VM do Laboratório**, como mostra a figura a seguir. ![Adicionar botão VM de Laboratório](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. Na folha **Visão geral** do laboratório, selecione **+ Máquina Virtual**. ![Botão Adicionar VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
 1. Na folha **Escolher uma base**, selecione uma base para a VM.
 
-1. Na folha **VM do Laboratório**, insira um nome para a nova máquina virtual na caixa de texto **Nome da VM do Laboratório**.
+1. Na folha **Máquina virtual**, insira um nome para a nova máquina virtual na caixa de texto **Nome da máquina virtual**.
 
 	![Folha VM de Laboratório](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Insira um **Nome de Usuário**, que receberá privilégios de administrador na máquina virtual.
 
-1. Se o tipo de sistema operacional da base selecionada for Linux, especifique uma autenticação do tipo *Senha* ou *Chave Pública SSH*.
-
-1. Dependendo do tipo de autenticação especificado, insira uma senha ou a chave pública SSH.
-
-1. Selecione **Tamanho da VM** e um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
+1. Se você quiser usar uma senha armazenada em seu *repositório secreto*, selecione **Usar segredos do meu repositório secreto** e especifique um valor de chave que corresponda ao seu segredo (senha). Caso contrário, simplesmente digite uma senha no campo de texto rotulado **Digite um valor**.
+ 
+1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
 
 1. Selecione **Rede virtual** e escolha a rede virtual desejada.
 
@@ -76,11 +72,11 @@ Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 Durante a criação de uma VM, você pode adicionar artefatos existentes. Cada laboratório inclui artefatos do Repositório Público de Artefatos de Laboratórios de Desenvolvimento/Teste, bem como artefatos criados e adicionados por você a seu próprio Repositório de Artefatos. Para saber como criar artefatos, confira o artigo [Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 
-1. Na folha **VM do Laboratório**, selecione **Artefatos**.
+1. Na folha **Máquina Virtual**, selecione **Artefatos**.
 
 1. Na folha **Adicionar Artefatos**, selecione o artefato desejado.
 
-![Folha Adicionar Artefatos](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+	![Folha Adicionar Artefatos](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Insira os valores de parâmetro necessários e quaisquer parâmetros opcionais dos quais você precise.
 
@@ -98,7 +94,7 @@ Por padrão, as ações dos artefatos são executadas na ordem em que eles são 
 
     ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Arraste e solte os artefatos na lista para refletir a ordem desejada. **Observação:** se tiver problemas ao arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato.
+1. Para especificar a ordem na qual os artefatos são executados, arraste e solte os artefatos na ordem desejada. **Observação:** se tiver problemas ao arrastar o artefato, verifique se está arrastando do lado esquerdo do artefato.
 
 1. Selecione **OK** quando tiver concluído.
 
@@ -120,9 +116,9 @@ As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefa
 
 Um modelo do Azure Resource Manager é uma forma declarativa de definir uma implantação repetível. As etapas a seguir explicam como salvar o modelo do Azure Resource Manager para a VM que está sendo criada. Depois de salvo, você pode usar o modelo do Azure Resource Manager para [implantar novas VMs com o Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. Na folha **VM do Laboratório**, selecione **Exibir Modelo ARM**.
+1. Na folha **Máquina virtual**, selecione **Exibir Modelo de ARM**.
 
-1. Na **folha Exibir o Modelo do Azure Resource Manager**, selecione todo o texto do modelo.
+1. Na **folha Exibir o Modelo do Azure Resource Manager**, selecione o texto do modelo.
 
 1. Copie o texto selecionado para a área de transferência.
 
@@ -142,4 +138,4 @@ Um modelo do Azure Resource Manager é uma forma declarativa de definir uma impl
 - Saiba como [criar artefatos personalizados para sua VM do DevTest Labs](devtest-lab-artifact-author.md).
 - Explorar a [galeria de modelos de Início Rápido do ARM do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
