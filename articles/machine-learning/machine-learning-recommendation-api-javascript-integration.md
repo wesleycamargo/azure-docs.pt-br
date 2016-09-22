@@ -42,11 +42,11 @@ Na primeira fase, você insere em suas páginas html uma pequena biblioteca Java
 
 Na segunda fase, quando você quiser mostrar as recomendações na página, selecione uma das opções a seguir:
 
-1. Seu servidor (na fase de renderização da página) chama o Servidor de Recomendações do AM do Azure (via Data Market) para obter recomendações. Os resultados incluem uma lista de id de itens. Seu servidor precisa enriquecer os resultados com os Metadados dos itens (por exemplo, imagens, descrição) e enviar a página criada para o navegador.
+1.Seu servidor (na fase de renderização da página) chama o Servidor de Recomendações do AM do Azure (via Data Market) para obter recomendações. Os resultados incluem uma lista de id de itens. Seu servidor precisa enriquecer os resultados com os Metadados dos itens (por exemplo, imagens, descrição) e enviar a página criada para o navegador.
 
 ![Desenho2][2]
 
-2. A outra opção é usar o pequeno arquivo JavaScript da fase 1 para obter uma lista simples de itens recomendados. Os dados recebidos aqui serão mais enxutos que na primeira opção.
+2.A outra opção é usar o pequeno arquivo JavaScript da fase 1 para obter uma lista simples de itens recomendados. Os dados recebidos aqui serão mais enxutos que na primeira opção.
 
 ![Desenho3][3]
 
