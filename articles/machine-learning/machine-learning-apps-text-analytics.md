@@ -1,10 +1,10 @@
 <properties
 	pageTitle="APIs de Aprendizado de Máquina: Análise de texto| Microsoft Azure"
-	description="As APIs de análise de texto do Aprendizado de Máquina da Microsoft podem ser usadas para analisar texto não estruturado a fim de fazer a análise de sentimento, a extração de frases-chave, a detecção de idioma e a detecção de tópico."
+	description="As APIs de análise de texto de Aprendizado de Máquina da Microsoft podem ser usadas para analisar texto não estruturado a fim de fazer a análise de sentimento, a extração de frases-chave, a detecção de idioma e a detecção de tópico."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="onewth"/>
 
 
-# APIs de Aprendizado de Máquina: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
+# APIs de Machine Learning: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
 
 >[AZURE.NOTE] Este guia destina-se à versão 1 da API. Para a versão 2, [**consulte este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). A versão 2 agora é a versão preferencial desta API.
 
@@ -45,7 +45,7 @@ A API retorna o idioma detectado e uma pontuação numérica entre 0 e 1. Classi
 
 ## Detecção de tópico
 
-Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Observe que essa API cobra uma transação por registro de texto enviado. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
+Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Observe que essa API cobra uma transação por registro de texto enviado. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
 ---
 
@@ -271,7 +271,7 @@ Isso retorna a resposta a seguir, na qual o idioma inglês é detectado na prime
 
 ## APIs de detecção de tópico
 
-Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista de registros de texto enviados. Um tópico é identificado por uma frase-chave, que pode ser uma ou mais palavras relacionadas. Observe que essa API cobra uma transação por registro de texto enviado.
+Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. Observe que essa API cobra uma transação por registro de texto enviado.
 
 Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros.
 
@@ -385,4 +385,4 @@ As propriedades de cada parte da resposta são as seguintes:
 | TopicId | A ID do tópico a que o registro foi atribuído. |
 | Distância | Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

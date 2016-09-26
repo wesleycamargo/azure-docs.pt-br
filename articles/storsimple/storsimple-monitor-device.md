@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
@@ -21,7 +21,7 @@
 
 Você pode usar o serviço StorSimple Manager para monitorar dispositivos específicos na sua solução do StorSimple. Você pode criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, taxa de transferência de rede e métricas de desempenho do dispositivo.
 
-Para exibir as informações de monitoramento de um dispositivo específico, no Portal clássico do Azure, selecione o serviço StorSimple Manager, clique na guia **Monitor** e, em seguida, selecione na lista de dispositivos. A página **Monitor** contém as seguintes informações.
+Para exibir as informações de monitoramento de um dispositivo específico, no portal clássico do Azure, selecione o serviço StorSimple Manager. Clique na guia **Monitor** e selecione na lista de dispositivos. A página **Monitor** contém as seguintes informações.
 
 ## Desempenho de E/S 
 
@@ -31,7 +31,7 @@ A tabela abaixo mostra as E/Ss para o iniciador do dispositivo para todos os vol
 
 ![Desempenho de E/S do iniciador para o dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-Para o mesmo dispositivo, as E/Ss são plotadas para os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Como consequência, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência à qual a pulsação é verificada entre o dispositivo e o serviço.
+Para o mesmo dispositivo, as operações de E/S são plotadas para os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Portanto, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência na qual a pulsação é verificada entre o dispositivo e o serviço.
 
 ![Desempenho de E/S do dispositivo para a nuvem](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
@@ -54,7 +54,7 @@ Esses gráficos mostram a quantidade de dados gravados em volumes StorSimple ant
 
 Quando você exibir os gráficos de utilização de capacidade de volume do armazenamento primário para todos os volumes em relação a cada um dos volumes individuais e somar os dados primários em ambos os casos, pode haver uma divergência entre os dois números. O total de dados primários em todos os volumes pode não se igualar à soma total dos dados primários dos volumes individuais. Isso pode ser por um dos seguintes motivos:
 
-- **Dados de instantâneo incluídos em todos os volumes**: os dados primários mostrados para todos os volumes são a soma dos dados primários para cada volume e os dados de instantâneos. Os dados primários mostrados para um determinado volume correspondem apenas à quantidade de dados alocados no volume (e não incluem os dados de instantâneo de volume correspondentes).
+- **Dados de instantâneo incluídos para todos os volumes**: esse comportamento será visto somente se você estiver executando uma versão anterior à Atualização 3. Os dados primários mostrados para todos os volumes são a soma dos dados primários para cada volume e dos dados de instantâneos. Os dados primários mostrados para um determinado volume correspondem apenas à quantidade de dados alocados no volume (e não incluem os dados de instantâneo de volume correspondentes).
 
 	Isso também pode ser explicado pela seguinte equação:
 
@@ -63,14 +63,20 @@ Quando você exibir os gráficos de utilização de capacidade de volume do arma
 	*em que Dados primários (volume i) = Tamanho dos dados primários alocados para o volume i*
  
 	Se os instantâneos são excluídos por meio do serviço, a exclusão é feita de forma assíncrona em segundo plano. Pode levar algum tempo para o tamanho dos dados do volume seja atualizado após a exclusão dos instantâneos.
+
+    Caso você esteja executando a Atualização 3 ou posterior, os dados de instantâneo não estão incluídos nos dados de volume. E a utilização primária é calculada da seguinte maneira:
+
+    *Dados primários (todos os volumes) = Soma de (Dados primários (volume i))
+    
+    *em que Dados primários (volume i) = Tamanho dos dados primários alocados para o volume i*
  
-- **Volumes com monitoramento desabilitado incluídos em todos os volumes**: se você tiver volumes no dispositivo para os quais o monitoramento está desabilitado, os dados de monitoramento para esses volumes individuais não estarão disponíveis nos gráficos. No entanto, os dados de todos os volumes no gráfico incluirão os volumes para os quais o monitoramento está desativado.
+- **Volumes com monitoramento desabilitado incluídos em todos os volumes**: se você tiver volumes no dispositivo para os quais o monitoramento está desabilitado, os dados de monitoramento para esses volumes individuais não estarão disponíveis nos gráficos. No entanto, os dados de todos os volumes no gráfico incluem os volumes para os quais o monitoramento está desativado.
  
 - **Volumes excluídos com backups associados dinamicamente incluídos em todos os volumes**: se volumes que contêm dados do instantâneo são excluídos mas os instantâneos associados ainda existem, você poderá ver uma divergência.
 
-- **Excluído volumes incluídos em todos os volumes**: em alguns casos, os volumes antigos podem existir mesmo que eles tenham sido excluídos. O efeito de exclusão não é visto e o dispositivo pode mostrar menos capacidade disponível. Você precisará contatar o Suporte da Microsoft para remover esses volumes.
+- **Excluído volumes incluídos em todos os volumes**: em alguns casos, os volumes antigos podem existir mesmo que eles tenham sido excluídos. O efeito de exclusão não é visto e o dispositivo pode mostrar menos capacidade disponível. Você precisa contatar o Suporte da Microsoft para remover esses volumes.
 
-Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. Dado que são apenas dados de volume, um instantâneo de nuvem não deve alterar o armazenamento primário. Como você pode ver, o gráfico não mostra nenhuma diferença na utilização da capacidade primária como resultado de fazer um instantâneo da nuvem. Observe que o instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo.
+Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. Como esses são apenas dados de volume, um instantâneo de nuvem não deve alterar o armazenamento primário. Como você pode ver, o gráfico não mostra nenhuma diferença na utilização da capacidade primária como resultado de fazer um instantâneo da nuvem. O instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo.
 
 ![Utilização da capacidade primária antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
@@ -107,7 +113,7 @@ Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal 
 
 A **taxa de transferência de rede** acompanha as métricas relacionadas à quantidade de dados transferidos de interfaces de rede do iniciador iSCSI no servidor host e o dispositivo e entre o dispositivo e a nuvem. Você pode monitorar essa métrica para cada uma das interfaces de rede iSCSI em seu dispositivo.
 
-Os gráficos a seguir mostram a taxa de transferência de rede para Dado 0 e Dado 4, ambas interfaces de rede de 1 GbE em seu dispositivo. Neste exemplo, Dado 0 estava habilitado para nuvem, enquanto Dado 4 estava habilitado para iSCSI. Você pode ver a entrada e a saída de tráfego para o seu dispositivo StorSimple. Observe que a linha reta no gráfico a partir das 15h24 se deve ao fato de que coletamos dados somente a cada 5 minutos e deve ser ignorada.
+Os gráficos a seguir mostram a taxa de transferência de rede para Dado 0 e Dado 4, ambas interfaces de rede de 1 GbE em seu dispositivo. Neste exemplo, Dado 0 estava habilitado para nuvem, enquanto Dado 4 estava habilitado para iSCSI. Você pode ver a entrada e a saída de tráfego para o seu dispositivo StorSimple. A linha reta no gráfico a partir das 15h24 se deve ao fato de que coletamos dados somente a cada 5 minutos e deve ser ignorada.
 
 ![Taxa de transferência de rede para Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
 
@@ -116,7 +122,7 @@ Os gráficos a seguir mostram a taxa de transferência de rede para Dado 0 e Dad
 
 ## Desempenho do dispositivo 
 
-O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho do seu dispositivo. O quadro a seguir mostra as estatísticas de utilização de CPU para um dispositivo em produção.
+O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho do seu dispositivo. O gráfico a seguir mostra as estatísticas de utilização de CPU para um dispositivo em produção.
 
 ![Utilização da CPU do dispositivo](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
@@ -126,4 +132,4 @@ O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho d
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

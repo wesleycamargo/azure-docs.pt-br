@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="09/09/2016" 
 	ms.author="bradsev;garye" />
 
 # Depurar seu modelo no aprendizado de máquina do Azure
 
 Este artigo explica como depurar seus modelos no Aprendizado de Máquina do Microsoft Azure. Especificamente, ele aborda os motivos possíveis do porquê que qualquer um dos dois cenários de falha a seguir pode ser encontrado durante a execução de um modelo:
 
-* o módulo [Modelo de Treinamento][train-model] gera um erro 
-* o módulo [Modelo de Pontuação][score-model] produz resultados incorretos 
+* o módulo [Modelo de Treinamento][train-model] gera um erro
+* o módulo [Modelo de Pontuação][score-model] produz resultados incorretos
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ O módulo [Modelo de Pontuação][score-model] requer duas entradas:
 
 Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo de Pontuação][score-model] produz resultados incorretos. Vários cenários podem causar isso:
 
-1. Se o rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta poderá ser produzida pelo módulo [Modelo de Pontuação][score-model]. Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, deve ser mais adequado usar um modelo de classificação. 
+1. Se o rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta poderá ser produzida pelo módulo [Modelo de Pontuação][score-model]. Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, deve ser mais adequado usar um modelo de classificação.
 2. Da mesma forma, se um modelo de classificação for treinado em um conjunto de dados com números de ponto flutuante na coluna Rótulo, ele pode produzir resultados indesejáveis. Isso ocorre porque a classificação exige uma variável de resposta discreta que permite somente valores que variam em um conjunto finito e normalmente um pouco pequeno de classes.
 3. Se o conjunto de dados de pontuação não contiver todos os recursos usados para treinar o modelo, o [Modelo de Pontuação][score-model] produzirá um erro.
 4. O [Modelo de Pontuação][score-model] não produzirá nenhuma saída correspondente a uma linha no conjunto de dados de pontuação que contenha um valor ausente ou um valor infinito para qualquer um dos seus recursos.
@@ -69,4 +69,4 @@ Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo d
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

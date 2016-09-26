@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/11/2016"
 	ms.author="nisoneji"/>
 
 
@@ -32,7 +32,7 @@ O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre o
 
 ## Etapa 1: criar um cofre
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Clique em **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Recuperação de Site**.
 3. Clique em **Criar Novo** > **Criação Rápida**.
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
@@ -164,4 +164,4 @@ A atualização 1 inclui as seguintes correções de bugs e novos recursos:
 
 Publique qualquer pergunta que você desejar no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

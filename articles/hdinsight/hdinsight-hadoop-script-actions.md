@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -208,7 +208,7 @@ Para transmitir vários parâmetros para o cmdlet Add-AzureRmHDInsightScriptActi
 
 	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
-ou
+ou o
 
 	$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
 
@@ -303,7 +303,7 @@ Nesse log, é claro que a ação de script de Spark foi executada na VM denomina
 Se ocorre uma falha na execução, a saída que o descreve também estará contida nesse arquivo de log. As informações fornecidas nesses logs devem ser úteis ao depurar problemas de script que possam surgir.
 
 
-## Consulte também
+## Confira também
 
 - [Personalizar os clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]
 - [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]
@@ -320,4 +320,4 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

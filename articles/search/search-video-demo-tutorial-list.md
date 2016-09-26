@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -55,8 +55,8 @@ Aqui estão alguns dos nossos tutoriais e vídeos mais populares para a Pesquisa
 
 Link|Lançamento|Detalhes
 ----|------------|-----------
-[Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458) ("Aplicativos que aprendem e adaptam: Aprendizado de Máquina do Azure + Pesquisa")|Maio de 2016|17 minutos. Liam Cavanagh explica os benefícios da adição de recursos 'recomendados para você' para o aplicativo de Pesquisa do Azure e como obter informações sobre as preferências do usuário do Aprendizado de Máquina. 
-[Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt"](https://channel9.msdn.com/Events/Build/2016/B857) ("Aplicativos inteligentes orientados a dados que aprendem e adaptam")|Maio de 2016|1 hora. Saiba como o Aprendizado de Máquina e a Pesquisa do Azure podem ser usados juntos para criar aplicativos orientados a dados sofisticados.
+[Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search" ("Aplicativos que aprendem e adaptam: Aprendizado de Máquina do Azure + Pesquisa")](https://channel9.msdn.com/Events/Build/2016/P458)|Maio de 2016|17 minutos. Liam Cavanagh explica os benefícios da adição de recursos 'recomendados para você' para o aplicativo de Pesquisa do Azure e como obter informações sobre as preferências do usuário do Aprendizado de Máquina. 
+[Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt" ("Aplicativos inteligentes orientados a dados que aprendem e adaptam")](https://channel9.msdn.com/Events/Build/2016/B857)|Maio de 2016|1 hora. Saiba como o Aprendizado de Máquina e a Pesquisa do Azure podem ser usados juntos para criar aplicativos orientados a dados sofisticados.
 [Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|Janeiro de 2016|15 minutos. Os analisadores personalizados permitem a configuração de criadores de token e de filtros de token. A Análise de Pesquisa fornece informações sobre termos de pesquisa inseridos pelos usuários e eficácia do seu índice de pesquisa. O Gerenciador de Pesquisa é uma ferramenta interna de consulta que permite testar consultas dentro do portal. 
 [Channel9 Data Exposed: "Azure Search Enhancements"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|Novembro de 2015|17 minutos. Inclusão de dados do StackExchange. Crie um índice no Portal do Azure. Saiba como as fontes de dados com suporte de rastreamento de indexadores extraem dados em um índice de Pesquisa do Azure. Analisadores de linguagem. Expressões de consulta Lucene.
 [O que é a Pesquisa do Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Outubro de 2015|Você tem uns minutinhos? Assista a este vídeo de um minuto e meio de introdução à Pesquisa do Azure.
@@ -90,4 +90,4 @@ Passo a passo|Descrição
 [Tutorial de perfis de pontuação](search-get-started-scoring-profiles.md)|Testar perfis de pontuação usando um aplicativo de console.
 [Tutorial da API REST de gerenciamento da Pesquisa do Azure](search-get-started-management-api.md)|Como usar a API REST de gerenciamento para provisionar o serviço e gerenciar chaves de api de administração ou de consulta.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

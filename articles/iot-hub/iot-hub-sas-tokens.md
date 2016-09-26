@@ -213,7 +213,7 @@ Um dispositivo pode usar um certificado X.509 ou um token de segurança para aut
 
 ## Registrar um certificado de cliente X.509 para um dispositivo
 
-O [SDK do Serviço IoT do Azure para C#][lnk-service-sdk] \(versão 1.0.8 ou superior) oferece suporte ao registro de um dispositivo que usa um certificado de cliente X.509 para autenticação. Outras APIs, como a importação/exportação de dispositivos também oferece suporte a certificados de cliente X.509.
+O [SDK do Serviço IoT do Azure para C#][lnk-service-sdk] (versão 1.0.8 ou superior) oferece suporte ao registro de um dispositivo que usa um certificado de cliente X.509 para autenticação. Outras APIs, como a importação/exportação de dispositivos também oferece suporte a certificados de cliente X.509.
 
 ### Suporte a C#
 
@@ -240,7 +240,7 @@ await registryManager.AddDeviceAsync(device);
 
 ## Usar um certificado de cliente X.509 durante operações em tempo de execução
 
-O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] \(versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
+O [SDK do dispositivo IoT do Azure para .NET][lnk-client-sdk] (versão 1.0.11 ou superior) oferece suporte ao uso de certificados de cliente X.509.
 
 ### Suporte a C#
 
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

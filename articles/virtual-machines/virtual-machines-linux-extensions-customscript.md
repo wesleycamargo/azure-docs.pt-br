@@ -27,7 +27,30 @@ Este artigo fornece uma visão geral de como gravar modelos do Azure Resource Ma
 
 Defina o recurso de extensão a seguir na seção de Recursos do modelo
 
-   { "type": "Microsoft.Compute/virtualMachines/extensions", "name": "MyCustomScriptExtension", "apiVersion": "2015-05-01-preview", "location": "[parameters('location')]", "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"], "properties": { "publisher": "Microsoft.OSTCExtensions", "type": "CustomScriptForLinux", "typeHandlerVersion": "1.2", "autoUpgradeMinorVersion": true "settings": { "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh" ], "commandToExecute": "sh mongo-install-ubuntu.sh" }, "protectedSettings": {} } }
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "MyCustomScriptExtension",
+  "apiVersion": "2015-05-01-preview",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "CustomScriptForLinux",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
+      ],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
+    },
+    "protectedSettings": {}
+  }
+}
+```
 
 No exemplo acima, substitua a URL e o nome do arquivo por suas próprias configurações.
 
@@ -37,4 +60,4 @@ Consulte o exemplo abaixo para ver uma amostra completa da configuração de apl
 
 * [Extensão do Script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

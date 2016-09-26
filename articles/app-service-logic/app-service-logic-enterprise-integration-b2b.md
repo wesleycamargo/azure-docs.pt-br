@@ -46,10 +46,10 @@ Neste passo a passo, você aprenderá a usar ações AS2 e X12 para criar um Apl
 8. Adicione os **cabeçalhos** que são necessários para AS2. Eles estarão nos cabeçalhos de solicitação HTTP. Neste exemplo, selecione o cabeçalho da solicitação HTTP que disparou o Aplicativo Lógico.
 9. Agora, adicione a ação Decodificar mensagem X12 novamente selecionando **Adicionar uma ação** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
 10. Insira a palavra **x12** na caixa de pesquisa para filtrar todas as ações para aquela que você deseja usar ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. Selecione a ação **X12 – Decodificar mensagem X12** para adicioná-lo ao Aplicativo Lógico ![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)
+11. Escolha a ação **X12 – Decodificar mensagem X12** para adicioná-la ao Aplicativo lógico ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
 12. Agora, você precisa especificar a entrada para esta ação que será a saída da ação AS2 acima. O conteúdo real da mensagem está em um objeto JSON e é codificado em base64. Portanto, você precisa especificar uma expressão como a entrada; então, insira a seguinte expressão no campo de entrada **X12 FLAT FILE MESSAGE TO DECODE** (MENSAGEM DO ARQUIVO SIMPLES X12 A SER DECODIFICADA)
 
-    @base64ToString(body('Decode\_AS2\_message')?['Message']?['Content'])
+    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
 
 13. Esta etapa decodificará os dados X12 recebidos de um parceiro comercial e produzirão um número de itens em um objeto JSON. Para informar o parceiro do recebimento de dados, você pode enviar de volta uma resposta que contém o MDN (Notificação de Disposição de Mensagem) do AS2 em uma Ação de Resposta HTTP
 14. Adicione a ação **Resposta** selecionando **Adicionar uma ação** ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
@@ -75,4 +75,4 @@ Neste ponto, você já configurou seu Aplicativo Lógico B2B. Em um aplicativo r
 
 [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

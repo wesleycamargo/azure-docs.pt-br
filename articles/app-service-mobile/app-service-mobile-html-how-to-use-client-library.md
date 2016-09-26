@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/12/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Como usar a biblioteca de cliente JavaScript para os Aplicativos Móveis do Azure
@@ -51,43 +51,56 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 ##<a name="auth"></a>Como autenticar usuários
 
-O Serviço de Aplicativo do Azure oferece suporte à autenticação e autorização de usuários de aplicativos usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft e Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação].
+O Serviço de Aplicativo do Azure oferece suporte à autenticação e autorização de usuários de aplicativos usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft e Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação].
 
 Dois fluxos de autenticação são suportados: um server flow e um client flow. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com funcionalidades específicas do dispositivo, como logon único, uma vez que depende de SDKs específicos do provedor.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de Redirecionamento Externo.
+###<a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de redirecionamento externo.
 
-Vários tipos de aplicativos JavaScript usam uma funcionalidade de loopback para manipular fluxos de interface do usuário OAuth, como ao executar seu serviço localmente, usando a recarga dinâmica no Framework Ionic ou ao redirecionar para o Serviço de Aplicativo para autenticação. Isso pode causar problemas porque, por padrão, a autenticação de Serviço de Aplicativo só está configurada para permitir o acesso de back-end do Aplicativo Móvel.
+Vários tipos de aplicativo JavaScript usam uma funcionalidade de loopback para manipular fluxos de interface do usuário do OAuth. Esses recursos incluem:
 
-Use as etapas a seguir para alterar as configurações de Serviço de Aplicativo para habilitar a autenticação de seu localhost:
+* Executar o serviço localmente
+* Usar o Live Reload com o Ionic Framework
+* Redirecionar para o Serviço de Aplicativo para autenticação.
 
-1. Faça logon no [Portal do Azure], navegue até seu back-end do Aplicativo Móvel, clique em **Ferramentas** > **Gerenciador de Recursos** > **Ir** para abrir uma nova janela do gerenciador de recursos para seu back-end de Aplicativo Móvel (site).
+A execução local pode causar problemas porque, por padrão, a autenticação de Serviço de Aplicativo só está configurada para permitir o acesso do back-end do Aplicativo Móvel. Use as seguintes etapas para alterar as configurações de Serviço de Aplicativo de modo a habilitar a autenticação ao executar o servidor localmente:
 
-2. Expanda o nó **config** para seu aplicativo, em seguida, clique em **authsettings** > **Editar**, encontre o elemento **allowedExternalRedirectUrls**, que deve ser nulo e altere-o para o seguinte:
+1. Faça logon no [Portal do Azure]
+2. Navegue até o back-end do Aplicativo Móvel.
+3. Escolha **Gerenciador de recursos** no menu **FERRAMENTAS DE DESENVOLVIMENTO**.
+4. Clique em **Ir** para abrir o gerenciador de recursos para o back-end do Aplicativo Móvel em uma nova janela ou guia.
+5. Expanda o nó **config** > **authsettings** do seu aplicativo.
+6. Clique no botão **Editar** para habilitar a edição do recurso.
+7. Encontre o elemento **allowedExternalRedirectUrls**, que deve ser nulo. Altere-o para o seguinte:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Substitua as URLs na matriz de pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
+    Substitua as URLs na matriz pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
+
+8. Na parte superior da página, clique em **Leitura/Gravação** e clique em **PUT** para salvar as atualizações.
+
+Você também precisa adicionar as mesmas URLs de loopback às configurações de lista branca do CORS:
+
+1. Navegue até o [Portal do Azure].
+2. Navegue até o back-end do Aplicativo Móvel.
+3. Clique em **CORS** no menu **API**.
+4. Insira cada URL na caixa de texto **Origens Permitidas** vazia. Uma nova caixa de texto é criada.
+5. Clique em **SALVAR**
     
-3. Na parte superior da página, clique em **Leitura/Gravação** e, em seguida, clique em **PUT** para salvar as atualizações.
-
-    Você ainda precisa adicionar as mesmas URLs de loopback para as configurações de lista branca do CORS:
-
-4. No [Portal do Azure] no back-end do aplicativo móvel, clique em **Todas as Configurações** > **CORS**, adicione as URLs de loopback à lista branca e clique em **Salvar**.
-
 Após a atualização do back-end, você poderá usar as novas URLs de loopback em seu aplicativo.
 
 <!-- URLs. -->
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
+[Portal do Azure]: https://portal.azure.com/
 [SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

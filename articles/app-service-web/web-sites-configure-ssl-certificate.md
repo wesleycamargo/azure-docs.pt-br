@@ -27,7 +27,7 @@
 
 Este artigo mostra como habilitar HTTPS para um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) usando um nome de domínio personalizado. O artigo aborda a autenticação somente de servidor. Se você precisar de informações sobre autenticação mútua (incluindo autenticação de cliente), consulte [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga **\*. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com**, e **\*.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.
+Para proteger com HTTPS um aplicativo com nome de domínio personalizado, adicione um certificado para esse nome de domínio. Por padrão, o Azure protege o domínio curinga ***. azurewebsites.net** com um único certificado SSL, de modo que seus clientes possam acessar o aplicativo em **https://*&lt;appname>*.azurewebsites.net**. Mas se você quiser usar um domínio personalizado, como **contoso.com**, **www.contoso.com**, e ***.contoso.com**, o certificado padrão não poderá protegê-lo. Além disso, assim como todos os [certificados curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), o certificado padrão não é tão seguro quanto usar um domínio personalizado e um certificado para esse domínio personalizado.
 
 >[AZURE.NOTE] Obtenha ajuda dos especialistas do Azure a qualquer momento nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para obter um suporte mais personalizado, vá até [Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
@@ -96,7 +96,7 @@ Se quiser testar a configuração no Serviço de Aplicativo antes de comprar um 
 
 5. Envie **myrequest.csr** para uma AC para obter um certificado SSL. Carregue o arquivo ou copie seu conteúdo de um editor de texto para um formulário da Web.
 
-	Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programa de Certificado Raiz Confiável da Microsoft: participantes).
+	Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] (Programa de Certificado Raiz Confiável da Microsoft: participantes).
 
 6. Após a AC ter respondido com um arquivo de certificado (.CER), salve-o no seu diretório de trabalho. Em seguida, execute o comando a seguir para concluir o CSR pendente.
 
@@ -135,7 +135,7 @@ Agora, você está pronto para carregar o arquivo PFX exportado no Serviço de A
 
 1. Gere uma CSR com o IIS Manager para enviar à AC. Para obter mais informações sobre como gerar um CSR, consulte [Solicitar um certificado de servidor para a Internet (IIS 7)][iiscsr].
 
-3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programa de Certificado Raiz Confiável da Microsoft: participantes).
+3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] (Programa de Certificado Raiz Confiável da Microsoft: participantes).
 
 
 3. Conclua a CSR com o certificado que a AC lhe enviar. Para obter mais informações sobre a conclusão do CSR, consulte [Instalar um certificado de servidor para a Internet (IIS 7)][installcertiis].
@@ -179,7 +179,7 @@ Agora, você está pronto para carregar o arquivo PFX exportado no Serviço de A
 
 	Quando terminar, você deverá ter dois arquivos no diretório de trabalho: **myserver.key** e **server.csr**. O **server.csr** contém o CSR, e você precisará de **myserver.key** mais tarde.
 
-3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programa de Certificado Raiz Confiável da Microsoft: participantes).
+3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] (Programa de Certificado Raiz Confiável da Microsoft: participantes).
 
 
 4. Após a AC lhe enviar o certificado solicitado, salve-o em um arquivo chamado **myserver.crt** no diretório de trabalho. Caso a AC o forneça em formato de texto, basta copiar o conteúdo em **myserver.crt** em um editor de texto e salvá-lo. Seu arquivo deverá ter a seguinte aparência:
@@ -269,7 +269,7 @@ Agora, você está pronto para carregar o arquivo PFX exportado no Serviço de A
 
 	Quando terminar, você deverá ter dois arquivos no diretório de trabalho: **myserver.key** e **server.csr**. O **server.csr** contém o CSR, e você precisará de **myserver.key** mais tarde.
 
-3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] \(Programa de Certificado Raiz Confiável da Microsoft: participantes).
+3. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Microsoft Trusted Root Certificate Program: Participants][cas] (Programa de Certificado Raiz Confiável da Microsoft: participantes).
 
 
 4. Após a AC lhe enviar o certificado solicitado, salve-o em um arquivo chamado **myserver.crt**. Caso a AC o forneça em formato de texto, basta copiar o conteúdo em **myserver.crt** em um editor de texto e salvá-lo. O arquivo deverá ter a seguinte aparência:
@@ -430,9 +430,9 @@ Antes de prosseguir, consulte a seção [Do que você precisa](#bkmk_domainname)
 3.	Clique no nome do aplicativo ao qual você deseja atribuir a esse certificado.
 4.	Em **Configurações**, clique em **Certificados SSL**
 5.	Clique em **Carregar Certificado**
-6.	Selecione o arquivo .pfx exportado na [Etapa 1](#bkmk_getcert) e especifique a senha que você criou anteriormente. Clique em **Carregar** para carregar o certificado. Agora, você deverá ver seu certificado carregado na folha **Certificado SSL**.
+6.	Selecione o arquivo .pfx exportado na [Etapa 1](#bkmk_getcert) e especifique a senha que você criou anteriormente. Clique em **Carregar ** para carregar o certificado. Agora, você deverá ver seu certificado carregado na folha **Certificado SSL**.
 7. Na seção **associações ssl**, clique em **Adicionar associações**
-8. Na folha **Adicionar Associação SSL** use os menus suspensos para selecionar o nome de domínio a ser protegido com SSL e o certificado a ser usado. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
+8. Na folha **Adicionar Associação SSL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com SSL e o certificado a ser usado. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
 
     ![inserir imagem de Associações SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
 
@@ -442,7 +442,9 @@ Antes de prosseguir, consulte a seção [Do que você precisa](#bkmk_domainname)
 
 ## Etapa 3. Alterar o mapeamento do nome de domínio (somente para SSL baseado em IP)
 
-Se você usar somente associações **SSL SNI**, ignore esta seção. Várias associações **SSL SNI** podem funcionar juntas no endereço IP compartilhado existente atribuído ao seu aplicativo. No entanto, se você criar uma associação de **SSL baseado em IP**, o Serviço de Aplicativo criará um endereço IP dedicado para a associação, porque o **SSL baseado em IP** requer um. Devido a esse endereço IP dedicado, você precisará configurar mais o aplicativo se:
+Se você usar somente associações **SSL SNI**, ignore esta seção. Várias associações **SSL SNI** podem funcionar juntas no endereço IP compartilhado existente atribuído ao seu aplicativo. No entanto, se você criar uma associação de **SSL baseado em IP**, o Serviço de Aplicativo criará um endereço IP dedicado para a associação, porque o **SSL baseado em IP** requer um. Somente um endereço IP dedicado pode ser criado, portanto, apenas uma associação de **SSL baseado em IP** pode ser adicionada.
+
+Devido a esse endereço IP dedicado, você precisará configurar mais o aplicativo se:
 
 - você [tiver usado um registro A para mapear seu domínio personalizado](web-sites-custom-domain-name.md#a) para o aplicativo do Azure e tiver adicionado uma associação de **SSL baseado em IP**. Nesse cenário, você precisará remapear o registro A existente para apontar para o endereço IP dedicado seguindo estas etapas:
 
@@ -547,4 +549,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

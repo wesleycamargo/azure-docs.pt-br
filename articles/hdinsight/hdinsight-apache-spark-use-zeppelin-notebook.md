@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -25,7 +25,7 @@ Saiba como instalar notebooks Zeppelin em clusters Apache Spark e como usar esse
 
 **Pré-requisitos:**
 
-* Antes de começar este tutorial, você deve ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Um cliente SSH. Para distribuições Linux e Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
@@ -201,7 +201,7 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **zeppelinnotebook** – apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – **\*hn0\*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
+	* **Padrão de URL** – ***hn0*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
 
 		![padrão do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -387,4 +387,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

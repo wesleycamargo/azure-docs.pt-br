@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -97,4 +97,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 - Máximo de duas chaves de administração por serviço
 - Máximo de 50 chaves de consulta por serviço
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

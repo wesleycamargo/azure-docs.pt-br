@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -79,7 +79,7 @@ A pergunta: "É o ponto de dados A ou B?" prevê a categoria (nome ou rótulo) d
 
 A pergunta: "Quanto?" ou "Quantos?” prevê um valor. Para respondê-la, usamos um *algoritmo de regressão*.
 
-Para ver como podemos transformar isso, vejamos a pergunta: "Qual notícia é mais interessante para este leitor?" Ela solicita uma previsão de uma opção entre muitas possibilidades — em outras palavras, "É A, B, C ou D?" — e usaria um algoritmo de classificação.
+Para ver como podemos transformar isso, vejamos a pergunta: "Qual notícia é mais interessante para este leitor?" Ela solicita uma previsão de uma opção entre muitas possibilidades - em outras palavras, "É A, B, C ou D?" - e usaria um algoritmo de classificação.
 
 Mas, essa pergunta poderá ser mais fácil de responder se você reformulá-la como: "O quanto interessante é cada história nesta lista para este leitor?" Agora, você pode dar a cada artigo uma pontuação numérica e será fácil identificar o artigo com a pontuação mais alta. Isto é uma reformulação da pergunta de classificação em uma pergunta de regressão ou do tipo Quanto?
 
@@ -87,13 +87,13 @@ Mas, essa pergunta poderá ser mais fácil de responder se você reformulá-la c
 
 Como você faz uma pergunta é uma dica sobre qual algoritmo poderá dar uma resposta.
 
-Você descobrirá que certas famílias de algoritmos — como aquelas em nosso exemplo de notícia — estão intimamente relacionadas. Você pode reformular sua pergunta para usar o algoritmo que fornece a resposta mais útil.
+Você descobrirá que certas famílias de algoritmos - como aquelas em nosso exemplo de notícia - estão intimamente relacionadas. Você pode reformular sua pergunta para usar o algoritmo que fornece a resposta mais útil.
 
-Porém, o mais importante é fazer uma pergunta inteligente — a pergunta que você pode responder com dados. E verifique se você tem os dados certos para respondê-la.
+Porém, o mais importante é fazer uma pergunta inteligente - a pergunta que você pode responder com dados. E verifique se você tem os dados certos para respondê-la.
 
 Falamos sobre alguns princípios básicos para fazer uma pergunta que você pode responder com dados.
 
-Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado de Máquina do Microsoft Azure.
+Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendizado de Máquina do Microsoft Azure.
 
 
 ## Próximas etapas
@@ -101,4 +101,4 @@ Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado d
   * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
   * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

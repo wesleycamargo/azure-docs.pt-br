@@ -151,7 +151,7 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você aprendeu a aproveitar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos de Hub IoT e os cenários com os seguintes artigos:
 
-- [Criar um Hub IoT usando um programa][lnk-create-hub]
+- [Criar um hub IoT programaticamente][lnk-create-hub]
 - [Introdução ao SDK de C][lnk-c-sdk]
 - [SDKs do Hub IoT][lnk-sdks]
 
@@ -196,4 +196,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

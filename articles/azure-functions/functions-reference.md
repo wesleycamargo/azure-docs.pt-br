@@ -78,21 +78,19 @@ O editor de funções interno do portal do Azure permite que você atualize o ar
 
 Os aplicativos de função baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service-web/web-sites-deploy.md) também estão disponíveis para aplicativos de função. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função.
 
-#### Para usar o Visual Studio Online (Monaco)
+#### Para usar o Editor do Serviço de Aplicativo
 
 1. No portal do Azure Functions, clique em **Configurações do aplicativo de funções**.
 
 2. Na seção **Configurações Avançadas**, clique em **Ir para Configurações do Serviço de Aplicativo**.
 
-3. Clique em **Ferramentas**.
+3. Clique em **Editor do Serviço de Aplicativo** na navegação do Menu do aplicativo em **FERRAMENTAS DE DESENVOLVIMENTO**.
 
-4. Em **Desenvolver**, clique em **Visual Studio Online**.
+4.  Clique em **Ir**.
 
-5. **Ative-o** se ainda não estiver habilitado e clique em **Ir**.
+	Depois de carregar o Editor do Serviço de Aplicativo, você verá o arquivo *host.json* e as pastas de função em *wwwroot*.
 
-	Após carregar o Visual Studio Online, você verá o arquivo *host.json* e pastas de função em *wwwroot*.
-
-6. Abra os arquivos para editá-los ou arraste e solte do computador de desenvolvimento para carregar arquivos.
+5. Abra os arquivos para editá-los ou arraste e solte do computador de desenvolvimento para carregar arquivos.
 
 #### Para usar o ponto de extremidade SCM (Kudu) do aplicativo de funções
 
@@ -151,4 +149,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,23 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="lmazuel"/>
 
 # Como usar o Gerenciamento de Serviços no Python
 
-Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](../python-how-to-install.md) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
-
 > [AZURE.NOTE] API de gerenciamento do serviço está sendo substituído com a nova API de gerenciamento de recursos, disponível em uma versão de visualização no momento. Consulte a [documentação de gerenciamento de recursos do Azure](http://azure-sdk-for-python.readthedocs.org/) para obter detalhes sobre como usar a nova API de gerenciamento de recursos do Python.
 
+Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
 A API de Gerenciamento de Serviços fornece acesso programático a grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [portal clássico do Azure][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
 
-Para usar a API de Gerenciamento de Serviços, será necessário [criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para usar a API de Gerenciamento de Serviços, é necessário [criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Conceitos
 O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
+
+## <a name="Installation"> </a>Instalação
+
+Todos os recursos descritos neste artigo estão disponíveis no pacote do `azure-servicemanagement-legacy`, que pode ser instalado usando o pip. Para obter mais detalhes sobre a instalação (por exemplo, se você for novo no Python), consulte este artigo: [Instalando o Python e o SDK do Azure](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>Como conectar-se ao gerenciamento de serviços
 Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [portal clássico do Azure][management-portal].
@@ -47,9 +50,9 @@ Para criar o certificado `.cer`, execute isto:
 
 Para saber mais sobre certificados do Azure, confira [Visão geral dos Certificados de Serviços de Nuvem do Azure](./cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal clássico do Azure][management-portal] e anotar o local onde você salvou o arquivo `.pem`.
+Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal clássico do Azure][management-portal] e anotar o local no qual você salvou o arquivo `.pem`.
 
-Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você pode conectar-se ao ponto de extremidade de gerenciamento do Azure passando a id da assinatura e o caminho para o arquivo `.pem` para **ServiceManagementService**:
+Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você pode conectar-se ao ponto de extremidade de gerenciamento do Azure passando a ID da assinatura e o caminho para o arquivo `.pem` para **ServiceManagementService**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -67,11 +70,11 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para mais detalhes, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](./cloud-services-certs-create.md).
+O comando cria o arquivo `.cer` e o instala no repositório de certificados **Pessoal**. Para mais detalhes, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](./cloud-services-certs-create.md).
 
-Depois que você tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal clássico do Azure][management-portal].
+Depois que tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal clássico do Azure][management-portal].
 
-Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregado o arquivo `.cer` para o Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure, passando a id da assinatura e o local do certificado em seu repositório de certificados **Pessoal** para **ServiceManagementService** (novamente, substitua *AzureCertificate* pelo nome do seu certificado):
+Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregado o arquivo `.cer` para o Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure, passando a ID da assinatura e a localização do certificado em seu repositório de certificados **Pessoal** para **ServiceManagementService** (novamente, substitua *AzureCertificate* pelo nome do seu certificado):
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -96,7 +99,7 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
 	for location in result:
 		print(location.name)
 
-Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local válido. O método **list\_Locations** sempre retornará uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
+Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer uma localização válida. O método **list\_Locations** sempre retorna uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
 
 - Europa Ocidental
 - Norte da Europa
@@ -115,7 +118,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local 
 
 ## <a name="CreateCloudService"> </a>Como criar um serviço de nuvem
 
-Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\\hosted\\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local.
+Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\_hosted\_service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e uma localização.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -155,7 +158,7 @@ Você pode excluir um serviço de nuvem passando o nome do serviço para o méto
 
 	sms.delete_hosted_service('myhostedservice')
 
-Observe que para poder excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação](#DeleteDeployment) para obter detalhes.)
+Para que seja possível excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação](#DeleteDeployment) para obter detalhes.)
 
 ## <a name="DeleteDeployment"> </a>Como excluir uma implantação
 
@@ -187,7 +190,7 @@ Um [serviço de armazenamento](../storage/storage-create-storage-account.md) for
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Observe no exemplo acima, que o status da operação **create\_storage\_configuration** pode ser recuperada passando o resultado retornado pelo **create\_storage\_configuration** ao método **get\_operation\_status**.
+Observe no exemplo acima que o status da operação **create\_storage\_account** pode ser recuperada passando o resultado retornado pelo **create\_storage\_account** ao método **get\_operation\_status**.
 
 Você pode listar suas contas de armazenamento e suas propriedades com o método **list\_storage\_services**:
 
@@ -260,7 +263,7 @@ Para adicionar uma imagem do sistema operacional ao repositório de imagens, use
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Para listar as imagens do sistema operacional estão disponíveis, use o método **list\_os\_images**. Isso inclui todas as imagens da plataforma e imagens do usuário:
+Para listar as imagens do sistema operacional estão disponíveis, use o método **list\_os\_images**. Isso inclui todas as imagens de plataforma e imagens do usuário:
 
 	result = sms.list_os_images()
 
@@ -372,7 +375,7 @@ Para capturar uma imagem de VM, você primeiro chama o método **capture\_vm\_im
 			image
 		)
 
-Em seguida, para certificar-se de que você capturou a imagem com sucesso, use a api **list\_vm\_images** e garanta que a imagem seja exibida nos resultados:
+Em seguida, para certificar-se de que você capturou a imagem com sucesso, use a API **list\_vm\_images** e certifique-se de que a imagem seja exibida nos resultados:
 
 	images = sms.list_vm_images()
 
@@ -435,4 +438,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 
 [serviço de nuvem]: https://azure.microsoft.com/pt-BR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

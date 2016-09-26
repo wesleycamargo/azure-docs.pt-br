@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
@@ -72,7 +72,7 @@ Para criar uma cadeia de conexão que inclui uma assinatura de acesso compartilh
 
 Cada ponto de extremidade de serviço é opcional, embora a cadeia de conexão deve conter pelo menos um.
 
-Usar HTTPS com uma SAS é uma prática recomendada. Para obter mais informações sobre assinatura de acesso compartilhado, Confira [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+Usar HTTPS com uma SAS é uma prática recomendada. Para saber mais sobre assinaturas de acesso compartilhado, veja [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
 >[AZURE.NOTE] Se você estiver especificando uma SAS em uma cadeia de conexão em um arquivo de configuração, precisará codificar caracteres especiais na URL.
 
@@ -163,4 +163,4 @@ Por exemplo, sua cadeia de conexão deve ser semelhante à seguinte cadeia de co
 - [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
 - [Pesquisadores de armazenamento do Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

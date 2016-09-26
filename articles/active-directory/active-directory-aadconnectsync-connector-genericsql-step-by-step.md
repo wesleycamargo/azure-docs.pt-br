@@ -52,7 +52,7 @@ Agora temos o arquivo necessário e podemos começar a criar o Conector.
 6. Nem todos os tipos de atributo podem ser detectados em um banco de dados SQL. Em particular, o tipo de atributo de referência não tem essa capacidade. Para o tipo de objeto de grupo, precisamos alterar a OwnerID e a MemberID para fazer referência a elas.![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Os atributos que selecionamos como referência na etapa anterior exigem o tipo de objeto para o qual esses valores são uma referência. Em nosso caso, o tipo de objeto de Usuário. ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. Na página Parâmetros Globais, selecione **Marca-d'água** como a estratégia delta. Digite também o formato de data/hora **yyyy-MM-dd HH:mm:ss**.![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. Na página **Configurar Partições**, selecione os dois tipos de objeto.![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
+9. Na página **Configurar Partições e Hierarquias**, escolha ambos os tipos de objeto.![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. Em **Selecionar Tipos de Objeto** e **Selecionar Atributos**, selecione os dois tipos de objeto e todos os atributos. Na página **Configurar Âncoras**, clique em **Concluir**.
 
 ## Criar perfis de execução
@@ -170,4 +170,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

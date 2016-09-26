@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/26/2016"
+   ms.date="08/16/2016"
    ms.author="manuaery" />
 
 # Volume localmente afixado do StorSimple: perguntas frequentes
@@ -33,23 +33,23 @@ As perguntas e respostas são organizadas nas seguintes categorias
 
 **P.** Qual é o tamanho máximo de um volume localmente afixado que posso criar em dispositivos da série 8000?
 
-**R** Você pode provisionar volumes localmente afixados de até 8 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 20 TB ou volumes em camadas de até 500 TB.
+**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.
 
-**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 2 e, quando tento criar um volume localmente afixado, o tamanho máximo disponível é de apenas 6 TB, não de 8 TB. Por que não consigo criar um volume de 8 TB?
+**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 2 e, quando tento criar um volume localmente afixado, o tamanho máximo disponível é de apenas 6 TB, não de 8,5 TB. Por que não consigo criar um volume de 8,5 TB?
 
-**R** Você pode provisionar volumes localmente afixados de até 8 TB ou volumes em camadas de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se 100 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que é a metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (metade da capacidade máxima do volume localmente afixado).
+**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se 100 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que é a metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (cerca de metade da capacidade máxima do volume localmente afixado).
 
-Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduzirá proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente afixados são criados.
+Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente afixados são criados.
 
 |Capacidade provisionada para volumes localmente afixados|Capacidade disponível para ser provisionada para volumes em camadas - 8100|Capacidade disponível para ser provisionada para volumes em camadas - 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 175 TB | 475 TB|
-|4 TB | 100 TB | 400 TB |
-|8 TB | 0 TB | 300 TB|
-|10 TB | ND | 250 TB |
-|15 TB | ND | 125 TB |
-|20 TB | ND | 0 TB |
+|1 TB | 176,5 TB | 477,8 TB|
+|4 TB | 105,9 TB | 411,1 TB |
+|8,5 TB | 0 TB | 311,1 TB|
+|10 TB | ND | 277,8 TB |
+|15 TB | ND | 166,7 TB |
+|22,5 TB | ND | 0 TB |
 
 
 **P.** Por que a criação de um volume localmente afixado é uma operação demorada?
@@ -64,7 +64,7 @@ Como algum espaço no dispositivo local é usado para hospedar o conjunto de tra
 
 **A.** Os volumes localmente afixados são adequados para cargas de trabalho que exigem garantias locais de dados em todos os momentos e são sensíveis às latências da nuvem. Ao considerar o uso de volumes locais para qualquer uma de suas cargas de trabalho, lembre-se do seguinte:
 
-- Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais terá impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
+- Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais tem impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
 
 - O provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes de volumes em camadas para a nuvem. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
 
@@ -76,13 +76,13 @@ Mais informações sobre como [criar um volume localmente afixado](storsimple-ma
 
 **P.** Posso criar vários volumes localmente afixados ao mesmo tempo?
 
-**A.** Sim, mas os trabalhos de criação e expansão de volumes localmente afixados serão processados em sequência.
+**A.** Sim, mas os trabalhos de criação e expansão de volumes localmente afixados são processados em sequência.
 
 Os volumes localmente afixados são provisionados de forma densa e isso exige a criação de espaço local no dispositivo (o que pode fazer com que dados existentes de volumes em camadas sejam enviados para a nuvem durante o processo de provisionamento). Portanto, se um trabalho de provisionamento estiver em andamento, outros trabalhos de criação de volumes locais serão enfileirados até o trabalho ser concluído.
 
 Da mesma forma, se um volume local existente estiver sendo expandido ou se um volume em camadas estiver sendo convertido em um volume localmente afixado, a criação de um novo volume localmente afixado será enfileirada até que o trabalho anterior seja concluído. A expansão do tamanho de um volume localmente afixado envolve a expansão do espaço local existente para esse volume. A conversão de um volume em camadas em um volume localmente afixado também envolve a criação de espaço local para o volume localmente afixado resultante. Em ambas essas operações, a criação ou a expansão do espaço local é um trabalho de longa execução.
 
-Você pode exibir esses trabalhos na página **Trabalhos** do serviço StorSimple Manager do Azure. O trabalho que está sendo processado ativamente será atualizado de forma contínua para refletir o progresso do provisionamento de espaço. Os trabalhos de volumes localmente afixados restantes serão marcados como em execução, mas seu andamento será interrompido e eles serão selecionados na ordem em que foram colocados na fila.
+Você pode exibir esses trabalhos na página **Trabalhos** do serviço StorSimple Manager do Azure. O trabalho que está sendo processado ativamente é atualizado de forma contínua para refletir o progresso do provisionamento de espaço. Os trabalhos de volume localmente fixados restantes são marcados como em execução, mas seu progresso é interrompido e eles são selecionados na ordem em que foram colocados na fila.
 
 **P.** Exclui um volume localmente afixado. Por que não vejo o espaço recuperado refletido no espaço disponível ao tentar criar um novo volume?
 
@@ -94,7 +94,7 @@ Você pode exibir esses trabalhos na página **Trabalhos** do serviço StorSimpl
 
 **P.** Posso usar os cmdlets do Azure PowerShell para criar e gerenciar volumes localmente afixados?
 
-**A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell será em camadas). Também sugerimos que você não use os cmdlets do Azure PowerShell para modificar as propriedades de um volume localmente afixado, pois isso terá o efeito indesejado de modificar o tipo de volume para em camadas.
+**A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell é em camadas). Também sugerimos que você não use os cmdlets do Azure PowerShell para modificar as propriedades de um volume localmente afixado, pois isso terá o efeito indesejado de modificar o tipo de volume para em camadas.
 
 ## Perguntas sobre o backup de um volume localmente afixado
 
@@ -213,4 +213,4 @@ Mais informações sobre [o failover e a DR de volumes fixos localmente entre ve
 
 **A.** Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

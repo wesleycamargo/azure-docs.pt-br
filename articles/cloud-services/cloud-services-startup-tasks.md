@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ A seguir, o procedimento de inicialização da função no Azure:
 
 2. Todas as tarefas de inicialização são executadas de acordo com o atributo **taskType**.
     - As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
-    - As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.  
+    - As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.
        
     > [AZURE.WARNING] O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
@@ -105,7 +105,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
-- **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
+- **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.
 
     > [AZURE.NOTE] Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
 
@@ -163,4 +163,4 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

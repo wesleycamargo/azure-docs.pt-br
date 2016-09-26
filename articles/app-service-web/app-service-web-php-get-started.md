@@ -23,7 +23,7 @@
 
 Este tutorial mostra como criar, configurar e implantar um aplicativo Web PHP para o Azure e como configurar o Serviço de Aplicativo do Azure para atender aos requisitos do aplicativo Web PHP. Ao fim do tutorial, você terá um aplicativo Web [Laravel](https://www.laravel.com/) funcional em execução no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-Como desenvolvedor do PHP, você pode incluir sua estrutura favorita do PHP no Azure. Este tutorial usa Laravel simplesmente como um exemplo concreto de aplicativo. Você aprenderá a:
+Como desenvolvedor do PHP, você pode incluir sua estrutura favorita do PHP no Azure. Este tutorial usa Laravel simplesmente como um exemplo concreto de aplicativo. Você aprenderá:
 
 - Implantar usando Git
 - Definir a versão do PHP
@@ -45,7 +45,7 @@ Você pode aplicar o que aprendeu aqui para outros aplicativos Web PHP que impla
 
 ## Criar um aplicativo PHP (Laravel) em seu computador de desenvolvimento
 
-1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute os comandos a seguir para verificar se as ferramentas necessárias estão instaladas corretamente no computador. 
+1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute os comandos a seguir para verificar se as ferramentas necessárias estão instaladas corretamente no computador.
 
         php --version
         composer --version
@@ -82,8 +82,9 @@ Até o momento, há apenas o fluxo de trabalho regular do Laravel, e você não 
 
 Com a CLI do Azure, você pode criar um aplicativo Web no Serviço de Aplicativo do Azure e configurá-lo para implantação no Git com uma única linha de comando. Vamos fazer isso.
 
-3. Faça logon no Azure da seguinte forma:
+1. Altere para o modo ASM e faça logon no Azure:
 
+        azure config mode asm
         azure login
     
     Siga a mensagem de ajuda para continuar o processo de logon.
@@ -105,7 +106,7 @@ Com a CLI do Azure, você pode criar um aplicativo Web no Serviço de Aplicativo
 
 Para que o aplicativo Laravel funcione no Azure, você precisa prestar atenção a várias coisas. Você fará este exercício semelhante para a estrutura PHP de sua escolha.
 
-- Configure o PHP 5.5.9 ou superior. Confira [Últimos requisitos do servidor Laravel 5.2](https://laravel.com/docs/5.2#server-requirements) para obter toda a lista de requisitos do servidor. O restante da lista consiste em extensões que já estão habilitadas por instalações de PHP do Azure. 
+- Configure o PHP 5.5.9 ou superior. Confira [Últimos requisitos do servidor Laravel 5.2](https://laravel.com/docs/5.2#server-requirements) para obter toda a lista de requisitos do servidor. O restante da lista consiste em extensões que já estão habilitadas por instalações de PHP do Azure.
 - Defina as variáveis de ambiente de que o aplicativo precisa. O Laravel usa o arquivo `.env` para facilitar a configuração de variáveis de ambiente. No entanto, já que não deve ser confirmado no controle de origem (confira [Configuração do ambiente Laravel](https://laravel.com/docs/5.2/configuration#environment-configuration), você definirá as configurações do aplicativo Web do Azure em vez disso.
 - Verifique se o ponto de entrada do aplicativo Laravel, `public/index.php`, é carregado primeiro. Confira [Visão geral do ciclo de vida Laravel](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview). Em outras palavras, você precisa definir a URL raiz do aplicativo Web para apontar para o diretório `public`.
 - Habilite a extensão do Composer no Azure, já que você tem um composer.json. Assim, você poderá deixar que o Composer se preocupe sobre como obter os pacotes necessários quando você implantar com o `git push`. É uma questão de conveniência. Se você não habilitar a automação do Composer, bastará remover `/vendor` do arquivo `.gitignore` para que o Git inclua (deixe de ignorar) tudo no diretório `vendor` ao confirmar e implantar o código.
@@ -248,4 +249,4 @@ Saiba como adicionar dados ao aplicativo [criando um banco de dados MySQL no Azu
 - [Converter WordPress em Multissite no Serviço de Aplicativo do Azure](web-sites-php-convert-wordpress-multisite.md)
 - [WordPress de classe empresarial no Serviço de Aplicativo do Azure](web-sites-php-enterprise-wordpress.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

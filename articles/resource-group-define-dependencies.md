@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/23/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
@@ -24,9 +24,9 @@ O Gerenciador de Recursos avalia as dependências entre os recursos e os implant
 
 ## dependsOn
 
-Em seu modelo, o elemento dependsOn possibilita definir um recurso como dependente de um ou mais recursos. O valor dela pode ser uma lista separada por vírgulas de nomes de recursos.
+No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor pode ser uma lista de nomes de recurso separados por vírgula.
 
-O exemplo a seguir mostra um conjunto de escala de máquina virtual que é dependente de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados abaixo, mas precisariam existir em outro lugar no modelo.
+O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisariam existir em outro lugar no modelo.
 
     {
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -44,13 +44,13 @@ O exemplo a seguir mostra um conjunto de escala de máquina virtual que é depen
       ...
     }
 
-Se precisar definir uma dependência entre um recurso e recursos que são criados por meio de um loop de cópia (como mostrado acima), você poderá definir o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+Para definir uma dependência entre um recurso e os recursos criados por meio de um loop de cópia, defina o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
 
-Embora você talvez queira usar dependsOn para mapear as dependências entre os seus recursos, é importante entender por que você está fazendo isso, uma vez que o desempenho de sua implantação pode ser afetado. Por exemplo, se você estiver fazendo isso porque deseja documentar como os recursos são interconectados, dependsOn não é a abordagem correta. O ciclo de vida de dependsOn é apenas para a implantação, não ficando disponível após a implantação. Após a implantação, não há como consultar essas dependências. Ao usar dependsOn, você corre o risco de afetar o desempenho, uma vez que é possível fazer com que o mecanismo de implantação pare inadvertidamente de usar paralelismo em situações nas quais isso seria necessário. Para documentar e fornecer capacidade de consulta para as relações entre os recursos, você deve usar a [vinculação de recursos](resource-group-link-resources.md).
+Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso, uma vez que o desempenho de sua implantação pode ser afetado. Por exemplo, para documentar como os recursos são interconectados, o dependsOn não é a abordagem correta. Você não pode consultar quais recursos foram definidos no elemento dependsOn após a implantação. Ao usar o dependsOn, você potencialmente afeta o tempo de implantação, pois o Resource Manager não implanta paralelamente dois recursos que têm uma dependência. Para documentar relações entre recursos, use a [vinculação de recursos](resource-group-link-resources.md).
 
 ## Recursos filho
 
-A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em 5 níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
+A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
 
@@ -95,11 +95,11 @@ O exemplo a seguir mostra um SQL Server e um Banco de Dados SQL. Observe que uma
 
 ## Função reference
 
-A função reference permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de tempo de execução. Expressões de referência declaram de maneira implícita que um recurso depende de outro. A propriedade representada por **propertyPath** abaixo é opcional e, se não for especificada, a referência será ao recurso.
+A [função de referência](resource-group-template-functions.md#reference) permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de tempo de execução. Expressões de referência declaram de maneira implícita que um recurso depende de outro.
 
     reference('resourceName').propertyPath
 
-Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. As diretrizes são usar a referência implícita para evitar o risco de que um elemento dependsOn desnecessário faça com que o mecanismo de implantação pare inadvertidamente de realizar aspectos da implantação em paralelo.
+Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar adicionar inadvertidamente uma dependência desnecessária.
 
 Para saber mais, consulte [Função de referência](resource-group-template-functions.md#reference).
 
@@ -108,4 +108,4 @@ Para saber mais, consulte [Função de referência](resource-group-template-func
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md).
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/12/2016"
 	ms.author="tomfitz"/>
 
 # Padrões para design de modelos do Azure Resource Manager
 
-Em nosso trabalho com empresas, SIs (integradores de sistemas), CSVs (fornecedores de serviço de nuvem) e equipes de projeto de OSS (software livre), muitas vezes é necessário implantar rapidamente ambientes, cargas de trabalho ou unidades de escala. É necessário que haja suporte para essas implantações, que elas sigam práticas comprovadas e cumpram as políticas identificadas. Usando uma abordagem flexível com base em modelos do Gerenciador de Recursos do Azure, você pode implantar topologias complexas rápida e consistentemente e adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem, ou para acomodar grades para cenários de exceção ou clientes.
+Em nosso trabalho com empresas, SIs (integradores de sistemas), CSVs (fornecedores de serviço de nuvem) e equipes de projeto de OSS (software livre), muitas vezes é necessário implantar rapidamente ambientes, cargas de trabalho ou unidades de escala. É necessário que haja suporte para essas implantações, que elas sigam práticas comprovadas e cumpram as políticas identificadas. Usando uma abordagem flexível com base em modelos do Azure Resource Manager, você pode implantar topologias complexas de forma rápida e consistente. Você pode adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem ou para acomodar variantes para cenários de exceção ou clientes.
 
-Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos do Azure Resource Manager de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Modelos combinam os benefícios do Gerenciador de Recursos do Azure subjacente com a capacidade de adaptação e legibilidade de JSON (JavaScript Object Notation). Usando modelos, você pode:
 
@@ -29,16 +29,15 @@ Modelos combinam os benefícios do Gerenciador de Recursos do Azure subjacente c
 - Aplique o RBAC (controle de acesso baseado em função) para conceder acesso apropriado aos usuários, grupos e serviços.
 - Use associações de marcação para simplificar tarefas como cobrança de valores acumulados.
 
-Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões de implementação identificados durante nossas sessões de design e implementações de modelos do mundo real com os clientes da AzureCAT (Azure Customer Advisory Team). Longe de serem acadêmicas, estas são práticas comprovadas informadas pelo desenvolvimento de modelos para 12 das principais tecnologias de software livre baseado em Linux, incluindo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, Enterprise DataStax da plataforma Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. A maioria desses modelos foram desenvolvidos com um fornecedor conhecido de uma determinada distribuição e influenciados pelos requisitos dos clientes corporativos e de integradores de sistemas da Microsoft durante projetos recentes.
+Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões de implementação identificados durante nossas sessões de design e implementações de modelos do mundo real com os clientes da AzureCAT (Azure Customer Advisory Team). Longe de serem acadêmicas, essas abordagens são práticas comprovadas informadas pelo desenvolvimento de modelos para 12 das principais tecnologias de software livre baseado em Linux, incluindo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, Enterprise DataStax da plataforma Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. A maioria desses modelos foram desenvolvidos com um fornecedor conhecido de uma determinada distribuição e influenciados pelos requisitos dos clientes corporativos e de integradores de sistemas da Microsoft durante projetos recentes.
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.
 
-Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem).
-As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
+Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Resource Manager entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem). As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
 
 ## Empresas e integradores de sistemas
 
-Em grandes organizações, normalmente observamos dois consumidores de modelos ARM: as equipes de desenvolvimento interno de software e o TI empresarial. Os cenários para o SIs com os quais trabalhamos foram mapeados àqueles das empresas, portanto, as mesmas considerações se aplicam.
+Em grandes organizações, normalmente observamos dois consumidores de modelos do Azure Resource Manager: as equipes de desenvolvimento interno de software e o TI empresarial. Descobrimos que os cenários para SIs são mapeados para os cenários para empresas, portanto, as mesmas considerações se aplicam.
 
 ### Equipes de desenvolvimento interno de software
 
@@ -54,7 +53,7 @@ As organizações de TI empresarial normalmente usam modelos para fornecer capac
 
 #### Capacidade de nuvem
 
-Uma maneira comum de grupos de TI empresarial fornecerem capacidade de nuvem para as equipes em sua organização é com "tamanhos de camiseta", que são tamanhos padrão de oferta como pequeno, médio e grande. As ofertas em tamanhos de camiseta podem combinar diferentes tipos de recursos e quantidades, fornecendo um nível de padronização que torna possível o uso dos modelos. Os modelos oferecem capacidade de uma maneira consistente, que impõe políticas corporativas e usa marcação para fornecer estorno a organizações consumidoras.
+Uma maneira comum de grupos de TI empresarial fornecerem capacidade de nuvem para as equipes é com "tamanhos de camiseta", que são tamanhos padrão de oferta como pequeno, médio e grande. As ofertas em tamanhos de camiseta podem combinar diferentes tipos de recursos e quantidades, fornecendo um nível de padronização que torna possível o uso dos modelos. Os modelos oferecem capacidade de uma maneira consistente, que impõe políticas corporativas e usa marcação para fornecer estorno a organizações consumidoras.
 
 Por exemplo, talvez seja necessário fornecer ambientes de desenvolvimento, teste ou produção em que as equipes de desenvolvimento de software possam implantar suas soluções. O ambiente tem uma topologia de rede predefinida e elementos que as equipes de desenvolvimento de software não podem alterar, como as regras que regem o acesso para a inspeção de pacotes e de Internet pública. Você também pode ter funções específicas da organização para esses ambientes, com direitos de acesso distintos para o ambiente utilizado.
 
@@ -72,7 +71,7 @@ Depois de conversar com vários CSVs, identificamos diversas abordagens que voc�
 
 Se você hospeda sua oferta em sua própria assinatura do Azure, há duas abordagens de hospedagem comuns: uma implantação distinta para cada cliente ou então a implantação de unidades de escala, que são a base de uma infraestrutura compartilhada usada para todos os clientes.
 
-- **Implantações distintas para cada cliente.** Implantações distintas para cada cliente exigem topologias fixas de diferentes configurações conhecidas. Estas podem ter diferentes tamanhos de VM (máquina virtual), números variados de nós e quantidades diferentes de armazenamento associado. A marcação de implantações é usada para cobrança de valores acumulados de cada cliente. O RBAC pode ser habilitado para permitir que clientes acessem os aspectos do seu ambiente de nuvem.
+- **Implantações distintas para cada cliente.** Implantações distintas para cada cliente exigem topologias fixas de diferentes configurações conhecidas. Essas implantações podem ter diferentes tamanhos de VM (máquina virtual), números variados de nós e quantidades diferentes de armazenamento associado. A marcação de implantações é usada para cobrança de valores acumulados de cada cliente. O RBAC pode ser habilitado para permitir que clientes acessem os aspectos do seu ambiente de nuvem.
 - **Unidades de escala em ambientes multilocatário compartilhados.** Um modelo pode representar uma unidade de escala para ambientes multilocatário. Nesse caso, a mesma infraestrutura é usada para dar suporte a todos os clientes. As implantações representam um grupo de recursos que fornecem um nível de capacidade para a oferta hospedada, como o número de usuários e o número de transações. Essas unidades de escala são aumentadas ou reduzidas conforme a demanda.
 
 ### Oferta de CSV introduzida na assinatura do cliente
@@ -83,11 +82,11 @@ Essas implantações usam RBAC, portanto, você poderá atualizar e gerenciar a 
 
 ### Azure Marketplace
 
-Se você deseja anunciar e vender suas ofertas por meio de um marketplace, como o Azure Marketplace, você pode desenvolver modelos para fornecer tipos distintos de implantações que serão executados em uma conta de cliente do Azure. Essas implantações distintas normalmente podem ser descritas como um tamanho de camiseta (pequeno, médio, grande), tipo de produto/público (community, developer, enterprise) ou tipo de recurso (básico, de alta disponibilidade). Em alguns casos, esses tipos permitirão que você especifique certos atributos de implantação, como tipo de VM ou número de discos.
+Para anunciar e vender suas ofertas por meio de um marketplace, como o Azure Marketplace, você pode desenvolver modelos para fornecer tipos distintos de implantações que são executados em uma conta de cliente do Azure. Essas implantações distintas normalmente podem ser descritas como um tamanho de camiseta (pequeno, médio, grande), tipo de produto/público (community, developer, enterprise) ou tipo de recurso (básico, de alta disponibilidade). Em alguns casos, esses tipos permitem que você especifique certos atributos de implantação, como tipo de VM ou número de discos.
 
 ## Projetos de software livre
 
-Em projetos de software livre, os modelos de Gerenciador de Recursos habilitam uma comunidade a implantar uma solução rapidamente, usando práticas comprovadas. Você pode armazenar modelos em um repositório GitHub, para que a comunidade possa revisá-los ao longo do tempo. Os usuários finais podem então implantar esses modelos em suas próprias assinaturas do Azure.
+Em projetos de software livre, os modelos de Gerenciador de Recursos habilitam uma comunidade a implantar uma solução rapidamente, usando práticas comprovadas. Você pode armazenar modelos em um repositório GitHub, para que a comunidade possa revisá-los ao longo do tempo. Os usuários implantam esses modelos em suas próprias assinaturas do Azure.
 
 As seções a seguir identificam as coisas que você precisa considerar antes de projetar sua solução.
 
@@ -114,15 +113,15 @@ Exemplos comuns de atividades que você realizaria "no interior da caixa" inclue
 
 ### Configuração de estado desejado (DSC)
 
-Pensando sobre o estado interno de suas VMs além da implantação, você desejará certificar-se de que essa implantação não se desvie da configuração que você definiu e marcou no controle do código-fonte. Isso garante que seus desenvolvedores ou equipe de operações não façam manualmente, em um determinado ambiente, alterações ad hoc que não sejam aprovadas, testadas ou registradas no controle do código-fonte. Isso é importante, porque as alterações manuais não estão no controle do código-fonte; elas também não fazem parte da implantação padrão e terão impacto sobre futuras implantações automatizadas do software.
+Pensando sobre o estado interno de suas VMs além da implantação, convém garantir que essa implantação não se desvie da configuração que você definiu e marcou no controle do código-fonte. Essa abordagem garante que seus desenvolvedores ou equipe de operações não façam, em um determinado ambiente, alterações ad hoc que não sejam aprovadas, testadas ou registradas no controle do código-fonte. Esse controle é importante, porque as alterações manuais não estão no controle do código-fonte; elas também não fazem parte da implantação padrão e terão impacto sobre futuras implantações automatizadas do software.
 
 Além de seus funcionários internos, a configuração de estado desejado também é importante segundo uma perspectiva de segurança. Os hackers estão regularmente tentando comprometer e explorar sistemas de software. Quando têm êxito, é comum que instalem arquivos e alterem de outras maneiras o estado de um sistema comprometido. Usando a configuração de estado desejado, você pode identificar os deltas entre o estado desejado e o atual, para então restaurar uma configuração conhecida.
 
-Há extensões de recurso para os mecanismos mais populares para DSC - PowerShell DSC, Chef e Puppet. Cada um deles pode implantar o estado inicial de sua VM e também ser usado para assegurar que o estado desejado seja mantido.
+Há extensões de recurso para os mecanismos mais populares para DSC - PowerShell DSC, Chef e Puppet. Cada uma dessas extensões pode implantar o estado inicial de sua VM e também ser usado para assegurar que o estado desejado seja mantido.
 
 ## Escopos de modelo comuns
 
-Em nossa experiência, vimos três escopos principais de modelos de solução surgirem. Esses três escopos – capacidade, funcionalidade e solução de ponta a ponta – são descritos em mais detalhes abaixo.
+Em nossa experiência, vimos três escopos principais de modelos de solução surgirem. Esses três escopos (capacidade, funcionalidade e solução de ponta a ponta) são descritos nas seções a seguir.
 
 ### Escopo de capacidade
 
@@ -130,13 +129,13 @@ Um escopo de capacidade oferece um conjunto de recursos em uma topologia padrão
 
 ### Escopo de funcionalidade
 
-Um escopo de funcionalidade concentra-se em como implantar e configurar uma topologia para uma determinada tecnologia. Cenários comuns, incluindo tecnologias como SQL Server, Cassandra, Hadoop, etc.
+Um escopo de funcionalidade concentra-se em como implantar e configurar uma topologia para uma determinada tecnologia. Cenários comuns, incluindo tecnologias como SQL Server, Cassandra, Hadoop.
 
 ### Escopo da solução de ponta a ponta
 
 Um escopo de solução de ponta a ponta é direcionado além de uma única funcionalidade e, em vez disso, dedicado a oferecer uma solução de ponta a ponta, composta de várias funcionalidades.
 
-Um escopo de modelo com escopo de solução se manifesta como um conjunto de um ou mais modelos com escopo de funcionalidade com recursos, lógica e estado desejado específicos da solução. Um exemplo de um modelo com escopo de solução é um modelo de solução de pipeline de dados de ponta a ponta, que pode misturar topologia e estado específicos da solução com vários modelos de solução com escopo de funcionalidade, como Kafka, Storm e Hadoop.
+Um escopo de modelo com escopo de solução se manifesta como um conjunto de um ou mais modelos com escopo de funcionalidade com recursos, lógica e estado desejado específicos da solução. Um exemplo de um modelo com escopo de solução é um modelo de solução de pipeline de dados de ponta a ponta. O modelo pode misturar topologia específica da solução e o estado com vários modelos de solução com escopo de funcionalidade, como Kafka, Storm e Hadoop.
 
 ## Escolhendo entre configurações de forma livre e configurações conhecidas
 
@@ -144,7 +143,7 @@ Você pode pensar inicialmente que um modelo deve fornecer a máxima flexibilida
 
 ### Configurações de forma livre
 
-À primeira vista, configurações de forma livre parecem ideais. Elas permitem que você selecione um tipo de VM e forneça um número arbitrário de nós e discos para os nós conectados — e faça isso como parâmetros para um modelo. No entanto, quando você examinar de perto e considerar modelos que implantarão várias máquinas virtuais de tamanhos diferentes, surgem considerações adicionais que tornam essa escolha menos apropriada em vários cenários.
+À primeira vista, configurações de forma livre parecem ideais. Elas permitem que você selecione um tipo de VM e forneça um número arbitrário de nós e discos para os nós conectados e faça isso como parâmetros para um modelo. No entanto, essa abordagem não é ideal para alguns cenários.
 
 Em [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), são identificados os diferentes tipos de VM e tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
 
@@ -192,7 +191,7 @@ Nessa abordagem, um modelo principal recebe valores de parâmetro de um consumid
 
 **Os parâmetros são passados para um modelo principal e, em seguida, para os modelos vinculados**
 
-Essa seções a seguir se concentram nos tipos de modelos e scripts nos quais um único modelo deve ser decomposto, além de examinar as abordagens para passar informações de estado entre os modelos. Cada modelo e os tipos de script na imagem são descritos juntamente com exemplos. Para obter um exemplo contextual, consulte "Juntando as peças: um exemplo de implementação", mais adiante neste documento.
+As seções a seguir se concentram nos tipos de modelos e scripts em que um único modelo é decomposto. As seções apresentam abordagens para passar informações de estado entre os modelos. Cada modelo e os tipos de script na imagem são descritos juntamente com exemplos. Para obter um exemplo contextual, consulte "Juntando as peças: um exemplo de implementação", mais adiante neste documento.
 
 ### Metadados de modelo
 
@@ -216,13 +215,11 @@ Um exemplo de arquivo é mostrado abaixo em sua totalidade.
 
 ### Modelo principal
 
-O modelo principal (o arquivo azuredeploy.json) é chamado por um usuário final e é o modelo por meio do qual um conjunto de parâmetros definidos pelo usuário são apresentados.
+O modelo principal recebe parâmetros de um usuário, usa essas informações para preencher as variáveis de objeto complexo e executa os modelos vinculados.
 
 ![Modelo principal](./media/best-practices-resource-manager-design-templates/main-template.png)
 
 **O modelo principal recebe parâmetros de um usuário**
-
-A função desse modelo é receber parâmetros de um usuário, usar essas informações para preencher um conjunto de variáveis de objeto complexo e, em seguida, executar o conjunto apropriado de modelos relacionados usando a vinculação de modelos.
 
 Um parâmetro que é fornecido é um tipo de configuração conhecida, também conhecido como o parâmetro de tamanho de camiseta devido a seus valores padronizados, como pequeno, médio ou grande. Na prática, você pode usar esse parâmetro de várias maneiras. Para obter detalhes, consulte "Modelo de recursos de configuração conhecida", posteriormente neste documento.
 
@@ -259,7 +256,7 @@ Se um determinado recurso for opcional, ele pode não estar sendo orientado pelo
 
 ### Modelo de recursos de configuração conhecida
 
-No modelo principal, um parâmetro pode ser exposto para permitir que o consumidor de modelo especifique uma configuração conhecida desejada para implantar. Em muitos casos, essa configuração usa uma abordagem de tamanho de camiseta com um conjunto de tamanhos de configuração fixa, como área restrita, pequeno, médio e grande.
+No modelo principal, um parâmetro pode ser exposto para permitir que o consumidor de modelo especifique uma configuração conhecida desejada para implantar. Muitas vezes, essa configuração usa uma abordagem de tamanho de camiseta com um conjunto de tamanhos de configuração fixa, como área restrita, pequeno, médio e grande.
 
 ![Recursos de configuração conhecida](./media/best-practices-resource-manager-design-templates/known-config.png)
 
@@ -274,13 +271,13 @@ Assim como acontece com o modelo de recurso compartilhado, variáveis são passa
 
 ### Modelo de recursos de membro
 
-Em uma configuração conhecida, um ou mais tipos de nó de membro costumam ser incluídos. Por exemplo, com o Hadoop, você teria nós mestres e nós de dados. Se você estiver instalando o MongoDB, você terá nós de dados e um arbitrador. Se você estiver implantando DataStax, você terá nós de dados, bem como uma máquina virtual com OpsCenter instalado.
+Em uma configuração conhecida, um ou mais tipos de nó de membro costumam ser incluídos. Por exemplo, com o Hadoop, você tem nós mestres e nós de dados. Se estiver instalando o MongoDB, você terá nós de dados e um arbitrador. Se está implantando o DataStax, você tem nós de dados e uma máquina virtual com OpsCenter instalado.
 
 ![Recursos de membros](./media/best-practices-resource-manager-design-templates/member-resources.png)
 
 **Modelo de recursos de membro**
 
-Cada tipo de nó pode ter diferentes tamanhos de VMs, números de discos conectados, scripts para instalar e configurar os nós, configurações de porta para a(s) VM(s), número de instâncias e outros detalhes. Portanto, cada tipo de nó obtém seu próprio modelo de recurso de membro, que contém os detalhes para implantação e configuração de uma infraestrutura, bem como execução de scripts para implantar e configurar o software na VM.
+Cada tipo de nó pode ter diferentes tamanhos de VMs, números de discos conectados, scripts para instalar e configurar os nós, configurações de porta para as VMs, número de instâncias e outros detalhes. Portanto, cada tipo de nó obtém seu próprio modelo de recurso de membro, que contém os detalhes para implantação e configuração de uma infraestrutura, bem como execução de scripts para implantar e configurar o software na VM.
 
 Para VMs, geralmente dois tipos de scripts são utilizados: os amplamente reutilizáveis e os personalizados.
 
@@ -302,9 +299,9 @@ Modelos normalmente chamam um ou mais scripts que instalam e configuram software
 
 ## Exemplo de modelo de solução no escopo de funcionalidade - Redis
 
-Para mostrar como uma implementação pode funcionar, vamos examinar um exemplo prático de como criar um modelo que facilitará a implantação e configuração do Redis em tamanhos de camiseta padrão.
+Para mostrar como uma implementação pode funcionar, vamos examinar um exemplo prático de como criar um modelo que facilita a implantação e configuração do Redis em tamanhos de camiseta padrão.
 
-Para a implantação, haverá um conjunto de recursos compartilhados (rede virtual, conta de armazenamento, conjuntos de disponibilidade) e um recurso opcional (jumpbox). Há várias configurações conhecidas representadas como tamanhos de camiseta (pequeno, médio, grande), mas cada uma com um único tipo de nó. Há também dois scripts específicos para a finalidade (instalação, configuração).
+Para a implantação, há um conjunto de recursos compartilhados (rede virtual, conta de armazenamento, conjuntos de disponibilidade) e um recurso opcional (jumpbox). Há várias configurações conhecidas representadas como tamanhos de camiseta (pequeno, médio, grande), mas cada uma com um único tipo de nó. Há também dois scripts específicos para a finalidade (instalação, configuração).
 
 ### Criando os arquivos de modelo
 
@@ -314,9 +311,9 @@ Você cria um modelo de recursos compartilhados chamado shared-resources.json
 
 Você cria um modelo de recurso opcional para habilitar a implantação de um jumpbox denominado jumpbox\_enabled.json
 
-O Redis usará apenas um tipo de nó, portanto, você criará um modelo único de recurso de membro chamado node-resources.json.
+O Redis usa apenas um tipo de nó, portanto, você cria um modelo único de recurso de membro chamado node-resources.json.
 
-Com o Redis, você desejará instalar cada nó individualmente e, em seguida, depois que todos os nós forem instalados, você desejará configurar o cluster. Você tem scripts para acomodar ambos os arquivos redis-cluster-install.sh e redis-cluster-setup.sh.
+Com o Redis, convém instalar cada nó individual e, em seguida, configurar o cluster. Você tem scripts para acomodar a instalação e configurar, redis-cluster-install.sh e redis-cluster-setup.sh.
 
 ### Vinculando os modelos
 
@@ -334,15 +331,15 @@ A topologia seria semelhante a essa ilustração.
 
 ### Configurando o estado
 
-Para os nós no cluster, há duas etapas para configurar o estado, representadas por Scripts de Finalidade Específica. “redis-cluster-install.sh” executará uma instalação do Redis e “redis-cluster-setup.sh” configurará o cluster.
+Para os nós no cluster, há duas etapas para configurar o estado, representadas por Scripts de Finalidade Específica. "redis-cluster-install.sh" instala o Redis e "redis-cluster-setup.sh" configura o cluster.
 
 ### Suporte a implantações de tamanho diferente
 
-Nas variáveis, o modelo de tamanho de camiseta especifica o número de nós de cada tipo a ser implantado para o tamanho especificado (*large*). Em seguida, implanta esse número de instâncias de VM usando loops de recursos, fornecendo nomes exclusivos para recursos ao acrescentar um nome de nó com um número de sequência numérica de *copyIndex()*. Ele faz isso tanto para VMs de zona temperada quanto de zona quente, conforme definido no modelo de nome de camiseta
+Nas variáveis, o modelo de tamanho de camiseta especifica o número de nós de cada tipo a ser implantado para o tamanho especificado (*large*). Em seguida, implanta esse número de instâncias de VM usando loops de recursos, fornecendo nomes exclusivos para recursos ao acrescentar um nome de nó com um número de sequência numérica de *copyIndex()*. Ele executa essas etapas tanto para VMs de zona temperada quanto de zona quente, conforme definido no modelo de nome de camiseta
 
 ## Modelos com escopo de solução de ponta a ponta e decomposição
 
-Um modelo de solução com um escopo de solução de ponta a ponta se concentra em fornecer uma solução desse tipo. Normalmente, isso será uma composição de vários modelos com escopo de funcionalidade com recursos adicionais, lógica e estado.
+Um modelo de solução com um escopo de solução de ponta a ponta se concentra em fornecer uma solução desse tipo. Normalmente, essa abordagem é uma composição de vários modelos com escopo de funcionalidade com recursos adicionais, lógica e estado.
 
 Conforme realçado na imagem abaixo, o mesmo modelo usado para modelos com escopo de funcionalidade estende-se a modelos com escopo de solução de ponta a ponta.
 
@@ -350,7 +347,7 @@ Um modelo de recursos compartilhados e modelos de recursos opcionais têm a mesm
 
 Já que os modelos com escopo de solução de ponta a ponta também podem normalmente ter tamanhos de roupa, o modelo de recursos de configuração conhecida reflete o que é necessário para uma determinada configuração conhecida da solução.
 
-O modelo de recursos de configuração conhecida se vinculará a um ou mais modelos de solução com escopo de funcionalidade que são relevantes para a solução de ponta a ponta, bem como os modelos de recursos de membro que são necessários para a solução de ponta a ponta.
+O modelo de recursos de configuração conhecida se vincula a um ou mais modelos de solução com escopo de funcionalidade que são relevantes para a solução de ponta a ponta, bem como os modelos de recursos de membro que são necessários para a solução de ponta a ponta.
 
 Como o tamanho de camiseta da solução pode ser diferente do modelo individual com escopo de funcionalidade, variáveis dentro do modelo de recursos de configuração conhecida são usadas para fornecer os valores apropriados para modelos de solução com escopo de funcionalidade downstream para implantar o tamanho de camiseta apropriado.
 
@@ -362,7 +359,7 @@ Como o tamanho de camiseta da solução pode ser diferente do modelo individual 
 
 A abordagem anterior acomoda prontamente cenários em que as empresas, SIs e CSVs desejam implantar os modelos ou então habilitar seus clientes a implantar esses modelos por conta própria.
 
-Outro cenário desejado é implantar um modelo por meio do marketplace. Essa abordagem de decomposição funcionará para o marketplace também, com algumas pequenas alterações.
+Outro cenário desejado é implantar um modelo por meio do marketplace. Essa abordagem de decomposição funciona para o marketplace também, com algumas pequenas alterações.
 
 Conforme mencionado anteriormente, os modelos podem ser usados para oferecer tipos distintos de implantação para venda no marketplace. Tipos distintos de implantação podem ser tamanhos de camiseta (pequeno, médio, grande), tipo de produto/público (community, developer, enterprise) ou tipo de recurso (básico, de alta disponibilidade).
 
@@ -383,4 +380,4 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 - Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

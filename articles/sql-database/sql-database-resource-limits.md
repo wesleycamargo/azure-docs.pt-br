@@ -45,11 +45,17 @@ Por exemplo, o número de conexões a um Banco de Dados SQL, bem como o número 
 
 ## Camadas de serviço e níveis de desempenho
 
-Para um banco de dados individual, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Basic, Standard e Premium em vários níveis de desempenho.
+Há níveis de serviço e níveis de desempenho para os pools elásticos e de banco de dados autônomo.
+
+### Bancos de dados autônomos
+
+Para um banco de dados autônomo, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Basic, Standard e Premium em vários níveis de desempenho.
 
 [AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
 
-[Pools de banco de dados elástico](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools de bancos de dados elásticos Basic, Standard e Premium.
+### Pools elásticos
+
+[Pools elásticos](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools de bancos de dados elásticos Basic, Standard e Premium.
 
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -59,7 +65,7 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 
 | Área | Limite | Descrição |
 |---|---|---|
-| Bancos de dados usando Exportação automatizada por assinatura | 10 | A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. Para saber mais, consulte [Bancos de dados SQL: suporte a exportações automatizadas de Banco de Dados SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Bancos de dados usando a exportação Automatizada por assinatura | 10 | A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. Para saber mais, consulte [Bancos de dados SQL: suporte a exportações automatizadas de Banco de Dados SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 | Banco de dados por servidor | Até 5.000 | Até 5.000 bancos de dados são permitidos por servidor em servidores V12. |  
 | DTUs por servidor | 45000 | 45\.000 DTUs estão disponíveis por servidor em servidores V12 para o provisionamento de bancos de dados, pools elásticos e data warehouses. |
 
@@ -73,4 +79,4 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

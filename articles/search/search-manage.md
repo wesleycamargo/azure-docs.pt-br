@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""
     tags="azure-portal"/>
 
@@ -36,7 +36,7 @@ Como o administrador configura um Serviço de Pesquisa, uma das primeiras decis�
 
 Sem custos adicionais para assinantes atuais, você pode escolher um serviço compartilhado, recomendado para fins de aprendizado, testes de prova de conceito e pequenos projetos de desenvolvimento. O serviço compartilhado é limitado a 50 MB de armazenamento, três índices e contagem de documentos - um limite de 10.000 documentos, ainda que o consumo de armazenamento seja inferior aos 50 MB disponibilizados. Não há garantias de desempenho do serviço compartilhado, ou seja, se você for criar um aplicativo de pesquisa de produção, considere usar a pesquisa padrão.
 
-As pesquisas Básica e Standard são faturáveis, pois você se inscreve para os recursos dedicados e a infraestrutura usada apenas por sua assinatura. As pesquisas Básica e Standard são alocadas em pacotes de partições (armazenamento) e réplicas (cargas de trabalho do serviço) definidos pelo usuário, e o preço é definido por unidade de pesquisa. Você pode expandir as partições ou réplicas de maneira independente, adicionando o recurso que for necessário.
+As pesquisas Básica e Padrão são faturáveis, pois você se inscreve para os recursos dedicados e a infraestrutura usada apenas por sua assinatura. As pesquisas Básica e Standard são alocadas em pacotes de partições (armazenamento) e réplicas (cargas de trabalho do serviço) definidos pelo usuário, e o preço é definido por unidade de pesquisa. Você pode expandir as partições ou réplicas de maneira independente, adicionando o recurso que for necessário.
 
 Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
 
@@ -52,7 +52,7 @@ Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário
 <a id="sub-2"></a>
 ## Tarefas administrativas
 
-Embora alguns serviços possam ter coadministradores, um serviço de Pesquisa do Azure pode ter somente um administrador por assinatura. Você precisa ser um administrador para executar as tarefas descritas nesta seção. Além de adicionar Pesquisa à assinatura, o administrador é responsável por estas tarefas adicionais:
+Embora alguns serviços possam ter coadministradores, um serviço Azure Search pode ter somente um administrador por assinatura. Você precisa ser um administrador para executar as tarefas descritas nesta seção. Além de adicionar Pesquisa à assinatura, o administrador é responsável por estas tarefas adicionais:
 
 +	Distribuição da URL do serviço (definida durante o provisionamento do serviço).
 +	Gerenciamento e distribuição das chaves de API.
@@ -194,4 +194,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

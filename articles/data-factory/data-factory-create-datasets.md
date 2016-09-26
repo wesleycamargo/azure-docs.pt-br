@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/13/2016" 
 	ms.author="spelluru"/>
 
 # Conjuntos de dados no Azure Data Factory
@@ -22,11 +22,11 @@ Este artigo descreve os conjuntos de dados na Azure Data Factory e inclui exempl
 
 Quando cria um conjunto de dados, você está criando um ponteiro para os dados que deseja processar. Os dados são processados (entrada/saída) em uma atividade e a atividade está contida em um pipeline. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade.
 
-Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Depois de criar um conjunto de dados, você pode usá-lo com atividades no pipeline. Por exemplo, um conjunto de dados pode ser o conjunto de dados de entrada/saída de uma atividade de Cópia ou uma atividade do HDInsightHive. O Portal do Azure fornece um layout visual de todos os seus pipelines e entradas e saídas de dados. Em um relance, você pode ver todas as relações e dependências de seus pipelines de dados em todas as suas fontes, de modo que sempre pode saber de onde os dados são provenientes e para onde estão indo.
+Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Depois de criar um conjunto de dados, você pode usá-lo com atividades no pipeline. Por exemplo, um conjunto de dados pode ser o conjunto de dados de entrada/saída de uma atividade de Cópia ou uma atividade do HDInsightHive. O portal do Azure oferece um layout visual de todos os seus pipelines e entradas e saídas de dados. Em um relance, você verá todas as relações e dependências de seus pipelines em todas as suas fontes, de modo que sempre pode saber de onde os dados são provenientes e para onde estão indo.
 
-Na Azure Data Factory, você pode obter dados de um conjunto de dados usando a atividade de cópia em um pipeline.
+No Azure Data Factory, você pode obter dados de um conjunto de dados usando a atividade de cópia em um pipeline.
 
-> [AZURE.NOTE] Se você for novo na Azure Data Factory, confira [Introdução à Azure Data Factory](data-factory-introduction.md) para ter uma visão geral do serviço da Azure Data Factory e [Compilar sua primeira data factory](data-factory-build-your-first-pipeline.md) para ver um tutorial para criar sua primeira data factory. Esses dois artigos fornecem as informações básicas necessárias para entender melhor este artigo.
+> [AZURE.NOTE] Se você ainda não conhece o Azure Data Factory, veja [Introdução ao Azure Data Factory](data-factory-introduction.md) para obter uma visão geral do serviço Azure Data Factory. Veja [Criar sua primeira data factory](data-factory-build-your-first-pipeline.md) para obter um tutorial para criar sua primeira data factory. Esses dois artigos fornecem as informações básicas necessárias para entender melhor este artigo.
 
 ## Definir conjuntos de dados
 Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
@@ -71,8 +71,7 @@ A tabela a seguir descreve as propriedades no JSON acima:
 | policy | Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Confira o tópico [Política de conjunto de dados](#Policy) para obter mais detalhes | Não | ND |
 
 ## Exemplo de conjunto de dados
-
-Abaixo, temos um exemplo de um conjunto de dados que representa uma tabela chamada **MyTable** em um **Banco de Dados SQL do Azure**.
+No exemplo a seguir, o conjunto de dados representa uma tabela chamada **MyTable** em uma **banco de dados SQL do Azure**.
 
 	{
 	    "name": "DatasetSample",
@@ -95,7 +94,7 @@ Observe o seguinte:
 
 - O tipo foi definido como AzureSqlTable.
 - A propriedade de tipo tableName (específica do tipo AzureSqlTable) foi definida como MyTable.
-- linkedServiceName refere-se a um serviço vinculado do tipo AzureSqlDatabase. Consulte a definição do serviço vinculado abaixo.
+- linkedServiceName refere-se a um serviço vinculado do tipo AzureSqlDatabase. Veja a definição do serviço vinculado a seguir.
 - A frequência de disponibilidade foi definida como Dia e o intervalo foi definido como 1, o que significa que a fatia é produzida diariamente.
 
 AzureSqlLinkedService é definido da seguinte maneira:
@@ -117,13 +116,13 @@ No JSON acima:
 - A propriedade de tipo connectionString especifica informações para se conectar a um banco de dados SQL do Azure.
 
 
-Como você pode ver, o serviço vinculado define como se conectar a um banco de dados SQL do Azure e o conjunto de dados define qual tabela é usada como uma entrada/saída na data factory. A seção de atividade no JSON do seu [pipeline](data-factory-create-pipelines.md) especifica se o conjunto de dados é usado como um conjunto de dados de entrada ou de saída.
+Como você pode ver, o serviço vinculado define como se conectar a um banco de dados SQL do Azure. O conjunto de dados define qual tabela é usada como uma entrada/saída para a atividade em um pipeline. A seção de atividade no JSON do seu [pipeline](data-factory-create-pipelines.md) especifica se o conjunto de dados é usado como um conjunto de dados de entrada ou de saída.
 
 
-> [AZURE.IMPORTANT] A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Isso geralmente se aplica à(s) entrada(s) da primeira atividade em um pipeline.
+> [AZURE.IMPORTANT] A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline.
 
 ## <a name="Type"></a> Tipo de conjunto de dados
-As fontes de dados com suporte e os tipos de conjunto de dados são alinhados. Confira os tópicos citados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores) para obter informações sobre os tipos e a configuração dos conjuntos de dados. Por exemplo, se você estiver usando dados de um Banco de Dados SQL do Azure, clique em Banco de Dados SQL do Azure na lista de repositórios de dados com suporte para ver informações detalhadas sobre como usar o Banco de Dados SQL do Azure como um armazenamento de dados de origem ou coletor.
+As fontes de dados com suporte e os tipos de conjunto de dados são alinhados. Confira os tópicos citados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md#supported-data-stores) para obter informações sobre os tipos e a configuração dos conjuntos de dados. Por exemplo, se você estiver usando dados de um Banco de Dados SQL do Azure, clique em Banco de Dados SQL do Azure na lista de repositórios de dados com suporte para ver informações detalhadas.
 
 ## <a name="Structure"></a>Estrutura do conjunto de dados
 A seção **estrutura** define o esquema do conjunto de dados. Ela contém uma coleção de nomes e tipos de dados das colunas. No exemplo a seguir, o conjunto de dados tem três colunas: slicetimestamp, projectname e pageviews, sendo dos seguintes tipos: String, String e Decimal, respectivamente.
@@ -138,7 +137,7 @@ A seção **estrutura** define o esquema do conjunto de dados. Ela contém uma c
 ## <a name="Availability"></a> Disponibilidade do conjunto de dados
 A seção **disponibilidade** em um conjunto de dados define a janela de processamento (horário, diário, semanal etc.) ou o modelo de divisão do conjunto de dados. Consulte o artigo [Cronograma e Execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão e dependência de conjunto de dados.
 
-A seção de disponibilidade abaixo especifica que o conjunto de dados seja produzido por hora no caso de um conjunto de dados de saída (ou) disponível por hora no caso do conjunto de dados de entrada.
+A seção de disponibilidade a seguir especifica que o conjunto de dados de saída é produzido por hora (ou) o conjunto de dados de entrada está disponível por hora.
 
 	"availability":	
 	{	
@@ -153,7 +152,7 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de dis
 | frequência | Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/>**Frequência com suporte**: Minuto, Hora, Dia, Semana, Mês | Sim | ND |
 | intervalo | Especifica um multiplicador para frequência<br/><br/>"Intervalo x da frequência" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisar que o conjunto de dados seja dividido por hora, defina **Frequência** como **Hora** e o **Intervalo** como **1**.<br/><br/>**Observação:** caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 | Sim | ND |
 | estilo | Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a Frequência for definida como Dia e o estilo como EndOfInterval, a fatia será gerada na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. | Não | EndOfInterval |
-| anchorDateTime | Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>**Observação:** se AnchorDateTime tiver partes de datas que são mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes **minutos e segundos** do AnchorDateTime serão ignoradas. | Não | 01/01/0001 |
+| anchorDateTime | Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>**Observação:** se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes **minutos e segundos** do AnchorDateTime serão ignoradas. | Não | 01/01/0001 |
 | deslocamento | O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>**Observação:** se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. | Não | ND |
 
 ### exemplo de deslocamento
@@ -167,7 +166,7 @@ Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
 		"offset": "06:00:00"
 	}
 
-A **frequência** é definida como **Mês** e o **intervalo** é definido como **1** (uma vez por mês): se você deseja que a fatia a ser produzida no dia 9 de cada mês seja às 6h, defina o deslocamento como "09.06:00:00". Lembre-se de que o fuso é UTC.
+A **frequência** é definida como **Mês** e o **intervalo** é definido como **1** (uma vez por mês): se você deseja que a fatia a ser produzida no dia 9 de cada mês seja às 6h, defina o deslocamento como "09.06:00:00". Lembre-se de que esse horário é UTC.
 
 Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento: 60.00:00:00 significa cada ano em 1º ou 2 de março (60 dias desde o início do ano se estilo = StartOfInterval), dependendo do ano ser ano bissexto ou não.
 
@@ -184,7 +183,7 @@ Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento
 
 ## Exemplo de deslocamento/estilo
 
-Se precisar de um conjunto de dados mensalmente em uma data e hora específicas (digamos que seja no dia 3 de cada mês às 8h), você poderá usar a marcação **offset** para definir a data e a hora de execução.
+Se precisar de um conjunto de dados mensalmente em uma data e hora específicas (digamos que seja no dia 3 de cada mês às 8h), use a marcação **offset** para definir a data e a hora de execução.
 
 	{
 	  "name": "MyDataset",
@@ -246,13 +245,13 @@ A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele dev
 
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem que estar disponíveis por hora, a verificação para confirmar se os dados externos estão realmente disponíveis e se a fatia correspondente está Pronta poderá ser atrasada por dataDelay.<br/><br/>Só se aplica à hora atual. Por exemplo, se agora for 13h e esse valor for 10 minutos, a validação será iniciada às 13h10.<br/><br/>Essa configuração não afeta as fatias no passado (fatias com a Hora de Término da Fatia + dataDelay < agora serão processadas sem atraso).<br/><br/>A hora acima de 23 horas e 59 minutos terá que ser especificada usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, esse valor será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. | Não | 0 |
-| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <br/><br/>Se agora for 13h, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontecerá imediatamente. | Não | 00:01:00 (1 minuto) | 
+| dataDelay | Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem de estar disponíveis por hora, a verificação para ver se os dados externos estão disponíveis e se a fatia correspondente está Pronta pode ser atrasada usando dataDelay.<br/><br/>Aplica-se apenas à hora atual. Por exemplo, se agora forem 13hs e se esse valor for 10 minutos, a validação começará às 13:10hs.<br/><br/>Essa configuração não afeta fatias no passado (fatias com Hora de Término da Fatia + dataDelay < Agora) e elas são processadas sem atraso.<br/><br/>Um horário superior a 23:59 horas precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. | Não | 0 |
+| retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <br/><br/>Se agora for 13h, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontece imediatamente. | Não | 00:01:00 (1 minuto) | 
 | retryTimeout | O tempo limite para cada tentativa de repetição.<br/><br/>Se for definido como 10 minutos, a validação deverá ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut. | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
 ## Conjuntos de dados com escopo
-Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets**. Esses conjuntos de dados podem ser apenas usado por atividades dentro deste pipeline, não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados - InputDataset-rdc and OutputDataset-rdc - a serem usados dentro do pipeline.
+Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets**. Esses conjuntos de dados só podem ser usados por atividades dentro deste pipeline, e não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados - InputDataset-rdc and OutputDataset-rdc - a serem usados dentro do pipeline.
 
 > [AZURE.IMPORTANT] Há suporte apenas para conjuntos de dados com escopo com pipelines avulsos (**pipelineMode** definido como **OneTime**). Confira [Pipeline avulso](data-factory-scheduling-and-execution.md#onetime-pipeline) para obter detalhes.
 
@@ -345,4 +344,4 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
 	    }
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

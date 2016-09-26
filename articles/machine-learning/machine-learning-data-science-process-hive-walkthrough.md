@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -97,7 +97,7 @@ Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.co
 
 Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando do AzCopy](../storage/storage-use-azcopy.md).
 
-1. Em uma janela de Prompt de Comando, execute os seguintes comandos do AzCopy, substituindo *<path_to_data_folder>* pelo destino desejado:
+1. Em uma janela de Prompt de Comando, execute os seguintes comandos do AzCopy, substituindo *<path\_to\_data\_folder>* pelo destino desejado:
 
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -111,7 +111,7 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
+* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados
 * ***&#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
 * ***&#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
 * ***&#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
@@ -454,7 +454,7 @@ O argumento *-S* incluído neste comando suprime a impressão de tela de status 
 
 Para o problema de classificação binária descrito na seção [Exemplos de tarefas de previsão](machine-learning-data-science-process-hive-walkthrough.md#mltasks), é útil saber se uma dica foi fornecida ou não. Essa distribuição de gorjetas é binária:
 
-* gorjeta dada(Classe 1, tip\_amount > $0)  
+* gorjeta dada(Classe 1, tip\_amount > $0)
 * nenhuma gorjeta (classe 0, tip\_amount = $0).
 
 O arquivo *sample\_hive\_tipped\_frequencies.hql* mostrado a seguir faz isso.
@@ -543,20 +543,20 @@ Assim, para ver o conteúdo de um determinado arquivo, digamos 000000\_0, usamos
 
 **Aviso:** `copyToLocal` pode ser muito lento para arquivos grandes e não é recomendado para uso com eles.
 
-A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Aprendizado de Máquina do Azure usando o módulo [Importar Dados][import-data].
+A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Azure Machine Learning usando o módulo [Importar Dados][import-data].
 
 
 ## <a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
 
 **Observação**: essa é normalmente é uma tarefa de **Cientista de Dados**.
 
-Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Aprendizado de Máquina do Azure. Nesta seção, mostraremos como usar uma consulta de Hive para reduzir os dados, que são acessados do módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure.
+Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Aprendizado de Máquina do Azure. Nesta seção, mostraremos como usar uma consulta do Hive para reduzir os dados, que são acessados do módulo [Importar Dados][import-data] no Azure Machine Learning.
 
 ### Reduzindo os dados
 
 Há duas etapas neste procedimento. Primeiro, unimos as tabelas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves presentes em todos os registros: "medallion", "hack\_license" e "pickup\_datetime". Então geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
 
-Para poder usar a busca dados diretamente no módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
+Para poder usar a busca dados diretamente no módulo [Importar Dados][import-data] no Azure Machine Learning, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
 
 A consulta se aplica a funções Hive padrão diretamente para gerar a hora do dia, a semana do ano, o dia da semana (1 significa segunda-feira e 7 representa domingo) dos campos de "pickup\_datetime" e a distância direta entre os locais de subida e descida. Os usuários podem consultar [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) para ver uma lista de tais funções.
 
@@ -689,11 +689,11 @@ Para executar essa consulta, no prompt do diretório do Hive:
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Agora temos uma tabela interna "nyctaxidb.nyctaxi\_downsampled\_dataset", que pode ser acessada usando o módulo [Importar Dados][import-data] de Aprendizado de Máquina do Azure. Além disso, podemos usar esse conjunto de dados para criar modelos de Aprendizado de Máquina.
+Agora temos uma tabela interna "nyctaxidb.nyctaxi\_downsampled\_dataset", que pode ser acessada usando o módulo [Importar Dados][import-data] de Azure Machine Learning. Além disso, podemos usar esse conjunto de dados para criar modelos de Aprendizado de Máquina.
 
 ### Use o módulo Importar Dados no Aprendizado de Máquina do Azure para acessar os dados reduzidos
 
-Como pré-requisitos para a emissão de consultas Hive no módulo [Importar Dados][import-data] do Aprendizagem de Máquina do Azure, precisamos de acesso a um espaço de trabalho de Aprendizado de Máquina do Azure e acesso às credenciais do cluster e sua conta de armazenamento associada.
+Como pré-requisitos para a emissão de consultas Hive no módulo [Importar Dados][import-data] do Azure Machine Learning, precisamos de acesso a um espaço de trabalho do Azure Machine Learning e acesso às credenciais do cluster e sua conta de armazenamento associada.
 
 Alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros de entrada:
 
@@ -709,7 +709,7 @@ Alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros d
 
 **Nome do contêiner do Azure**: pe o nome do contêiner padrão para o cluster e normalmente o mesmo que o nome do cluster. Para um cluster chamado "abc123", é simplesmente abc123.
 
-**Observação importante:** **qualquer tabela que desejamos consultar usando o módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure deve ser uma tabela interna.** Uma dica para determinar se uma tabela T em um banco de dados D.db é uma tabela interna é a seguinte:
+**Observação importante:** **qualquer tabela que desejamos consultar usando o módulo [Importar Dados][import-data] no Azure Machine Learning deve ser uma tabela interna.** Uma dica para determinar se uma tabela T em um banco de dados D.db é uma tabela interna é a seguinte:
 
 No prompt do diretório Hive, emita o comando a seguir:
 
@@ -786,7 +786,7 @@ b. Para problemas de regressão, medimos as precisões de nossa previsão examin
 
 Podemos ver que o coeficiente de determinação é de 0,709, implicando que aproximadamente 71% da variância é explicada por nossos coeficientes de modelo.
 
-**Observação importante:** para saber mais sobre o aprendizado de máquina do Azure e como acessá-lo e usá-lo, consulte [O que é Aprendizado de Máquina?](machine-learning-what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Aprendizado de Máquina no Aprendizado de Máquina do Azure é a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Aprendizado de Máquina do Azure.
+**Observação importante:** para saber mais sobre o aprendizado de máquina do Azure e como acessá-lo e usá-lo, consulte [O que é Aprendizado de Máquina?](machine-learning-what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Machine Learning no Azure Machine Learning é a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Aprendizado de Máquina do Azure.
 
 ## Informações de Licença
 
@@ -794,9 +794,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adicionar proprietários e usuários a um laboratório | Microsoft Azure"
-	description="Adicionar com segurança um usuário que não está em sua assinatura aos Azure DevTest Labs"
+	pageTitle="Adicionar usuários e proprietários aos Azure DevTest Labs | Microsoft Azure"
+	description="Adicionar usuários e proprietários aos Azure DevTest Labs usando o portal do Azure ou o PowerShell"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,43 +13,119 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
-# Adicionar proprietários e usuários a um laboratório
+# Adicionar usuários e proprietários aos Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
-## Visão geral
-O acesso a Laboratórios de Desenvolvimento/Teste é controlado pelo RBAC (Controle de Acesso Baseado em Função do Azure). Pesquise [RBAC (Controle de Acesso Baseado em Função)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) para saber mais.
+O acesso a Azure DevTest Labs é controlado pelo [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md). Com o RBAC, você pode separar as tarefas de sua equipe em *funções*, onde só concederá o acesso de que os usuários precisam para realizar seus trabalhos. Três dessas funções RBAC são *Proprietário*, *Usuário dos DevTest Labs* e *Colaborador*. Neste artigo, você aprenderá quais ações podem ser executadas em cada uma das três funções RBAC principais. A partir daí, você aprenderá como adicionar usuários a um laboratório - por meio do portal e por meio de um script do PowerShell, além de como adicionar usuários no nível de assinatura.
 
+## Ações que podem ser executadas em cada função
 
-Você permite acesso ao seu laboratório por meio de duas funções:
+Há três funções principais às quais você pode atribuir um usuário:
 
-- **Proprietário**: os usuários atribuídos à função **Proprietário** no nível de laboratório têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento. A função **Proprietário** atribuída ao nível de laboratório não concede aos usuários permissões para acessar recursos na assinatura fora do escopo do laboratório. Os usuários atribuídos à função **Proprietário** no nível de assinatura do Azure automaticamente têm direitos de **Proprietário** sobre quaisquer recursos criados nessa assinatura, incluindo laboratórios e VMs.
+- Proprietário
+- Usuário do DevTest Labs
+- Colaborador
 
--  **Usuário dos DevTest Labs**: os usuários atribuídos à função **Usuário dos DevTest Labs** podem criar VMs no laboratório especificado, bem como exibir todos os recursos do laboratório, como VMs, políticas ou redes virtuais. Os usuários podem ser *internos* (um membro do Azure Active Directory da assinatura) ou *externos* (um usuário que não é membro do Azure AD, como um membro de uma organização parceira).
-	-  Uma função **Usuário de Laboratórios de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
-	-  Os usuários na função **Usuário de Laboratórios de Desenvolvimento/Teste** podem executar essas operações apenas dentro do laboratório ao qual estão atribuídos. Por exemplo, um **Usuário de Laboratórios de Desenvolvimento/Teste** não pode criar uma máquina virtual usando o serviço de Máquina Virtual da assinatura. A criação de uma máquina virtual só é permitida por meio da conta de Laboratórios de Desenvolvimento/Teste.
-	- Usuários *externos* são usuários com uma Conta da Microsoft (MSA).
- 
-Depois que uma VM é criada, o usuário que a criou é atribuído automaticamente à função **Proprietário** na VM criada, o que permite a ele realizar todas as ações que são oferecidas no laboratório.
+A tabela a seguir ilustra as ações que podem ser executadas por usuários em cada uma dessas funções:
 
-## Adicionar um proprietário ao laboratório
+| **Ações que os usuários nesta função podem executar** | **Usuário do DevTest Labs** | **Proprietário** | **Colaborador** |
+|---|---|---|---|
+| **Tarefas do laboratório** | | | |
+| Adicionar usuários a um laboratório | Não | Sim | Não |
+| Atualizar configurações de custo | Não | Sim | Sim |
+| **Tarefas de base da VM** | | | |
+| Adicionar e remover imagens personalizadas | Não | Sim | Sim |
+| Adicionar, atualizar e excluir fórmulas | Sim | Sim | Sim |
+| Incluir imagens do Azure Marketplace na listra branca | Não | Sim | Sim |
+| **Tarefas da VM** | | | |
+| Criar VMs | Sim | Sim | Sim |
+| Iniciar, parar e excluir VMs | Somente máquinas virtuais criadas pelo usuário | Sim | Sim |
+| Atualizar políticas de VM | Não | Sim | Sim |
+| Adicionar/remover discos de dados de/para máquinas virtuais | Somente máquinas virtuais criadas pelo usuário | Sim | Sim |
+| **Tarefas de artefato** | | | |
+| Adicionar e remover repositórios de artefato | Não | Sim | Sim |
+| Aplicar artefatos | Sim | Sim | Sim |
 
-Devido ao modo como as permissões são propagadas do escopo pai para o escopo filho no Azure, o proprietário de uma assinatura do Azure que contenha os laboratórios será automaticamente proprietário desses laboratórios, bem como de todas as VMs e de outros recursos que são criados pelos usuários do laboratório e também pelo serviço DevTest Lab. Embora seja possível adicionar proprietários extras em um laboratório por meio da folha do laboratório no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), seu escopo de administração será mais estreito do que o dos proprietários da assinatura, uma vez que eles não teriam acesso completo a alguns dos recursos que são criados na assinatura pelo serviço DevTest Labs.
+> [AZURE.NOTE] Quando um usuário cria uma VM, esse usuário é atribuído automaticamente à função **Proprietário** da VM criada.
 
-Para adicionar um proprietário a uma assinatura do Azure na qual você já tem laboratórios criados, ou na qual criará novos laboratórios, siga estas etapas:
+## Adicionar um usuário ou proprietário no nível do laboratório
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Os proprietários e os usuários podem ser adicionados no nível do laboratório por meio do portal do Azure. Isso inclui usuários externos com uma [Conta da Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account) válida. As etapas a seguir vão orientá-lo durante o processo de adição de um proprietário ou de um usuário a um laboratório nos Azure DevTest Labs:
 
-1. No painel de navegação esquerdo, selecione **Assinaturas**.
+1. Entre no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-	![Link Assinaturas](./media/devtest-lab-add-devtest-user/subscriptions.png)
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
+
+1. Na lista de laboratórios, selecione o laboratório desejado.
+
+1. Na folha do laboratório, selecione **Configuração**.
+
+1. Na folha **Configuração**, selecione **Usuários**.
+
+1. Na folha **Usuários**, selecione **+Adicionar**.
+
+	![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+
+1. Na folha **Selecionar uma função**, selecione a função desejada. A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
+
+1. Na folha **Adicionar usuários**, insira o endereço de email ou o nome do usuário que você deseja adicionar à função especificada. Se o usuário não for encontrado, uma mensagem de erro explicará o problema. Se o usuário for encontrado, esse usuário será listado e selecionado.
+
+1. Selecione **Selecionar**.
+
+1. Selecione **OK** para fechar a folha **Adicionar acesso**.
+
+1. Quando você retornar para a folha **Usuários**, o usuário terá sido adicionado.
+
+## Adicionar um usuário externo a um laboratório usando o PowerShell
+
+Além de adicionar usuários no portal do Azure, você poderá adicionar um usuário externo ao seu laboratório usando um script do PowerShell. No exemplo a seguir, simplesmente modifique os valores de parâmetro no comentário **Valores a alterar**. Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` da folha do laboratório no portal do Azure.
+
+> [AZURE.NOTE]
+O script de exemplo pressupõe que o usuário especificado tenha sido adicionado como um convidado ao Active Directory e falhará se não for o caso. Para adicionar um usuário que não esteja no Active Directory a um laboratório, use o portal do Azure para atribuir o usuário a uma função conforme ilustrado na seção [Adicionar um proprietário ou usuário no nível do laboratório](#add-an-owner-or-user-at-the-lab-level).
+
+	# Add an external user in DevTest Labs user role to a lab
+	# Ensure that guest users can be added to the Azure Active directory:
+	# https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource name here>"
+	$labName = "<Enter lab name here>"
+	$userDisplayName = "<Enter user's display name here>"
+
+	# Log into your Azure account
+	Login-AzureRmAccount
 	
-1. Selecione a assinatura que conterá o(s) laboratório(s).
+	# Select the Azure subscription that contains the lab. 
+	# This step is optional if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Retrieve the user object
+	$adObject = Get-AzureRmADUser -SearchString $userDisplayName
+	
+	# Create the role assignment. 
+	$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
-1. Selecione o ícone do **Access**.
+## Adicionar um usuário ou proprietário no nível da assinatura
+
+As permissões do Azure são propagadas do escopo pai para o escopo filho no Azure. Portanto, os proprietários de uma assinatura do Azure que contenha laboratórios automaticamente serão proprietários desses laboratórios. Eles também possuem as máquinas virtuais e outros recursos criados por usuários do laboratório, além do serviço Azure DevTest Labs.
+
+Você pode adicionar outros proprietários a um laboratório por meio da folha do laboratório no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). No entanto, o escopo de administração do proprietário adicionado é mais restrito do que o do proprietário da assinatura. Por exemplo, os proprietários adicionados não têm acesso total a alguns dos recursos criados na assinatura pelo serviço DevTest Labs.
+
+Para adicionar um proprietário a uma assinatura do Azure, siga estas etapas:
+
+1. Entre no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Selecione **Mais Serviços** e selecione **Assinaturas** na lista.
+
+1. Selecione a assinatura desejada.
+
+1. Selecione o ícone **Acesso**.
 
 	![Usuários do Access](./media/devtest-lab-add-devtest-user/access-users.png)
 
@@ -59,7 +135,7 @@ Para adicionar um proprietário a uma assinatura do Azure na qual você já tem 
 
 1. Na folha **Selecionar uma função**, selecione **Proprietário**.
 
-1. Insira na caixa de texto **Usuário** o email do usuário que você deseja adicionar como proprietário da caixa de texto. Se não for possível encontrar o usuário, você obterá uma mensagem de erro explicando o problema. Se o usuário for encontrado, ele será listado na caixa de texto **Usuário**.
+1. Na folha **Adicionar usuários**, insira o endereço de email ou o nome do usuário que deseja adicionar como um proprietário. Se não for possível encontrar o usuário, você obterá uma mensagem de erro explicando o problema. Se o usuário for encontrado, ele será listado na caixa de texto **Usuário**.
 
 1. Selecione o nome de usuário localizado.
 
@@ -67,42 +143,8 @@ Para adicionar um proprietário a uma assinatura do Azure na qual você já tem 
 
 1. Selecione **OK** para fechar a folha **Adicionar acesso**.
 
-1. Quando você retornar à folha **Usuários**, verá que o usuário foi adicionado como proprietário. Agora, essa pessoa será o proprietário de todos os laboratórios criados nessa assinatura e, portanto, será capaz de executar tarefas de proprietário.
-
-## Adicionar um usuário de Laboratórios de Desenvolvimento/Teste ao seu laboratório
-
-Para adicionar um usuário de Laboratórios de Desenvolvimento/Teste ao seu laboratório, execute estas etapas:
-
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Selecione **Procurar**.
-
-1. Selecione **DevTest Labs**.
-
-1. Na lista de laboratórios, selecione o laboratório desejado.
-
-1. Selecione o ícone do **Access**.
-
-	![Acesso de usuário](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
-
-1. Na folha **Usuários**, selecione **Adicionar**.
-
-	![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-
-1. Na folha **Selecionar uma função**, selecione **Usuário do DevTest Labs**
-
-1. Na folha **Adicionar usuários**:
-
-	1. A folha **Adicionar usuários** exibirá uma lista de usuários internos. Se o usuário desejado já estiver na lista, basta selecionar a linha do usuário para selecioná-lo. Uma marca de seleção aparecerá à esquerda do usuário para indicar que o usuário foi selecionado. Para selecionar vários usuários, mantenha a tecla **&lt;Ctrl>** pressionada enquanto seleciona cada usuário. Para anular a seleção de um usuário, mantenha a tecla **&lt;Ctrl>** pressionada e selecione o usuário. Um contador na parte inferior da folha indica o número de usuários selecionados.
-
-	1. Se o usuário desejado não estiver na lista, insira uma conta de email válida da Microsoft na caixa de texto **Usuários**. Se o endereço de email for válido, o usuário será exibido abaixo da caixa de texto **Usuário**.
-
-	1. Depois de selecionar os usuários que você deseja adicionar ao laboratório, escolha **Selecionar**.
-
-	1. Selecione **OK** para fechar a folha **Adicionar acesso**.
-
-1. A folha **Usuários** exibe as funções e usuários adicionados.
+1. Quando você retornar à folha **Usuários**, o usuário terá sido adicionado como proprietário. Agora, esse usuário é o proprietário de todos os laboratórios criados nessa assinatura e, portanto, é capaz de executar tarefas de proprietário.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

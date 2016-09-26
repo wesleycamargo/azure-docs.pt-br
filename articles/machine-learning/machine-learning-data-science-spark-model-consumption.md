@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -25,7 +25,7 @@ Este tópico descreve como carregar modelos de AM (aprendizado de máquina) que 
 
 ## Pré-requisitos
 
-1. Você precisa de uma conta do Azure e um HDInsight Spark Você precisa de um cluster HDInsight 3.4 Spark 1.6 para concluir este passo a passo. Confira os requisitos na [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Visão geral de ciência de dados usando o Spark no Azure HDInsight) para obter uma descrição dos dados NYC 2013 Taxi usados aqui e para obter instruções sobre como executar código de um bloco de anotações do Jupyter no cluster Spark. O bloco de anotações **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+1. Você precisa de uma conta do Azure e um HDInsight Spark Você precisa de um cluster HDInsight 3.4 Spark 1.6 para concluir este passo a passo. Confira os requisitos na [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Visão geral de ciência de dados usando o Spark no Azure HDInsight) para obter uma descrição dos dados NYC 2013 Taxi usados aqui e para obter instruções sobre como executar código de um bloco de anotações do Jupyter no cluster Spark. O notebook **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. Você também tem que criar modelos de aprendizado de máquina que serão pontuados aqui de acordo com o tópico [Exploração e modelagem de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
@@ -104,16 +104,16 @@ Defina o contexto do Spark e importe as bibliotecas necessárias com o código a
 
 Os kernels PySpark fornecidos com os notebooks do Jupyter têm um contexto predefinido e, portanto, não é necessário definir explicitamente contextos do Spark ou do Hive antes de começar a trabalhar com o aplicativo que está em desenvolvimento; eles estão disponíveis por padrão para você. Esses contextos são:
 
-- sc - para o Spark 
+- sc - para o Spark
 - sqlContext - para o Hive
 
 O kernel PySpark fornece algumas “palavras mágicas” predefinidas, que são comandos especiais que podem ser chamados com %%. Há dois comandos que são usados nesses exemplos de código.
 
 - **%%local** Especificou que o código nas linhas posteriores será executado localmente. O código deve ser um código Python válido.
-- **%%sql -o <variable name>** Executa uma consulta do Hive no sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
+- **%%sql -o <nome da variável>** Executa uma consulta do Hive em sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
  
 
-Para saber mais sobre os kernels para notebooks do Jupyter e as “palavras mágicas” predefinidas chamadas com %% (por exemplo, %%local) que eles fornecem, veja [Kernels disponíveis para notebooks do Jupyter com clusters HDInsight Spark Linux no HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas chamadas com %% (por exemplo, %%local) que eles fornecem, confira [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight (Kernels disponíveis para notebooks Jupyter com clusters Linux do HDInsight Spark no HDInsight)](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Ingerir dados e criar um quadro de dados limpo
@@ -529,17 +529,17 @@ Tempo necessário para executar a célula acima: 14,6 segundos
 
 **SAÍDA:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56.860740.txt
 
 
 
@@ -599,7 +599,7 @@ Você também pode adicionar esse código Python ao [Azure Functions](https://az
 
 Se você preferir uma experiência de cliente gratuito de código, use os [Aplicativos Lógicos do Azure](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar a pontuação em lote do Spark definindo uma ação HTTP no **Designer de aplicativos lógicos** e definindo seus parâmetros.
 
-- No Portal do Azure, crie um novo aplicativo lógico selecionando **+Novo** -> **Web + Móvel** -> **Aplicativo Lógico**. 
+- No Portal do Azure, crie um novo aplicativo lógico selecionando **+Novo** -> **Web + Móvel** -> **Aplicativo Lógico**.
 - Insira o nome do aplicativo lógico e o plano do serviço de aplicativo para abrir o **Designer de aplicativos lógicos**.
 - Selecione uma ação HTTP e insira os parâmetros mostrados na figura abaixo:
 
@@ -608,6 +608,6 @@ Se você preferir uma experiência de cliente gratuito de código, use os [Aplic
 
 ## O que vem a seguir? 
 
-**Validação cruzada e limpeza de hiperparâmetro**: veja [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) (Modelagem e exploração de dados avançadas com Spark) sobre como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
+**Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

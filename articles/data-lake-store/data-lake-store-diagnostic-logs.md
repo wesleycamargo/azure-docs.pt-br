@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -25,7 +25,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
 ## Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a Public Preview do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
 
 ## Habilitar o log de diagnóstico em sua conta do Data Lake Store
@@ -90,7 +90,7 @@ Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, exam
 
 ### Logs de solicitação
 
-Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto raiz chamado **records** que contém uma matriz de objetos do log.
+Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
 
 	{
 	"records": 
@@ -115,7 +115,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### Esquema do log de solicitação
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 |-----------------|--------|--------------------------------------------------------------------------------|
 | tempo real | Cadeia de caracteres | O carimbo de data/hora (em UTC) do log |
 | resourceId | Cadeia de caracteres | A ID do recurso em que a operação ocorreu |
@@ -129,7 +129,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### Esquema de propriedades do log de solicitação
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 |----------------------|--------|-----------------------------------------------------------|
 | HttpMethod | Cadeia de caracteres | O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho | Cadeia de caracteres | O caminho em que a operação foi executada |
@@ -164,7 +164,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### Esquema do log de auditoria
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 |-----------------|--------|--------------------------------------------------------------------------------|
 | tempo real | Cadeia de caracteres | O carimbo de data/hora (em UTC) do log |
 | resourceId | Cadeia de caracteres | A ID do recurso em que a operação ocorreu |
@@ -177,7 +177,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### Esquema de propriedades do log de auditoria
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 |------------|--------|------------------------------------------|
 | StreamName | Cadeia de caracteres | O caminho em que a operação foi executada |
 
@@ -187,9 +187,9 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Consulte também
+## Confira também
 
 - [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

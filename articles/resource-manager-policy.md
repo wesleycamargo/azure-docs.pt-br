@@ -132,7 +132,7 @@ Atualmente, os aliases com suporte são:
 
 | Nome do alias | Descrição |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Os tipos de recurso com suporte são: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
 | {resourceType}/sku.family | O tipo de recurso com suporte é Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | O tipo de recurso com suporte é Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -255,7 +255,7 @@ O exemplo abaixo mostra uma política que negará todas as solicitações em que
 
 ### Curadoria de serviço: Selecione o catálogo de serviços
 
-O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* são permitidas. Todo o resto será negado.
+O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/* são permitidas. Todo o resto será negado.
 
     {
       "if" : {
@@ -414,6 +414,27 @@ A saída da execução é armazenada no objeto $policy e pode ser usada posterio
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Criar definição de política usando a CLI do Azure
+
+Você pode criar uma nova definição de política usando a CLI do Azure com o comando de definição de política, como mostrado abaixo. Os exemplos a seguir criam uma política para permitir recursos somente na Europa Setentrional e Ocidental.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+É possível especificar o caminho para um arquivo .json contendo a política em vez de especificar a política embutida, conforme mostrado abaixo.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Aplicando uma política
 
@@ -456,17 +477,46 @@ Você pode obter, alterar ou remover as definições de políticas por meio dos 
 
 Da mesma forma, você pode obter, alterar ou remover as atribuições da política por meio dos cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment e Remove-AzureRmPolicyAssignment respectivamente.
 
+### Atribuição de política usando a CLI do Azure
+
+Você pode aplicar a política criada acima por meio da CLI do Azure ao escopo desejado usando o comando de atribuição de política, conforme mostrado abaixo:
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+O escopo aqui é o nome do grupo de recursos que você especificar. Se o valor do parâmetro policy-definition-id for desconhecido, será possível obtê-lo por meio da CLI do Azure, conforme mostrado abaixo:
+
+    azure policy definition show <policy-name>
+
+Se você desejar remover a atribuição de política acima, você pode fazê-lo da seguinte forma:
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Você pode obter, alterar ou remover as definições de política por meio dos comandos show, set e delete da definição de política, respectivamente.
+
+De modo semelhante, é possível obter, alterar ou remover atribuições de política por meio dos comandos show e delete da atribuição de política, respectivamente.
+
 ##Eventos de auditoria de política
 
-Depois de aplicar a política, você começará a ver eventos relacionados à política. Você pode acessar o portal ou usar o PowerShell para obter esses dados.
+Depois de aplicar a política, você começará a ver eventos relacionados à política. Você pode acessar o portal, usar o PowerShell ou a CLI do Azure para obter esses dados.
 
-Para exibir todos os eventos relacionados ao efeito de recusa, você pode usar o comando a seguir.
+### Eventos de auditoria de política usando o PowerShell
+
+Para exibir todos os eventos relacionados ao efeito de recusa, você pode usar o comando do PowerShell a seguir.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usar o comando a seguir.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Eventos de auditoria de política usando a CLI do Azure
+
+Para exibir todos os eventos de um grupo de recursos que se relacionam ao efeito de recusa, você pode usar o comando de CLI a seguir.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usar o comando de CLI a seguir.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

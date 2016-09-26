@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -121,4 +121,4 @@ Para se conectar a um serviço Web de Aprendizado de Máquina, use a biblioteca 
 2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Aprendizado de Máquina do Azure**.
 3. Atribua serviceUri com o URI de solicitação.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

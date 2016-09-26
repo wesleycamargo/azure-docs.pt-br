@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Dicas de ajuste de desempenho do Banco de Dados SQL
@@ -25,7 +25,7 @@ Você pode alterar quando quiser a [camada de serviço](sql-database-service-tie
 ## Etapas para avaliar e ajustar o desempenho do banco de dados
 1.	No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL**, escolha o banco de dados e use o gráfico de monitoramento para procurar recursos que estão atingindo o limite. O consumo de DTU é exibido por padrão. Clique em **Editar** para alterar o intervalo de tempo e os valores mostrados.
 2.	Use a [Análise de Desempenho de Consultas](sql-database-query-performance.md) para avaliar as consultas usando DTUs e use o [Supervisor de Banco de Dados SQL](sql-database-advisor.md) para exibir as recomendações para criar e descartar índices, parametrizar consultas e corrigir problemas de esquema.
-3.	Você pode usar as DMVs (exibições de gerenciamento dinâmico), os Xevents (Eventos Estendidos) e o Armazenamento de Consulta no SSMS para obter os parâmetros de desempenho em tempo real. Consulte o [tópico com diretrizes sobre desempenho](sql-database-performance-guidance.md) para obter um monitoramento detalhado e dicas de ajuste.
+3.	Você pode usar as DMVs (exibições de gerenciamento dinâmico), os Xevents (Eventos Estendidos) e o Armazenamento de Consulta no SSMS para obter os parâmetros de desempenho em tempo real. Veja o [tópico com diretrizes sobre desempenho](sql-database-performance-guidance.md) para obter dicas detalhadas de monitoramento e ajuste.
 
 
     > [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -35,4 +35,4 @@ Você pode alterar quando quiser a [camada de serviço](sql-database-service-tie
 1.	Para bancos de dados individuais, você pode [alterar as camadas de serviço](sql-database-scale-up.md) sob demanda para melhorar o desempenho do banco de dados.
 2.	Para vários bancos de dados, considere o uso de [pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md) para escalar os recursos automaticamente.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -27,7 +27,7 @@ O [Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/s
 
 1. **Crie um teste de treinamento**. Conclua esta etapa usando o Estúdio AM do Azure. O Estúdio AM do Azure é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise preditiva usando dados de treinamento.
 2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
-3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Os usuários podem enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.
+3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.
 
 O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do [Azure Machine Learning][azure-machine-learning] publicado para a análise preditiva. Usando a **Atividade de Execução em Lote** em um pipeline do Azure Data Factory, você pode invocar um serviço Web de AM do Azure para fazer previsões sobre dados em lote. Consulte a seção [Invocando um serviço web de AM do Azure usando a Atividade de Execução em Lote](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) para obter detalhes.
 
@@ -44,7 +44,7 @@ Depois de concluir o treinamento, você deseja atualizar o serviço Web de pontu
 
 Veja a seção [Atualizando modelos do AM do Azure usando a Atividade do Recurso de Atualização](#updating-azure-ml-models-using-the-update-resource-activity) para obter detalhes.
 
-## Invocando um serviço Web do AM do Azure usando a Atividade de Execução em Lote
+## Invocar um serviço Web usando a Atividade de Execução em Lote
 
 Você usa o Azure Data Factory para orquestrar o processamento e movimentação de dados e realizar a execução de lote usando o Aprendizado de Máquina do Azure. Estas são as etapas de nível superior:
 
@@ -61,7 +61,12 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 ### Cenário: Experimentos usando entradas/saídas de serviço Web que se referem aos dados no armazenamento de Blob do Azure
 Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsões usando dados de um arquivo em um armazenamento de blob do Azure e armazena os resultados de previsão no armazenamento de blob. O JSON a seguir define um pipeline do Data Factory com uma atividade AzureMLBatchExecution. A atividade contém o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é passado como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput**. O **DecisionTreeResultBlob** é passado como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs**.
 
-> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
+> [AZURE.IMPORTANT] 
+Se o serviço Web receber várias entradas, use a propriedade **webServiceInputs** em vez de usar **webServiceInput**. Veja a seção [Serviço Web exige várias entradas](#web-service-requires-multiple-inputs) para obter um exemplo de como usar a propriedade webServiceInputs.
+>  
+> Conjuntos de dados que são referenciados pelas propriedades **webServiceInput**/**webServiceInputs** e **webServiceOutputs** (em **typeProperties**) também devem ser incluídas nas **entradas** e **saídas** da atividade.
+> 
+> Em seu experimento de Azure ML, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("input1", "input2") os quais você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webserviceoutputs e globalParameters devem corresponder exatamente aos nomes nos testes. Você pode exibir a carga de solicitação de exemplo na página de Ajuda de Execução do Lote no ponto de extremidade de Azure ML para verificar o mapeamento esperado.
 
 
 	{
@@ -99,8 +104,8 @@ Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsõe
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -258,8 +263,8 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
 		        }
 		      }
 		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
+		    "start": "2016-02-13T00:00:00Z",
+		    "end": "2016-02-14T00:00:00Z"
 		  }
 		}
 
@@ -347,8 +352,8 @@ Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Az
 	        },
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
  
@@ -358,6 +363,50 @@ No exemplo JSON acima:
 - Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **término** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas.**" Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 ### Outros cenários
+
+#### O serviço Web exige várias entradas
+Se o serviço Web receber várias entradas, use a propriedade **webServiceInputs** em vez de usar **webServiceInput**. Os conjuntos de dados referenciados por **webServiceInputs** também devem ser incluídos nas **entradas** da Atividade.
+ 
+Em seu experimento de Azure ML, as portas de entrada e saída do serviço Web e os parâmetros globais têm nomes padrão ("input1", "input2") os quais você pode personalizar. Os nomes que você usa para as configurações webServiceInputs, webserviceoutputs e globalParameters devem corresponder exatamente aos nomes nos testes. Você pode exibir a carga de solicitação de exemplo na página de Ajuda de Execução do Lote no ponto de extremidade de Azure ML para verificar o mapeamento esperado.
+
+
+	{
+		"name": "PredictivePipeline",
+		"properties": {
+			"description": "use AzureML model",
+			"activities": [{
+				"name": "MLActivity",
+				"type": "AzureMLBatchExecution",
+				"description": "prediction analysis on batch input",
+				"inputs": [{
+					"name": "inputDataset1"
+				}, {
+					"name": "inputDataset2"
+				}],
+				"outputs": [{
+					"name": "outputDataset"
+				}],
+				"linkedServiceName": "MyAzureMLLinkedService",
+				"typeProperties": {
+					"webServiceInputs": {
+						"input1": "inputDataset1",
+						"input2": "inputDataset2"
+					},
+					"webServiceOutputs": {
+						"output1": "outputDataset"
+					}
+				},
+				"policy": {
+					"concurrency": 3,
+					"executionPriorityOrder": "NewestFirst",
+					"retry": 1,
+					"timeout": "02:00:00"
+				}
+			}],
+			"start": "2016-02-13T00:00:00Z",
+			"end": "2016-02-14T00:00:00Z"
+		}
+	}
 
 #### O serviço Web não requer uma entrada
 
@@ -447,7 +496,7 @@ Os **aprendizados** são:
 - Podem ser incluídos nas propriedades de entrada e saída da atividade conjuntos de dados adicionais, sem serem referenciados no typeProperties da atividade. Esses conjuntos de dados determinam a execução com dependências de fatia, mas são ignorados pela atividade AzureMLBatchExecution.
 
 
-## Atualizando os modelos do AM do Azure usando a Atividade de Recurso de Atualização
+## Atualização dos modelos usando a Atividade de Recurso de Atualização
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:
 
 1. Crie um teste no [Estúdio AM do Azure](https://studio.azureml.net).
@@ -682,8 +731,8 @@ O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResou
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
 	        ],
-	    	"start": "2015-02-13T00:00:00Z",
-	   		"end": "2015-02-14T00:00:00Z"
+	    	"start": "2016-02-13T00:00:00Z",
+	   		"end": "2016-02-14T00:00:00Z"
 	    }
 	}
 
@@ -738,8 +787,8 @@ Se você quiser continuar usando a atividade AzureMLBatchScoring, continue lendo
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -779,4 +828,4 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

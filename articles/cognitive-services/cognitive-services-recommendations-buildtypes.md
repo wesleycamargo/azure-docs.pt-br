@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -34,7 +34,7 @@ Se você treinar o modelo com base em compras feitas em sua loja de eletrônicos
 
 O build de recomendação tem duas funcionalidades que o tornam atraente:
 
-**A recomendação de compilação dá suporte ao posicionamento de *item sem* interesse**
+**A recomendação de compilação dá suporte ao posicionamento de *item sem interesse***
 
 Itens que não têm uso significativo são chamados de itens sem interesse. Por exemplo, se você receber uma remessa de um telefone que nunca vendeu antes, o sistema não poderá inferir recomendações para esse produto apenas em transações. Isso significa que o sistema deve aprender com informações sobre o produto em si.
 
@@ -54,7 +54,7 @@ Você também precisa definir os seguintes parâmetros de compilação:
 |*allowColdItemPlacement* | Definido como **true**. Indica se a recomendação também enviar itens sem interesse através da similaridade de recursos.
 | *modelingFeatureList* | Lista separada por vírgulas de nomes de recursos a serem usados na compilação de recomendação para melhorar as recomendações. Por exemplo, "Idioma,Armazenamento" no exemplo anterior.
 
-A compilação de Recomendação dá suporte para as **recomendações de usuário**
+**A compilação de Recomendação dá suporte para as recomendações de usuário**
 
 Uma compilação de Recomendação dá suporte para as [recomendações de usuário](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). Isso significa que pode fornecer recomendações personalizadas para usuários com base em seus históricos de transações. Para obter recomendações de usuário, você pode fornecer a ID de usuário ou o histórico recente de transações desse usuário.
 
@@ -263,4 +263,4 @@ Isso vai disparar um compilação que usa apenas um subconjunto dos dados para t
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

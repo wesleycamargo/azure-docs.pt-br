@@ -4,7 +4,7 @@ description="Saiba como usar a interface de usuário do Tez para depurar trabalh
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -147,4 +147,4 @@ Agora que você aprendeu a usar o modo de exibição do Tez, saiba mais sobre [C
 
 Para obter informações técnicas mais detalhadas sobre o Tez, confira a [página sobre o Tez em Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

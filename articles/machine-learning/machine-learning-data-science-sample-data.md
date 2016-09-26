@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -21,7 +21,7 @@
 Este documento leva a tópicos que abordam como obter amostras de dados armazenados em um dos três diferentes locais do Azure:
 
 - A amostragem dos **dados no contêiner de blobs do Azure** é realizada baixando-os programaticamente e realizando a amostragem com um exemplo de código Python.
-- A amostragem dos **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python. 
+- A amostragem dos **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python.
 - A amostragem dos **dados da tabela do Hive** é realizada usando consultas de Hive.
 
 O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de cada um desses ambientes de armazenamento do Azure.
@@ -34,4 +34,4 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 
 Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

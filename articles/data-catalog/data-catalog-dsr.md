@@ -3,8 +3,8 @@
    description="Especificação das fontes de dados com suporte no momento."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
+   ms.date="09/13/2016"
    ms.author="trhabe"/>
 
 # Fontes de dados com suporte do Catálogo de Dados do Azure
 
-Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando uma API pública, uma ferramenta de registro com um clique ou inserindo manualmente as informações de forma direta no portal da Web do Catálogo de Dados. A grade abaixo resume todas as fontes com suporte hoje do catálogo e os recursos de publicação para cada uma. Também estão listadas as ferramentas de dados externas que cada fonte pode inicializar a partir de nossa experiência "aberta" do portal. E mais, a seguir está uma segunda grade que tem uma especificação mais técnica de cada propriedade de conexão das fontes de dados.
+Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando uma API pública, uma ferramenta de registro com um clique ou inserindo manualmente as informações de forma direta no portal da Web do Catálogo de Dados. A grade a seguir resume todas as fontes com suporte hoje do catálogo e os recursos de publicação para cada uma. Também estão listadas as ferramentas de dados externas que cada fonte pode inicializar a partir de nossa experiência "aberta" do portal. A segunda grade no artigo tem uma especificação mais técnica de cada propriedade de conexão das fontes de dados.
 
 
 ## Lista das fontes de dados com suporte
@@ -73,8 +73,8 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     <tr>
       <td>Tabela de armazenamento do Azure</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -414,7 +414,7 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 
 <br> <br>
 ## Especificação de referência da fonte de dados
-> [AZURE.NOTE] A coluna "Estrutura DSL" na tabela a seguir lista apenas as propriedades de conexão do recipiente de propriedades "address", que são usadas pelo Catálogo de Dados do Azure (ou seja, o recipiente de propriedades "address" pode conter outras propriedades de conexão da fonte de dados que o Catálogo de Dados do Azure persiste, mas não usa.)
+> [AZURE.NOTE] A coluna "Estrutura DSL" na tabela a seguir lista apenas as propriedades de conexão do recipiente de propriedades "address", que são usadas pelo Catálogo de Dados do Azure (ou seja, o recipiente de propriedades "address" pode conter outras propriedades de conexão da fonte de dados que o Catálogo de Dados do Azure persiste, mas não usa).
 <table>
     <tr>
        <td><b>Tipo de Fonte</b></td>
@@ -795,6 +795,17 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Tabela</td>
+      <td>Mashup de Dados</td>
+      <td>
+        Protocolo <font size=2>: power-query
+            <br>autenticação: {oauth}
+            <br>endereço:
+            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Tabela</td>
       <td>Objeto</td>
@@ -858,6 +869,20 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
+      <td>TableValuedFunction</td>
+      <td>Função com valor de tabela</td>
+      <td>
+        <font size=2> protocolo: tds
+            <br>autenticação: {protocolo, windows}
+            <br>endereço:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; objeto </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
       <td>Contêiner</td>
       <td>Banco de dados</td>
       <td>
@@ -898,6 +923,20 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Função com valor de tabela</td>
+      <td>
+        <font size=2> protocolo: tds
+            <br>autenticação: {protocolo, windows}
+            <br>endereço:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; objeto </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>Contêiner</td>
       <td>Banco de dados</td>
       <td>
@@ -911,7 +950,7 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
     <tr>
       <td>SQL Server</td>
       <td>Tabela</td>
-      <td>Tabela, exibição, função com valor de tabela </td>
+      <td>Tabela, exibição</td>
       <td>
         <font size=2> protocolo: tds
             <br>autenticação: {protocolo, windows}
@@ -1127,4 +1166,4 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

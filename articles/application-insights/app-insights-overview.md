@@ -347,11 +347,11 @@ Introdução ao tempo de desenvolvimento com:
  * [Solucionar problemas][qna]
  * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Sugestões:
+ * [Obter suporte do desenvolvedor](app-insights-get-dev-support.md)
+* Suas sugestões:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
  * [Blog do Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -386,4 +386,4 @@ Introdução ao tempo de desenvolvimento com:
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

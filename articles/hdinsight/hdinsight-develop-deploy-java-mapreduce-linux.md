@@ -3,7 +3,7 @@
 	description="Saiba como desenvolver programas MapReduce em Java como implantá-los no HDInsight baseado em Linux."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
 	tags="azure-portal"/>
@@ -288,4 +288,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

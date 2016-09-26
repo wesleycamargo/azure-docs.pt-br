@@ -4,7 +4,7 @@ description="Use dados do banco de dados do SQL Server local para executar anál
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -51,7 +51,7 @@ Você deve considerar o seguinte ao configurar e usar um Gateway de Gerenciament
 - Você configura um gateway para apenas um espaço de trabalho por vez. Gateways não podem ser compartilhados entre espaços de trabalho no momento.
 - Você pode configurar vários gateways para um único espaço de trabalho. Por exemplo, você talvez queira usar um gateway que está conectado às suas fontes de dados de teste durante o desenvolvimento e um gateway de produção quando você estiver pronto para colocar em operação.
 - O gateway não precisa estar no mesmo computador que a fonte de dados, mas ficar mais próximo à fonte de dados reduz o tempo para o gateway se conectar à fonte de dados. Recomendamos que você instale o gateway em um computador diferente daquele que hospeda a fonte de dados local para que o gateway e a donte de dados não disputem os recursos.
-- Se você já tiver um gateway instalado no computador atendendo cenários do Power BI ou Azure Data Factory, instale um gateway separado para o Aprendizado de Máquina do Azure em outro computador. 
+- Se você já tiver um gateway instalado no computador atendendo cenários do Power BI ou Azure Data Factory, instale um gateway separado para o Aprendizado de Máquina do Azure em outro computador.
 
     > [AZURE.NOTE] Você não pode executar o Gateway de Gerenciamento de Dados e o Gateway do Power BI no mesmo computador.
 
@@ -162,4 +162,4 @@ Quando o experimento concluir a execução, você poderá visualizar os dados im
 
 Depois de concluir o desenvolvimento de seu experimento, você poderá implantar e colocar o modelo em operação. Usando o Serviço de Execução em Lotes, os dados do banco de dados do SQL Server local configurados no módulo **Importar Dados** serão lidos e usados para pontuação. Embora você possa usar o Serviço de Resposta de Solicitação para pontuar dados locais, a Microsoft recomenda usar o [Suplemento do Excel](machine-learning-excel-add-in-for-web-services.md). Atualmente, gravar em um banco de dados do SQL Server local por meio de **Exportar Dados** não é permitido em seus experimentos ou em serviços Web publicados.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

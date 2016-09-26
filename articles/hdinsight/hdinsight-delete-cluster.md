@@ -4,7 +4,7 @@ description="Informações sobre as várias maneiras pelas quais é possível um
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ Em um prompt, use o seguinte para excluir o cluster:
     
 Substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

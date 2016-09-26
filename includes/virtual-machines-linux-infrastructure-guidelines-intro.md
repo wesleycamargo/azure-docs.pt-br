@@ -1,3 +1,3 @@
-Este artigo faz parte de uma série maior para fornecer diretrizes e considerações de design ao criar uma infraestrutura de aplicativo no Azure. Você pode [exibir os tópicos adicionais da série](#next-steps). Embora seja possível criar um ambiente de desenvolvimento e teste no Azure com rapidez, são necessárias considerações adicionais para implementar um ambiente pronto para produção, altamente disponível e seguro.
+Este artigo faz parte de uma série maior para fornecer diretrizes e considerações de design ao criar uma infraestrutura de aplicativo no Azure. Você pode [exibir os tópicos adicionais da série](#next-steps). Embora seja possível criar rapidamente um ambiente de desenvolvimento e teste no Azure, são necessárias considerações adicionais para implementar um ambiente pronto para produção, altamente disponível e seguro.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

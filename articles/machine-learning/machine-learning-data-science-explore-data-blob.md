@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="09/13/2016" 
+	ms.author="bradsev" />
 
 #Explorar dados no repositório de blob do Azure com o Pandas
 
 Este documento aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/).
 
-O **menu** abaixo leva a tópicos que descrevem como usar ferramentas para explorar dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
+Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Essa tarefa é uma etapa no [Processo de Ciência de Dados]().
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -28,13 +28,13 @@ O **menu** abaixo leva a tópicos que descrevem como usar ferramentas para explo
 ## Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage)
-* Armazenar seus dados em uma conta de armazenamento de blob do Azure.
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md)
+* Armazenar seus dados em uma conta de armazenamento de blob do Azure. Se você precisar de instruções, consulte [Movimentação de dados de e para o Armazenamento do Azure](../storage/storage-moving-data.md)
 
-## Carregar os dados em um quadro de dados Pandas
-Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
+## Carregar os dados em um DataFrame Pandas
+Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um DataFrame Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo pelos valores específicos: 
+1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo por seus valores específicos:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -64,11 +64,11 @@ Agora você está pronto para explorar os dados e gerar recursos neste conjunto 
 
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
-1. Inspecionar o **número de linhas e colunas** 
+1. Inspecionar o **número de linhas e colunas**
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
-2. **Inspecione** as primeira ou últimas **linhas** no conjunto de dados, conforme mostrado a seguir:
+2. **Inspecione** as primeira ou últimas **linhas** no conjunto de dados a seguir:
 
 		dataframe_blobdata.head(10)
 		
@@ -115,4 +115,4 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

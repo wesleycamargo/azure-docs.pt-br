@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor=""
    tags="azure-portal"/>
 
@@ -27,7 +27,7 @@ Você também pode usar o novo recurso de análise de tráfego de pesquisa para 
 
 ##Ver contagens e métricas no portal 
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. É possível encontrar blocos do serviço na Home page, ou você pode navegar até o serviço usando Procurar na Barra de navegação rápida. Confira [Criar um serviço](search-create-service-portal.md) para obter instruções passo a passo.
 
@@ -59,4 +59,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

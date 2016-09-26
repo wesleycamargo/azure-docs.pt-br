@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -108,7 +108,7 @@ A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo
 
 Desligar e desalocar a máquina virtual:
 
-1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.  
+1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.
 
 2. Selecione **MÁQUINAS VIRTUAIS** na barra de navegação à esquerda.
 
@@ -142,4 +142,4 @@ As próximas etapas no Processo de Ciência de Dados de Equipe são mapeadas no 
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

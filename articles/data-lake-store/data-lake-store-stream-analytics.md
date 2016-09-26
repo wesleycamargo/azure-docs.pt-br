@@ -4,7 +4,7 @@
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -28,7 +28,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a Public Preview do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 
 - **Conta de Armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para este tutorial, suponha que você criará uma conta de armazenamento chamada **datalakestoreasa** e um contêiner na conta chamado **datalakestoreasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. Você pode obter um arquivo de dados de exemplo do [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/), para carregar dados em um contêiner de blob.
 
@@ -48,7 +48,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
 2. Na parte inferior esquerda da tela, clique em **Novo**, **Serviços de Dados**, **Stream Analytics**, **Criação Rápida**. Forneça os valores conforme mostrado abaixo e, em seguida, clique em **Criar trabalho do Stream Analytics**.
 
-	![Criar um trabalho do Stream Analytics](./media/data-lake-store-stream-analytics/create.job.png "Criar um trabalho de análise de fluxo")
+	![Criar um trabalho do Stream Analytics](./media/data-lake-store-stream-analytics/create.job.png "Criar um trabalho de Stream Analytics")
 
 ## Criar uma entrada de blob para o trabalho
 
@@ -126,8 +126,8 @@ Finalmente, você pode usar o [Portal do Azure](https://portal.azure.com) para a
 
 No painel Gerenciador de Dados, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
 
-## Consulte também
+## Confira também
 
 * [Criar um cluster do HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

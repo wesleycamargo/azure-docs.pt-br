@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do SAP Business ByDesign ao Azure AD oferece os seguintes benefí
 
 - No Azure AD, você pode controlar quem tem acesso ao SAP Business ByDesign
 - Você pode habilitar os usuários a fazer logon automaticamente no SAP Business ByDesign (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -231,7 +231,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png)
 
@@ -239,9 +239,9 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png)
 
@@ -253,7 +253,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
 7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
@@ -295,7 +295,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 	![Atribuir usuário][203]
 
-4. Na lista Usuários, selecione **Brenda Fernandes**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
 
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -333,4 +333,4 @@ Ao clicar no bloco do SAP Business ByDesign no Painel de Acesso, você deve ser 
 [204]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

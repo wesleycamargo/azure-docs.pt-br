@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -42,7 +42,7 @@ As perguntas sobre logística dizem respeito à localização da **fonte de dado
 
 3. **Como você moverá os dados?** Os procedimentos e os recursos disponíveis para ingestão ou carregamento de dados em uma variedade de ambientes de armazenamento e de processamento diferentes são descritos nos tópicos a seguir.
 
-	-  [Carregar dados em ambientes de armazenamento para análise](machine-learning-data-science-ingest-data.md) 
+	-  [Carregar dados em ambientes de armazenamento para análise](machine-learning-data-science-ingest-data.md)
 	-  [Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados](machine-learning-data-science-import-data,md).
 
 4. **Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?** Considere o uso do ADF (Azure Data Factory) quando os dados precisarem ser migrados de forma contínua, particularmente se um cenário híbrido que acesse os recursos locais e de nuvem estiver envolvido ou quando os dados forem transacionados ou quando for necessário modificá-los ou adicionar lógica de negócios a eles durante a migração. Para saber mais, confira [Mover dados de um servidor SQL local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
@@ -53,7 +53,7 @@ As perguntas sobre logística dizem respeito à localização da **fonte de dado
 ## Perguntas sobre características de dados: tipo, formato e tamanho
 Essas perguntas são essenciais para o planejamento de seus ambientes de armazenamento e de processamento, cada um apropriado aos diversos tipos de dados e cada um com determinadas restrições.
 
-1. **Quais são os tipos de dados?** Por exemplo: 
+1. **Quais são os tipos de dados?** Por exemplo:
 	- Numérico
 	- Categóricos
 	- Cadeias de caracteres
@@ -87,7 +87,7 @@ Para obter informações sobre as limitações de outros serviços do Azure usad
 ## Perguntas sobre ferramentas e linguagens
 Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas de desenvolvimento você precisa ou com as quais se sente mais confortável.
  
-1. **Quais linguagens você prefere usar para análise?**  
+1. **Quais linguagens você prefere usar para análise?**
 	- R
 	- Python
 	- SQL
@@ -100,7 +100,7 @@ Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas d
 	- [Python Tools para Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Jupiter notebooks](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## Identificar seu cenário de análise avançada
@@ -114,4 +114,4 @@ Depois de responder às perguntas na seção anterior, você está pronto para d
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

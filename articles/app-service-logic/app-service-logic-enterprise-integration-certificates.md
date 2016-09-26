@@ -23,6 +23,7 @@ A integração corporativa usa certificados para proteger as comunicações B2B.
 - Certificados públicos, que devem ser adquiridos de uma autoridade de certificação (CA)
 - Certificados privados, você pode emitir por conta própria. Esses certificados são chamados de certificados autoassinados.
 
+
 ## O que são certificados?
 Certificados são documentos digitais usados para verificar a identidade dos participantes de comunicações eletrônicas, e também servem para proteger as comunicações eletrônicas.
 
@@ -36,7 +37,7 @@ Certificados são documentos digitais usados para verificar a identidade dos par
 ### Certificado público
 Para usar um **certificado público** em seus Aplicativos lógicos com recursos de B2B, primeiro você precisa carregá-lo em sua conta de integração. Por outro lado, para usar um **certificado autoassinado**, primeiro ele deve ser carregado no [Cofre de chaves](../key-vault/key-vault-get-started.md "Saiba mais sobre o Cofre de Chaves").
 
-Depois de carregar um certificado, ele estará disponível para proteção de suas mensagens B2B durante a definição de suas propriedades nos [contratos](./app-service-logic-enterprise-integration-agreements.md) que criar.
+Depois de carregar um certificado, ele estará disponível para proteção de suas mensagens B2B durante a definição de suas propriedades nos [contratos](./app-service-logic-enterprise-integration-agreements.md).
 
 Estas são as etapas detalhadas para carregar os certificados públicos em sua conta de integração depois de fazer logon no Portal do Azure:
 1. Selecione **Procurar**![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
@@ -49,6 +50,7 @@ Estas são as etapas detalhadas para carregar os certificados públicos em sua c
 8. Escolha o bloco **Certificados**. Após a atualização da página, você deverá ver o certificado recém-adicionado: ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)
 
 ### Certificado privado
+
 Você pode carregar certificados privados em sua conta de integração, bem como executar as seguintes etapas:
 
 1. [Carregar sua chave privada no Cofre de Chaves](../key-vault/key-vault-get-started.md "Saiba mais sobre o Cofre de Chaves")
@@ -61,6 +63,7 @@ Você pode carregar certificados privados em sua conta de integração, bem como
 Depois de ter concluído as etapas acima, você poderá usar o certificado privado para criar acordos.
 
 Estas são as etapas detalhadas para carregar os certificados privados em sua conta de integração depois de fazer logon no portal do Azure:
+   
 1. Selecione **Procurar**![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Insira **integração** na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Selecione a **conta de integração** à qual você adicionará o certificado ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
@@ -78,4 +81,4 @@ Depois de carregar um certificado, ele estará disponível para proteção de su
 - [Criar um contrato de B2B](./app-service-logic-enterprise-integration-agreements.md)
 - [Saiba mais sobre o Cofre da Chave](../key-vault/key-vault-get-started.md "Saiba mais sobre o Cofre de Chaves")
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

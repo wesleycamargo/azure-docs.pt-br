@@ -78,10 +78,10 @@ Este tutorial presume que você esteja usando um dispositivo [Texas Instruments 
 
 Antes de começar, você deve se certificar de que pode conectar seu dispositivo Edison à sua rede sem fio. Para configurar seu dispositivo Edison, você precisa se conectar a um computador host. A Intel fornece guias de introdução para os seguintes sistemas operacionais:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introdução à placa Intel® Edison no Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introdução à placa Intel® Edison no Linux).
 
 Para configurar seu dispositivo Edison e se familiarizar com ele, você deve concluir todas as etapas nesses artigos de “Introdução” exceto a última etapa "Choose IDE" (Escolher a IDE), que não é necessária para o tutorial atual. No final do processo de configuração da placa Edison, você:
 
@@ -93,39 +93,7 @@ Para configurar seu dispositivo Edison e se familiarizar com ele, você deve con
 
 Antes de executar o exemplo, você precisa verificar se sua placa Edison pode se conectar ao dispositivo SensorTag.
 
-Primeiro, você precisa atualizar a versão do software BlueZ na placa Edison. Observe que, mesmo se já tiver a versão 5.37 instalada, você deverá concluir as seguintes etapas para garantir que a instalação seja concluída:
-
-1. Pare o daemon de Bluetooth atualmente em execução.
-    
-    ```
-    systemctl stop bluetooth
-    ```
-
-2. Baixe e extraia o [código-fonte](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) para BlueZ versão 5.37.
-    
-    ```
-    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-    tar -xvf bluez-5.37.tar.xz
-    cd bluez-5.37
-    ```
-
-3. Compile e instale o BlueZ.
-    
-    ```
-    ./configure --disable-udev --disable-systemd --enable-experimental
-    make
-    make install
-    ```
-
-4. Altere a configuração de serviço *systemd* para Bluetooth para que ele aponte para o novo daemon Bluetooth editando o arquivo **/lib/systemd/system/bluetooth.service**. Substitua o valor do atributo **ExecStart** para que fique assim:
-    
-    ```
-    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-    ```
-
-5. Reinicialize a placa Edison.
-
-Em seguida, você precisa verificar se a placa Edison pode se conectar ao dispositivo SensorTag.
+Primeiro, você precisa verificar se a placa Edison pode se conectar ao dispositivo SensorTag.
 
 1. Desbloqueie o Bluetooth na placa Edison e verifique se o número de versão é **5.37**.
     
@@ -134,20 +102,22 @@ Em seguida, você precisa verificar se a placa Edison pode se conectar ao dispos
     bluetoothctl --version
     ```
 
-2. Execute o comando **bluetoothctl**. Você deve ver uma saída semelhante a:
+2. Execute o comando **bluetoothctl**. Agora você está em um shell Bluetooth interativo.
+
+3. Digite o comando **power on** para ligar o controlador bluetooth. Você deve ver uma saída semelhante a:
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. Agora você está em um shell Bluetooth interativo. Digite o comando **scan on** para verificar se há dispositivos Bluetooth. Você deve ver uma saída semelhante a:
+4. Ainda no shell interativo bluetooth, digite o comando **scan on** para verificar se há dispositivos bluetooth. Você deve ver uma saída semelhante a:
     
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-4. Torne o dispositivo SensorTag detectável pressionando o botão pequeno (o LED verde deve piscar). A placa Edison deve detectar o dispositivo SensorTag:
+5. Torne o dispositivo SensorTag detectável pressionando o botão pequeno (o LED verde deve piscar). A placa Edison deve detectar o dispositivo SensorTag:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -157,14 +127,14 @@ Em seguida, você precisa verificar se a placa Edison pode se conectar ao dispos
     
     Neste exemplo, você pode ver que é o endereço MAC do dispositivo SensorTag é **A0:E6:F8:B5:F6:00**.
 
-5. Desative a verificação inserindo o comando **scan off**.
+6. Desative a verificação inserindo o comando **scan off**.
     
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-6. Conecte-se ao dispositivo SensorTag usando seu endereço MAC inserindo **connect <endereço MAC>**. Observe que a saída de exemplo abaixo está abreviada:
+7. Conecte-se ao dispositivo SensorTag usando seu endereço MAC inserindo **connect <endereço MAC>**. Observe que a saída de exemplo abaixo está abreviada:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +155,7 @@ Em seguida, você precisa verificar se a placa Edison pode se conectar ao dispos
     
     Observação: você pode listar as características do GATT do dispositivo novamente usando o comando **list-attributes**.
 
-7. Agora você pode se desconectar do dispositivo usando o comando **disconnect** e sair do shell Bluetooth usando o comando **quit**:
+8. Agora você pode se desconectar do dispositivo usando o comando **disconnect** e sair do shell Bluetooth usando o comando **quit**:
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -458,4 +428,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

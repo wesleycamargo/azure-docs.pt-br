@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	tags="azure-portal"/>
 
@@ -14,11 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2016"
+	ms.date="08/31/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas de versão de 30/08/2016 do R Server no HDInsight
+
+Os números completos da versão para clusters HDInsight baseados em Linux implantados com essa versão:
+
+|HDI |Versão de cluster do HDI |HDP |Compilação HDP |Build do Ambari |
+|----|----------------------|----|------------|-------------|
+|3\.2 |3\.2.1000.0.8268980 |2\.2 |2\.2.9.1-19 |2\.2.1.12-4 |
+|3\.3 |3\.3.1000.0.8268980 |2\.3 |2\.3.3.1-25 |2\.2.1.12-4 |
+|3\.4 |3\.4.1000.0.8269383 |2\.4 |2\.4.2.4-5 |2\.2.1.12-4 |
+
+Os números completos da versão para clusters HDInsight baseados em Windows implantados com essa versão:
+
+|HDI |Versão de cluster do HDI |HDP |Compilação HDP |
+|----|----------------------|----|--------------|
+|2,1 |2\.1.10.1033.2559206 |1,3 |1\.3.12.0-01795|
+|3\.0 |3\.0.6.1033.2559206 |2,0 |2\.0.13.0-2117 |
+|3\.1 |3\.1.4.1033.2559206 |2,1 |2\.1.16.0-2374 |
+|3\.2 |3\.2.7.1033.2559206 |2\.2 |2\.2.9.1-11 |
+|3\.3 |3\.3.0.1033.2559206 |2\.3 |2\.3.3.1-25 |
 
 ## Notas de versão de 17/08/2016 do R Server no HDInsight
 
@@ -1646,7 +1666,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 
 
 ### Drivers
-O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correções de bug
@@ -1688,4 +1708,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -19,7 +19,10 @@
 
 # Gerenciar NSGs usando o portal de visualização
 
-[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
+> [AZURE.SELECTOR]
+- [Portal](virtual-network-manage-nsg-arm-portal.md)
+- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+- [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -184,4 +187,4 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 
 - [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->
