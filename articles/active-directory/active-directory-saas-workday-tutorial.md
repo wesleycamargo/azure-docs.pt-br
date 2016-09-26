@@ -185,7 +185,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
      
 	e. Selecione **Não Esvazie a Solicitação de Autenticação iniciada por SP**.
 
-    f. Para **Solicitação de Método de Autenticação de Assinatura **, selecione **SHA256**.
+    f. Para **Solicitação de Método de Autenticação de Assinatura**, selecione **SHA256**.
         
 	![Método de Assinatura de Solicitação de Autenticação](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de Assinatura de Solicitação de Autenticação")
  

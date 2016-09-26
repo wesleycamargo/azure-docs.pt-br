@@ -251,7 +251,8 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
+       Permissions = SharedAccessBlobPermissions.Write | 
+       SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
 
     // The public access setting explicitly specifies that

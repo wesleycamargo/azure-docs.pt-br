@@ -30,7 +30,7 @@ Este artigo explica como adicionar informações de perfil do usuário, como uma
 
 3.  Na folha **Usuários e grupos***, escolha **Usuários**.
 
-    ![Abrindo a folha Usuários](./media/active-directory-users-profile-azure-portal/create-users-oppt-BRers-blade.png)
+    ![Abrindo a folha Usuários](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
 
 4. Na folha **Usuários e grupos - Usuários**, escolha um usuário na lista.
 

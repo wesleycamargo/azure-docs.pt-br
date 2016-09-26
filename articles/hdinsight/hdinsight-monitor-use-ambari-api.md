@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-- [cURL][curl] (Opcional). Para instalá-lo, consulte [Downloads e versões de cURL][curl-download].
+- [cURL][curl] \(Opcional). Para instalá-lo, consulte [Downloads e versões de cURL][curl-download].
 
 	>[AZURE.NOTE] Quando usar o comando cURL no Windows, use aspas duplas em vez de aspas simples para os valores de opção.
 

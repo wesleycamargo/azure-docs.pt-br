@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Diretório do Azure ao TOPdesk - Público
 
-O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Público. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Público.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do TOPdesk - Public
@@ -58,7 +59,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **TOPdesk - Public**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Galeria de Aplicativos")
+    ![Galeria de aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **TOPdesk - Public** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -66,7 +67,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Público com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o TOPdesk - Público requer que você carregue um arquivo de ícone de logotipo. Para obter o arquivo do ícone, entre em contato com a equipe de suporte do TOPdesk.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Público com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+Configurar o logon único para o TOPdesk - Público requer que você carregue um arquivo de ícone de logotipo. Para obter o arquivo do ícone, entre em contato com a equipe de suporte do TOPdesk.
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -89,10 +91,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configurações Técnicas](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Configurações Técnicas")
 
     1.  Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
-    2.  Abra o arquivo de metadados e localize o nó **AssertionConsumerService**. ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
-    3.  Copie o valor de **AssertionConsumerService**.
+    2.  Abra o arquivo de metadados e localize o nó **AssertionConsumerService**.
+        ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
+    3.  Copie o valor de **AssertionConsumerService**.  
 
-        >[AZURE.NOTE] Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
+        >[AZURE.NOTE]Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
 
 6.  Em outra janela do navegador da Web, faça logon no **portal clássico do Azure** como administrador.
 
@@ -158,7 +161,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do AD do Azure façam logon no TOPdesk - Público, eles deverão ser provisionados no TOPdesk - Público. No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do AD do Azure façam logon no TOPdesk - Público, eles deverão ser provisionados no TOPdesk - Público.  
+No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 

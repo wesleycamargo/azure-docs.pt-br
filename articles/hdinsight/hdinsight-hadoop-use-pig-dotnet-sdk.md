@@ -141,6 +141,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[portal de visualização]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0914_2016-->

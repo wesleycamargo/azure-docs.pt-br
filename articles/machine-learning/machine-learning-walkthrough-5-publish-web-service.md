@@ -48,7 +48,7 @@ Digamos que decidimos que o modelo de árvore aumentada foi o melhor modelo a us
 
 - [Computador de vetor de suporte de duas classes][two-class-support-vector-machine]
 - Módulos [Treinar modelo][train-model] e [Modelo de pontuação][score-model] que foram conectados a ele
-- [Normalizar dados][normalize-data] (ambos)
+- [Normalizar dados][normalize-data] \(ambos)
 - [Avaliar modelo][evaluate-model]
 
 Selecione o módulo e pressione a tecla Delete, ou clique com o botão direito do mouse no módulo e selecione **Excluir**.

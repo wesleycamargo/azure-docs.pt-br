@@ -30,7 +30,7 @@ Este artigo explica como atribuir uma função administrativa a um usuário na v
 
 3.  Na folha **Usuários e grupos**, escolha **Todos os usuários**.
 
-    ![Abrindo a folha Todos os usuários](./media/active-directory-users-assign-role-azure-portal/create-users-oppt-BRers-blade.png)
+    ![Abrindo a folha Todos os usuários](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. Na folha **Usuários e grupos - Todos os usuários**, escolha um usuário na lista.
 

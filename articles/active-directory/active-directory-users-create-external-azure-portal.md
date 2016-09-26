@@ -34,7 +34,7 @@ Este artigo explica como adicionar usuários de outros diretórios no Azure AD (
 
 3.  Na folha **Usuários e grupos**, escolha **Usuários** e **Adicionar**.
 
-    ![Selecionando o comando Adicionar](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
+    ![Selecionando o comando Adicionar](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
 4. Na folha **Usuário**, forneça um nome de exibição em **Nome** e o nome de entrada do usuário em **Nome de usuário**.
 
@@ -42,15 +42,15 @@ Este artigo explica como adicionar usuários de outros diretórios no Azure AD (
 
 6. Se preferir, escolha **Perfil** para adicionar o nome e sobrenome dos usuários, um cargo e um nome de departamento.
 
-		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+		![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- Escolha **Grupos** para adicionar o usuário a um ou mais grupos.
 
-		![Adicionando um usuário aos grupos](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![Adicionando um usuário aos grupos](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- Escolha **Função organizacional** para atribuir o usuário a uma função na lista **Funções**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md).
 
-		![Atribuindo um usuário a uma função](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
+		![Atribuindo um usuário a uma função](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
 7. Selecione **Criar**.
 

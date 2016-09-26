@@ -121,7 +121,7 @@ O Hadoop fornece uma API de streaming para o MapReduce que permite que você esc
 
 > [AZURE.NOTE] As etapas deste tutorial se aplicam apenas aos clusters HDInsight baseados no Windows. Para obter um exemplo de streaming para clusters do HDInsight baseados em Linux, consulte [Desenvolver programas de streaming em Python para o HDInsight](hdinsight-hadoop-streaming-python.md).
 
-No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
+No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] \(linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
 Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
 

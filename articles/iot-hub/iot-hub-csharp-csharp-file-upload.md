@@ -80,7 +80,7 @@ Nesta seção, você modifica o aplicativo de dispositivo simulado criado em [En
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Transient Fault Handling] (Tratamento de Falhas Transitórias) do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Transient Fault Handling] \(Tratamento de Falhas Transitórias) do MSDN.
 
 ## Receber uma notificação de upload de arquivo
 

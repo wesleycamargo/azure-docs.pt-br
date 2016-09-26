@@ -187,7 +187,7 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [portal do Azure]: https://portal.azure.com/
 [arquivamento dos Hubs de Eventos]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/pt-BR/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

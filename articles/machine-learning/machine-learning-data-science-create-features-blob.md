@@ -20,7 +20,8 @@
 
 Este documento mostra como criar recursos para os dados armazenados no contêiner de blobs do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/). Depois de descrever como carregar os dados em um quadro de dados do Panda, ele mostrará como gerar recursos categóricos usando os scripts Python com os valores de indicador e recursos de agrupamento.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Pré-requisitos

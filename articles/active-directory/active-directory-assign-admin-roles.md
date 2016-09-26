@@ -56,8 +56,8 @@ As seguintes funções de administrador estão disponíveis:
 - **Administrador do serviço SharePoint**: os usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=pt-BR&rs=pt-BR&ad=US).
 
 - **Administrador de serviço**: gerencia as solicitações de serviço e monitora a integridade do serviço.
-
-	> [AZURE.NOTE] Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure.
+> [AZURE.NOTE]
+> Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure.
 
 - **Administrador da conta de usuário**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
 

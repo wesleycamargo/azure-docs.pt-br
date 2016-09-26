@@ -52,8 +52,8 @@ Seguimos estas etapas para criar nosso experimento no Azure ML:
 
 1.	Carregamos o conjunto de dados como um arquivo csv para o Azure ML (arquivo muito pequeno)
 2.	Criamos um novo experimento e usamos o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar os mesmos recursos de dados usados no Excel
-3.	Usamos o módulo [Dividir Dados][split] (com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel
-4.	Experimentamos o módulo de [Regressão Linear][linear-regression] (somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
+3.	Usamos o módulo [Dividir Dados][split] \(com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel
+4.	Experimentamos o módulo de [Regressão Linear][linear-regression] \(somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
 
 ### Examinar os resultados iniciais
 Inicialmente, o modelo do Excel superou claramente o modelo do Azure ML:

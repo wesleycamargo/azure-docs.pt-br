@@ -115,7 +115,7 @@ Para permitir que os usuários do AD do Azure façam logon no Wikispaces, eles d
     ![Convidar pessoas](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Convidar Pessoas")
 
     1.  Digite **Nomes de Usuário ou Endereço de Email** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
-    2.  Clique em **Enviar**.
+    2.  Clique em **Enviar**.  
 
         >[AZURE.NOTE] O titular da conta do Active Directory do Azure recebe um email que inclui um link para confirmar a conta antes que ela se torne ativa.
 

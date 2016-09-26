@@ -16,7 +16,8 @@
 
 #Tutorial: Integração do Active Directory do Azure com o Work.com
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Work.com. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Work.com.
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura do Work.com habilitada para logon único
@@ -66,7 +67,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML. Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Work.com com sua conta do AD do Azure usando federação baseada em protocolo de SAML.  
+Como parte desse procedimento, é necessário carregar um certificado para o Work.com.
 
 >[AZURE.NOTE] Para configurar o logon único, você ainda precisa definir um nome de domínio personalizado Work.com. Você precisa definir pelo menos um nome de domínio, testá-lo e implantá-lo em toda a sua organização.
 
@@ -125,7 +127,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configuração de Logon Único do SAML](./media/active-directory-saas-work-com-tutorial/IC794114.png "Configuração de logon único do SAML")
 
-    1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.
+    1.  Na caixa de texto **Nome**, digite um nome para a sua configuração.  
 
         >[AZURE.NOTE] Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
 
@@ -157,7 +159,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ##Configurando o provisionamento de usuários
   
-Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com. No caso do Work.com, o provisionamento é uma tarefa manual.
+Para que os usuários do Active Directory do Azure possam entrar, eles devem ser provisionados para Work.com.  
+No caso do Work.com, o provisionamento é uma tarefa manual.
 
 ###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
@@ -181,7 +184,7 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
 
     1.  Digite os atributos **Sobrenome**, **Alias**, **Email**, **Nome de Usuário** e **Apelido** de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
     2.  Selecione **Função**, **Licença de Usuário** e **Perfil**.
-    3.  Clique em **Salvar**.
+    3.  Clique em **Salvar**.  
 
         >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa.
 

@@ -1452,7 +1452,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 

@@ -210,7 +210,7 @@ Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para 
 
 ### Como faço para gerenciar contas de administrador no novo portal do Azure?
 
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Para obter mais informações, confira [Controle de acesso baseado em função do Azure] (.\\active-directory\\Azure Role-Based Access Control.md).
+O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Para obter mais informações, confira [Controle de acesso baseado em função do Azure](.\\active-directory\\Azure Role-Based Access Control.md).
 
 ### Como faço para transferir a propriedade das minhas assinaturas?
 

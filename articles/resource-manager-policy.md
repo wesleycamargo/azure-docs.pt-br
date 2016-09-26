@@ -255,7 +255,7 @@ O exemplo abaixo mostra uma política que negará todas as solicitações em que
 
 ### Curadoria de serviço: Selecione o catálogo de serviços
 
-O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/* são permitidas. Todo o resto será negado.
+O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente nos serviços do tipo Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* são permitidas. Todo o resto será negado.
 
     {
       "if" : {

@@ -40,7 +40,7 @@ Se você cancelar sua assinatura, seus dados serão armazenados por 90 dias de a
 
 5. Clique em ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) para fechar a janela de diálogo e retornar à página da assinatura.
 
-	> [AZURE.NOTE] Se você cancelou sua assinatura pré-paga acidentalmente, siga as instruções descritas [aqui](https://azure.microsoft.com/pt-BR/documentation/articles/billing-subscription-become-disable/) para reativá-la.
+	> [AZURE.NOTE] Se você cancelou sua assinatura pré-paga acidentalmente, siga as instruções descritas [aqui](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/) para reativá-la.
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 

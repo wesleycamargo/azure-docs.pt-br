@@ -232,7 +232,7 @@ Há várias coisas que podemos fazer com o módulo integrado [Recomendação de 
 - Localizar usuários relacionados a um determinado usuário
 - Localizar itens relacionados a um determinado item
 
-Podemos escolher o que queremos fazer selecionando dentre quatro opções no menu **Tipo de previsão de recomendação** no painel à direita. Aqui, percorremos todos os quatro cenários. Um teste típico de Aprendizado de Máquina do Azure para o Sistema de recomendação é semelhante à Figura 20. Para obter detalhes sobre como usar esses módulos de sistema de recomendações, confira as páginas de Ajuda [Train Matchbox Recommender][train-matchbox-recommender] (Recomendação da caixa de treino) e [Score Matchbox Recommender][score-matchbox-recommender] (Recomendação da caixa de pontuação).
+Podemos escolher o que queremos fazer selecionando dentre quatro opções no menu **Tipo de previsão de recomendação** no painel à direita. Aqui, percorremos todos os quatro cenários. Um teste típico de Aprendizado de Máquina do Azure para o Sistema de recomendação é semelhante à Figura 20. Para obter detalhes sobre como usar esses módulos de sistema de recomendações, confira as páginas de Ajuda [Train Matchbox Recommender][train-matchbox-recommender] \(Recomendação da caixa de treino) e [Score Matchbox Recommender][score-matchbox-recommender] \(Recomendação da caixa de pontuação).
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 

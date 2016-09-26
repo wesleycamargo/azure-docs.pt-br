@@ -385,7 +385,7 @@ O código nesta seção mostra como carregar um modelo de regressão linear do a
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	

@@ -223,9 +223,9 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value] (Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value]\(Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
+[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
 ##Apêndice
 
 ![][10]

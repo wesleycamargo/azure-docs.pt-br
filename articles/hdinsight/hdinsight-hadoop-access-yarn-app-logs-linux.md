@@ -70,7 +70,7 @@ Para usar as ferramentas CLI do YARN, você deve primeiro se conectar ao cluster
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 	
-Você deve especificar o <applicationId>, <usuário que-iniciou-o-aplicativo >, <containerId>, e informações do &ltworker-node-address> ao executar esses comandos.
+Você deve especificar o \<applicationId\>, \<usuário que-iniciou-o-aplicativo\>, \<containerId\>, e informações do \<worker-node-address\> ao executar esses comandos.
 
 ##IU do ResourceManager YARN
 

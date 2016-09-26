@@ -201,7 +201,7 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **zeppelinnotebook** – apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – ***hn0*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
+	* **Padrão de URL** – **\*hn0\*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
 
 		![padrão do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 

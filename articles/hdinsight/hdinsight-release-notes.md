@@ -1541,7 +1541,7 @@ Metastores do Oozie estão associados a clusters específicos e não podem ser c
 
 **Portas:** as portas usadas pelo serviço HDInsight foram alteradas. Os números de porta que estavam sendo usados estavam dentro do intervalo de portas efêmero do SO Windows. As portas são alocadas automaticamente por meio de um intervalo efêmero, para comunicações baseadas em protocolo de Internet de curta duração. O novo conjunto de números de porta de serviço do HDP (plataforma de dados Hortonworks) permitido está agora fora desse intervalo, para evitar conflitos que poderiam surgir com as portas usadas pelos serviços que estão sendo executados no headnode. Os novos números de porta não devem causar nenhuma mudança de última hora. Os números usados são conforme descrito a seguir:
 
- **HDInsight 1.6 (HDP 1.1)**<table border="1">
+ **HDInsight 1.6 (HDP 1.1)** <table border="1">
 <tr><th>Name</th><th>Valor</th></tr>
 <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>

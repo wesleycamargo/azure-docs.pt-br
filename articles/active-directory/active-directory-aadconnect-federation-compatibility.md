@@ -22,7 +22,8 @@ O Azure Active Directory fornece logon único e segurança aprimorada de acesso 
 Para organizações que investiram em soluções de federação de terceiros, este tópico contém orientações sobre como configurar o logon único para seus usuários do Active Directory do Windows Server com os serviços do Microsoft Online usando provedores de identidade de terceiros na "Lista de compatibilidade de federação do Azure Active Directory" abaixo.
 
 
-![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)O [Oxford Computer Group](http://oxfordcomputergroup.com/), um terceiro, em nome da Microsoft, testou essas experiências de logon único usando provedores de identidade de terceiros com base em um conjunto de casos de uso comuns com o Azure Active Directory.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
+O [Oxford Computer Group](http://oxfordcomputergroup.com/), um terceiro, em nome da Microsoft, testou essas experiências de logon único usando provedores de identidade de terceiros com base em um conjunto de casos de uso comuns com o Azure Active Directory.
 
 Para obter informações sobre como você pode obter o provedor de identidade do terceiro listado aqui, contate o Oxford Computer Group em [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 

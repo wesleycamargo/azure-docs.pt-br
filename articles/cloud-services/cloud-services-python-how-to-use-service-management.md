@@ -20,7 +20,7 @@
 
 > [AZURE.NOTE] API de gerenciamento do serviço está sendo substituído com a nova API de gerenciamento de recursos, disponível em uma versão de visualização no momento. Consulte a [documentação de gerenciamento de recursos do Azure](http://azure-sdk-for-python.readthedocs.org/) para obter detalhes sobre como usar a nova API de gerenciamento de recursos do Python.
 
-Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
+Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [portal clássico do Azure][management-portal] \(como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
 A API de Gerenciamento de Serviços fornece acesso programático a grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [portal clássico do Azure][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
@@ -436,6 +436,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[serviço de nuvem]: https://azure.microsoft.com/pt-BR/documentation/services/cloud-services/
+[serviço de nuvem]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0914_2016-->
