@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Como executar tarefas administrativas comuns, como a redefinição de senha de administrador no Banco de Dados SQL
@@ -43,4 +43,4 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 ## Para criar logons adicionais para usuários com privilégios elevados no banco de dados mestre virtual
 - -Use a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e confira a seção Gerenciamento de Logons de [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TalentLMS
@@ -66,17 +66,17 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TalentLMS com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o TalentLMS exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TalentLMS com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o TalentLMS exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativo do **TalentLMS**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativo do **TalentLMS**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no TalentLMS**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do TalentLMS**, digite a URL usando o padrão "*https://\<nome-locatário>.TalentLMSapp.com*" e clique em **Avançar**.
 
@@ -99,18 +99,18 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Logon Único](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Logon Único")
 
     1.  Na lista **Tipo de integração de SSO**, selecione **SAML 2.0**.
-    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no TalentLMS**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **IdP (Provedor de Identidade)**.
+    2.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor da **ID de Provedor de Identidade** e cole-o na caixa de texto **IdP (Provedor de Identidade)**.
     3.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado**.
 
-        >[AZURE.TIP] Para obter mais detalhes, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
-    4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de logon remoto**.
-    5.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL de logoff remoto**.
+    4.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de entrada remota**.
+    5.  No Portal Clássico do Azure, na página de caixa de diálogo **Configurar logon único no TalentLMS**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL de saída remota**.
     6.  Na caixa de texto **TargetedID**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**
-7.  Na caixa de texto **Nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Na caixa de texto **Sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
-9.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
-10. Clique em **Salvar**.
+    7.  Na caixa de texto **Nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    8.  Na caixa de texto **Sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    9.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+    10. Clique em **Salvar**.
 
 9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
@@ -137,7 +137,7 @@ Para permitir que os usuários do AD do Azure façam logon no TalentLMS, eles de
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao TalentLMS, execute as seguintes etapas:
 
@@ -153,4 +153,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

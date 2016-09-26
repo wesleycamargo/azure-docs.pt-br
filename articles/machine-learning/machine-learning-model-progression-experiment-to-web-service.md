@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -163,4 +163,4 @@ Para obter exemplos do processo inteiro, consulte:
 
 -   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

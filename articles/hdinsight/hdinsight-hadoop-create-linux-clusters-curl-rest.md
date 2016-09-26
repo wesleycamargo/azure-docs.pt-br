@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -34,7 +34,7 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI do Azure__. A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
+- __CLI do Azure__ A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -260,7 +260,7 @@ Por exemplo, esta é uma fusão dos arquivos de modelo e parâmetros de [https:/
 
 Esse exemplo será usado nas etapas neste documento. Você deve substituir os _valores_ do espaço reservado na seção __Parâmetros__ no final do documento pelos valores que quer usar no cluster.
 
-##Faça logon na sua assinatura do Azure
+##Faça logon em sua assinatura do Azure
 
 Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](../xplat-cli-connect.md) e conectar à sua assinatura usando o comando `azure login`.
 
@@ -356,7 +356,7 @@ Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da I
             "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
         }
 
-##Criar um grupo de recursos
+##Criar um grupos de recursos
 
 Use o seguinte para criar um novo grupo de recursos. Você deve criar o grupo primeiro e depois criar os recursos como o cluster HDInsight.
 
@@ -435,4 +435,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -21,8 +21,8 @@ Saber como as pessoas usam seu aplicativo permite a você concentrar o trabalho 
 
 O Visual Studio Application Insights fornece dois níveis de rastreamento de uso:
 
-* **Dados de usuário, sessão e exibição de página**: fornecidos pronto para uso.  
-* **Telemetria personalizado** - você [escrever código][api] para rastrear os usuários por meio da experiência do usuário do seu aplicativo. 
+* **Dados de usuário, sessão e exibição de página**: fornecidos pronto para uso.
+* **Telemetria personalizado** - você [escrever código][api] para rastrear os usuários por meio da experiência do usuário do seu aplicativo.
 
 ## Configurando
 
@@ -37,7 +37,7 @@ Entre no [Portal do Azure][portal], navegue até seu recurso de aplicativo e cli
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Usuários:** a contagem de usuários ativos distintos ao longo do intervalo de tempo do gráfico. 
+* **Usuários:** a contagem de usuários ativos distintos ao longo do intervalo de tempo do gráfico.
 * **Sessões:** a contagem de sessões ativas
 * **Exibições de página** conta o número de chamadas para trackPageView(), geralmente chamado uma vez em cada página da Web.
 
@@ -96,7 +96,7 @@ No entanto, ao explorar intervalos de tempo menores, como granulação por hora,
 
 Cada sessão de usuário é associada uma id de usuário exclusiva.
 
-Por padrão, o usuário é identificado colocando um cookie. Um usuário que use vários navegadores ou dispositivos será contado mais de uma vez. (Mas veja [usuários autenticados](#authenticated-users)
+Por padrão, o usuário é identificado colocando um cookie. Um usuário que use vários navegadores ou dispositivos será contado mais de uma vez. (Mas veja [usuários autenticados](#authenticated-users))
 
 
 A métrica de **contagem de usuários** em um certo intervalo é definida como o número de usuários exclusivos com atividade registrada durante esse intervalo. Como resultado, usuários com sessões longas podem ser contados várias vezes quando você define um intervalo de tempo em que o detalhamento é menor que cerca de uma hora.
@@ -336,7 +336,7 @@ No inicializador de aplicativo como Global.asax.cs:
 Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvolvimento, não apenas algo a respeito do que você pensa para ajudar a resolver problemas. Aqui estão algumas dicas:
 
 * Determine a métrica principal do seu aplicativo. Você deseja a maior quantidade de usuários possível ou prefere um conjunto pequeno de usuários muito contentes? Você deseja maximizar visitas ou vendas?
-* Planeje medir cada história. Quando você faz o esboço de um novo recurso ou história de usuário, ou quando planeja atualizar um existente, pense sempre em como você medirá o sucesso da alteração. Antes da codificação começar, pergunte "Que efeito isso terá em nossas métricas, se funcionar? Devemos acompanhar quaisquer novos eventos?" E é claro, quando o recurso estiver ativo, certifique-se de examinar as análises e agir segundo os resultados. 
+* Planeje medir cada história. Quando você faz o esboço de um novo recurso ou história de usuário, ou quando planeja atualizar um existente, pense sempre em como você medirá o sucesso da alteração. Antes da codificação começar, pergunte "Que efeito isso terá em nossas métricas, se funcionar? Devemos acompanhar quaisquer novos eventos?" E é claro, quando o recurso estiver ativo, certifique-se de examinar as análises e agir segundo os resultados.
 * Relacione outras métricas à métrica principal. Por exemplo, se você adicionar um recurso "favoritos", você desejará saber com que frequência os usuários adicionam favoritos. Mas talvez é mais interessante saber com que frequência eles retornam aos seus Favoritos. E o mais importante, os clientes que usam Favoritos compram mais produtos?
 * Teste de canário. Configure um comutador de recurso que permita a você tornar um novo recurso visível apenas para alguns usuários. Use o Application Insights para ver se o novo recurso está sendo usado do modo que você previu. Faça ajustes, então libere-o para um público maior.
 * Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
@@ -366,4 +366,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

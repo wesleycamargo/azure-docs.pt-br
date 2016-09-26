@@ -57,7 +57,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 | Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>| Saída | WAN | Não |<ul><li>A porta de saída é usada para acesso à Internet a fim de obter as atualizações.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| Saída | WAN | Sim |<ul><li>A porta de saída é usada para acesso aos dados na nuvem.</li><li>O proxy da Web de saída pode ser configurado pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para os IPs fixos do controlador.</li></ul>|
+|TCP 443 (HTTPS)<sup>3</sup>| Saída | WAN | Sim |<ul><li>A porta de saída é usada para acessar os dados na nuvem.</li><li>O proxy da Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, essa porta também deve estar aberta para IPs fixos do controlador.</li><li>Essa porta também é usada em ambos os controladores para coleta de lixo.</li></ul>|
 |UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. |
 | UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet. |
 | TCP 9354 | Saída | WAN | Sim |A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Manager. |
@@ -96,8 +96,8 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Serviço StorSimple Manager<br>Serviço de Controle de Acesso<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
-| `https://*.backup.windowsazure.us`|Registro de dispositivos| Somente DATA 0|
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |Interfaces de rede habilitadas para nuvem |
+|`https://*.backup.windowsazure.us`|Registro de dispositivos| Somente DATA 0|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |Interfaces de rede habilitadas para nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
 | `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |IPs fixados pelo controlador somente |
@@ -291,4 +291,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

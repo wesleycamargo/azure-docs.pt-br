@@ -45,7 +45,7 @@ Conecte-se à opção Codificar Mensagem AS2 para estabelecer confiabilidade e s
 	| Propriedade | Detalhes |
 	| --------   | ------- |
 	| Nome da Conexão * | Digite um nome para a conexão |
-	| Uma conta de integração * | Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
+	| Conta de Integração * | Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam no mesmo local do Azure |
 
   	Uma vez concluída, os detalhes da conexão se parecerão com estes
 
@@ -66,10 +66,10 @@ Conecte-se à opção Codificar Mensagem AS2 para estabelecer confiabilidade e s
 
 ##Experimente
 
-Por que não experimentá-lo? Clique [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) para implantar um aplicativo lógico seu totalmente operacional usando os recursos AS2 dos Aplicativos Lógicos
- 
+Por que não experimentá-lo? Clique [aqui](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) para implantar um aplicativo lógico seu totalmente operacional usando os recursos AS2 dos Aplicativos Lógicos
+
 ## Próximas etapas
 
 [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

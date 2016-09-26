@@ -4,7 +4,7 @@ description="Saiba como usar um túnel SSH para navegar com segurança em recurs
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -201,4 +201,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

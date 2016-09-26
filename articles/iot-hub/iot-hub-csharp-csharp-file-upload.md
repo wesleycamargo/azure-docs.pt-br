@@ -80,7 +80,7 @@ Nesta seção, você modifica o aplicativo de dispositivo simulado criado em [En
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Transient Fault Handling] (Tratamento de Falhas Transitórias) do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Transient Fault Handling] \(Tratamento de Falhas Transitórias) do MSDN.
 
 ## Receber uma notificação de upload de arquivo
 
@@ -151,7 +151,7 @@ Agora você está pronto para executar os aplicativos.
 
 Neste tutorial, você aprendeu a aproveitar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar a explorar os recursos de Hub IoT e os cenários com os seguintes artigos:
 
-- [Criar um Hub IoT usando um programa][lnk-create-hub]
+- [Criar um hub IoT programaticamente][lnk-create-hub]
 - [Introdução ao SDK de C][lnk-c-sdk]
 - [SDKs do Hub IoT][lnk-sdks]
 
@@ -196,4 +196,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

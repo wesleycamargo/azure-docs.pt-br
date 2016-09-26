@@ -4,7 +4,7 @@ description="Saiba como usar o modo de exibição do Ambari Tez para depurar tra
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -141,4 +141,4 @@ Para obter informações técnicas mais detalhadas sobre o Tez, confira a [pági
 
 Para saber mais sobre como usar o Ambari com o HDInsight, confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -143,6 +143,7 @@ Para banco de dados maiores, farms de servidores SharePoint e aplicativos de alt
 | Standard\_D12\_v2 | 4 | 28 GB | Alto | 200 GB |
 | Standard\_D13\_v2 | 8 | 56 GB | Alto | 400 GB |
 | Standard\_D14\_v2 | 16 | 112 GB | Muito alto | 800 GB |
+| Standard\_D15\_v2 | 20 | 140 GB | Muito alto | 1\.000 GB |
 
 ## Configurar tamanhos para os Serviços de Nuvem
 
@@ -156,4 +157,4 @@ Veja um exemplo de definição do tamanho da função como [Standard\_D2](#gener
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

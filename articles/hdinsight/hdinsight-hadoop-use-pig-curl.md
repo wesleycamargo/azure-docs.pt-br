@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -118,4 +118,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

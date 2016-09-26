@@ -4,7 +4,7 @@ description="Use o PowerShell para criar vários modelos do Aprendizado de Máqu
 services="machine-learning"
 documentationCenter=""
 authors="hning86"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -161,4 +161,4 @@ Esta é a listagem do código-fonte completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

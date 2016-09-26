@@ -58,7 +58,7 @@ Se você precisar de controle de acesso baseado em função (RBAC) para seu apli
 
 4. Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** (e, depois, **Adicionar uma conta** na lista suspensa) para fazer logon em sua conta do Azure.
 
-5. Depois de conectado, configure seu aplicativo Web. Crie um grupo de recursos e um novo Plano do Serviço de Aplicativo clicando no respectivo botão **Novo**. Clique em **Explorar serviços adicionais** para continuar.
+5. Depois de conectado, configure seu aplicativo Web. Crie um grupo de recursos e um novo Plano do Serviço de Aplicativo clicando no respectivo botão **Novo**. Clique em **Explorar serviços adicionais do Azure** para continuar.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
@@ -382,4 +382,4 @@ Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

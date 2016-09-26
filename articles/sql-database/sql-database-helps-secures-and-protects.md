@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/23/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
    
 # Seguranças e Proteções do Banco de Dados SQL do Azure
@@ -55,4 +55,4 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

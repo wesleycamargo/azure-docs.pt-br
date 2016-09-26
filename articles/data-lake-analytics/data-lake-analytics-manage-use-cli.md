@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -32,7 +32,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Autenticação**, usando o seguinte comando:
 
 		azure login
-	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, consulte [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md).
+	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, veja [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
 - **Alterne para o modo Gerenciador de Recursos do Azure** usando o seguinte comando:
 
 		azure config mode arm
@@ -207,11 +207,11 @@ Você pode criar todos esses componentes em um grupo ARM para torná-los mais f�
 Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo data center do Azure. No entanto, o grupo ARM pode estar localizado em um data center diferente.
 
 
-##Consulte também 
+##Confira também 
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

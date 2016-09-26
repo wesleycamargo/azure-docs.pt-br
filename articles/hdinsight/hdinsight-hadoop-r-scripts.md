@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
@@ -99,7 +99,7 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). O exemplo demonstra como instalar o Spark usando o SDK do .NET. Você precisa personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 
-## Consulte também
+## Confira também
 
 - [Instalar e usar R em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 - [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
@@ -114,4 +114,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

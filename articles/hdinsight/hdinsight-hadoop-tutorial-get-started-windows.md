@@ -5,7 +5,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -255,4 +255,4 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

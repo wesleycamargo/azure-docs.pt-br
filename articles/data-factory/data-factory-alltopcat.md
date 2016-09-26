@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -162,4 +162,4 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | 66 | [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) | Descreve as regras de nomenclatura para entidades de Data Factory. |
 | 67 | [Solucionar problemas da Data Factory](data-factory-troubleshoot.md) | Saiba como solucionar problemas com o uso do Azure Data Factory. |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -198,4 +198,4 @@ O exemplo a seguir mostra como fica a saída. Neste exemplo, podemos mostrar os 
 -	Apenas um trabalho em lote pode ser chamado por assinatura e por vez.
 -	Um arquivo de entrada do trabalho em lote não pode ter mais de 2 MB.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

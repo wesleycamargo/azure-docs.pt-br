@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -95,7 +95,7 @@ As credenciais do cluster que você forneceu em sua criação concedem acesso ao
 3. Clique no cluster HDInsight que você deseja conectar.
 4. No topo da página, clique em **CONFIGURAÇÃO**.
 5. No final da página, clique em **HABILITAR REMOTO**.
-6. No assistente **Configurar Área de Trabalho Remota**, digite um nome de usuário e uma senha para a área de trabalho remota. Observe que o nome de usuário deve ser diferente daquele usado para criar o cluster (por padrão, **admin** com a opção de Criação Rápida). Insira uma data de expiração na caixa de diálogo **EXPIRA EM**. Observe que a data de vencimento deve estar no futuro e ser até 90 dias a partir de hoje. O horário de validade do dia será considerada, por padrão, como meia-noite da data especificada. Em seguida, clique no ícone de verificação.
+6. No assistente **Configurar Área de Trabalho Remota**, digite um nome de usuário e uma senha para a área de trabalho remota. Observe que o nome de usuário deve ser diferente daquele usado para criar o cluster (por padrão, **admin** com a opção de Criação Rápida). Insira uma data de expiração na caixa de diálogo **EXPIRA EM**. Observe que a data de vencimento deve estar no futuro e ser até 90 dias a partir de hoje. A hora de expiração do dia será considerada por padrão como meia-noite na data especificada. Em seguida, clique no ícone de verificação.
 
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
@@ -199,4 +199,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Cl�
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

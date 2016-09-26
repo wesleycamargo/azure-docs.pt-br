@@ -6,13 +6,13 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/06/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren"/>
 
 # Como iniciar um Runbook na Automação do Azure
@@ -21,15 +21,15 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
 
 | **MÉTODO** | **CARACTERÍSTICAS** |
 |-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Portal do Azure](#starting-a-runbook-with-the-azure-portal) | <li>Método mais simples com interface do usuário interativo.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Acompanhe facilmente o estado do trabalho.<br> <li>Acesso autenticado com o logon do Azure. |
-| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Chame da linha de comando com os cmdlets do Windows PowerShell.<br> <li>Pode ser incluído em uma solução automatizada com várias etapas.<br> <li>A solicitação é autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos.<br> <li>Acompanhar o estado do trabalho.<br> <li>É necessário um cliente para dar suporte a cmdlets do PowerShell. |
-| [API de Automação do Azure](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>Método mais flexível, porém também o mais complexo.<br> <li>Chame de qualquer código personalizado que possa fazer solicitações HTTP.<br> <li>A solicitação autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Fornece valores de parâmetro simples e complexos.<br> <li>Acompanhar o estado do trabalho. |
-| [Webhooks](automation-webhooks.md) | <li>Inicie o runbook de uma solicitação HTTP única.<br> <li>Autenticado com o token de segurança na URL.<br> <li>O cliente não pode substituir valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é populado com os detalhes da solicitação HTTP.<br> <li>Sem capacidade de acompanhar o estado do trabalho por meio da URL do webhook. |
-| [Responder a um Alerta do Azure](../log-analytics/log-analytics-alerts.md) | <li>Inicie um runbook em resposta a um alerta do Azure.<br> <li>Configure o webhook para o runbook e vincule ao alerta.<br> <li>Autenticado com o token de segurança na URL.<br> <li>Atualmente, há suporte para o alerta apenas para as Métricas. |
-| [Agenda](automation-scheduling-a-runbook.md) | <li>Inicie automaticamente o runbook em um cronograma horário, diário ou semanal.<br> <li>Manipule a agenda pelo portal do Azure, por cmdlets do PowerShell ou pela a API do Azure.<br> <li>Fornece os valores de parâmetro a serem usados com a agenda. |
+| [Portal do Azure](#starting-a-runbook-with-the-azure-portal) | <li>Método mais simples com interface de usuário interativa.<br> <li>Formulário para fornecer valores de parâmetro simples.<br> <li>Acompanhe facilmente o estado do trabalho.<br> <li>Acesso autenticado com o logon do Azure. |
+| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) | <li>Chame da linha de comando com os cmdlets do Windows PowerShell.<br> <li>Pode ser incluído em uma solução automatizada com várias etapas.<br> <li>A solicitação é autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Forneça valores de parâmetro simples e complexos.<br> <li>Acompanhe o estado do trabalho.<br> <li>É necessário um cliente para dar suporte a cmdlets do PowerShell. |
+| [API de Automação do Azure](https://msdn.microsoft.com/library/azure/mt662285.aspx) | <li>Método mais flexível, porém também o mais complexo.<br> <li>Chame de qualquer código personalizado que possa fazer solicitações HTTP.<br> <li>A solicitação autenticada com certificado ou entidade de usuário/entidade de serviço Oauth.<br> <li>Forneça valores de parâmetro simples e complexos.<br> <li>Acompanhe o estado do trabalho. |
+| [Webhooks](automation-webhooks.md) | <li>Inicie o runbook de uma solicitação HTTP única.<br> <li>Autenticado com o token de segurança na URL.<br> <li>O cliente não pode substituir os valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é preenchido com os detalhes da solicitação HTTP.<br> <li>Sem capacidade de acompanhar o estado do trabalho por meio da URL do webhook. |
+| [Responder a um Alerta do Azure](../log-analytics/log-analytics-alerts.md) | <li>Inicie um runbook em resposta a um alerta do Azure.<br> <li>Configure o webhook para o runbook e vincule ao alerta.<br> <li>Autenticado com o token de segurança na URL.<br> <li>Atualmente, há suporte para o alerta somente nas Métricas. |
+| [Agenda](automation-scheduling-a-runbook.md) | <li>Inicie automaticamente o runbook em um cronograma horário, diário ou semanal.<br> <li>Manipule a agenda pelo Portal do Azure, por cmdlets do PowerShell ou pela a API do Azure.<br> <li>Fornece os valores de parâmetro a serem usados com a agenda. |
 | [De Outro Runbook](automation-child-runbooks.md) | <li>Use um runbook como uma atividade em outro runbook.<br> <li>É útil para as funcionalidades usadas por vários runbooks.<br> <li>Forneça valores de parâmetro para o runbook filho e use a saída no runbook pai. |
 
-A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de um runbook. Isso inclui as diferentes formas como um runbook é iniciado na Automação do Azure, os componentes necessários para que o Hybrid Runbook Worker execute runbooks da Automação do Azure e as interações entre diferentes componentes. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, consulte o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de um runbook. Isso inclui as diferentes formas como um runbook é iniciado na Automação do Azure, os componentes necessários para que o Hybrid Runbook Worker execute runbooks da Automação do Azure e as interações entre diferentes componentes. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, veja [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Arquitetura do runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -91,7 +91,7 @@ O serviço Web da Automação do Azure fornece uma funcionalidade especial para 
 
 ### Valores nomeados
 
-Se o parâmetro é do tipo de dados [object], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. Esses valores devem ser tipos simples. O runbook receberá o parâmetro como um [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx) com propriedades que correspondem a cada valor nomeado.
+Se o parâmetro é do tipo de dados [object], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. Esses valores devem ser tipos simples. O runbook receberá o parâmetro como um [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) com propriedades que correspondem a cada valor nomeado.
 
 Considere o runbook de teste a seguir que aceita um parâmetro chamado user.
 
@@ -101,10 +101,11 @@ Workflow Test-Parameters
    param (
       [Parameter(Mandatory=$true)][object]$user
    )
-    if ($user.Show) {
-        foreach ($i in 1..$user.RepeatCount) {
-            $user.FirstName
-            $user.LastName
+    $userObject = $user | ConvertFrom-JSON
+	if ($userObject.Show) {
+        foreach ($i in 1..$userObject.RepeatCount) {
+            $userObject.FirstName
+            $userObject.LastName
         }
     }
 }
@@ -113,7 +114,7 @@ Workflow Test-Parameters
 O texto a seguir pode ser usado para o parâmetro user.
 
 ```
-{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 Isso resulta na saída abaixo.
@@ -191,6 +192,7 @@ jsmith
 
 ## Próximas etapas
 
--	A arquitetura do runbook no artigo atual fornece uma descrição detalhada sobre runbooks híbridos. Para saber mais, veja [Runbooks filhos na Automação do Azure](automation-child-runbooks.md).
+-	A arquitetura de runbook no artigo atual oferece uma visão geral de alto nível do gerenciamento de recursos de runbooks no Azure e no local com o Hybrid Runbook Worker. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, consulte [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+-	Para saber mais sobre a criação de runbooks modulares a serem usados em outros runbooks para funções específicas ou comuns, consulte [Runbooks filho](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

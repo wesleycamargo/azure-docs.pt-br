@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -146,4 +146,4 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -21,7 +21,7 @@
 Este documento mostra como criar recursos para os dados armazenados no contêiner de blobs do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/). Depois de descrever como carregar os dados em um quadro de dados do Panda, ele mostrará como gerar recursos categóricos usando os scripts Python com os valores de indicador e recursos de agrupamento.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Pré-requisitos
@@ -31,7 +31,7 @@ Este artigo pressupõe que você criou uma conta de armazenamento de blobs do Az
 ## Carregar os dados em um quadro de dados Pandas
 Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
+1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -137,4 +137,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

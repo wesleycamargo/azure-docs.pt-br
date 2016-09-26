@@ -1,10 +1,10 @@
 <properties
    pageTitle="Tópicos mais populares do Twitter com Apache Storm no HDInsight | Microsoft Azure"
-   description="Saiba como usar o Trident para criar uma topologia Storm que determina os tópicos mais populares do Twitter com base em hashtags."
+   description="Saiba como usar o Trident para criar uma topologia Apache Storm que determina os tópicos mais populares do Twitter com base em hashtags."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -140,4 +140,4 @@ Para obter mais exemplos do Storm para HDInsight:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

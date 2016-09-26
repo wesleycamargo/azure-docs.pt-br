@@ -68,8 +68,8 @@ Assim como com as métricas, você pode usar a [API REST](https://msdn.microsoft
 * [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que uma métrica cruzar um limite.
 * [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * [Dimensione a contagem de instâncias automaticamente](insights-how-to-scale.md) para se certificar de que o serviço está disponível e responsivo.
-* [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
+* [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

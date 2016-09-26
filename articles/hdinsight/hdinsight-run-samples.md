@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -121,7 +121,7 @@ O Hadoop fornece uma API de streaming para o MapReduce que permite que você esc
 
 > [AZURE.NOTE] As etapas deste tutorial se aplicam apenas aos clusters HDInsight baseados no Windows. Para obter um exemplo de streaming para clusters do HDInsight baseados em Linux, consulte [Desenvolver programas de streaming em Python para o HDInsight](hdinsight-hadoop-streaming-python.md).
 
-No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
+No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] \(linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
 Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
 
@@ -1000,4 +1000,4 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

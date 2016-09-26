@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -161,8 +161,8 @@ Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se
 
  Nome | Baixar |
  :----------:| :-------: |
- Uso detalhado. csv Versão 1| [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- Uso detalhado. csv Versão 2 | [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ Uso detalhado. csv Versão 1| [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+ Uso detalhado. csv Versão 2 | [Arquivo de exemplo](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -205,12 +205,12 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
-    
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:
+
     - Máquinas Virtuais
-    
+
     - Armazenamento e
-   
+
     - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![marcas](./media/billing-understand-your-bill/tags.png)
@@ -241,4 +241,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

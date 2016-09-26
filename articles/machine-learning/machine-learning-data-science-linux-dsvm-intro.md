@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="gokuma;bradsev" />
+	ms.date="09/12/2016"
+	ms.author="bradsev" />
 
 # Provisionar a Máquina Virtual de Ciência de Dados Linux
 
@@ -64,7 +64,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 2.	 Clique em **Criar** (na parte inferior) para exibir o assistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
 
-  a. **Noções básicas**:
+  	a. **Noções básicas**:
 
   - **Nome**: o nome do servidor de ciência de dados que você está criando.
   - **Nome de Usuário**: primeira ID de entrada da conta.
@@ -73,21 +73,21 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
   - **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
   - **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
 
-  b. **Tamanho**:
+  	b. **Tamanho**:
 
   - Selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Selecione **Exibir Tudo** para ver mais opções de tamanhos de VM.
 
-  c. **Configurações**:
+  	c. **Configurações**:
 
   - **Tipo de disco**: escolha **Premium** se você preferir uma SSD (unidade de estado sólido). Caso contrário, escolha **Standard**.
   - **Conta de Armazenamento**: é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente no mesmo **Local** que foi escolhido na etapa Noções básicas do assistente.
   - **Outros parâmetros**: na maioria dos casos, você simplesmente usa os valores padrão. Passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
 
-  d. **Resumo**:
+  	d. **Resumo**:
 
   - Verifique se todas as informações inseridas estão corretas.
 
-  e. **Comprar**:
+  	e. **Comprar**:
 
   - Para iniciar o provisionamento, clique em **Comprar**. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**.
 
@@ -340,8 +340,9 @@ Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerad
 ## Próximas etapas
 Veja como você pode continuar seu aprendizado e exploração:
 
+* O passo a passo [Ciência de dados na Máquina Virtual da Ciência de Dados do Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) mostra como executar várias tarefas comuns de ciência de dados com a VM de Ciência de Dados Linux provisionada aqui.
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

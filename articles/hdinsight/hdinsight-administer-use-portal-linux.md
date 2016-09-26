@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -64,7 +64,7 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
 	
 	- **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, o que permite acessar informações de configuração detalhadas do cluster.
 	- **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
-	- **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
+    - **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
 	- **Escalar Cluster**: permite alterar o número de nós de trabalho deste cluster.
 	- **Excluir**: exclui o cluster.
 	- **Início Rápido (![ícone de nuvem e raio = início rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: exibe informações que ajudarão você a começar a usar o HDInsight.
@@ -333,4 +333,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

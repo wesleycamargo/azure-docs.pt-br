@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -36,7 +36,7 @@ Orientações sobre as tecnologias usadas para mover dados para e/ou do armazena
 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
-- Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
+- Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 
@@ -74,8 +74,8 @@ Para transferir os blobs entre os contêineres do Azure, use o comando a seguir 
 ## Dicas para usar o AzCopy
 
 > [AZURE.TIP]   
-> 1. Ao carregar arquivos, /S carregará arquivos recursivamente. Sem esse parâmetro, todos os arquivos no subdiretório não serão carregados.  
-> 2. Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados.  
+> 1. Ao carregar arquivos, /S carregará arquivos recursivamente. Sem esse parâmetro, todos os arquivos no subdiretório não serão carregados.
+> 2. Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados.
 > 3.  Não é possível especificar um arquivo de blob específico para baixar usando o parâmetro /Source. Para baixar um arquivo específico, especifique o nome do arquivo de blob a ser baixado usando o parâmetro /Pattern. O parâmetro /S pode ser usado para que AzCopy procure recursivamente um padrão de nome de arquivo. Sem o parâmetro padrão, o AzCopy baixará todos os arquivos nesse diretório.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -572,4 +572,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

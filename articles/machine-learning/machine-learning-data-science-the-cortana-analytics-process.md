@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -25,7 +25,7 @@ Veja a seguir as etapas em **Processo de Ciência de Dados de Equipe**:
 
 ![Fluxo de trabalho do CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo TDSP.
+O processo é **iterativo**: a compreensão dos refinamentos novos e existentes no modelo evolui e exige o retrabalho em etapas anteriormente concluídas na sequência. Os processos de planejamento de projeto e de desenvolvimento organizacional existentes são **adaptados com facilidade** ao trabalho com a sequência de etapas definida pelo TDSP (Processo de Ciência de Dados de Equipe).
 
 As etapas no processo são diagramadas e vinculadas no [roteiro de aprendizagem do TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e descritas abaixo.
 
@@ -33,17 +33,17 @@ As etapas no processo são diagramadas e vinculadas no [roteiro de aprendizagem 
 
 ## P1. Planejar o projeto de análise 
 
-Iniciar um projeto de análise, definindo suas metas de negócios e os problemas. Eles são especificados em termos de **requisitos de negócios**. Um objetivo central desta etapa é identificar as variáveis de negócios essenciais (previsão de vendas ou a probabilidade de um pedido ser fraudulento, por exemplo) que a análise precisa prever para atender a esses requisitos. Normalmente, o planejamento adicional é essencial para o desenvolvimento de uma compreensão das **fontes de dados** necessárias para atender aos objetivos do projeto de uma perspectiva analítica. Por exemplo, não é incomum descobrir que os sistemas existentes precisam coletar e registrar tipos de dados adicionais para solucionarem o problema e atingirem os objetivos do projeto. Para obter orientação, confira [Plan your environment for the Team Data Science Process (Planejar o ambiente para o Processo de Ciência de Dados de Equipe)](machine-learning-data-science-plan-your-environment.md) e [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
+Iniciar um projeto de análise, definindo suas metas de negócios e os problemas. Eles são especificados em termos de **requisitos de negócios**. Um objetivo central desta etapa é identificar as variáveis de negócios essenciais (previsão de vendas ou a probabilidade de um pedido ser fraudulento, por exemplo) que a análise precisa prever para atender a esses requisitos. Normalmente, o planejamento adicional é essencial para o desenvolvimento de uma compreensão das **fontes de dados** necessárias para atender aos objetivos do projeto de uma perspectiva analítica. Por exemplo, não é incomum descobrir que os sistemas existentes precisam coletar e registrar tipos de dados adicionais para solucionarem o problema e atingirem os objetivos do projeto. Para diretrizes, confira [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) (Planejar o ambiente para o Processo de Ciência de Dados de Equipe) e [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
 
 ## P2. Configurar o ambiente de análise 
 
 Um ambiente de análise para o Processo de Ciência de Dados de Equipe envolve vários componentes:
 
-- **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem, 
+- **espaços de trabalho de dados**, em que os dados são preparados para análise e modelagem,
 - uma **infraestrutura de processamento** para pré-processamento, exploração e modelagem de dados
-- uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.  
+- uma **infraestrutura em tempo de execução** para operacionalizar os modelos analíticos e executar os aplicativos cliente inteligentes que consomem os modelos.
 
-A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para ver as opções, confira [Set up data science environments for use in the Team Data Science Process (Configurar ambientes de ciência de dados para uso no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-environment-setup.md).
+A infraestrutura de análise que precisa ser configurada com frequência faz parte de um ambiente separado dos sistemas operacionais principais. Mas ela normalmente utiliza dados de vários sistemas dentro da empresa, bem como de fontes externas à empresa. A infraestrutura de análise pode ser puramente baseada em nuvem ou uma instalação local, ou ainda uma mistura de ambas. Para ver as opções, confira [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md) (Configurar ambientes de ciência de dados para uso no Processo de Ciência de Dados de Equipe).
 
 ## Etapas da análise:  
 
@@ -70,9 +70,9 @@ Os cientistas de dados criam modelos de análise para a previsão das principais
 
 Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
 
-- um conjunto de dados de treinamento, 
-- um conjunto de dados de validação, 
-- um conjunto de dados de testes 
+- um conjunto de dados de treinamento,
+- um conjunto de dados de validação,
+- um conjunto de dados de testes
 
 Os modelos são criados usando o **conjunto de dados de treinamento**. A combinação ideal de modelos (com os parâmetros ajustados) é selecionada por meio da execução dos modelos e da medição dos erros de previsão para o **conjunto de dados de validação**. Por fim, o **conjunto de dados de testes** é usada para avaliar o desempenho do modelo escolhido em dados independentes que não foram usados para treinar ou validar o modelo. Para obter procedimentos, consulte [Como avaliar o desempenho do modelo no Aprendizado de Máquina do Azure](machine-learning-evaluate-model-performance.md).
 
@@ -96,4 +96,4 @@ Também serão fornecidos passo a passos completos que demonstram todas as etapa
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

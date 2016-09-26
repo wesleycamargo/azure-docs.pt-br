@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gerenciar a Análise Azure Data Lake usando o Azure PowerShell | Azure" 
-   description="Saiba como gerenciar trabalhos, fontes de dados e usuários da Análise Data Lake." 
+   description="Saiba como gerenciar trabalhos, fontes de dados e usuários da Análise Data Lake. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -98,7 +98,7 @@ Você também pode usar um modelo do Grupo de Recursos do Azure. Um modelo para 
  
 ###Listar conta
 
-Listar contas da Análise Data Lake na assinatura atual
+Listar contas do Data Lake Analytics na assinatura atual
 
 	Get-AzureRmDataLakeAnalyticsAccount
 	
@@ -328,7 +328,7 @@ Você pode criar todos esses componentes em um grupo ARM para torná-los mais f�
 
 Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo data center do Azure. No entanto, o grupo ARM pode estar localizado em um data center diferente.
 
-##Consulte também 
+##Confira também 
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
@@ -392,4 +392,4 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 	  }
 	}
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

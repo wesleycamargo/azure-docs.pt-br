@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 
@@ -68,7 +68,7 @@ O código-fonte da Biblioteca do Microsoft Avro está disponível na <a href="ht
 
 A Biblioteca do Microsoft Avro contém um utilitário de geração de código que permite criar tipos C# de maneira automática, com base no esquema JSON definido anteriormente. O utilitário de geração de código não é distribuído como um executável binário, mas pode ser facilmente compilado com este procedimento:
 
-1. Baixe o arquivo .zip com a versão mais recente do código-fonte do SDK do HDInsight em <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">SDK do Microsoft .NET para Hadoop</a>. (Clique no ícone **Baixar**.)
+1. Baixe o arquivo .zip com a versão mais recente do código-fonte do SDK do HDInsight em <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">SDK do Microsoft .NET para Hadoop</a>. (Clique no ícone **Baixar**, não na guia **Downloads**.)
 
 2. Extraia o SDK do HDInsight para um diretório do computador com o .NET Framework 4 instalado e conectado à Internet para baixar os pacotes NuGet de dependência necessários. No exemplo a seguir, vamos supor que o código-fonte seja extraído para C:\\SDK.
 
@@ -1403,4 +1403,4 @@ Para limpar o cluster, execute este comando:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

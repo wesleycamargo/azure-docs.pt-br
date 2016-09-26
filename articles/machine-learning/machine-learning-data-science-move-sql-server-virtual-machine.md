@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -52,7 +52,7 @@ Este tutorial presume que você tenha:
 
 Se os dados estiverem em um arquivo simples (organizado em um formato de linha/coluna), ele pode ser movido para a VM do SQL Server no Azure pelos métodos a seguir:
 
-1. [Utilitário de cópia em massa de linha de comando (BCP)](#insert-tables-bcp) 
+1. [Utilitário de cópia em massa de linha de comando (BCP)](#insert-tables-bcp)
 2. [Consulta SQL de inserção em massa ](#insert-tables-bulkquery)
 3. [Utilitários gráficos internos no SQL Server (Importar/Exportar, SSIS)](#sql-builtin-utilities)
 
@@ -156,7 +156,7 @@ Aqui estão alguns comandos de exemplo para inserção em massa:
 
 Você pode usar o SSIS (Serviços de Integrações do SQL Server) para importar dados para a VM do SQL Server no Azure por meio de um arquivo simples. O SSIS está disponível em dois ambientes de estúdio. Para obter detalhes, consulte [Ambientes do Integration Services (SSIS) e Estúdio](https://technet.microsoft.com/library/ms140028.aspx):
 
-- Para obter detalhes sobre SQL Server Data Tools, consulte [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
+- Para obter detalhes sobre SQL Server Data Tools, consulte [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)
 - Para obter detalhes sobre o Assistente de Importação/Exportação, consulte [Assistente de Importação/Exportação do SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
 
@@ -165,7 +165,7 @@ Você pode usar o SSIS (Serviços de Integrações do SQL Server) para importar 
 Você também pode usar as seguintes estratégias de migração:
 
 1. [Assistente para implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
-2. [Exportar para arquivo simples](#export-flat-file) 
+2. [Exportar para arquivo simples](#export-flat-file)
 3. [Assistente de Migração de Banco de Dados SQL](#sql-migration)
 4. [Backup e restauração de banco de dados](#sql-backup)
 
@@ -208,8 +208,8 @@ O [Assistente de Migração de Banco de Dados do SQL Server](http://sqlazuremw.c
 
 O SQL Server dá suporte a:
 
-1. [Funcionalidade de backup e restauração de banco de dados](https://msdn.microsoft.com/library/ms187048.aspx) (para um arquivo local ou exportação de bacpac para blob) e [Aplicativos de Camada de Dados](https://msdn.microsoft.com/library/ee210546.aspx) (usando bacpac). 
-2. Capacidade de criar VMs do SQL Server diretamente no Azure com um banco de dados copiado ou copiar um banco de dados do SQL do Azure existente. Para obter mais detalhes, consulte [Usar o Assistente para Cópia de Banco de Dados](https://msdn.microsoft.com/library/ms188664.aspx). 
+1. [Funcionalidade de backup e restauração de banco de dados](https://msdn.microsoft.com/library/ms187048.aspx) (para um arquivo local ou exportação de bacpac para blob) e [Aplicativos de Camada de Dados](https://msdn.microsoft.com/library/ee210546.aspx) (usando bacpac).
+2. Capacidade de criar VMs do SQL Server diretamente no Azure com um banco de dados copiado ou copiar um banco de dados do SQL do Azure existente. Para obter mais detalhes, consulte [Usar o Assistente para Cópia de Banco de Dados](https://msdn.microsoft.com/library/ms188664.aspx).
 
 Abaixo está uma captura de tela das opções de backup/restauração de banco de dados do Estúdio de Gerenciamento do SQL Server.
 
@@ -224,4 +224,4 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

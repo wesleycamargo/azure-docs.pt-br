@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/07/2016"
+    ms.date="09/06/2016"
     ms.author="adegeo"/>
 
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -266,4 +266,4 @@ Estou usando o Visual Studio e desejo...
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

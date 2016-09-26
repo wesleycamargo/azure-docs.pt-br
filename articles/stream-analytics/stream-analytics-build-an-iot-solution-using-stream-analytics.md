@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 />
 
@@ -523,4 +523,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

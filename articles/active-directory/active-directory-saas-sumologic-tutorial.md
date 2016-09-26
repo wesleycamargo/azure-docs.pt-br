@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o SumoLogic
@@ -72,11 +72,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No Portal clássico do Azure, na página de integração do aplicativo **SumoLogic**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no SumoLogic**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do SumoLogic**, digite a URL usando o padrão "*https://\<nome-locatário>.SumoLogic.com*" e clique em **Avançar**.
 
@@ -151,7 +151,7 @@ Para permitir que os usuários do AD do Azure façam logon no SumoLogic, eles de
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao SumoLogic, execute as seguintes etapas:
 
@@ -167,4 +167,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

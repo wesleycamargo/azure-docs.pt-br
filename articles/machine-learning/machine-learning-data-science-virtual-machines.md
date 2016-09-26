@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -26,7 +26,7 @@ Esse menu vincula-se a tópicos que descrevem como configurar os diversos ambien
 
 Vários tipos de máquinas virtuais do Azure podem ser provisionados e configurados para serem usados como parte de um ambiente de ciência de dados baseado em nuvem. A decisão sobre qual tipo de máquina virtual usar depende do tipo e da quantidade de dados que serão modelados com o aprendizado de máquina e do destino de tais dados na nuvem.
 
-* Para obter diretrizes sobre as perguntas a serem consideradas ao tomar essa decisão, consulte [Planejar seu ambiente de ciência de dados do Aprendizado de Máquina do Azure](machine-learning-data-science-plan-your-environment.md). 
+* Para obter diretrizes sobre as perguntas a serem consideradas ao tomar essa decisão, consulte [Planejar seu ambiente de ciência de dados do Aprendizado de Máquina do Azure](machine-learning-data-science-plan-your-environment.md).
 * Para um catálogo de alguns dos cenários que você pode encontrar ao fazer análises avançadas, consulte [Cenários para o processo de análise avançada e tecnologia no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md)
 
 São fornecidos dois conjuntos de instruções:
@@ -41,4 +41,4 @@ Uma vez provisionadas e configuradas, essas máquinas virtuais estão prontas pa
 > [AZURE.NOTE] A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não está sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** do [Portal Clássico do Azure](http://manage.windowsazure.com/). Para obter instruções passo a passo ou como desalocar a sua máquina virtual, consulte [Desligar e desalocar máquina virtual quando não estiver em uso](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

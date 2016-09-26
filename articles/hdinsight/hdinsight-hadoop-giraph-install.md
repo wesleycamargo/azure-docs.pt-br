@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -162,7 +162,7 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). O exemplo demonstra como instalar o Spark usando o SDK do .NET. Você precisa personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 
-## Consulte também
+## Confira também
 
 - [Instalar o Giraph em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight.
@@ -183,4 +183,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

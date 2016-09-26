@@ -132,8 +132,8 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
-* [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
+* [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

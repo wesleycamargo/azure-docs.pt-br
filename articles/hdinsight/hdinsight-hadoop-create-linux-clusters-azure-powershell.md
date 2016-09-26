@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -179,4 +179,4 @@ Agora que você criou com êxito um cluster HDInsight, use os seguintes recursos
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

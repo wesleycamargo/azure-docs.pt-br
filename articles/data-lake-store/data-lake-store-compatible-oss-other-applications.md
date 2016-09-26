@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -41,4 +41,4 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

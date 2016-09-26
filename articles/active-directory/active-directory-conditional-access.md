@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -24,15 +24,13 @@ A proteção do acesso aos recursos da empresa é importante para toda a organiz
   
 ## Para que serve o acesso condicional?  
 
-Os recursos de controle de acesso condicional no Azure Active Directory oferecem maneiras simples de as empresas protegerem recursos, tanto na nuvem quanto localmente. As políticas de acesso condicional podem ser usadas para ajudar a proteger contra o risco de roubo e de captura de credenciais ao exigirem autenticação multifator e ao ajudarem a proteger dados da empresa, exigindo que um dispositivo gerenciado do Intune conceda acesso aos serviços confidenciais.
+Os recursos de controle de acesso condicional no Azure Active Directory oferecem maneiras simples de as empresas protegerem recursos, tanto na nuvem quanto localmente. As políticas de acesso condicional podem ser usadas para ajudar a proteger contra o roubo e a captura de credenciais ao exigirem autenticação multifator e ao ajudarem a proteger dados da empresa, exigindo que um dispositivo gerenciado do Intune conceda acesso aos serviços confidenciais.
 
 
 
 ## Requisitos de licenciamento
 
-O acesso condicional é um recurso do [Azure AD Premium](http://www.microsoft.com/identity). Todos os usuários que acessam um aplicativo com a política de acesso condicional aplicada deverão ter uma licença do Azure AD Premium. Você pode aprender mais sobre o uso com o [Relatório de usuário não licenciado](https://aka.ms/utc5ix).
-
-
+O acesso condicional do Azure Active Directory é um recurso do [Azure AD Premium](http://www.microsoft.com/identity). Todos os usuários que acessam um aplicativo com a política de acesso condicional aplicada deverão ter uma licença do Azure AD Premium. Você pode aprender mais sobre o uso com o [Relatório de usuário não licenciado](https://aka.ms/utc5ix).
 
 
 
@@ -57,7 +55,7 @@ Com o controle de acesso condicional, o Active Directory do Azure verifica as co
 
 ## Controles
    
-- **Autenticação multifator (MFA)**: você pode exigir autenticação forte com MFA. A MFA pode ser fornecida pelo Azure MFA ou por um provedor MFA local, usando o ADFS. A autenticação MFA ajuda a proteger seus recursos de serem acessados por um usuário não autorizado que obteve acesso ao nome de usuário e à senha de um usuário válido.
+- **MFA (Autenticação Multifator)**: você pode exigir autenticação forte com MFA. A MFA pode ser fornecida pelo Azure MFA ou por um provedor MFA local, usando o ADFS. A autenticação MFA ajuda a proteger seus recursos de serem acessados por um usuário não autorizado que obteve acesso ao nome de usuário e à senha de um usuário válido.
 
 - **Bloqueio**: o acesso pode ser aplicado sob condições como o local do usuário. Por exemplo, o bloqueio do acesso quando um usuário não está em uma rede confiável.
 
@@ -89,7 +87,7 @@ As políticas podem ser definidas com base nos seguintes requisitos:
     - **Dispositivos iOS e Android** gerenciados pelo Microsoft Intune.
 
 
-Os usuários que acessam aplicativos que são protegidos pela política de AC baseada em dispositivo precisam fazer isso de dispositivos que atendam a essa política. O acesso será negado se o acesso for realizado de um dispositivo que não atenda à política.
+Os usuários que acessam aplicativos protegidos pela política de AC baseada em dispositivo precisam fazer isso de dispositivos que atendam a essa política. O acesso será negado se o acesso for realizado de um dispositivo que não atenda à política.
 
 Para obter informações sobre como configurar a política de AC baseada em dispositivo no Azure AD, consulte [Como configurar a política de acesso condicional com base no dispositivo para controle de acesso ao Azure Active Directory e aplicativos conectados](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -125,4 +123,4 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 - [Perguntas frequentes sobre acesso condicional](active-directory-conditional-faqs.md)
 - [Referência técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

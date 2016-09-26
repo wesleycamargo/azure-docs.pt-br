@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="05/31/2016"
+	ms.date="09/12/2016"
 	ms.author="magoedte;bwren" />
 
 # Criando ou importando um runbook na Automação do Azure
@@ -123,7 +123,7 @@ Quando você criar ou importar um novo runbook, deverá publicá-lo antes de pod
 
 Você pode usar o cmdlet [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) para publicar um runbook com o Windows PowerShell. Os comandos de exemplo a seguir mostram como publicar um runbook de exemplo.
 
-	$automationAccountName =  "AutomationAccount"
+	$automationAccountName =  AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
@@ -136,4 +136,4 @@ Você pode usar o cmdlet [Publish-AzureRmAutomationRunbook](https://msdn.microso
 - Para saber mais sobre como editar runbooks do PowerShell e do Fluxo de Trabalho do PowerShell com um editor de texto, consulte [Editando runbooks textuais na Automação do Azure](automation-edit-textual-runbook.md)
 - Para saber mais sobre a criação de runbooks Gráficos, veja [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

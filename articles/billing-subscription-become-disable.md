@@ -55,14 +55,25 @@ Pague o saldo pendente na íntegra. Para resolver isso, confira o artigo [Por qu
 
 ## A fatura excede o limite de cartão de crédito
 
-Para evitar esse problema, use um dos seguintes métodos:
+Para resolver esse problema, use um dos seguintes métodos:
 
 - [Alternar para um cartão de crédito diferente](billing-how-to-change-credit-card.md).
 - Se você tiver um negócio, poderá [alternar para o método de pagamento da nota fiscal](https://azure.microsoft.com/pricing/invoicing/).
 
-## Como reabilitar sua assinatura
+## A assinatura foi cancelada pelo Administrador da Conta
 
-Para reabilitar uma assinatura desabilitada, crie um tíquete de suporte: entre no [Portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
+>[AZURE.NOTE] Atualmente, esse método se aplica somente às assinaturas Pré-pagas. Para outros tipos de assinatura, você precisará [contatar o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Se você for o administrador da conta, será possível reativar sua assinatura Pré-paga seguindo as etapas abaixo:
+
+- Escolha a assinatura cancelada.
+- Clique em um dos links **Reativar** na página de detalhes da assinatura.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+
+## Como reabilitar as assinatura que não são pré-pagas:
+
+Para reativar uma assinatura desabilitada, você deve criar um tíquete de suporte: entre no [Portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -75,4 +86,4 @@ Para saber mais, confira [Como Criar um Tíquete de Suporte para Problemas de Co
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -81,7 +81,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
 3. [Provisionar uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que servirá como um SQL Server, bem como um servidor do IPython Notebook.
 
 	> [AZURE.NOTE] Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM:
-	> - Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts`
 	> - Exemplo de IPython Notebooks: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` onde `<user_name>` é o nome de logon do Windows da VM. Vamos nos referir às pastas de exemplo como **Scripts de Exemplo** e **IPython Notebook de Exemplo**.
 
 
@@ -97,7 +97,7 @@ Para copiar os dados usando AzCopy:
 
 2. Crie um novo diretório no disco de dados da VM (Observação: não use o Disco Temporário que acompanha a VM como um Disco de Dados).
 
-3. Em uma janela de Prompt de Comando, execute a seguinte linha de comando Azcopy, substituindo <path_to_data_folder> pela pasta de dados criada em (2):
+3. Em uma janela de Prompt de Comando, execute a seguinte linha de comando Azcopy, substituindo <path\_to\_data\_folder> pela pasta de dados criada em (2):
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
@@ -144,7 +144,7 @@ O desempenho do carregamento/transferência de grandes volumes de dados para um 
 7. Na pasta **Scripts de Exemplo**, há dois exemplos de scripts de PowerShell fornecidos para demonstrar importações paralelas de dados em massa para tabelas do SQL Server.
 
 	- **bcp\_parallel\_generic.ps1** é um script genérico para importação paralela de dados em massa em uma tabela. Modifique esse script para definir as variáveis de entrada e de destino, conforme indicado nas linhas de comentário no script.
-	- **bcp\_parallel\_nyctaxi.ps1** é uma versão pré-configurada do script genérico e pode ser usada para carregar as duas tabelas dos dados de Corridas de Táxi em NYC.  
+	- **bcp\_parallel\_nyctaxi.ps1** é uma versão pré-configurada do script genérico e pode ser usada para carregar as duas tabelas dos dados de Corridas de Táxi em NYC.
 
 8. Clique com o botão direito no nome do script **bcp\_parallel\_nyctaxi.ps1** e clique em **Editar** para abri-lo no PowerShell. Examine as variáveis predefinidas e modifique-as de acordo com o nome do banco de dados selecionado, a pasta de dados de entrada, a pasta de log de destino e os caminhos para os arquivos de formato de exemplo **nyctaxi\_trip.xml** e **nyctaxi\_fare.xml** (fornecidos na pasta **Scripts de Exemplo**).
 
@@ -175,8 +175,8 @@ Neste exercício, você vai:
 
 Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure ou
-2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure.
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning Studio ou
+2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning.
 
 Nesta seção, salvaremos a consulta final para extrair e coletar amostras dos dados. O segundo método é demonstrado na seção [Exploração de dados e engenharia de recursos no IPython Notebook](#ipnb).
 
@@ -266,7 +266,7 @@ As consultas de exploração de geração de rótulos e conversão de geografia 
 
 #### Preparando dados para criação de modelo
 
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de % 1 do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para ingestão de dados direta da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai uma amostra aleatória de % 1 do conjunto de dados totalmente unido. Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Azure Machine Learning Studio](https://studio.azureml.net) para ingestão de dados direta da instância de banco de dados do SQL Server no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -298,7 +298,7 @@ A sequência recomendada ao trabalhar com grandes volumes de dados é a seguinte
 
 Quando estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
-1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Aprendizado de Máquina do Azure. Esse método é demonstrado na seção [Criando modelos no Aprendizado de Máquina do Azure](#mlmodel).    
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning. Esse método é demonstrado na seção [Criando modelos no Aprendizado de Máquina do Azure](#mlmodel).
 2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela de banco de dados e use a nova tabela no módulo do [Importar Dados][import-data].
 
 A seguir estão alguns exemplos de exploração de dados, visualização de dados e engenharia de recursos. Para obter mais exemplos, consulte o IPython Notebook SQL de exemplo na pasta **IPython Notebook de Exemplo**.
@@ -334,7 +334,7 @@ Inicialize as configurações de conexão de banco de dados nas seguintes variá
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de linhas = 173179759  
+- Número total de linhas = 173179759
 - Número total de colunas = 14
 
 #### Leitura de uma pequena amostra de dados do Banco de Dados do SQL Server
@@ -419,7 +419,7 @@ Da mesma forma, é possível verificar a relação entre **rate\_code** e **trip
 
 ### Redução de amostragem dos dados no SQL
 
-Ao preparar dados para a criação de modelo no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net), você pode decidir se a **consulta SQL deve ser usada diretamente no módulo Importar Dados** ou se mantém os dados de amostra e projetados em uma nova tabela, que você pode usar no módulo de [Importar Dados][import-data] com um simples **SELECT * FROM <nome\_da\_sua\_nova\_tabela>**.
+Ao preparar dados para a criação de modelo no [Azure Machine Learning Studio](https://studio.azureml.net), você pode decidir se a **consulta SQL deve ser usada diretamente no módulo Importar Dados** ou se mantém os dados de amostra e projetados em uma nova tabela, que você pode usar no módulo de [Importar Dados][import-data] com um simples *SELECT * FROM <nome\_da\_sua\_nova\_tabela>.
 
 Nesta seção, criaremos uma nova tabela para armazenar os dados amostrados e engenhados. Um exemplo de uma consulta direta de SQL para criação de modelos é fornecido na seção [Exploração de dados e engenharia de recursos no SQL Server](#dbexplore).
 
@@ -631,7 +631,7 @@ Uma experiência de treinamento típico consiste no seguinte:
 
 Neste exercício, já exploramos e engenhamos os dados no SQL Server, e escolhemos o tamanho da amostra para ingestão no AM do Azure. Para compilar um ou mais dos modelos de previsão, decidimos:
 
-1. Obtenha os dados no AM do Azure usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, consulte a página de referência do módulo [Importar Dados][import-data].
+1. Obtenha os dados no Azure ML usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
 
 	![Dados de Importação de AM do Azure][17]
 
@@ -641,7 +641,7 @@ Neste exercício, já exploramos e engenhamos os dados no SQL Server, e escolhem
 
 4. Insira o **Nome do banco de dados** no campo correspondente.
 
-5. Insira o **Nome de usuário do SQL** no **Nome de conta do usuário do servidor e a senha na **Senha da conta de usuário do servidor**.
+5. Insira o **Nome de usuário do SQL** no **Nome de conta do usuário do servidor e a senha na** Senha da conta de usuário do servidor**.
 
 6. Marque a opção **Aceitar qualquer certificado do servidor**.
 
@@ -653,7 +653,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 > [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
-> Para excluir as colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para obter mais informações, consulte as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
+> Para excluir as colunas desnecessárias e/ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para saber mais, veja as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
 
 ## <a name="mldeploy"></a>Implantando modelos no Aprendizado de Máquina do Azure
 
@@ -716,4 +716,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

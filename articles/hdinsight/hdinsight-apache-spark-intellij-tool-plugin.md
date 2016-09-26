@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="09/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -34,13 +34,38 @@ Você também pode acompanhar um video [aqui](https://mix.office.com/watch/1nqkq
 ##Pré-requisitos
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 * Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+
 * Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+
 * IntelliJ IDEA. Este artigo usa a versão 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
 
 ## Instalar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ
 
 As Ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, veja [Instalando o Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij-installation.md).
+
+## Faça logon em sua assinatura do Azure
+
+1. Inicie o IDE IntelliJ e abra o Azure Explorer. No menu **Exibir** no IDE, aponte para **Janelas de Ferramenta** e clique em **Azure Explorer**.
+
+	![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
+
+2. Clique com o botão direito no nó **Azure** do **Azure Explorer** e, em seguida, clique em **Gerenciar Assinaturas**.
+
+3. Na caixa de diálogo **Gerenciar Assinaturas**, clique em **Entrar** e insira suas credenciais do Azure.
+
+	![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
+
+4. Após o logon, a caixa de diálogo **Gerenciar Assinaturas** listará todas as assinaturas do Azure associadas às credenciais. Clique em **Fechar** na caixa de diálogo.
+
+5. Na guia **Azure Explorer**, expanda **HDInsight** para ver os clusters HDInsight Spark da sua assinatura.
+
+	![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-3.png)
+
+6. Além disso, você pode expandir um nó de nome de cluster para ver os recursos (por exemplo, contas de armazenamento) associados ao cluster.
+
+	![Criar um aplicativo Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ## Executar um aplicativo Scala Spark em um cluster HDInsight Spark
 
@@ -145,21 +170,9 @@ As Ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit 
 
 Você pode executar várias operações usando as ferramentas do HDInsight, que fazem parte do Kit de ferramentas do Azure para IntelliJ.
 
-### Acessar o contêiner de armazenamento do cluster
-
-1. No menu **Exibir**, aponte para **Janelas de Ferramenta** e clique em **HDInsight Explorer**. Se receber uma solicitação, insira as credenciais para acessar sua assinatura do Azure.
-
-2. Expanda o nó raiz **HDInsight** para ver uma lista de clusters HDInsight Spark disponíveis.
-
-3. Expanda o nome do cluster para ver a conta de armazenamento e o contêiner de armazenamento padrão do cluster.
-
-	![Acessar armazenamento de cluster](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-access-storage.png)
-
-4. Clique no nome do contêiner de armazenamento associado ao cluster. No painel à direita, você verá uma pasta chamada **HVACOut**. Clique duas vezes para abrir a pasta e exibir os arquivos **part-***. Abra um desses arquivos para ver a saída do aplicativo.
-
 ### Acessar a exibição de trabalho diretamente das Ferramentas do HDInsight
 
-1. No **HDInsight Explorer**, expanda o nome do cluster Spark e clique em **Trabalhos**.
+1. No **Azure Explorer**, expanda **HDInsight**, expanda o nome do cluster Spark e clique em **Trabalhos**.
 
 2. No painel direito, a guia **Exibição de Trabalho do Spark** exibe todos os aplicativos que foram executados no cluster. Clique no nome do aplicativo para o qual você deseja ver mais detalhes.
 
@@ -171,17 +184,17 @@ Você pode executar várias operações usando as ferramentas do HDInsight, que 
 
 ### Acessar o Servidor de Histórico do Spark
 
-1. No **HDInsight Explorer**, clique com o botão direito do mouse no nome do cluster Spark e escolha **Abrir a Interface do Usuário de Histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
+1. No **Azure Explorer**, expanda **HDInsight** clique com o botão direito do mouse no nome do cluster Spark e escolha **Abrir a Interface do Usuário de Histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
 
 2. No painel do Servidor de Histórico do Spark, procure o aplicativo que você acabou de executar usando o nome do aplicativo. No código acima, defina o nome do aplicativo usando `val conf = new SparkConf().setAppName("MyClusterApp")`. Dessa forma, o nome do aplicativo Spark era **MyClusterApp**.
 
 ### Iniciar o portal do Ambari
 
-No **Gerenciador do HDInsight**, clique com o botão direito do mouse no nome do cluster Spark e escolha **Abrir o Portal de Gerenciamento do Cluster (Ambari)**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
+No **Azure Explorer**, expanda **HDInsight**, clique com o botão direito do mouse no nome do cluster Spark e escolha **Abrir o Portal de Gerenciamento do Cluster (Ambari)**. Quando solicitado, insira as credenciais de administrador para o cluster. Elas devem ter sido especificadas no provisionamento do cluster.
 
 ### Gerenciar assinaturas do Azure
 
-Por padrão, as ferramentas do HDInsight listam os clusters Spark de todas as suas assinaturas do Azure. Se for necessário, especifique as assinaturas das quais você deseja acessar o cluster. No **HDInsight Explorer**, clique com o botão direito do mouse no nó raiz **HDInsight** e clique em **Gerenciar Assinaturas**. Na caixa de diálogo, desmarque as caixas de seleção com base na assinatura que você não deseja acessar e clique em **Fechar**. Você também poderá clicar em **Sair** se quiser fazer logoff da sua assinatura do Azure.
+Por padrão, as ferramentas do HDInsight listam os clusters Spark de todas as suas assinaturas do Azure. Se for necessário, especifique as assinaturas das quais você deseja acessar o cluster. No **Azure Explorer**, clique com o botão direito no nó raiz do **Azure** e, em seguida, clique em **Gerenciar Assinaturas**. Na caixa de diálogo, desmarque as caixas de seleção com base na assinatura que você não deseja acessar e clique em **Fechar**. Você também poderá clicar em **Sair** se quiser fazer logoff da sua assinatura do Azure.
 
 
 ## Executar um aplicativo Scala Spark localmente
@@ -316,4 +329,4 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -26,4 +26,4 @@ Você pode baixar uma versão em tamanho completo do diagrama aqui: [diagrama de
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

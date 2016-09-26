@@ -4,7 +4,7 @@ description="Saiba como usar Assinaturas de Acesso Compartilhado para restringir
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -290,4 +290,4 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

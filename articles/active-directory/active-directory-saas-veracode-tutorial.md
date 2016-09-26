@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Veracode
@@ -19,7 +19,7 @@
 O objetivo deste tutorial é mostrar a integração do Azure com o Veracode. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
--   Uma assinatura do Veracode com logon único habilitado
+-   Uma assinatura do Veracode habilitada para logon único
   
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Veracode poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
@@ -72,7 +72,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativo do **Veracode**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativo do **Veracode**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configurar o logon único")
 
@@ -100,7 +100,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Administração](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administração")
 
-    1.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Veracode**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**
+    1.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no Veracode**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**
     2.  Para carregar seu certificado baixado, clique em **Escolher Arquivo**.
     3.  Selecione **Habilitar Autorregistro**.
 
@@ -160,7 +160,7 @@ Os usuários são criados automaticamente, se necessário, durante a primeira te
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Veracode, execute as seguintes etapas:
 
@@ -174,6 +174,6 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
     ![Sim](./media/active-directory-saas-veracode-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

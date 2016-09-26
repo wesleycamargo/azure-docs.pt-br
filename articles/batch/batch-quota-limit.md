@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cotas de serviço e limites do Lote | Microsoft Azure"
-	description="Saiba mais sobre cotas, limites e restrições para usar o serviço do Lote do Azure"
+	description="Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação"
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/10/2016"
 	ms.author="marsma"/>
 
 # Cotas e limites para o serviço do Lote do Azure
@@ -46,13 +46,13 @@ Tamanho do pacote de aplicativos (cada) | Aproximadamente 195 GB<sup>1</sup>
 
 Exibir suas cotas de conta do Lote no [portal do Azure][portal].
 
-1. No portal, clique em **contas do Lote** e, em seguida, no nome da sua conta do Lote.
+1. Selecione **Contas do Lote** no portal e selecione a conta do Lote na qual você está interessado.
 
-2. Na folha da conta, clique em **Todas as configurações** > **Propriedades**.
+2. Selecione **Propriedades** na folha de menu da conta do Lote
+
+3. A folha Propriedades exibe as **cotas** atualmente aplicadas à conta do Lote
 
 	![Cotas para conta do Lote][account_quotas]
-
-3. A folha **Propriedades** exibe as cotas atualmente aplicadas à conta do lote.
 
 ## Aumentar uma cota
 
@@ -106,4 +106,4 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

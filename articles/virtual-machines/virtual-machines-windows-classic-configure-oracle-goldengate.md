@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 
@@ -29,7 +29,7 @@ Neste tutorial, presumimos que você já tenha conhecimento teórico e prático 
 
 Além disso, o tutorial presume que você já tenha implementado os seguintes pré-requisitos:
 
-- Você já revisou a seção de Considerações de alta disponibilidade e recuperação de desastres no tópico [Imagens de máquina virtual Oracle – diversas considerações](virtual-machines-windows-classic-oracle-considerations.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
+- Você já examinou a seção de Considerações sobre alta disponibilidade e recuperação de desastre no tópico [Considerações diversas sobre imagens de máquinas virtuais do Oracle](virtual-machines-windows-classic-oracle-considerations.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
 
 - Você baixou o software Oracle GoldenGate no site de [Downloads da Oracle](http://www.oracle.com/us/downloads/index.html). Você selecionou o pacote de produto Oracle Fusion Middleware – Data Integration. Em seguida, você selecionou Oracle GoldenGate no Oracle v11.2.1 Media Pack para Microsoft Windows x64 (64 bits) para um banco de dados Oracle 11g. Em seguida, baixe V11.2.1.0.3 de GoldenGate Oracle para Oracle 11g 64 bits no Windows 2008 (64 bits).
 
@@ -43,7 +43,7 @@ Além disso, o tutorial presume que você já tenha implementado os seguintes pr
 
 Neste tutorial, você irá:
 
-1. Configurar o banco de dados no Site A e no Site B  
+1. Configurar o banco de dados no Site A e no Site B
 
 	1. Executar o carregamento de dados inicial
 
@@ -601,4 +601,4 @@ Crie a área de trabalho remota para Site A e verifique se a replicação ocorre
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

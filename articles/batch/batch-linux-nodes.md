@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma" />
 
 # Provisionar nós de computação Linux em pools do Lote do Azure
 
 Você pode usar o Lote do Azure para executar cargas de trabalho de computação paralelas em máquinas virtuais do Linux e do Windows. Este artigo fornece detalhes sobre como criar pools de nós de computação do Linux no serviço do Lote usando as bibliotecas de cliente [Python do Lote][py_batch_package] [.NET do Lote][api_net].
 
-> [AZURE.NOTE] No momento, o suporte para Linux no Lote está em preview. Alguns aspectos do recurso discutidos aqui podem ser alterados antes da disponibilidade geral. Os [Pacotes de aplicativos](batch-application-packages.md) no momento não têm suporte nos nós de computação do Linux.
+> [AZURE.NOTE] [Application packages](batch-application-packages.md) no momento não têm suporte nos nós de computação do Linux.
 
 ## Configuração de máquina virtual
 
@@ -349,6 +349,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nível de pacotes de aplicativos"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

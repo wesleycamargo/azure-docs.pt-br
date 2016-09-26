@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -100,4 +100,4 @@ Embora o TDSP não prescreva tipos específicos de artefato de **documentação*
 
 Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados com descrições em miniatura no tópico [Team Data Science Process walkthroughs (Passo a passo do Processo de Ciência de Dados de Equipe)](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

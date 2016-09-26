@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -253,4 +253,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -34,7 +34,7 @@ Usando o portal de serviços Web de Aprendizado de Máquina do Microsoft Azure, 
 
 Para gerenciar seus serviços Web:
 
-1.	Entre no [Portal do serviço Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/quickstart) usando sua conta do Microsoft Azure. Use a conta que está associada à assinatura do Azure.
+1.	Entre no [Portal do serviço Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) usando sua conta do Microsoft Azure. Use a conta que está associada à assinatura do Azure.
 2.	No menu, clique em **serviços Web**.
 
 Isso exibe uma lista de serviços Web implantados para sua assinatura. Para gerenciar um serviço Web, clique no nome na lista para abrir a página do serviço Web.
@@ -97,4 +97,4 @@ O painel de plano fornece as seguintes informações:
 * **Principais serviços Web por chamadas** exibe os quatro principais serviços Web que estão fazendo chamadas que são cobradas em relação ao plano.
 * **Principais serviços Web por horas de computação** exibe os quatro principais serviços Web que estão usando recursos de computação que são cobrados em relação ao plano.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

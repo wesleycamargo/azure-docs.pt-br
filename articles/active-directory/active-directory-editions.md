@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Edições do Active Directory do Azure | Microsoft Azure"
-	description="Um tópico que explica as opções das edições gratuita e paga do Active Directory. O Active Directory Basic do Azure é a edição gratuita e o Active Directory Premium do Azure é a edição paga."
+	description="Um tópico que explica as opções para as edições pagas e para a edição gratuita do Azure Active Directory. O Azure Active Directory Basic, o Azure Active Directory Premium P1 e o Azure Active Directory Premium P2 são edições pagas."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,38 +13,37 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="markvi"/>
+	ms.date="09/09/2016"
+	ms.author="curtand"/>
 
 # Edições do Active Directory do Azure
 
-Todos os serviços comerciais do Microsoft Online dependem do Active Directory do Azure para logon e outras necessidades de identidade. Se você assinar qualquer um dos serviços comerciais do Microsoft Online (por exemplo, Office 365, Microsoft Azure, etc.), você obterá o Active Directory do Azure (AD do Azure) com acesso a todos os recursos Gratuitos, descritos abaixo.
-
+Todos os serviços comerciais do Microsoft Online dependem do Azure Active Directory (Azure AD) para entrada e outras necessidades de identidade. Se você assinar qualquer um dos serviços comerciais do Microsoft Online (por exemplo, Office 365 ou Microsoft Azure), obterá o Azure AD com acesso a todos os recursos Gratuitos, descritos abaixo.
 
 O Active Directory do Azure é um serviço que fornece recursos abrangentes de gerenciamento de acesso e de identidade na nuvem para seus funcionários, parceiros e clientes. Ele combina serviços de diretório, governança avançada de identidade, uma plataforma sofisticada baseada em padrões para desenvolvedores e gerenciamento de acesso de aplicativo para seu próprio aplicativo ou qualquer um dos milhares de aplicativos pré-integrados. Com a edição Gratuita do Active Directory do Azure, você pode gerenciar usuários e grupos, sincronizar com diretórios locais, obter logon único no Azure, Office 365 e em milhares de aplicativos SaaS populares como Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox e muito mais. Para saber mais sobre o Active Directory do Azure, leia [O que é o AD do Azure?](active-directory-whatis.md)
 
-
-
-Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pagos usando as Active Directory Basic e Premium editions do Azure. As edições pagas do Active Directory do Azure são criadas em seu diretório gratuito existente, fornecendo recursos corporativos que abrangem autoatendimento, monitoramento avançado, relatórios de segurança, MFA (Multi-Factor Authentication) e acesso seguro para a sua força de trabalho móvel.
+Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pagos usando as edições do Azure Active Directory Basic, Premium P1 e Premium P2. As edições pagas do Active Directory do Azure são criadas em seu diretório gratuito existente, fornecendo recursos corporativos que abrangem autoatendimento, monitoramento avançado, relatórios de segurança, MFA (Multi-Factor Authentication) e acesso seguro para a sua força de trabalho móvel.
 
 As assinaturas do Office 365 incluem recursos adicionais do Active Directory do Azure descritos na tabela de comparação abaixo.
 
 
-> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). O Azure Active Directory Premium e o Azure Active Directory Basic não têm suporte atualmente na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
+> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). O Azure Active Directory Premium P1, Premium P2 e Azure Active Directory Basic não têm suporte atualmente na China. Entre em contato conosco no Fórum do Azure Active Directory para obter mais informações.
 
 
 - **Azure Active Directory Basic** - Projetada para profissionais de tarefas com necessidades que priorizam a nuvem, esta edição fornece soluções de gerenciamento de identidades por autoatendimento e de acesso a aplicativos centrados na nuvem. Com a Basic edition do Active Directory do Azure, você obtém recursos que aumentam sua produtividade e reduzem os custos, como o gerenciamento de acesso baseado em grupo, redefinição de senha por autoatendimento para aplicativos em nuvem e o Proxy de Aplicativo do Active Directory do Azure (para publicar aplicativos web locais usando o Active Directory do Azure), tudo com o apoio de um SLA de nível empresarial de 99,9% de tempo de atividade.
- 
-- **Azure Active Directory Premium** - Projetada para capacitar as organizações com necessidades mais exigentes de gerenciamento de identidades e acesso, a Active Directory Premium edition do Azure adiciona funcionalidades de gerenciamento de identidades de nível empresarial rica em recursos e permite que os usuários híbridos acessem diretamente as funcionalidades locais e na nuvem. Esta edição inclui tudo o que necessário para o profissional de informações e os administradores de identidades em ambientes híbridos no acesso a aplicativos, IAM (gerenciamento de identidades e acesso) por autoatendimento, proteção de identidade e segurança na nuvem. Ela dá suporte a recursos avançados de administração e delegação, como grupos dinâmicos e gerenciamento de grupos por autoatendimento. Inclui o Microsoft Identity Manager (um pacote de gerenciamento de identidades e acesso local) e fornece recursos de write-back na nuvem, possibilitando soluções como a redefinição de senha por autoatendimento para seus usuários locais.
+
+- **Azure Active Directory Premium P1** – Projetado para capacitar as organizações com necessidades mais exigentes de gerenciamento de identidades e acesso, a Active Directory Premium edition do Azure adiciona funcionalidades de gerenciamento de identidades de nível empresarial rica em recursos e permite que os usuários híbridos acessem diretamente as funcionalidades locais e na nuvem. Esta edição inclui tudo o que necessário para o profissional de informações e os administradores de identidades em ambientes híbridos no acesso a aplicativos, IAM (gerenciamento de identidades e acesso) por autoatendimento, proteção de identidade e segurança na nuvem. Ela dá suporte a recursos avançados de administração e delegação, como grupos dinâmicos e gerenciamento de grupos por autoatendimento. Inclui o Microsoft Identity Manager (um pacote de gerenciamento de identidades e acesso local) e fornece recursos de write-back na nuvem, possibilitando soluções como a redefinição de senha por autoatendimento para seus usuários locais.
+
+- **Azure Active Directory Premium P2** – Projetado com proteção avançada para todos os usuários e administradores, essa nova oferta inclui todos os recursos no Azure AD Premium P1, bem como nossa nova Identity Protection e Privileged Identity Management. O Azure Active Directory Identity Protection utiliza bilhões de sinais para fornecer acesso condicional com base em risco aos seus aplicativos e dados importantes da empresa. Podemos também ajudar a gerenciar e proteger contas privilegiadas com o Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar os administradores e o acesso a recursos e fornecer acesso just-in-time quando necessário.
 
 Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [Introdução ao Active Directory Premium do Azure](active-directory-get-started-premium.md).
 
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 Uma série de recursos do Active Directory do Azure está disponível por meio de edições “pré-pagas”:
 >
 >- O Active Directory B2C é a solução de gerenciamento de identidades e acesso para seus aplicativos voltados para o consumidor. Para obter mais detalhes, veja [Active Directory B2C do Azure](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
- 
+
 >-	O Azure Multi-Factor Authentication pode ser usado por usuário ou por provedores de autenticação. Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
@@ -84,7 +83,7 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 - [SLA de 99,9%](#sla-999)
 
 
-**Recursos Premium**
+**Recursos do Premium P1**
 
 - [Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
 
@@ -100,6 +99,11 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 - [Substituição automática de senha para contas de grupo](#automatic-password-rollover-for-group-accounts)
 
+**Recursos do Premium P2**
+
+- [Identity Protection](active-directory-identityprotection.md)
+
+- [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 **Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10**
 
@@ -108,12 +112,8 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 - [Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
 
 
-
-
-
-
 ## Recursos comuns
-#### Objetos do diretório 
+#### Objetos do diretório
 
 **Tipo:** recursos comuns
 
@@ -122,7 +122,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | Até 500 mil objetos| Não há limite de objeto| Não há limite de objeto| Nenhum limite de objeto para contas de usuário do Office 365|
 
@@ -135,7 +135,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 **Disponibilidade:**
 
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -154,7 +154,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | 10 aplicativos por usuário (1) | 10 aplicativos por usuário (1) | Sem limite (2) | 10 aplicativos por usuário (1)|
 
@@ -174,7 +174,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -185,14 +185,14 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 
-#### Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure) 
+#### Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure)
 
 **Tipo:** recursos comuns
 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -209,7 +209,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | Três relatórios básicos| Três relatórios básicos| Relatórios avançados| Três relatórios básicos|
 
@@ -228,7 +228,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | ![Verificação][12]| ![Verificação][12]| |
 
@@ -245,7 +245,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -262,7 +262,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -279,7 +279,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | ![Verificação][12]| ![Verificação][12]| |
 
@@ -296,7 +296,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
@@ -308,21 +308,21 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 ## Recursos Premium
-#### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos
+#### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/Grupos dinâmicos
 
-**Tipo:** recursos Premium
+**Tipo:** recursos premium
 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
 
 
 
-         
+
 #### Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local
 
 **Tipo:** recursos Premium
@@ -330,7 +330,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -345,7 +345,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| Limitado à nuvem somente para aplicativos do Office 365|
 
@@ -355,7 +355,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 
-#### CAL MIM + Servidor MIM 
+#### CAL MIM + Servidor MIM
 
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no Sistema Operacional do Windows Server, desde que o servidor esteja executando uma cópia válida e licenciada do Windows Server, o Microsoft Identity Manager pode ser instalado e utilizado nesse servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
 
@@ -364,7 +364,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -372,14 +372,14 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 
 
-#### Cloud App Discovery 
+#### Cloud App Discovery
 
 **Tipo:** recursos premium
 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -389,14 +389,14 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 
 
-#### Connect Health
+#### Azure AD Connect Health
 
-**Tipo:** recursos Premium
+**Tipo:** recursos premium
 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -413,11 +413,27 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
 
+#### Identity Protection
+
+**Tipo:** recursos premium
+
+| Edição Gratuita| Edição Básica| Edição Premium P2 | Somente aplicativos do Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Verificação][12]| |
+
+
+#### Privileged Identity Management
+
+**Tipo:** recursos premium
+
+| Edição Gratuita| Edição Básica| Edição Premium P2 | Somente aplicativos do Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Verificação][12]| |
 
 
 ## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
@@ -428,21 +444,21 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
 
 
 
-#### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure
+#### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no Azure AD
 
 **Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -454,7 +470,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 **Disponibilidade:**
 
-| Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
@@ -464,18 +480,16 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 
 ## Recursos de visualização do AD do Azure
-Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD do Azure também fornece um conjunto de recursos de visualização. Você pode usar os recursos de visualização para obter uma impressão das novidades que serão lançadas no futuro próximo e para determinar se esses recursos podem ajudar a melhorar seu ambiente.
+Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e P2), o Azure AD também fornece um conjunto de recursos de visualização. Você pode usar os recursos de visualização para obter uma impressão das novidades que serão lançadas no futuro próximo e para determinar se esses recursos podem ajudar a melhorar seu ambiente.
 
 **Recursos de visualização disponíveis:**
 
 - [Colaboração B2B](active-directory-b2b-collaboration-overview.md)
 - [Unidades Administrativas](active-directory-administrative-units-management.md)
-- Privileged Identity Management
 - [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 - [Autenticação baseada em certificado no iOS](active-directory-certificate-based-authentication-ios.md)
 - [Autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-android.md)
- 
+
 
 
 
@@ -490,4 +504,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -394,4 +394,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 - [Executar trabalhos do Sqoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Executar trabalhos do Oozie no HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

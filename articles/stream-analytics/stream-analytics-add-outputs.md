@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -66,4 +66,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como clusters HDInsight baseados em Linux melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Você aprenderá como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
 	tags="azure-portal"/>
@@ -225,4 +225,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Usar o Sqoop do Hadoop no HDInsight | Microsoft Azure"
 	description="Saiba como usar o PowerShell do Azure em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -629,4 +629,4 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

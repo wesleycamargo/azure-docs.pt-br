@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -19,7 +19,7 @@
 
 # Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
 
-Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do armazenamento de Blob do Azure usando o Azure Data Factory (ADF).
+Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o Azure Data Factory (ADF).
 
 O **menu** abaixo vincula-se a tópicos que descrevem a inclusão de dados em outros ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
 
@@ -94,7 +94,7 @@ Para criar o serviço vinculado para o SQL Server local, clique em **Repositóri
 Para criar o serviço vinculado para a conta de Armazenamento de Blobs do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *Conta de Armazenamento do Azure* e insira a chave de conta e o nome do contêiner do Armazenamento de Blobs do Azure. Nomeie o serviço de link como *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Serviço vinculado para o banco de dados do SQL Azure
-Para criar o serviço vinculado para o Banco de Dados SQL do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *SQL Azure* e insira as credenciais para o *nome de usuário* e a *senha* do banco de dados SQL do Azure. O *nome de usuário* deve ser especificado como **user@servername*.
+Para criar o serviço vinculado para o Banco de Dados SQL do Azure, clique no **Repositório de Dados** na página inicial do ADF no Portal Clássico do Azure, selecione *SQL Azure* e insira as credenciais para o *nome de usuário* e a *senha* do banco de dados SQL do Azure. O *nome de usuário* deve ser especificado como *user@servername*.
 
 
 ##<a name="adf-tables"></a>Definir e criar tabelas para especificar como acessar os conjuntos de dados
@@ -106,7 +106,7 @@ Crie tabelas que especificam a estrutura, o local e a disponibilidade dos conjun
 As definições baseadas em JSON nas tabelas usam os seguintes nomes:
 
 * o **nome de tabela** no SQL Server local é *nyctaxi\_data*
-* o **nome do contêiner** na conta de armazenamento de Blob do Azure é *containername\\\\\\\\\\\\\*  
+* o **nome do contêiner** na conta de armazenamento de Blob do Azure é *containername\\\\\\\\\\\\\*
 
 Três definições de tabela são necessárias para este pipeline do ADF:
 
@@ -310,4 +310,4 @@ Depois que o pipeline é executado, você poderá ver os dados aparecerem no con
 
 Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

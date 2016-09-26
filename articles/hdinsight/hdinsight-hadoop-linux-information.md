@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -100,7 +100,7 @@ Como é o armazenamento padrão para o HDInsight, você normalmente não precisa
 
 Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **wasb://** ou **wasbs://**.
 
-O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
+O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;nome do contêiner-name>@&lt;nome da conta>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
 	hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -256,4 +256,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

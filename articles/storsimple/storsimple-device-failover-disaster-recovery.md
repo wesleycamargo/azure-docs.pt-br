@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Este tutorial descreve as etapas necessárias para fazer failover de um dispositivo StorSimple em caso de desastre. Um failover permitirá que você migre os dados de um dispositivo de origem no datacenter para outro dispositivo físico ou até mesmo virtual localizado no mesmo ou em um local geográfico diferente.
 
-O failover de dispositivo é orquestrado por meio do recurso de DR (recuperação de desastre) e é iniciado na página **Dispositivos**. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
+A DR (Recuperação de desastre) é orquestrada por meio do recurso de failover de dispositivo e é iniciada na página **Dispositivos**. Esta página exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço StorSimple Manager. Para cada dispositivo, o nome amigável, status, capacidade de provisionamento e máxima, tipo e modelo são exibidos.
 
 ![Página Dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -31,7 +31,9 @@ As diretrizes neste tutorial se aplicam a dispositivos físicos e virtuais do St
 
 ## Recuperação de desastres (DR) e failover de dispositivo
 
-Em um cenário de recuperação de desastre (DR), o dispositivo principal para de funcionar. Nessa situação, você pode mover os dados de nuvem associados ao dispositivo com falha para outro dispositivo por meio do dispositivo principal como a *origem* e especificando outro dispositivo como o *destino*. Você pode selecionar um ou mais contêineres de volume para migrar para o dispositivo de destino. Esse processo é conhecido como *failover*. Durante o failover, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino.
+Em um cenário de recuperação de desastre (DR), o dispositivo principal para de funcionar. Nessa situação, você pode mover os dados de nuvem associados ao dispositivo com falha para outro dispositivo por meio do dispositivo principal como a *origem* e especificando outro dispositivo como o *destino*. Você pode selecionar um ou mais contêineres de volume para migrar para o dispositivo de destino. Esse processo é conhecido como *failover*.
+
+Durante o failover, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Após a alteração da propriedade dos contêineres de volume, eles serão excluídos do dispositivo de origem. Após a conclusão da exclusão, o dispositivo de destino poderá passar pelo failback.
 
 Normalmente, depois de uma DR, o backup mais recente é usado para restaurar os dados no dispositivo de destino. No entanto, se houver várias políticas de backup para o mesmo volume, a política de backup com o maior número de volumes é escolhida e o backup mais recente dessa política é usado para restaurar os dados no dispositivo de destino.
 
@@ -170,6 +172,35 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 Para assistir a um vídeo que demonstra como é possível restaurar um dispositivo físico que passou por failover em um dispositivo virtual na nuvem, clique [aqui](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
+
+## Failback
+
+A partir da Atualização 3, o StorSimple também dá suporte para failback. Após a conclusão do failover, as seguintes ações ocorrem:
+
+- os contêineres de volume que passam pelo failover são removidos do dispositivo de origem.
+
+- Um trabalho de exclusão por contêiner de volume (com failover) é visto na página **Trabalhos**. O tempo para concluir a exclusão de contêineres de volume depende da quantidade de dados nos contêineres. Se você estiver planejando failbacks/failovers de teste, será recomendável testar contêineres de volume com menos dados (Gbs).
+
+- Após a conclusão dos trabalhos de exclusão, você pode tentar o failback.
+
+## Perguntas frequentes
+
+P. **O que acontecerá se a DR falhar ou tiver êxito parcial?**
+
+R. Caso a DR falhe, recomendamos que você tente novamente. Na segunda vez, a DR saberá o que foi feito e quando o processo foi paralisado na primeira vez. O processo de DR é retomado a partir desse ponto.
+
+P. **Posso excluir um dispositivo enquanto o failover do dispositivo estiver em andamento?**
+
+R. Você não pode excluir um dispositivo enquanto uma DR está em andamento. Só é possível excluir o dispositivo após a conclusão da DR.
+
+P. **Quando a coleta de lixo começa no dispositivo de origem para que os dados locais do dispositivo de origem sejam excluídos?**
+
+R. A coleta de lixo será habilitada no dispositivo de origem somente depois que o dispositivo estiver completamente limpo. A limpeza inclui limpar objetos que passaram pelo failover do dispositivo de origem, como volumes, objetos de backup (não dados), contêineres de volume e políticas.
+
+P. **O que acontecerá se o trabalho de exclusão associado aos contêineres de volume no dispositivo de origem falhar?**
+
+R. Se o trabalho de exclusão falhar, você precisará disparar manualmente a exclusão dos contêineres de volume. Na página **Dispositivos**, selecione o dispositivo de origem e clique em **Contêineres de volume**. Selecione os contêineres de volume dos quais você fez o failover e, na parte inferior da página, clique em **Excluir**. Depois de ter excluído todos os contêineres de volume que passaram pelo failover no dispositivo de origem, você pode iniciar o failback.
+
 ## BCDR (recuperação de desastre de continuidade de negócios)
 
 Um cenário de BCDR (recuperação de desastre de continuidade de negócios) ocorre quando todo o datacenter do Azure para de funcionar. Isso pode afetar o serviço StorSimple Manager e os dispositivos StorSimple associados.
@@ -184,4 +215,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

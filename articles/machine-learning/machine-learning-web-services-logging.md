@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags
@@ -44,4 +44,4 @@ Este documento fornece informações sobre o recurso de log de Serviços Web AM 
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

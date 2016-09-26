@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -278,7 +278,7 @@ A resposta agora incluirá um valor de cabeçalho, como se segue, em que `operat
 
 **Versão 2 (GET)**
 
-Como antes, **sonde a saída periodicamente ** (o período sugerido é a cada minuto) até que a saída seja retornada.
+Como antes, **sonde a saída periodicamente** (o período sugerido é a cada minuto) até que a saída seja retornada.
 
 Quando a API de tópicos for concluída, um status apresentando `succeeded` será retornado. Isso incluirá os resultados da saída no formato mostrado abaixo:
 
@@ -308,4 +308,4 @@ Quando a API de tópicos for concluída, um status apresentando `succeeded` ser�
 
 Agora você está pronto para seguir adiante! Teste seu código com um pequeno exemplo para garantir que você possa processar seus dados com êxito.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

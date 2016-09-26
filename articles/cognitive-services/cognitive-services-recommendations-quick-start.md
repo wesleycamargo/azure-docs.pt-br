@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -85,7 +85,7 @@ A API de Recomendações aprenderá com seu catálogo e suas transações para f
 
  Você observará que o arquivo de catálogo é bem simples. Ele tem o seguinte formato `<itemid>,<item name>,<product category>`
 
- >  AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br> AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office <br> C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 - Camel,Accessories
+ >  AAA-04294,OfficeLangPack 2013 32/64 E34 Online DwnLd,Office <br> AAA-04303,OfficeLangPack 2013 32/64 ET Online DwnLd,Office <br> C9F-00168,KRUSELL Kiruna Flip Cover for Nokia Lumia 635 – Camel,Accessories
 
  Devemos destacar que um arquivo de catálogo pode ser muito mais sofisticado. Por exemplo, você pode adicionar metadados sobre os produtos (nós os chamamos de *recursos de item*). Consulte a seção sobre o [formato de catálogo](http://go.microsoft.com/fwlink/?LinkID=760716) na Referência da API para obter mais detalhes sobre esse formato.
 
@@ -168,4 +168,4 @@ Confira a [Documentação sobre a obtenção de recomendações de item](http://
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016" 
+	ms.date="09/06/2016" 
 	ms.author="rclaus"/>
 
 
@@ -24,7 +24,7 @@
 
 
 ## Anexando discos de dados
-Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. O principal motivo para a criação de um dispositivo RAID é melhorar o desempenho de E/S em seu disco. Com base em suas necessidades de E/S, você pode optar por anexar discos que serão armazenados em nosso armazenamento padrão, com até 500 E/S/s por disco, ou em nosso armazenamento Premium, com até 5.000 E/S/s por disco. Este artigo não se aprofundará em detalhes sobre como provisionar e anexar discos de dados para uma máquina virtual Linux. Confira o artigo [anexar um disco](virtual-machines-linux-add-disk.md) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
+Dois ou mais discos de dados vazios são necessárias para configurar um dispositivo RAID. O principal motivo para a criação de um dispositivo RAID é melhorar o desempenho de E/S em seu disco. Com base em suas necessidades de E/S, você pode optar por anexar discos que serão armazenados em nosso armazenamento padrão, com até 500 E/S/s por disco, ou em nosso armazenamento Premium, com até 5.000 E/S/s por disco. Este artigo não se aprofunda em detalhes sobre como provisionar e anexar discos de dados para uma máquina virtual Linux. Confira o artigo [anexar um disco](virtual-machines-linux-add-disk.md) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
 
 
 ## Instalar o utilitário mdadm
@@ -44,7 +44,7 @@ Dois ou mais discos de dados vazios geralmente serão necessários para configur
 
 
 ## Criar as partições de disco
-Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova partição de disco será chamada /dev/sdc1.
+Neste exemplo, criamos uma única partição de disco em /dev/sdc. A nova partição de disco será chamada /dev/sdc1.
 
 1. Iniciar fdisk para começar a criar partições
 
@@ -72,12 +72,12 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 
 		Partition number (1-4): 1
 
-5. Selecione o ponto de partida da nova partição ou simplesmente pressione `<enter>` para aceitar o padrão para colocar a partição no início do espaço livre no disco:
+5. Selecione o ponto de partida da nova partição ou pressione `<enter>` para aceitar o padrão para colocar a partição no início do espaço livre no disco:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-6. Selecione o tamanho da partição, por exemplo, digite '+10 G' para criar uma partição de 10 gigabytes. Ou simplesmente pressione `<enter>` para criar uma única partição que abranja toda a unidade:
+6. Selecione o tamanho da partição, por exemplo, digite '+10 G' para criar uma partição de 10 gigabytes. Ou pressione `<enter>` para criar uma única partição que abranja toda a unidade:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
@@ -96,7 +96,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 
 ## Criar a matriz RAID
 
-1. O seguinte exemplo "segmentará" (RAID nível 0) três partições localizadas em três discos de dados separados (sdc1, sdd1, sde1). Depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Também é importante lembrar que, se anteriormente esses discos de dados faziam parte de outra matriz RAID desabilitada, talvez seja necessário adicionar o parâmetro `--force` ao comando `mdadm`:
+1. O seguinte exemplo "segmentará" (RAID nível 0) três partições localizadas em três discos de dados separados (sdc1, sdd1, sde1). Depois da execução desse comando, um novo dispositivo RAID chamado **/dev/md127** é criado. Também é importante lembrar que, se anteriormente esses discos de dados faziam parte de outra matriz RAID desabilitada, talvez seja necessário adicionar o parâmetro `--force` ao comando `mdadm`:
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
@@ -159,7 +159,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 
 	**configuração fstab**
 
-	Várias distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+	Várias distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Veja a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 	Exemplo (Ubuntu):
 
@@ -171,4 +171,4 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 
 	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux e SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo “`/boot/grub/menu.lst`”. No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em “/etc/default/grub”.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

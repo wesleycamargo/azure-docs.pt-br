@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -105,4 +105,4 @@ Veja abaixo uma tabela que esclarece a diferença entre um administrador de assi
 [Estúdio de Aprendizado de Máquina]: https://studio.azureml.net/
 [portal clássico do Microsoft Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

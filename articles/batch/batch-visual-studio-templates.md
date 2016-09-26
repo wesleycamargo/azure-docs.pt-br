@@ -382,9 +382,9 @@ O método Run() é responsável por iniciar a linha de comando, iniciar um ou ma
 
 Sua implementação de Run() tem acesso a:
 
-* Os parâmetros da tarefa, por meio do campo \_parameters.
-* As IDs do trabalho e da tarefa, por meio dos campos \_jobId e \_taskId.
-* A configuração da tarefa, por meio do campo \_configuration.
+* Os parâmetros da tarefa, por meio do campo `_parameters`.
+* As IDs do trabalho e da tarefa, por meio dos campos `_jobId` e `_taskId`.
+* A configuração da tarefa, por meio do campo `_configuration`.
 
 **Falha da tarefa**
 
@@ -427,7 +427,7 @@ Se você preferir usar uma URL de contêiner com a SAS, também será possível 
 
 Recomendamos que o cliente ou a tarefa do Gerenciador de trabalho crie os contêineres exigidos pelas tarefas antes de adicionar as tarefas ao trabalho. Isso será obrigatório se você usar uma URL de contêiner com SAS, pois essa URL não inclui a permissão para criar o contêiner. Isso é recomendado mesmo se você passar as credenciais da conta de armazenamento, pois libera cada tarefa de precisar chamar CloudBlobContainer.CreateIfNotExistsAsync no contêiner.
 
-## Passar parâmetros e variáveis de ambiente no código do cliente
+## Passar parâmetros e variáveis de ambiente
 
 ### Passar configurações de ambiente
 
@@ -482,4 +482,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

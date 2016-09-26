@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft,wguo123"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -103,7 +103,7 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 	       --If the master key exists, do nothing
 	END CATCH;
 
-**Crie um espaço de trabalho de Aprendizado de Máquina do Azure em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md).
+**Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Carregar os dados no SQL Data Warehouse
 
@@ -969,4 +969,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

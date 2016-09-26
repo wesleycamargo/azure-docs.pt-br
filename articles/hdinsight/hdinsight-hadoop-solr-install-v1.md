@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -45,7 +45,7 @@ O [Apache Solr](http://lucene.apache.org/solr/features.html) é uma plataforma d
 
 * [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md)
 
-1. Comece a criar um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md#portal). 
+1. Comece a criar um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md#portal).
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
 	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install-v1/hdi-script-action-solr.png "Usar Ação de Script para personalizar um cluster")
@@ -86,7 +86,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 
 	O utilitário post.jar indexa o Solr com dois documentos de exemplo, **solr.xml** e **monitor.xml**. O utilitário post.jar e os documentos de exemplo estão disponíveis com a instalação do Solr.
 
-3. **Use o painel do Solr para pesquisar nos documentos indexados**. Na sessão RDP ao cluster HDInsight, abra o Internet Explorer e inicie o painel do Solr em **http://headnodehost:8983/solr/#/**. No painel esquerdo, na lista suspensa **Seletor de Núcleo**, selecione **coleção1** e, dentro dessa opção, clique em **Consulta**. Por exemplo, para selecionar e retornar todos os documentos em Solr, forneça os seguintes valores:
+3. **Use o painel do Solr para pesquisar nos documentos indexados**. Na sessão de acesso por RDP ao cluster HDInsight, abra o Internet Explorer e inicie o painel do Solr em **http://headnodehost:8983/solr/#/**. No painel esquerdo, na lista suspensa **Seletor de Núcleo**, selecione **coleção1** e, dentro dessa opção, clique em **Consulta**. Por exemplo, para selecionar e retornar todos os documentos em Solr, forneça os seguintes valores:
 	1. Na caixa de texto **q**, digite ***:***. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
 	2. Na caixa de texto **wt**, selecione o formato de saída. O padrão é **json**. Clique em **Executar consulta**.
 
@@ -180,7 +180,7 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 
 Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). O exemplo demonstra como instalar o Spark usando o SDK do .NET. Você precisa personalizar o script para usar [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-## Consulte também
+## Confira também
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md): instalar o Solr no cluster HDInsight usando o Portal do Azure
 - [Instalar e usar o Solr em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
@@ -198,4 +198,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

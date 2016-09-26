@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -285,6 +285,10 @@ Alguns componentes nativos do Java, como Mahout e Cascading, podem ser executado
 
 > A cascata não tem suporte do HDInsight e não está qualificada para o Suporte da Microsoft. Para obter as listas dos componentes com suporte, veja [O que há de novo nas versões de cluster fornecidas pelo HDInsight?](hdinsight-component-versioning.md)
 
+## Usar o nó de borda
+
+ Um nó de borda vazio é uma máquina virtual Linux com as mesmas ferramentas de cliente instaladas e configuradas dos nós principais. Você pode usar o nó de borda para acessar o cluster, testar seus aplicativos cliente e hospedar seus aplicativos cliente. Para saber mais, confira [Usar nós de borda vazia no HDInsight](hdinsight-apps-use-edge-node.md).
+ 
 ## Métodos de criação de cluster
 
 Neste artigo, você aprendeu as informações básicas sobre como criar um cluster HDInsight baseado em Linux. Use a tabela a seguir para obter informações específicas sobre como criar um cluster usando um método que melhor atenda às suas necessidades.
@@ -299,4 +303,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -3,7 +3,7 @@
 	description="Como migrar para as ferramentas de desenvolvimento do Azure Resource Manager para clusters HDInsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 
@@ -137,11 +137,11 @@ A tabela a seguir lista os cmdlets do ASM e seus nomes no modo ARM:
 Apresentamos a seguir os novos cmdlets que só estão disponíveis no modo ARM.
 
 **Cmdlets relacionados à ação de script:**
-- **Get-AzureRmHDInsightPersistedScriptAction**: obtém as ações de script persistentes de um cluster e as lista em ordem cronológica ou obtém detalhes de uma ação de script persistente especificada. 
-- **Get-AzureRmHDInsightScriptActionHistory**: obtém o histórico de ação de script de um cluster e o lista em ordem cronológica inversa ou obtém detalhes de uma ação de script executada anteriormente. 
+- **Get-AzureRmHDInsightPersistedScriptAction**: obtém as ações de script persistentes de um cluster e as lista em ordem cronológica ou obtém detalhes de uma ação de script persistente especificada.
+- **Get-AzureRmHDInsightScriptActionHistory**: obtém o histórico de ação de script de um cluster e o lista em ordem cronológica inversa ou obtém detalhes de uma ação de script executada anteriormente.
 - **Remove-AzureRmHDInsightPersistedScriptAction**: remove uma ação de script persistente de um cluster HDInsight.
 - **Set-AzureRmHDInsightPersistedScriptAction**: define uma ação de script executada anteriormente como uma ação de script persistente.
-- **Submit-AzureRmHDInsightScriptAction**: envia uma nova ação de script para um cluster Azure HDInsight. 
+- **Submit-AzureRmHDInsightScriptAction**: envia uma nova ação de script para um cluster Azure HDInsight.
 
 Para obter mais informações de uso, veja [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -375,4 +375,4 @@ Estes são alguns exemplos sobre como uma operação é executada usando o SDK b
 
 		client.Clusters.Delete(resourceGroup, dnsname);
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

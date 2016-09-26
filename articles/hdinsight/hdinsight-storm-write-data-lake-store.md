@@ -4,7 +4,7 @@ description="Aprenda a gravar dados no Armazenamento do Azure Data Lake a partir
 services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/17/2016"
+ms.date="09/06/2016"
 ms.author="larryfr"/>
 
 #Usar o Armazenamento do Azure Data Lake com o Apache Storm com HDInsight
@@ -27,7 +27,7 @@ O Armazenamento do Azure Data Lake é um serviço de armazenamento de nuvem comp
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * Uma assinatura do Azure
-* Um Storm no cluster HDInsight versão 3.2. Para criar um novo Storm no cluster HDInsight, use as etapas descritas no documento [Usar o HDInsight com o Repositório Data Lake usando o Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). As etapas neste documento irão orientá-lo na criação de um novo cluster HDInsight e Armazenamento do Azure Data Lake.  
+* Um Storm no cluster HDInsight versão 3.2. Para criar um novo Storm no cluster HDInsight, use as etapas descritas no documento [Usar o HDInsight com o Repositório Data Lake usando o Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). As etapas neste documento irão orientá-lo na criação de um novo cluster HDInsight e Armazenamento do Azure Data Lake.
 
     > [AZURE.IMPORTANT] Ao criar o cluster HDInsight, é necessário selecionar __Storm__ como o tipo de cluster e __3.2__ como a versão. O SO pode ser Windows ou Linux.
 
@@ -221,4 +221,4 @@ __Para o HDInsight baseado em Windows__:
 
 Agora que você aprendeu a usar o Storm para gravar no Repositório Azure Data Lake, descubra outros [exemplos do Storm para HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

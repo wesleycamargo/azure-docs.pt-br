@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -286,4 +286,4 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->
