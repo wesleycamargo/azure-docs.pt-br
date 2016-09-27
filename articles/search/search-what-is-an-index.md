@@ -70,4 +70,4 @@ Ao projetar o índice, reserve algum tempo na fase de planejamento para pensar e
 
 Se os requisitos do armazenamento de dados mudarem com o tempo, você poderá aumentar ou diminuir a capacidade adicionando ou removendo as partições. Para obter detalhes, confira [Gerenciar o serviço de Pesquisa no Azure](search-manage.md) ou [Limites de serviço](search-limits-quotas-capacity.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

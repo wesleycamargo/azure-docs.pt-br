@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
 
 # Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
@@ -47,7 +47,7 @@ Neste procedimento, você cria um projeto do Grupo de Recursos do Azure com um m
 
     ![mostrar nós](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Como escolhemos o modelo do aplicativo Web + SQL para este exemplo, você vê os arquivos a seguir.
+    Como escolhemos o modelo do aplicativo Web + SQL para este exemplo, você vê os arquivos a seguir:
 
     |Nome do arquivo|Descrição|
     |---|---|
@@ -75,7 +75,7 @@ Você pode adicionar um recurso selecionando o botão **Adicionar Recurso** na p
 
 ![adicionar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-Para este tutorial, selecione **Conta de Armazenamento** e forneça um nome. Um nome da conta de armazenamento deve ter apenas números, letras minúsculas e menos de 24 caracteres. O projeto adiciona uma cadeia exclusiva de 13 caracteres ao nome fornecido, portanto, verifique se o nome não tem mais de 11 caracteres.
+Para este tutorial, selecione **Conta de Armazenamento** e forneça um nome. Forneça um nome que não tenha mais de 11 caracteres e contenha apenas números e letras minúsculas.
 
 ![adicionar armazenamento](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +83,7 @@ Observe que não só foi adicionado o recurso, mas também um parâmetro para o 
 
 ![mostrar estrutura de tópicos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-O parâmetro **storageType** é predefinido com os tipos permitidos e um tipo padrão. Você pode deixar esses valores ou editá-los para seu cenário. Se você não quiser permitir que ninguém implante uma conta de armazenamento **Premium\_LRS** com esse modelo, basta removê-lo dos tipos permitidos.
+O parâmetro **storageType** é predefinido com os tipos permitidos e um tipo padrão. Você pode deixar esses valores ou editá-los para seu cenário. Se você não quiser permitir que alguém implante uma conta de armazenamento **Premium\_LRS** com esse modelo, remova-o dos tipos permitidos.
 
     "storageType": {
       "type": "string",
@@ -127,30 +127,37 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 
     ![Caixa de diálogo Criar Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. Você pode editar os parâmetros da implantação escolhendo o botão **Editar Parâmetros**. Forneça valores para os parâmetros e selecione o botão **Salvar**.
+1. Edite os parâmetros da implantação escolhendo o botão **Editar Parâmetros**.
+
+    ![Botão Editar Parâmetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Forneça valores para os parâmetros vazios e selecione o botão **Salvar**. Os parâmetros vazios são **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** e **databaseName**.
+
+    **hostingPlanName**: especifica o nome do [plano do Serviço de Aplicativo](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) a ser criado.
+    
+    **administratorLogin** especifica o nome de usuário do administrador do SQL Server. Não use nomes comuns de administração como **sa** ou **admin**.
+    
+    O **administratorLoginPassword** especifica uma senha para o administrador do SQL Server. A opção **Salvar senhas como texto sem formatação no arquivo de parâmetros** não é segura; portanto, não selecione essa opção. Como a senha não é salva como texto sem formatação, você precisará fornecer essa senha novamente durante a implantação.
+    
+    **databaseName** especifica um nome para o banco de dados a ser criado.
 
     ![Caixa de diálogo Editar Parâmetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    A opção **Salvar senhas como texto sem formatação no arquivo de parâmetros** não é segura.
-
-1. Escolha o botão **Implantar** para implantar o projeto no Azure. Você pode ver o andamento da implantação na janela **Saída**. A implantação pode levar vários minutos para ser concluída, dependendo da configuração. Digite a senha do administrador de banco de dados no console do PowerShell quando solicitado. Caso não haja progresso na sua implantação, pode ser porque o processo está aguardando que você digite a senha no console do PowerShell.
+1. Escolha o botão **Implantar** para implantar o projeto no Azure. Um console do PowerShell é aberto fora da instância do Visual Studio. Digite a senha de administrador do SQL Server no console do PowerShell quando for solicitado. **O console do PowerShell pode estar oculto por trás de outros itens ou minimizado na barra de tarefas.** Procure esse console e selecione-o para fornecer a senha.
 
     >[AZURE.NOTE] O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Você precisa dos cmdlets do Azure PowerShell para implantar com êxito os grupos de recursos. Se solicitado, instale-os.
     
-1. Quando a implantação for concluída, você verá uma mensagem na janela **Saída** como:
+1. A implantação pode demorar alguns minutos. Nas janelas de **Saída**, confira o status da implantação. Quando a implantação tiver sido concluída, a última mensagem indicará uma implantação bem-sucedida com algo semelhante a:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+
 
 1. Em um navegador, abra o [Portal do Azure](https://portal.azure.com/) e entre em sua conta. Para ver o grupo de recursos, selecione **Grupos de recursos** e o grupo de recursos implantado.
 
     ![selecionar grupo](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Você verá todos os recursos implantados.
+1. Você verá todos os recursos implantados. Observe que o nome da conta de armazenamento não é exatamente o que você especificou ao adicionar esse recurso. A conta de armazenamento deve ser exclusiva. O modelo adiciona automaticamente uma cadeia de caracteres ao nome fornecido a fim de fornecer um nome exclusivo.
 
     ![mostrar recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +169,11 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 
 Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há nenhum código real implantado com o projeto. Este tópico mostra como implantar um aplicativo Web e as tabelas do Banco de Dados SQL durante a implantação. Se você estiver implantando uma Máquina Virtual em vez de um aplicativo Web, desejará executar um código no computador como parte da implantação. O processo de implantação do código para um aplicativo Web ou configurar uma Máquina Virtual é quase o mesmo.
 
-1. Em sua solução do Visual Studio, adicione um **Aplicativo Web ASP.NET**.
+1. Adicione esse projeto à sua solução do Visual Studio. Clique com o botão direito na solução e selecione **Adicionar** -> **Novo Projeto**.
+
+    ![adicionar projeto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Adicione um **Aplicativo Web ASP.NET**.
 
     ![adicionar aplicativo Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,37 +181,55 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
     ![selecionar MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Depois do Visual Studio criar seu aplicativo Web, adicione uma referência no projeto do grupo de recursos para o projeto de aplicativo da Web.
+1. Depois que o Visual Studio criar seu aplicativo Web, você poderá ver os dois projetos na solução.
+
+    ![mostrar projetos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Agora, você precisa certificar-se de que seu projeto de grupo de recursos esteja ciente do novo projeto. Volte ao seu projeto de grupo de recursos (AzureResourceGroup1). Clique com botão direito do mouse em **Referências** e selecione **Adicionar Referência**.
+
+    ![adicionar referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Selecione o projeto de aplicativo Web que você criou.
 
     ![adicionar referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Adicionando uma referência, você vincula o projeto do aplicativo Web ao projeto do grupo de recursos e define três propriedades principais automaticamente.
+    Adicionando uma referência, você vincula o projeto do aplicativo Web ao projeto do grupo de recursos e define três propriedades principais automaticamente. Confira essas propriedades na janela **Propriedades** da referência.
+
+      ![ver referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - As **Propriedades Adicionais** contêm o local de preparação do pacote de implantação da Web que é enviado para o Armazenamento do Azure.
+    As propriedades são:
+
+    - As **Propriedades Adicionais** contêm o local de preparação do pacote de implantação da Web que é enviado para o Armazenamento do Azure. Observe a pasta (ExampleApp) e o arquivo (package.zip). Você fornecerá esses valores como parâmetros ao implantar o aplicativo.
     - A opção **Incluir Caminho do Arquivo** contém o caminho onde o pacote é criado. A opção **Incluir Destinos** contém o comando que a implantação executa.
     - O valor padrão **Build;Package** permite que a implantação compile e crie um pacote de implantação da Web (package.zip).
     
     Não é necessário um perfil de publicação quando a implantação obtém as informações necessárias nas propriedades para criar o pacote.
-    
-      ![ver referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Adicione um recurso ao modelo e, desta vez, selecione **Implantação da Web para os Aplicativos Web**.
+1. Adicione um recurso ao modelo.
+
+    ![adicionar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Dessa vez, selecione **Implantação da Web para aplicativos Web**.
 
     ![adicionar implantação da Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Implante novamente o projeto do grupo de recursos para o grupo de recursos. Desta vez, há alguns parâmetros novos. Você não precisa fornecer valores para **\_artifactsLocation** ou **\_artifactsLocationSasToken** porque o Visual Studio gera automaticamente esses valores. Defina o nome da pasta e do arquivo para o caminho que contém o pacote de implantação.
+1. Implante novamente o projeto do grupo de recursos para o grupo de recursos. Desta vez, há alguns parâmetros novos. Você não precisa fornecer valores para **\_artifactsLocation** ou **\_artifactsLocationSasToken** porque o Visual Studio gera automaticamente esses valores. No entanto, você deve definir o nome de pasta e do arquivo para o caminho que contém o pacote de implantação (mostrado como **ExampleAppPackageFolder** e **ExampleAppPackageFileName** na imagem a seguir). Forneça os valores que você viu anteriormente nas propriedades de referência (**ExampleApp** e **package.zip**).
 
     ![adicionar implantação da Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Para a **Conta de armazenamento do artefato**, utilize a conta implantada com esse grupo de recursos.
+    Para a **Conta de armazenamento do artefato**, selecione a conta implantada com esse grupo de recursos.
     
-Após a implantação terminar, você poderá navegar para o site e observar se o aplicativo ASP.NET padrão foi implantado com êxito.
+1. Após a conclusão da implantação, selecione seu aplicativo Web no portal. Clique na URL para navegar até o site.
 
-![mostrar aplicativo implantado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![procurar no site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Observe que você implantou o aplicativo ASP.NET padrão com êxito.
+
+    ![mostrar aplicativo implantado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Próximas etapas
 
 - Para saber mais sobre como gerenciar seus recursos com o portal, consulte [Usando o Portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
-- Para saber mais sobre os modelos, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+- Para saber mais sobre os modelos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

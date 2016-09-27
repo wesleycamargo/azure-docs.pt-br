@@ -20,10 +20,9 @@
 # Criar uma VNet com uma conexão Site a Site usando o Portal Clássico do Azure
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portal Clássico do Azure](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Clássico - Portal Clássico](vpn-gateway-site-to-site-create.md)
 
 Este artigo mostra como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o **modelo de implantação clássica** e o portal clássico. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações. No momento, você não pode criar uma configuração Site a Site de ponta a ponta para o modelo de implantação clássico usando o portal do Azure.
 
@@ -55,11 +54,11 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 2. No canto inferior esquerdo da tela, clique em **Novo**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
-3. Preencha as informações nas páginas a seguir para criar sua rede virtual.
+3. Para criar sua rede virtual, insira as configurações nas páginas a seguir:
 
 ## Página Detalhes da Rede Virtual
 
-Insira as seguintes informações.
+Insira as seguintes informações:
 
 - **Nome**: nome da sua rede virtual. Por exemplo, *EastUSVNet*. Você usará esse nome de rede virtual quando implantar suas VMs e instâncias de PaaS. Portanto, é melhor não criar um nome muito complicado.
 - **Local**: o local está diretamente relacionado ao local físico (região) onde você deseja que os recursos (VMs) residam. Por exemplo, se você desejar que as VMs implantadas nesta rede virtual estejam localizadas fisicamente no *leste dos EUA*, selecione esse local. Você não pode alterar a região associada à sua rede virtual depois de criá-la.
@@ -76,7 +75,7 @@ Insira as informações a seguir e, em seguida, clique na seta de avanço no can
 
 Se estiver criando uma nova rede local, você verá a página **Conectividade Site a Site**. Se você quiser usar uma rede local criada anteriormente, essa página não será exibida no assistente e você poderá ir para a próxima seção.
 
-Insira as informações a seguir e, em seguida, clique na seta de avanço.
+Digite as informações a seguir e, em seguida, clique na seta de avanço.
 
 - 	**Nome**: o nome que você deseja dar ao site de rede local.
 - 	**Endereço IP do Dispositivo VPN**: o endereço IPv4 voltado para o público do dispositivo VPN local que você usa para se conectar ao Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
@@ -107,4 +106,4 @@ Configure o gateway de rede virtual para criar uma conexão site a site segura. 
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X
@@ -128,7 +128,7 @@ Em uma sessão de terminal, use o comando SSH para se conectar ao nó de cabeça
 
 * **Nome de usuário**: o nome de usuário SSH que você forneceu ao criar o cluster.
 
-O exemplo a seguir se conectará ao nó principal 0 de **mycluster** como o usuário **me**:
+O exemplo a seguir se conectará ao nó de cabeçalho principal do **mycluster** como o usuário **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,7 +140,7 @@ Se você usou uma chave SSH protegida por uma senha, você deverá inserir a sen
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Se você se conectar usando o endereço para o nó principal e nenhuma porta for especificada, o SSH usará como padrão a porta 22, que se conectará ao nó principal 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+Se você se conectar usando o endereço para o nó principal e nenhuma porta for especificada, o SSH usará como padrão a porta 22, que se conectará ao nó de cabeçalho principal no cluster HDInsight. Ao usar a porta 23, você se conectará ao secundário. Para saber mais sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -195,9 +195,9 @@ Use as etapas a seguir para conectar-se a nós de trabalho de seu cluster.
 
     > [AZURE.NOTE] Se você usar uma senha para autenticação da sessão SSH, será solicitado que você digite a senha novamente. Se você usar uma chave SSH, a conexão deverá terminar sem prompts.
 
-4. Quando a sessão for estabelecida, o prompt do terminal será alterado de `username@hn0-clustername` para `username@wk0-clustername` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
+4. Quando a sessão for estabelecida, o prompt do terminal será alterado de `username@hn#-clustername` para `username@wk#-clustername` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
 
-4. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@hn0-clustername`.
+4. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@hn#-clustername`.
 
 ##Adicionar mais contas
 
@@ -247,4 +247,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

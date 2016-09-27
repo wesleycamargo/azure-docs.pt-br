@@ -101,4 +101,4 @@ Para excluir um aplicativo, selecione-o na lista e clique em **Excluir**.
 
 Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

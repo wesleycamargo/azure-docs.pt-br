@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor | Microsoft Azure" 
+	pageTitle="Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure | Microsoft Azure" 
 	description="Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no portal do Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,32 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Criar um pipeline com a Atividade de Cópia usando o Data Factory Editor
+# Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure
 > [AZURE.SELECTOR]
-- [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Como usar o Editor do Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Como usar o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Usando a API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
+- [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 
-Este tutorial contém as seguintes etapas:
+Este tutorial mostra como criar e monitorar um data factory do Azure usando o portal do Azure. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
+
+Eis as etapas executadas como parte deste tutorial:
 
 Etapa | Descrição
 -----| -----------
 [Criar uma Data Factory do Azure](#create-data-factory) | Nesta etapa, você cria uma Azure Data Factory denominada **ADFTutorialDataFactory**.  
 [Criar serviços vinculados](#create-linked-services) | Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService** e **AzureSqlLinkedService**. O AzureStorageLinkedService vincula o armazenamento do Azure e o AzureSqlLinkedService vincula o banco de dados SQL do Azure ao ADFTutorialDataFactory. Os dados de entrada do pipeline residem em um contêiner de blob no armazenamento de blobs do Azure e os dados de saída são armazenados em uma tabela no banco de dados SQL do Azure. Portanto, adicione esses dois repositórios de dados como serviços vinculados à data factory.      
-[Criar conjuntos de dados de entrada e saída](#create-datasets) | Na etapa anterior, você criou serviços vinculados que fazem referência a repositórios de dados que contêm dados de entrada/saída. Nesta etapa, você define duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída que são armazenados nos repositórios de dados. Na tabela EmpTableFromBlob, você especifica o contêiner de blobs que contém um blob com os dados de origem e, na tabela EmpSQLTable, você especifica a tabela SQL que armazena os dados de saída. Você também pode especificar outras propriedades, como estrutura, disponibilidade e assim por diante. 
+[Criar conjuntos de dados de entrada e saída](#create-datasets) | Na etapa anterior, você criou serviços vinculados que fazem referência a repositórios de dados que contêm dados de entrada/saída. Nesta etapa, você define duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída que são armazenados nos repositórios de dados. Na tabela EmpTableFromBlob, você especifica o contêiner de blobs que contém um blob com os dados de origem e, na tabela EmpSQLTable, você especifica a tabela SQL que armazena os dados de saída. Você também pode especificar outras propriedades, como estrutura, disponibilidade e política. 
 [Criar uma pipeline](#create-pipeline) | Nesta etapa, você cria um pipeline chamado **ADFTutorialPipeline** na ADFTutorialDataFactory. O pipeline tem uma **Atividade de Cópia**, que copia os dados de entrada do blob do Azure na tabela de saída do SQL Azure. A atividade de cópia realiza a movimentação de dados no Azure Data Factory. Ela é habilitada por um serviço disponível globalmente que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
 [Monitorar o pipeline](#monitor-pipeline) | Nesta etapa, você monitora fatias de tabelas de entrada e de saída usando o portal do Azure.
 
 > [AZURE.IMPORTANT] 
-Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de pré-requisito antes de executar este tutorial.
+Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** antes de executar este tutorial.
 
 ## Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure denominado **ADFTutorialDataFactory**.
@@ -51,7 +53,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 	1. Digite **ADFTutorialDataFactory** para o **nome**.
 	
   		![Folha Nova data factory][image-data-factory-getstarted-new-data-factory-blade]
-	2. Clique em **NOME DO GRUPO DE RECURSOS** e faça o seguinte:
+	2. Clique em **NOME DO GRUPO DE RECURSOS** e execute as seguintes etapas:
 		1. Clique em **Criar um novo grupo de recursos**.
 		2. Na folha **Criar grupo de recursos**, digite **ADFTutorialResourceGroup** para o **nome** do grupo de recursos e clique em **OK**.
 
@@ -72,7 +74,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 	> Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
 
 9. Clique no hub **NOTIFICAÇÕES** à esquerda e procure as notificações do processo de criação. Clique em **X** para fechar a folha **NOTIFICAÇÕES** se ela estiver aberta.
-10. Depois que a criação estiver concluída, você verá a folha **DATA FACTORY**, conforme mostrado abaixo.
+10. Depois que a criação estiver concluída, você verá a folha **DATA FACTORY**, conforme mostrado na imagem.
 
     ![Página inicial da data factory][image-data-factory-get-stated-factory-home-page]
 
@@ -151,7 +153,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 		}
 
 		
-     Observe o seguinte:
+     Observe os seguintes pontos:
 	
 	- O **tipo** do conjunto de dados foi definido como **AzureBlob**.
 	- **linkedServiceName** é definido como **AzureStorageLinkedService**. Você criou esse serviço vinculado na Etapa 2.
@@ -182,7 +184,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 2. Clique em **Implantar** na barra de ferramentas para criar e implantar a tabela **EmpTableFromBlob**. Confirme que você vê a mensagem **TABELA CRIADA COM ÊXITO** na barra de título do Editor.
 
 ### Criar conjunto de dados de saída
-Nesta parte da etapa, você cria um conjunto de dados de saída denominado **EmpSQLTable**. Esse conjunto de dados aponta para uma tabela SQL no banco de dados SQL do Azure representada por **AzureSqlLinkedService** .
+Nesta parte da etapa, você cria um conjunto de dados de saída denominado **EmpSQLTable**. Esse conjunto de dados aponta para uma tabela SQL no banco de dados SQL do Azure representada por **AzureSqlLinkedService**.
 
 1. No **Editor** de Data Factory, clique no botão **Novo conjunto de dados** na barra de ferramentas e clique em **Tabela SQL do Azure** no menu suspenso.
 2. Substitua JSON no painel direito pelo trecho JSON a seguir:
@@ -213,7 +215,7 @@ Nesta parte da etapa, você cria um conjunto de dados de saída denominado **Emp
 		}
 
 		
-     Observe o seguinte:
+     Observe os seguintes pontos:
 	
 	* O **tipo** do conjunto de dados foi definido como **AzureSQLTable**.
 	* **linkedServiceName** é definido como **AzureSqlLinkedService** (você criou esse serviço vinculado na Etapa 2).
@@ -276,7 +278,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 		  }
 		} 
 
-	Observe o seguinte:
+	Observe os seguintes pontos:
 
 	- Na seção de atividades, há apenas uma atividade cujo **type** é definido como **CopyActivity**.
 	- A entrada da atividade é definida como **EmpTableFromBlob** e a saída da atividade é definida como **EmpSQLTable**.
@@ -303,7 +305,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 
 	![Folha Data Factory — bloco Diagrama][image-datafactoryblade-diagramtile]
 
-2. Você deverá ver o diagrama semelhante ao seguinte:
+2. Você deverá ver o diagrama semelhante à imagem abaixo:
 
 	![Modo de Exibição de Diagrama][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +332,7 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
 	![Conjuntos de dados com EmpTableFromBlob selecionado][image-data-factory-get-started-datasets-emptable-selected]
 5. Observe que as fatias de dados até o momento atual já foram produzidas e estão **prontas**, pois o arquivo **emp.txt** sempre existe no contêiner de blob: **adftutorial\\input**. Confirme que nenhuma fatia apareça na seção **Fatias com falha recente**, na parte inferior.
 
-	Ambas as listas, **Fatias atualizadas recentemente** e **Fatias com falha recente**, são classificadas pela **HORA DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
+	Ambas as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** são classificadas segundo o **HORÁRIO DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas seguintes situações:
     
 	Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
 	
@@ -461,4 +463,4 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 [image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Implantando o portal do usuário para o Servidor Azure Multi-Factor Authentication" 
-	description="Esta é a página de autenticação do Azure Multi-Factor Authentication que descreve como começar com o Azure MFA e o Portal do Usuário." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Implantando o portal do usuário para o Servidor Azure Multi-Factor Authentication"
+	description="Esta é a página de autenticação do Azure Multi-Factor Authentication que descreve como começar com o Azure MFA e o Portal do Usuário."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Implantando o portal do usuário para o Servidor Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Agora que o portal está instalado, você precisa configurar o Servidor Azure Mu
 O servidor Azure Multi-Factor Authentication fornece várias opções para o portal do usuário. A tabela a seguir fornece uma lista dessas opções e uma explicação de como elas são usadas.
 
 Configurações do Portal de Usuário|Descrição|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL do portal do usuário| Permite que você insira a URL de onde o portal está sendo hospedado.
 Autenticação primária| Permite que você especifique o tipo de autenticação a ser usado ao entrar no portal. Autenticação do Windows, Radius ou LDAP.
 Permitir que os usuários façam logon|Permite que os usuários insiram um nome de usuário e uma senha na página de entrada para o portal do usuário. Se não forem selecionadas, as caixas ficarão esmaecidas.
@@ -187,6 +187,4 @@ Se os administradores tiverem configurado o servidor Azure Multi-Factor Authenti
 
 O auto-registro do usuário está concluído e o usuário está conectado ao Portal do usuário. Os usuários podem fazer logon no Portal do Usuário a qualquer momento no futuro para alterar seus números de telefone, PINs, métodos de autenticação e perguntas de segurança se for permitido pelos seus administradores.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introdução ao Serviço Web de Aplicativos Móveis do Servidor MFA" 
-	description="O aplicativo Azure Multi-Factor Authentication oferece uma opção de autenticação adicional fora de banda. Ele permite que o servidor MFA envie notificações por push aos usuários." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Introdução ao Serviço Web de Aplicativos Móveis do Servidor MFA"
+	description="O aplicativo Azure Multi-Factor Authentication oferece uma opção de autenticação adicional fora de banda. Ele permite que o servidor MFA envie notificações por push aos usuários."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Introdução ao Serviço Web de Aplicativos Móveis do Servidor MFA
 
@@ -58,11 +58,11 @@ Antes de instalar o Serviço Web de Aplicativos Móveis, esteja ciente do seguin
 ### Para instalar o Serviço Web de Aplicativos Móveis
 
 <ol>
-<li>Abra o Windows Explorer no Servidor Azure Multi-Factor Authentication e navegue até a pasta onde o Servidor Azure Multi-Factor Authentication está instalado (por exemplo, C:\Program Files\Azure Multi-Factor Authentication). Escolha a versão de 32 bits ou 64 bits do arquivo de instalação Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup conforme apropriado para o servidor em que o Serviço Web de Aplicativos Móveis será instalado. Copie o arquivo de instalação no servidor da Internet.</li> 
+<li>Abra o Windows Explorer no Servidor Azure Multi-Factor Authentication e navegue até a pasta onde o Servidor Azure Multi-Factor Authentication está instalado (por exemplo, C:\Program Files\Azure Multi-Factor Authentication). Escolha a versão de 32 bits ou 64 bits do arquivo de instalação Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup conforme apropriado para o servidor em que o Serviço Web de Aplicativos Móveis será instalado. Copie o arquivo de instalação no servidor da Internet.</li>
 
 <li>No servidor da web da Internet, o arquivo de instalação deve ser executado com direitos de administrador. A maneira mais fácil de fazer isso é abrir um prompt de comando como administrador e navegar até o local onde o arquivo de instalação foi copiado.</li>  
 
-<li>Execute o arquivo de instalação Multi-Factor AuthenticationMobileAppWebServiceSetup, mude o Site se desejado e altere o Diretório Virtual para um nome curto, como "PA". É recomendável dar um nome ao diretório virtual, pois os usuários devem digitar a URL do Serviço Web de Aplicativos Móveis no dispositivo móvel durante a ativação.</li> 
+<li>Execute o arquivo de instalação Multi-Factor AuthenticationMobileAppWebServiceSetup, mude o Site se desejado e altere o Diretório Virtual para um nome curto, como "PA". É recomendável dar um nome ao diretório virtual, pois os usuários devem digitar a URL do Serviço Web de Aplicativos Móveis no dispositivo móvel durante a ativação.</li>
 
 <li>Após concluir a instalação do Azure Multi-Factor AuthenticationMobileAppWebServiceSetup, navegue até C:\inetpub\wwwroot\PA (ou o diretório apropriado com base no nome do diretório virtual) e edite o arquivo web.config.</li>  
 
@@ -72,7 +72,7 @@ Antes de instalar o Serviço Web de Aplicativos Móveis, esteja ciente do seguin
 
 <li>Se o site em que o Serviço Web de Aplicativos Móveis foi instalado (por exemplo, Site Standard) ainda não tiver sido associado com um certificado assinado publicamente, instale o certificado no servidor, se ainda não estiver instalado, abra o Gerenciador do IIS e associe o certificado ao site.</li>  
 
-<li>Abra um navegador Web em qualquer computador e navegue até a URL onde o Serviço Web de Aplicativos Móveis foi instalado (por exemplo, https://www.publicwebsite.com/PA). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.</li> 
+<li>Abra um navegador Web em qualquer computador e navegue até a URL onde o Serviço Web de Aplicativos Móveis foi instalado (por exemplo, https://www.publicwebsite.com/PA). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.</li>
 
 ### Configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
 Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa configurar o Servidor Azure Multi-Factor Authentication para trabalhar com o portal.
@@ -88,6 +88,5 @@ Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa c
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->
