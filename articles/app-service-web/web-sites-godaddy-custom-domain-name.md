@@ -62,7 +62,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 	* Ao adicionar um **registro A (host)** - você deve definir o campo **Host** como **@** (isso representa o nome do domínio raiz, como **contoso.com**), * (um caractere curinga para corresponder a vários subdomínios) ou o subdomínio que você deseja usar (por exemplo, **www**). Você deve definir o campo **Aponta para* como o endereço IP do seu aplicativo Web do Azure.
 
-	* Ao adicionar um **registro CNAME (alias)** - você deve definir o campo **Host** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve definir o campo **Aponta para** como o nome do domínio **.azurewebsites.net** do aplicativo Web do Azure. Por exemplo, **contoso.azurwebsites.net**.
+	* Ao adicionar um **registro CNAME (alias)** - você deve definir o campo **Host** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve definir o campo **Aponta para** como o nome do domínio **.azurewebsites.net** do aplicativo Web do Azure. Por exemplo, **contoso.azurewebsites.net**.
 
 5. Clique em **Adicionar Outro**.
 6. Selecione **TXT** como o tipo de registro e especifique um valor de **Host** de **@** e um valor de **Aponta para** de **&lt;yourwebappname&gt;.azurewebsites.net**.
