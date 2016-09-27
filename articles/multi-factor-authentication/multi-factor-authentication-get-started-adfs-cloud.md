@@ -58,10 +58,10 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. E
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione a relação de confiança com terceira parte confiável.
 3. No meio, clique com o botão direito do mouse na plataforma de identidade Microsoft Office 365 e selecione **Editar Regras de Declaração...**![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
-4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-5. No Assistente Adicionar Regra de Declaração de Transformação, selecione Passar ou filtrar uma Declaração de Entrada na lista e clique em Avançar.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**. ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+5. No Assistente Adicionar Regra de Declaração de Transformação, selecione Passar ou filtrar uma Declaração de Entrada na lista e clique em Avançar. ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
-7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione Dentro da rede corporativa.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione Dentro da rede corporativa. ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
 8. Clique em Concluir.
 9. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
 10. No Assistente Adicionar Regra de Declaração de Transformação, selecione Enviar Declarações Usando uma Regra Personalizada da lista suspensa e clique em Avançar.
