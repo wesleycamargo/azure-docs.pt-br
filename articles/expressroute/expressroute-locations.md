@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/07/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -66,7 +66,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Suportado | Suportado | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 |**CenturyLink** | Em breve | Em breve| Vale do Silício |
 |**China Telecom Global** | Suportado | Sem suporte | Hong Kong |
-|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Suportado | Em breve | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Suportado | Em breve | Dallas, Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Dublin, Londres, Tóquio |
 | **Comcast** | Suportado | Suportado | Chicago, Vale do Silício, Washington D.C. |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Suportado | Suportado | Los Angeles | 
@@ -171,4 +171,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
 # Aplicativo híbrido .NET local/na nuvem usando retransmissão do Barramento de Serviço do Azure
@@ -25,7 +25,7 @@ Este artigo descreve como compilar um aplicativo de nuvem híbrido com o Microso
 Você aprenderá:
 
 -   Criar ou adaptar um serviço Web existente para consumo por uma solução de Web.
--   Usar a Retransmissão do Barramento de Serviço para compartilhar dados entre um aplicativo do Azure e um serviço Web hospedado em outro lugar.
+-   Usar o serviço de Retransmissão do Barramento de Serviço para compartilhar dados entre um aplicativo do Azure e um serviço Web hospedado em outro lugar.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@ A captura de tela da página inicial do aplicativo Web completo é mostrada abai
 
 Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
 
-1.  Instale o SDK do Azure para .NET em [Obter ferramentas e SDK][].
+1.  Instale o SDK do Azure para .NET da página [Obter ferramentas e SDK][].
 
 2. 	Clique em **Instalar o SDK** da versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
 
@@ -366,9 +366,9 @@ Execute o aplicativo para verificar se ele funciona.
 
 A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.NET.
 
-1.  Se ele ainda não estiver aberto, no Visual Studio, reabra o projeto **ProductsPortal** criado na seção “Criar um Aplicativo ASP.NET”.
+1.  Se ele ainda não estiver aberto, no Visual Studio, reabra o projeto **ProductsPortal** criado na seção [Criar um Aplicativo ASP.NET](#create-an-aspnet-application).
 
-2.  Semelhante à etapa na seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito no projeto **ProductsPortal** e clique em **Gerenciar Pacotes NuGet**.
+2.  Assim como na etapa da seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito no projeto **ProductsPortal** e clique em **Gerenciar Pacotes NuGet**.
 
 3.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Então conclua a instalação e feche esta caixa de diálogo.
 
@@ -420,7 +420,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 	}
 	```
 
-7.  No Gerenciador de Soluções, clique com o botão direito na solução **ProductsPortal**, clique em **Adicionar** e em **Projeto Existente**.
+7.  No Solution Explorer, clique com botão direito na solução **ProductsPortal** (clique com o botão direito na solução, não no projeto). Clique em **Adicionar** e depois clique em **Projeto Existente**.
 
 8.  Navegue até o projeto **ProductsServer** e clique duas vezes no arquivo de solução **ProductsServer.csproj** para adicioná-lo.
 
@@ -448,16 +448,17 @@ Para testar o aplicativo localmente, no Visual Studio, pressione **F5**. O servi
 
 Pressione **Atualizar** na página **ProductsPortal**. Sempre que você atualizar a página, verá que o aplicativo do servidor exibirá uma mensagem quando `GetProducts()` de **ProductsServer** for chamado.
 
+Feche os aplicativos antes de prosseguir para a próxima etapa.
+
 ## Implantar o projeto ProductsPortal em um aplicativo Web do Azure
 
 A próxima etapa é converter o front-end **ProductsPortal** em um aplicativo Web do Azure. Primeiro, implante o projeto **ProductsPortal**, seguindo todas as etapas na seção [Implantar o projeto Web para o aplicativo Web do Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Após a implantação ser concluída, retorne a este tutorial e prossiga para a próxima etapa.
 
+> [AZURE.NOTE] Você verá uma mensagem de erro na janela do navegador quando o projeto Web **ProductsPortal** for iniciado automaticamente após a implantação. Isso é esperado e ocorre porque o aplicativo **ProductsServer** não está sendo executado ainda.
+
 Copie a URL do aplicativo Web implantado, pois você precisará dela na próxima etapa. Você também pode obter essa URL na janela Atividade do Serviço de Aplicativo do Azure no Visual Studio:
 
 ![][9]
-   
-
-> [AZURE.NOTE] Você verá uma mensagem de erro na janela do navegador quando o projeto Web **ProductsPortal** for iniciado automaticamente após a implantação. Isso é esperado e ocorre porque o aplicativo **ProductsServer** não está sendo executado ainda.
 
 ### Defina ProductsPortal como o aplicativo Web
 
@@ -528,4 +529,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

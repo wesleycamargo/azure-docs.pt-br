@@ -19,15 +19,17 @@
 
 # Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [AZURE.SELECTOR]
+- [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 - [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+Neste artigo, você usa a API REST do Data Factory para criar seu primeiro data factory do Azure.
 
-## Pré-requisitos adicionais
+## Pré-requisitos
+- Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito**.
 - Instale o [Curl](https://curl.haxx.se/dlwiz/) em seu computador. Você pode usar a ferramenta CURL com comandos REST para criar um data factory.
 - Siga as instruções [deste artigo](../resource-group-create-service-principal-portal.md) para:
 	1. Crie um aplicativo Web chamado **ADFGetStartedApp** no Azure Active Directory.
@@ -39,7 +41,7 @@
 	1. Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
 	2. Execute **Get-AzureRmSubscription** para exibir todas as assinaturas dessa conta.
 	3. Execute **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription| Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
-3. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell.
+3. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell:
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -94,7 +96,7 @@ A tabela a seguir fornece descrições das propriedades de JSON usadas no trecho
 | TimeToLive | Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
 | linkedServiceName | Especifica a conta de armazenamento usada para armazenar os logs gerados pelo HDInsight |
 
-Observe o seguinte:
+Observe os seguintes pontos:
 
 - O Data Factory cria um cluster HDInsight **baseado no Windows** para você com o JSON acima. Você também pode fazer com que ele crie um cluster HDInsight **baseado em Linux**. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 - Você pode usar **seu próprio cluster do HDInsight** em vez de usar um cluster do HDInsight sob demanda. Confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
@@ -261,9 +263,9 @@ Nesta etapa, você criará um Azure Data Factory chamado **FirstDataFactoryREST*
 
 		Write-Host $results
 
-Observe o seguinte:
+Observe os seguintes pontos:
  
-- O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro nos resultados: **O nome de Data Factory "FirstDataFactoryREST" não está disponível**, faça o seguinte:
+- O nome do Azure Data Factory deve ser globalmente exclusivo. Se você vir o erro nos resultados: **O nome de Data Factory "FirstDataFactoryREST" não está disponível**, execute estas etapas:
 	1. Altere o nome (por exemplo, yournameFirstDataFactoryREST) no arquivo **datafactory.json**. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 	2. No primeiro comando em que a variável **$cmd** é atribuída um valor, substitua FirstDataFactoryREST pelo novo nome e execute o comando.
 	3. Execute os próximos dois comandos para invocar a API REST a fim de criar o data factory e imprima os resultados da operação.
@@ -271,11 +273,11 @@ Observe o seguinte:
 - O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
 - Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
 
-	- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory.
+	- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory:
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-		Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
+		Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado:
 	
 			Get-AzureRmResourceProvider
 	- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
@@ -370,6 +372,10 @@ Nesta etapa, você pode usar a API REST do Data Factory para monitorar fatias pr
     	    (convertFrom-Json $results2).RemoteException
 	}
 
+
+> [AZURE.IMPORTANT] 
+A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente). Portanto, espere que o pipeline demore **cerca de 30 minutos** para processar a fatia.
+
 Execute Invoke-Command e o próximo até ver a fatia no estado **Pronto** ou **Falha**. Quando a fatia estiver no estado Pronto, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída. A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo.
 
 ![dados de saída](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -402,4 +408,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Monitorar e gerenciar pipelines usando as folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando as folhas do portal do Azure. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

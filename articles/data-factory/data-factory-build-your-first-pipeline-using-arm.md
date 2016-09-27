@@ -18,26 +18,23 @@
 
 # Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager
 > [AZURE.SELECTOR]
+- [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 - [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Neste artigo, você usa os modelos do Azure Resource Manager para criar seu primeiro data factory do Azure.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
-
-## Pré-requisitos adicionais
-Além dos pré-requisitos listados na seção de pré-requisitos acima, instale o seguinte:
-
-- **Instale o Azure PowerShell**. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para instalar a última versão do Azure PowerShell no computador.
+## Pré-requisitos
+- Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito**.
+- Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para instalar a última versão do Azure PowerShell no computador.
 - Veja [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
 
 ## Criar um modelo do Resource Manager
 
-Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
-
-O modelo permite que você crie as seguintes entidades do Data Factory.
+Nesta seção, crie as seguintes entidades de Data Factory:
 
 1. Um **data factory** chamado **TutorialDataFactoryARM**. Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data factory pode ter uma ou mais atividades. Por exemplo, uma Atividade de Cópia para copiar dados de um armazenamento de dados de origem para um de destino e uma atividade do Hive do HDInsight para executar o script do Hive para transformar dados de entrada.
 2. Dois **serviços vinculados**: **StorageLinkedService** e **HDInsightOnDemandLinkedService**. Esses serviços vinculados vincularão a conta do Armazenamento do Azure e o cluster do Azure HDInsight sob demanda ao data factory. A conta do Armazenamento do Azure manterá os dados de entrada e de saída para o pipeline neste exemplo. O serviço vinculado do HDInsight é usado para executar o script do Hive especificado na atividade do pipeline neste exemplo. Identifique quais serviços de armazenamento/computação de dados serão usados em seu cenário e vincular esses serviços ao data factory criando serviços vinculados.
@@ -45,8 +42,9 @@ O modelo permite que você crie as seguintes entidades do Data Factory.
 
 Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo com detalhes sobre as propriedades JSON usadas neste modelo.
 
-> [AZURE.IMPORTANT] Altere os valores das variáveis **storageAccountName** e **storageAccountKey**. Altere o **dataFactoryName** também porque o nome precisa ser exclusivo.
+Crie um arquivo JSON denominado **ADFTutorialARM.json** na pasta **C:\\ADFGetStarted** com este conteúdo:
 
+> [AZURE.IMPORTANT] Altere os valores das variáveis **storageAccountName** e **storageAccountKey**. Altere o **dataFactoryName** também porque o nome precisa ser exclusivo.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -226,9 +224,10 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 ## Criar um data factory
 
-1. Inicie o **Azure PowerShell** e execute o comando a seguir.
-	- Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
-	- Execute o comando a seguir para selecionar uma assinatura na qual você deseja criar o data factory. Get-AzureRmSubscription -SubscriptionName <NOME DA ASSINATURA> | Set-AzureRmContext
+1. Inicie o **Azure PowerShell** e execute o comando a seguir:
+	- Execute `Login-AzureRmAccount` e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
+	- Execute `Get-AzureRmSubscription` para exibir todas as assinaturas dessa conta.
+	- Execute `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` para selecionar a assinatura com a qual deseja trabalhar. Esta assinatura deve ser igual à que você usou no portal do Azure.
 1. Execute o comando a seguir para implantar entidades do Data Factory usando o modelo do Resource Manager criado na Etapa 1.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -244,7 +243,7 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 8. Na Exibição de diagrama, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**. A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente). Portanto, espere que o pipeline demore **cerca de 30 minutos** para processar a fatia.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.
@@ -302,4 +301,4 @@ O modelo cria uma data factory chamada GatewayUsingArmDF com um gateway chamado:
 
   
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

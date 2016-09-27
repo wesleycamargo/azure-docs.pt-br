@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Criar um emparelhamento de rede virtual usando o Portal do Azure
 
@@ -60,7 +60,7 @@ Para criar um emparelhamento VNet com base no cenário anterior, usando o Portal
 
 	![Estado do link final 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. OBSERVAÇÃO: o emparelhamento VNET somente será estabelecido se ambos os links estiverem conectados.
+    > [AZURE.NOTE] O emparelhamento VNET somente será estabelecido se ambos os links estiverem conectados.
 
 Há algumas propriedades configuráveis para cada link:
 
@@ -91,7 +91,7 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    OBSERVAÇÃO: você pode fazer logoff e logon nas duas sessões de usuário no navegador assegurar a ativação da autorização.
+    > [AZURE.NOTE] Você pode fazer logoff e logon nas duas sessões de usuário no navegador assegurar a ativação da autorização.
 
 6. Faça logon no portal como UserA, navegue até a folha VNET3, clique em Emparelhamento, marque a caixa de seleção “Sei minha ID de recurso" e digite a ID de recurso para VNET5 no formato abaixo.
 
@@ -111,11 +111,33 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
     ![Emparelhamento Básico](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. Na próxima etapa, é possível criar links de emparelhamento da VNET1 para a HubVnet. Observe que a opção “Permitir tráfego encaminhado” está selecionada.
+2. Na próxima etapa, é possível criar links de emparelhamento da VNET1 para a HubVnet. Observe que a opção Permitir tráfego encaminhado está selecionada.
 
     ![Emparelhamento Básico](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
 3. Após o estabelecimento de emparelhamento, consulte este [artigo](virtual-network-create-udr-arm-ps.md) e defina a UDR(Rota definida pelo usuário) para redirecionar o tráfego da VNet1 por meio de um dispositivo virtual para usar seus recursos. Quando você especifica o endereço de Próximo Salto na rota, você pode usar o endereço IP do dispositivo virtual no emparelhamento VNet HubVNet
+
+
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+
+
+1. Em um navegador, vá até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
+
+2. Para estabelecer o emparelhamento de VNET nesse cenário, você precisa criar apenas um link, da rede virtual no Azure Resource Manager até o clássico. Ou seja, da **VNET1** para **VNET2**. No portal, clique em **Procurar** > escolha **Redes Virtuais**
+
+3. Na folha Redes virtuais, escolha **VNET1**. Clique em **Emparelhamentos**, clique em **Adicionar**.
+
+4. Na folha Adicionar Emparelhamento, dê um nome para seu link. Aqui, ele é chamado de **LinkToVNet2**. Em Detalhes do par, selecione **Clássico**.
+
+5. Em seguida, escolha a assinatura e a Rede Virtual par **VNET2**. Em seguida, clique em OK.
+
+    ![Vincular Vnet1 com VNet2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
+
+6. Após a criação desse link de emparelhamento de VNet, as duas redes virtuais serão emparelhadas e você poderá ver o seguinte:
+
+    ![Verificação da conexão de emparelhamento](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
+
 
 ## Remover emparelhamento VNet
 
@@ -130,4 +152,4 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 4. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos a remoção dos dois links antes de recriar o emparelhamento VNet.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

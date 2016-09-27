@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/23/2016"
+	ms.date="09/16/2016"
 	ms.author="raynew"/>
 
 # Replicar máquinas virtuais do Hyper-V em nuvens do VMM usando o Azure Site Recovery no portal do Azure | Microsoft Azure
@@ -262,7 +262,7 @@ Em que:
 
 - **/Credentials**: parâmetro obrigatório que especifica onde o arquivo da chave de registro está localizado.
 - **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
-- **/EncryptionEnabled**: parâmetro opcional quando você está replicando as VMs do Hyper-V nas nuvens do VMM para o Azure. Especifique se deseja criptografar as máquinas virtuais no Azure (com criptografia em repouso). Verifique se o nome do arquivo tem uma extensão **.pfx**. A criptografia está desativado por padrão.
+- - **/EncryptionEnabled**: parâmetro opcional quando você está replicando as VMs do Hyper-V nas nuvens do VMM para o Azure. Especifique se deseja criptografar as máquinas virtuais no Azure (com criptografia em repouso). Verifique se o nome do arquivo tem uma extensão **.pfx**. A criptografia está desativado por padrão.
 - **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
 - **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
 - **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exige autenticação).
@@ -571,4 +571,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -20,9 +20,9 @@
 # Criar uma rede virtual com uma conexão site a site usando PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Portal Clássico do Azure](vpn-gateway-site-to-site-create.md)
-- [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Clássico - Portal Clássico](vpn-gateway-site-to-site-create.md)
 
 Este artigo mostra como criar uma rede virtual e uma conexão VPN Site a Site para sua rede local usando o **modelo de implantação do Azure Resource Manager**. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações.
 
@@ -148,7 +148,7 @@ Em seguida, você solicitará um endereço IP público a ser alocado para seu ga
 
 O gateway de VPN do Azure do modelo de implantação do Gerenciador de Recursos atualmente dá suporte apenas a endereços IP públicos usando o método de Alocação Dinâmica. No entanto, isso não significa que o endereço IP será alterado. A única vez em que o endereço IP de gateway de VPN do Azure é alterado é quando o gateway é excluído e recriado. O endereço IP público do gateway não será alterado durante o redimensionamento, a redefinição ou outros tipos de manutenção interna/atualização do gateway de VPN do Azure.
 
-Use o seguinte comando do PowerShell.
+Use o seguinte comando do PowerShell:
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +177,7 @@ Use os seguintes valores:
 
 ## 7\. Configurar o dispositivo de VPN
 
-Neste ponto, você precisará do endereço IP público do gateway de rede virtual para configurar seu dispositivo VPN local. Fale com o fabricante do dispositivo para obter informações específicas de configuração. Além disso, veja [Dispositivos VPN](vpn-gateway-about-vpn-devices.md) para saber mais.
+Neste ponto, você precisará do endereço IP público do gateway de rede virtual para configurar seu dispositivo VPN local. Fale com o fabricante do dispositivo para obter informações específicas de configuração. Confira [Dispositivos VPN](vpn-gateway-about-vpn-devices.md) para saber mais.
 
 Para localizar o endereço IP público do seu gateway de rede virtual, use o exemplo a seguir:
 
@@ -222,4 +222,4 @@ Se precisar alterar os prefixos do gateway de rede local, use as instruções a 
 
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

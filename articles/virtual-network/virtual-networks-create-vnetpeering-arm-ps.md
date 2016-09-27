@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai; annahar"/>
 
 # Criar Emparelhamento VNet usando cmdlets do Powershell
 
@@ -29,18 +29,18 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-        Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+        > [AZURE.NOTE] PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Ler objetos de rede virtual:
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
-	
+
 3. Para estabelecer o emparelhamento VNet, você precisa criar dois links, um para cada direção. A etapa a seguir criará um link de emparelhamento VNet da VNet1 para a VNet2 primeiro:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
 
-        Output shows:
+    A saída mostra:
 
         Name			: LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -60,9 +60,9 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 
 4. Esta etapa criará um link de emparelhamento VNet da VNet2 para a VNet1:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
 
-        Output shows:
+    A saída mostra:
 
         Name			: LinkToVNet1
         Id				: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
@@ -84,7 +84,7 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 
-        Output shows:
+    A saída mostra:
 
 		Name			: LinkToVNet2
 		Id				: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -117,7 +117,7 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
 
-        You can run Get-AzureRmVirtualNetworkPeering to double check the property value after the change.  From the output, you can see AllowForwardedTraffic changes set to True after running the above cmdlets. 
+    Você pode executar Get-AzureRmVirtualNetworkPeering para conferir o valor da propriedade após a alteração. Na saída, você pode ver as alterações de AllowForwardedTraffic definidas para True após a execução dos cmdlets acima.
 
         Name			: LinkToVNet2
         Id			: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -145,7 +145,7 @@ Para criar um emparelhamento VNet entre as assinaturas usando o PowerShell, siga
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
-        This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup. 
+    Isso não é obrigatório, o emparelhamento pode ser estabelecido mesmo se os usuários acionarem solicitações de emparelhamento para suas respectivas Vnets, desde que as solicitações coincidam. A adição de um usuário com privilégios de outra VNet como usuário na VNet local facilita a configuração.
 
 2. Entre no Azure com a conta do Usuário B com privilégios para a Assinatura B e execute o seguinte cmdlet:
 
@@ -188,17 +188,50 @@ Para criar um emparelhamento VNet entre as assinaturas usando o PowerShell, siga
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
 
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+Para criar um emparelhamento de VNet entre uma rede virtual clássica e uma rede virtual do Azure Resource Manager no PowerShell, execute as etapas a seguir:
+
+1. Objeto de leitura de rede virtual para **VNET1**, a rede virtual do Azure Resource Manager da seguinte maneira: $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+
+2. Para estabelecer a rede virtual emparelhamento nesse cenário, é necessário apenas um link, especificamente um link de **VNET1** para **VNET2**. Esta etapa exige saber a ID de recurso da VNet clássica. O formato da ID do grupo de recursos é semelhante a: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+
+    Substitua SubscriptionID, ResourceGroupName e VirtualNetworkName pelos nomes apropriados.
+
+    Isso pode ser feito da seguinte forma:
+
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+
+3. Após a criação do link de emparelhamento da VNet, você poderá ver o estado do link conforme exibido na saída abaixo:
+
+        Name                             : LinkToVNet2
+        Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
+        Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                         "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                       }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
 ## Remover emparelhamento VNet
 
 1.	Para remover o emparelhamento VNet, você precisa executar o seguinte cmdlet:
 
         Remove-AzureRmVirtualNetworkPeering  
-    
+
         remove both links, as shown below:
 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 
 2. Assim que você remover um link em um emparelhamento VNet, o estado do link de emparelhamento será desconectado. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos remover os dois links antes de recriar o emparelhamento VNet.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

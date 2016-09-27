@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Balanceamento de carga de um cluster do Serviço de Contêiner do Azure | Microsoft Azure"
-   description="Balanceamento de carga de um cluster do Serviço de Contêiner do Azure."
+   pageTitle="Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure | Microsoft Azure"
+   description="Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,9 +18,9 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Balanceamento de carga de um cluster do Serviço de Contêiner do Azure
+# Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure
 
-Neste artigo, definiremos um front-end da Web em um Serviço de Contêiner do Azure gerenciado pelo DC/SO. Também configuraremos uma Marathon-LB para permitir que você escale verticalmente o aplicativo.
+Neste artigo, vamos explorar como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/OS usando o Marathon-LB. Isso permitirá que você dimensione horizontalmente seus aplicativos. Também ajudará você a tirar proveito dos clusters de agentes públicos e privados, colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado.
 
 ## Pré-requisitos
 
@@ -55,9 +55,11 @@ Depois de instalar a CLI do DC/SO e assegurar que você pode conectar o cluster,
 dcos package install marathon-lb
 ```
 
+Este comando instala automaticamente o balanceador de carga no cluster de agentes público.
+
 ## Implantar um Aplicativo Web com Carga Balanceada
 
-Agora que temos o pacote marathon-lb, podemos implantar um servidor Web simples usando a seguinte configuração:
+Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicativo para o qual desejamos balancear a carga. Para este exemplo, implantaremos um servidor Web simples usando a seguinte configuração:
 
 ```json
 {
@@ -94,18 +96,20 @@ Agora que temos o pacote marathon-lb, podemos implantar um servidor Web simples 
 
 ```
 
-  * Defina o valor de `HAProxy_0_VHOST` para o FQDN do balanceador de carga de seus agentes. Isso está no formato`<acsName>agents.<region>.cloudapp.azure.com`. Por exemplo, se você criasse um cluster do Serviço de Contêiner com o nome `myacs`, na região `West US`, o FQDN seria `myacsagents.westus.cloudapp.azure.com`. Você também pode encontrar isso procurando o balanceador de carga com "agente" no nome ao examinar os recursos no grupo de recursos criado para o Serviço de Contêiner no [Portal do Azure](https://portal.azure.com).
+  * Defina o valor de `HAProxy_0_VHOST` para o FQDN do balanceador de carga de seus agentes. Isso está no formato `<acsName>agents.<region>.cloudapp.azure.com`. Por exemplo, se você criasse um cluster do Serviço de Contêiner com o nome `myacs`, na região `West US`, o FQDN seria `myacsagents.westus.cloudapp.azure.com`. Você também pode encontrar isso procurando o balanceador de carga com "agente" no nome ao examinar os recursos no grupo de recursos criado para o Serviço de Contêiner no [Portal do Azure](https://portal.azure.com).
   * Defina o servicePort para uma porta > = 10.000. Isso identifica o serviço que está sendo executado no contêiner; o marathon-lb o utiliza para identificar os serviços que deve balancear.
-  * Defina o rótulo `HAPROXY_GROUP` para "externo".
-  * Defina `hostPort` para 0. Isso significa que o Marathon alocará arbitrariamente uma porta disponível.
-  * Defina `instances` para o número de instâncias que você deseja criar. Sempre é possível dimensionar isso posteriormente.
+  * Defina o rótulo `HAPROXY_GROUP` como "externo".
+  * Defina `hostPort` como 0. Isso significa que o Marathon alocará arbitrariamente uma porta disponível.
+  * Defina `instances` como o número de instâncias que você deseja criar. Sempre é possível dimensionar isso posteriormente.
+
+Vale a pena saber que, por padrão, o Marathon implantará o cluster privado, e isso significa que a implantação acima só poderá ser acessada por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
 ### Implantar usando a IU da Web do DC/SO
 
-  1. Visite a página Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md)) e clique em `Create Appliction`
-  2. Na caixa de diálogo `New Application`, clique `JSON Mode` no canto superior direito
+  1. Visite a página do Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md)) e clique em `Create Appliction`
+  2. No diálogo `New Application`, clique em `JSON Mode` no canto superior direito
   3. Colar o JSON acima no editor
-  4. Clicar em `Create Appliction`
+  4. Clique em `Create Appliction`
 
 ### Implantar usando a CLI do DC/SO
 
@@ -115,7 +119,7 @@ Para implantar esse aplicativo com a CLI do DC/SO, basta copiar o JSON acima par
 dcos marathon app add hello-web.json
 ```
 
-## Balanceador de carga do Azure
+## Azure Load Balancer
 
 Por padrão, o Azure Load Balancer expõe as portas 80, 8080 e 443. Se você estiver usando uma dessas três portas (como ocorre no exemplo acima), não haverá mais nada a fazer. Você deve conseguir atingir o FQDN do balanceador de carga do agente, e cada vez que atualizar, encontrará um dos três servidores Web em round-robin. Se, no entanto, você usar uma porta diferente, será necessário adicionar uma regra de round robin e uma investigação ao balanceador de carga do Azure à porta usada. Você pode fazer isso na [CLI do Azure](../xplat-cli-azure-resource-manager.md) com os comandos `azure lb rule create` e `azure lb probe create`. Você também pode fazer isso usando o Portal do Azure.
 
@@ -135,6 +139,6 @@ Azure lb:80 -> marathon-lb:10001 -> meuconteiner:233423 Azure lb:8080 -> maratho
 
 ## Próximas etapas
 
-Consulte a documentação do DC/SO para obter mais informações sobre o [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
+Veja a documentação do DC/SO para saber mais sobre o [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

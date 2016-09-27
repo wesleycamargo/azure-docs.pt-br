@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication e autenticação IIS" 
-	description="Esta é a página do Azure Multi-Factor Authentication que o auxiliará na implantação de autenticação IIS e do servidor Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication e autenticação IIS"
+	description="Esta é a página do Azure Multi-Factor Authentication que o auxiliará na implantação de autenticação IIS e do servidor Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Autenticação IIS
 
@@ -76,4 +76,4 @@ Os IPs Confiáveis permitem que os usuários ignorem o Azure Multi-Factor Authen
 3. Quando a caixa de diálogo Adicionar IPs Confiáveis aparecer, selecione o botão de opção IP Único, Intervalo de IP ou Sub-rede.
 4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista de autorizados. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão OK. A lista de autorizados agora foi adicionada.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

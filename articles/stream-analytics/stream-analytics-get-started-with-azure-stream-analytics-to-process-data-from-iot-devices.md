@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -120,4 +120,4 @@ Aqui, estamos usando um **LEFT OUTER JOIN** no mesmo fluxo de dados (associaçã
 
 O objetivo deste tutorial é demonstrar como escrever consultas de linguagem de consulta do Stream Analytics e ver os resultados no navegador. No entanto, isso está apenas começando. Há muito mais que você pode fazer com Stream Analytics. O Stream Analytics dá suporte a várias entradas e saídas e ainda pode aproveitar as funções no Aprendizado de Máquina do Azure, tornando-a uma ferramenta robusta para analisar fluxos de dados. Você pode começar a explorar mais sobre Stream Analytics usando nosso [Mapa de aprendizado](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) e, para obter mais informações sobre como escrever consultas, leia o artigo em [Padrões comuns de consulta](./stream-analytics-stream-analytics-query-patterns.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

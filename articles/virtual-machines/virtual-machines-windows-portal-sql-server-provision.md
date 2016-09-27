@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/21/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Provisionar uma máquina virtual do SQL Server no Portal do Azure
@@ -125,6 +125,7 @@ Na folha **Configurações do SQL Server**, defina as configurações e otimiza�
 | [Aplicação de patch automatizada](#automated-patching) |
 | [Backup Automatizado](#automated-backup) |
 | [Integração do Cofre da Chave do Azure](#azure-key-vault-integration) |
+| [R Services](#r-services) |
 
 ### Conectividade
 Em **Conectividade SQL**, especifique o tipo de acesso desejado para a instância do SQL Server nesta VM. Para este tutorial, escolha **Pública (Internet)** para permitir conexões com o SQL Server a partir de máquinas ou serviços na Internet. Com essa opção selecionada, o Azure configura automaticamente o firewall e o grupo de segurança de rede para permitir o tráfego na porta 1433.
@@ -133,12 +134,14 @@ Em **Conectividade SQL**, especifique o tipo de acesso desejado para a instânci
 
 Para conectar-se ao SQL Server pela Internet, você precisará habilitar a Autenticação do SQL Server, que está descrita na próxima seção.
 
->[AZURE.NOTE] É possível adicionar mais restrições às comunicações de rede com a VM do SQL Server. Faça isso editando o Grupo de Segurança de Rede após a criação da VM. Para saber mais, confira [O que é NSG (Grupo de Segurança da Rede)?](../virtual-network/virtual-networks-nsg.md)
+>[AZURE.NOTE] É possível adicionar mais restrições às comunicações de rede com a VM do SQL Server. Faça isso editando o Grupo de Segurança de Rede após a criação da VM. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md)
 
 Se você preferir não permitir conexões com o Mecanismo de Banco de Dados pela internet, escolha uma das seguintes opções:
 
 - **Local (apenas dentro da VM)** para permitir conexões com o SQL Server somente de dentro da VM.
 - **Privada (dentro da Rede Virtual)** para permitir conexões com o SQL Server a partir de computadores ou serviços na mesma rede virtual.
+
+>[AZURE.NOTE] A imagem de máquina virtual para o SQL Server Express edition não habilita automaticamente o protocolo TCP/IP. Isso é verdadeiro mesmo para as opções de conectividade Pública e Privada. Para o Express Edition, você deve usar o SQL Server Configuration Manager para [habilitar manualmente o protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) depois de criar a máquina virtual.
 
 Em geral, melhore a segurança escolhendo a conectividade mais restritiva que seu cenário permite. No entanto, todas as opções são protegidas por meio de regras do Grupo de Segurança de Rede e por meio da Autenticação do SQL/Windows.
 
@@ -177,7 +180,7 @@ A **aplicação de patch automatizada** está habilitada por padrão. A aplicaç
 
 ![Aplicação de patch automatizada do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Para saber mais, consulte [Aplicação de Patch Automatizada para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md).
+Para saber mais, consulte [Aplicação de Patch Automatizada para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-patching.md).
 
 ### Backup Automatizado
 Habilite backups automáticos do banco de dados para todos os bancos de dados em **Backup automatizado**. O backup automatizado está desabilitado por padrão.
@@ -192,7 +195,7 @@ Para criptografar o backup, clique em **Habilitar**. Em seguida, especifique a *
 
 ![Backup Automatizado do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+ Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
 
 ### Integração do Cofre da Chave do Azure
 Para armazenar os segredos de segurança no Azure para a criptografia, clique em **Integração do cofre de chaves do Azure** e clique em **Habilitar**.
@@ -208,9 +211,16 @@ A tabela a seguir lista os parâmetros necessários para configurar a integraç�
 | **Segredo da entidade**|Segredo da entidade de serviço do Azure Active Directory. O segredo também é chamado de Segredo do Cliente. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Nome da credencial**|**Nome da credencial**: a integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial.| mycred1|
 
-Para saber mais, consulte [Configurar a Integração do Cofre de Chaves do Azure para o SQL nas VMs do Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Para saber mais, consulte [Configurar a Integração do Cofre de Chaves do Azure para o SQL nas VMs do Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
 Ao concluir as configurações do SQL Server, clique em **OK**.
+
+### Serviços de R
+Para o SQL Server 2016 Enterprise edition, você tem a opção de habilitar os [Serviços de R do SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Isso permite que você use análises avançadas com o SQL Server 2016. Clique em **Habilitar** na folha **Configurações do SQL Server**.
+
+![Habilitar os serviços de R do SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] Para imagens do SQL Server que não são da edição 2016 Enterprise, a opção para habilitar os serviços de R está desabilitada.
 
 ## 5\. Examinar o resumo
 Na folha **Resumo**, examine o resumo e clique em **OK** para criar o SQL Server, grupo de recursos e recursos especificados para essa VM.
@@ -228,7 +238,7 @@ Use as etapas a seguir para se conectar à máquina virtual com a Área de Traba
 1. O navegador baixa um arquivo RDP para a VM. Abra o arquivo RDP. ![Área de trabalho remota para VM do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
 1. A Conexão de área de trabalho remota avisa você de que o distribuidor dessa conexão remota não pode ser identificado. Clique em **Conectar** para continuar.
 1. Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
-1. Em **Nome de usuário**, digite **<nome usuário>**, onde <user name> é o nome de usuário especificado por você durante a configuração da VM. Você precisa adicionar uma barra invertida inicial antes do nome.
+1. Em **Nome de usuário**, digite **<nome usuário>**, em que <nome usuário> é o nome de usuário especificado por você durante a configuração da VM. Você precisa adicionar uma barra invertida inicial antes do nome.
 1. Digite a **Senha** que você configurou anteriormente para essa VM e clique em **OK** para conectar.
 1. Se outra caixa de diálogo **Conexão da Área de Trabalho Remota** perguntar se você deseja conectar, clique em **Sim**.
 
@@ -249,8 +259,8 @@ As seções a seguir mostram como se conectar à instância do SQL Server em sua
 ## Próximas etapas
 Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-Para obter uma visão geral em vídeo do SQL Server nas máquinas virtuais do Azure, assista ao vídeo [A VM do Azure é a melhor plataforma para o SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
+Para obter uma visão geral em vídeo do SQL Server em máquinas virtuais do Azure, assista ao vídeo [Azure VM is the best platform for SQL Server 2016 (A VM do Azure é a melhor plataforma para o SQL Server 2016)](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server em máquinas virtuais do Azure.
+[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

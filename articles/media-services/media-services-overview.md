@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral e cenários comuns do Serviços de Mídia do Azure" 
+	pageTitle="Visão geral e cenários comuns do Serviços de Mídia do Azure | Microsoft Azure" 
 	description="Este tópico oferece uma visão geral dos Serviços de Mídia do Azure" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="08/07/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;anilmur"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -24,19 +24,19 @@ Você pode compilar fluxos de trabalho de ponta a ponta usando totalmente os ser
 
 Você pode optar por transmitir seu conteúdo ao vivo ou fornecer conteúdo sob demanda. Este tópico mostra cenários comuns de entrega de conteúdo [ao vivo](media-services-overview.md#live_scenarios) ou [sob demanda](media-services-overview.md#vod_scenarios). O tópico também está vinculado a outros tópicos relevantes.
 
-## SDKs e ferramentas 
+## SDKs e ferramentas
 
 Para compilar soluções de serviços de mídia, você pode usar:
 
 - [API REST dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Um dos SDKs de cliente disponíveis:
-	- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services),
-	- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java),
-	- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
-	- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS).
+- [SDK dos Serviços de Mídia do Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services),
+- [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java),
+- [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
+- [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS).
 - Ferramentas existentes:
-	- [Portal Clássico do Azure](http://manage.windowsazure.com/)
-	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
+- [Portal Clássico do Azure](http://manage.windowsazure.com/)
+- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -48,13 +48,13 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 ##Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
- 
+
 3. Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 2. Uma conta de Serviços de Mídia do Azure. Use o Portal Clássico do Azure, o .NET ou a API REST para criar a conta dos Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-create-account.md).
 3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar ambiente](media-services-dotnet-how-to-use.md).
 
-	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect-programmatically.md).
-4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-manage-origins.md).
+Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect-programmatically.md).
+4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-portal-manage-streaming-endpoints.md).
 
 ##Visão geral e conceitos
 
@@ -135,14 +135,14 @@ Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes es
 - Uma câmera é usada para transmitir um evento.
 - Um codificador de vídeo ao vivo que converte os sinais da câmera para fluxos que são enviados a um serviço de transmissão ao vivo.
 
-	Opcionalmente, vários codificadores sincronizados em tempo real. Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
+Opcionalmente, vários codificadores sincronizados em tempo real. Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
 - Um serviço de streaming ao vivo que permite que você faça o seguinte:
-	
-	- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
-	- (opcionalmente) codificação de seu fluxo no fluxo de taxa de bits adaptável
-	- visualização de sua transmissão ao vivo,
-	- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
-	- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
+
+- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
+- (opcionalmente) codificação de seu fluxo no fluxo de taxa de bits adaptável
+- visualização de sua transmissão ao vivo,
+- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
+- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
 
 
 Os **Serviços de Mídia do Microsoft Azure** (AMS) fornecem a capacidade de incluir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
@@ -155,8 +155,8 @@ Um **Canal** representa um pipeline para o processamento de conteúdo de transmi
 
 - Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-	>[AZURE.NOTE] Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Confira os detalhes de [preço](/pricing/details/media-services/).
-	
+>[AZURE.NOTE] Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Confira os detalhes de [preço](/pricing/details/media-services/).
+
 - Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 
@@ -185,7 +185,7 @@ Os Serviços de Mídia do Azure fornecem as ferramentas necessárias para criar 
 
 ##Habilitando o CDN do Azure
 
-Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obter informações sobre como habilitar o CDN do Azure, consulte [Como gerenciar pontos de extremidade de Streaming em uma conta de Serviços de Mídia](media-services-manage-origins.md#enable_cdn).
+Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obter informações sobre como habilitar o CDN do Azure, consulte [Como gerenciar pontos de extremidade de Streaming em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
 
 ##Dimensionamento de uma conta de serviços de mídia
 
@@ -193,7 +193,7 @@ Você pode dimensionar os **Serviços de Mídia** especificando o número de **U
 
 Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia.
 
-[Este](media-services-how-to-scale.md) tópico fornece links para tópicos relevantes.
+[Este](media-services-portal-scale-streaming-endpoints.md) tópico fornece links para tópicos relevantes.
 
 ##Suporte
 
@@ -220,4 +220,4 @@ Para obter mais informações, veja [SLA do Microsoft Azure](https://azure.micro
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

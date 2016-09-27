@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/07/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -64,7 +64,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
+| **Dallas** | AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **Dublim** | Colt, TeleCity Group |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londres** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -156,4 +156,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

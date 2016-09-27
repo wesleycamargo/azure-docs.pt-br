@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
 
 
@@ -78,7 +78,7 @@ O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP 
 
 ## Números de sistema autônomos
 
-A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits. No lado do emparelhamento (cliente ou fornecedor), o AS pode ser um ASN público se puder ser verificado como de sua propriedade, ou um número ASN privado para o emparelhamento privado, e exige um ASN público para os emparelhamentos públicos e da Microsoft.
+A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits. No lado do emparelhamento (cliente ou fornecedor), o AS pode ser um ASN público, se puder ser verificado como de sua propriedade, ou um ASN privado.
 
 Não há nenhum requisito em torno de simetria de transferência de dados nos caminhos primários e secundários de qualquer circuito determinado. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. As rotas idênticas devem ser anunciadas dos lados principal ou secundário entre todos os determinados pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
 
@@ -175,4 +175,4 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma Rede Virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma Rede Virtual do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

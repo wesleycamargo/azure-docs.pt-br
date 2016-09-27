@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/26/2016"
+	ms.date="09/21/2016"
 	ms.author="marsma"/>
 
 # Criar uma conta do Lote do Azure usando o portal do Azure
@@ -28,7 +28,7 @@ Saiba como criar uma conta do Lote do Azure no [Portal do Azure][azure_portal] e
 
 1. Entre no [Portal do Azure][azure_portal].
 
-2. Clique em **Novo** > **Máquinas Virtuais** > **Serviço do Lote**.
+2. Clique em **Novo** > **Computação** > **Serviço de Lote**.
 
 	![Lote no Marketplace][marketplace_portal]
 
@@ -125,4 +125,4 @@ Além de usar o portal do Azure, você também pode criar e gerenciar contas do 
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->
