@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Implante seu primeiro aplicativo Web Python no Azure em cinco minutos | Microsoft Azure" 
-	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente." 
+<properties
+	pageTitle="Implante seu primeiro aplicativo Web Python no Azure em cinco minutos | Microsoft Azure"
+	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/16/2016" 
+	ms.date="09/16/2016"
 	ms.author="cephalin"
 />
-	
+
 # Implante seu primeiro aplicativo Web Python no Azure em cinco minutos
 
 Este tutorial o ajuda a implantar seu primeiro aplicativo Web Python para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -135,4 +135,4 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 - Experimente [outras maneiras de implantar seu código no Azure](../app-service-web/web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
 - Leve o aplicativo do Azure para o próximo patamar. Autentique seus usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0920_2016-->
+<!----HONumber=AcomDC_0920_2016-->
