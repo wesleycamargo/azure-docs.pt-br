@@ -620,7 +620,8 @@ A compactação de banco de dados funciona bem nas máquinas virtuais do Azure c
 O SQL Server 2014 abre a possibilidade para armazenar arquivos de banco de dados diretamente no Armazenamento de Blobs do Azure sem o ‘wrapper’ de um VHD em torno deles. Especialmente com o uso do Armazenamento do Azure Standard ou tipos de VM menores, isso permite cenários em que você pode superar os limites de IOPS que seriam impostos por um número limitado de VHDs que podem ser montados em alguns tipos de VM menores. Isso funciona para bancos de dados de usuário, no entanto, não para bancos de dados de sistema do SQL Server. Ele também funciona para arquivos de log e dados do SQL Server. Se desejar implantar um banco de dados do SQL Server do SAP dessa forma, em vez de aplicar ‘wrappers’ nele nos VHDs, tenha o seguinte em mente:
 
 * A conta de armazenamento usada precisa estar na mesma região do Azure que a usada para implantar a VM em que o SQL Server está sendo executado.
-* As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure. [comentário]: <> (MSSedusch TODO Mas isso usará largura de banda de rede e não largura de banda do armazenamento, não é?)
+* As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure. 
+[comentário]: <> (MSSedusch TODO Mas isso usará largura de banda de rede e não largura de banda do armazenamento, não é?)
 
 Detalhes sobre esse tipo de implantação estão listados aqui: <https://msdn.microsoft.com/library/dn385720.aspx>
  
@@ -1366,4 +1367,4 @@ Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de dis
 
 Consulte também o capítulo [Resumo do SQL Server para SAP no Azure geral][dbms-guide-5.8].
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0907_2016-->
