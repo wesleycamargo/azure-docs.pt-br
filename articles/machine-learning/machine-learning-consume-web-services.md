@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -685,4 +685,4 @@ Agora você pode usar todas as ferramentas do swagger. Aqui estão as instruçõ
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

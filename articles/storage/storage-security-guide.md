@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 #Guia de segurança do Armazenamento do Azure
@@ -366,19 +366,17 @@ Embora seja possível usar a Criptografia do Cliente para criptografar os dados 
 
 ###SSE (Criptografia do Serviço de Armazenamento)
 
-A SSE é um novo recurso de armazenamento do Azure na visualização pública. Esse recurso permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure. Quando você lê os dados no Armazenamento do Azure, eles são descriptografados pelo serviço de armazenamento antes de serem retornados. Isso permite proteger os dados sem precisar modificar código nem adicionar código a nenhum aplicativo.
+A SSE permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure. Quando você lê os dados no Armazenamento do Azure, eles são descriptografados pelo serviço de armazenamento antes de serem retornados. Isso permite proteger os dados sem precisar modificar código nem adicionar código a nenhum aplicativo.
 
 Essa é uma configuração que se aplica à conta de armazenamento inteira. Você pode habilitar e desabilitar esse recurso alterando o valor da configuração. Para fazer isso, você pode usar o Portal do Azure, o PowerShell, a CLI do Azure, a API REST do Provedor de Recursos de Armazenamento ou a Biblioteca de Cliente de Armazenamento .NET. Por padrão, a SSE é desativada.
 
 Neste momento, as chaves usadas para a criptografia são gerenciadas pela Microsoft. Podemos gerar as chaves originalmente e gerenciar o armazenamento seguro das chaves, bem como a rotação regular, conforme definido pela política interna do Microsoft. No futuro, você adicionará a capacidade de gerenciar suas próprias chaves de criptografia e fornecerá um caminho de migração de chaves gerenciadas pela Microsoft para chaves gerenciadas pelo cliente.
 
-Esse recurso está disponível para as contas de Armazenamento Standard e Premium criadas usando o modelo de implantação do Gerenciador de Recursos após 30/03/2016, 0:00 PST. A SSE se aplica somente aos blobs de blocos, aos blobs de páginas e aos blobs de acréscimo. Os outros tipos de dados, incluindo tabelas, filas e arquivos, não serão criptografados.
+Esse recurso está disponível para as contas de Armazenamento Standard e Premium criadas usando o modelo de implantação do Gerenciador de Recursos. A SSE se aplica somente aos blobs de blocos, aos blobs de páginas e aos blobs de acréscimo. Os outros tipos de dados, incluindo tabelas, filas e arquivos, não serão criptografados.
 
 Os dados são criptografados somente quando a SSE é habilitada e os dados são gravados no Armazenamento de Blobs. Habilitar ou desabilitar a SSE não afeta os dados existentes. Em outras palavras, quando você habilita essa criptografia, os dados que já existem não são criptografados e nem serão descriptografados quando você desabilitar a SSE.
 
-Se quiser testar esse recurso com uma conta de armazenamento criada antes da data mencionada acima ou com uma conta de armazenamento Clássica, você poderá criar uma nova conta de armazenamento e usar AzCopy para copiar os dados para a nova conta. Isso não deve ser necessário após a versão de visualização.
-
-Assim como acontece na maioria das versões de visualização, o recurso não deve ser usado em produção até que se torne disponível para o público geral.
+Para usar esse recurso com uma conta de armazenamento clássico, você pode criar uma nova conta de armazenamento do Gerenciador de Recursos e usar AzCopy para copiar os dados para a nova conta.
 
 ###Criptografia do cliente
 
@@ -460,7 +458,7 @@ A criptografia do cliente significa mais carga no cliente, e você deve levar is
 
 ####SSE (Criptografia do Serviço de Armazenamento)
 
-A SSE é gerenciada pelo armazenamento do Azure e de maneira fácil. O uso da SSE não fornece segurança aos dados em trânsito, mas ela criptografa os dados conforme eles são gravados no Armazenamento do Azure. Não há impacto no desempenho ao usar esse recurso.
+A SSE é gerenciada pelo Armazenamento do Azure. O uso da SSE não fornece segurança aos dados em trânsito, mas ela criptografa os dados conforme eles são gravados no Armazenamento do Azure. Não há impacto no desempenho ao usar esse recurso.
 
 Você pode criptografar apenas os blobs de blocos, os blobs de acréscimo e os blobs de páginas usando a SSE. Se precisar criptografar dados de tabela ou fila, pense em usar a criptografia do cliente.
 
@@ -634,4 +632,4 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
 	Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

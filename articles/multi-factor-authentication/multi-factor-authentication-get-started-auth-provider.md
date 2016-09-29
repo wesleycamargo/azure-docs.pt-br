@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Introdução a um Provedor de Microsoft Azure Multi-Factor Authentication" 
-	description="Saiba como criar um Provedor de Autenticação Multifator do Azure." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Introdução a um Provedor de Microsoft Azure Multi-Factor Authentication"
+	description="Saiba como criar um Provedor de Autenticação Multifator do Azure."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@ A autenticação multifator está disponível por padrão para administradores g
 Um provedor de Multi-Factor Authentication do Azure será exigido se você quiser baixar o SDK.
 
 > [AZURE.IMPORTANT]  Se quiser baixar o SDK, você precisará criar um Provedor do Azure Multi-Factor Authentication mesmo que você tenha licenças do Azure MFA, AAD Premium ou EMS. Se você criar um Provedor do Azure Multi-Factor Authentication para essa finalidade e já tiver licenças, será necessário criar o Provedor com o modelo **Por Usuário Habilitado** e vincular o Provedor ao diretório que contém as licenças do Azure MFA, Azure AD Premium ou EMS. Isso garantirá que você não seja cobrado, a menos que você tenha mais usuários exclusivos usando o SDK do que o número de licenças que possui.
- 
+
 Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Azure.
 
 ## Para criar um Provedor do Multi-Factor Auth
@@ -49,4 +49,4 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 		- O Azure AD Connect, o AAD Sync ou o DirSync são apenas um requisito se você estiver sincronizando o ambiente do Active Directory local com um diretório do AD do Azure. Se você usar apenas um diretório do Azure AD que não esteja sincronizado, isso não será necessário. ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. Depois que você clicar em criar, o Provedor de Multi-Factor Authentication será criado e você deverá ver uma mensagem informando: **Provedor de Multi-Factor Authentication criado com êxito**. Clique em **Ok**. ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

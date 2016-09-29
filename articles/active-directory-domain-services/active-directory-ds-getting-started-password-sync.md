@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Serviços de Domínio do AD do Azure *(Visualização)* - Habilitar a sincronização de senhas nos Serviços de Domínio do AD do Azure
+# Habilitar a sincronização de senhas para os Serviços de Domínio do Azure AD
 Nas tarefas anteriores, você habilitou os serviços de domínio do Azure AD para seu locatário do Azure AD. A próxima tarefa é habilitar os hashes de credenciais necessários para a autenticação Kerberos e NTLM para sincronização com os serviços de domínio do Azure AD. Depois que a sincronização de credenciais é configurada, os usuários podem entrar no domínio gerenciado usando suas credenciais corporativas.
 
 As etapas envolvidas são diferentes dependendo de sua organização ser um locatário do Azure AD somente na nuvem ou estar configurada para sincronização com seu diretório local usando o Azure AD Connect.
@@ -45,7 +45,7 @@ Aqui estão as instruções que você precisa fornecer aos usuários finais para
 
 2. Selecione a guia **perfil** nesta página.
 
-3. Clique no bloco **Alterar senha** nessa página.
+3. Clique no bloco **Alterar senha** nesta página.
 
     ![Criar uma rede virtual para os Serviços de Domínio do AD do Azure.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
@@ -61,11 +61,11 @@ Depois que você alterar sua senha, a nova senha poderá ser usada nos serviços
 
 ## Conteúdo relacionado
 
-- [Habilitar a sincronização de senhas para os Serviços de Domínio do AAD para um locatário do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Como atualizar sua própria senha](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Introdução ao Gerenciamento de Senhas no Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+
+- [Habilitar a sincronização de senhas para os Serviços de Domínio do AAD para um locatário do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -73,4 +73,4 @@ Depois que você alterar sua senha, a nova senha poderá ser usada nos serviços
 
 - [Ingressar em uma máquina virtual do Red Hat Enterprise Linux para um domínio gerenciado dos Serviços de Domínio do AD do Azure](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Atalhos de teclado do Catálogo de Dados do Azure
@@ -22,7 +22,7 @@
 
 ### Atalhos de teclado gerais
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Guia para cada controle em uma página|Tab
 |Escolher uma opção|Enter ou Barra de Espaços
@@ -33,27 +33,27 @@
 
 ### Página de autenticação
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Entrar no serviço|ALT+S
 
 ### Página de seleção de fonte de dados
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Ir para a próxima página (se estiver habilitado)|ALT+N
 |Alterar o tipo selecionado quando o foco estiver em um bloco|SETA PARA A ESQUERDA, PARA CIMA, PARA A DIREITA ou PARA BAIXO
 
 ### Página de conexão de fonte de dados
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Ir para a página anterior (se estiver habilitado)|ALT+P
 |Escolher o botão Conectar.| ALT+C
 
 ### Página de contexto da conexão
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Botão Registrar (se estiver habilitado)| ALT+R
 |Incluir a caixa de seleção Visualização (se estiver disponível)|ALT+P
@@ -64,7 +64,7 @@
 
 ### Página progresso da publicação
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Botão Cancelar|ALT+C
 |Botão Registrar Mais Objetos| ALT+R
@@ -72,14 +72,14 @@
 
 ### Página progresso da publicação
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Botão Salvar (se estiver habilitado)| ALT+S
 |Botão Cancelar|ALT+C
 
 ## Atalhos de teclado para o portal do Catálogo de Dados
 
-|Para fazer isto|Pressione
+|Operação|Pressione
 |---|---
 |Navegar| TAB e SHIFT+ TAB
 |Clicar em um item| ESPAÇO ou ENTER
@@ -92,4 +92,4 @@
 |Ativar/desativar o menu **Abrir em** | ALT+O
 |Explorar o contêiner, se o ativo for um contêiner | ALT + L
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

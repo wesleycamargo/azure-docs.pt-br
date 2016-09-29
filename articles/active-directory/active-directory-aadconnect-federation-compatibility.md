@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="09/12/2016"
 	ms.author="billmath"/>
 
 # Lista de compatibilidade de federação do AD do Azure
@@ -41,7 +41,7 @@ Para obter informações sobre como você pode obter o provedor de identidade do
 - [Centrify](#centrify)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720)
-- [CA SiteMinder 12.52](#ca-siteminder-1252)
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
 - [RadiantOne CFS 3.0](#radiantone-cfs-30)
 - [Okta](#okta)
 - [OneLogin](#onelogin)
@@ -173,15 +173,15 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 Para saber mais sobre o SecureAuth, confira [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
-## CA SiteMinder 12.52 
+## Versão cumulativa 4 do CA SiteMinder 12.52 SP1
 O CA SiteMinder Federation 12.52 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
 
 A seguir, a matriz de suporte de cenário para esta experiência de logon único:
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
 | Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
 
 Para saber mais sobre o CA SiteMinder, confira [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html)
@@ -339,4 +339,4 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 Para saber mais, confira o artigo sobre o [logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

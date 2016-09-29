@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -124,4 +124,4 @@ Siga os links abaixo para ler mais sobre como usar o Servidor R com clusters HDI
 
 - [Opções de Armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

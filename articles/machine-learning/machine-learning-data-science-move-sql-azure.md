@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -60,7 +60,7 @@ As etapas para o procedimento usando a consulta SQL de inserção em massa são 
 
 Se a fonte de dados é armazenada em um SQL Server local, existem várias possibilidades para mover os dados para um banco de dados do SQL Azure:
 
-1. [Exportar para arquivo simples](#export-flat-file) 
+1. [Exportar para arquivo simples](#export-flat-file)
 2. [Assistente de Migração de Banco de Dados SQL](#insert-tables-bcp)
 3. [Backup e restauração de banco de dados](#db-migration)
 4. [Azure Data Factory](#adf)
@@ -81,8 +81,8 @@ As etapas para usar o backup e restauração de banco de dados são semelhantes 
 
 ###<a name="adf"></a>Azure Data Factory
 
-O procedimento para mover dados para um banco de dados SQL do Azure com o Azure Data Factory (ADF) é fornecido no tópico [Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados SQL do Azure por meio do armazenamento de blobs do Azure usando o ADF.
+O procedimento para mover dados para um banco de dados SQL do Azure com o Azure Data Factory (ADF) é fornecido no tópico [Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados SQL do Azure por meio do Armazenamento de Blobs do Azure usando o ADF.
 
 Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

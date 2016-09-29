@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -23,7 +23,7 @@ Este documento aborda a exploração de dados e a geração de recursos por meio
 ## Carregar os dados em um quadro de dados Pandas
 Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
+1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos:
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -54,7 +54,7 @@ Agora você está pronto para explorar os dados e gerar recursos neste conjunto 
 
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
-1. Verificar o número de linhas e colunas 
+1. Verificar o número de linhas e colunas
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
@@ -191,4 +191,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

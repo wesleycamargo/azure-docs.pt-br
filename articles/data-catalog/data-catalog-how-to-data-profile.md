@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Fontes de dados de perfil de dados
@@ -22,11 +22,11 @@
 
 O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no **Catálogo de Dados do Azure**, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí.
 
-O **Catálogo de Dados do Azure** examina os dados de fontes de dados com suporte no catálogo e coleta estatísticas e informações sobre esses dados. Isso é chamado de **Criação de Perfil de Dados**. É fácil incluir um perfil de seus ativos de dados. Ao registrar um ativo de dados, escolha **Incluir Perfil de Dados** na ferramenta de registro de fonte de dados.
+O recurso **Criação de Perfil de Dados** do **Catálogo de Dados do Azure** examina os dados de fontes de dados com suporte no catálogo e coleta estatísticas e informações sobre esses dados. É fácil incluir um perfil de seus ativos de dados. Ao registrar um ativo de dados, escolha **Incluir Perfil de Dados** na ferramenta de registro de fonte de dados.
 
 ## O que é a criação de perfil de dados
 
-A criação de perfil de dados examina os dados na fonte de dados que está sendo registrada e coleta estatísticas e informações sobre esses dados. Durante a descoberta de fonte de dados, as estatísticas podem ajudar os usuários a determinar a adequação dos dados para resolver seu problema de negócios.
+A criação de perfil de dados examina os dados na fonte de dados que está sendo registrada e coleta estatísticas e informações sobre esses dados. Durante a descoberta de fonte de dados, as estatísticas podem ajudar você a determinar a adequação dos dados para resolver seu problema de negócios.
 
 <!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
@@ -58,9 +58,9 @@ Para saber mais sobre como registrar fontes de dados, confira [Como registrar fo
 
 
 ## Filtragem de ativos de dados que incluem perfis de dados
-Para descobrir ativos de dados que incluem um perfil de dados, você pode incluir **has:tableDataProfiles** ou **has:columnsDataProfiles** como um dos seus termos de pesquisa.
+Para descobrir ativos de dados que incluem um perfil de dados, você pode incluir `has:tableDataProfiles`ou `has:columnsDataProfiles`como um dos seus termos de pesquisa.
 
-> [AZURE.NOTE] A seleção de **Incluir Perfil de Dados** na ferramenta de registro de origem de dados incluirá informações de perfil de nível de tabela e coluna, mas a API do Catálogo de Dados permite que ativos de dados sejam registrados com um único conjunto de informações de perfil incluídas.
+> [AZURE.NOTE] A seleção de **Incluir Dados de Perfil** na ferramenta de registro de fonte de dados inclui informações de perfil de nível de coluna e da tabela. No entanto, a API de Catálogo de Dados permite que os ativos de dados sejam registrados com um único conjunto de informações de perfil incluído.
 
 ## Exibição de informações de perfil de dados
 
@@ -84,11 +84,11 @@ Um perfil de dados no **Catálogo de Dados do Azure** mostra informações de pe
 - Desvio mínimo, máximo, médio e padrão para valores de colunas
 
 ## Resumo
-A criação de perfil de dados fornece estatísticas e informações sobre ativos de dados registrados para ajudar os usuários a determinar a adequação dos dados para solucionar problemas de negócios. Além de anotar e documentar fontes de dados, os perfis de dados podem dar aos usuários uma compreensão mais profunda dos dados.
+A criação de perfil de dados fornece estatísticas e informações sobre ativos de dados registrados para ajudar você a determinar a adequação dos dados para solucionar problemas de negócios. Além de anotar e documentar fontes de dados, os perfis de dados podem dar aos usuários uma compreensão mais profunda dos dados.
 
 
 ## Consulte também
 -	[Como registrar fontes de dados](data-catalog-how-to-register.md)
 -	[Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

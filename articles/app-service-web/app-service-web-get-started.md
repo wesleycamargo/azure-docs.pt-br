@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Implantar seu primeiro aplicativo Web no Azure em cinco minutos | Microsoft Azure" 
-	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente." 
+<properties
+	pageTitle="Implante seu primeiro aplicativo Web no Azure em cinco minutos | Microsoft Azure"
+	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="09/09/2016"
 	ms.author="cephalin"
 />
-	
-# Implantar seu primeiro aplicativo Web no Azure em cinco minutos
+
+# Implante seu primeiro aplicativo Web no Azure em cinco minutos
 
 Esse tutorial o ajuda a implantar seu primeiro aplicativo Web para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -31,7 +31,7 @@ Você irá:
 
 ## Pré-requisitos
 
-- [instalar o Git](http://www.git-scm.com/downloads). Verifique se a instalação foi bem-sucedida executando `git --version` de um novo prompt de comando do Windows, de uma janela do PowerShell, do shell do Linux ou de um terminal OS X.
+- [Instalar o Git](http://www.git-scm.com/downloads). Verifique se a instalação foi bem-sucedida executando `git --version` de um novo prompt de comando do Windows, de uma janela do PowerShell, do shell do Linux ou de um terminal OS X.
 - Obtenha uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
@@ -43,7 +43,7 @@ Você irá:
 
 2. No menu à esquerda, clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
 
-    ![comece a criar seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![comece a criar seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/create-web-app-portal.png)
 
 3. Na folha de criação do aplicativo, use as seguintes configurações para o novo aplicativo:
 
@@ -53,19 +53,19 @@ Você irá:
 
     Quando terminar, a folha de criação do aplicativo deve ter esta aparência:
 
-    ![configure seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![configure seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/create-web-app-settings.png)
 
 3. Clique em **Criar** na parte inferior. Você pode clicar no ícone **Notificação** na parte superior para ver o progresso.
 
-    ![notificação de criação de aplicativo para o seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/create-web-app-started.png)
+    ![notificação de criação de aplicativo para o seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/create-web-app-started.png)
 
 4. Quando a implantação for concluída, você verá esta mensagem de notificação. Clique na mensagem para abrir a folha da implantação.
 
-    ![mensagem de implantação concluída para o seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![mensagem de implantação concluída para o seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/create-web-app-finished.png)
 
 5. Na folha **Implantação com êxito**, clique no link **Recurso** para abrir a folha do novo aplicativo Web.
 
-    ![ligação de recurso para seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![ligação de recurso para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/create-web-app-resource.png)
 
 ## Implantar código no aplicativo Web
 
@@ -73,7 +73,7 @@ Agora, vamos implantar algum código no Azure usando o Git.
 
 5. Na folha do aplicativo Web, role para baixo até as **Opções de implantação** ou procure-as e clique nelas.
 
-    ![opções de implantação para seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![opções de implantação para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Clique em **Escolher Fonte** > **Repositório Git local** > **OK**.
 
@@ -83,7 +83,7 @@ Agora, vamos implantar algum código no Azure usando o Git.
 
 7. Na folha do aplicativo Web, role para baixo até as **Propriedades** ou procure-as e clique nelas. Ao lado da **URL do Git**, clique no botão **Copiar**.
 
-    ![painel de propriedades para seu primeiro aplicativo web no Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![folha de propriedades para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
     Você está pronto para implantar o código com o Git.
 
@@ -144,4 +144,4 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 - Experimente [outras maneiras de implantar seu código no Azure](../app-service-web/web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
 - Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0920_2016-->

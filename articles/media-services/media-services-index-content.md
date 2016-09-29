@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/12/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -46,7 +46,7 @@ Você pode especificar mais detalhes para as tarefas de indexação usando uma c
 
 Você também pode processar vários arquivos de mídia ao mesmo tempo usando um arquivo de manifesto.
 
-Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](#).
+Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## Indexe um ativo
 
@@ -162,7 +162,7 @@ Se nem todos os arquivos de mídia de entrada são indexados com êxito, o traba
 
 O método a seguir carrega vários arquivos de mídia como um ativo e cria um trabalho para indexar todos esses arquivos em um lote.
 
-Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Um arquivo de manifesto com a extensão .lst é criado e carregado para o ativo. O arquivo de manifesto contém a lista de todos os arquivos de ativo. Para saber mais, consulte [Predefinição de tarefa para o Indexador de Mídia do Azure](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -294,4 +294,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 
 [Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

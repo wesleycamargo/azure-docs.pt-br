@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -36,7 +36,7 @@ Na etapa anterior neste passo a passo, implantamos um serviço Web que usa o nos
 O serviço Web é um serviço Web do Azure que pode receber e retornar dados usando as APIs REST de uma das duas maneiras:
 
 -	**Solicitação/Resposta** – O usuário envia uma ou mais linhas de dados de crédito para o serviço usando um protocolo HTTP, e o serviço responde com um ou mais conjunto de resultados.
--	**Execução em lote** - o usuário armazena uma ou mais linhas de dados de crédito em um blob do Azure e envia o local do blob ao serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e retorna a URL desse contêiner.  
+-	**Execução em lote** - o usuário armazena uma ou mais linhas de dados de crédito em um blob do Azure e envia o local do blob ao serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e retorna a URL desse contêiner.
 
 A maneira mais rápida e fácil de acessar o serviço Web é por meio dos modelos de aplicativos Web disponíveis no [Marketplace de Aplicativos Web do Azure](https://azure.microsoft.com/marketplace/web-applications/all/). Esses modelos de aplicativo Web podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e o que ele retornará. Basta fornecer acesso aos dados e ao serviço Web, para que o modelo faça o resto.
 
@@ -44,4 +44,4 @@ Para obter mais informações sobre como usar modelos de aplicativos da Web, con
 
 Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando código inicial fornecido nas linguagens de programação R, C# e Python. Você pode ver todos os detalhes em [Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi publicado por meio de um experimento de Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

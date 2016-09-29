@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="04/29/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Adicionar um disco a uma VM do Linux
@@ -277,4 +277,4 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 - Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](virtual-machines-linux-optimization.md).
 - Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](virtual-machines-linux-configure-raid.md) para obter desempenho adicional.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

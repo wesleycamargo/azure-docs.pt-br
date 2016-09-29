@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -25,7 +25,7 @@ Este passo a passo usa o HDInsight Spark para executar a exploração de dados e
 - A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida.
 - A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta.
 
-As etapas de modelagem também contêm código que mostra como treinar, avaliar e salvar cada tipo de modelo. O tópico aborda alguns dos mesmos conteúdos que o tópico [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Modelagem e exploração de dados com Spark), mas é considerado “avançado” porque ele também usa a validação cruzada em conjunto com a limpeza do hiperparâmetro para treinar de forma ideal os modelos de regressão e classificação precisos.
+As etapas de modelagem também contêm código que mostra como treinar, avaliar e salvar cada tipo de modelo. O tópico aborda alguns dos mesmos conteúdos que o tópico [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Modelagem e exploração de dados com Spark), mas é considerado "avançado" porque ele também usa a validação cruzada em conjunto com a limpeza do hiperparâmetro para treinar de forma ideal os modelos de regressão e classificação precisos.
 
 **CV (Validação cruzada)** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido será generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum usada aqui é dividir um conjunto de dados em partições K e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições.
 
@@ -1496,4 +1496,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 **Consumo de modelos:** para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

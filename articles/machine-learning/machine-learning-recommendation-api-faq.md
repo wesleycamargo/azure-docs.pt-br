@@ -3,8 +3,8 @@
 	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 #Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
@@ -21,9 +21,7 @@
 
 **O que são as RECOMENDAÇÕES?**
 
-> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
-
-
+>[AZURE.NOTE] Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
 
 Para organizações e empresas que utilizam recomendações para venda cruzada e venda de produtos e serviços aos clientes, as RECOMENDAÇÕES no Aprendizado de Máquina do Azure fornecem um mecanismo de recomendações de autoatendimento. É uma implementação de filtragem colaborativa que usa a fatoração de matriz como seu algoritmo central. Os desenvolvedores de aplicativos podem acessar RECOMENDAÇÕES usando APIs REST.
 
@@ -139,4 +137,4 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

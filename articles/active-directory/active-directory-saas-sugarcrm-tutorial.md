@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o SugarCRM
@@ -19,7 +19,7 @@
 O objetivo deste tutorial é mostrar a integração do Azure com o SugarCRM. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
--   Uma assinatura do SugarCRM com logon único habilitado
+-   Uma assinatura do Sugar CRM habilitada para logon único
   
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao SugarCRM poderão fazer logon único no aplicativo em seu site de empresa do SugarCRM (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
@@ -108,7 +108,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  No Portal clássico do Azure, na página do diálogo **Configurar logon único no Sugar CRM**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de SLO**.
     3.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509**.
     5.  Clique em **Salvar**.
@@ -156,7 +156,7 @@ Para permitir que os usuários do AD do Azure façam logon no SugarCRM, eles dev
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao SugarCRM, execute as seguintes etapas:
 
@@ -172,4 +172,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

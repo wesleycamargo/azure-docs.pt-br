@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introdução à Microsoft Azure Multi-Factor Authentication na nuvem" 
-	description="Esta é a página da Microsoft Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA na nuvem." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Introdução à Microsoft Azure Multi-Factor Authentication na nuvem"
+	description="Esta é a página da Microsoft Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA na nuvem."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
 No seguinte artigo, você aprenderá como começar a usar o Azure Multi-Factor Authentication na nuvem.
@@ -33,7 +33,7 @@ Os seguintes pré-requisitos são necessários antes de habilitar a Autenticaç�
 2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md)
 
 > [AZURE.NOTE]  As licenças estão disponíveis para os usuários que têm o Azure MFA, Azure AD Premium ou EMS (Enterprise Mobility Suite). O MFA está incluído no Azure AD Premium e no EMS. Se você possui licenças suficientes, não precisa criar um provedor de autenticação.
-		
+
 
 ## Ativar a autenticação multifator para os usuários
 Para ativar a autenticação multifator para um usuário, simplesmente altere o estado do usuário de desabilitado para habilitado. Para obter mais informações sobre os estados do usuário, confira [Estados do Usuário no Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -65,7 +65,7 @@ Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [Pow
 - Desabilitado
 
 > [AZURE.IMPORTANT]  Saiba que se você for diretamente do estado Desabilitar para o estado Imposto, os clientes de autenticação não modernos irão parar de funcionar porque o usuário não passou pelo registro MFA e obteve uma [senha do aplicativo](multi-factor-authentication-whats-next.md#app-passwords). Se você tiver clientes de autenticação não modernos e exigir senhas do aplicativo, então, será recomendável que vá de um estado Desabilitado para Habilitado. Isso permitirá que os usuários se registrem e obtenham suas senhas do aplicativo.
-		
+
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
@@ -73,7 +73,7 @@ Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [Pow
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 Usar o PowerShell seria uma opção para habilitar os usuários em massa. Atualmente, não há nenhum recurso de habilitação em massa no portal do Azure e você precisa selecionar cada usuário individualmente. Se você tiver muitos usuários, poderá ser uma grande tarefa. Criando um script do PowerShell usando o método acima, você poderá percorrer uma lista de usuários e habilitá-los. Aqui está um exemplo:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -90,4 +90,4 @@ Para obter mais informações sobre os estados do usuário, confira [Estados do 
 ## Próximas etapas
 Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Consulte [Configurando a Autenticação Multifator do Azure.]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

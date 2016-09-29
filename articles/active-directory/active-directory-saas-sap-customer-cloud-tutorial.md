@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao SAP Cloud for Customer, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do SAP Business ByDesign
+- Uma assinatura habilitada para logon único do SAP Cloud for Customer
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -153,7 +153,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 8. Para que o SSO seja configurado, execute as seguintes etapas:
@@ -229,15 +229,15 @@ Nesta seção, você criará uma usuária de teste no portal clássico do Azure 
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
+6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -247,13 +247,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico do Azure 
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
 
-8. Na página do diálogo **Obter senha temporária**, realize as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
 
@@ -289,7 +289,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 	![Atribuir usuário][203]
 
-4. Na lista Usuários, selecione **Brenda Fernandes**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
 
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -327,4 +327,4 @@ Ao clicar no bloco do SAP Cloud for Customer no Painel de Acesso, você deve ser
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

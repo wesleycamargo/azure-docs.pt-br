@@ -23,7 +23,7 @@
 
 Monitorando seu aplicativo com o [Visual Studio Application Insights][start], você pode correlacionar solicitações que falharam com exceções e outros eventos no cliente e no servidor, para que você possa diagnosticar rapidamente as causas.
 
-Para monitorar um aplicativo ASP.NET, você precisa [Adicionar Application Insights SDK][greenbrown] ao seu aplicativo, ou [instalar o Monitor de Status no servidor IIS][redfield], ou, se seu aplicativo for um aplicativo da Web do Azure, adicione o [Application Insights Extension][azure].
+Para monitorar um aplicativo ASP.NET, você precisa [Adicionar Application Insights SDK][greenbrown] ao seu aplicativo, ou [instalar o Monitor de Status no servidor IIS][redfield], ou, se seu aplicativo for um aplicativo da Web do Azure, adicione o [Application Insights Extension](app-insights-azure-web-apps.md).
 
 ## Diagnosticar exceções usando o Visual Studio
 
@@ -76,7 +76,7 @@ A partir daí, você pode examinar o rastreamento de pilha e as propriedades det
 
 Uma *dependência* é um serviço que o aplicativo chama, normalmente por meio de uma conexão de banco de dados ou pela API REST. [O Application Insights Status Monitor][redfield] monitora automaticamente uma variedade de tipos de chamada de dependência, medindo a duração da chamada e o êxito ou a falha.
 
-Para obter dados de dependência, você precisa [instalar o Monitor de Status][redfield] no servidor IIS, ou se seu aplicativo for um aplicativo da Web do Azure, use o [Application Insights Extension][azure].
+Para obter dados de dependência, você precisa [instalar o Monitor de Status][redfield] no servidor IIS, ou se seu aplicativo for um aplicativo da Web do Azure, use o [Application Insights Extension](app-insights-azure-web-apps.md).
 
 As falhas de chamadas para as dependências são listadas na folha de Falhas, pode também encontrá-los em itens relacionados nos detalhes da solicitação e nos detalhes da exceção.
 
@@ -109,7 +109,7 @@ Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em
 
 * [Instale o SDK][greenbrown] no projeto do seu aplicativo.
 * Insira o código no seu aplicativo para chamar [Microsoft.ApplicationInsights.TrackTrace()][api]. Envie os dados de POST no parâmetro de mensagem. Há um limite para o tamanho permitido, portanto você deve tentar enviar somente os dados essenciais.
-* Quando você investiga uma solicitação com falha, localize os rastreamentos associados.  
+* Quando você investiga uma solicitação com falha, localize os rastreamentos associados.
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -327,10 +327,10 @@ Você pode adicionar esse atributo substituído para controladores específicos 
 
 Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo:
 
-* Exceções geradas por construtores de controlador. 
-* Exceções geradas por manipuladores de mensagens. 
-* Exceções geradas durante o roteamento. 
-* Exceções geradas durante a serialização de conteúdo da resposta. 
+* Exceções geradas por construtores de controlador.
+* Exceções geradas por manipuladores de mensagens.
+* Exceções geradas durante o roteamento.
+* Exceções geradas durante a serialização de conteúdo da resposta.
 
 ## Web API 2.x
 
@@ -386,7 +386,7 @@ Adicione isso aos serviços no WebApiConfig:
 
 Como alternativas, você pode:
 
-2. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo) 
+2. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo)
 3. Filtros de Exceção (como descrito na seção controladores acima da API Web 1.x) - não são chamados em todos os casos.
 
 
@@ -467,7 +467,6 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
@@ -477,4 +476,4 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

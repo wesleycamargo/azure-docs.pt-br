@@ -4,8 +4,8 @@ Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua 
 
 ![Tráfego e NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-Observação: para simplificar, suponha que todas as VNets aqui estão na mesma assinatura. Mas isso também funciona para o cenário entre assinaturas.
+> [AZURE.NOTE] Para simplificar, suponha que todas as VNets aqui estão na mesma assinatura. Mas isso também funciona para o cenário entre assinaturas.
 
 A principal propriedade para habilitar o Toteamento de tráfego é o parâmetro "Permitir Tráfego Encaminhado". Isso permite que você aceite e envie tráfego de/para o NVA na VNet emparelhada.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

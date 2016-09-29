@@ -1,6 +1,6 @@
 <properties
    pageTitle="Suporte do Gerenciador de Recursos do Azure para visualização do balanceador de carga | Microsoft Azure "
-   description="Usando PowerShell para o balanceador de carga com o ARM (Gerenciador de Recursos do Azure) na visualização. Usando modelos de balanceador de carga"
+   description="Usando o powershell para o Load Balancer com o Azure Resource Manager na visualização. Usando modelos de balanceador de carga"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -71,4 +71,4 @@ Também é possível [começar a criar um balanceador de carga para a Internet](
 
 Saiba como gerenciar [tempo limite de TCP ocioso para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Isso será importante quando seu aplicativo precisar manter conexões ativas para servidores atrás de um balanceador de carga.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

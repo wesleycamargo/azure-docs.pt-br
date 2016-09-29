@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -31,7 +31,7 @@ Neste tutorial, você desenvolverá um aplicativo de console Java que contém ex
 * Java Development Kit (JDK) 8 (usando o Java versão 1.8).
 * IntelliJ ou outro ambiente de desenvolvimento Java adequado. Isto é opcional, mas recomendado. As instruções abaixo usam o IntelliJ.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilitar sua assinatura do Azure** para a visualização pública da Análise Data Lake. Veja [instruções](data-lake-analytics-get-started-portal.md#signup).
+* **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md#signup).
 * Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, A **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois do aplicativo ser criado e a chave ser gerada.
 
 ## Como faço para me autenticar usando o Azure Active Directory?
@@ -347,7 +347,7 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 6. Siga os prompts para executar e concluir o aplicativo.
 
 
-## Consulte também
+## Confira também
 
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 - Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
@@ -356,4 +356,4 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

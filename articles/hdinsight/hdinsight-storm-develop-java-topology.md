@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -75,7 +75,7 @@ Já que estamos criando nosso aplicativo, exclua os arquivos de aplicativo e de 
 
 ##Adicionar dependências
 
-Como essa é uma topologia Storm, você deverá adicionar uma dependência a componentes do Storm. Abra o arquivo **pom.xml** e adicione o código a seguir na seção **&lt;dependências >**:
+Como essa é uma topologia Storm, você deverá adicionar uma dependência a componentes do Storm. Abra o arquivo **pom.xml** e adicione o código a seguir na seção **& lt;dependências >**:
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
@@ -526,4 +526,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

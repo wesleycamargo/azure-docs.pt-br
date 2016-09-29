@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
 
 # Criar seu primeiro aplicativo do Azure Service Fabric no Visual Studio
@@ -110,6 +110,14 @@ Agora que você tem um aplicativo, tente executá-lo.
 
     ![Visualizador de eventos de diagnóstico após o failover][diagnostic-events-viewer-detail-post-failover]
 
+## Alternar o modo de cluster
+
+Por padrão, o cluster de desenvolvimento local é configurado para ser executado como um cluster de cinco nós, o que é útil para depuração de serviços implantados em vários nós. A implantação de um aplicativo no cluster de desenvolvimento de cinco nós pode demorar algum tempo, no entanto. Se você quiser iterar as alterações de código rapidamente, sem executar seu aplicativo em cinco nós, você poderá alternar o cluster de desenvolvimento para o modo de Um nó. Para executar o código em um cluster com um nó, clique com botão direito no Gerenciador de Cluster Local na bandeja do sistema e selecione **Alternar Modo de Cluster -> 1 nó**.
+
+![Alternar o modo de cluster][switch-cluster-mode]
+
+Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinido e todos os aplicativos provisionados, ou em execução, no cluster são removidos.
+
 ## Limpando
 
   Antes da conclusão, é importante lembrar que o cluster local é muito real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
@@ -138,5 +146,6 @@ Agora que você tem um aplicativo, tente executá-lo.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

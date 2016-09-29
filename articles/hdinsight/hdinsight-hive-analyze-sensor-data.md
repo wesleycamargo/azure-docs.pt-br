@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -54,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

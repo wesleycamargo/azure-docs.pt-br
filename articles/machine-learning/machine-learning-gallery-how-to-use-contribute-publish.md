@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -200,4 +200,4 @@ A renderização de descrição avançada não está disponível para todos os u
 
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

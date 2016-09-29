@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand
@@ -70,21 +70,21 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **XMatters OnDemand**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativos do **XMatters OnDemand**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no XMatters OnDemand**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Configurar a URL do aplicativo")
 
-	a. Na caixa de texto **URL de Logon do XMatters OnDemand**, digite sua URL usando o seguinte padrão: `https://<tenant-name>.XMattersOnDemandapp.com`
+	a. Na caixa de texto **URL de Entrada do XMatters OnDemand**, digite a URL usando o seguinte padrão: `https://<tenant-name>.XMattersOnDemandapp.com`
 
-	b. Clique em **Próximo**.
+	b. Clique em **Avançar**.
 
 
 4.  Na página **Configurar logon único no XMatters OnDemand**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\XMatters OnDemand.cer**.
@@ -104,9 +104,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Configuração de SAML](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "Configuração de SAML")
 
     1.  Selecione **Habilitar SAML**.
-    2.  No portal clássico do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **ID do Provedor de Identidade** e, em seguida, cole-o na caixa de texto **ID do Provedor de Identidade**.
-    3.  No portal clássico do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único**.
-    4.  No portal clássico do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff Único**.
+    2.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor de **ID do Provedor de Identidade** e cole-o na caixa de texto **ID do Provedor de Identidade**.
+    3.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor de **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único**.
+    4.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor de **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff Único**.
     5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**. ![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
 8.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
@@ -131,7 +131,7 @@ Para permitir que os usuários do AD do Azure façam logon no XMatters OnDemand,
 
 5.  Na seção **Adicionar um Usuário**, realize as seguintes etapas:
 
-    ![Adicionar um Usuário](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
+    ![Adicionar um usuário](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
 
     1.  Insira **UserID**, **Nome**, **Sobrenome**, **Site** de uma conta válida do AAD que você deseja provisionar.
     2.  Clique em **Salvar**.
@@ -140,7 +140,7 @@ Para permitir que os usuários do AD do Azure façam logon no XMatters OnDemand,
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao XMatters OnDemand, execute as seguintes etapas:
 
@@ -156,4 +156,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

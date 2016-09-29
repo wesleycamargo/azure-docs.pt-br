@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@ Você deve ter o seguinte:
 
 Antes de começarmos a criação do aplicativo, vamos entender a estrutura dos dados e o tipo de análise que vamos fazer nos dados.
 
-Neste artigo, nós usamos o arquivo de dados **HVAC.csv** de exemplo, que está disponível em todos os clusters de HDInsight por padrão em **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Baixe e abra o arquivo CSV para obter um instantâneo dos dados.
+Neste artigo, usamos o exemplo arquivo de dados de exemplo **HVAC.csv** que está disponível na conta de Armazenamento do Azure que você associou ao cluster HDInsight. Na conta de armazenamento, o arquivo está em **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Baixe e abra o arquivo CSV para obter um instantâneo dos dados.
 
 ![Instantâneo de dados de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Instantâneo dos dados de HVAC")
 
@@ -232,7 +232,7 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 * [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -262,4 +262,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

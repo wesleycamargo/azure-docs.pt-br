@@ -13,7 +13,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="07/26/2016"
-	ms.author="minet" />
+	ms.author="minet;robinsh" />
 
 # Introdução ao Armazenamento de Arquivos do Azure no Windows
 
@@ -189,7 +189,7 @@ A partir da versão 0.9.7 do Azure PowerShell, você pode copiar um arquivo em o
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montar o compartilhamento de arquivos 
+## Montar o compartilhamento de arquivos
 
 Com suporte para SMB 3.0, o armazenamento de arquivos agora dá suporte a criptografia e identificadores persistentes de clientes SMB 3.0. O suporte a criptografia significa que os clientes SMB 3.0 podem montar um compartilhamento de arquivos de qualquer lugar, inclusive de:
 
@@ -200,7 +200,7 @@ Com suporte para SMB 3.0, o armazenamento de arquivos agora dá suporte a cripto
 Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depende da versão SMB com suporte do sistema operacional. A tabela a seguir fornece um resumo de suporte para Windows Clients. Veja este blog para obter mais detalhes sobre [versões do SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows Client | Com suporte à versão do SMB |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -247,7 +247,7 @@ Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos n
 
 Você também pode montar o compartilhamento de arquivos por meio de uma função executada em um serviço de nuvem do Azure ao estabelecer comunicação remota à função.
 
-### Montar o compartilhamento de arquivos a partir de um cliente local que executa o Windows 
+### Montar o compartilhamento de arquivos a partir de um cliente local que executa o Windows
 
 Para montar o compartilhamento de arquivos de um cliente local, siga estas etapas:
 
@@ -589,13 +589,13 @@ Observe que, enquanto o armazenamento de Blobs, Tabelas e Filas usam o tipo `Ser
 	A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você monta o compartilhamento de arquivos por meio do protocolo SMB, não pode usar uma SAS para delegar acesso a seu conteúdo.
 
 2. **Os compartilhamentos de arquivo do Azure são visíveis publicamente na Internet ou somente podem ser acessados do Azure?**
- 
+
 	Desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, o Windows 8 ou o Windows Server 2012), o compartilhamento de arquivos está disponível por meio da Internet.
 
 3. **O tráfego de rede entre uma máquina virtual do Azure e uma contagem de compartilhamento de arquivo conta como largura de banda externa cobrada na assinatura?**
 
 	Se o compartilhamento de arquivos e a máquina virtual estiverem em regiões diferentes, o tráfego entre elas será cobrado como largura de banda externa.
- 
+
 4. **Se o tráfego de rede estiver entre uma máquina virtual e um compartilhamento de arquivos na mesma região, ele será gratuito?**
 
 	Sim. Será gratuito se o tráfego estiver na mesma região.
@@ -607,7 +607,7 @@ Observe que, enquanto o armazenamento de Blobs, Tabelas e Filas usam o tipo `Ser
 6. **Uma “testemunha de compartilhamento de arquivo” de um cluster de failover é um dos casos de uso para armazenamento de arquivo do Azure?**
 
 	Não há suporte para isso no momento.
- 
+
 7. **O armazenamento de arquivos é replicado somente via LRS ou GRS agora, certo?**
 
 	Planejamos dar suporte a RA-GRS, mas ainda não há nenhum cronograma para compartilhar.
@@ -667,4 +667,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

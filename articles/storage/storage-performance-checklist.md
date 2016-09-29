@@ -185,7 +185,7 @@ Este código aumenta o mínimo de threads do pool de threads:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Para saber mais, consulte [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
+Para saber mais, veja [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).
 
 ####<a name="subheading11"></a>Aproveitar a coleta de lixo do .NET 4.5
 Use a versão 4.5 ou posterior do .NET para que o aplicativo cliente aproveite as melhorias de desempenho na coleta de lixo do servidor.
@@ -245,7 +245,7 @@ A equipe de Armazenamento do Azure lançou a ferramenta de linha de comando, "Az
 Para grandes volumes de dados (superiores a 1 TB), o armazenamento do Azure oferece o serviço de Importação/Exportação, que permite o carregamento e o download do armazenamento do blob por meio de discos rígidos. Você pode colocar os dados em um disco rígido e enviá-lo à Microsoft para que possamos carregar esses dados ou enviar um disco rígido vazio para que baixemos os dados. Para saber mais, consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados ao armazenamento Blob.](storage-import-export-service.md) Essa ação pode ser muito mais eficiente do que o envio/carregamento desse volume de dados pela rede.
 
 ###<a name="subheading20"></a>Uso de metadados
-O serviço do blob oferece suporte às principais solicitações, o que pode incluir metadados sobre o blob. Por exemplo, se o aplicativo precisar remover os dados EXIF de uma fotografia, é possível recuperá-la e extrair esses dados. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo tiver carregado a foto: você pode então recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD, economizando o tempo de processamento e largura de banda significativa necessários para extrair os dados EXIF cada vez o blob for lido. Isso é útil quando você precisa apenas dos metadados, não do conteúdo completo do bob. Observe que é possível armazenar apenas 8 KB de metadados por blob (o serviço não aceita solicitações para armazenar volumes maiores). Se esse tamanho não for suficiente, talvez não seja possível usar essa abordagem.
+O serviço do blob oferece suporte às principais solicitações, o que pode incluir metadados sobre o blob. Por exemplo, se o aplicativo precisar remover os dados EXIF de uma fotografia, é possível recuperá-la e extrair esses dados. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo tiver carregado a foto: você pode então recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD, economizando o tempo de processamento e largura de banda significativa necessários para extrair os dados EXIF cada vez o blob for lido. Isso é útil quando você precisa apenas dos metadados, não do conteúdo completo do blob. Observe que é possível armazenar apenas 8 KB de metadados por blob (o serviço não aceita solicitações para armazenar volumes maiores). Se esse tamanho não for suficiente, talvez não seja possível usar essa abordagem.
 
 Para ver como obter os metadados de um blob usando .NET, consulte [Definir e recuperar as propriedades e os metadados](storage-properties-metadata.md).
 
@@ -404,4 +404,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 ##Conclusão
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

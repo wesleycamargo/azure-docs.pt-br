@@ -651,7 +651,8 @@ Cada máquina Virtual no Azure precisa ser conectado a uma Rede Virtual.
 
 Mais detalhes podem ser encontrados [neste artigo][resource-groups-networking] e [nesta página](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (MShermannd TODO Não conseguiu localizar um artigo que inclua o tópico OpenLDAP + ARM;) [comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (MShermannd TODO Não conseguiu localizar um artigo que inclua o tópico OpenLDAP + ARM;) 
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [AZURE.NOTE] Por padrão, quando uma VM é implantada, não é possível alterar a configuração de rede virtual. As configurações de TCP/IP devem ser deixadas para o servidor DHCP do Azure. O comportamento padrão é a atribuição de IP dinâmico.
 
@@ -685,7 +686,11 @@ A Figura acima mostra que duas assinaturas do Azure têm subintervalos de endere
 #### VPN ponto a site
 VPN ponto a site requer que cada computador cliente conecte-se com seu próprio VPN ao Azure. Para os cenários SAP que estamos vendo, a conectividade ponto a site não é prática. Portanto, não será feita nenhuma referência posterior à conectividade VPN ponto a site.
 
-[comment]: <> (MSSedusch - Mais informações podem ser encontradas aqui) [comment]: <> (MShermannd TODO O link não é mais válido; mas ARM, mesmo assim, não tem suporte - confira o próximo link abaixo) [comment]: <> (MSSedusch - <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) [comment]: <> (MShermannd TODO Ponto a site ainda não tem suporte com ARM) [comment]: <> (MSSedusch - <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
+[comment]: <> (MSSedusch - Mais informações podem ser encontradas aqui) 
+[comment]: <> (MShermannd TODO O link não é mais válido; mas ARM, mesmo assim, não tem suporte - confira o próximo link abaixo) 
+[comment]: <> (MSSedusch - <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) 
+[comment]: <> (MShermannd TODO Ponto a site ainda não tem suporte com ARM) 
+[comment]: <> (MSSedusch - <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### VPN de múltiplos sites
 Hoje em dia, o Azure também oferece a possibilidade de criar a conectividade VPN de múltiplos sites para uma assinatura do Azure. Antes, uma única assinatura era limitada a uma ligação VPN site a site. Essa limitação desapareceu com ligações VPN de múltiplos sites para uma única assinatura. Isso torna possível aproveitar mais de uma Região do Azure para uma assinatura específica por meio de configurações entre instalações.
@@ -763,7 +768,8 @@ O Portal do Azure é uma das três interfaces para gerenciar implantações de V
  
 ![Portal do Microsoft Azure - visão geral de máquina virtual][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) 
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Tarefas de administração e configuração para a instância de Máquina Virtual são possíveis de dentro do Portal do Azure.
 
@@ -774,7 +780,9 @@ O Portal do Azure oferece as funcionalidades básicas para implantar e configura
 * Carregar VHDs no Azure
 * Copiar VMs
 
-[comment]: <> (MShermannd TODO e quanto à automação de serviços para VMs SAP?) [comment]: <> (MSSedusch implantação de várias VMs enquanto possível) [comment]: <> (MSSedusch Além disso, qualquer tipo de automação relacionada à implantação não é possível com o portal do Azure. Tarefas como a implantação com script de várias VMs não é possível por meio do Portal do Azure.)
+[comment]: <> (MShermannd TODO e quanto à automação de serviços para VMs SAP?) 
+[comment]: <> (MSSedusch implantação de várias VMs enquanto possível) 
+[comment]: <> (MSSedusch Além disso, qualquer tipo de automação relacionada à implantação não é possível com o portal do Azure. Tarefas como a implantação com script de várias VMs não é possível por meio do Portal do Azure.)
 
 ### Gerenciamento via cmdlets do Microsoft Azure PowerShell
 O Windows PowerShell é uma estrutura poderosa e extensível que foi amplamente adotada por clientes implantando grandes quantidades de sistemas no Azure. Após a instalação dos cmdlets do PowerShell em um desktop, laptop ou estação de gerenciamento dedicada, os cmdlets do PowerShell podem ser executados remotamente.

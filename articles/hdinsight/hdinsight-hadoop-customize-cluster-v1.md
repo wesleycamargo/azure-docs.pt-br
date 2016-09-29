@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -65,7 +65,7 @@ Nome | Script
 
 **No Portal Clássico do Azure**
 
-1. Comece provisionando um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, como descrito em [Provisionando um cluster usando opções personalizadas](hdinsight-provision-clusters.md#portal). 
+1. Comece provisionando um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, como descrito em [Provisionando um cluster usando opções personalizadas](hdinsight-provision-clusters.md#portal).
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
 	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Usar Ação de Script para personalizar um cluster")
@@ -161,7 +161,7 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-write-script].
 
 
-## Consulte também
+## Confira também
 
 - [Provisionar clusters Hadoop no HDInsight usando opções personalizadas][hdinsight-provision-cluster] fornece instruções sobre como provisionar um cluster HDInsight usando outras opções personalizadas.
 - [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-write-script]
@@ -180,4 +180,4 @@ Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-wri
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Estágios durante o provisionamento de cluster"
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

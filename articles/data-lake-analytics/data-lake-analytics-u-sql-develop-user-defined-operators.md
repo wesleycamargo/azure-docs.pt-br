@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Azure Data Lake | Azure" 
-   description="Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos da Análise Data Lake." 
+   description="Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos da Análise Data Lake. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -23,12 +23,12 @@ Saiba como desenvolver operadores definidos pelo usuário para serem usados e re
 
 ##Pré-requisitos
 
-- Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado 
+- Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado
 - SDK do Microsoft Azure para .NET versão 2.5 ou posterior. Instale-o usando o Web Platform Installer.
 - Uma conta da Análise Data Lake. Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
 - Acompanhe o tutorial [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Conectar-se ao Azure, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure). 
-- Carregar os dados de origem, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files). 
+- Conectar-se ao Azure, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure).
+- Carregar os dados de origem, veja [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files).
 
 ## Definir e usar o operador definido pelo usuário no U-SQL
 
@@ -131,20 +131,20 @@ Saiba como desenvolver operadores definidos pelo usuário para serem usados e re
 
 6. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Criar Script**.
 6. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Script.usql** e clique em **Enviar Script**.
-7. Se você ainda não se conectou à sua assinatura do Azure, você será solicitado a inserir suas credenciais de conta do Azure.
+7. Se você ainda não tiver se conectado à sua assinatura do Azure, será solicitada a inserção de suas credenciais de conta do Azure.
 7. Clique em **Enviar**. Os resultados do envio e o link do trabalho estarão disponíveis na janela Resultados quando o envio for concluído.
 8. Clique no botão Atualizar para ver o status do trabalho mais recente e atualizar a tela.
 
 **Para ver a saída do trabalho**
 
-1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Análise Data Lake**, expanda sua conta da Análise Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse no Armazenamento Padrão e clique em **Gerenciador**. 
+1. No **Gerenciador de Servidores**, expanda **Azure**, expanda **Análise Data Lake**, expanda sua conta da Análise Data Lake, expanda **Contas de Armazenamento**, clique com o botão direito do mouse no Armazenamento Padrão e clique em **Gerenciador**.
 2. Expanda Exemplos, expanda Saídas e clique duas vezes em **Drivers.csv**.
 
 
-##Consulte também
+##Confira também
 
 - [Introdução à Análise Data Lake usando o PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introdução à Análise Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Usar as Ferramentas do Data Lake para Visual Studio para desenvolver aplicativos do U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Criar e modificar um circuito da Rota Expressa
 
@@ -32,15 +32,34 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 
 ## Antes de começar
 
-- Você precisa da última versão dos módulos do Azure PowerShell. Baixe os módulos mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
+### 1\. Examine os pré-requisitos e artigos de fluxo de trabalho
 
-- Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+
+
+### 2\. Instale a versão mais recente dos módulos do Azure PowerShell 
+
+Siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
+
+### 3\. Entre em sua conta do Azure e selecione uma assinatura
+
+1. Execute os seguintes cmdlets em um prompt elevado do Windows PowerShell:
+
+		Add-AzureAccount
+2. Na tela de entrada que aparece, entre em sua conta.
+
+3. Obtenha uma lista das suas assinaturas.
+
+		Get-AzureSubscription
+4. Selecione a assinatura que você quer usar.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Criar e provisionar um circuito da Rota Expressa
 
 ### 1\. Importar os módulos do PowerShell para Rota Expressa
 
- Para começar a usar os cmdlets da Rota Expressa, é necessário importar os módulos do Azure e da Rota Expressa para a sessão do PowerShell. Para fazer isso, execute os seguintes comandos:
+ Se ainda não tiver feito isso, importe os módulos do Azure e de ExpressRoute na sessão do PowerShell para começar a usar os cmdlets de ExpressRoute. Importe os módulos do local onde foram instalados para o computador local. Dependendo do método usado para instalar os módulos, o local pode ser diferente do exemplo a seguir. Modifique o exemplo, se for necessário.
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -313,4 +332,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-classic.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -23,7 +23,7 @@ Este tópico explica a finalidade da criação de recursos e fornece exemplos de
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos é uma parte do processo de TDSP descrito em [What is the Team Data Science Process? (O que é o Processo de Ciência de Dados de Equipe?)](data-science-process-overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do CAP.
 * **engenharia de recursos**: esse processo tenta criar outros recursos relevantes com base nos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
@@ -79,7 +79,7 @@ No Aprendizado de Máquina do Azure, há um módulo [Hash de Recursos](https://m
 
 * Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
 * Em segundo lugar, defina "Bitsize de hashing" como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra/expressão em todo o texto será colocada em hash, em 256 índices. O parâmetro "Bitsize de hashing" varia de 1 a 31. As palavras/expressões têm menos probabilidades de serem colocadas em hash no mesmo índice se a configuração for para um número maior.
-* Em terceiro lugar, defina o parâmetro “N-grams” como 2. Isso obtém a frequência de ocorrência de unigrams (um recurso para cada palavra) e bigrams (um recurso para cada par de palavras adjacentes) do texto de entrada. O parâmetro "N-grams" vai de 0 a 10, o que indica o número máximo de palavras sequenciais a serem incluídas em um recurso.  
+* Em terceiro lugar, defina o parâmetro “N-grams” como 2. Isso obtém a frequência de ocorrência de unigrams (um recurso para cada palavra) e bigrams (um recurso para cada par de palavras adjacentes) do texto de entrada. O parâmetro "N-grams" vai de 0 a 10, o que indica o número máximo de palavras sequenciais a serem incluídas em um recurso.
 
 ![Módulo "Hash de Recursos"](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
@@ -95,4 +95,4 @@ Recursos de engenharia e selecionados aumentam a eficiência do processo de trei
 Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

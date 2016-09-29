@@ -67,6 +67,9 @@ $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
+>[AZURE.NOTE] Se você quiser usar o certificado com um endereço IP em vez de um domínio, use o endereço IP no parâmetro - DnsName.
+
+
 Se você quiser usar este [certificado com o portal de gerenciamento](../azure-api-management-certs.md), exporte-o para um arquivo **.cer**:
 
 ```powershell
@@ -91,4 +94,4 @@ Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.
 
 >[AZURE.NOTE] O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

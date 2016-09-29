@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -22,17 +22,17 @@
 
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode:
 
-- carregar dados de um **arquivo local** antes do tempo do seu disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
-- acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data]. 
-- usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**. 
+- carregar dados de um **arquivo local** antes do tempo do seu disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.
+- acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data].
+- usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Estúdio de Aprendizado de Máquina.
+Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Machine Learning Studio.
 
 > [AZURE.NOTE] Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para saber mais, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
 
-Este tópico introdutório também mostra como obter dados prontos para uso no Estúdio de Aprendizado de Máquina e descreve quais formatos de dados e tipos de dados são compatíveis.
+Este tópico introdutório também mostra como obter dados prontos para uso no Machine Learning Studio e descreve quais formatos de dados e tipos de dados são compatíveis.
 
 > [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -89,4 +89,4 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

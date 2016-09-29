@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 # Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
@@ -62,11 +62,11 @@ Neste documento, conheça as noções básicas de gerenciamento e topologias Sto
 
 Você pode implantar programaticamente uma topologia para Storm no HDInsight por meio da comunicação com o serviço Nimbus hospedado no seu cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
 
-##Monitorar e gerenciar usando o comando storm
+## Monitorar e gerenciar usando o comando storm
 
 O `storm` utilitário permite que você trabalhe com as topologias de execução na linha de comando. A lista a seguir é de comandos usados normalmente. Use `storm -h` para uma lista completa de comandos.
 
-###Topologias de lista
+### Topologias de lista
 
 Use o comando a seguir para listar todas as topologias em execução:
 
@@ -78,7 +78,7 @@ Isso retornará informações similares às seguintes:
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###Desativar e reativar
+### Desativar e reativar
 
 A desativação de uma topologia pausa até que seja interrompido ou reativado. Use o seguinte para desativar e reativar:
 
@@ -86,13 +86,13 @@ A desativação de uma topologia pausa até que seja interrompido ou reativado. 
     
     storm Activate TOPOLOGYNAME
 
-###Eliminar uma topologia em execução
+### Eliminar uma topologia em execução
 
 Topologias Storm, uma vez iniciadas, continuará em execução até serem interrompidas. Para interrompê-la, use o comando a seguir:
 
     storm stop TOPOLOGYNAME
 
-###Rebalanceamento
+### Rebalanceamento
 
 Rebalancear uma topologia permite que o sistema revise o paralelismo da topologia. Por exemplo, se você redimensionou o cluster para adicionar mais anotações, o rebalanceamento permitirá que uma topologia em execução faça uso de novos nós.
 
@@ -100,7 +100,7 @@ Rebalancear uma topologia permite que o sistema revise o paralelismo da topologi
 
     storm rebalance TOPOLOGYNAME
 
-##Monitorar e gerenciar usando a IU do Storm
+## Monitorar e gerenciar usando a IU do Storm
 
 A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight. Para exibir a interface do usuário do Storm, use um navegador da Web para abrir __https://CLUSTERNAME.azurehdinsight.net/stormui__, em que __NOMEDOCLUSTER\_\_ é o nome do seu cluster.
 
@@ -111,7 +111,7 @@ A IU do Storm fornece uma interface Web para trabalhar com as topologias em func
 
 A página principal da interface do usuário do Storm fornece as seguintes informações:
 
-* **Resumo do cluster**: informações básicas sobre o cluster do Storm
+* **Resumo do cluster **: informações básicas sobre o cluster do Storm
 
 * **Resumo da topologia**: uma lista das topologias em execução. Use os links desta seção para exibir mais informações sobre topologias específicas.
 
@@ -135,7 +135,7 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
     Para obter mais informações, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de uma topologia Storm</a>
 
-* **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
+  * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 
 * **Estatísticas da topologia**: estatísticas sobre a topologia. Use os links na coluna **Janela** para definir o período de tempo para as entradas restantes na página.
 
@@ -197,4 +197,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -110,7 +110,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
     
     Abaixo da seção **Comando** em que você inseriu um script para **Executar comando em lote do Windows**, existe um link para as variáveis de ambiente reconhecidas pelo Jenkins. Clique nesse link para obter os nomes de variáveis de ambiente e as descrições. Observe que as variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD\_URL**, não são permitidas como um nome de contêiner ou um caminho virtual comum.
 
-8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode aprender mais sobre as Assinatura de Acesso Compartilhado em [Assinaturas de Acesso Compartilhado: entendendo o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode saber mais sobre assinaturas de acesso compartilhado em [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 9. [Opcional] Clique em **Limpar contêiner antes de carregar** se quiser que o contêiner seja limpo de conteúdo antes que os artefatos de compilação sejam carregados (deixe a opção desmarcada se não quiser limpar o conteúdo do contêiner).
 10. Em **Lista de artefatos a serem carregados**, insira **text/*.txt**.
 11. Em **Caminho virtual comum para artefatos carregados**, para as finalidades deste tutorial, insira **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -166,4 +166,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

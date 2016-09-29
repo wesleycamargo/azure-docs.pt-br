@@ -31,7 +31,7 @@ Agora que você adicionou uma ação para obter um cliente potencial, faça algo
 - Selecione o item de lista **Office 365 Outlook - Enviar um email**. Se você ainda não tiver criado uma *conexão* com sua conta do Office 365, será solicitado que você insira suas credenciais do Office 365 para criá-la agora. Depois de terminar, o controle **Enviar um email** é aberto.  
 ![Imagem de ação do Salesforce 7](./media/connectors-create-api-salesforce/action-7.png)  
 - Insira o endereço de email para o qual você gostaria de enviar o email no controle **Para**.
--  No controle **Assunto**, digite *Novo cliente potencial criado - * e selecione o token *Empresa*. Isso exibirá o campo *empresa* do novo cliente potencial criado no Salesforce.
+-  No controle **Assunto**, digite *Novo cliente potencial criado* e selecione o token *Empresa*. Isso exibirá o campo *empresa* do novo cliente potencial criado no Salesforce.
 -  No controle **corpo**, você pode selecionar qualquer um dos tokens do novo objeto de cliente potencial e também pode inserir qualquer texto que você desejar exibir no corpo do email. Aqui está um exemplo:  
 ![Imagem de ação do Salesforce 8](./media/connectors-create-api-salesforce/action-8.png)  
 - Salve seu fluxo de trabalho.
@@ -41,4 +41,4 @@ Agora que você adicionou uma ação para obter um cliente potencial, faça algo
 Agora você pode testar seu aplicativo lógico: no Salesforce, crie um novo cliente potencial que atenda à condição que você criou. Se você seguiu totalmente esse passo a passo, basta criar um cliente potencial com um endereço de email contendo *amazon.com*. Depois de alguns segundos, seu aplicativo lógico deve ser disparado e os resultados podem ser semelhantes a:  
 ![Imagem de ação do Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

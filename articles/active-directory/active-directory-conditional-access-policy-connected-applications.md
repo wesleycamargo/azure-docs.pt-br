@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -81,7 +81,7 @@ Você tem duas opções para o escopo:
 Ao selecionar **Exceto**, você pode excluir usuários dessa política enquanto acessam o aplicativo. Isso é útil quando você precisa permitir que usuários específicos acessem o aplicativo temporariamente. Selecione esta opção, por exemplo, se alguns dos seus usuários tiverem dispositivos que não estão prontos para o acesso condicional (ainda não registrados, fora de conformidade, etc.).
  
 
-## Seleção dos requisitos que os dispositivos devem cumprir 
+## Selecionando as condições que os dispositivos devem atender 
 
 Com as **Regras de Dispositivo**, defina os requisitos para que os dispositivos possam acessar o aplicativo.
 
@@ -173,4 +173,4 @@ Nos aplicativos do Office 365 Exchange Online, você tem uma seção adicional c
 
 - [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

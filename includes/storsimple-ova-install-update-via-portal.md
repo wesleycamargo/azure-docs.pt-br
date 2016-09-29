@@ -1,33 +1,35 @@
 <!--author=alkohli last changed: 09/02/16 -->
 
-#### To install updates via the Azure classic portal
+#### Para instalar atualizações por meio do portal clássico do Azure
 
-1. On the **Devices** page, select the device on which you want to install updates.
+1. Na página **Dispositivos** selecione o dispositivo no qual você deseja instalar as atualizações.
 
-2. Navigate to **Devices > Maintenance > Software Updates**.
+2. Navegue até **Dispositivos > Manutenção > Atualizações de Software**.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)
 
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
+3. Você vê uma mensagem se as atualizações de software estiverem disponíveis. Para verificar se há atualizações, também é possível clicar em **Verificar Atualizações** na parte inferior da página.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
 
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click the check icon to launch a job to download the available updates. 
+4. No final da página, clique em **Baixar atualizações**. Uma caixa de diálogo notifica o usuário que a atualização é com interrupção. Dado que a StorSimple Virtual Array é um dispositivo de nó único, o dispositivo é reiniciado após ser atualizado. Isso interrompe qualquer E/S em andamento. Clique no ícone de seleção para iniciar um trabalho para baixar as atualizações disponíveis.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
 
-5. You are notified when the updates are downloaded. 
+5. Você será notificado quando as atualizações forem baixadas.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
 
-6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog is presented to you again. Click the check icon to start a job to install the updates. 
+6. Na parte inferior da página, clique em **Instalar atualizações** para começar a atualização do dispositivo. A caixa de diálogo é exibida novamente. Clique no ícone de seleção para iniciar um trabalho para instalar as atualizações.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png)
 
-7. You are notified after the job is created. 
+7. Você será notificado depois que o trabalho for criado.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
 
-8. Click **View Job** link to go to the Jobs page and monitor the install status. You can click **Details** at any time to get detailed information about the update job. 
+8. Clique no link **Exibir trabalho** link para ir para a página Trabalhos e monitorar o status da instalação. Você pode clicar em **Detalhes** a qualquer momento para obter informações detalhadas sobre o trabalho de atualização.
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
+    ![atualizar dispositivo](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
+
+<!---HONumber=AcomDC_0914_2016-->

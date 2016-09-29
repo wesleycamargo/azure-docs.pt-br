@@ -49,17 +49,19 @@ Primeiro, crie rapidamente um aplicativo Sails.js padrão seguindo estas etapas:
 
 Em seguida, crie o recurso de aplicativo do Serviço de Aplicativo no Azure. Você implantará seu aplicativo Sails.js nele posteriormente.
 
-1. No mesmo terminal, efetue logon no Azure da seguinte forma:
+1. Faça logon no Azure da seguinte forma:
+1. No mesmo terminal, altere para o modo ASM e faça logon no Azure:
 
+        azure config mode asm
         azure login
 
-    Siga o prompt para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
+    Siga o aviso para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
 
 2. Verifique se você ainda está no diretório raiz do projeto Sails.js. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web é http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
-    Siga os prompts para selecionar uma região do Azure para a qual implantar. Se nunca tiver configurado credenciais de implantação do Git/FTP para sua assinatura do Azure, você também será solicitado a criá-las.
+    Siga os prompts para selecionar uma região do Azure para a qual implantar. Se você nunca configurou credenciais de implantação do Git/FTP para sua assinatura do Azure, também será solicitado que você as crie.
 
     Após o recurso de aplicativo do Serviço de Aplicativo ser criado:
 
@@ -82,7 +84,7 @@ Siga estas etapas:
         loggingEnabled: true
         logDirectory: iisnode
 
-    Agora o registro em log está habilitado para o iisnode. Para obter mais informações sobre como isso funciona, confira [Get stdout and stderr logs from iisnode](app-service-web-nodejs-get-started.md#iisnodelog) (Obter os logs de stdout e stderr do iisnode).
+    Agora o registro em log está habilitado para o iisnode. Para saber mais sobre como isso funciona, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Abra config/env/production.js para configurar seu ambiente de produção e definir `port` e `hookTimeout`:
 
@@ -97,9 +99,9 @@ Siga estas etapas:
             ...
         };
 
-    Você pode encontrar a documentação para essas configurações na [Sails.js Documentation](http://sailsjs.org/documentation/reference/configuration/sails-config) (Documentação do Sails.js).
+    Você pode encontrar a documentação para essas configurações na [Documentação do Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) é compatível com unidades de rede do Azure. Versões do Grunt inferiores a 1.0.0 usam um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (inferior a 5.0.14), que não oferece suporte a unidades de rede.
+    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) seja compatível com unidades de rede do Azure. Versões do Grunt inferiores a 1.0.0 usam um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (inferior a 5.0.14), que não oferece suporte a unidades de rede.
 
 3. Abra o package.json e altere a versão do `grunt` para `1.0.0` e remova todos os pacotes do `grunt-*`. Sua propriedade `dependencies` deve ter esta aparência:
 
@@ -134,7 +136,7 @@ Siga estas etapas:
 
 ## Solucionar problemas de implantação
 
-Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, encontre os logs de stderr para ajudar na solução de problemas. Para obter mais informações, consulte [Get stdout and stderr logs from iisnode](app-service-web-nodejs-sails.md#iisnodelog) (Obter os logs de stdout e stderr do iisnode). Se ele foi iniciado com êxito, o log de stdout deve mostrar a mensagem familiar:
+Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, encontre os logs de stderr para ajudar na solução de problemas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-sails.md#iisnodelog). Se ele foi iniciado com êxito, o log de stdout deve mostrar a mensagem familiar:
 
                 .-..-.
 
@@ -177,7 +179,7 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
             }
         },
 
-4. Para cada variável de ambiente (`process.env.*`), você precisa defini-lo no Serviço de Aplicativo. Para fazer isso, execute os comandos a seguir no seu terminal:
+4. Para cada variável de ambiente (`process.env.*`), você precisa defini-la no Serviço de Aplicativo. Para fazer isso, execute os comandos a seguir no seu terminal:
 
         azure site appsetting add dbuser="<database server administrator>"
         azure site appsetting add dbpassword="<database server password>"
@@ -213,7 +215,7 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
             migrate: 'alter'
         },
 
-    O `migrate: 'alter'` permite que você use os recursos de migração do banco de dados para criar e atualizar facilmente suas tabelas de banco de dados no Banco de Dados SQL do Azure. No entanto, o `migrate: 'safe'` é usado para seu ambiente (produção) do Azure, pois Sails.js não permite o uso de `migrate: 'alter'` em um ambiente de produção (consulte [Documentação do Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    O `migrate: 'alter'` permite que você use os recursos de migração do banco de dados para criar e atualizar facilmente suas tabelas de banco de dados no Banco de Dados SQL do Azure. No entanto, o `migrate: 'safe'` é usado para seu ambiente (produção) do Azure, pois Sails.js não permite o uso de `migrate: 'alter'` em um ambiente de produção (confira a [Documentação do Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
 4. No terminal, [gere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) um [API de plano gráfico](http://sailsjs.org/documentation/concepts/blueprints) do Sails.js, como você faria normalmente, e execute `sails lift` para criar o banco de dados com a migração de banco de dados do Sails.js. Por exemplo:
 
@@ -248,4 +250,4 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
 - [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
 - [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

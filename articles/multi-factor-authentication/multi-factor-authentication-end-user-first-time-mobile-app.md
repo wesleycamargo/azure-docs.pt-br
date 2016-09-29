@@ -1,86 +1,81 @@
-<properties 
-	pageTitle="Usar o aplicativo móvel como método de contato com o Azure MFA" 
-	description="Esta página mostrará aos usuários como usar o aplicativo móvel como o método de contato principal para o Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Usar um aplicativo móvel como método de contato com a Autenticação Multifator do Azure| Microsoft Azure"
+	description="Este artigo mostra como usar um aplicativo móvel como método de contato principal para a Autenticação Multifator do Azure."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
 	ms.author="billmath"/>
 
-# Usar o aplicativo móvel como método de contato com o Azure Multi-Factor Authentication
+# Usar um aplicativo móvel como método de contato com a Autenticação Multifator do Azure
 
-Se você quiser usar o aplicativo Microsoft Authenticator como o método de contato principal, você poderá usar este artigo. Ele vai ajudar a configurar a autenticação multifator para usar o aplicativo móvel como o método de contato principal.
+Se quiser usar o aplicativo Microsoft Authenticator como método de contato principal, você poderá usar este artigo. Ele orienta você durante a configuração da Autenticação Multifator do Azure para usar um aplicativo móvel como o método de contato principal.
 
-O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-## Para usar o Microsoft Authenticator como método de contato
-
-
-- Na tela de Verificação de Segurança Adicional, selecione Aplicativo Móvel na lista suspensa.
+## Usar o Microsoft Authenticator como método de contato
 
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+1. Na tela **Verificação de segurança adicional**, selecione **Aplicativo móvel** na lista suspensa.
+2. Selecione **Notificação** ou **Senha de uso único** e selecione **Configurar**.
 
-- Selecione Notificação ou Senha de Uso Único e clique em Configurar.
-- No telefone com o aplicativo Microsoft Authenticator instalado, inicie o aplicativo e clique em “+” para adicionar uma nova conta. Em seguida, especifique que você deseja adicionar uma conta corporativa ou de estudante, a qual iniciará o scanner de código QR. Se a câmera não estiver funcionando corretamente, você optar por inserir as informações da sua empresa manualmente. [Adicionar uma conta manualmente](#adding-an-account-manually).
+	![Tela de verificação de segurança adicional](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)
+3. No telefone com o aplicativo Microsoft Authenticator instalado, abra o aplicativo e selecione **+** para adicionar uma nova conta.
+4. Especifique que você deseja adicionar uma conta corporativa ou de estudante. Isso abre o scanner de código QR. Se a câmera não estiver funcionando corretamente, você optar por inserir as informações da sua empresa manualmente. Para obter mais informações, consulte [Adicionar uma conta manualmente](#add-an-account-manually).
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+	![Tela para selecionar uma conta](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
-- Digitalize a imagem do código de barras que aparece com a tela configurar aplicativo móvel. Clique em Concluído para fechar a tela de código QR.
+	![Tela para selecionar se deseja digitalizar um código QR ou inserir uma conta manualmente](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+5. Digitalize a imagem do código QR que apareceu na tela para configurar o aplicativo móvel. Selecione **Concluído** para fechar a tela do código QR.
 
-- Se não for possível digitalizar o código QR, você poderá inserir as informações manualmente.
+	![Tela do código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
+	Se não for possível digitalizar o código QR, você poderá inserir as informações manualmente.
 
-- No telefone, ele começará a ser ativado; depois de concluído, clique em Contate-me. Isso enviará uma notificação ou um código de verificação ao seu telefone. Clique em Verificar.
+	![Tela para inserir informações manualmente](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
+6. Quando a ativação for concluída no telefone, selecione **Contate-me**. Esta etapa envia uma notificação ou um código de verificação para seu telefone. Selecione **Verificar**.
 
-- Algumas empresas podem exigir um PIN durante a verificação.
+	![Tela em que você seleciona Verificar para entrar](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+7. Se sua empresa exigir um PIN para aprovar a verificação de entrada, digite-o.
 
+	![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-- Quando isso estiver concluído, você poderá clicar em Fechar. Nesse ponto, sua verificação deve ter sido bem-sucedida.
-- Agora é recomendável inserir o número do celular, caso você perca o acesso ao aplicativo móvel.
-- Especifique o seu país na lista suspensa e insira o número do celular na caixa próxima ao país. Clique em Próximo.
-- Até aqui, você configurou o método de contato e agora é hora de configurar as senhas de aplicativo para aplicativos que não usam navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, clique em **Concluído**. Caso contrário, passe para a próxima etapa.
+8. Após digitar o PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
+9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país na lista suspensa e insira o número de seu telefone celular na caixa ao lado do país. Selecione **Avançar**.
+10. Neste ponto, você configurou o método de contato. Agora, é hora de configurar as senhas do aplicativo para os aplicativos sem navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, selecione **Concluído**. Caso contrário, prossiga para a próxima etapa.
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+	![Tela para criar uma senha do aplicativo](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
-- Se estiver usando esses aplicativos, copie a senha de aplicativo fornecida e cole-a no aplicativo que não usa navegador. Para ver as etapas de aplicativos individuais, como Outlook e Lync, consulte Como alterar a senha no seu email para a senha de aplicativo e Como alterar a senha no seu aplicativo para a senha de aplicativo.
-- Clique em Concluído.
-
-
-## Adicionando uma conta manualmente
-Se você deseja adicionar uma conta manualmente, selecione o botão Inserir conta manualmente.
-
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
+11. Se estiver usando aplicativos sem navegador, copie a senha do aplicativo fornecida e cole-a em seus aplicativos. Para ver as etapas de aplicativos individuais, como o Outlook e o Lync, consulte Como alterar a senha em seu email para a senha do aplicativo e Como alterar a senha em seu aplicativo para a senha do aplicativo.
+12. Selecione **Concluído**.
 
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
+## Adicionar uma conta manualmente
+Se quiser adicionar uma conta manualmente:
 
-Agora, se você tiver uma conta que tenha o Azure MFA, insira o código e a URL que é fornecida na mesma página que exibe o código de barras. Isso vai nas caixas de código e URL no aplicativo móvel. Isso iniciará a ativação.
+1. Selecione o botão **Inserir conta manualmente**.
 
-![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
+	![Tela para inserir o código e a URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
 
-Quando isso for concluído, clique em Contato. Isso enviará uma notificação ou um código de verificação ao seu telefone. Clique em Verificar.
+	![Tela para inserir o código e a URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
 
+2. Se você tiver uma conta que já tem a Autenticação Multifator do Azure, insira o código e a URL que são fornecidos na mesma página que exibe o código de barras. Essas informações são inseridas nas caixas **Código** e **URL** no aplicativo móvel.
 
+	![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
 
- 
+3. Quando a ativação for concluída, selecione **Contate-me**. Esta etapa envia uma notificação ou um código de verificação para seu telefone. Selecione **Verificar**.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

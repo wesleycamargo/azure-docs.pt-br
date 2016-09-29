@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -45,8 +45,8 @@ Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma co
 	- **Nome**: nome da conta da Análise.
 	- **Repositório Data Lake**: cada conta da Análise Data Lake tem uma conta dependente do Repositório Azure Data Lake. A conta da Análise Data Lake e a conta dependente do Repositório Data Lake devem ser colocadas no mesmo data center do Azure. Siga as instruções para criar uma nova conta do Repositório Data Lake ou selecione uma existente.
 	- **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
-	- **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. O Gerenciador de Recursos do Azure (ARM) permite que você trabalhe com os recursos em seu aplicativo como um grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md). 
-	- **Local**. Selecione um data center do Azure para a conta da Análise Data Lake. 
+	- **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo. O Gerenciador de Recursos do Azure (ARM) permite que você trabalhe com os recursos em seu aplicativo como um grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
+	- **Local**. Selecione um data center do Azure para a conta da Análise Data Lake.
 
 8. Clique em **Criar**. Isso leva você até a página inicial do portal. Um novo bloco é adicionado ao Quadro inicial com o rótulo mostrando “Implantando a Análise Data Lake do Azure”. A criação de uma conta da Análise Data Lake demora alguns minutos. Após a criação da conta, o portal abrirá a conta em uma nova folha.
 
@@ -104,7 +104,7 @@ No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
 Quando você cria uma conta da Análise Data Lake, é necessário indicar uma conta do Repositório Azure Data Lake como a conta de armazenamento padrão. A conta padrão do Repositório Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise Data Lake, é possível adicionar outras contas do Repositório Data Lake e/ou uma conta de Armazenamento do Azure.
 
-<a name="default-adl-account"></a>** Para encontrar a conta de armazenamento padrão do Data Lake**
+<a name="default-adl-account"></a>**Para encontrar a conta de armazenamento padrão do Data Lake**
 
 - Abra a conta da Análise Data Lake que você deseja gerenciar. Para obter instruções, consulte [Acessar contas da Análise Data Lake](#access-adla-account). O armazenamento padrão do Data Lake é mostrado em **Essencial**:
 
@@ -113,7 +113,7 @@ Quando você cria uma conta da Análise Data Lake, é necessário indicar uma co
 **Para adicionar outras fontes de dados**
 
 1. Abra a conta da Análise Data Lake que você deseja gerenciar. Para obter instruções, consulte [Acessar contas da Análise Data Lake](#access-adla-account).
-2. Clique em **Configurações** e em **Fontes de Dados**. Você deverá ver a conta padrão do Repositório Data Lake na lista. 
+2. Clique em **Configurações** e em **Fontes de Dados**. Você deverá ver a conta padrão do Repositório Data Lake na lista.
 3. Clique em **Adicionar Fonte de Dados**.
 
 	![Análise Data Lake do Azure - adicionar fonte de dados](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
@@ -123,7 +123,7 @@ Quando você cria uma conta da Análise Data Lake, é necessário indicar uma co
 <a name="explore-data-sources"></a>**Para explorar fontes de dados**
 
 1. Abra a conta da Análise que você deseja gerenciar. Para obter instruções, consulte [Acessar contas da Análise Data Lake](#access-adla-account).
-2. Clique em **Configurações** e em **Gerenciador de Dados**. 
+2. Clique em **Configurações** e em **Gerenciador de Dados**.
  
 	![Análise Data Lake do Azure - gerenciador de dados](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
 	
@@ -142,7 +142,7 @@ Quando você cria uma conta da Análise Data Lake, é necessário indicar uma co
 
 <a name="upload-data-to-adls"></a> **Para carregar arquivos na conta do Repositório Data Lake**
 
-1. No Portal, clique em **Procurar** no menu à esquerda e clique em **Repositório do Data Lake**.
+1. No Portal, clique em **Procurar** no menu à esquerda e clique em **Data Lake Store**.
 2. Clique na conta do Repositório Data Lake na qual você deseja carregar dados. Para encontrar a conta de armazenamento padrão do Data Lake, clique [aqui](#default-adl-account).
 3. Clique em **Gerenciador de Dados** no menu superior.
 4. Clique em **Novo Diretório** para criar uma nova pasta ou clique no nome de uma pasta para alterar a pasta.
@@ -156,7 +156,7 @@ Consulte [Carregar dados em trabalhos do Hadoop no HDInsight](../hdinsight/hdins
 
 ## Gerenciar usuários
 
-A Análise Data Lake usa o controle de acesso com base em funções com o Active Directory do Azure. Quando você cria uma conta da Análise Data Lake, uma função "Administradores de Assinatura" é adicionada à conta. Você pode adicionar outros usuários e grupos de segurança com as seguintes funções:
+A Análise Data Lake usa o controle de acesso com base em funções com o Active Directory do Azure. Quando você cria uma conta do Data Lake Analytics, uma função "Administradores de Assinatura" é adicionada à conta. Você pode adicionar outros usuários e grupos de segurança com as seguintes funções:
 
 |Função|Descrição|
 |----|-----------|
@@ -211,7 +211,7 @@ Você deve ter uma conta da Análise Data Lake antes de poder executar trabalhos
 	|Paralelismo |Número máximo de processos de computação que podem ocorrer ao mesmo tempo. O aumento desse número pode melhorar o desempenho, mas também pode aumentar o custo.|
 	|Script|Insira o script U-SQL para o trabalho.|
 
-	Usando a mesma interface, você também pode explorar os links de fontes de dados e adicionar outros arquivos às fontes de dados vinculadas. 
+	Usando a mesma interface, você também pode explorar os links de fontes de dados e adicionar outros arquivos às fontes de dados vinculadas.
 3. Clique em **Enviar Trabalho** se quiser enviar o trabalho.
 
 **Para enviar um trabalho**
@@ -257,7 +257,7 @@ O [catálogo do U-SQL](data-lake-analytics-use-u-sql-catalog.md) é usado para e
 
 1. Abra a conta da Análise que você deseja gerenciar. Para obter instruções, consulte [Acessar contas da Análise Data Lake](#access-adla-account).
 2. Clique em **Gerenciador de Dados** no menu superior.
-3. Expanda **Catálogo**, expanda **mestre**, expanda **Tabelas, ou **Funções com Valor de Tabela** ou **Assemblies**. A captura de tela a seguir mostra uma função com valor de tabela.
+3. Expanda **Catálogo**, expanda **mestre**, expanda **Tabelas, ou** Funções com Valor de Tabela** ou **Assemblies**. A captura de tela a seguir mostra uma função com valor de tabela.
 
 	![Análise Data Lake do Azure - conta de armazenamento do gerenciador de dados](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-catalog.png)
 
@@ -277,17 +277,17 @@ Um serviço de Análise Data Lake pode incluir os seguintes componentes:
 
 Você pode criar todos esses componentes em um grupo ARM para torná-los mais fáceis de serem gerenciados.
 
-![Conta e armazenamento da Análise Data Lake do Azure](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+![Conta e armazenamento da Análise Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
 Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo data center do Azure. No entanto, o grupo ARM pode estar localizado em um data center diferente.
 
 
 
-##Consulte também 
+##Confira também 
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 - [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

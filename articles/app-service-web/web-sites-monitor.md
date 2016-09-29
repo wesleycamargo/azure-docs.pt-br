@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # Como monitorar aplicativos Web no Serviço de Aplicativo do Azure
@@ -47,7 +47,7 @@ Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Pre
    
 A única cota aplicável aos aplicativos hospedados no plano **Básico**, **Standard** e **Premium** é **Sistema de arquivos**.
 
-Para saber mais sobre cotas, limites e recursos específicos disponíveis para os SKUs de Serviço de Aplicativo diferentes, confira: [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
+Para saber mais sobre cotas, limites e recursos específicos disponíveis para SKUs de Serviço de Aplicativo diferentes, confira: [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### Aplicação de cota
 
@@ -126,9 +126,9 @@ Há duas métricas que refletem o uso da CPU. **Tempo de CPU** e **Porcentagem d
 
 As métricas de um aplicativo e de um Plano do Serviço de Aplicativo são registradas e agregadas pelo serviço com as seguintes granularidades e políticas de retenção:
 
- * Métricas de granularidade de **minuto** são mantidas por **24 horas**
- * Métricas de granularidade de **Hora** são mantidas por **7 dias**
- * Métricas de granularidade de **Dia** são mantidas por **30 dias**
+ * Métricas de granularidade de **minuto** são mantidas por **48 horas**
+ * Métricas de granularidade de **hora** são mantidas por **30 dias**
+ * Métricas de granularidade de **dia** são mantidas por **90 dias**
 
 ## Monitoramento de cotas e métricas no Portal do Azure.
 
@@ -160,4 +160,4 @@ Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplica
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

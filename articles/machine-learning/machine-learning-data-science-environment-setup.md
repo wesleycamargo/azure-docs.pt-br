@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -29,4 +29,4 @@ Esse menu apresenta links para tópicos que descrevem como configurar os diverso
 
 A **Máquina Virtual de Ciência de Dados da Microsoft** também é disponibilizada como uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. Consulte [Provisionar a Máquina Virtual de Ciência de Dados da Microsoft](machine-learning-data-science-provision-vm.md) para saber como usar essa VM.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

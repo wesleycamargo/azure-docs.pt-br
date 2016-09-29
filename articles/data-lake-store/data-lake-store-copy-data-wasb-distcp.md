@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -30,7 +30,7 @@ Depois de criar um cluster do HDInsight que tem acesso a uma conta de Repositór
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a visualização pública do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - **Cluster HDInsight do Azure** com acesso a uma conta do Data Lake Store. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 
 ## Você aprende rapidamente com vídeos?
@@ -69,11 +69,11 @@ Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usad
 
 	Isso copiará o conteúdo de **/myfolder** na conta de Repositório do Data Lake para a pasta **/example/data/gutenberg/** no WASB.
 
-## Consulte também
+## Confira também
 
 - [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

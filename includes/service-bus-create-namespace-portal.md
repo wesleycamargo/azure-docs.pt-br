@@ -14,19 +14,19 @@
 
 	![Criar um namespace][create-namespace]
 
-6. Selecione o botão **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+6. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
  
 ### Obter as credenciais de gerenciamento
 
 1. Na lista de namespaces, clique no nome do namespace recém-criado.
  
-3. Na folha **Namespace do Barramento de Serviço**, clique em **Políticas de acesso compartilhado**.
+3. Na folha namespace, clique em **Políticas de acesso compartilhado**.
 
 4. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
 
 	![connection-info][connection-info]
 
-5. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior.
+5. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
 
 	![connection-string][connection-string]
 
@@ -39,4 +39,4 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

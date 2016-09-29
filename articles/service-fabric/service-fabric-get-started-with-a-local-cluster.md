@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
 O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você cria um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
@@ -193,7 +193,35 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Os aplic
 
 3. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 
-4. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Só remova o cluster local se você não pretender usá-lo por algum tempo ou se precisar recuperar recursos.
+4. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Só remova o cluster local se você não pretender usá-lo por algum tempo ou se precisar recuperar recursos.
+
+## Modo de cluster de um e cinco nós
+
+Ao trabalhar com o cluster local para desenvolver aplicativos, você geralmente acaba fazendo iterações rápidas entre a produção do código, depuração, alteração do código, depuração etc. Para ajudar a otimizar esse processo, o cluster local pode ser executado em dois modos: Um nó ou Cinco nós. Os dois modos de cluster têm seus benefícios. O modo de cluster de Cinco nós permite que você trabalhe com um cluster real. Você pode testar os cenários de failover, trabalhar com mais instâncias e réplicas de seus serviços. O modo de cluster de Um nó é otimizado para fazer implantação e registro rápidos de serviços, a fim de ajudar você a validar rapidamente o código usando o tempo de execução do Service Fabric.
+
+Os modos de cluster de um e de cinco nós não são emuladores ou simuladores. Ele executa o mesmo código de plataforma encontrado em clusters com vários computadores.
+
+> [AZURE.NOTE] Esse recurso está disponível no SDK versão 5.2 e acima.
+
+Para alterar o modo de cluster para um cluster de um nó, use o Gerenciador de Cluster Local do Service Fabric ou o PowerShell da seguinte maneira:
+
+1. Inicie uma nova janela do PowerShell como administrador.
+
+2. Execute o script de instalação do cluster da pasta do SDK:
+
+	```powershell
+	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+	```
+
+    A instalação do cluster leva alguns minutos. Após a conclusão da instalação, você verá uma saída como esta:
+    
+    ![Saída da instalação do cluster][cluster-setup-success-1-node]
+
+Se você estiver usando o Gerenciador de Cluster Local do Service Fabric:
+
+![Alternar o modo de cluster][switch-cluster-mode]
+
+> [AZURE.WARNING] Durante a alteração do modo de cluster, o cluster atual é removido do seu sistema e um novo cluster é criado. Os dados armazenados no cluster, serão excluídos quando você alterar o modo de cluster.
 
 ## Próximas etapas
 - Agora que você implantou e atualizou alguns aplicativos pré-compilados, poderá [tentar compilar seu próprio aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -217,5 +245,7 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Os aplic
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

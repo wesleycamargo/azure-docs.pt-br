@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/14/2016" 
+ms.date="09/07/2016" 
 ms.author="eugenesh" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)#
@@ -39,6 +39,7 @@ Atualmente, há suporte às seguintes fontes de dados:
 - **Banco de Dados SQL do Azure** e **SQL Server em VMs do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 - **Banco de Dados de Documentos do Azure**. Para obter um passo a passo direcionado, confira [este artigo](../documentdb/documentdb-search-indexer.md).
 - **Armazenamento de Blobs do Azure**, incluindo as seguintes formatos de documentos: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPT/PPTX, MSG), HTML, XML, ZIP e arquivos de texto sem formatação (inclusive JSON). Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-blob-storage.md).
+- **Armazenamento de Tabelas do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-tables.md).
 	 
 Estamos considerando a adição de suporte a fontes de dados adicionais no futuro. Para nos ajudar a priorizar essas decisões, forneça seus comentários no [Fórum de comentários do Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -105,7 +106,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', 'azureblob', or 'azuretable'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
     	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
@@ -120,22 +121,23 @@ A contém as seguintes propriedades:
 	- `azuresql` ‒ banco de dados do Azure SQL ou SQL Server em máquinas virtuais do Azure
 	- `documentdb` ‒ Banco de Dados de Documentos do Azure
 	- `azureblob` – Armazenamento de Blobs do Azure
+	- `azuretable` - Armazenamento de Tabelas do Azure
 - `credentials`:
 	- A propriedade `connectionString` obrigatória especifica a cadeia de conexão da fonte de dados. O formato da cadeia de conexão depende do tipo de fonte de dados:
 		- Para o Azure SQL, essa é a cadeia de conexão do SQL Server normal. Se você estiver usando o Portal do Azure para recuperar a cadeia de conexão, use a opção `ADO.NET connection string`.
 		- Para DocumentDB, a cadeia de conexão deve estar no seguinte formato: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos os valores são obrigatórios. Você pode encontrá-los no [Portal do Azure](https://portal.azure.com/).
-		- Para o Armazenamento de Blobs do Azure, essa é a cadeia de conexão da conta de armazenamento. O formato é descrito [aqui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). É necessário ter um protocolo de ponto de extremidade HTTPS.
-		
+		- Para o Armazenamento de Blobs e Tabelas do Azure, essa é a cadeia de conexão da conta de armazenamento. O formato é descrito [aqui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). É necessário ter um protocolo de ponto de extremidade HTTPS.
 - `container`, obrigatório: especifica os dados a serem indexados com as propriedades `name` e `query`:
 	- `name`, obrigatório:
 		- SQL Azure: especifica a tabela ou a exibição. Você pode usar nomes qualificados pelo esquema, como `[dbo].[mytable]`.
 		- Banco de Dados de Documentos: especifica a coleção.
 		- Armazenamento de Blobs do Azure: especifica o contêiner de armazenamento.
+		- Armazenamento de Tabelas do Azure: especifica o nome da tabela.
 	- `query`, opcional:
 		- Banco de Dados de Documentos: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.
 		- Armazenamento de Blobs do Azure: permite que você especifique uma pasta virtual dentro do contêiner de blob. Por exemplo, para o caminho de blob `mycontainer/documents/blob.pdf`, `documents` pode ser usada como a pasta virtual.
+		- Armazenamento de Tabelas do Azure: permite que você especifique uma consulta que filtra o conjunto de linhas a serem importadas.
 		- SQL Azure: não há suporte para consulta. Se você precisar dessa funcionalidade, vote [nesta sugestão](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
-   
 - As propriedades `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` opcionais são descritas abaixo.
 
 <a name="DataChangeDetectionPolicies"></a> **Políticas de Detecção de Alteração de Dados**
@@ -237,13 +239,11 @@ A `api-version` é obrigatória. A versão atual é `2015-02-28`. [Controle de v
 
 **Solicitação**
 
-A sintaxe do corpo da solicitação é a mesma usada para [solicitações Criar Fonte de Dados](#CreateDataSourceRequestSyntax).
+A sintaxe do corpo da solicitação é a mesma usada para [Criar solicitações de Fonte de Dados](#CreateDataSourceRequestSyntax).
 
-> [AZURE.NOTE]
-Algumas propriedades não podem ser atualizadas em uma fonte de dados existente. Por exemplo, você não pode alterar o tipo de fonte de dados existente.
+> [AZURE.NOTE] Algumas propriedades não podem ser atualizadas em uma fonte de dados existente. Por exemplo, você não pode alterar o tipo de fonte de dados existente.
 
-> [AZURE.NOTE]
-Se você não quiser alterar a cadeia de conexão de uma fonte de dados existente, poderá especificar o `<unchanged>` literal da cadeia de conexão. Isso é útil em situações onde você precisa atualizar a fonte de dados, mas não tem acesso conveniente à cadeia de conexão, já que são dados confidenciais de segurança.
+> [AZURE.NOTE] Se você não quiser alterar a cadeia de conexão de uma fonte de dados existente, poderá especificar o `<unchanged>` literal da cadeia de conexão. Isso é útil em situações onde você precisa atualizar a fonte de dados, mas não tem acesso conveniente à cadeia de conexão, já que são dados confidenciais de segurança.
 
 **Resposta**
 
@@ -398,7 +398,6 @@ Um indexador pode, opcionalmente, especificar vários parâmetros que afetam seu
 - `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base 64. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
 
 - `batchSize`: especifica o número de itens lidos da fonte de dados e indexados como um único lote para melhorar o desempenho. O padrão depende do tipo de fonte de dados: 1000 para o SQL Azure e o Banco de Dados de Documentos e 10 para o Armazenamento de Blobs do Azure.
-
 
 **Mapeamentos de campo**
 
@@ -641,7 +640,7 @@ O resultado da execução do indexador contém as seguintes propriedades:
 
 - `endTime`: a hora em UTC quando essa execução terminou. Esse valor não será definido se a execução ainda estiver em andamento.
 
-- `errors`: uma lista de erros de nível de item, se houver. Cada entrada contém uma chave de documento (`key` propriedade) e uma mensagem de erro (`errorMessage` propriedade).
+- `errors`: uma matriz de erros de nível de item, se houver. Cada entrada contém uma chave de documento (`key` propriedade) e uma mensagem de erro (`errorMessage` propriedade).
 
 - `itemsProcessed`: o número de itens da fonte de dados (por exemplo, linhas de tabela) que o indexador tentou indexar durante esta execução.
 
@@ -798,4 +797,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -106,10 +106,10 @@ Em *escalar horizontalmente*, o dimensionamento automático será executado se n
 
 Para ilustrar, suponha que você tenha as seguintes 4 regras de dimensionamento automático:
 
-- Se CPU < 30%, reduza horizontalmente por 1
-- Se Memória < 50%, reduza horizontalmente por 1
-- Se CPU > 75%, escalehorizontalmente por 1
-- Se Memória < 75, escale horizontalmente por 1
+- Se CPU < 30%, reduza horizontalmente em 1
+- Se Memória < 50%, reduza horizontalmente em 1
+- Se CPU < 75%, escale horizontalmente em 1
+- Se Memória < 75, escale horizontalmente em 1
 
 Em seguida, ocorrerá o seguinte:
 
@@ -127,4 +127,4 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 - As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 - As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala. Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

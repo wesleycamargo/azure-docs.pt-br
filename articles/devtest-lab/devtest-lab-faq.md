@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/13/2016"
 	ms.author="tarcher"/>
 
 # Perguntas frequentes sobre o Azure DevTest Labs
@@ -45,6 +45,7 @@ Este artigo responde algumas das perguntas mais comuns sobre o Azure DevTest Lab
 - [Como mover minhas VMs do Azure existentes para meu laboratório do Azure DevTest Labs?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab)
 - [Posso anexar vários discos às minhas VMs?](#can-i-attach-multiple-disks-to-my-vms)
 - [Como automatizar o processo de carregamento de arquivos VHD para criar imagens personalizadas?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images)
+- [Como é possível automatizar o processo de exclusão de todas as VMs em meu laboratório?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## Artefatos 
  
@@ -56,6 +57,8 @@ Este artigo responde algumas das perguntas mais comuns sobre o Azure DevTest Lab
 - [Por que as minhas VMs são criadas em grupos de recursos diferentes com nomes arbitrários? Posso renomear ou modificar esses grupos de recursos?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups)
 - [Quantos laboratórios posso criar na mesma assinatura?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [Quantas VMs posso criar por laboratório?](#how-many-vms-can-i-create-per-lab)
+- [Como faço para compartilhar um link direto para o meu laboratório?](#how-do-i-share-a-direct-link-to-my-lab)
+- [O que é uma conta da Microsoft?](#what-is-a-microsoft-account)
  
 ## Solucionar problemas 
  
@@ -168,11 +171,48 @@ Para localizar a conta de armazenamento de destino associada a seu laboratório,
 1. Procure os carregamentos na lista. Se não houver nenhum, retorne para a etapa 4 e tente outra conta de armazenamento.
 1. Use a **URL** como seu destino no comando AzCopy.
 
+
+### Como é possível automatizar o processo de exclusão de todas as VMs em meu laboratório?
+
+Além de excluir as VMs do seu laboratório no portal do Azure, você pode excluir todas as VMs em seu laboratório usando um script do PowerShell. No exemplo a seguir, apenas modifique os valores de parâmetro no comentário **Valores a alterar**. Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` da folha do laboratório no portal do Azure.
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### O que são os artefatos? 
 Artefatos são elementos personalizáveis que podem ser usados para implantar os bits mais recentes ou as ferramentas de desenvolvimento em uma VM. Eles estão anexados à sua VM durante a criação com apenas alguns cliques, e depois que a VM é provisionada, os artefatos implantam e configuram a VM. Há diversos artefatos preexistentes no nosso [repositório Github público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mas você pode [criar seus próprios artefatos](devtest-lab-artifact-author.md) facilmente.
 
 ### Como criar um laboratório de um modelo do Azure Resource Manager? 
-Temos um [repositório Github de modelos do Azure Resource manager de laboratório](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Cada um desses modelos tem um link no qual você pode clicar para implantar o Azure DevTest Labs em sua própria assinatura do Azure.
+Nós fornecemos um [repositório Github dos modelos do laboratório do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que você pode implantar como são ou modificar para criar modelos personalizados para seus laboratórios. Cada um desses modelos tem um link em que você pode clicar para implantar o laboratório no estado em que se encontra sob sua própria assinatura do Azure, ou você pode personalizar o modelo e [implantar usando o PowerShell ou CLI do Azure](../resource-group-template-deploy.md).
  
 ### Por que as minhas VMs são criadas em grupos de recursos diferentes com nomes arbitrários? Posso renomear ou modificar esses grupos de recursos? 
 Grupos de recursos são criados dessa maneira para que o Azure DevTest Labs gerencie as permissões e acessos de usuário às máquinas virtuais. Embora você possa mover a VM para outro grupo de recursos com o nome desejado, não é recomendável fazer isso. Estamos trabalhando na melhoria dessa experiência para proporcionar mais flexibilidade.
@@ -182,6 +222,21 @@ Não há nenhum limite específico quanto ao número de laboratórios que podem 
  
 ### Quantas VMs posso criar por laboratório? 
 Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, atualmente o laboratório dá suporte apenas para cerca de 40 VMs em execução ao mesmo tempo no armazenamento padrão e 25 VMs em execução simultânea no armazenamento premium. Estamos trabalhando para aumentar esses limites.
+
+### Como faço para compartilhar um link direto para o meu laboratório?
+
+Para compartilhar um link direto para o laboratório, os usuários podem realizar o procedimento a seguir.
+
+1. Navegue até o laboratório no portal do Azure.
+2. Copie a URL do laboratório do navegador e compartilhe-a com os usuários do laboratório.
+
+>[AZURE.NOTE] Se os usuários do laboratório forem usuários externos com uma [conta MSA](#what-is-a-microsoft-account) e não pertencerem ao Active Directory da sua empresa, talvez recebam um erro ao navegar para o link fornecido. Se receberem um erro, instrua-os a clicar no próprio nome no canto superior direito do portal do Azure e selecionar o diretório em que existe o laboratório na seção **Diretório** do menu.
+
+### O que é uma conta da Microsoft?
+
+Uma conta da Microsoft é o que você utiliza para quase tudo o que faz com os serviços e dispositivos da Microsoft. É um endereço de email e a senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE – e isso significa que arquivos, fotos, contatos e configurações podem acompanhar você em qualquer dispositivo.
+
+>[AZURE.NOTE] A conta da Microsoft usada será chamada de "Windows Live ID".
  
 ### Meu artefato falhou durante a criação da VM. Como solucionar isso? 
 Consulte a postagem do blog [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs), escrito por um dos nossos MVPs, para saber como obter logs sobre o artefato com falha.
@@ -189,4 +244,4 @@ Consulte a postagem do blog [Como solucionar problemas de falha de Artefatos no 
 ### Por que a minha rede virtual existente não está salvando corretamente?  
 Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso, tente remover os pontos ou substituí-los por hifens e tente salvar a rede virtual novamente.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

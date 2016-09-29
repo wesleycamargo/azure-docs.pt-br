@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -95,7 +95,7 @@ Depois de configurar o perfil, selecione o botão **OK** na parte inferior da fo
 
 As regras são adicionadas a um perfil e representam uma condição que disparará a escala.
 
-O gatilho de regra se baseia em uma métrica do serviço de nuvem (utilização da CPU, atividade de disco ou atividade de rede) para a qual você pode adicionar um valor condicional. Além disso, o gatilho pode ser baseado em uma fila de mensagens ou na métrica de algum outro recurso do Azure associada à sua assinatura.
+O gatilho de regra se baseia em uma métrica do serviço de nuvem (utilização da CPU, atividade de disco ou atividade de rede) para a qual você pode adicionar um valor condicional. Além disso, o gatilho pode se basear em uma fila de mensagens ou na métrica de algum outro recurso do Azure associada à sua assinatura.
 
 ![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
@@ -115,4 +115,4 @@ Isso remove a colocação em escala automatizada da função. Em seguida, você 
 
 Depois de definir as configurações de escala, selecione o ícone **Salvar** na parte superior.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

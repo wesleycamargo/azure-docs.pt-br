@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="09/07/2016" 
 	ms.author="tamram"/>
 
 # Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
@@ -22,6 +22,8 @@
 O emulador de armazenamento do Microsoft Azure fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Usando o emulador de armazenamento, você pode testar seu aplicativo contra os serviços de armazenamento locais, sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no emulador, você pode alternar para usar uma conta de armazenamento do Azure na nuvem.
 
 > [AZURE.NOTE] O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Para configurar o emulador de armazenamento, você deve ter privilégios administrativos no computador.
+> 
+> O emulador de armazenamento atualmente é executado apenas no Windows.
 >  
 > Observe que os dados criados em uma versão do emulador de armazenamento não são garantia de estar acessível ao usar uma versão diferente. Se você precisar persistir seus dados a longo prazo, é recomendável que você armazene esses dados em uma conta de armazenamento do Azure e não no emulador de armazenamento.
 
@@ -65,7 +67,7 @@ O URI de assinatura de acesso compartilhado do novo contêiner deve ser semelhan
 
 A assinatura de acesso compartilhado criada com este exemplo é válida por um dia. A assinatura concede acesso completo (por exemplo, leitura, gravação, exclusão e lista) para os blobs do contêiner.
 
-Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Iniciar o emulador de armazenamento
@@ -203,7 +205,13 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## Notas de versão do emulador de armazenamento
 
+### Versão 4.5
+
+- Foi corrigido um erro que causava a falha da inicialização e instalação do emulador de armazenamento quando o banco de dados de backup era renomeado.
+
 ### Versão 4.4
+
+- O emulador de armazenamento agora dá suporte à versão 2015-12-11 dos serviços de armazenamento dos pontos de extremidade dos serviços de Blob, Fila e Tabela.
 
 - A coleta de lixo do emulador de armazenamento de dados de blob agora é mais eficiente ao lidar com um grande número de blobs.
 
@@ -247,4 +255,4 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 - A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

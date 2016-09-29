@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -38,7 +38,7 @@ Além disso, você pode usar a ferramenta AdlCopy de dois modos diferentes:
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
+- **Habilite sua assinatura do Azure** para a visualização pública do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
 - Contêiner de **Blobs de Armazenamento do Azure** com alguns dados.
 - **Conta do Azure Data Lake Analytics (opcional)**: confira [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar uma conta do Repositório Data Lake.
 - **Ferramenta AdlCopy**. Instale a ferramenta de AdlCopy de [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
@@ -77,7 +77,7 @@ Os parâmetros na sintaxe estão descritos abaixo:
 	
 	>[AZURE.NOTE] A sintaxe acima especifica o arquivo a ser copiado para uma pasta na conta do Data Lake Store. A ferramenta AdlCopy criará uma pasta se o nome da pasta especificado não existir.
 
-	Você precisará inserir as credenciais da assinatura do Azure vinculada à conta do Repositório Data Lake. Você verá uma saída semelhante ao seguinte:
+	Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
 
 		Initializing Copy.
 		Copy Started.
@@ -109,7 +109,7 @@ Você também pode usar o AdlCopy para copiar dados entre duas contas do Data La
 
 	>[AZURE.NOTE] A sintaxe acima especifica o arquivo a ser copiado para uma pasta na conta de destino do Data Lake Store. A ferramenta AdlCopy criará uma pasta se o nome da pasta especificado não existir.
 
-	Você precisará inserir as credenciais da assinatura do Azure vinculada à conta do Repositório Data Lake. Você verá uma saída semelhante ao seguinte:
+	Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
 
 		Initializing Copy.
 		Copy Started.|
@@ -173,4 +173,4 @@ Nesta seção, você aprenderá a usar o AdlCopy para copiar dados de uma origem
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

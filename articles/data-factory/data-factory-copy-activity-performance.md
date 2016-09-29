@@ -13,45 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 
 # Guia Desempenho e ajuste da Atividade de Cópia
-Este artigo descreve os principais fatores que afetam o desempenho da movimentação de dados quando você usa o Azure Data Factory com a Atividade de Cópia. Também lista o desempenho observado durante os testes internos e analisa várias maneiras de otimizar o desempenho da Atividade de Cópia.
+A Atividade de Cópia do Azure Data Factory fornece uma solução de carregamento de dados de primeira classe, segura, confiável e de alto desempenho, permitindo que você copie dezenas de terabytes de dados diariamente em uma grande variedade de armazenamentos de dados de nuvem e locais. Desempenho de carregamento de dados de rápido são a chave para garantir que você possa se concentrar no principal problema de "Big Data": a criação de soluções de análise avançada e obtenção de informações aprofundadas de todos esses dados.
 
-Usando a Atividade de Cópia, você pode obter uma alta taxa de transferência de movimentação:
+O Azure fornece um conjunto de soluções de armazenamento de dados e data warehouse de nível empresarial, e atividade de cópia oferece uma experiência de carregamento de dados altamente otimizada que é fácil de configurar. Com apenas uma atividade de cópia única, você pode obter:
 
-- Consumir 1 TB de dados no armazenamento de Blobs do Azure a partir de um sistema de arquivos local em menos de três horas (a 100 MBps)
-- Consumir 1 TB de dados no Azure Data Lake Store a partir de um sistema de arquivos local e de um armazenamento de Blobs do Azure em menos de três horas (a 100 MBps)
-- Consumir 1 TB de dados no Azure SQL Data Warehouse a partir do armazenamento de Blobs em menos de três horas (a 100 MBps)
+- O carregamento de dados no **SQL Data Warehouse do Azure** a **1,2 GBps**
+- O carregamento de dados no **Armazenamento de Blobs do Azure** a **1,0 GBps**
+- O carregamento de dados no **Azure Data Lake Store** a **1,0 GBps**
 
-Continue lendo para saber mais sobre o desempenho da Atividade de Cópia e obter dicas de ajuste para melhorar mais.
+
+Este artigo descreve:
+
+- [números de referência de desempenho](#performance-reference) para armazenamentos de dados de origem e coletor com suporte, para ajudá-lo a planejar o projeto;
+- recursos que podem aumentar a taxa de transferência de cópia em cenários diferentes, incluindo [cópia paralelo](#parallel-copy), [unidades de movimentação de dados em nuvem](#cloud-data-movement-units) e [Cópia em etapas](#staged-copy);
+- [diretrizes de ajuste de desempenho](#performance-tuning-steps) sobre como ajustar o desempenho e os principais fatores que podem afetar o desempenho da cópia.
 
 > [AZURE.NOTE] Se você não estiver familiarizado com a Atividade de Cópia em geral, consulte [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md) antes de ler este artigo.
-
-## Etapas de ajuste do desempenho
-Sugerimos que você realize estas etapas para ajustar o desempenho do serviço Data Factory com a Atividade de Cópia:
-
-1.	**Estabelecer uma linha de base**. Durante a fase de desenvolvimento, teste seu pipeline com a Atividade de Cópia em relação a um exemplo de dados representativo. Você pode usar o [modelo de divisão](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) do Data Factory para limitar a quantidade de dados com a qual trabalha.
-
-	Colete o tempo de execução e as características do desempenho usando o **Monitoramento e Gerenciamento de Aplicativos**. Escolha **Monitorar e Gerenciar** na home page da Data Factory. Na exibição em árvore, escolha o **conjunto de dados de saída**. Na lista **Janelas de Atividade** escolha a execução Atividade de Cópia. As **Janelas de Atividade** listam a duração da Atividade de Cópia e o tamanho dos dados copiados. A taxa de transferência é listada no **Gerenciador de Janelas de Atividades**. Para saber mais sobre o aplicativo, consulte [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Monitoramento e Gerenciamento de Aplicativos](data-factory-monitor-manage-app.md).
-
-	![Detalhes da execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
-
-	Posteriormente neste artigo, você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](#performance-reference) da Atividade de Cópia de nossos testes.
-2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os afunilamentos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos afunilamentos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
-	- [Fonte](#considerations-for-the-source)
-	- [Coletor](#considerations-for-the-sink)
-	- [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
-	- [Compactação](#considerations-for-compression)
-	- [Mapeamento de coluna](#considerations-for-column-mapping)
-	- [Gateway de gerenciamento de dados](#considerations-for-data-management-gateway)
-	- [Outras considerações](#other-considerations)
-	- [Cópia paralela](#parallel-copy)
-	- [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units)
-
-3. **Expanda a configuração para todo o conjunto de dados**. Quando você estiver satisfeito com os resultados e o desempenho da execução, poderá expandir a definição e o período ativo do pipeline para cobrir todo o conjunto de dados.
 
 ## Referência de desempenho
 
@@ -60,10 +42,10 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
 Pontos a serem observados:
 
 - A taxa de transferência é calculada usando a seguinte fórmula: [tamanho dos dados lidos na origem]/[duração da execução da Atividade de Cópia].
-- Usamos o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) para calcular os números na tabela anterior.
--	Para copiar entre os armazenamentos de dados de nuvem, defina **cloudDataMovementUnits** para 1 e 4 para ter uma comparação. **parallelCopies** não é especificado. Consulte a seção [Cópia paralela](#parallel-copy) para obter detalhes sobre esses recursos.
+- Os números de referência de desempenho na tabela acima foram medidos usando o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) em uma execução de atividade de cópia única.
+- Para copiar entre os armazenamentos de dados de nuvem, defina **cloudDataMovementUnits** para 1 e 4 (ou 8) para ter uma comparação. **parallelCopies** não é especificado. Consulte a seção [Cópia paralela](#parallel-copy) para obter detalhes sobre esses recursos.
 - Nos armazenamentos de dados do Azure, a origem e o coletor estão na mesma região do Azure.
-- Para a movimentação de dados híbrida (local para a nuvem ou nuvem para o local), uma única instância do Gateway de Gerenciamento de Dados em um computador que foi separado do armazenamento de dados local. A configuração está listada na tabela a seguir. Quando uma única atividade foi executada no Gateway, a operação de cópia consumiu apenas uma pequena parte do recurso de memória ou CPU do computador de teste e uma pequena parte de sua largura de banda da rede.
+- Para a movimentação de dados híbrida (local para a nuvem ou nuvem para o local), uma única instância do Gateway de Gerenciamento de Dados estava em execução em um computador separado do armazenamento de dados local. A configuração está listada na tabela a seguir. Quando uma única atividade foi executada no Gateway, a operação de cópia consumiu apenas uma pequena parte do recurso de memória ou CPU do computador de teste e uma pequena parte de sua largura de banda da rede.
 	<table>
 	<tr>
 		<td>CPU</td>
@@ -101,7 +83,7 @@ Para cada execução da Atividade de Cópia, o Data Factory determina o número 
 
 Fonte e coletor |	Contagem de cópia paralela padrão determinada pelo serviço
 ------------- | -------------------------------------------------
-Copiar dados entre os armazenamentos baseados em arquivo (armazenamento de Blobs; Data Lake Store; sistema de arquivos local; Sistema de Arquivos Distribuído Hadoop local ou HDFS) | Entre 1 e 32. Depende do tamanho dos arquivos e do número de unidades de movimentação de dados de nuvem (DMUs) usados para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Gateway usado para obter uma cópia híbrida (para copiar os dados de ou para um armazenamento de dados local).
+Copiar dados entre os armazenamentos baseados em arquivo (armazenamento de Blobs; Data Lake Store; Amazon S3; sistema de arquivos local; HDFS (Sistema de Arquivos Distribuído Hadoop) local) | Entre 1 e 32. Depende do tamanho dos arquivos e do número de unidades de movimentação de dados de nuvem (DMUs) usados para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Gateway usado para obter uma cópia híbrida (para copiar os dados de ou para um armazenamento de dados local).
 Copiar dados de **qualquer armazenamento de dados de origem para o armazenamento de Tabelas do Azure** | 4
 Todos os outros pares de origem e coletor | 1
 
@@ -158,7 +140,9 @@ Por padrão, o Data Factory usa uma única DMU de nuvem para fazer uma única ex
 	    }
 	]
 
-Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são: 1 (padrão), 2, 4 e 8. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). Uma configuração 8 e superior atualmente funciona somente quando você copia vários arquivos do armazenamento de Blobs para o armazenamento de Blobs ou para uma instância do Data Lake Store maior ou igual a 16 MB individualmente.
+Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são: 1 (padrão), 2, 4 e 8. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados.
+
+> [AZURE.NOTE] Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). Uma configuração 8 e superior atualmente funciona somente quando você copia vários arquivos do armazenamento de Blobs para o armazenamento de Blobs, Data Lake Store ou Banco de Dados SQL do Azure e o tamanho do arquivo é maior ou igual a 16 MB, individualmente.
 
 Para usar melhor essas duas propriedades e para melhorar a taxa de transferência de movimentação de dados, consulte os [casos de uso de exemplo](#case-study-use-parallel-copy). Você não precisa configurar **parallelCopies** para aproveitar o comportamento padrão. Se você configurar e **parallelCopies** for muito pequeno, várias DMUs de nuvem poderão não ser totalmente utilizadas.
 
@@ -167,9 +151,9 @@ Para usar melhor essas duas propriedades e para melhorar a taxa de transferênci
 ## Cópia em etapas
 Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados do coletor, você pode escolher usar um armazenamento de Blobs como um armazenamento de preparação provisório. Esse preparo é especialmente útil nos seguintes casos:
 
--	**Às vezes, leva algum tempo para realizar a movimentação de dados híbridos (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem ou vice-versa) em uma conexão de rede lenta**. Para melhorar o desempenho, você pode compactar os dados locais para que leve menos tempo mover os dados para o armazenamento de dados de preparo na nuvem. Em seguida, você pode descompactar os dados no armazenamento de preparo antes de carregá-lo no armazenamento de dados de destino.
-2.	**Você não deseja abrir portas diferentes da porta 80 e da porta 443 em seu firewall, devido às políticas corporativas de TI**. Por exemplo, quando você copia dados de um armazenamento de dados local para um coletor do Banco de Dados SQL ou um coletor do SQL Data Warehouse, precisa ativar a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo. Nesse cenário, você pode aproveitar o Gateway de Gerenciamento de Dados para primeiro copiar os dados para uma instância de preparado do armazenamento de Blobs via HTTP ou HTTPS na porta 443. Em seguida, carregue os dados no Banco de Dados SQL ou no SQL Data Warehouse a partir do preparo do armazenamento de Blobs. Nesse fluxo, você não precisa habilitar a porta 1433.
-3.	**Você consome dados de vários armazenamentos de dados no SQL Data Warehouse via PolyBase**. O SQL Data Warehouse usa o PolyBase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados no SQL Data Warehouse. No entanto, os dados de origem devem estar no armazenamento de Blobs e devem atender a critérios adicionais. Quando você carrega dados de um armazenamento de dados diferente do armazenamento de Blobs, pode ativar a cópia dos dados por meio do armazenamento de Blobs de preparo intermediário. Nesse caso, o Data Factory executa as transformações de dados necessárias para garantir que eles atenderão aos requisitos do PolyBase. Em seguida, ele usa o PolyBase para carregar os dados no SQL Data Warehouse. Consulte [Usar o PolyBase para carregar dados no SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver mais detalhes e exemplos.
+1.	**Você deseja ingerir dados de vários armazenamentos de dados no SQL Data Warehouse via PolyBase**. O SQL Data Warehouse usa o PolyBase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados no SQL Data Warehouse. No entanto, os dados de origem devem estar no armazenamento de Blobs e devem atender a critérios adicionais. Quando você carrega dados de um armazenamento de dados diferente do armazenamento de Blobs, pode ativar a cópia dos dados por meio do armazenamento de Blobs de preparo intermediário. Nesse caso, o Data Factory executa as transformações de dados necessárias para garantir que eles atenderão aos requisitos do PolyBase. Em seguida, ele usa o PolyBase para carregar os dados no SQL Data Warehouse. Consulte [Usar o PolyBase para carregar dados no SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver mais detalhes e exemplos.
+2.	**Às vezes, leva algum tempo para realizar a movimentação de dados híbridos (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem ou vice-versa) em uma conexão de rede lenta**. Para melhorar o desempenho, você pode compactar os dados locais para que leve menos tempo mover os dados para o armazenamento de dados de preparo na nuvem. Em seguida, você pode descompactar os dados no armazenamento de preparo antes de carregá-lo no armazenamento de dados de destino.
+3.	**Você não deseja abrir portas diferentes da porta 80 e da porta 443 em seu firewall, devido às políticas corporativas de TI**. Por exemplo, quando você copia dados de um armazenamento de dados local para um coletor do Banco de Dados SQL ou um coletor do SQL Data Warehouse, precisa ativar a comunicação de saída TCP na porta 1433 para o firewall do Windows e o firewall corporativo. Nesse cenário, você pode aproveitar o Gateway de Gerenciamento de Dados para primeiro copiar os dados para uma instância de preparado do armazenamento de Blobs via HTTP ou HTTPS na porta 443. Em seguida, carregue os dados no Banco de Dados SQL ou no SQL Data Warehouse a partir do preparo do armazenamento de Blobs. Nesse fluxo, você não precisa habilitar a porta 1433.
 
 ### Como funciona a cópia em etapas
 Quando você ativa o recurso de preparo, primeiro os dados são copiados do armazenamento de dados de origem para o armazenamento de dados de preparo (traga seu próprio). Em seguida, os dados são copiados do armazenamento de dados de preparo para o armazenamento de dados do coletor. O Data Factory gerencia automaticamente o fluxo de dois estágios para você. O Data Factory também limpa os dados temporários do armazenamento de preparo após a movimentação de dados ser concluída.
@@ -229,6 +213,31 @@ Você é cobrado com base em duas etapas: duração da cópia e tipo de cópia.
 - Quando você usa o preparo durante uma cópia híbrida (copiar dados de um armazenamento de dados local para um armazenamento de dados de nuvem, por exemplo, de um banco de dados do SQL Server local para o SQL Data Warehouse), é cobrado pela [duração da cópia híbrida] x [preço unitário da cópia híbrida] + [duração da cópia de nuvem] x [preço unitário da cópia de nuvem].
 
 
+## Etapas de ajuste do desempenho
+Sugerimos que você realize estas etapas para ajustar o desempenho do serviço Data Factory com a Atividade de Cópia:
+
+1.	**Estabelecer uma linha de base**. Durante a fase de desenvolvimento, teste seu pipeline com a Atividade de Cópia em relação a um exemplo de dados representativo. Você pode usar o [modelo de divisão](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) do Data Factory para limitar a quantidade de dados com a qual trabalha.
+
+	Colete o tempo de execução e as características do desempenho usando o **Monitoramento e Gerenciamento de Aplicativos**. Escolha **Monitorar e Gerenciar** na home page da Data Factory. Na exibição em árvore, escolha o **conjunto de dados de saída**. Na lista **Janelas de Atividade** escolha a execução Atividade de Cópia. As **Janelas de Atividade** listam a duração da Atividade de Cópia e o tamanho dos dados copiados. A taxa de transferência é listada no **Gerenciador de Janelas de Atividades**. Para saber mais sobre o aplicativo, consulte [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Monitoramento e Gerenciamento de Aplicativos](data-factory-monitor-manage-app.md).
+
+	![Detalhes da execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+
+	Posteriormente neste artigo, você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](#performance-reference) da Atividade de Cópia de nossos testes.
+2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os afunilamentos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos afunilamentos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
+	- Recursos de desempenho:
+		- [Cópia paralela](#parallel-copy)
+		- [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units)
+		- [Cópia em etapas](#staged-copy)
+	- [Fonte](#considerations-for-the-source)
+	- [Coletor](#considerations-for-the-sink)
+	- [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
+	- [Compactação](#considerations-for-compression)
+	- [Mapeamento de coluna](#considerations-for-column-mapping)
+	- [Gateway de gerenciamento de dados](#considerations-for-data-management-gateway)
+	- [Outras considerações](#other-considerations)
+
+3. **Expanda a configuração para todo o conjunto de dados**. Quando você estiver satisfeito com os resultados e o desempenho da execução, poderá expandir a definição e o período ativo do pipeline para cobrir todo o conjunto de dados.
+
 ## Considerações para a origem
 ### Geral
 Verifique se o armazenamento de dados subjacente não está sobrecarregado por outras cargas de trabalho em execução nele ou em relação a ele.
@@ -239,14 +248,14 @@ Se você copiar os dados do armazenamento de Blobs para o SQL Data Warehouse, co
 
 
 ### Armazenamentos de dados baseado em arquivo
-*(Inclui o armazenamento de Blobs, Data Lake Store e sistemas de arquivos locais)*
+*(Inclui o armazenamento de Blobs, Data Lake Store, Amazon S3, sistemas de arquivos locais e HDFS local)*
 
 - **Média de tamanho do arquivo e contagem de arquivos**: a Atividade de Cópia transfere os dados um arquivo por vez. Com a mesma quantidade de dados a ser movidos, a taxa de transferência geral será menor se os dados consistirem em muitos arquivos pequenos, em vez de alguns arquivos grandes, devido à fase de inicialização de cada arquivo. Portanto, se possível, combine arquivos pequenos em arquivos maiores para obter uma maior taxa de transferência.
 - **Formato de arquivo e compactação**: para ver outras maneiras de melhorar o desempenho, consulte as seções [Considerações da serialização e desserialização](#considerations-for-serialization-and-deserialization) e [Considerações da compactação](#considerations-for-compression).
 - Além disso, para o cenário do **sistema de arquivos local** no qual o uso do **Gateway de Gerenciamento de Dados** é obrigatório, consulte a seção [Considerações do Gateway de Gerenciamento de Dados](#considerations-for-data-management-gateway).
 
 ### Armazenamentos de dados relacionais
-*(Inclui o Banco de Dados SQL, SQL Data Warehouse, bancos de dados do SQL Server e bancos de dados Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL)*
+*(Inclui o Banco de Dados SQL, SQL Data Warehouse, Amazon Redshift, bancos de dados do SQL Server e bancos de dados Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL, etc.)*
 
 - **Padrão de dados**: o esquema da tabela afeta a taxa de transferência de cópia. Um tamanho de linha grande oferece um desempenho melhor do que o tamanho de linha pequeno, para copiar a mesma quantidade de dados, porque o banco de dados pode recuperar com mais eficiência menos lotes de dados que contêm menos linhas.
 - **Consulta ou procedimento armazenado**: otimize a lógica da consulta ou do procedimento armazenado especificado na origem da Atividade de Cópia para buscar os dados com mais eficiência.
@@ -263,7 +272,7 @@ Se você estiver copiando os dados do **armazenamento de Blobs** para o **SQL Da
 
 
 ### Armazenamentos de dados baseado em arquivo
-*(Inclui o armazenamento de Blobs, Data Lake Store e sistemas de arquivos locais)*
+*(Inclui o armazenamento de Blobs, Data Lake Store, Amazon S3, sistemas de arquivos locais e HDFS local)*
 
 - **Comportamento da cópia**: se você copiar os dados de um armazenamento de dados diferente com base em arquivos, a Atividade de Cópia terá três opções por meio da propriedade **copyBehavior**. Preserva a hierarquia, nivela a hierarquia ou mescla os arquivos. Preservar ou nivelar a hierarquia tem pouca ou nenhuma sobrecarga de desempenho, mas mesclar os arquivos faz aumentar a sobrecarga dele.
 - **Formato do arquivo e compactação**: consulte as seções [Considerações da serialização e desserialização](#considerations-for-serialization-and-deserialization) e [Considerações da compactação](#considerations-for-compression) para ver outras maneiras de melhorar o desempenho.
@@ -271,7 +280,7 @@ Se você estiver copiando os dados do **armazenamento de Blobs** para o **SQL Da
 - Para os cenários dos **sistemas de arquivos locais** que exigem o uso do **Gateway de Gerenciamento de Dados**, consulte a seção [Considerações do Gateway de Gerenciamento de Dados](#considerations-for-data-management-gateway).
 
 ### Armazenamentos de dados relacionais
-*(Inclui o Banco de Dados SQL, SQL Data Warehouse e bancos de cados do SQL Server)*
+*(Inclui o Banco de Dados SQL, SQL Data Warehouse, bancos de dados do SQL Server e bancos de dados Oracle)*
 
 - **Comportamento de cópia**: dependendo das propriedades configuradas para **sqlSink**, a Atividade de Cópia gravará os dados no banco de dados de destino de maneiras diferentes.
 	- Por padrão, o serviço de movimentação de dados usa a API de Cópia em Massa para inserir dados no modo de anexação, o que fornece o melhor desempenho.
@@ -390,4 +399,4 @@ Aqui estão as referências de monitoramento e ajuste do desempenho para alguns 
 - SQL Server local: [monitoramento e ajuste do desempenho](https://msdn.microsoft.com/library/ms189081.aspx)
 - Servidor de arquivos local: [ajuste de desempenho para servidores de arquivos](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

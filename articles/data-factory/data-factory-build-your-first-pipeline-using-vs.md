@@ -18,22 +18,25 @@
 
 # Tutorial: Compilar seu primeiro data factory do Azure usando o Microsoft Visual Studio
 > [AZURE.SELECTOR]
+- [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
 - [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+Neste artigo, você usa o Microsoft Visual Studio para criar seu primeiro data factory do Azure.
 
-## Pré-requisitos adicionais
+## Pré-requisitos
+1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito**.
 2. Você deve ser um **administrador da assinatura do Azure** para poder publicar entidades do Data Factory desde o Visual Studio no Azure Data Factory.
 3. Você deve ter os seguintes itens instalados no seu computador:
 	- Visual Studio 2013 ou Visual Studio 2015
 	- Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
 	- Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se você estiver usando o Visual Studio 2013, você também pode atualizar o plug-in, fazendo o seguinte: no menu, clique em **Ferramentas** -> **Extensões e atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
  
-As instruções a seguir mostram como criar e implantar as entidades de Data Factory.
+Agora, vamos usar o Visual Studio para criar um data factory do Azure.
+
 
 ## Criar um projeto do Visual Studio 
 1. Inicie o **Visual Studio 2013** ou o **Visual Studio 2015**. Clique em **Arquivo**, indique **Novo** e, em seguida, clique em **Projeto**. Você deverá ver a caixa de diálogo **Novo Projeto**.
@@ -267,10 +270,12 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 
 21. Na página Configurar data factory, faça o seguinte:
 	1. Selecione a opção **Criar Nova Fábrica de Dados**.
-	2. Insira **FirstDataFactoryUsingVS** em **Nome**.
+	2. Insira um **nome** exclusivo para o armazenamento de dados. Por exemplo: **FirstDataFactoryUsingVS09152016**. O nome deve ser globalmente exclusivo.
 	
-		> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro **O nome da fábrica de dados "FirstDataFactoryUsingVS" não está disponível** durante a publicação, altere o nome (por exemplo, seunomeFirstDataFactoryUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+		> [AZURE.IMPORTANT] Se você receber o erro **O nome da fábrica de dados "FirstDataFactoryUsingVS" não está disponível** durante a publicação, altere o nome (por exemplo, seunomeFirstDataFactoryUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
 	3. Selecione a assinatura certa para o campo **Assinatura**.
+	 
+		> [AZURE.IMPORTANT] Se você não vir nenhuma assinatura, verifique se está conectado usando uma conta que seja administrador ou coadministrador da assinatura.
 	4. Selecione o **grupo de recursos** para o data factory a ser criado.
 	5. Selecione a **região** do data factory.
 	6. Clique em **Avançar** para alternar para a página **Publicar Itens**. (Pressione **TAB** para sair do campo Nome se o botão **Avançar** estiver desabilitado).
@@ -278,7 +283,8 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado.
 
-Observe o seguinte:
+ 
+Pontos importantes a serem considerados:
 
 - Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
 
@@ -291,15 +297,15 @@ Observe o seguinte:
 			Get-AzureRmResourceProvider
 	- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie um data factory no portal do Azure. Essa ação registra automaticamente o provedor para você.
 - 	O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
-- 	Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
+- 	Para criar instâncias do Data Factory, você precisa ser administrador ou coadministrador da assinatura do Azure
 
  
 ## Monitorar o pipeline
 
+### Monitorar o pipeline usando a Exibição de Diagrama
 6. Faça logon no [portal do Azure](https://portal.azure.com/), siga este procedimento:
-	1. Clique em **Procurar** e selecione **Data factories**. 
-		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories.
+	1. Clique em **Mais serviços** e clique em **Data factories**. ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+	2. Selecione o nome do seu data factory (por exemplo: **FirstDataFactoryUsingVS09152016**) da lista de data factories. ![Selecionar o data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. Na home page do seu data factory, clique em **Diagrama**.
   
 	![Bloco do diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -322,18 +328,34 @@ Observe o seguinte:
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
-
-	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).
+	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente). Portanto, espere que o pipeline demore **cerca de 30 minutos** para processar a fatia.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.
  
 	![dados de saída](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Clique na fatia para ver detalhes sobre ela em uma folha **Fatia de dados**.
+
+	![Detalhes da fatia de dados](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)
+12. Clique em uma execução de atividade na **Lista de execuções de atividade** para ver detalhes sobre uma execução de atividade (a atividade do Hive em nosso cenário) em uma janela **Detalhes da execução da atividade**. ![Detalhes da execução da atividade](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)
+	
+	Nos arquivos de log, você pode ver a consulta do Hive executada e as informações de status. Esses logs são úteis para solucionar problemas.
+ 
 
 Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
-Você também pode Monitorar e gerenciar aplicativos para monitorar os pipelines de dados. Veja [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) para obter detalhes sobre a utilização do aplicativo.
+### Monitorar o pipeline usando o aplicativo Monitorar e Gerenciar
+Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pipelines. Para obter informações detalhadas sobre como usar esse aplicativo, veja [Monitorar e gerenciar confira do Azure Data Factory usando o aplicativo Monitorar e Gerenciar](data-factory-monitor-manage-app.md).
+
+1. Clique no bloco Monitorar e Gerenciar.
+
+	![Bloco Monitorar e Gerenciar](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
+2. Você deve ver o aplicativo Monitorar e Gerenciar. Altere a **Hora de início** e a **Hora de término** para corresponder às horas de início (04-01-2016 12:00 AM) e de término (04-02-2016 12:00 AM) do seu pipeline e clique em **Aplicar**.
+
+	![Aplicativo Monitorar e Gerenciar](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
+3. Selecione uma janela de atividade na lista de Janelas de Atividade para ver detalhes sobre ela. ![Detalhes da janela Atividade](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
  
@@ -480,4 +502,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 | [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory.
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

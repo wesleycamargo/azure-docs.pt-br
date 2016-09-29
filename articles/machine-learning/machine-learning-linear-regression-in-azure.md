@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/09/2016" 
 	ms.author="kbaroni;garye" />
 
 # Usando regressão linear no Aprendizado de Máquina do Azure
@@ -29,8 +29,8 @@
 
 Nosso projeto começou com dois objetivos:
 
-1. Usar a análise preditiva para melhorar a precisão das projeções de receita mensal de nossa organização  
-2. Usar o Azure ML para confirmar, otimizar, aumentar a velocidade e a escala de nossos resultados.  
+1. Usar a análise preditiva para melhorar a precisão das projeções de receita mensal de nossa organização
+2. Usar o Azure ML para confirmar, otimizar, aumentar a velocidade e a escala de nossos resultados.
 
 Como muitas empresas, nossa organização passa por uma processo de previsão de receita mensal. Nossa pequena equipe de analistas de negócios foi encarregada de usar o Aprendizado de Máquina para dar suporte ao processo e aumentar a precisão da previsão. A equipe passou vários meses coletando dados de várias fontes e submetendo os atributos de dados à análise estatística, identificando os principais atributos relevantes à previsão de vendas de serviços. As próximas etapas eram iniciar a criação de protótipos de modelos de regressão estatística com os dados no Excel. Em poucas semanas, tínhamos um modelo de regressão do Excel que superava os processos atuais de previsão de campo e finanças. Esse se tornou o resultado de previsão de linha de base.
 
@@ -51,8 +51,8 @@ Calculamos o *Erro de Média Absoluta %* e o usamos como a medida de desempenho 
 Seguimos estas etapas para criar nosso experimento no Azure ML:
 
 1.	Carregamos o conjunto de dados como um arquivo csv para o Azure ML (arquivo muito pequeno)
-2.	Criamos um novo experimento e usamos o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar os mesmos recursos de dados usados no Excel   
-3.	Usamos o módulo [Dividir Dados][split] \(com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel  
+2.	Criamos um novo experimento e usamos o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar os mesmos recursos de dados usados no Excel
+3.	Usamos o módulo [Dividir Dados][split] \(com o modo *Expressão Relativa*) para dividir os dados exatamente nos mesmos conjuntos de treinamento usados no Excel
 4.	Experimentamos o módulo de [Regressão Linear][linear-regression] \(somente opções padrão), documentamos e comparamos os resultados com o nosso modelo de regressão do Excel
 
 ### Examinar os resultados iniciais
@@ -71,7 +71,7 @@ Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientis
 * Quando você usa o módulo [Regressão Linear][linear-regression] no Azure ML, dois métodos são fornecidos:
 	*  Gradiente Online Descendente: talvez seja mais adequado para problemas de maior escala
 	*  Mínimos Quadrados Comuns: esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
-*  Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho.    
+*  Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho.
 
 ### Mistério resolvido!
 Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Azure ML que obtivemos no Excel:
@@ -143,7 +143,7 @@ A capacidade de transferir a previsão de análise preditiva do Azure ML para o 
 São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 
 * Regressão no Excel. Se você nunca experimentou a regressão no Excel, este tutorial facilita tudo: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Regressão versus previsão. Tyler Chessman escreveu um artigo no blog explicando como realizar a previsão de série temporal no Excel, que contém uma boa descrição para iniciantes sobre a regressão linear. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
+* Regressão versus previsão. Tyler Chessman escreveu um artigo no blog explicando como realizar a previsão de série temporal no Excel, que contém uma boa descrição para iniciantes sobre a regressão linear. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)
 * 	Regressão linear de quadrados mínimos simples: falhas, problemas e armadilhas. Para obter uma introdução e uma discussão sobre regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
@@ -159,4 +159,4 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

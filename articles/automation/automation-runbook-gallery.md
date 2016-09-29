@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="09/18/2016"
 	ms.author="magoedte;bwren" />
 
 
@@ -66,7 +66,7 @@ Somente é possível importar diretamente da Galeria de Runbook usando o Portal 
 
 A Microsoft incentiva você a adicionar à Galeria de Runbook os runbooks que, em sua opinião, seriam úteis para outros clientes. Você pode adicionar um runbook [carregando-o no Script Center](http://gallery.technet.microsoft.com/site/upload) levando em consideração os detalhes a seguir.
 
-- Você deve especificar o *Microsoft Azure* para a **Categoria** e *Automação* para a **Subcategoria** do runbook a ser exibido no assistente.  
+- Você deve especificar o *Microsoft Azure* para a **Categoria** e *Automação* para a **Subcategoria** do runbook a ser exibido no assistente.
 
 - O carregamento deve ser um único arquivo .ps1 ou .graphrunbook. Se o runbook exigir módulos, runbooks filhos ou ativos, você deverá listá-los na descrição do envio e na seção de comentários do runbook. Se você tiver um cenário que exija vários runbooks, carregue cada um separadamente e liste os nomes dos runbooks relacionados em cada uma das descrições. Use as mesmas marcas de forma que elas sejam mostradas na mesma categoria. Um usuário terá de ler a descrição para saber quais outros runbooks serão necessários para que o cenário funcione.
 
@@ -138,4 +138,4 @@ Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure
 - Para começar a usar os runbooks, confira [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md)
 - Para entender as diferenças entre o PowerShell e o os fluxos de trabalho do PowerShell com runbooks, confira [Aprendendo sobre o fluxo de trabalho do PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

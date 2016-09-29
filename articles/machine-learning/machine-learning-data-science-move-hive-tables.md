@@ -4,7 +4,7 @@
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -29,9 +29,9 @@ Este **menu** vincula-se a tópicos que descrevem a inclusão de dados em ambien
 ## Pré-requisitos
 Este artigo supõe que você:
  
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage)
 * Provisionou um cluster do Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Personalizar os clusters do Hadoop do Azure HDInsight para análise avançada](machine-learning-data-science-customize-hadoop-cluster.md).
-* Habilitou o acesso remoto para o cluster, conectou-se e abriu o Console de Linha de Comando do Hadoop. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
+* Habilitou o acesso remoto para o cluster, conectou-se e abriu o Console de Linha de Comando do Hadoop. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 ## Carregar dados no armazenamento de blob do Azure
 Se você criou uma máquina virtual do Azure seguindo as instruções fornecidas em [Configurar uma máquina virtual do Azure para análise avançada](machine-learning-data-science-setup-virtual-machine.md), esse arquivo de script deve ter sido baixado no diretório *C:\\Users\\<user name>\\Documents\\Data Science Scripts* na máquina virtual. Essas consultas de Hive exigem somente conectar em seu próprio esquema de dados e que a configuração de armazenamento de blobs do Azure nos campos apropriados esteja pronta para envio.
@@ -154,12 +154,12 @@ Veja aqui a consulta Hive que cria uma tabela Hive.
 
 Veja aqui as descrições dos campos que os usuários precisam para plug-ins e outras configurações:
 
-- **&#60;nome do banco de dados>**: o nome do banco de dados que os usuários desejam criar. Se os usuários desejam apenas usar o banco de dados padrão, a consulta *create database...* pode ser omitida. 
+- **&#60;nome do banco de dados>**: o nome do banco de dados que os usuários desejam criar. Se os usuários desejam apenas usar o banco de dados padrão, a consulta *create database...* pode ser omitida.
 - **&#60;nome da tabela>**: o nome da tabela que os usuários desejam criar no banco de dados especificado. Se os usuários desejam usar o banco de dados padrão, a tabela pode ser referida diretamente por *&#60;nome da tabela>* sem &#60;nome do banco de dados>.
-- **&#60;separador de campo>**: o separador que delimita os campos no arquivo de dados a serem carregados na tabela Hive. 
-- **&#60;separador de linha>**: o separador que delimita as linhas no arquivo de dados. 
-- **&#60;local de armazenamento>**: o local de armazenamento do Azure para salvar os dados das tabelas Hive. Se os usuários não especificarem *LOCATION &#60;local do armazenamento>*, o banco de dados e as tabelas são armazenadas no diretório *hive/warehouse/* no contêiner padrão do cluster de Hive por padrão. Se um usuário deseja especificar o local de armazenamento, este deve estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local precisa ser chamado como um local relativo ao contêiner padrão do cluster no formato *'wasb:///&#60;diretório 1>/'* ou *'wasb:///&#60;diretório 1>/&#60;diretório 2>/'*, etc. Após a consulta ser executada, os diretórios relativos serão criados no contêiner padrão. 
-- **TBLPROPERTIES("skip.header.line.count"="1")**: Se o arquivo de dados tiver uma linha de cabeçalho, os usuários precisam adicionar essa propriedade **ao final** da consulta *create table*. Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta. 
+- **&#60;separador de campo>**: o separador que delimita os campos no arquivo de dados a serem carregados na tabela Hive.
+- **&#60;separador de linha>**: o separador que delimita as linhas no arquivo de dados.
+- **&#60;local de armazenamento>**: o local de armazenamento do Azure para salvar os dados das tabelas Hive. Se os usuários não especificarem *LOCATION &#60;local do armazenamento>*, o banco de dados e as tabelas são armazenadas no diretório *hive/warehouse/* no contêiner padrão do cluster de Hive por padrão. Se um usuário deseja especificar o local de armazenamento, este deve estar dentro do contêiner padrão para o banco de dados e tabelas. Esse local precisa ser chamado como um local relativo ao contêiner padrão do cluster no formato *'wasb:///&#60;diretório 1>/'* ou *'wasb:///&#60;diretório 1>/&#60;diretório 2>/'*, etc. Após a consulta ser executada, os diretórios relativos serão criados no contêiner padrão.
+- **TBLPROPERTIES("skip.header.line.count"="1")**: Se o arquivo de dados tiver uma linha de cabeçalho, os usuários precisam adicionar essa propriedade **ao final** da consulta *create table*. Caso contrário, a linha de cabeçalho será carregada como um registro para a tabela. Se o arquivo de dados não tiver uma linha de cabeçalho, essa configuração pode ser omitida na consulta.
 
 ## <a name="load-data"></a>Carregar dados para tabelas Hive
 Veja aqui a consulta Hive que carrega dados em uma tabela Hive.
@@ -245,4 +245,4 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # Mover bancos de dados entre servidores, entre as assinaturas e para dentro e para fora do Azure
@@ -31,4 +31,4 @@
 ## Para criar uma cópia de um banco de dados para uso fora do Azure
 - [Exporte um arquivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

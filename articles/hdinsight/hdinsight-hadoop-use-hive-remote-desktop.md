@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
+   ms.date="09/06/2016"
    ms.author="larryfr"/>
 
 # Usar o Hive com Hadoop no HDInsight com Remote Desktop.
@@ -58,7 +58,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
     * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
@@ -82,7 +82,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
     * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
 
@@ -150,4 +150,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

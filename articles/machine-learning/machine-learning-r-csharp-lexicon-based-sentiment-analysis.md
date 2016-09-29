@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pengxia" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -20,7 +20,7 @@
 
 #Análise de sentimento baseada em léxico 
 
-Como medir as opiniões e atitudes dos usuários sobre marcas ou tópicos em redes sociais online, como postagens no Facebook, tweets, análises, etc.? A análise de sentimento fornece um método para analisar essas questões.
+Como medir as opiniões e atitudes dos usuários sobre marcas ou tópicos em redes sociais online, como postagens no Facebook, tweets, análises etc.? A análise de sentimento fornece um método para analisar essas questões.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -153,4 +153,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
