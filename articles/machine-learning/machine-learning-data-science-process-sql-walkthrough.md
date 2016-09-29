@@ -358,7 +358,8 @@ Inicialize as configurações de conexão de banco de dados nas seguintes variá
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-O tempo para ler a tabela de exemplo é de 6.492000 segundos Número de linhas e colunas recuperadas = (84952, 21)
+O tempo para ler a tabela de exemplo é de 6.492000 segundos  
+Número de linhas e colunas recuperadas = (84952, 21)
 
 #### Estatísticas Descritivas
 
@@ -688,7 +689,9 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 ### Referências
 
-• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
+• [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
