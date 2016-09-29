@@ -18,11 +18,13 @@
 
 # Usando a extensão de VM do Docker para implantar seu ambiente
 
+> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+
 O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux (e também no Windows). Com o Azure, você tem a flexibilidade para implantar o Docker de algumas maneiras diferentes dependendo das suas necessidades:
 
 - Para fazer rapidamente o protótipo de um aplicativo, você pode [usar o driver do Computador Docker do Azure](./virtual-machines-linux-docker-machine.md) para implantar hosts do Docker no Azure.
-- A extensão de VM do Docker para máquinas virtuais do Azure é usada para implantações baseadas em modelo. Essa abordagem pode se integrar a implantações de modelo do Azure Resource Manager e inclui todos os benefícios relacionados, como acesso baseado em função, diagnóstico e configuração após a implantação.
-- A extensão de VM do Docker também dá suporte ao Docker Compose. O Docker Compose usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente.
+- A Extensão de VM do Docker para máquinas virtuais do Azure é usada para implantações baseadas em modelo. Essa abordagem pode se integrar a implantações de modelo do Azure Resource Manager e inclui todos os benefícios relacionados, como acesso baseado em função, diagnóstico e configuração após a implantação.
+- A Extensão de VM do Docker também dá suporte ao Docker Compose. O Docker Compose usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente.
 - Você também pode [implantar um cluster completo do Docker Swarm nos Serviços de Contêiner do Azure](../container-service/container-service-deployment.md) para implantações escalonáveis prontas para produção que aproveitam as ferramentas de gerenciamento e agendamento adicionais fornecidas pelo Swarm.
 
 Este artigo se concentra no uso de modelos do Resource Manager para implantar a Extensão de VM do Docker em um ambiente personalizado e pronto para produção definido por você.
@@ -138,4 +140,4 @@ Leia etapas mais detalhadas para as diferentes opções de implantação:
 3. [Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres em uma máquina virtual do Azure](virtual-machines-linux-docker-compose-quickstart.md).
 3. [Implantar um cluster do Serviço de Contêiner do Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

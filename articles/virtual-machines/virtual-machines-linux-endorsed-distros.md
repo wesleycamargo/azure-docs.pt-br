@@ -22,6 +22,8 @@
 
 #Linux em distribuições endossadas pelo Azure
 
+> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+
 As imagens Linux na Galeria do Azure ou no Marketplace são fornecidas por alguns parceiros e estamos trabalhando com várias comunidades Linux para adicionar ainda mais opções à lista de Distribuições Endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-classic-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -89,4 +91,4 @@ O controle aberto da comunidade e a engenharia da Canonical impulsionam o sucess
 
 Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está posicionada exclusivamente para fazer parceria com fabricantes de hardware, provedores de conteúdo e desenvolvedores de software para oferecer soluções de Ubuntu no mercado, de PCs a servidores e dispositivos portáteis.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

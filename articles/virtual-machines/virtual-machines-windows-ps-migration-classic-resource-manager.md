@@ -46,10 +46,9 @@ Obtenha as assinaturas disponíveis usando o comando a seguir.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
+Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelo nome correto.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] O registro é uma etapa única, mas é preciso executá-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro:
 
@@ -71,10 +70,9 @@ Obtenha as assinaturas disponíveis usando o comando a seguir.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
+Defina sua assinatura do Azure para a sessão atual. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelo nome correto.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Etapa 4: Verificar se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou VNET
 
@@ -189,4 +187,4 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 - [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

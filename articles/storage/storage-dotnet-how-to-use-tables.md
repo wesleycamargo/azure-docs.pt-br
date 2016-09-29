@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Introdução ao armazenamento de Tabelas do Azure usando o .NET
@@ -37,8 +37,8 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/pt-BR/visual-studio-homepage-vs.aspx)
 - [Biblioteca do Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Gerenciador de configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Uma [conta do Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
+- [Gerenciador de Configurações do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- [Uma conta do Armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -57,7 +57,7 @@ Para obter exemplos adicionais usando o Armazenamento de Tabelas, confira [Intro
 
 Adicione as seguintes instruções `using` à parte superior do arquivo `program.cs`:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -81,13 +81,13 @@ Este exemplo mostra como criar uma tabela se ela ainda não existe:
 	// Retrieve the storage account from the connection string.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
+
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-		
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -229,7 +229,7 @@ Se não desejar consultar todas as entidades em uma partição, você poderá es
 
 ## Recuperar uma única entidade
 
-Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa **TableOperation** para especificar o cliente 'Mateus Rodrigues'. Este método retorna uma única entidade, em vez de uma coleção, e o valor retornado no **TableResult.Result** é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço Tabela.
+Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir usa **TableOperation** para especificar o cliente 'Mateus Rodrigues'. Este método retorna uma única entidade, em vez de uma coleção, e o valor retornado no **TableResult.Result** é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço Table.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -469,4 +469,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

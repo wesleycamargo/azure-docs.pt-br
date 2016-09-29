@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 	
 # Como usar o Armazenamento do Azure em aplicativos da Windows Store
@@ -63,7 +63,7 @@ Os tipos que são usados para se comunicar com o serviço Tabela do Azure depend
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
 
-Use o comando a seguir para apontar o Gerenciador de Pacotes para a localização de seu computador:
+Use o comando a seguir para apontar o Gerenciador de Pacotes para a localização de sua máquina:
 
     Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services\5.0\bin\NuGet"
 
@@ -87,4 +87,4 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

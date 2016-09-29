@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure | Azure" 
-   description="Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake." 
+   description="Saiba como usar o Portal do Azure para solucionar problemas com trabalhos da Análise do Data Lake. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -103,11 +103,11 @@ Na última seção, você enviou um trabalho e o trabalho falhou.
 8. Clique em **Enviar Trabalho**.
 
 
-##Consulte também
+##Confira também
 
 - [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 - [Introdução à Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introdução ao U-SQL da Análise Azure Data Lake usando o Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

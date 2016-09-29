@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Introdução ao Armazenamento do Azure em cinco minutos | Microsoft Azure" 
-	description="Compreenda rapidamente os Blobs, Tabelas e Filas do Microsoft Azure usando os Inícios Rápidos de Armazenamento do Azure, o Visual Studio e o emulador de armazenamento do Azure. Execute seu primeiro aplicativo de Armazenamento do Azure em cinco minutos." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Introdução ao Armazenamento do Azure em cinco minutos | Microsoft Azure"
+	description="Compreenda rapidamente os Blobs, Tabelas e Filas do Microsoft Azure usando os Inícios Rápidos de Armazenamento do Azure, o Visual Studio e o emulador de armazenamento do Azure. Execute seu primeiro aplicativo de Armazenamento do Azure em cinco minutos."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
-	ms.date="07/21/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="09/20/2016"
+	ms.author="dineshm;tamram"/>
 
-# Introdução ao Armazenamento do Azure em cinco minutos 
+# Introdução ao Armazenamento do Azure em cinco minutos
 
 ## Visão geral
 
@@ -49,7 +49,7 @@ Assim que tiver uma conta, você poderá criar um aplicativo simples de armazena
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **Inícios Rápidos** > **Serviços de Dados**. a. Escolha um dos seguintes modelos: **Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**. b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
 	- 3\.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
-	
+
 	![Inícios Rápidos do Azure][Image1]
 
 Convém examinar o código-fonte antes de executar o aplicativo. Para examinar o código, escolha **Gerenciador de Soluções** no menu **Exibição** do Visual Studio. Em seguida, clique duas vezes no arquivo Program.cs.
@@ -78,7 +78,7 @@ Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure u
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **Inícios Rápidos** > **Serviços de Dados**. a. Escolha um dos seguintes modelos: **Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**. b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino. c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
-	
+
 	![Inícios Rápidos do Azure][Image1]
 
 4.	No Visual Studio, selecione **Gerenciador de Soluções** no menu **Exibição**. Abra o arquivo App.config e comente a cadeia de conexão para a conta de armazenamento do Azure se você já tiver adicionado uma. Em seguida, remova o comentário da cadeia de conexão para o emulador de armazenamento do Azure:
@@ -109,6 +109,5 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
- 
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -36,9 +36,9 @@ Esse serviço aceita quatro argumentos de uma distribuição normal e calcula o 
 
 Os argumentos de entrada são:
 
-* p - uma única probabilidade de um evento com distribuição normal. 
+* p - uma única probabilidade de um evento com distribuição normal.
 * Média – a média de distribuição normal.
-* SD – o desvio padrão da distribuição normal. 
+* SD – o desvio padrão da distribuição normal.
 * Lado – L para o lado inferior da distribuição e U para o lado superior da distribuição.
 
 A saída do serviço é o quantil calculado associado à probabilidade determinada.
@@ -48,9 +48,9 @@ Esse serviço aceita quatro argumentos de uma distribuição normal e calcula a 
 
 Os argumentos de entrada são:
 
-* q - um único quantil de um evento com distribuição normal. 
+* q - um único quantil de um evento com distribuição normal.
 * Média – a média de distribuição normal.
-* SD – o desvio padrão da distribuição normal. 
+* SD – o desvio padrão da distribuição normal.
 * Lado – L para o lado inferior da distribuição e U para o lado superior da distribuição.
 
 A saída do serviço é a probabilidade calculada associada ao quantil determinado.
@@ -58,9 +58,9 @@ A saída do serviço é a probabilidade calculada associada ao quantil determina
 ###Gerador de distribuição normal
 Este serviço aceita três argumentos de uma distribuição normal e gera uma sequência aleatória de números distribuídos normalmente. Os argumentos a seguir devem ser fornecidos a ele na solicitação:
 
-* n - o número de observações. 
+* n - o número de observações.
 * Média – a média de distribuição normal.
-* sd – o desvio padrão da distribuição normal. 
+* sd – o desvio padrão da distribuição normal.
 
 A saída do serviço é uma sequência de tamanho n com uma distribuição normal com base na média e em argumentos sd.
 
@@ -265,4 +265,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

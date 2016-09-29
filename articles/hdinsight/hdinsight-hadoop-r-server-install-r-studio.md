@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 1. Identifique o nó de borda do cluster. Para um cluster HDInsight com R Server, esta é a convenção de nomenclatura para o nó principal e o nó de borda:
 
 	* Nó principal - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Nó de borda - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
+	* Nó de borda – `R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
 
 2. SSH no nó de borda do cluster usando o padrão de nomenclatura acima.
  
@@ -56,7 +56,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
 
-6. Se você usou uma senha do SSH ao criar um cluster HDInsight com o R Server, pode ignorar esta etapa e ir para a próxima. Se, em vez disso, você usou uma chave do SSH para criar o cluster, você deve definir uma senha para seu usuário do SSH. Você precisará dessa senha ao se conectar ao RStudio. Execute os seguintes comandos: Quando a **Senha atual do Kerberos** for solicitada, basta pressionar **ENTER**. Observe que você deve substituir `USERNAME` por um usuário SSH para o cluster HDInsight.
+6. Se você usou uma senha do SSH ao criar um cluster HDInsight com o R Server, pode ignorar esta etapa e ir para a próxima. Se, em vez disso, você usou uma chave do SSH para criar o cluster, você deve definir uma senha para seu usuário do SSH. Você precisará dessa senha ao se conectar ao RStudio. Execute os seguintes comandos: Quando a **Senha atual do Kerberos** for solicitada, basta pressionar **ENTER**. Observe que você deve substituir `USERNAME` por um usuário SSH de seu cluster HDInsight.
 
 		passwd USERNAME
 		Current Kerberos password:
@@ -77,7 +77,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
-		Substitua **USERNAME** por um usuário SSH para seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight Você também pode usar uma chave SSH em vez de uma senha adicionando `-i id_rsa_key`
+		Substitua **USERNAME** por um usuário SSH de seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight. Você também pode usar uma chave SSH em vez de uma senha adicionando `-i id_rsa_key`
 
 	* Em um cliente Windows, crie um túnel SSH PuTTY.
 
@@ -86,7 +86,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 		3.  Forneça as seguintes informações no formulário **Opções de controle do encaminhamento de porta SSH**:
 
 			* **Porta de Origem**: a porta no cliente que você deseja encaminhar. Por exemplo, **8787**.
-			* **Destino** – O destino que deve ser mapeado para o computador cliente local. Por exemplo, **localhost:8787**.
+			* **Destino** – o destino que deve ser mapeado para o computador cliente local. Por exemplo, **localhost:8787**.
 
 			![Criar um túnel SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Criar um túnel SSH")
 
@@ -126,4 +126,4 @@ Outra opção seria digitar `source(testhdi.r)` ou `source(testhdi_spark.r)` par
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -52,7 +52,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
     * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
     * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
@@ -128,4 +128,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

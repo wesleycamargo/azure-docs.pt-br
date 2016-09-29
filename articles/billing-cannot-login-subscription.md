@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Não consigo fazer logon para gerenciar minha assinatura do Azure | Microsoft Azure"
+	pageTitle="Não consigo entrar para gerenciar minha assinatura do Azure | Microsoft Azure"
 	description="Descreve as informações de solução de problemas para alguns problemas comuns de logon de assinatura do Azure"
 	services=""
 	documentationCenter=""
@@ -15,22 +15,68 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/09/2016"
 	ms.author="genli"/>
 
-# Não consigo fazer logon para gerenciar minha assinatura do Azure
+# Não consigo entrar para gerenciar minha assinatura do Azure
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente.
+Este artigo explica alguns dos métodos mais comuns para resolver problemas de logon.
 
-Este artigo ajudará a solucionar algumas causas comuns de problemas de logon.
+> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## Qual portal você está tentando acessar?
+## Portais do Azure
 
-Um Administrador da Conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (Administradores de Serviço) e CA (Coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com) ou ao [Portal Clássico do Azure](https://manage.windowsazure.com/).
+| Nome | Descrição | URL |
+|---|---|---|
+| Portal do Azure |Um local central no qual você pode provisionar e gerenciar os recursos do Azure | [https://portal.azure.com](https://portal.azure.com) |
+| portal clássico do Azure | O antigo portal do Azure |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
+| Central de Contas do Azure | Um local central onde você pode acompanhar o uso do Azure e gerenciar sua assinatura |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
 
-Para saber mais sobre as funções de administrador do Azure, confira [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
+## Sintoma: a página trava no status de carregamento
 
-## Sua assinatura está associada a uma conta da Microsoft ou Institucional?
+Esse problema pode causar um problema que afeta o seu navegador da Internet.
+
+Para resolver esse problema, tente os seguintes métodos, na ordem fornecida. Depois de executar todos os métodos, tente reconectar-se à página de entrada no portal.
+
+-	Atualize a página.
+-	Use um navegador de Internet diferente.
+-	Se você estiver usando o Microsoft Internet Explorer, navegue até o portal do Azure usando o modo de Navegação InPrivate. Para fazer isso, siga estas etapas:
+
+	R. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação do InPrivate**.
+
+	B. Navegue até o [portal do Azure](https://portal.azure.com) ou o [portal clássico do Azure](https://manage.windowsazure.com) e entre no portal.
+
+## Sintoma: mensagem de erro "Nenhuma assinatura encontrada"
+
+Esse problema poderá ocorrer se a conta não tiver direitos de usuário suficientes. Um administrador da conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (administradores de serviço) e CA (coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com) ou ao [Portal clássico do Azure](https://manage.windowsazure.com/).
+
+**Cenário 1: mensagem de erro é recebida no portal do Azure ou portal clássico do Azure**
+
+Para resolver esse problema, [adicione a função de administrador colegas ou proprietário](billing-add-change-azure-subscription-administrator.md) para a conta.
+
+**Cenário 2: a mensagem de erro é recebida no Centro de Contas do Azure**
+
+Verifique se a conta usada é o administrador da conta. Para verificar quem é o administrador da conta, siga estas etapas:
+
+1.	Entre no [portal do Azure](https://portal.azure.com).
+2.	No menu Hub, selecione **Assinatura**.
+3.	Selecione a assinatura que você deseja verificar e, em seguida, selecione **Configurações**.
+4.	Selecione **Propriedades**. O administrador da conta da assinatura será exibido na caixa **Administrador da Conta**.
+
+## Sintoma: você está automaticamente conectado como um usuário diferente
+
+Esse problema poderá ocorrer se você estiver usando mais de uma conta de usuário em um navegador da Internet.
+
+Para resolver o problema, tente usar um dos seguintes métodos:
+
+- Saia do portal e entre novamente com a conta que você deseja usar.
+-	Limpe o cache e exclua cookies da Internet. Para fazer isso no Internet Explorer, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Opções da Internet** > **Excluir**, certifique-se de que as caixas de seleção para arquivos temporários, cookies, senha e o histórico de navegação estejam selecionadas e, em seguida, clique em Excluir.
+
+-	Redefina as configurações do Internet Explorer para reverter todas as configurações pessoais que você tenha feito. Para fazer isso, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Opções da Internet** > **Avançado** > selecione a caixa **Excluir configurações pessoais** > **Redefinir**.
+
+-	Navegue até o portal do Azure no modo de Navegação InPrivate. Para fazer isso, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação do InPrivate**.
+
+## Conta da Microsoft versus Conta organizacional
 
 Sua conta da Microsoft é o endereço de e-mail usado, juntamente com sua senha para entrar em qualquer programa do Windows Live ou serviço, como o Outlook, Hotmail, MSN ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Consulte [www.microsoft.com/account](http://www.microsoft.com/account) para obter mais detalhes.
 
@@ -38,22 +84,6 @@ Se sua conta estiver associada uma Conta institucional, selecione a opção de l
 
 ![página de entrada](./media/billing-cannot-login-subscription/signin.png)
 
-## Coadministrador: Você está usando o tipo correto de conta para gerenciar outras contas?
+> [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-- Se fizer logon com uma Conta da Microsoft, você poderá adicionar apenas outras Contas da Microsoft como Coadministradoras. Esse é um requisito de segurança para impedir que contas não organizacionais descubram se certas contas (por exemplo, janedoe@contoso.com) são contas válidas.
-- Se estiver conectado a uma conta institucional, você pode adicionar outras contas institucionais em sua instituição como Coadministrador. Por exemplo, o abby@contoso.com pode adicionar o bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar o john@notcontoso.com. Usuários conectados usando contas de instituição podem também adicionar usuários da conta da Microsoft com Administradores ou Coadministradores de serviço.
-
-Agora que é possível fazer logon no Azure com uma conta institucional, aqui estão as alterações aos requisitos de conta de SA (Administrador de Serviço) e CA (Coadministrador):
-
-| Método de logon| Adicionar Conta da Microsoft como Coadministrador ou Administrador de Serviços? |Adicionar uma conta organizacional na mesma organização como Coadministrador ou Administrador de Serviços? |Adicionar uma conta organizacional em uma organização diferente como Coadministrador ou Administrador de Serviços?
-| ------------- | ------------- |---------------|---------------|
-|Conta da Microsoft |Sim|Não|Não|
-|Conta organizacional|Sim|Sim|Não|
-
-## Há um problema com o Navegador da Internet?
-
-Tente excluir cache/cookies usando o modo de Navegação InPrivate do IE e também usando um navegador diferente.
-
-> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver seu problema rapidamente.
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -96,7 +96,7 @@ Para criar um novo ponto de extremidade de pontuação, no Serviço da Web Predi
 
 1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2. No menu esquerdo, clique em **Aprendizado de Máquina**.
-3. Em Nome, clique em seu espaço de trabalho e, em seguida, clique em **Serviços Web**.
+3. Em Nome, clique em seu espaço de Em Nome, clique em seu espaço de trabalho e, em seguida, clique em **Serviços Web**.
 4. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.
 5. Na parte inferior da página, clique em **Adicionar Ponto de Extremidade**. Para saber mais sobre a adição de pontos de extremidade, veja [Criação de pontos de extremidade](machine-learning-create-endpoint.md).
 
@@ -238,4 +238,4 @@ Usando as APIs de Readaptação, você pode atualizar o modelo treinado de um Se
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

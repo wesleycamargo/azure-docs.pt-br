@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/01/2016"
+  ms.date="09/12/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -265,7 +265,8 @@ Assistente | Imagem
  [Mihail Mateev](https://twitter.com/mihailmateev) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
  [Larry Maccherone](https://twitter.com/lmaccherone) | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) 
  [Howard Edidin](https://twitter.com/hsedidin) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) 
+ [Santosh Hari](https://twitter.com/_s_hari) | [![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) 
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

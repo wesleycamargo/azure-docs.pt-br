@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Assinaturas de acesso compartilhado: noções básicas sobre o Modelo SAS | Microsoft Azure"
-	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas, tabelas e arquivos, usando SAS (assinaturas de acesso compartilhado). Assinaturas de acesso compartilhado protegem sua chave de conta de armazenamento enquanto concedem acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida."
+	pageTitle="Uso de SAS (Assinaturas de Acesso Compartilhado) | Microsoft Azure"
+	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas, tabelas e arquivos, usando SAS (assinaturas de acesso compartilhado)."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
 
-# Assinaturas de Acesso Compartilhado, Parte 1: noções básicas sobre o modelo SAS
+# Uso de SAS (Assinaturas de Acesso Compartilhado)
 
 ## Visão geral
 
@@ -108,7 +108,7 @@ Recurso|sr=b|O recurso é um blob.
 Permissões|sp=rw|As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w).
 Intervalo IP|sip=168.1.5.60-168.1.5.70|O intervalo de endereços IP do qual uma solicitação será aceita.
 Protocolo|spr=https|São permitidas somente solicitações usando HTTPS.
-Assinatura|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64.
+Signature|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64.
 
 E aqui está um exemplo de uma SAS de conta que usa os mesmos parâmetros comuns no token. Como esses parâmetros estão descritos acima, eles não serão descritos aqui. Somente os parâmetros específicos para a SAS de conta são descritos na tabela a seguir.
 
@@ -251,7 +251,8 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
+       Permissions = SharedAccessBlobPermissions.Write | 
+       SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
 
     // The public access setting explicitly specifies that
@@ -318,4 +319,4 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

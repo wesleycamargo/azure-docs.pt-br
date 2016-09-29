@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -104,7 +104,7 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
     * **DROP TABLE** - exclui a tabela e o arquivo de dados caso a tabela já exista.
     * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.
@@ -156,7 +156,7 @@ O Beeline também pode ser usado para executar um arquivo com instruções HiveQ
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Essas instruções executam as seguintes ações:
+    As instruções executam as seguintes ações:
 
     * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Como a palavra-chave **EXTERNAL** não é usada, esta é uma tabela interna, que é armazenada no data warehouse do Hive e totalmente gerenciada pelo Hive.
     * **STORES AS ORC**: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
@@ -235,4 +235,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

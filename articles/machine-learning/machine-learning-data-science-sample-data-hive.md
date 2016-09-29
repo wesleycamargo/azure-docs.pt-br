@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -20,8 +20,8 @@
 
 Neste artigo, descreveremos como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive. Abordaremos três métodos de amostragem popularmente usados:
 
-* Amostragem aleatória uniforme 
-* Amostragem aleatória por grupos 
+* Amostragem aleatória uniforme
+* Amostragem aleatória por grupos
 * Amostragem estratificada
 
 **Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Ciência de Dados de Equipe é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
@@ -107,4 +107,4 @@ Veja um exemplo de consulta:
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

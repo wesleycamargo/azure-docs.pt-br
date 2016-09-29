@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -61,7 +61,7 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
 ![Procurar catálogos do U-SQL do Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
 
 
-## Consulte também
+## Confira também
 
 - Introdução
     - [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
@@ -84,4 +84,4 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
     - [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
     - [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
@@ -169,7 +169,7 @@ A tabela a seguir indica como o armazenamento do Azure responderá às solicita�
 
 Solicitação|Configuração da conta e o resultado da avaliação da regra|||Resposta|||
 ---|---|---|---|---|---|---|---|---
-**Cabeçalho da origem presente na solicitação** | **Regra(s) de CORS especificada(s) para este serviço** | **Regra de correspondência existe que permite todas as origens(*)** | **Regra de correspondência existe para correspondência exata da origem** | **Resposta inclui o cabeçalho Vary definido como origem** | **Resposta inclui Access-Control-Allowed-Origin: "*"** | **Resposta inclui Access-Control-Exposed-Headers**
+**Cabeçalho da origem presente na solicitação** | **Regra(s) de CORS especificada(s) para este serviço** | **Existe uma regra correspondente que permite todas as origens(*)** | **Regra de correspondência existe para correspondência exata da origem** | **Resposta inclui o cabeçalho Vary definido como origem** | **Resposta inclui Access-Control-Allowed-Origin: "*"** | **Resposta inclui Access-Control-Exposed-Headers**
 Não|Não|Não|Não|Não|Não|Não
 Não|Sim|Não|Não|Sim|Não|Não
 Não|Sim|Sim|Não|Não|Sim|Sim
@@ -195,4 +195,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

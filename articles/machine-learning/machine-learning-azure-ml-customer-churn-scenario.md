@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="jeannt"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 # Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
 
 ##Visão geral
-Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Estúdio de Aprendizado de Máquina do Azure. Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.
+Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Azure Machine Learning Studio. Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.
 
 ### Confirmações
 
@@ -51,7 +51,7 @@ Um processo comum de solução de problemas para resolver variação do cliente 
 
 1.	Um modelo de risco permite que você considere como as ações afetam as probabilidades e o risco.
 2.	Um modelo de intervenção permite que você considere como o nível de intervenção poderia afetar a probabilidade de variação e a quantidade de CLV (valor de vida útil do cliente).
-3.	Essa análise se presta a uma análise qualitativa que será escalada para uma campanha de marketing proativa destinada a segmentos de clientes para oferecer a oferta ideal.  
+3.	Essa análise se presta a uma análise qualitativa que será escalada para uma campanha de marketing proativa destinada a segmentos de clientes para oferecer a oferta ideal.
 
 ![][1]
 
@@ -101,7 +101,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
 ![][5]
 
 
-*Figura 7: Recursos extraídos da fonte de dados*
+*Figura 7: Recursos extraídos da fonte de dados*  
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Variação do cliente de telecomunicações).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
@@ -114,7 +114,7 @@ Usamos os quatro algoritmos de aprendizado de máquina a seguir para criar o pro
 1.	Regressão logística (LR)
 2.	Árvore de decisão aumentada (BT)
 3.	Perceptron médio (AP)
-4.	Máquina de vetor de suporte (SVM)  
+4.	Máquina de vetor de suporte (SVM)
 
 
 O diagrama a seguir ilustra uma parte da superfície de design do teste, que indica a sequência na qual os modelos foram criados:
@@ -151,7 +151,7 @@ AUC geralmente é usada como uma medida de valor para algoritmos diferentes (ou 
 Comparamos as taxas de erro na classificação no conjunto de dados em questão usando os dados de CRM de aproximadamente 8.000 assinaturas.
 
 -	A taxa de erro na classificação da SAS foi de 10 a 15%.
--	A taxa de classificação incorreta do Estúdio do Aprendizado de Máquina foi 15% a 20% para os maiores 200 a 300 variadores.  
+-	A taxa de classificação incorreta do Estúdio do Aprendizado de Máquina foi 15% a 20% para os maiores 200 a 300 variadores.
 
 Na indústria de telecomunicações, é importante tratar somente daqueles clientes que apresentam o maior risco de variação, oferecendo a eles um serviço de concierge ou outro tratamento especial. Nesse ponto, a implementação do Estúdio de Aprendizado de Máquina obtém resultados no modelo de SAS.
 
@@ -192,7 +192,7 @@ Na indústria de telecomunicações, diversas práticas surgiram para analisar a
 	-	**Atividade**. Obter todas as informações de uso possíveis relacionadas à entidade, por exemplo, o número de logons.
 	-	**Atendimento ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente.
 	-	**Dados empresariais e de concorrência**. Obter todas as informações possíveis sobre o cliente (por exemplo, ele pode estar indisponível ou ser difícil de rastrear).
--	Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.  
+-	Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.
 
 O uso das quatro categorias cria a ilusão de que uma simples abordagem *determinística*, baseada em índices formados por fatores razoáveis divididos por categoria, seria suficiente para identificar os clientes apresentando risco de variação. Infelizmente, apesar de esse conceito parecer plausível, ele não é verdadeiro. O motivo é que a variação é um efeito temporal e os fatores que contribuem para a variação estão, geralmente, em estados transientes. O que leva um cliente a considerar a possibilidade de sair hoje pode ser diferente do motivo de amanhã e, com certeza, será diferente do motivo que ele terá para isso daqui a seis meses. Assim, um modelo *probabilístico* é necessário.
 
@@ -202,7 +202,7 @@ No entanto, a promessa de análises de autoatendimento usando Estúdio de Aprend
 
 Outro recurso interessante do Aprendizado de Máquina do Azure é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. Ela é um diferencial importante do Aprendizado de Máquina do Azure no mercado.
 
-Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
+Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.  
 ##Conclusão
 Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Aprendizado de Máquina do Azure. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.
 
@@ -211,11 +211,11 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
 Este documento foi útil para você? Por favor, nos dê seu feedback. Avalie em uma escala de 1 (ruim) a 5 (excelente), como você classificaria este documento e o porquê de ter dado essa classificação? Por exemplo:
 
 -	Você está dando uma classificação alta devido a ter bons exemplos, excelentes capturas de tela, escrita clara ou por outro motivo?
--	Você está dando uma classificação baixa devido a exemplos ruins, capturas de tela distorcidas ou escrita confusa?  
+-	Você está dando uma classificação baixa devido a exemplos ruins, capturas de tela distorcidas ou escrita confusa?
 
 Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmos.
 
-[Enviar comentários](mailto:sqlfback@microsoft.com).
+[Enviar comentários](mailto:sqlfback@microsoft.com).  
 ##Referências
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, p. 18 a 20.
 
@@ -223,9 +223,9 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value] (Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value]\(Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
 ##Apêndice
 
 ![][10]
@@ -244,4 +244,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

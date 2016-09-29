@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Zendesk
@@ -66,31 +66,31 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Zendesk com a própria conta no AD do Azure usando federação baseada no protocolo SAML. A configuração do logon único para Zendesk exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Zendesk com a própria conta no AD do Azure usando federação baseada no protocolo SAML. A configuração do logon único para Zendesk exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **Zendesk**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No Portal do Azure AD, na página de integração de aplicativos do **Zendesk**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Logon único](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Zendesk**, selecione **Logon único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configurar a URL do aplicativo")
   
-	a. Na caixa de texto **URL de Logon do Zendesk**, digite sua URL usando o seguinte padrão: `https://<tenant-name>.zendesk.com`
+	a. Na caixa de texto **URL de Entrada do Zendesk**, digite a URL usando o seguinte padrão: `https://<tenant-name>.zendesk.com`
 
-	b. Clique em **Próximo**.
+	b. Clique em **Avançar**.
 
 
 
 4.  Na página **Configurar logon único no Zendesk**, clique em **Baixar certificado** e salve o arquivo de certificado localmente em seu computador.
 
-    ![Configurar logon único](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configurar o logon único")
 
 5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zendesk como administrador.
 
@@ -116,9 +116,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 13. Clique em **Salvar**.
 
-14. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
+14. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configurar logon único](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configurar o logon único")
 
 ##Configurando o provisionamento de usuários
   
@@ -142,11 +142,11 @@ Para permitir que os usuários do Azure AD façam logon no **Zendesk**, eles dev
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Zendesk, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No portal do Azure AD, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **Zendesk**, clique em **Atribuir usuários**.
 
@@ -158,4 +158,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

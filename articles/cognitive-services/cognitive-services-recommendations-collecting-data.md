@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@ Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto
 
 Depois de criar um modelo, você poderá executar uma [avaliação offline](cognitive-services-recommendations-buildtypes.md) para verificar o quanto seu modelo provavelmente será bem executado.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

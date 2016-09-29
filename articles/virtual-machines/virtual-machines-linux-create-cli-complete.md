@@ -121,7 +121,7 @@ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
 Criar a investigação de integridade do balanceador de carga:
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Verificar o balanceador de carga, os pools de IPs e as regras NAT usando o analisador JSON:
@@ -788,7 +788,7 @@ info:    network lb rule create command OK
 Uma investigação de integridade verifica periodicamente as máquinas virtuais que estão por trás de nosso balanceador de carga para garantir que elas estejam em operação e estejam respondendo às solicitações da forma definida. Se não estiverem, elas serão removidas da operação para garantir que os usuários não sejam direcionados a elas. Você pode definir verificações personalizadas para a investigação de integridade, bem como valores de tempo limite e intervalos. Para obter mais informações sobre investigações de integridade, consulte [Investigações do Balanceador de Carga](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Saída:
@@ -800,7 +800,7 @@ warn:    Using default probe port: 80
 + Updating load balancer "TestLB"
 data:    Name                            : HealthProbe
 data:    Provisioning state              : Succeeded
-data:    Protocol                        : Http
+data:    Protocol                        : Tcp
 data:    Port                            : 80
 data:    Interval in seconds             : 15
 data:    Number of probes                : 4
@@ -928,14 +928,13 @@ Saída:
   "probes": [
     {
       "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe",
-      "protocol": "Http",
-      "port": 80,
-      "intervalInSeconds": 15,
-      "numberOfProbes": 4,
-      "requestPath": "healthprobe.aspx",
+      "name": "HealthProbe",
       "provisioningState": "Succeeded",
-      "name": "HealthProbe"
+      "numberOfProbes": 4,
+      "intervalInSeconds": 15,
+      "port": 80,
+      "protocol": "Tcp",
+      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe"
     }
   ]
 }
@@ -1273,4 +1272,4 @@ Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource
 
 Agora, você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar esse ambiente de exemplo para criar seu aplicativo usando os principais componentes introduzidos aqui.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

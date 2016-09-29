@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="Blackmist" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -234,4 +234,4 @@ O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar o
 
 - [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

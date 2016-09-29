@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio | Azure" 
-   description="Saiba como instalar ferramentas do Data Lake para o Visual Studio, como desenvolver e testar scripts U-SQL." 
+   description="Saiba como instalar ferramentas do Data Lake para o Visual Studio, como desenvolver e testar scripts U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -56,7 +56,7 @@ Alguns conceitos e palavras-chave encontrados no script:
 - **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. O U-SQL segue o padrão de nomenclatura variável do T-SQL, por exemplo, **@searchlog** no script. Observe que a atribuição não força a execução. Ele simplesmente nomeia a expressão e dá a você a capacidade de criar expressões mais complexas.
 - **EXTRACT** lhe dá a capacidade de definir um esquema na leitura. O esquema é especificado por um nome de coluna e um par de nome do tipo C# por coluna. Ele usa um **Extrator**, por exemplo, **Extractors.Tsv()**, para extrair arquivos tsv. Você pode desenvolver extratores personalizados.
 - **SAÍDA** usa um conjunto de linhas e o serializa. O Outputters.Csv() cria como saída um arquivo separado por vírgulas no local indicado. Você também pode desenvolver Saídas personalizadas.
-- Observe que os dois caminhos são caminhos relativos. Você também pode usar caminhos absolutos. Por exemplo, 
+- Observe que os dois caminhos são caminhos relativos. Você também pode usar caminhos absolutos. Por exemplo,
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -402,10 +402,10 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - Desenvolver operadores definidos pelo usuário, como extratores, criadores de saída, processadores, agregadores definidos pelo usuário em C#.
 - Usar funções de janela U-SQL.
 - Gerenciar o código de U-SQL com exibições, funções com valor de tabela e procedimentos armazenados.
-- Executar código personalizado arbitrário em seus nós de processamento. 
+- Executar código personalizado arbitrário em seus nós de processamento.
 - Conectar-se a bancos de dados SQL Azure e federar consultas entre eles e seus dados U-SQL e Azure Data Lake.
 
-## Consulte também 
+## Confira também 
 
 - [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -419,4 +419,4 @@ O que é abordado no tutorial é apenas uma pequena parte do U-SQL. Por causa do
 - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 - [Fornecer comentários sobre o U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/29/2016"
+	ms.date="09/15/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Introdução: Fazendo backup de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md)
-- [Introdução: proteger VMs do Azure com um cofre de backup](backup-azure-vms-first-look.md)
+- [Proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md)
+- [Proteger as VMs do Azure com um cofre de backup](backup-azure-vms-first-look.md)
 
 Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure em um cofre de backup do Azure. Este artigo descreve o modelo clássico ou o modelo de implantação do Service Manager para fazer backup de máquinas virtuais. Se você estiver interessado em fazer backup de uma VM em um cofre de Serviços de Recuperação que pertence a um grupo de recursos, confira [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md). Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
 
@@ -213,4 +213,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

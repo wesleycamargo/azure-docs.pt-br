@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -177,4 +177,4 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 [Manage]: #manage-the-web-service-in-the-azure-management-portal
 [Update]: #update-the-web-service
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@ description="Saiba como adicionar bibliotecas Hive (arquivos jar) a um cluster H
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -88,4 +88,4 @@ Assim que a criação do cluster for concluída, você poderá usar os jars adic
 
 Neste documento, você aprendeu a adicionar bibliotecas Hive contidas nos arquivos jar a um cluster HDInsight durante a criação do cluster. Para saber mais sobre como trabalhar com o Hive, confira [Usar o Hive com o HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

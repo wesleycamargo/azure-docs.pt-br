@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="09/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ O aplicativo Optimizely espera as asserções de SAML para conter um atributo ch
 
 	b. Na caixa de texto **Identificador**, digite: `urn:auth0:optimizely:contoso`
 
-	c. Clique em **Próximo**.
+	c. Clique em **Avançar**.
 
 
 	> [AZURE.NOTE] Os valores **URL de Entrada** e **Identificador** são apenas espaços reservados para os valores reais. Você pode encontrar instruções de como adquirir os valores reais do Optimizely mais adiante neste tutorial.
@@ -180,7 +180,7 @@ O aplicativo Optimizely espera as asserções de SAML para conter um atributo ch
 
     a. Escolha a confirmação da configuração de logon único.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 11. Na página **Confirmação de logon único**, clique em **Concluir**.
   	
@@ -212,11 +212,11 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png)
 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
  
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)
 
@@ -224,9 +224,9 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)
 
@@ -238,13 +238,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_07.png)
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png)
 
@@ -332,4 +332,4 @@ Ao clicar no bloco Optimizely no Painel de Acesso, você deverá ser automaticam
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

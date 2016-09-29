@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Gerenciar o acesso de leitura anônimo aos contêineres e blobs
@@ -22,7 +22,7 @@
 
 Por padrão, somente o proprietário da conta de armazenamento pode acessar os recursos de armazenamento nessa conta. Para o armazenamento de Blob somente, você pode definir as permissões de um contêiner para permitir o acesso de leitura anônimo ao contêiner e seus blobs, de modo que você pode conceder acesso a esses recursos sem compartilhar sua chave de conta.
 
-O acesso anônimo é ideal para cenários em que você deseja que determinados blobs sempre estejam disponíveis para acesso de leitura anônimo. Para um controle mais refinado, você pode criar uma assinatura de acesso compartilhado, que permite delegar o acesso restrito usando diferentes permissões e em um intervalo de tempo especificado. Para obter mais informações sobre a criação de assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+O acesso anônimo é ideal para cenários em que você deseja que determinados blobs sempre estejam disponíveis para acesso de leitura anônimo. Para um controle mais refinado, você pode criar uma assinatura de acesso compartilhado, que permite delegar o acesso restrito usando diferentes permissões e em um intervalo de tempo especificado. Para saber mais sobre como criar assinaturas de acesso compartilhado, veja [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Conceder permissões de usuários anônimos a contêineres e blobs
 
@@ -149,10 +149,10 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 | Acrescentar blob | Somente proprietário | Somente proprietário |
 
 
-## Veja também
+## Consulte também
 
 - [Autenticação para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
-- [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -123,4 +123,4 @@ Se você quer ver os novos recursos incluídos no Data Lake Store, envie seus co
 - [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

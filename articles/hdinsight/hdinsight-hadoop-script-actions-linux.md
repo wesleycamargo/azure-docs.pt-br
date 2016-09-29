@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -31,7 +31,7 @@ As ações de script podem ser aplicadas por meio dos seguintes métodos:
 | Use esta opção para aplicar um script... | Durante a criação do cluster... | Em um cluster em execução... |
 | ----- |:-----:|:-----:|
 | Portal do Azure | ✓ | ✓ |
-| PowerShell do Azure | ✓ | ✓ |
+| Azure PowerShell | ✓ | ✓ |
 | CLI do Azure | &nbsp; | ✓ |
 | SDK do .NET do HDInsight | ✓ | ✓ |
 | Modelo do Azure Resource Manager | ✓ | &nbsp; |
@@ -268,4 +268,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

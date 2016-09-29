@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -303,7 +303,7 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
 
 
-## Consulte também
+## Confira também
 
 - [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): criar clusters HDInsight.
 - [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): introdução ao Spark no HDInsight.
@@ -318,4 +318,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

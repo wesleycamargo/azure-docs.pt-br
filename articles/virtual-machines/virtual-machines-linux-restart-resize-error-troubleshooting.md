@@ -14,14 +14,10 @@
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/09/2016"
    ms.author="delhan"/>
 
 # Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Linux no Azure
-
-> [AZURE.SELECTOR]
-- [Clássico](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Gerenciador de Recursos](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
 
@@ -76,6 +72,6 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
 
 ## Próximas etapas
 
-Se você encontrar problemas ao criar uma nova VM do Linux no Azure, consulte [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+Se você encontrar problemas ao criar uma nova VM do Linux no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

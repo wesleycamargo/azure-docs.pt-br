@@ -13,34 +13,34 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="tomfitz"/>
 
 # Visão geral do Azure Resource Manager
 
-A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para a sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
+A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
 
 ## Terminologia
 
 Se você for um novo usuário do Azure Resource Manager, há alguns termos com os quais talvez você não esteja familiarizado.
 
 - **recurso** -um item gerenciável que está disponível por meio do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicativo Web, banco de dados e rede virtual, mas há muito mais.
-- **grupo de recursos** - Um contêiner que mantém os recursos relacionados a um aplicativo. O grupo de recursos pode incluir todos os recursos de um aplicativo ou apenas os recursos agrupados. Você pode decidir como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Confira [Grupos de recursos](#resource-groups).
+- **grupo de recursos** - Um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Confira [Grupos de recursos](#resource-groups).
 - **provedor de recursos** - Um provedor de recursos é um serviço que fornece os recursos que você pode implantar e gerenciar por meio do Gerenciador de Recursos. Cada provedor de recursos oferece operações para trabalhar com os recursos implantados. Alguns provedores de recursos comuns são Microsoft.Compute que fornece o recurso de máquina virtual, Microsoft.Storage que fornece o recurso de conta de armazenamento e Microsoft.Web que fornece recursos relacionados aos aplicativos Web. Confira [Provedores de recursos](#resource-providers).
 - **Modelo do Resource Manager** - Um arquivo JSON (JavaScript Object Notation) que define um ou mais recursos para implantação em um grupo de recursos. Ele também define as dependências entre os recursos implantados. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira [Implantação de modelo](#template-deployment).
-- **sintaxe declarativa** - Uma sintaxe que permite a declaração "Pretendo criar aqui" sem precisar escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No arquivo, você define as propriedades da infraestrutura a ser implantada no Azure.
+- **sintaxe declarativa** - sintaxe que permite a declaração "Isso é o que pretendo criar" sem precisar escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No arquivo, você define as propriedades da infraestrutura a ser implantada no Azure.
 
 ## Os benefícios de usar o Gerenciador de Recursos
 
 O Gerenciador de Recursos fornece vários benefícios:
 
-- Você pode implantar, gerenciar e monitorar todos os recursos da sua solução como um grupo, em vez de tratá-los individualmente.
+- Você pode implantar, gerenciar e monitorar todos os recursos da sua solução como um grupo em vez de tratá-los individualmente.
 - Você pode implantar a solução repetidamente em todo seu ciclo de vida de desenvolvimento e com a confiança de que seus recursos serão implantados em um estado consistente.
 - Você pode gerenciar sua infraestrutura por meio de modelos declarativos em vez de scripts.
 - Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
 - Você pode aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
-- Você pode esclarecer a cobrança para a sua organização exibindo os custos acumulados para todo o grupo ou para um grupo de recursos compartilhando a mesma marca.
+- Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marcação.
 
 O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Se você usou o modelo de implantação anterior e quiser saber mais sobre as alterações, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -59,31 +59,33 @@ Para obter mais recomendações, confira [Práticas recomendadas para criar mode
 
 Existem alguns fatores importantes a considerar ao definir seu grupo de recursos:
 
-1. Todos os recursos no grupo devem compartilhar o mesmo ciclo de vida. Você vai implantar, atualizar e excluí-los juntos. Se um recurso, como um servidor de banco de dados, precisar existir em um ciclo de implantação diferente, ele deve ser de outro grupo de recursos.
+1. Todos os recursos no grupo devem compartilhar o mesmo ciclo de vida. Você os implanta, atualiza e exclui juntos. Se um recurso, como um servidor de banco de dados, precisar existir em um ciclo de implantação diferente, ele deve ser de outro grupo de recursos.
 2. Cada recurso só pode existir em um grupo de recursos.
 3. Você pode adicionar ou remover um recurso de um grupo de recursos a qualquer momento.
 4. Você pode mover um recurso de um grupo de recursos para outro grupo. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
 4. Um grupo de recursos pode conter recursos que residem em regiões diferentes.
 5. Um grupo de recursos pode ser usado para definir o escopo de controle de acesso para ações administrativas.
-6. Um recurso pode interagir com um recurso em outro grupo de recursos quando os dois recursos forem relacionados, mas não compartilharem o mesmo ciclo de vida (por exemplo, um aplicativo Web conectando-se a um banco de dados).
+6. Um recurso pode interagir com recursos em outros grupos de recursos. Essa interação é comum quando dois recursos estão relacionados, mas não compartilham o mesmo ciclo de vida (por exemplo, aplicativos Web que se conectam a um banco de dados).
+
+Ao criar um grupo de recursos, você precisará fornecer um local para ele. Você pode estar se perguntando: "Por que um grupo de recursos precisa de um local? E, se os recursos podem ter locais diferentes do grupo de recursos, por que o local do grupo de recursos importa?" O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, você precisa fazer com que os dados sejam armazenados em determinada região.
 
 ## Provedores de recursos
 
-Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com a área técnica. Por exemplo, se você quiser armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault**. Este provedor de recursos oferece um tipo de recurso chamado **cofres** para criar o cofre da chave e um tipo de recurso chamado **cofres/segredos** para criar um segredo no cofre de chaves. Ele também fornece operações por meio de [Operações de API REST do Cofre de Chaves](https://msdn.microsoft.com/library/azure/dn903609.aspx). Você pode chamar a API REST diretamente ou pode usar [cmdlets PowerShell do Cofre de Chaves](https://msdn.microsoft.com/library/dn868052.aspx) e a [CLI do Azure do Cofre de Chaves](./key-vault/key-vault-manage-with-cli.md) para gerenciar o cofre de chaves. Também é possível usar algumas linguagens de programação para trabalhar com a maioria dos recursos. Para saber mais, confira [SDKs e exemplos](#sdks-and-samples).
+Cada provedor de recursos oferece um conjunto de recursos e operações para trabalhar com a área técnica. Por exemplo, se você quer armazenar chaves e segredos, trabalhe com o provedor de recursos **Microsoft.KeyVault**. Este provedor de recursos oferece um tipo de recurso chamado **cofres** para criar o cofre da chave e um tipo de recurso chamado **cofres/segredos** para criar um segredo no cofre de chaves. Ele também fornece operações por meio de [Operações de API REST do Cofre de Chaves](https://msdn.microsoft.com/library/azure/dn903609.aspx). Você pode chamar a API REST diretamente ou pode usar [cmdlets PowerShell do Cofre de Chaves](https://msdn.microsoft.com/library/dn868052.aspx) e a [CLI do Azure do Cofre de Chaves](./key-vault/key-vault-manage-with-cli.md) para gerenciar o cofre de chaves. Também é possível usar várias linguagens de programação para trabalhar com a maioria dos recursos. Para saber mais, confira [SDKs e exemplos](#sdks-and-samples).
 
-Para implantar e gerenciar sua infraestrutura, você precisará conhecer os detalhes sobre os provedores de recursos, como os tipos de recursos que ele oferece, os números de versão das operações API REST, as operações às quais ele oferece suporte e o esquema a ser usado ao definir os valores do tipo de recurso a criar. Para saber mais sobre os provedores de recursos compatíveis, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+Para implantar e gerenciar sua infraestrutura, você precisará saber detalhes sobre o provedor de recursos. Você precisará saber os tipos de recursos, os números de versão das operações de API REST, as operações com suporte e o esquema para usar na criação de recursos. Para saber mais sobre os provedores de recursos compatíveis, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 
 ## Implantação de modelo
 
-Com o Gerenciador de Recursos, você pode criar um modelo simples (no formato JSON) que define a implantação e a configuração do seu aplicativo. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos são implantados em um estado consistente. O Azure Resource Manager analisa as dependências para garantir que os recursos sejam criados na ordem correta. Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](resource-group-define-dependencies.md).
+Com o Gerenciador de Recursos, você pode criar um modelo (no formato JSON) que define a implantação e a configuração do seu aplicativo. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos são implantados em um estado consistente. O Azure Resource Manager analisa as dependências para garantir que os recursos sejam criados na ordem correta. Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](resource-group-define-dependencies.md).
 
-Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos para um modelo, ou exibindo o modelo que foi usado para uma determinada implantação. A exibição do modelo exportado é uma maneira útil de saber mais sobre a sintaxe do modelo. Para saber mais sobre como trabalhar com modelos exportados, confira [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
+Quando você cria uma solução no Portal, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas. Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos ou exibindo o modelo usado para determinada implantação. A exibição do modelo exportado é uma maneira útil de saber mais sobre a sintaxe do modelo. Para saber mais sobre como trabalhar com modelos exportados, confira [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
 
-Você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode facilmente reutilizar esses modelos para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode reutilizar esses modelos facilmente para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
 
-Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um novo recurso ao seu aplicativo e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um novo recurso, mas esse recurso já existe, o Azure Resource Manager executa uma atualização em vez de criar um novo ativo. O Azure Resource Manager atualiza o ativo existente para o mesmo estado de um novo. Ou então, você pode especificar que o Gerenciador de Recursos deve excluir os recursos que não estão especificados no modelo. Para entender as diferentes opções na implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um recurso à sua solução e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um recurso, mas esse recurso já existir, o Azure Resource Manager executará uma atualização em vez de criar um novo ativo. O Azure Resource Manager atualiza o ativo existente para o mesmo estado de um novo. Ou então, você pode especificar que o Gerenciador de Recursos deve excluir os recursos que não estão especificados no modelo. Para entender as diferentes opções na implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-Você pode especificar parâmetros em seu modelo para conferir personalização e flexibilidade à implantação. Por exemplo, você pode passar valores de parâmetro para personalizar a implantação para seu ambiente de teste. Especificando os parâmetros, você pode usar o mesmo modelo para a implantação em todos os ambientes do seu aplicativo.
+Você pode especificar parâmetros em seu modelo para conferir personalização e flexibilidade à implantação. Por exemplo, você pode passar valores de parâmetro para personalizar a implantação para seu ambiente de teste. Especificando os parâmetros, você pode usar o mesmo modelo para implantar a solução em ambientes diferentes.
 
 O Gerenciador de Recursos do Azure fornece extensões para cenários que precisam de operações adicionais, como a instalação de um software específico que não está incluído na configuração. Se você já estiver usando um serviço de gerenciamento de configuração, como DSC, Chef ou Puppet, poderá continuar trabalhando com esse serviço usando as extensões.
 
@@ -97,7 +99,7 @@ Para obter orientação sobre como implantar a solução em ambientes diferentes
 
 ## Marcas
 
-O Gerenciador de Recursos fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Pode ser útil usar marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e se precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento. Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser muito difíceis de identificar e gerenciar mais tarde. Por exemplo, talvez você queira excluir todos os recursos de um projeto específico, mas, se esses recursos não forem marcados para o projeto, você precisará localizá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura.
+O Gerenciador de Recursos fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Use as marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento. Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser difíceis de identificar e gerenciar mais tarde. Por exemplo, você pode querer excluir todos os recursos de um projeto específico. Se esses recursos não estão marcados para o projeto, você precisa encontrá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura.
 
 Recursos não precisam residir no mesmo grupo de recursos para compartilhar uma marca. Você pode criar sua própria taxonomia de marca para garantir que todos os usuários na sua organização usem marcas comuns em vez de aplicarem marcas ligeiramente diferentes inadvertidamente (como por exemplo, "Dept" em vez de "Departamento").
 
@@ -117,11 +119,11 @@ Para ver as práticas recomendadas, confira [Considerações de segurança do Ge
 
 ## Gerenciar recursos com políticas personalizadas
 
-O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você criar poderão incluir cenários tão diferentes como impor uma convenção de nomenclatura a recursos, limitar quais tipos e instâncias de recursos poderão ser implantados, limitar quais regiões poderão hospedar um tipo de recurso ou exigir um valor de marca em recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
+O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você cria podem incluir diversos cenários. Você pode impor uma convenção de nomenclatura para recursos, limitar os tipos e instâncias de recursos que podem ser implantados ou limitar quais regiões podem hospedar um tipo de recurso. Você pode exigir um valor de marcação nos recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
 ## Camada de gerenciamento consistente
 
-O Gerenciador de Recursos fornece operações completamente compatíveis por meio do Azure PowerShell, CLI do Azure para Mac, Linux e Windows, o Portal do Azure ou a API REST. Você pode usar a interface que funciona melhor para você e alternar rapidamente entre as interfaces sem problemas. O portal exibe até mesmo notificação para ações executadas fora do portal.
+O Gerenciador de Recursos fornece operações compatíveis por meio do Azure PowerShell, da CLI do Azure para Mac, Linux e Windows, do Portal do Azure ou da API REST. Você pode usar a interface que funciona melhor para você e alternar rapidamente entre as interfaces sem problemas.
 
 Para obter informações sobre o PowerShell, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos](powershell-azure-resource-manager.md) e [Cmdlets do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -190,4 +192,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

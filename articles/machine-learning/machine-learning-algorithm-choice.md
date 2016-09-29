@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags=""/>
     
@@ -77,11 +77,11 @@ Muitos algoritmos de aprendizado de máquina usam a linearidade. Os algoritmos d
 
 ![Limite de classe não linear][1]
 
-***Limite de classe não linear*** - *contar com um algoritmo de classificação linear resultaria em baixa precisão*
+***Limite de classe não linear**** - contar com um algoritmo de classificação linear resultaria em baixa precisão*
 
 ![Dados com uma tendência não linear][2]
 
-***Dados com uma tendência não linear*** - *usar um método de regressão linear geraria erros muito maiores do que o necessário*
+***Dados com uma tendência não linear**** - usar um método de regressão linear geraria erros muito maiores do que o necessário*
 
 Apesar de seus riscos, os algoritmos lineares são muito populares como uma primeira linha de ataque. Eles tendem a ser algoritmicamente simples e rápidos de treinar.
 
@@ -119,7 +119,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 |[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
 |[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| 
-|**Regressão**| | | | | |
+|**Regressão**| | | | | | 
 |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
 |[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
 |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

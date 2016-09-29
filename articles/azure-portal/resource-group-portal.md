@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Gerenciar recursos do Azure por meio do portal
@@ -94,7 +94,7 @@ Quando você seleciona um recurso, a folha do recurso apresenta gráficos e tabe
 
     ![painel Transações da Web](./media/resource-group-portal/create-dashboard.png)
 
-     Para aprender a trabalhar com painéis, assista ao vídeo [Compilar Painéis Personalizados no Portal do Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards). Para saber mais sobre como compartilhar o acesso a um painel publicado, confira [Compartilhando painéis do Azure](azure-portal-dashboard-share-access.md).
+     Para aprender a trabalhar com painéis, confira [Criar compartilhar painéis personalizados no Portal do Azure](azure-portal-dashboards.md).
 
 ## Gerenciar recursos
 
@@ -151,4 +151,4 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 - Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../resource-group-template-deploy-portal.md).
 - Para gerenciar o acesso aos recursos, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

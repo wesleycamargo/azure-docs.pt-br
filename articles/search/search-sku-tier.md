@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -101,4 +101,4 @@ Quando você souber qual SKU é adequado, prossiga com estas etapas:
 - [Criar um serviço de pesquisa no portal](search-create-service-portal.md)
 - [Alterar a alocação de partições e réplicas para dimensionar seu serviço](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

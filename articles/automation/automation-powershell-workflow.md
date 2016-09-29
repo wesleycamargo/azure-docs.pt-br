@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Aprendendo sobre o fluxo de trabalho do Windows PowerShell
@@ -21,7 +21,7 @@ Os runbooks na Automação do Azure são implementados como Fluxos de Trabalho d
 
 Um fluxo de trabalho é uma sequência de etapas programadas e conectadas que executam tarefas de longa duração ou exigem a coordenação de várias etapas em vários dispositivos ou nós gerenciados. Os benefícios de um fluxo de trabalho comparado com um script normal incluem a capacidade de realizar simultaneamente uma ação em vários dispositivos e a capacidade de se recuperar automaticamente de falhas. Um Fluxo de Trabalho do Windows PowerShell é um script do Windows PowerShell que utiliza o Windows Workflow Foundation. Embora o fluxo de trabalho seja escrito com a sintaxe do Windows PowerShell e inicializado pelo Windows PowerShell, ele é processado pelo Windows Workflow Foundation.
 
-Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
+Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introdução ao fluxo de trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
 
 ## Tipos de runbook
 
@@ -276,4 +276,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

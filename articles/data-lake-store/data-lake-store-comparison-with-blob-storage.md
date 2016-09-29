@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 - [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 - [Introdução ao Repositório Data Lake](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

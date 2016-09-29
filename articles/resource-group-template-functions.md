@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -1087,7 +1087,7 @@ O exemplo a seguir faz referência a uma conta de armazenamento em um grupo de r
 		}
 	}
 
-As propriedades no objeto retornado variam de acordo com o tipo de recurso.
+As propriedades no objeto retornado da função de **referência** variam por tipo de recurso. Para ver os valores e nomes de propriedade para um tipo de recurso, crie um modelo simples que retorne o objeto na seção de **saídas**. Se você tiver um recurso existente desse tipo, o modelo retornará apenas o objeto sem implantar qualquer recurso. Se você não tiver um recurso existente desse tipo, o modelo implantará apenas esse tipo e retornará o objeto. Em seguida, adicione essas propriedades a outros modelos que precisam recuperar dinamicamente os valores durante a implantação.
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -1217,4 +1217,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

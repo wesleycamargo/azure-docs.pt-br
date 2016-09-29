@@ -3,8 +3,8 @@
     description="As camadas de armazenamento para armazenamento de Blobs do Azure oferecem armazenamento econômico de dados de objetos com base em padrões de acesso. A camada de armazenamento estático do Azure é otimizada para dados acessados com menos frequência."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
 
 
 # Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática
@@ -340,4 +340,4 @@ Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Az
 
 [Navegue e explore suas contas de armazenamento](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

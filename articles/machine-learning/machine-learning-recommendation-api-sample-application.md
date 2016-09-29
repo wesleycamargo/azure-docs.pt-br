@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="LuisCabrer" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 
 # Passo a passo do aplicativo de exemplo da API de Recomendações
 
-> Esta é a documentação para a API de recomendações antiga no mercado de dados, que será preterida em 31/12/2016. Agora, você deve passar a usar o [Serviço Cognitivo de API de Recomendações](https://www.microsoft.com/cognitive-services/pt-BR/recommendations-api).
-
+>[AZURE.NOTE] Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
 
 ##Finalidade
 
@@ -93,4 +92,4 @@ Para obter uma descrição completa das APIs, consulte a documentação do Micro
 O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração.
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

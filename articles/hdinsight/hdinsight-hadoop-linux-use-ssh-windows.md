@@ -141,7 +141,7 @@ Para obter mais informações sobre como usar esse comando, consulte [Provisiona
 
 6. Quando solicitado, insira o usuário que você inseriu ao criar o cluster. Se você tiver fornecido um senha para o usuário, você deverá inseri-la também.
 
-> [AZURE.NOTE] As etapas acima pressupõem que você esteja usando a porta 22, que conectará ao nó de cabeçalho 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] As etapas acima pressupõem que você esteja usando a porta 22, que se conectará ao nó de cabeçalho principal no cluster HDInsight. Ao usar a porta 23, você se conectará ao secundário. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -185,9 +185,9 @@ Se você forneceu uma chave SSH quando criou sua conta de usuário, execute as s
 
     > [AZURE.NOTE] Se você usar uma senha para autenticação da sessão SSH, será solicitado que você digite a senha novamente. Se você usar uma chave SSH, a conexão deverá terminar sem prompts.
 
-9. Estabelecida a sessão, o prompt de sua sessão PuTTY mudará `username@hn0-clustername` para `username@wn0-clustername` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
+9. Estabelecida a sessão, o prompt de sua sessão PuTTY mudará `username@hn#-clustername` para `username@wn#-clustername` para indicar que você está conectado ao nó de trabalho. Todo comando executado neste momento será executado no nó de trabalho.
 
-10. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@hn0-clustername`.
+10. Quando terminar de executar ações no nó de trabalho, use o comando `exit` para fechar a sessão para o nó de trabalho. Você voltará para o prompt `username@hn#-clustername`.
 
 ##Adicionar mais contas
 
@@ -237,4 +237,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

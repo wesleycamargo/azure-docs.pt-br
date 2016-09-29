@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -46,7 +46,7 @@ Para obter instruções sobre como fazer isso, confira [Criar um certificado aut
 
 > [AZURE.NOTE] Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
-##<a id="subscriptionid"></a>Localizar sua ID de assinatura
+##<a id="subscriptionid"></a>Localizar a ID de sua assinatura
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
@@ -162,4 +162,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

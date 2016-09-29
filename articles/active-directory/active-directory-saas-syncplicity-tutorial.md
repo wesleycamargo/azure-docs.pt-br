@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Syncplicity
@@ -86,7 +86,7 @@ Esta descreve como permitir que os usuários se autentiquem no Syncplicity com a
 
 4.  Na página **Configurar logon único no Syncplicity**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
 
-    ![Configurar logon único](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-syncplicity-tutorial/IC769543.png "Configurar o logon único")
 
 5.  Entre no locatário do **Syncplicity**.
 
@@ -144,7 +144,7 @@ Para que os usuários do AAD possam fazer logon, eles devem ser provisionados no
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Syncplicity, execute as seguintes etapas:
 
@@ -160,4 +160,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

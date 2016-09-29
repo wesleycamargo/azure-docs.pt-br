@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2016"
+	ms.date="09/06/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
@@ -115,4 +115,4 @@ Atualmente, a plataforma da Competição só é compatível com entradas de envi
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

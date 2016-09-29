@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Diretrizes de nomenclatura de infraestrutura
@@ -110,4 +110,4 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 ## Próximas etapas
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

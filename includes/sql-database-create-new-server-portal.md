@@ -13,17 +13,13 @@ articles/sql-database/sql-database-get-started-tutorial.md
 Use as etapas a seguir no portal do Azure para criar um servidor lógico do Banco de Dados SQL.
 
 1. Se você não estiver conectado, conecte-se ao [Portal do Azure](http://portal.azure.com).
-2. Clique em **Novo**, digite **Banco de Dados SQL** e clique em **Banco de Dados SQL (novo servidor lógico)**.
+2. Clique em **Novo**, clique em **Dados + Armazenamento** e localize o **Banco de Dados SQL**.
 
-      ![Novo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![Banco de Dados SQL 1](./media/sql-database-get-started/sql-database-new-database-1.png)
 
-3. Clique em **Banco de Dados SQL (novo servidor lógico)**.
+3. Clique em **Banco de Dados SQL** para abrir a folha Banco de Dados SQL.
 
-      ![Novo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-
-4. Clique em **Criar** para abrir um modelo e criar um servidor lógico vazio que pode hospedar bancos de dados individuais e pools de bancos de dados elásticos.
-
-      ![Novo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![Novo servidor lógico](./media/sql-database-get-started/sql-database-new-database-2.png)
 
 5. Forneça os valores para as seguintes propriedades de servidor:
 
@@ -44,4 +40,4 @@ Use as etapas a seguir no portal do Azure para criar um servidor lógico do Banc
 
        ![Novo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

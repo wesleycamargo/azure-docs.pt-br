@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -49,7 +49,7 @@ Nome | Script
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalar e usar o R em clusters HDInsight][hdinsight-install-r].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
 - **Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
-| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Adicionar bibliotecas em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Adicionar bibliotecas do Hive em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 ## Chamar scripts usando o Portal do Azure
@@ -315,7 +315,7 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-write-script].
 
 
-## Consulte também
+## Confira também
 
 - [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster] fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 - [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-write-script]
@@ -333,4 +333,4 @@ Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-wri
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

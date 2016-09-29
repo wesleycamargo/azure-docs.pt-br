@@ -129,7 +129,8 @@ Observe que cada faceta tem um rótulo (Cores, Categorias, Preços), uma associa
 <a name="buildindex"></a>
 ##Compilar o índice
 
-A facetagem está habilitada no índice de campo por campo, por meio desse atributo de índice: `"Facetable": true`. Todos os tipos de campo que poderiam ser usados na navegação facetada são `Facetable` por padrão. Esses tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset` e todos os tipos de campo numérico (basicamente, todos os tipos de campo são facetáveis exceto `Edm.GeographyPoint`, que não pode ser usado na navegação facetada).
+A facetagem está habilitada no índice de campo por campo, por meio desse atributo de índice: `"Facetable": true`.  
+Todos os tipos de campo que poderiam ser usados na navegação facetada são `Facetable` por padrão. Esses tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset` e todos os tipos de campo numérico (basicamente, todos os tipos de campo são facetáveis exceto `Edm.GeographyPoint`, que não pode ser usado na navegação facetada).
 
 Ao criar um índice, uma prática recomendada para navegação facetada é desativar explicitamente a facetagem para os campos que nunca devem ser usados como uma faceta. Em particular, os campos de cadeia de caracteres para valores únicos, como uma ID ou nome de produto, devem ser definidos como `"Facetable": false` para evitar seu uso acidental (e ineficaz) em uma navegação facetada.
 

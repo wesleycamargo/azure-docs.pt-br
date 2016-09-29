@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -74,7 +74,7 @@ Para lidar com valores ausentes, é melhor primeiro identificar o motivo dos val
 * **Substituição fictícia**: substituir os valores ausentes por um valor fictício: por exemplo, _desconhecido_ para valores categóricos ou 0 para valores numéricos.
 * **Substituição da média**: se os dados ausentes forem numéricos, substitua os valores ausentes pela média.
 * **Substituição frequente**: se os dados ausentes forem categóricos, substitua os valores ausentes pelo item mais frequente
-* **Substituição de regressão**: usar um método de regressão para substituir valores ausentes por valores de regressão.  
+* **Substituição de regressão**: usar um método de regressão para substituir valores ausentes por valores de regressão.
 
 ## Como normalizar dados?
 
@@ -82,22 +82,22 @@ A normalização de dados escala novamente valores numéricos para um intervalo 
 
 * **Normalização Mín-Máx**: transformar os dados de forma linear em um intervalo, digamos, entre 0 e 1, em que o valor mínimo é dimensionado para 0 e o valor máximo para 1.
 * **Normalização de pontuação Z**: escalar dados com base na média e desvio padrão: dividir a diferença entre os dados e a média pelo desvio padrão.
-* **Dimensionamento decimal**: dimensionar os dados movendo o ponto decimal do valor do atributo.  
+* **Dimensionamento decimal**: dimensionar os dados movendo o ponto decimal do valor do atributo.
 
 ## Como diferenciar os dados?
 
 Dados podem ser diferenciados ao converter valores contínuos em atributos nominais ou intervalos. Algumas formas de fazer isso são:
 
 * **Compartimentalização de largura igual**: dividir o intervalo de todos os possíveis valores de um atributo entre N grupos do mesmo tamanho e atribuir os valores correspondentes a um compartimento a um número do compartimento.
-* **Compartimentação de altura igual**: dividir o intervalo de todos os possíveis valores de um atributo em N grupos que contém o mesmo número de instâncias e atribuir os valores correspondentes a um compartimento ao número do compartimento.  
+* **Compartimentação de altura igual**: dividir o intervalo de todos os possíveis valores de um atributo em N grupos que contém o mesmo número de instâncias e atribuir os valores correspondentes a um compartimento ao número do compartimento.
 
 ## Como reduzir os dados?
 
 Há vários métodos para reduzir o tamanho dos dados para facilitar a manipulação de dados. Dependendo do tamanho dos dados e do domínio, os métodos a seguir podem ser aplicados:
 
 * **Amostragem de registros**: realizar a amostragem dos registros de dados de exemplo e escolha somente o subconjunto representativo dos dados.
-* **Amostragem de atributo**: selecionar apenas um subconjunto dos atributos mais importantes dos dados.  
-* **Agregação**: dividir os dados em grupos e armazenar os números em cada grupo. Por exemplo, os números de receita diária de uma cadeia de restaurante nos últimos 20 anos podem ser agregados para receita mensal para reduzir o tamanho dos dados.  
+* **Amostragem de atributo**: selecionar apenas um subconjunto dos atributos mais importantes dos dados.
+* **Agregação**: dividir os dados em grupos e armazenar os números em cada grupo. Por exemplo, os números de receita diária de uma cadeia de restaurante nos últimos 20 anos podem ser agregados para receita mensal para reduzir o tamanho dos dados.
 
 ## Como limpar dados de texto?
 
@@ -109,4 +109,4 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

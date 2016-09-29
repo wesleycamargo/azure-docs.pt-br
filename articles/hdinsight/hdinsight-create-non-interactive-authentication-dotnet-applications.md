@@ -2,7 +2,7 @@
 	pageTitle="Criar aplicativos .NET HDInsight de autenticação não interativa | Microsoft Azure"
 	description="Saiba como criar aplicativos .NET HDInsight de autenticação não interativa."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -122,4 +122,4 @@ ou o CLI do Azure:
 - [Autenticação de uma entidade de serviço com o Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

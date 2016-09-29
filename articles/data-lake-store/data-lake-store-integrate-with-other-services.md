@@ -4,7 +4,7 @@
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -78,10 +78,10 @@ Você pode usar o Power BI para importar dados de uma conta do Repositório Data
 Você pode registrar dados do Repositório Data Lake no Catálogo de Dados do Azure para tornar os dados detectáveis em toda a organização. Para saber mais, confira [Registrar dados do Repositório Data Lake no Catálogo de Dados do Azure](data-lake-store-with-data-catalog.md).
 
 
-## Consulte também
+## Confira também
 
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 - [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

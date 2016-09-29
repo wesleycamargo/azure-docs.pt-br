@@ -62,7 +62,7 @@ Para decidir sobre uma camada de serviço, comece determinando se o banco de dad
 
 Para decidir sobre uma camada de serviço para um banco de dados autônomo, comece determinando os recursos do banco de dados necessários para escolher sua edição do Banco de Dados SQL:
 
-- Tamanho do banco de dados (no máximo 5 GB para o Básico, 250 GB para o Standard e 500 GB a 1 TB para Premium, dependendo do nível de desempenho)
+- Tamanho do banco de dados (no máximo 2 GB para o Básico, 250 GB para o Standard e 500 GB a 1 TB para Premium, dependendo do nível de desempenho)
 - Período de retenção de backup do banco de dados (sete dias para Basic, 35 dias para Standard e 35 dias para Premium)
 
 Depois de determinar a edição do Banco de Dados SQL, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Você pode fazer uma suposição e depois [Escalar ou reduzir verticalmente ou horizontalmente](sql-database-scale-up.md) com base na experiência real. Você também pode usar a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários.
@@ -88,4 +88,4 @@ Depois de determinar a camada de serviço para o pool, você estará pronto para
 
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

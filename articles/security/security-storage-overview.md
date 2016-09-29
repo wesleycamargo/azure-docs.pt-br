@@ -1,6 +1,6 @@
 <properties
    pageTitle="Visão geral da segurança do Armazenamento do Azure | Microsoft Azure"
-   description="O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com o Armazenamento do Azure."
+   description=" O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com o Armazenamento do Azure. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Visão geral da segurança do armazenamento do Azure
@@ -29,7 +29,7 @@ O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativ
 
 Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, confira o [Guia de segurança do Armazenamento do Azure](../storage/storage-security-guide.md). Este guia fornece uma visão aprofundada dos recursos de segurança do Armazenamento do Azure, como chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
 
-Este artigo apresentará uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que apresentarão detalhes de cada recurso para que você possa saber mais sobre eles.
+Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que apresentam detalhes de cada recurso para que você possa saber mais sobre eles.
 
 Aqui estão os principais recursos que serão abordados neste artigo:
 
@@ -42,7 +42,7 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 
 ## RBAC (Controle de Acesso Baseado em Função)
 
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode aproveitar [funções RBAC internas](../active-directory/role-based-access-built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários.
+Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../active-directory/role-based-access-built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários.
 
 Saiba mais:
 
@@ -50,7 +50,7 @@ Saiba mais:
 
 ## Acesso delegado aos objetos de armazenamento
 
-Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
+Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
 
 Saiba mais:
 
@@ -101,4 +101,4 @@ Saiba mais:
 - [O que é o Cofre da Chave do Azure?](../key-vault/key-vault-whatis.md)
 - [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

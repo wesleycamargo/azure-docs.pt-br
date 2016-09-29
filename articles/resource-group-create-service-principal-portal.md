@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos
@@ -148,9 +148,23 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
      Se você não tiver as permissões corretas para conceder acesso a um aplicativo, será preciso solicitar que o seu administrador da assinatura adicione você à função Administrador de Acesso do Usuário ou solicitar que um administrador conceda acesso ao aplicativo.
 
-1. Navegue até o nível do escopo ao qual quer atribuir o aplicativo. Neste tópico, você pode navegar até um grupo de recursos e, na folha de grupo de recursos, escolha **Controle de acesso**.
+1. Navegue até o nível do escopo ao qual quer atribuir o aplicativo. Para atribuir uma função no escopo da assinatura, escolha **Assinaturas**.
+
+     ![selecione a assinatura](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Escolha a assinatura específica à qual atribuir o aplicativo.
+
+     ![selecionar assinatura para atribuição](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Escolha o ícone **Acesso** no canto superior direito.
+
+     ![selecionar acesso](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     Ou, para atribuir uma função no escopo do grupo de recursos, navegue para um grupo de recursos. Na folha do grupo de recursos, escolha **Controle de acesso**.
 
      ![Selecionar usuários](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     As etapas a seguir são as mesmas para qualquer escopo.
 
 2. Selecione **Adicionar**.
 
@@ -208,4 +222,4 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 - Para aprender a especificar políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 - Para obter uma demonstração em vídeo dessas etapas, confira [Habilitando o gerenciamento programático de um Recurso do Azure Resource com o Active Directory do Azure](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

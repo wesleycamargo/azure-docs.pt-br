@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo grupo de recursos. Portanto, você precisa implementar servidores back-end em um grupo de recursos diferente de todos os outros componentes. As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para o grupo de recursos principal e *IaaSStory-BackEnd* para os servidores de back-end.
+No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo conjunto de disponibilidade. Portanto, você precisa implementar servidores back-end em um grupo de recursos diferente de todos os outros componentes. As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para o grupo de recursos principal e *IaaSStory-BackEnd* para os servidores de back-end.
 
 ## Pré-requisitos
 
@@ -309,4 +309,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

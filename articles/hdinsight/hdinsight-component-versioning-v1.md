@@ -3,7 +3,7 @@
 	description="O HDInsight dá suporte a várias versões de cluster Hadoop implantáveis. Consulte as versões de distribuição com suporte do Hadoop e do HortonWorks Data Platform (HDP)."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	documentationCenter=""/>
 
@@ -167,4 +167,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

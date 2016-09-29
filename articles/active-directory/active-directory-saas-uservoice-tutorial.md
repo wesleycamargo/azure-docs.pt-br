@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o UserVoice
@@ -66,17 +66,17 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir a autenticação dos usuários no UserVoice com sua conta do AD do Azure usando a federação baseada no protocolo SAML. Configurar o logon único para UserVoice exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir a autenticação dos usuários no UserVoice com sua conta do AD do Azure usando a federação baseada no protocolo SAML. Configurar o logon único para UserVoice exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativo do **UserVoice**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativo do **UserVoice**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no UserVoice**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do UserVoice**, digite a URL usando o padrão "*https://\<nome-locatário>. UserVoice.com*" e clique em **Avançar**.
 
@@ -85,7 +85,7 @@ O objetivo desta seção é descrever como permitir a autenticação dos usuári
 
 4.  Na página **Configurar logon único no UserVoice**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\UserVoice.cer**.
 
-    ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configurar o logon único")
 
 5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa UserVoice como administrador.
 
@@ -102,17 +102,17 @@ O objetivo desta seção é descrever como permitir a autenticação dos usuári
     ![Editar a autenticação de usuário](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Editar a autenticação de usuário")
 
     1.  Clique em **SSO (Logon Único)**.
-    2.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **Entrada Remota de SSO**.
-    3.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logoff Remoto** e cole-o na **caixa de texto Saída Remota de SSO**.
-    4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado SHA1 atual**.  
+    2.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **Entrada Remota de SSO**.
+    3.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no UserVoice**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **Saída Remota de SSO**.
+    4.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão digital do certificado SHA1 atual**.
 
-        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
 
     5.  Clique em **Salvar Configurações de Autenticação**.
 
 9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configurar logon único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configurar o logon único")
 
 ##Configurando o provisionamento de usuários
   
@@ -147,13 +147,13 @@ Para permitir que os usuários do AD do Azure façam logon no UserVoice, eles de
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao UserVoice, execute as seguintes etapas:
 
 1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  Na página de integração de aplicativos **UserVoice**, clique em **Atribuir usuários**.
+2.  Na página de integração de aplicativos do **UserVoice**, clique em **Atribuir usuários**.
 
     ![Atribuir usuários](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Atribuir usuários")
 
@@ -163,4 +163,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

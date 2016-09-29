@@ -154,7 +154,7 @@ O registro TXT adicional assume a convenção que mapeia de &lt;*subdomínio*>.&
 <a name="cname"></a>
 ### Criar um registro CNAME
 
-Se você usa um registro CNAME para mapear para o nome do domínio padrão do seu aplicativo do Azure, não é necessário um registro CNAME adicional como é feito com um registro A.
+Se você usa um registro CNAME para mapear para o nome do domínio padrão do seu aplicativo do Azure, não é necessário um registro TXT adicional como é feito com um registro A.
 
 >[AZURE.IMPORTANT] Não crie um registro CNAME para seu domínio raiz (ou seja, o "registro raiz"). Para saber mais, confira [Por que um registro CNAME não pode ser usado no domínio raiz](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain). Para mapear um domínio raiz para o aplicativo do Azure, use um [registro A](#a) em vez disso.
 
@@ -249,4 +249,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

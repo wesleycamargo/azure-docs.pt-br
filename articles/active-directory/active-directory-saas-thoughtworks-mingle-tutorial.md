@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Thoughtworks Mingle
@@ -56,7 +56,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **Thoughtworks Mingle**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "Galeria de Aplicativos")
 
 7.  No painel de resultados, selecione **Thoughtworks Mingle** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -68,13 +68,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **Thoughtworks Mingle**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativos do **Thoughtworks Mingle**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Thoughtworks Mingle**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Locatário do Thoughtworks Mingle**, digite a URL usando o padrão "*http://company.mingle.thoughtworks.com*" e clique em **Avançar**.
 
@@ -83,7 +83,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar o logon único no Thoughtworks Mingle**, clique em Baixar metadados e salve-o no computador.
 
-    ![Configurar logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "Configurar o logon único")
 
 5.  Faça logon em seu site de empresa do **Thoughtworks Mingle** como administrador.
 
@@ -134,7 +134,7 @@ Para usuários do AAD conseguirem efetuar logon, eles devem ser provisionados pa
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Thoughtworks Mingle, execute as seguintes etapas:
 
@@ -150,4 +150,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

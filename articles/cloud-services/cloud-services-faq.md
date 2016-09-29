@@ -49,7 +49,17 @@ Eles continuam reaparecendo muito provavelmente devido a uma ferramenta que voc�
 
 Quando a instância de máquina virtual for reciclada, todas as alterações locais serão perdidas. Use um [tarefa de inicialização](cloud-services-startup-tasks.md) para instalar certificados na máquina virtual sempre que a função for iniciada.
 
+### Não consigo encontrar meus certificados de gerenciamento no portal
 
+Os [certificados de gerenciamento](..\azure-api-management-certs.md) estão disponíveis apenas no Portal Clássico do Azure. O Portal do Azure atual não usa certificados de gerenciamento.
+
+### Como desabilitar um certificado de gerenciamento?
+
+Os [certificados de gerenciamento](..\azure-api-management-certs.md) não podem ser desabilitados. Exclua-os no Portal Clássico do Azure quando você não quiser mais usá-los.
+
+### Como criar um certificado SSL para um endereço IP específico?
+
+Siga as instruções no [tutorial Criar um certificado](cloud-services-certs-create.md). Use o endereço IP como o nome DNS.
 
 ## Solucionar problemas
 
@@ -57,4 +67,4 @@ Quando a instância de máquina virtual for reciclada, todas as alterações loc
 
 Primeiro, certifique-se de que a instância de máquina virtual que você está tentando reservar o IP esteja ativada. Segundo, certifique-se de que você esteja usando IPs reservados para as implantações de preparo e produção. **Não** altere as configurações enquanto a implantação é atualizada.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -17,7 +17,7 @@
 
 # Visão geral do Application Gateway
 
-O Microsoft Azure Application Gateway fornece um serviço de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. Em termos simples, ele funciona ao aceitar tráfego e baseado em regras definidas com ele, roteia o tráfego para as instâncias de back-end apropriadas.
+O Microsoft Azure Application Gateway fornece um serviço de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. Em termos simples, ele funciona ao aceitar tráfego e, com base nas regras definidas com ele, roteia o tráfego para as instâncias de back-end apropriadas.
 
 O balanceamento de carga do aplicativo permite que os desenvolvedores e administradores de TI criem regras de roteamento de tráfego de rede com base no protocolo HTTP. O serviço do Application Gateway é altamente disponível e medido. Para ver o SLA e o Preço, confira as páginas [SLA](https://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
 
@@ -75,4 +75,4 @@ Depois de aprender mais sobre o Application Gateway, você pode [criar um Applic
 
 Para saber como criar um Application Gateway usando a URL com base em roteamento de conteúdo, acesse [Criar um Application Gateway usando roteamento com base em URL](application-gateway-create-url-route-arm-ps.md) para obter mais informações.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

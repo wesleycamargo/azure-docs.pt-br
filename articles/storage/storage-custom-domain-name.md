@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
@@ -130,4 +130,4 @@ Para cancelar o registro de um domínio personalizado, siga estas etapas:
 
 -   [Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

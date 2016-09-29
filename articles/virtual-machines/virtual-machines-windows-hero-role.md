@@ -27,7 +27,7 @@ Se você ainda não tiver criado sua primeira VM, volte para [Criar sua primeira
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. No menu hub, clique em **Máquinas Virtuais**. Selecione a máquina virtual na lista.
-3. Se o status for **Parado (Desalocado), clique no botão **Iniciar** na folha **Essentials** da VM. Se o status indicar **Em Execução*, passe para a próxima etapa.
+3. Se o status for **Parado (Desalocado**), clique no botão **Iniciar** na folha **Essentials** da VM. Se o status indicar **Em Execução**, passe para a próxima etapa.
 
 ## Conectar-se à máquina virtual e entrar
 
@@ -120,10 +120,11 @@ Para obter mais informações sobre os NSGs, regras de entrada e saída, consult
 3. Seu navegador deve abrir a página Web padrão do IIS. É algo semelhante a isto:
 
 	![Captura de tela mostrando a aparência da página padrão do IIS em um navegador](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
-	
-	
-	## Próximas etapas
+
+    
+
+## Próximas etapas
 
 - Você também pode experimentar [anexar um disco de dados](virtual-machines-windows-attach-disk-portal.md) à sua máquina virtual. Os discos de dados oferecem mais armazenamento para sua máquina virtual.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

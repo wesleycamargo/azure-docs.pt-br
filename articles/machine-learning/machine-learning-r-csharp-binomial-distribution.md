@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -35,17 +35,17 @@ O pacote de Distribuição Binomial inclui os três serviços a seguir.
 ###Calculadora de quantil de distribuição binomial
 Esse serviço aceita quatro argumentos de uma distribuição normal e calcula o quantil associado. Os argumentos de entrada são:
 
-- p - uma única probabilidade agregada de várias tentativas.  
+- p - uma única probabilidade agregada de várias tentativas.
 - tamanho – o número de tentativas.
 - prob – a probabilidade de sucesso em uma tentativa.
-- Lado – L para o lado inferior da distribuição, U para o lado superior da distribuição. 
+- Lado – L para o lado inferior da distribuição, U para o lado superior da distribuição.
 
 A saída do serviço é o quantil calculado associado à probabilidade determinada.
 
 ###Calculadora de probabilidade de distribuição binomial
 Esse serviço aceita quatro argumentos de uma distribuição binominal e calcula a probabilidade associada. Os argumentos de entrada são:
 
-- q - um único quantil de um evento com distribuição binomial. 
+- q - um único quantil de um evento com distribuição binomial.
 - tamanho – o número de tentativas.
 - prob – a probabilidade de sucesso em uma tentativa.
 - lado – L para o lado inferior da distribuição, U para o lado superior da distribuição ou E, que é igual a um único número de sucessos.
@@ -55,7 +55,7 @@ A saída do serviço é a probabilidade calculada associada ao quantil determina
 ###Gerador de distribuição binomial
 Este serviço aceita três argumentos de uma distribuição binomial e gera uma sequência aleatória de números distribuídos binomialmente. Os argumentos a seguir devem ser fornecidos a ele na solicitação:
 
-- n - número de observações. 
+- n - número de observações.
 - tamanho – número de tentativas.
 - prob – probabilidade de sucesso.
 
@@ -290,4 +290,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

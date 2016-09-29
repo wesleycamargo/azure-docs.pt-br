@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configurar um gateway de aplicativo para descarregamento SSL usando o Gerenciador de Recursos do Azure
@@ -44,14 +44,14 @@
 
 Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCertificate** é adicionado ao **HttpListener** com o valor da variável configurado para o certificado SSL. A porta front-end deve ser atualizada para 443.
 
-**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Isso é feito pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Este cenário é concluído pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
 
 
 ## Criar um Application Gateway
 
 A diferença entre usar o modelo de implantação Clássico do Azure e o Azure Resource Manager é a ordem em que você cria o gateway de aplicativo e os itens que precisam ser configurados.
 
-Com o Gerenciador de Recursos, todos os itens que compõem um gateway de aplicativo são configurados individualmente e reunidos para criar um recurso do gateway de aplicativo.
+Com o Gerenciador de Recursos, todos os componentes de um gateway de aplicativo são configurados individualmente e reunidos para criar um recurso do gateway de aplicativo.
 
 
 A seguir, as etapas necessárias para criar um gateway de aplicativo:
@@ -69,8 +69,6 @@ Alterne para o modo PowerShell para usar os cmdlets do Gerenciador de Recursos d
 ### Etapa 1
 
 	Login-AzureRmAccount
-
-
 
 ### Etapa 2
 
@@ -106,24 +104,25 @@ O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Re
 
 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-Isso atribui o intervalo de endereços 10.0.0.0/24 a uma variável de sub-rede a ser usada para criar uma rede virtual.
+Esta amostra atribui o intervalo de endereços 10.0.0.0/24 a uma variável de sub-rede a ser usada para criar uma rede virtual.
 
 ### Etapa 2
+
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Isso cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24
+Esta amostra cria uma rede virtual chamada "appgwvnet" no grupo de recursos "appgw-rg" para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24.
 
 ### Etapa 3
 
 	$subnet = $vnet.Subnets[0]
 
-Isso atribui o objeto de sub-rede à variável $subnet para as próximas etapas.
+Esta amostra atribui o objeto de sub-rede à variável $subnet para as próximas etapas.
 
 ## Criar um endereço IP público para a configuração de front-end
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Isso cria um recurso de IP público "publicIP01" no grupo de recursos "appgw-rg" para a região Oeste dos EUA.
+Esta amostra cria um recurso de IP público "publicIP01" no grupo de recursos "appgw-rg" para a região Oeste dos EUA.
 
 
 ## Criar um objeto de configuração do gateway do aplicativo
@@ -132,56 +131,56 @@ Isso cria um recurso de IP público "publicIP01" no grupo de recursos "appgw-rg"
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Isso cria uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
+Esta amostra cria uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
 
 ### Etapa 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Isso configura o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP do exemplo acima pelos endereços IP dos pontos de extremidade do aplicativo Web.
+Esta amostra configura o pool de endereços IP de back-end denominado "pool01" com os endereços IP "134.170.185.46, 134.170.188.221, 134.170.185.50". Esses valores são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP do exemplo anterior pelos endereços IP dos pontos de extremidade do aplicativo Web.
 
 ### Etapa 3
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Isso define a configuração "poolsetting01" do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end.
+Esta amostra define a configuração "poolsetting01" do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end.
 
 ### Etapa 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-Isso configura a porta do IP de front-end denominada "frontendport01" para o ponto de extremidade do IP público.
+Esta amostra configura a porta do IP de front-end denominada "frontendport01" para o ponto de extremidade do IP público.
 
 ### Etapa 5
 
 	$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-Isso configura o certificado usado para a conexão SSL. O certificado deve estar no formato .pfx e a senha deve ter entre 4 e 12 caracteres.
+Esta amostra configura o certificado usado para a conexão SSL. O certificado deve estar no formato .pfx e a senha deve ter entre 4 e 12 caracteres.
 
 ### Etapa 6
 
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-Isso cria a configuração de IP de front-end chamada "fipconfig01" e associa o endereço IP público à configuração de IP de front-end.
+Esta amostra cria a configuração de IP de front-end chamada "fipconfig01" e associa o endereço IP público à configuração de IP de front-end.
 
 ### Etapa 7
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
-Isso cria o ouvinte de nome "listener01" e associa a porta de front-end à configuração de IP e ao certificado do front-end.
+Esta amostra cria o ouvinte de nome "listener01" e associa a porta de front-end à configuração de IP e ao certificado do front-end.
 
 ### Etapa 8
 
 	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Isso cria a regra de roteamento do balanceador de carga chamada "rule01", que configura o comportamento do balanceador de carga.
+Esta amostra cria a regra de roteamento do balanceador de carga chamada "rule01", que configura o comportamento do balanceador de carga.
 
 ### Etapa 9
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Isso configura o tamanho da instância do gateway de aplicativo.
+Esta amostra configura o tamanho da instância do gateway de aplicativo.
 
 >[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard\_Small, Standard\_Medium e Standard\_Large.
 
@@ -189,7 +188,7 @@ Isso configura o tamanho da instância do gateway de aplicativo.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Isso cria um gateway de aplicativo com todos os itens de configuração das etapas acima. No exemplo, o gateway de aplicativo se chama "appgwtest".
+Esta amostra cria um gateway de aplicativo com todos os itens de configuração das etapas anteriores. No exemplo, o gateway de aplicativo se chama "appgwtest".
 
 ## Próximas etapas
 
@@ -200,4 +199,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -297,4 +297,4 @@ Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convé
 
 Para ver como os recursos de Análise de Texto, como o sentimento, podem ser usados como parte de um bot, consulte o exemplo de [Bot Emocional](http://docs.botframework.com/pt-BR/bot-intelligence/language/#example-emotional-bot) no site da Estrutura de Bot.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

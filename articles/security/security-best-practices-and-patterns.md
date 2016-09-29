@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Padrões e práticas recomendadas de segurança do Azure
@@ -28,9 +28,9 @@ No momento, temos os artigos de padrões e práticas recomendadas de segurança 
 - [Práticas recomendadas de segurança de limites do Azure](../best-practices-network-security.md)
 - [Implementar uma arquitetura de rede híbrida segura no Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-O Azure fornece uma plataforma segura na qual você pode criar suas soluções. Nós também fornecemos uma grande quantidade de serviços e tecnologias que você pode usar para tornar os serviços criados no Azure mais seguros. Devido às muitas opções disponíveis, muitos de vocês têm manifestado interesse no que a Microsoft pode recomendar como padrões e práticas recomendadas para aprimorar a segurança de suas implantações do Azure.
+O Azure fornece uma plataforma segura na qual você pode criar suas soluções. Também fornecemos serviços e tecnologias para tornar as suas soluções no Azure mais seguras. Devido às muitas opções disponíveis, muitos de vocês expressaram interesse no que a Microsoft aconselha como práticas recomendadas e padrões para aprimorar a segurança.
 
-Precisamos compreender seu interesse e, para esse fim, criamos uma coleção de documentos que descrevem as coisas que você pode fazer, considerando o contexto certo, que acreditamos que serão úteis para melhorar a segurança de implantações do Azure.
+Compreendemos seu interesse e criamos uma coleção de documentos que descrevem o que você pode fazer, levando em conta o contexto certo, para melhorar a segurança de implantações do Azure.
 
 Nesses artigos sobre práticas recomendadas e padrões, discutimos uma coleção de práticas recomendadas e padrões úteis para tópicos específicos. Essas práticas recomendadas e padrões derivam das nossas experiências com essas tecnologias e da experiência de clientes como você.
 
@@ -42,6 +42,6 @@ Para cada prática recomendada, buscamos explicar:
 - Possíveis alternativas à prática recomendada
 - Como você pode aprender a habilitar a prática recomendada
 
-Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se há tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.
+Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

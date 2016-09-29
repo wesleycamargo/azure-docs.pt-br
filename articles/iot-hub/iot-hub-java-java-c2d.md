@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/23/2016"
+     ms.date="09/13/2016"
      ms.author="dobett"/>
 
 # Tutorial: Como enviar mensagens da nuvem para o dispositivo com o Hub IoT e Java
@@ -45,7 +45,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Maven 3. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Maven para este tutorial no Windows ou no Linux.
 
-+ Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, confira [Avaliação Gratuita do Azure][lnk-free-trial].)
++ Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure][lnk-free-trial].)
 
 ## Receber mensagens no dispositivo simulado
 
@@ -81,9 +81,9 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado na 
 
 ## Envie uma mensagem da nuvem para o dispositivo
 
-Nesta seção, você criará um aplicativo do console do Java que envia mensagens da nuvem para o dispositivo para o aplicativo do dispositivo simulado. Você precisa da ID do dispositivo adicionado no tutorial [Introdução ao Hub IoT] e da cadeia de conexão para o Hub IoT, que pode ser encontrada no [portal do Azure].
+Nesta seção, você criará um aplicativo do console do Java que envia mensagens da nuvem para o dispositivo para o aplicativo do dispositivo simulado. Você precisa da Id do dispositivo que você adicionou no tutorial [Introdução ao Hub IoT]. Você também precisa da cadeia de conexão do Hub IoT, que você pode encontrar no [Portal do Azure].
 
-1. Crie um novo projeto Maven chamado **send-c2d-messages** usando o comando a seguir no prompt de comando. Observe que é um comando único e longo:
+1. Crie um projeto Maven chamado **send-c2d-messages** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -91,7 +91,7 @@ Nesta seção, você criará um aplicativo do console do Java que envia mensagen
 
 2. No prompt de comando, navegue até a nova pasta send-c2d-messages.
 
-3. Usando um editor de texto, abra o arquivo pom.xml na pasta send-c2d-messages e adicione a dependência a seguir ao nó **dependencies**. Isso permite que você use o pacote **iothub-java-service-client** no aplicativo para se comunicar com o serviço do Hub IoT:
+3. Usando um editor de texto, abra o arquivo pom.xml na pasta send-c2d-messages e adicione a dependência a seguir ao nó **dependencies**. A adição da dependência permite que você use o pacote **iothub-java-service-client** no aplicativo para se comunicar com o serviço do Hub IoT:
 
     ```
     <dependency>
@@ -159,7 +159,7 @@ Nesta seção, você criará um aplicativo do console do Java que envia mensagen
 
 Agora você está pronto para executar os aplicativos.
 
-1. simulated-device, execute o seguinte comando para iniciar o envio de dados de telemetria para seu hub IoT e escutar mensagens da nuvem para o dispositivo enviadas do hub IoT:
+1. Em um prompt de comando na pasta do dispositivo simulado, execute o seguinte comando para iniciar o envio de dados de telemetria para seu Hub IoT e escutar mensagens da nuvem para o dispositivo enviadas do hub:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
@@ -173,7 +173,7 @@ Agora você está pronto para executar os aplicativos.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Executar o comando para enviar a mensagem c2d][img-send-command]
+    ![Executar o comando para enviar a mensagem da nuvem para o dispositivo][img-send-command]
 
 ## Próximas etapas
 
@@ -196,7 +196,7 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

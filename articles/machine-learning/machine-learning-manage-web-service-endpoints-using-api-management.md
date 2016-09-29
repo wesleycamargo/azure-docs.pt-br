@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -72,7 +72,7 @@ Clique em **APIs** no menu **Gerenciamento de API** à esquerda e depois clique 
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Digite **AzureML demonstração API** como o **Nome da API Web**. Digite **https://ussouthcentral.services.azureml.net** como a **URL do serviço Web**. Digite **azureml-demo** como o **sufixo da URL da API Web**. Marque **HTTPS** como o esquema da **URL da API Web**. Selecione **Iniciador** como **Produto**. Quando terminar, clique em **Salvar** para criar a API.
+Digite **AzureML demonstração API** como o **Nome da API Web**. Digite **https://ussouthcentral.services.azureml.net** como a **URL do Serviço Web**. Digite **azureml-demo** como o **sufixo da URL da API Web**. Marque **HTTPS** como o esquema de **URL da API Web**. Selecione **Iniciador** como **Produtos**. Quando terminar, clique em **Salvar** para criar a API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -130,7 +130,7 @@ Selecione **RRS Execute** para a operação. Clique em **Experimentar**.
 
 Para os parâmetros Request, digite seu **espaço de trabalho**, **serviço**, **2.0** para **apiversion** e **true** para **detalhes**. Você pode encontrar o **espaço de trabalho** e o **serviço** no painel de serviço Web do AzureML (consulte **Testar o serviço Web** no Apêndice A).
 
-Para cabeçalhos Request, clique em **Adicionar cabeçalho** e digite **Content-Type** e **application/json**; em seguida, clique em **Adicionar cabeçalho** e digite **Authorization** e **Bearer <YOUR AZUREML SERVICE API-KEY>**. Você pode encontrar a **chave de api** no painel de serviço Web do AzureML (consulte **Testar o serviço Web** no Apêndice A).
+Para cabeçalhos Request, clique em **Adicionar cabeçalho** e digite **Content-Type** e **application/json**; em seguida, clique em **Adicionar cabeçalho** e digite **Authorization** e **Bearer <CHAVE DE API DE SEU SERVIÇO AMAZURE>**. Você pode encontrar a **chave de api** no painel de serviço Web do AzureML (consulte **Testar o serviço Web** no Apêndice A).
 
 Digite **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["Este é um bom dia"]]}}, "GlobalParameters": {}}** para o corpo da solicitação.
 
@@ -384,4 +384,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -24,11 +24,7 @@
 - [Portal](azure-portal/resource-group-portal.md)
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Nó](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [API REST](resource-manager-rest-api.md)
 
 
 A Interface de linha de comando do Azure (CLI do Azure) é uma das várias ferramentas que você pode usar para implantar e gerenciar recursos com o Resource Manager. Este artigo apresenta as maneiras comuns de gerenciar os recursos e os grupos de recursos do Azure usando a CLI do Azure no modo Resource Manager. Para saber mais sobre como usar a CLI para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md). Para saber mais sobre o os recursos e o Resource Manager do Azure, visite a [Visão Geral do Azure Resource Manager](resource-group-overview.md).
@@ -231,4 +227,4 @@ Usando a CLI do Azure, você pode exportar um modelo que representa o estado atu
 * Para obter detalhes de operações de implantação e solucionar problemas de erros de implantação com a CLI do Azure, confira [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md).
 * Se você quiser usar a CLI para configurar um aplicativo ou script para acessar recursos, confira [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](resource-group-authenticate-service-principal-cli.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

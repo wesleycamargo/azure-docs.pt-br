@@ -1,10 +1,10 @@
 <properties
    pageTitle="Analisar logs de site usando a Análise Data Lake do Azure | Azure"
-   description="Saiba como analisar os logs de site usando a Análise Data Lake."
+   description="Saiba como analisar os logs de site usando a Análise Data Lake. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -188,7 +188,7 @@ Você pode adicionar operadores definidos pelo usuário a este aplicativo. Para 
 3.  Clique duas vezes em **UnsuccessfulResponsees.log**.
 4.  Também é possível clicar duas vezes no arquivo de saída no modo de exibição de gráficos do trabalho a fim de navegar diretamente até a saída.
 
-## Consulte também
+## Confira também
 
 Para começar a usar a Análise Data Lake com ferramentas diferentes, consulte:
 
@@ -202,4 +202,4 @@ Para ver mais tópicos de desenvolvimento:
 - [Introdução à linguagem U-SQL da Análise Data Lake do Azure](data-lake-analytics-u-sql-get-started.md)
 - [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

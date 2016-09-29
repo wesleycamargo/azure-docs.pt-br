@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Definir e Recuperar as Propriedades e os Metadados #
@@ -22,7 +22,7 @@
 
 Os objetos no Armazenamento do Azure suportam as propriedades do sistema e os metadados definidos pelo usuário, além dos dados que eles contêm:
 
-*   **Propriedades do sistema.** Existem propriedades do sistema em cada recurso de armazenamento. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente do armazenamento do Azure os mantém para você.  
+*   **Propriedades do sistema.** Existem propriedades do sistema em cada recurso de armazenamento. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente do armazenamento do Azure os mantém para você.
 
 *   **Metadados definidos pelo usuário.** Os metadados definidos pelo usuário são metadados que você especifica em um determinado recurso, na forma de um par de nome-valor. É possível usar os metadados para armazenar valores adicionais com um recurso de armazenamento; esses valores são para suas próprias finalidades apenas e não afetam o comportamento do recurso.
 
@@ -92,9 +92,9 @@ Para recuperar os metadados, chame o método **FetchAttributes** no blob ou no c
         }
     }
 
-## Veja também  
+## Consulte também  
 
 - [Biblioteca do Cliente de Armazenamento do Azure para a referência do .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Biblioteca do Cliente de Armazenamento do Azure para o pacote do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
+- [Biblioteca do Cliente de Armazenamento do Azure para o pacote do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

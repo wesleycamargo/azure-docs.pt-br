@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Wikispaces
@@ -19,7 +19,7 @@
 O objetivo deste tutorial é mostrar a integração do Azure com o Wikispaces. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
--   Uma assinatura do Wikispaces com logon único habilitado
+-   Uma assinatura do Wikispaces habilitada para logon único
   
 Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Wikispaces poderão fazer logon único no aplicativo no site da sua empresa do Wikispaces (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal clássico do Azure, na página de integração de aplicativo do **Wikispaces**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1.  No Portal Clássico do Azure, na página de integração de aplicativo do **Wikispaces**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configurar o logon único")
 
@@ -108,7 +108,7 @@ Para permitir que os usuários do AD do Azure façam logon no Wikispaces, eles d
 
 3.  Clique em **Convidar Pessoas**.
 
-    ![Convidar pessoas](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Convidar pessoas")
+    ![Convidar Pessoas](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Convidar pessoas")
 
 4.  Na seção **Convidar Pessoas**, realize as seguintes etapas:
 
@@ -123,7 +123,7 @@ Para permitir que os usuários do AD do Azure façam logon no Wikispaces, eles d
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Wikispaces, execute as seguintes etapas:
 
@@ -139,4 +139,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

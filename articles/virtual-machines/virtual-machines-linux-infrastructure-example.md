@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Passo a passo de infraestrutura do Azure de exemplo
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Vamos fornecer detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como, de fato, implantar suas VMs (máquinas virtuais).
+Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
 
 
 ## Carga de trabalho de exemplo
@@ -38,23 +38,23 @@ A Adventure Works Cycles deseja criar um aplicativo do repositório online no Az
 
 ![Diagrama de níveis diferentes de infraestrutura de aplicativos](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-O tráfego seguro da Web de entrada precisa ter o balanceamento de carga entre os servidores Web enquanto os clientes navegam pelo repositório online. O tráfego de processamento de pedidos na forma de solicitações HTTP dos servidores Web precisa ser balanceado entre os servidores de aplicativos. Além disso, a infraestrutura deve ser projetada para alta disponibilidade.
+O tráfego seguro da Web de entrada deve ter balanceamento de carga entre os servidores Web enquanto os clientes navegam pelo repositório online. O tráfego de processamento de pedidos na forma de solicitações HTTP dos servidores Web deve ser balanceado entre os servidores de aplicativos. Além disso, a infraestrutura deve ser projetada para alta disponibilidade.
 
 O projeto resultante deve incorporar:
 
-- Uma assinatura e conta do Azure
+- Uma assinatura e uma conta do Azure
 - Um único grupo de recursos
 - Contas de armazenamento
 - Uma rede virtual com duas sub-redes
 - Conjuntos de disponibilidade para as VMs com funções semelhantes
 - Máquinas virtuais
 
-Todos os itens acima seguirão estas convenções de nomenclatura:
+Todos os itens acima seguem estas convenções de nomenclatura:
 
 - A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
 	- Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome de carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
 - As contas de armazenamento usam adventureazosusesa**[descrição]**
-	- Observe que “adventure” foi adicionado ao prefixo para garantir a exclusividade e que os nomes de conta de armazenamento não dão suporte ao uso de hifens.
+	- 'adventure' foi adicionado ao prefixo para garantir a exclusividade, e os nomes de conta de armazenamento não dão suporte ao uso de hifens.
 - As redes virtuais usam AZOS-USE-VN**[número]**
 - Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 - Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
@@ -132,4 +132,4 @@ Essa configuração inclui:
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -25,8 +25,6 @@ Saiba como usar o SDK do .NET do Azure para criar contas da Análise Azure Data 
 
 Neste tutorial, você desenvolverá um aplicativo de console do C# que contém um script U-SQL que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ##Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -265,4 +263,4 @@ Um log de pesquisa de exemplo foi copiado em um contêiner público do Blob do A
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise Data Lake, veja [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

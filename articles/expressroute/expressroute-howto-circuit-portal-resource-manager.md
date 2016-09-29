@@ -59,6 +59,7 @@ Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e entre com
 
 	![Configurar a camada da SKU e a medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
+>[AZURE.IMPORTANT] Esteja ciente de que o Local de Emparelhamento indica o [local físico](expressroute-locations.md) onde você está emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito.
 
 ### 3\. Exibir os circuitos e as propriedades
 
@@ -153,4 +154,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-portal-resource-manager.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

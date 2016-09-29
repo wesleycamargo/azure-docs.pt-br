@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criar recursos para dados no SQL Server usando o SQL e o Python | Microsoft Azure" 
-	description="Processar dados do SQL Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Criar recursos para dados no SQL Server usando o SQL e o Python | Microsoft Azure"
+	description="Processar dados do SQL Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
 	editor="" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/14/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/14/2016"
 	ms.author="bradsev;fashah;garye" />
 
 
@@ -23,7 +23,7 @@
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, ambos demonstrados aqui.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Para obter um exemplo prático, você poderá usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
 
@@ -50,10 +50,10 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 
 Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
 
-	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
+	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
-	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
-	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
+	select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
+	where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ###<a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
 
@@ -81,7 +81,7 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 
 As informações de localização podem pode ser destacadas da maneira indicada a seguir, separando informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas, disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
 
-	select 
+	select
 		<location_columnname>
 		,round(<location_columnname>,0) as l1		
 		,l2=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 1 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),1,1) else '0' end 	
@@ -96,7 +96,7 @@ Os recursos de localização acima podem ser usados ainda para gerar recursos ad
 
 
 > [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação [Confira o exemplo de como fazer isso usando pyodbc aqui](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
- 
+
 
 > [AZURE.TIP] Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
@@ -113,7 +113,7 @@ Usar o Python para gerar recursos quando os dados estão no SQL Server é semelh
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, nome de usuário e senha pelos seus valores específicos):
 
 	#Set up the SQL Azure connection
-	import pyodbc	
+	import pyodbc
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
 A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
@@ -121,8 +121,8 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blob do Azure usando o Panda](machine-learning-data-science-create-features-blob.md).
+Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópicos [Criar recursos para os dados de armazenamento de blobs do Azure usando o Panda](machine-learning-data-science-create-features-blob.md).
 
- 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!---HONumber=AcomDC_0914_2016-->

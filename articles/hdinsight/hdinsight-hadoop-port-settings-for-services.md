@@ -4,7 +4,7 @@ description="Uma lista de portas usadas pelos serviços do Hadoop em execução 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | Agente | Nós de trabalho | 9092 | [Protocolo Kafka Wire ](http://kafka.apache.org/protocol.html) | Usado para comunicação do cliente |
 | &nbsp; | Nós do Zookeeper | 2181 | &nbsp; | A porta que os clientes usam para se conectar ao Zookeeper |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

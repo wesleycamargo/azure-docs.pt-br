@@ -23,7 +23,7 @@ Este artigo responde a algumas das perguntas mais comuns sobre assinatura e cobr
 
 > [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## Administração de Conta
+## Administração de conta
 
 - [Como faço para gerenciar contas de administrador no novo portal do Azure?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [As notificações podem ser enviadas a um endereço de email diferente do endereço de email do Proprietário de Conta associado a minha conta?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
@@ -61,6 +61,7 @@ Este artigo responde a algumas das perguntas mais comuns sobre assinatura e cobr
 - [Como faço para remover um cartão de crédito que já não utilizo como método de pagamento do Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [Como faço para atualizar ou alterar minhas informações de cartão de crédito?](#how-can-i-update-or-change-my-credit-card-information)
 - [Como edito minhas informações de pagamento de assinaturas do Azure?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+- [Por que vejo uma mensagem de que preciso usar um cartão de crédito internacional?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
 ## Preços do Azure
 
@@ -74,7 +75,7 @@ Este artigo responde a algumas das perguntas mais comuns sobre assinatura e cobr
 - [O que são os créditos do contrato de nível de serviço do Azure?](#what-are-the-azure-sla-credits)
 - [Como os Contratos de Nível de Serviço do Azure funcionam com contratos atuais de licenciamento da Microsoft locais?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Limites de Gastos do Azure
+## Limites de gastos
 
 - [Se eu habilitar o Limite de Gastos, posso habilitá-lo novamente?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [Posso ajustar o valor do Limite de Gastos?](#can-i-adjust-the-amount-of-the-spending-limit)
@@ -251,6 +252,10 @@ Para saber mais, confira o artigo [Como alterar o cartão de crédito usado para
 
 >[AZURE.NOTE] No momento, a ferramenta Alterar Método de Pagamento não permite que você remova um cartão de crédito existente como método de pagamento. Para obter informações sobre como remover um cartão de crédito, confira [Como faço para remover um cartão de crédito que já não utilizo como método de pagamento do Azure?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) neste artigo.
 
+### Por que vejo uma mensagem de que preciso usar um cartão de crédito internacional?
+
+Em alguns casos, embora você esteja pagando pelos serviços do Azure em sua moeda local/de preferência, você está comprando serviços por meio de uma entidade não local da Microsoft e seu cartão de crédito está sendo processado por um banco não local. Nesses casos, os cartões emitidos por bancos locais podem falhar, o que pode afetar negativamente os serviços do Azure. Se não tiver certeza se o cartão de crédito está habilitado para transações internacionais, contate seu banco ou o emissor do cartão para confirmar. Consulte [países e moedas com suporte](billing-countries-and-currencies.md).
+
 ### Por que não é possível editar ou adicionar detalhes à minha assinatura?
 
 Para exibir e editar as informações de conta do Azure, você deve entrar no Centro de Contas do Azure como o administrador da conta. Se você for o AA e ainda assim não conseguir editar a assinatura, envie um tíquete de suporte para solicitar assistência. Para criar um tíquete de suporte, confira o artigo [Como criar um tíquete de suporte para problemas de assinatura e cobrança do Azure](billing-how-to-create-billing-support-ticket.md).
@@ -321,4 +326,4 @@ Se você tiver configurado um cartão de crédito ou débito como a forma de pag
 
 Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.microsoft.com/pricing/invoicing/), envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, [entre em contato com o suporte](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

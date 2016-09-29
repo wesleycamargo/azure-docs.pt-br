@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
 
@@ -43,13 +43,12 @@ Para criar um namespace de serviço:
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para instalar o pacote do NuGet em seu projeto, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo a seguir.
+2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche a seguinte caixa de diálogo:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
-
 
 ## Use o Barramento de Serviço para expor e consumir um serviço Web SOAP com TCP
 
@@ -60,7 +59,7 @@ Nesta tarefa, você criará um serviço WCF simples e adicionará um ouvinte do 
 Antes de iniciar as etapas a seguir, conclua o seguinte procedimento para configurar seu ambiente:
 
 1.  No Visual Studio, crie um aplicativo de console que contenha dois projetos: “Cliente” e “Serviço” na solução.
-2.  Adicione o pacote NuGet do Barramento de Serviço do Microsoft Azure aos dois projetos. Isso adiciona todas as referências ao assembly necessárias para seus projetos.
+2.  Adicione o pacote NuGet do Barramento de Serviço do Microsoft Azure aos dois projetos. Esse pacote adiciona todas as referências ao assembly necessárias para seus projetos.
 
 ### Como criar o serviço
 
@@ -114,7 +113,7 @@ sh.AddServiceEndpoint(
    typeof(IProblemSolver), new NetTcpRelayBinding(),
    ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
     .Behaviors.Add(new TransportClientEndpointBehavior {
-          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
+          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "<yourKey>")});
 
 sh.Open();
 
@@ -124,7 +123,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio do Barramento de Serviço. As principais diferenças entre eles são as associações; [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para aquela no local e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para o ponto de extremidade e os endereços do Barramento de Serviço. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade do Barramento de Serviço tem um endereço de ponto de extremidade composto da cadeia de caracteres `sb`, o nome do seu namespace e o caminho “solver”. Isso resulta no URI `sb://[serviceNamespace].servicebus.windows.net/solver` identificando o ponto de extremidade de serviço como um ponto de extremidade TCP do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, conforme explicado acima, na função `Main` do aplicativo **Serviço**, você terá um serviço funcional. Se desejar que o serviço detecte exclusivamente o Barramento de serviço, remova a declaração de ponto de extremidade local.
+No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio do Barramento de Serviço. As principais diferenças entre eles são as associações; [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para aquela no local e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para o ponto de extremidade e os endereços do Barramento de Serviço. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade do Barramento de Serviço tem um endereço de ponto de extremidade composto da cadeia de caracteres `sb`, o nome do seu namespace e o caminho “solver”. Isso resulta no URI `sb://[serviceNamespace].servicebus.windows.net/solver` identificando o ponto de extremidade de serviço como um ponto de extremidade TCP do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, na função `Main` do aplicativo **Serviço**, você terá um serviço funcional. Se desejar que o serviço detecte exclusivamente o Barramento de serviço, remova a declaração de ponto de extremidade local.
 
 ### Configure um host de serviço no arquivo App.config
 
@@ -138,7 +137,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-As definições de ponto de extremidade são movidas para o arquivo App.config. Observe que o pacote NuGet já adicionou uma série de definições ao arquivo App.config que são as extensões de configuração necessárias para o Barramento de Serviço. O seguinte exemplo de código, que é o equivalente exato do exemplo de código anterior, deve aparecer diretamente sob o elemento **system.serviceModel**. Esse exemplo pressupõe que o namespace do projeto C# é chamado de **Serviço**. Substitua os espaços reservados com seu namespace do Barramento de Serviço e a chave SAS.
+As definições de ponto de extremidade são movidas para o arquivo App.config. O pacote NuGet já adicionou uma série de definições ao arquivo App.config que são as extensões de configuração necessárias para o Barramento de Serviço. O seguinte exemplo de código, que é o equivalente exato do exemplo de código anterior, deve aparecer diretamente sob o elemento **system.serviceModel**. Esse exemplo pressupõe que o namespace do projeto C# é chamado de **Serviço**. Substitua os espaços reservados com seu namespace do Barramento de Serviço e a chave SAS.
 
 ```
 <services>
@@ -157,7 +156,7 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -183,7 +182,7 @@ var cf = new ChannelFactory<IProblemSolverChannel>(
     new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
 cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
-            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
+            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","<yourKey>") });
 
 using (var ch = cf.CreateChannel())
 {
@@ -191,7 +190,7 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-Agora, você pode compilar o cliente e o serviço, executá-los (execute o serviço primeiro) e o cliente chamará o serviço e imprimirá **9**. Você pode executar o cliente e o servidor em máquinas diferentes, até entre redes, e a comunicação ainda funcionará. O código do cliente também pode ser executado na nuvem ou localmente.
+Agora, você pode compilar o cliente e o serviço, executá-los (execute o serviço primeiro) e o cliente chama o serviço e imprime **9**. Você pode executar o cliente e o servidor em máquinas diferentes, até entre redes, e a comunicação ainda funcionará. O código do cliente também pode ser executado na nuvem ou localmente.
 
 #### Configure um cliente no arquivo App.config
 
@@ -219,7 +218,7 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -239,4 +238,4 @@ Agora que você já aprendeu os conceitos básicos do serviço de retransmissão
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/14/2016"
 	ms.author="larryfr"/>
 
 #Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Linux (Hadoop)
@@ -148,7 +148,7 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE] Se você usou uma chave SSH com a conta, você pode precisar inserir a senha. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
+	> [AZURE.NOTE] Se você tiver usado uma senha para sua conta SSH, a inserção da senha poderá ser solicitada. Se você usou uma chave SSH com a conta, você precisará usar o `-i` parâmetro para especificar o caminho para o arquivo de chave. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -390,4 +390,4 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,16 +11,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Work.com
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Work.com.  
+O objetivo deste tutorial é mostrar a integração do Azure com o Work.com.
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
--   Uma assinatura do Work.com com logon único habilitado
+-   Uma assinatura do Work.com habilitada para logon único
   
 Depois de concluir este tutorial, os usuários do AAD aos quais você atribuiu acesso ao Work.com poderão fazer logon único no aplicativo em seu site de empresa do Work.com (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
@@ -84,13 +84,13 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     ![Meu Domínio](./media/active-directory-saas-work-com-tutorial/IC767825.png "Meu Domínio")
 
-4.  Para verificar se seu domínio foi configurado corretamente, certifique-se de que está em “**Etapa 4 Implantada para Usuários**” e revise “**Minhas Configurações de Domínio**”.
+4.  Para verificar se seu domínio foi configurado corretamente, veja se ele está em "**Etapa 4 Implantado para Usuários**" e revise "**Minhas Configurações de Domínio**".
 
     ![Domínio implantado para o usuário](./media/active-directory-saas-work-com-tutorial/IC784377.png "Domínio implantado para o usuário")
 
 5.  Em uma janela de navegador da Web diferente, faça logon no portal clássico do Azure.
 
-6.  Na página de integração de aplicativos do **Work.com**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+6.  Na página de integração de aplicativos do **Work.com**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configurar o logon único")
 
@@ -98,7 +98,7 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
     ![Configurar o logon único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar o logon único")
 
-8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: “ **http://company.my.salesforce.com*”)) e clique em **Avançar**:
+8.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Work.com**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Work.com (por exemplo: "*http://company.my.salesforce.com*”") e clique em **Avançar**:
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar a URL do Aplicativo")
 
@@ -131,13 +131,13 @@ Como parte desse procedimento, é necessário carregar um certificado para o Wor
 
         >[AZURE.NOTE] Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
 
-    2.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
+    2.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
     3.  Para carregar o certificado baixado, clique em **Procurar**.
     4.  Na caixa de texto **ID de Entidade**, digite **https://salesforce-work.com**.
-    5.  Para o **Tipo de Identidade do SAML**, selecione **A declaração contém a ID de Federação do objeto User**.
+    5.  Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
     6.  Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
-    7.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
-    8.  No portal clássico do Azure, na página de caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
+    7.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL do Logon do Provedor de Identidade**.
+    8.  No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no Work.com**, copie o valor de **URL de Logoff Remoto** e cole-o na caixa de texto **URL do Logoff do Provedor de Identidade**.
     9.  Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**.
     10. Clique em **Salvar**.
 
@@ -172,7 +172,7 @@ No caso do Work.com, o provisionamento é uma tarefa manual.
 
 3.  Vá para **Gerenciar Usuários > Usuários**.
 
-    ![Gerenciar Usuários](./media/active-directory-saas-work-com-tutorial/IC784369.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/active-directory-saas-work-com-tutorial/IC784369.png "Gerenciar Usuários")
 
 4.  Clique em **Novo Usuário**.
 
@@ -192,7 +192,7 @@ No caso do Work.com, o provisionamento é uma tarefa manual.
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos usuários do AD do Azure que deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Work.com, execute as seguintes etapas:
 
@@ -210,4 +210,4 @@ Agora, você deveria aguardar 10 minutos e verificar se a conta foi sincronizada
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

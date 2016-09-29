@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -23,7 +23,7 @@ A visualização da biblioteca de cliente do Python de Aprendizado de Máquina d
 
 Este tópico fornece instruções sobre como:
 
-* instalar a biblioteca de cliente do Python de Aprendizado de Máquina 
+* instalar a biblioteca de cliente do Python de Aprendizado de Máquina
 * acessar e carregar conjuntos de dados, incluindo instruções sobre como obter autorização para acessar conjuntos de dados de Aprendizado de Máquina do Azure no seu ambiente local do Python
 *  acessar conjuntos de dados intermediários por meio de testes
 *  usar a biblioteca de cliente do Python para enumerar os conjuntos de dados, acessar metadados, ler o conteúdo de um conjunto de dados, criar novos conjuntos de dados e atualizar conjuntos de dados existentes
@@ -49,7 +49,7 @@ Ela tem uma dependência nos seguintes pacotes:
 
 ###<a name="installation"></a>Como instalar a biblioteca de cliente do Python de Aprendizado de Máquina do Azure
 
-A biblioteca de cliente do Python de Aprendizado de Máquina do Azure também deve ser instalada para concluir as tarefas descritas neste tópico. Ela está disponível no [Índice de Pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
+A biblioteca de cliente do Python de Azure Machine Learning também deve ser instalada para concluir as tarefas descritas neste tópico. Ela está disponível no [Índice de Pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
 
     pip install azureml
 
@@ -80,11 +80,13 @@ Se a sua função não estiver definida como **Proprietário**, você pode solic
 
 Para obter o token de autorização, você pode fazer o seguinte:
 
-1. Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+
+
+- Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
+- Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
 
 Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o trecho de código, independentemente de sua função.
 
@@ -92,11 +94,11 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
 
 ### <a name="accessingDatasets"></a>Conjuntos de dados de acesso de um aplicativo Python local
 
-1. No Estúdio de Aprendizado de Máquina, clique em **CONJUNTOS DE DADOS** na barra de navegação à esquerda.
+1. No Machine Learning Studio, clique em **CONJUNTOS DE DADOS** na barra de navegação à esquerda.
 
 2. Selecione o conjunto de dados que você deseja acessar. Você pode selecionar qualquer um dos conjuntos de dados da lista **MEUS CONJUNTOS DE DADOS** ou da lista **EXEMPLOS**.
 
-3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Observe que esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
+3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
 
 	![Conjunto de dados][datasets]
 
@@ -128,7 +130,7 @@ Alguns módulos, como o módulo [Divisão][split], resultam em um formato chamad
 
 ![Formato de conjunto de dados][dataset-format]
 
-Você precisará usar um módulo de conversão, como [Converter para CSV][convert-to-csv], para obter uma saída em um formato com suporte.
+Você precisa usar um módulo de conversão, como [Converter para CSV][convert-to-csv], para obter uma saída em um formato com suporte.
 
 ![Formato de GenericCSV][csv-format]
 
@@ -146,11 +148,12 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 
 6. Clique no nó de saída no módulo [Converter para CSV][convert-to-csv].
 
-7. Será exibido um menu de contexto, selecione **Gerar código de acesso a dados**.
+7. Um menu de contexto
+8.  será exibido, selecione **Gerar Código de Acesso a Dados**.
 
 	![Menu de contexto][experiment]
 
-8. Uma janela será exibida. Selecione o trecho de código e copie-o para a área de transferência.
+8. Selecione o trecho de código e copie-o na área de transferência a partir da janela exibida.
 
 	![Código de acesso][intermediate-dataset-access-code]
 
@@ -243,7 +246,7 @@ Você também pode abrir um fluxo para o conteúdo:
 
 ### Criar um novo conjunto de dados
 
-A biblioteca de cliente do Python permite carregar conjuntos de dados de seu programa Python. Esses conjuntos de dados estarão disponíveis para uso em seu espaço de trabalho.
+A biblioteca de cliente do Python permite carregar conjuntos de dados de seu programa Python. Esses conjuntos de dados ficarão disponíveis para uso em seu espaço de trabalho.
 
 Se você tiver dados em um Pandas DataFrame, use o seguinte código:
 
@@ -278,7 +281,7 @@ A biblioteca de cliente do Python é capaz de serializar um Pandas DataFrame nos
 
 ### Atualizar um conjunto de dados existente
 
-Se você tentar carregar um novo conjunto de dados com um nome que corresponda a um conjunto de dados existente, você obterá um erro de conflito.
+Se você tentar carregar um novo conjunto de dados com um nome que corresponda a um conjunto de dados existente, você deverá obter um erro de conflito.
 
 Para atualizar um conjunto de dados existente, primeiro você precisa obter uma referência ao conjunto de dados existente:
 
@@ -343,9 +346,9 @@ Opcionalmente, você pode definir um novo nome especificando um valor para o par
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Os parâmetros `data_type_id`, `name` e `description` são todos opcionais e padrão para seu valor anterior. O parâmetro `dataframe` sempre é necessário.
+Os parâmetros `data_type_id`, `name` e `description` são opcionais e padrão para seu valor anterior. O parâmetro `dataframe` sempre é necessário.
 
-Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez de `update_from_dataframe`. Ele funciona da mesma forma, você simplesmente passa `raw_data` em vez de `dataframe`.
+Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez de `update_from_dataframe`. Se você simplesmente passar `raw_data` em vez de `dataframe`, ele funcionará da mesma forma.
 
 
 
@@ -367,4 +370,4 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

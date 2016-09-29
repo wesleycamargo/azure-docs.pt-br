@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
@@ -21,7 +21,7 @@ Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](ht
 
 ## Estender a classe RoleEntryPoint
 
-A classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) inclui métodos chamados pelo Azure quando ele **inicia** **executa** ou **para** uma função Web ou de trabalho. Opcionalmente, você pode substituir esses métodos para gerenciar a inicialização de função, as sequências de desligamento de função ou o thread de execução da função.
+A classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) inclui métodos chamados pelo Azure quando ele **inicia****executa** ou **para** uma função Web ou de trabalho. Opcionalmente, você pode substituir esses métodos para gerenciar a inicialização de função, as sequências de desligamento de função ou o thread de execução da função.
 
 Ao estender **RoleEntryPoint**, você deverá estar ciente dos seguintes comportamentos dos métodos:
 
@@ -33,9 +33,9 @@ Ao estender **RoleEntryPoint**, você deverá estar ciente dos seguintes comport
 
      Se ocorrer uma exceção em um dos métodos do ciclo de vida, o Azure acionará o evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) e o processo será encerrado. Depois que sua função ficar offline, ela será reiniciada pelo Azure. Quando ocorre uma exceção não tratada, o evento [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) não é acionado e o método **OnStop** não é chamado.
 
-Se a sua função não for iniciada, ou se estiver reciclando os estados de inicialização, ocupado e de parada, seu código pode estar lançando uma exceção sem tratamento em um dos eventos do ciclo de vida sempre que a função é reiniciada. Nesse caso, use o evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar a causa da exceção e tratá-la adequadamente. Sua função também pode estar retornando do método [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que faz com que a função reinicie. Para obter mais informações sobre os estados de implantação, confira [Problemas comuns que causam a reciclagem de funções](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+Se a sua função não for iniciada, ou se estiver reciclando os estados de inicialização, ocupado e de parada, seu código pode estar lançando uma exceção sem tratamento em um dos eventos do ciclo de vida sempre que a função é reiniciada. Nesse caso, use o evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar a causa da exceção e tratá-la adequadamente. Sua função também pode estar retornando do método [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que faz com que a função reinicie. Para obter mais informações sobre os estados de implantação, confira [Problemas comuns que causam a reciclagem de funções](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] Se você estiver usando as [Ferramentas do Azure para o Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desenvolver seu aplicativo, os modelos de projeto de função estenderão automaticamente a classe **RoleEntryPoint** para você nos arquivos WebRole.cs e WorkerRole.cs.
+> [AZURE.NOTE] Se você estiver usando as **Ferramentas do Azure para o Microsoft Visual Studio** para desenvolver seu aplicativo, os modelos de projeto de função estenderão automaticamente a classe **RoleEntryPoint** para você nos arquivos *WebRole.cs* e *WorkerRole.cs*.
 
 ## Método OnStart
 
@@ -80,4 +80,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 ## Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

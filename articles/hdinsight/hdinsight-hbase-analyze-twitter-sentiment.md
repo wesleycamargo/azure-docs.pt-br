@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="09/09/2016" 
 	ms.author="jgao"/>
 
 # Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
@@ -95,9 +95,9 @@ As API de streaming do Twitter usam [OAuth](http://oauth.net/) para autorizar so
 
 1. Entre nos [Aplicativos Twitter](https://apps.twitter.com/). Clique no link **Inscreva-se agora** se você não tem uma conta do Twitter.
 2. Clique em **Criar Novo Aplicativo**.
-3. Insira um **Nome**, **Descrição** e **Site**. O nome do aplicativo Twitter deve ser um nome exclusivo. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida. 
+3. Insira um **Nome**, **Descrição** e **Site**. O nome do aplicativo Twitter deve ser um nome exclusivo. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida.
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
-5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial. 
+5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial.
 6. Clique na guia **Chaves e Tokens de acesso**.
 7. Clique em **Criar meu token de acesso**.
 8. Clique em **OAuth de teste** no canto superior direito da página.
@@ -140,24 +140,29 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
 
 **Para criar o aplicativo de streaming**
 
-1. Abra o **Visual Studio** e crie um aplicativo de console em Visual C# chamado **TweetSentimentStreaming**. 
+1. Abra o **Visual Studio** e crie um aplicativo de console em Visual C# chamado **TweetSentimentStreaming**.
 2. Do **Console do Gerenciador de Pacotes**, execute os seguintes comandos:
 
-		Install-Package Microsoft.HBase.Client
-		Install-Package TweetinviAPI
-    Esses comandos instalam o pacote do [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca de cliente para acessar o cluster HBase, e o pacote da [API Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar a API do Twitter.
+		Install-Package Microsoft.HBase.Client -version 0.4.2.0
+		Install-Package TweetinviAPI -version 1.0.0.0
+
+	Esses comandos instalam o pacote do [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca de cliente para acessar o cluster HBase, e o pacote da [API Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar a API do Twitter.
+
+	> [AZURE.NOTE] O exemplo usado neste artigo foi testado usando a versão especificada acima. Você pode remover a opção -version para instalar a versão mais recente.
+
 3. Do **Gerenciador de Soluções**, adicione **System.Configuration** à referência.
 4. Adicione um novo arquivo de classe ao projeto chamado **HBaseWriter.cs** e, em seguida, substitua o código por:
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.IO;
-        using System.Threading;
-        using Microsoft.HBase.Client;
-        using Tweetinvi.Core.Interfaces;
-        using org.apache.hadoop.hbase.rest.protobuf.generated;
+		using System;
+		using System.Collections.Generic;
+		using System.IO;
+		using System.Linq;
+		using System.Text;
+		using System.Threading;
+		using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
+		using org.apache.hadoop.hbase.rest.protobuf.generated;
+		using Microsoft.HBase.Client;
+		using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -167,7 +172,12 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                 const string CLUSTERNAME = "https://<Enter Your Cluster Name>.azurehdinsight.net/";
                 const string HADOOPUSERNAME = "admin"; //the default name is "admin"
                 const string HADOOPUSERPASSWORD = "<Enter the Hadoop User Password>";
+
                 const string HBASETABLENAME = "tweets_by_words";
+				const string COUNT_ROW_KEY = "~ROWCOUNT";
+				const string COUNT_COLUMN_NAME = "d:COUNT";
+        		
+				long rowCount = 0;
 
                 // Sentiment dictionary file and the punctuation characters
                 const string DICTIONARYFILENAME = @"..\..\dictionary.tsv";
@@ -198,9 +208,12 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTableAsync(tableSchema).Wait;
+						client.CreateTableAsync(tableSchema).Wait();
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
+
+					// Read current row count cell
+            		rowCount = GetRowCount();
 
                     // Load sentiment dictionary from a file
                     LoadDictionary();
@@ -214,6 +227,38 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                 {
                     threadRunning = false;
                 }
+
+				private long GetRowCount()
+				{
+					try
+					{
+						RequestOptions options = RequestOptions.GetDefaultOptions();
+						options.RetryPolicy = RetryPolicy.NoRetry;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, null, null, options).Result;
+						if (cellSet.rows.Count != 0)
+						{
+							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
+							if (countCol != null)
+							{
+								return Convert.ToInt64(Encoding.UTF8.GetString(countCol.data));
+							}
+						}
+					}
+					catch(Exception ex)
+					{
+						if (ex.InnerException.Message.Equals("The remote server returned an error: (404) Not Found.", StringComparison.OrdinalIgnoreCase))
+						{
+							return 0;
+						}
+						else
+						{
+							throw ex;
+						}
+						
+					}
+
+					return 0;
+				}
 
                 // Enqueue the Tweets received
                 public void WriteTweet(ITweet tweet)
@@ -374,7 +419,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
         using System;
         using System.Diagnostics;
         using Tweetinvi;
-        using Tweetinvi.Core.Parameters;
+        using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -400,7 +445,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); //Geo .GenerateLocation(-180, -90, 180, 90));
+                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); 
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -463,15 +508,15 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 	- Categoria de modelo: **Visual C#/Web**
 	- Modelo: **aplicativo Web ASP.NET**
 	- Nome: **TweetSentimentWeb**
-	- Local: **C:\\Tutorials** 
+	- Local: **C:\\Tutorials**
 4. Clique em **OK**.
-5. Em **Selecionar um modelo**, clique em **MVC**. 
+5. Em **Selecionar um modelo**, clique em **MVC**.
 6. No **Microsoft Azure**, clique em **Gerenciar Assinaturas**.
 7. Em **Gerenciar Assinaturas do Microsoft Azure**, clique em **Entrar**.
 8. Insira suas credenciais do Azure. Suas informações de assinatura do Azure serão mostradas na guia **Contas**.
 9. Clique em **Fechar** para fechar a janela **Gerenciar Assinaturas do Microsoft Azure**.
 10. Em **Novo Projeto ASP.NET - TweetSentimentWeb**, clique em **OK**.
-11. Em **Configurar Definições do Site do Microsoft Azure**, selecione a **Região** que está mais próxima de você. Não é necessário especificar um servidor do banco de dados. 
+11. Em **Configurar Definições do Site do Microsoft Azure**, selecione a **Região** que está mais próxima de você. Não é necessário especificar um servidor do banco de dados.
 12. Clique em **OK**.
 
 **Para instalar os pacotes NuGet**
@@ -597,7 +642,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 4. Dentro da classe **HBaseReader**, mude os valores constantes como mostrado a seguir:
 
-	- **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*. 
+	- **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*.
     - **HADOOPUSERNAME**: o nome de usuário do Hadoop do cluster HBase. O nome padrão é *admin*.
     - **HADOOPUSERPASSWORD**: a senha do usuário do Hadoop do cluster HBase.
     - **HBASETABLENAME** = "tweets\_by\_words";
@@ -1099,7 +1144,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
+1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Compartilhado** e, em seguida, clique duas vezes com o mouse em **Layout.cshtml**.
 2. Substitua o conteúdo com o seguinte:
 
 		<!DOCTYPE html>
@@ -1218,7 +1263,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 2. Pressione **F5** para executar o aplicativo Web.
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-2. Na caixa de texto, insira uma palavra-chave e, em seguida, clique em **Ir**. Dependendo dos dados coletados na tabela HBase, algumas palavras-chave podem não ser encontradas. Tente algumas palavras-chave comuns, como “amor”, “xbox” e “playstation”. 
+2. Na caixa de texto, insira uma palavra-chave e, em seguida, clique em **Ir**. Dependendo dos dados coletados na tabela HBase, algumas palavras-chave podem não ser encontradas. Tente algumas palavras-chave comuns, como “amor”, “xbox” e “playstation”.
 3. Alterne entre **Positivo**, **Neutro** e **Negativo** para comparar o sentimento no objeto.
 4. Deixe o serviço de streaming executando por mais uma hora, então pesquise as mesmas palavras-chave e compare os resultados.
 
@@ -1230,7 +1275,7 @@ Opcionalmente, é possível implantar o aplicativo em sites do Azure. Para obter
 Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos tweets, salvar os dados do sentimento para o HBase e apresentar os dados dos sentimentos do Twitter em tempo real para mapas Bing. Para obter mais informações, consulte:
 
 - [Introdução ao HDInsight][hdinsight-get-started]
-- [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md) 
+- [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md)
 - [Analisar dados do Twitter com Hadoop no HDInsight][hdinsight-analyze-twitter-data]
 - [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data]
 - [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
@@ -1276,4 +1321,4 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

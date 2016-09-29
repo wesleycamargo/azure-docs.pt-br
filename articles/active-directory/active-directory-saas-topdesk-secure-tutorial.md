@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TOPdesk - Secure
   
-O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Secure.  
+O objetivo deste tutorial é mostrar a integração do Azure com o TOPdesk - Secure.
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
@@ -59,7 +59,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **TOPdesk - Secure**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Galeria de Aplicativos")
 
 7.  No painel de resultados, selecione **TOPdesk - Secure** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -67,7 +67,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Secure com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Secure com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 Configurar o logon único para o TOPdesk - Secure requer que você carregue um arquivo de ícone de logotipo. Para obter o arquivo do ícone, entre em contato com a equipe de suporte do TOPdesk.
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -92,14 +92,14 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
     1.  Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
     2.  Abra o arquivo de metadados e localize o nó **AssertionConsumerService**.
-        ![Serviço de Declaração do Consumidor](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Serviço de Declaração do Consumidor")
-    3.  Copie o valor de **AssertionConsumerService**.  
+    ![Serviço de Declaração do Consumidor](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Serviço de Declaração do Consumidor")
+    3.  Copie o valor de **AssertionConsumerService**.
 
         >[AZURE.NOTE] Você precisará do valor na seção **Configurar URL do Aplicativo** mais adiante neste tutorial.
 
 6.  Em outra janela do navegador da Web, faça logon no **portal clássico do Azure** como administrador.
 
-7.  Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Configurar logon único**, para abrir o diálogo **Configurar Logon Único**.
+7.  Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurar o logon único")
 
@@ -111,9 +111,9 @@ Configurar o logon único para o TOPdesk - Secure requer que você carregue um a
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "**https://qssolutions.topdesk.net*")).
-    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon do TOPdesk - Secure**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Secure (por exemplo: "*https://qssolutions.topdesk.net*").
+    2.  Na caixa de texto **URL de Resposta do TOPdesk – Secure**, cole a **URL AssertionConsumerService do TOPdesk - Secure** (por exemplo: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  Clique em **Avançar**.
 
 10. Na página **Configurar logon único no TOPdesk - Secure**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
 
@@ -194,12 +194,12 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 2.  Na página de integração de aplicativos do **TOPdesk - Secure**, clique em **Atribuir usuários**.
 
-    ![Atribuir usuários](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Atribuir Usuários")
+    ![Atribuir Usuários](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Atribuir Usuários")
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
     ![Sim](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sim")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->
