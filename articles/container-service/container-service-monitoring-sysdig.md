@@ -54,4 +54,4 @@ Agora defina as instâncias como 10000000 para que sempre que um novo nó for ad
 
 Após instalar o pacote, navegue até a IU de Sysdig e você poderá explorar as diferentes métricas de uso para os contêineres no cluster.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

@@ -74,4 +74,4 @@ Para saber mais sobre os recursos do Catálogo de Dados, confira:
 * [Como configurar o Glossário de Negócios](data-catalog-how-to-business-glossary.md)
 * [Perguntas frequentes](data-catalog-frequently-asked-questions.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

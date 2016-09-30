@@ -242,4 +242,4 @@ Neste documento, você aprendeu a planejar a adoção da Central de Segurança. 
 - [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!----HONumber=AcomDC_0817_2016-->
+<!-----HONumber=AcomDC_0817_2016-->
