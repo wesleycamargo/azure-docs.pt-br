@@ -16,7 +16,7 @@
    ms.date="08/22/2016"
    ms.author="seanmck"/>
 
-# Visualizando o cluster com o Explorador do Service Fabric
+# Visualizando o cluster com o Service Fabric Explorer
 
 O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar e gerenciar aplicativos e nós em um cluster do Service Fabric do Azure. O Explorador do Service Fabric é hospedado diretamente dentro do cluster para estar sempre disponível, independentemente de onde o cluster estiver sendo executado.
 
