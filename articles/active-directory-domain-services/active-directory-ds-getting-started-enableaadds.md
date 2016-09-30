@@ -94,4 +94,4 @@ Nesta tarefa, você habilitará os Serviços de Domínio do AD do Azure para seu
 ## Tarefa 4: atualizar as configurações do DNS para a rede virtual do Azure
 A próxima tarefa de configuração é [atualizar as configurações do DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->

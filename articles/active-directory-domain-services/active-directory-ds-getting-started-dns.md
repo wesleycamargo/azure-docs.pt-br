@@ -51,4 +51,4 @@ Realize as seguintes etapas de configuração para atualizar uma configuração 
 ## Tarefa 5: Habilitar a sincronização de senhas para os Serviços de Domínio do AD do Azure
 A próxima tarefa de configuração é [habilitar a sincronização de senhas para os Serviços de Domínio do AD do Azure](active-directory-ds-getting-started-password-sync.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!----HONumber=AcomDC_0706_2016-->

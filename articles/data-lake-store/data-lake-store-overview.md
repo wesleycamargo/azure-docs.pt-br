@@ -110,4 +110,4 @@ Se você prefere aprender assistindo a vídeos, o Repositório Data Lake tem ví
 * [Orquestração de dados usando o Azure Data Factory para o Repositório Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Protegendo dados no Repositório Azure Data Lake](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

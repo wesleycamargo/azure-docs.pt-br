@@ -15,4 +15,4 @@
 
 	![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

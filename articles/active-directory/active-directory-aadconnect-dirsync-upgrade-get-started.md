@@ -208,4 +208,4 @@ Instalar usando as Configurações expressas | [Instalação expressa do Azure A
 Instalar usando configurações personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 Contas usadas para instalação | [Mais informações sobre permissões e contas do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
-<!----HONumber=AcomDC_0824_2016-->
+<!-----HONumber=AcomDC_0824_2016-->
