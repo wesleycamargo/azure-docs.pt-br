@@ -46,7 +46,7 @@ A caixa de diálogo **Selecionar Cluster do Service Fabric** valida automaticame
 
 4.	[Opcional]: você pode editar o perfil de publicação para especificar uma conexão segura de cluster.
 
-    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) para obter mais informações.
+    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) para obter mais informações.
 
     Você pode usar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros do PowerShell a serem usados na conexão ao cluster do Service Fabric. Os parâmetros válidos são aqueles aceitos pelo cmdlet Connect-ServiceFabricCluster. Confira [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) para obter uma lista dos parâmetros disponíveis.
 

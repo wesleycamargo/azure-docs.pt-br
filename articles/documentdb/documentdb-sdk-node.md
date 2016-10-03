@@ -31,11 +31,11 @@
 <table>
 <tr><td>***Baixe o SDK***</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
-<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação](http://azure.github.io/azure-documentdb-node/)</td></tr>
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Exemplos**</td><td>[Exemplos de código do Node.js] (documentdb-nodejs-samples.md)</td></tr>
-<tr><td>**Tutorial de introdução**</td><td>[Introdução ao SDK do Node.js] (documentdb-nodejs-get-started.md)</td></tr>
-<tr><td>**Tutorial do aplicativo Web**</td><td>[Criar um aplicativo Web do Node.js usando o Banco de Dados de Documentos] (documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Exemplos**</td><td>[Exemplos de código do Node.js](documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Tutorial de introdução**</td><td>[Introdução ao SDK do Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Tutorial do aplicativo Web**</td><td>[Criar um aplicativo Web do Node.js usando o Banco de Dados de Documentos](documentdb-nodejs-application.md)</td></tr>
 <tr><td>**Plataforma atual com suporte**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 

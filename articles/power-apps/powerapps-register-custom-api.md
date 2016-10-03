@@ -85,7 +85,7 @@ Ao criar o arquivo do Swagger, um arquivo .json é criado. Mantenha esse arquivo
 
 #### Obter ajuda para criar arquivos do Swagger
 
-- Caso não esteja familiarizado com a criação de um arquivo do Swagger ou se nunca criou um antes, a página [Get started with Swagger][6] (Introdução ao Swagger) é um bom recurso.
+- Caso não esteja familiarizado com a criação de um arquivo do Swagger ou se nunca criou um antes, a página [Get started with Swagger][6] \(Introdução ao Swagger) é um bom recurso.
  
 - Para criar sua própria API, implante-a no Azure e crie um arquivo do Swagger baseado nessa nova API. Depois, considere o uso do [Web API tutorial](powerapps-web-api-tutorial.md) (Tutorial da API Web). Este tutorial fornece um arquivo de trabalho do Swagger. Você também pode encontrar um [exemplo do Hello World][7] no GitHub.
 
@@ -137,7 +137,7 @@ Agora que o arquivo do Swagger (.json) é gerado para a API personalizada, adici
 Agora, você está pronto para usar a API personalizada com o PowerApp ou o Fluxo Lógico. Nesta seção, usamos uma API personalizada de Clima.
 
 #### Adicionar a API personalizada ao fluxo lógico
-Nesta etapa, criamos um fluxo lógico bem simples que mostra como adicionar a API personalizada. Para obter uma experiência mais detalhada, veja [Get started with logic flows][10] (Introdução aos fluxos lógicos).
+Nesta etapa, criamos um fluxo lógico bem simples que mostra como adicionar a API personalizada. Para obter uma experiência mais detalhada, veja [Get started with logic flows][10] \(Introdução aos fluxos lógicos).
 
 1. No [portal da Web][9] do PowerApps, selecione a guia **Início**.
 2. Em **Criar um fluxo lógico**, selecione **Introdução**.
@@ -159,7 +159,7 @@ As próximas etapas são determinadas pelas ações que podem ser executadas pel
 
 
 #### Adicionar a API personalizada ao PowerApp
-Nesta etapa, criamos um PowerApp bem simples que mostra como adicionar a API personalizada. Para obter uma experiência mais detalhada, veja [Create an app from data][11] (Criar um aplicativo com base em dados).
+Nesta etapa, criamos um PowerApp bem simples que mostra como adicionar a API personalizada. Para obter uma experiência mais detalhada, veja [Create an app from data][11] \(Criar um aplicativo com base em dados).
 
 > [AZURE.NOTE] No momento, as APIs personalizadas podem ser usadas apenas no portal da Web do PowerApps. Elas não podem ser usadas no cliente do PowerApps.
 

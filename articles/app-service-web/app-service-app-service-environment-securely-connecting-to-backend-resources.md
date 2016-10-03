@@ -46,7 +46,7 @@ Uma configuração comum do SQL Server tem um ponto de extremidade escutando na 
 Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
 
 
-- [Listas de controle de acesso a redes][NetworkAccessControlLists] (ACLs de rede)
+- [Listas de controle de acesso a redes][NetworkAccessControlLists] \(ACLs de rede)
 
 - [Grupos de segurança de rede][NetworkSecurityGroups]
 

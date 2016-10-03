@@ -49,7 +49,7 @@ Configure o ambiente de desenvolvimento instalando o SDK do Azure para .NET 2.5.
 
 Também será necessário um emulador do navegador móvel. Qualquer uma das opções a seguir funcionará:
 
--   Emulador do navegador nas [ferramentas de desenvolvedor do Internet Explorer 11 F12][EmulatorIE11] (usado em todas as capturas de tela do navegador móvel). Ele possui predefinições de cadeia de caracteres de agente de usuário para Windows Phone 8, Windows Phone 7 e Apple iPad.
+-   Emulador do navegador nas [ferramentas de desenvolvedor do Internet Explorer 11 F12][EmulatorIE11] \(usado em todas as capturas de tela do navegador móvel). Ele possui predefinições de cadeia de caracteres de agente de usuário para Windows Phone 8, Windows Phone 7 e Apple iPad.
 -	Emulador de navegador nas [DevTools do Google Chrome][EmulatorChrome]. Contém predefinições para vários dispositivos Android, e também para Apple iPhone, Apple iPad e Amazon Kindle Fire. Ele também emula eventos de toque.
 -   [Emulador do Opera para dispositivos móveis][EmulatorOpera]
 

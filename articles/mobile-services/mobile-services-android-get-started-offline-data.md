@@ -200,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [Cloud Cover: sincronização offline em serviços móveis do Azure]
 
-* [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] (observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas)
+* [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] \(observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas)
 
 
 <!-- URLs. -->

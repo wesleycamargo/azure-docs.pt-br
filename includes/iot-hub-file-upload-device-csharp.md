@@ -39,7 +39,7 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado em 
 
         SendToBlobAsync();
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] (Tratamento de falhas transitórias) do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Transient Fault Handling] \(Tratamento de falhas transitórias) do MSDN.
 
 <!-- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d

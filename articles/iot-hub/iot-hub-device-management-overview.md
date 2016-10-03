@@ -101,7 +101,7 @@ A biblioteca do cliente de DM terá duas responsabilidades principais no gerenci
 - Sincronizar propriedades no dispositivo físico com seu dispositivo gêmeo correspondente no Hub IoT
 - Coreografar os trabalhos de dispositivo enviados pelo Hub IoT para o dispositivo
 
-Você pode saber mais sobre essas responsabilidades e a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+Você pode saber mais sobre essas responsabilidades e a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
 ## Próximas etapas
 

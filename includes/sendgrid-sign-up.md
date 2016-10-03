@@ -1,4 +1,4 @@
-Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a [todas as APIs][] (Web, SMTP, Evento, Análise e mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
+Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos lhe darão acesso a uma emissão avançada de relatórios e análises e a [todas as APIs][] \(Web, SMTP, Evento, Análise e mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, consulte a página [Recursos do SendGrid][].
 
 ### Para se inscrever em uma conta do SendGrid
 

@@ -67,7 +67,7 @@ Embora o SQL Data Warehouse contenha muitos dos mesmos recursos da tabela oferec
 
 | Recursos sem suporte |
 | --- |
-|[Propriedade Identity][] (confira [Atribuindo uma Solução de Chave Substituta][])|
+|[Propriedade Identity][] \(confira [Atribuindo uma Solução de Chave Substituta][])|
 |Chave primária, Chaves estrangeiras, Exclusiva e Verificação [Restrições da Tabela][]|
 |[Índices Exclusivos][]|
 |[Colunas Computadas][]|

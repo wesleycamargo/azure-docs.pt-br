@@ -57,8 +57,8 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 **Consulte também:**
 
-- [Documentação do SDK - Notas de versão] (http://go.microsoft.com/fwlink/?LinkId= 525554)
-- [Documentação do SDK - Guias de atualização] (http://go.microsoft.com/fwlink/?LinkId= 525554)
+- [Documentação do SDK - Notas de versão](http://go.microsoft.com/fwlink/?LinkId= 525554)
+- [Documentação do SDK - Guias de atualização](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### Outros problemas no SDK
 

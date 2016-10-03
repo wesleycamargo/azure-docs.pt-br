@@ -195,7 +195,7 @@ Um gateway de VPN é fundamentalmente um dispositivo de hospedagem múltipla com
 
 ### Mais informações sobre tipos de gateway, requisitos e taxa de transferência
 
-Para saber mais, confira [Sobre configurações de Gateway de VPN] (vpn-gateway-about-vpn gateway-settings.md).
+Para saber mais, confira [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Conectividade multissite e de VNet para VNet
 
