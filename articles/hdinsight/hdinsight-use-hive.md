@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/06/2016"
+	ms.date="09/19/2016"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -32,6 +32,8 @@ O Hive permite que você projete estrutura em grandes volumes de dados sem estru
 
 O Hive sabe como trabalhar com dados semiestruturados e não estruturados, como arquivos de texto onde os campos são delimitados por caracteres específicos. O Hive também dá suporte a **serializador/desserializadores (SerDe)** personalizados para dados complexos ou com estrutura irregular. Para saber mais, confira [Como usar SerDe JSON personalizados com o HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
+## UDF (Funções definidas pelo usuário)
+
 O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)**. As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso UDF com o Hive, confira o seguinte:
 
 * [Usar uma função definida pelo usuário do Java com o Hive](hdinsight-hadoop-hive-java-udf.md)
@@ -42,6 +44,7 @@ O Hive também pode ser estendido por meio de **UDF (funções definidas pelo us
 
 * [Como adicionar UDF personalizadas do Hive no HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [Exemplo de UDF Hive personalizada para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Tabelas internas Hive vs. tabelas externas
 
@@ -214,4 +217,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

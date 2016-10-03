@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configurar um Application Gateway para descarregamento SSL usando o portal
@@ -30,7 +30,7 @@ O cenário a seguir passa pela configuração do descarregamento SSL em um Appli
 
 ## Antes de começar
 
-Para configurar o descarregamento SSL com um Application Gateway, é necessário um certificado. Esse certificado é carregado no Application Gateway e usado para criptografar e descriptografar o tráfego enviado via SSL. O certificado precisa estar no formato pfx (Troca de Informações Pessoais). Esse formato de arquivo permite que a chave privada seja exportada, o que é exigido pelo Application Gateway para executar criptografia e descriptografia de tráfego.
+Para configurar o descarregamento SSL com um Gateway de Aplicativo, é necessário um certificado. Esse certificado é carregado no Application Gateway e usado para criptografar e descriptografar o tráfego enviado via SSL. O certificado precisa estar no formato pfx (Troca de Informações Pessoais). Esse formato de arquivo permite que a chave privada seja exportada, o que é exigido pelo Application Gateway para executar criptografia e descriptografia de tráfego.
 
 ## Adicionar um ouvinte HTTPS
 
@@ -38,19 +38,27 @@ O ouvinte HTTPS procura o tráfego com base em sua configuração e ajuda a rote
 
 ### Etapa 1
 
-Navegue até Portal do Azure e selecione um Application Gateway existente
+Navegue até o portal do Azure e selecione um gateway de aplicativo existente
 
 ![folha de visão geral do gateway de aplicativo][1]
 
 ### Etapa 2
 
-Clique em Ouvintes e clique no botão Adicionar para adicionar um novo ouvinte.
+Clique em Ouvintes e clique no botão Adicionar para adicionar um ouvinte.
 
 ### Etapa 3
 
 Preencha as informações necessárias para o ouvinte e carregue o certificado .pfx. Quando terminar, clique em OK.
 
-**Nome**: este é um nome amigável do ouvinte. **Configuração de IP de front-end**: essa é a configuração de IP de front-end usada para o ouvinte. **Porta de front-end (Nome/Porta)**: um nome amigável para a porta usada no front-end do Application Gateway e a porta real usada. **Protocolo**: uma opção para determinar se o https ou http é usado para o front-end. **Certificado (Nome/Senha)**: se o descarregamento SSL for usado, um certificado .pfx for exigido para essa configuração, serão necessários um nome amigável e uma senha.
+**Nome**: um nome amigável do ouvinte.
+
+**Configuração de IP de front-end**: a configuração de IP de front-end usada para o ouvinte.
+
+**Porta de front-end (Nome/Porta)**: um nome amigável para a porta usada no front-end do Application Gateway e a porta real usada.
+
+**Protocolo**: uma opção para determinar se o https ou http é usado para o front-end.
+
+**Certificado (Nome/Senha)**: se o descarregamento SSL for usado, um certificado .pfx for exigido para essa configuração, serão necessários um nome amigável e uma senha.
 
 ![folha adicionar ouvinte][2]
 
@@ -62,7 +70,7 @@ O ouvinte foi criado. É hora de criar uma regra para lidar com o tráfego do ou
 
 Clique nas **Regras** do Application Gateway e clique em Adicionar.
 
-![folha de regras de appgateway][3]
+![folha de regras do gateway de aplicativo][3]
 
 ### Etapa 2
 
@@ -81,4 +89,4 @@ Para saber como configurar uma investigação de integridade personalizada com o
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

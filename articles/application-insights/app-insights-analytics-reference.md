@@ -27,13 +27,13 @@
 **Let e set** [let](#let-clause) | [set](#set-clause)
 
 
-**Consultas e operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Consultas e operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Agregações** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Escalares** [Literais Boolianos](#boolean-literals) | [Operadores boolianos](#boolean-operators) | [Conversões](#casts) | [Comparações escalares](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Números** [Operadores aritméticos](#arithmetic-operators) | [Literais numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Números** [Operadores aritméticos](#arithmetic-operators) | [Literais numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Data e hora** [Expressões de data e hora](#date-and-time-expressions) | [Literais de data e hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -1053,7 +1053,7 @@ Esta versão mais eficiente produz o mesmo resultado. Ela filtra cada tabela ant
 
 ### operador where
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Filtra uma tabela para o subconjunto de linhas que satisfazem a um predicado.
 
@@ -1086,7 +1086,7 @@ Para obter o desempenho mais rápido:
 **Exemplo**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Registros que existem há menos de uma hora e são provenientes da Origem chamad
 
 Observe que colocamos a comparação entre duas colunas por último, pois ela não pode utilizar o índice e força uma verificação.
 
+
+### operador where-in
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Sintaxe**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Argumentos**
+
+* `col`: uma coluna na tabela.
+* `expr1`...: uma lista de expressões escalares.
+
+Use `in` para incluir apenas as linhas em que `col` é igual a uma das expressões `expr1...`.
+
+Use `!in` para incluir apenas as linhas em que `col` não é igual a qualquer uma das expressões `expr1...`.
 
 
 ## Agregações
@@ -1670,7 +1690,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 
 ## Números
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[gamma](#gamma) | [log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literais numéricos
 
@@ -1684,17 +1704,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 ### abs
@@ -1757,10 +1767,25 @@ A expressão a seguir calcula um histograma de durações, com um tamanho de par
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 Um alias para [`bin()`](#bin).
+
+### gamma
+
+A [função gamma](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Sintaxe**
+
+    gamma(x)
+
+**Argumentos**
+
+* *x:* um número real
+
+Para números inteiros positivos, `gamma(x) == (x-1)!` Por exemplo, `gamma(5) == 4 * 3 * 2 * 1`.
+
+Confira também [loggamma](#loggamma).
 
 
 ### log
@@ -1771,6 +1796,20 @@ Um alias para [`bin()`](#bin).
 
 
 `v` deve ser um número real maior do que 0. Caso contrário, nulo será retornado.
+
+### loggamma
+
+
+O logaritmo natural do valor absoluto da [função gamma](#gamma).
+
+**Sintaxe**
+
+    loggamma(x)
+
+**Argumentos**
+
+* *x:* um número real
+
 
 ### rand
 
@@ -2397,7 +2436,7 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes, objetos e dinâmico
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Este é o resultado de uma consulta em uma exceção do Application Insights. O valor em `details` é uma matriz.
@@ -2699,6 +2738,24 @@ Uma matriz de expressões de caminho.
 
 Observe que "[0]" indica a presença de uma matriz, mas não especifica o índice usado por um caminho específico.
 
+### zip
+
+    zip(list1, list2, ...)
+
+Combina um conjunto de listas em uma lista de tuplas.
+
+* `list1...`: uma lista de valores
+
+**Exemplos**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### Nomes
 
 Os nomes podem ter até 1.024 caracteres. Eles diferenciam maiúsculas de minúsculas e podem conter letras, dígitos e sublinhados (`_`).
@@ -2724,4 +2781,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

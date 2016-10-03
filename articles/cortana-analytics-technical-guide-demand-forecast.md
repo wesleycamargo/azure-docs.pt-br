@@ -196,7 +196,7 @@ Esta seção descreve como configurar o painel do Power BI para visualizar os da
 
 ### Configurar o painel de afunilamento
 
-As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](http://www.powerbi.com/) para executar as etapas a seguir. Se você não tiver uma conta, poderá [criar uma](https://powerbi.microsoft.com/pricing).
+As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](http://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
 
 1.  Adicione a saída do Power BI ao Stream Analytics (ASA).
 
@@ -268,7 +268,7 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 
 	-   Para criar um novo painel: clique no sinal de **+** ao lado da seção **Painéis** no painel à esquerda. Insira o nome "Demonstração de previsão de demanda" para esse novo painel.
 
-	-   Depois de abrir o relatório, clique em ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) para fixar todas as visualizações no painel. Para obter instruções detalhadas, consulte [Fixar um bloco em um painel do Power BI a partir de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vá para a página do painel e ajuste o tamanho e o local de suas visualizações e edite os títulos delas. Para obter instruções detalhadas sobre como editar seus blocos, consulte [Editar um bloco — redimensionar, mover, renomear, fixar, excluir, adicionar hiperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Veja um painel de exemplo com algumas visualizações de caminho frio fixadas nele.
+	-   Depois de abrir o relatório, clique em ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png) para fixar todas as visualizações no painel. Para obter instruções detalhadas, confira [Fixar um bloco em um painel do Power BI por meio de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vá para a página do painel e ajuste o tamanho e o local de suas visualizações e edite os títulos delas. Para obter instruções detalhadas sobre como editar seus blocos, confira [Editar um bloco — redimensionar, mover, renomear, fixar, excluir, adicionar hiperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Veja um painel de exemplo com algumas visualizações de caminho frio fixadas nele.
 
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
 
@@ -296,4 +296,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 ## **Confirmações**
 Este artigo foi escrito pelo cientista de dados Yijing Chen e pelo engenheiro de software Qiu Min da Microsoft.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

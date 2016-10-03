@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Problemas com a Multi-Factor Authentication do Azure | Microsoft Azure" 
-	description="Este documento fornecerá informações aos usuários sobre o que fazer em caso de um problema com a Multi-Factor Authentication do Azure." 
+<properties
+	pageTitle="Problemas com a Multi-Factor Authentication do Azure | Microsoft Azure"
+	description="Este documento fornecerá informações aos usuários sobre o que fazer em caso de um problema com a Multi-Factor Authentication do Azure."
 	services="multi-factor-authentication"
 	keywords = "cliente do multifactor authentication, problema de autenticação, ID de correlação"
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Problemas com a Multi-Factor Authentication do Azure
 >[AZURE.IMPORTANT]
@@ -44,7 +44,7 @@ Ao entrar em contato com o suporte, é recomendável incluir as seguintes inform
  - **SessionId**: a ID de sessão específica que você está recebendo.
  - **ID de Correlação**: o código de ID de correlação gerado quando o usuário viu o erro.
  - **Carimbo de Data/Hora**: em que data e a hora exatas você viu o erro? (Inclua o fuso horário)
- 
+
 ![ID de Correlação](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
@@ -58,7 +58,7 @@ Se você tiver perdido seu telefone ou se ele foi roubado, recomendamos que voc�
 Para retornar à sua conta, você tem duas opções. A primeira é a seguinte: se você tiver configurado um número de telefone de autenticação alternativo, use-o para voltar à sua conta e alterar suas configurações de segurança.
 
 Se você tiver especificado um número de telefone de autenticação secundário, você pode entrar usando ele. ![Configuração](./media/multi-factor-authentication-end-user-manage/altphone.png) Observe que, na captura de tela acima, dois números de telefone foram configurados. Um com final 67 e o segundo com final 30.
-  
+
 Para entrar usando o número de telefone alternativo, bastará entrar normalmente e escolher **Usar uma opção de verificação diferente**. ![Verificação diferente](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 Em seguida, selecione o outro número de telefone. Nesse caso, você escolheria **Ligue para o número +X XXXXXXXX30**
@@ -74,13 +74,13 @@ Se você não tiver configurado um número de telefone de autenticação secund�
 Dependendo de como você usa a autenticação multifator, há alguns lugares onde você pode alterar as configurações, como o número de seu telefone. Use a tabela a seguir para escolher a opção que melhor descreve você.
 
 Como você usa a autenticação multifator|Descrição
-:------------- | :------------- | 
+:------------- | :------------- |
 [Eu a uso com o Office 365](#changing-your-settings-with-office-365)| Isso significa que você desejará alterar as configurações por meio do portal do Office 365.
 [Não sei](#changing-your-settings-with-the-myapps-portal)|Isso significa que você desejará entrar em [http://myapps.microsoft.com](http://myapps.microsoft.com) e alterar a configuração.
 [Eu a uso com o Microsoft Azure](#changing-your-settings-with-microsoft-azure)| Isso significa que você desejará alterar as configurações por meio do portal do Azure.
 
 
- 
+
 ### Alterando suas configurações com o Office 365
 
 
@@ -128,7 +128,7 @@ Se você tiver um novo telefone e precisar alterar o número de contato principa
 É importante configurar um número de telefone de autenticação secundário. Como seu número de telefone principal e seu aplicativo móvel provavelmente estão no mesmo telefone, o número de telefone secundário é a única maneira de poder retornar à sua conta caso seu telefone seja roubado ou você o perca.
 
 A primeira é usar um método de autenticação secundário. Se você tiver especificado um número de telefone de autenticação secundário, você pode entrar usando ele. ![Configuração](./media/multi-factor-authentication-end-user-manage/altphone.png) Observe que, na captura de tela acima, dois números de telefone foram configurados. Um com final 67 e o segundo com final 30.
-  
+
 Para entrar usando o número de telefone alternativo, bastará entrar normalmente e escolher **Usar uma opção de verificação diferente**. ![Verificação diferente](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 Em seguida, selecione o outro número de telefone. Nesse caso, você escolheria **Ligue para o número +X XXXXXXXX30**
@@ -172,4 +172,4 @@ Você também pode contatar o administrador ou a pessoa que configurou a autenti
 
 Por fim, deixe alguns comentários detalhados nesta página para que possamos atualizá-la e aprimorá-la sempre com mais informações.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

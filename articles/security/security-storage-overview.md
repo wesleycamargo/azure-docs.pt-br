@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Visão geral da segurança do armazenamento do Azure
@@ -101,4 +101,4 @@ Saiba mais:
 - [O que é o Cofre da Chave do Azure?](../key-vault/key-vault-whatis.md)
 - [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

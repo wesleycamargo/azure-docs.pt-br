@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # Instalar e usar o Solr em clusters HDInsight do Hadoop
@@ -106,7 +106,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	Isso emitirá uma consulta à __coleção1__ para qualquer documento correspondente a __\*:\*__ (codificado como \*%3A\* na cadeia de consulta), especificando também que a resposta deve ser retornada como JSON. A resposta deve se assemelhar ao seguinte:
+	Isso emitirá uma consulta à __coleção1__ para qualquer documento correspondente a __*:*__ (codificado como *%3A* na cadeia de consulta), especificando também que a resposta deve ser retornada como JSON. A resposta deve se assemelhar ao seguinte:
 
 			"response": {
 			    "numFound": 2,
@@ -166,13 +166,25 @@ O painel do Solr é uma IU Web que permite que você trabalhe com o Solr atravé
 
 Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel do Solr:
 
-1. Determine o nome de host para o nó de cabeçalho:
+1. Determine o nome de host para o nó de cabeçalho primário:
 
-    1. Em um navegador, vá para https://CLUSTERNAME.azurehdinsight.net. Quando solicitado, use o nome de usuário e a senha de administrador para se autenticar no site.
+    1. Use SSH para conectar-se ao cluster na porta 22. Por exemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` em que __USERNAME__ é o nome de usuário SSH, e __CLUSTERNAME__ é o nome do cluster.
+
+        Para saber mais sobre como usar SSH, veja os documentos a seguir:
+
+        * [Usar SSH com HDInsight baseado em Linux em um cliente Linux, Unix ou Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Usar SSH com HDInsight baseado em Linux em um cliente com Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. No menu na parte superior da página, selecione __Hosts__.
+    3. Use o seguinte comando para obter o nome de host totalmente qualificado:
+
+            hostname -f
+
+        Isso retornará um nome semelhante ao seguinte:
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. Selecione a entrada que começa com __hn0__. Quando a página é aberta, o nome do host é exibido na parte superior. O formato do nome do host é __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Esse é o nome de host, que você deve usar ao se conectar ao painel do Solr.
+        Esse é o nome do host que deve ser usado nas etapas a seguir.
     
 1. No navegador, conecte-se a __http://HOSTNAME:8983/solr/#/__, em que __HOSTNAME\_\_ é o nome determinado nas etapas anteriores.
 
@@ -184,7 +196,7 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
 
 3. Nas entradas abaixo de __collection1__, selecione __Consulta__. Use os valores a seguir para preencher a página de pesquisa:
 
-	* Na caixa de texto **q**, digite **\*:**\*. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
+	* Na caixa de texto **q**, digite ***:***. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
 
 	* Na caixa de texto **wt**, selecione o formato de saída. O padrão é **json**.
 
@@ -311,4 +323,4 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

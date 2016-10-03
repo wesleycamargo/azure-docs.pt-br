@@ -28,9 +28,9 @@ Funções do serviço de nuvem (funções de trabalho e da Web) usam um agente c
 O comportamento de investigação depende do seguinte:
 
 - Do número de investigações bem-sucedidas que permitem a uma instância ser rotulada como em execução.
-- Do número de investigações com falha que fazem com que uma instância seja rotulada como não em execução.
+- Do número de investigações com falha que fazem com que uma instância seja rotulada como inoperante.
 
-O valor de tempo limite e de frequência definidos. SuccessFailCount determina se uma instância estará em execução ou não. Para o Portal do Azure, o tempo limite é definido como duas vezes o valor da frequência.
+O tempo limite dividido pelo valor de frequência de teste é igual a SuccessFailCount, que determina se uma instância é considerada em execução ou inoperante. Para o Portal do Azure, o tempo limite é definido como duas vezes o valor da frequência.
 
 A configuração da investigação de todas as instâncias com balanceamento de carga para um ponto de extremidade (ou seja, um conjunto com balanceamento de carga) deve ser a mesma. Isso significa que você não pode ter uma configuração de investigação diferente para cada instância de função ou máquina virtual no mesmo serviço hospedado para uma combinação de ponto de extremidade específica. Por exemplo, cada instância deve ter portas locais e tempos limite idênticos.
 
@@ -77,11 +77,11 @@ As investigações de TCP iniciam uma conexão executando um handshake de três 
 
 Para saber mais sobre como configurar uma investigação de integridade HTTP ou uma investigação de TCP, confira [Introdução à criação de um balanceador de carga para a Internet no Resource Manager usando o PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
-## Adicionar instâncias íntegras de volta ao Balanceador de Carga
+## Adicionar instâncias íntegras de volta à rotação do Balanceador de Carga
 
 As investigações de TCP e HTTP são consideradas íntegras e marcam a instância de função como íntegra quando:
 
-. O Balanceador de Carga obtém uma investigação positiva na primeira vez em que a VM é iniciada .
+- O Balanceador de Carga obtém uma investigação positiva na primeira vez em que a VM é iniciada .
 - O número SuccessFailCount (descrito acima) define o valor de investigações bem-sucedidas necessárias para marcar a instância de função como íntegra. Se uma instância de função tiver sido removida, o número de investigações bem-sucedidas e sucessivas deverá ser igual ou exceder o valor de SuccessFailCount a fim de marcar a instância de função como em execução.
 
 >[AZURE.NOTE] Se a integridade de uma instância de função for flutuante, o Balanceador de Carga aguardará antes de colocar a instância de função de volta ao estado íntegro. Isso é feito por meio de uma política para proteger o usuário e a infraestrutura.
@@ -90,4 +90,4 @@ As investigações de TCP e HTTP são consideradas íntegras e marcam a instânc
 
 Você pode usar a [análise de logs para o Balanceador de Carga](load-balancer-monitor-log.md) para verificar o status da integridade da investigação e a contagem da investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do Balanceador de Carga.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

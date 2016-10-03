@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="hangzh;bradsev" />
 
 # Personalizar clusters Hadoop do Azure HDInsight para o Processo de Ciência de Dados de Equipe 
 
 Este artigo descreve como personalizar um cluster Hadoop do HDInsight instalando o Anaconda de 64 bits (Python 2.7) em cada nó quando o cluster for provisionado como um serviço do HDInsight. Ele também mostra como acessar o nó principal para enviar trabalhos personalizados para o cluster. Essa personalização disponibiliza convenientemente muitos módulos Python populares incluídos no Anaconda para uso em UDFs (Funções Definidas pelo Usuário) projetadas para processar os registros Hive do cluster. Para obter instruções sobre os procedimentos usados neste cenário, veja [Como enviar consultas do Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
-O menu abaixo vincula-se ao tópicos que descrevem como configurar os diversos ambientes de ciência de dados usados pelo TDSP (Processo de Ciência de Dados de Equipe).
+O menu abaixo leva a tópicos que descrevem como configurar os diversos ambientes de ciência de dados usados pelo [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md).
 
 [AZURE.INCLUDE [configuração do ambiente de ciência de dados](../../includes/cap-setup-environments.md)]
 
@@ -86,4 +86,4 @@ Veja [Como enviar consultas do Hive](machine-learning-data-science-move-hive-tab
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

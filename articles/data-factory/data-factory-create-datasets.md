@@ -64,11 +64,11 @@ A tabela a seguir descreve as propriedades no JSON acima:
 | -------- | ----------- | -------- | ------- |
 | name | Nome do conjunto de dados. Confira [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura. | Sim | ND |
 | type | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Confira [Tipo de conjunto de dados](#Type) para obter detalhes. | Sim | ND |
-| estrutura | Esquema do conjunto de dados<br/><br/>Confira a seção [Estrutura do conjunto de dados](#Structure) para obter mais detalhes | Nº | ND |
+| estrutura | Esquema do conjunto de dados<br/><br/>Para obter detalhes, consulte a seção [Estrutura do Conjunto de Dados](#Structure). | Nº | ND |
 | typeProperties | Propriedades que correspondem ao tipo selecionado. Confira a seção [Tipo de conjunto de dados](#Type) para obter detalhes sobre os tipos com suporte e suas propriedades. | Sim | ND |
 | externo | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de data factory ou não. | Não | false | 
-| disponibilidade | Define a janela de processamento ou o modelo de fatiamento para a produção de conjunto de dados. <br/><br/>Confira o tópico [Disponibilidade do conjunto de dados](#Availability) para obter mais detalhes<br/><br/>Confira o artigo [Agendamento e execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão do conjunto de dados | Sim | ND
-| policy | Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Confira o tópico [Política de conjunto de dados](#Policy) para obter mais detalhes | Não | ND |
+| disponibilidade | Define a janela de processamento ou o modelo de fatiamento para a produção de conjunto de dados. <br/><br/>Para obter detalhes, consulte a seção [Disponibilidade do Conjunto de Dados](#Availability). <br/><br/>Para obter detalhes sobre o modelo de divisão do conjunto de dados, consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md). | Sim | ND
+| policy | Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Para obter detalhes, consulte a seção [Política do Conjunto de Dados](#Policy). | Não | ND |
 
 ## Exemplo de conjunto de dados
 No exemplo a seguir, o conjunto de dados representa uma tabela chamada **MyTable** em uma **banco de dados SQL do Azure**.
@@ -90,7 +90,7 @@ No exemplo a seguir, o conjunto de dados representa uma tabela chamada **MyTable
 	    }
 	}
 
-Observe o seguinte:
+Observe os seguintes pontos:
 
 - O tipo foi definido como AzureSqlTable.
 - A propriedade de tipo tableName (específica do tipo AzureSqlTable) foi definida como MyTable.
@@ -137,7 +137,7 @@ A seção **estrutura** define o esquema do conjunto de dados. Ela contém uma c
 ## <a name="Availability"></a> Disponibilidade do conjunto de dados
 A seção **disponibilidade** em um conjunto de dados define a janela de processamento (horário, diário, semanal etc.) ou o modelo de divisão do conjunto de dados. Consulte o artigo [Cronograma e Execução](data-factory-scheduling-and-execution.md) para obter mais detalhes sobre o modelo de divisão e dependência de conjunto de dados.
 
-A seção de disponibilidade a seguir especifica que o conjunto de dados de saída é produzido por hora (ou) o conjunto de dados de entrada está disponível por hora.
+A seção de disponibilidade a seguir especifica que o conjunto de dados de saída é produzido por hora (ou) o conjunto de dados de entrada está disponível por hora:
 
 	"availability":	
 	{	
@@ -145,7 +145,7 @@ A seção de disponibilidade a seguir especifica que o conjunto de dados de saí
 		"interval": 1	
 	}
 
-A tabela a seguir descreve as propriedades que você pode usar na seção de disponibilidade.
+A tabela a seguir descreve as propriedades que você pode usar na seção de disponibilidade:
 
 | Propriedade | Descrição | Obrigatório | Padrão |
 | -------- | ----------- | -------- | ------- |
@@ -166,9 +166,7 @@ Divisões diárias que iniciam às 6h, em vez da meia-noite do padrão.
 		"offset": "06:00:00"
 	}
 
-A **frequência** é definida como **Mês** e o **intervalo** é definido como **1** (uma vez por mês): se você deseja que a fatia a ser produzida no dia 9 de cada mês seja às 6h, defina o deslocamento como "09.06:00:00". Lembre-se de que esse horário é UTC.
-
-Para uma agenda de 12 meses (frequência = mês; intervalo = 12), o deslocamento: 60.00:00:00 significa cada ano em 1º ou 2 de março (60 dias desde o início do ano se estilo = StartOfInterval), dependendo do ano ser ano bissexto ou não.
+A **frequência** é definida para **Dia** e o **intervalo** é definido para **1** (uma vez por dia): se você quiser, a fatia será produzida às 6:00, em vez da hora padrão: 12:00. Lembre-se de que esse horário é UTC.
 
 ## Exemplo de anchorDateTime
 
@@ -241,17 +239,17 @@ A seção **política** na definição do conjunto de dados define os critérios
 
 Conjuntos de dados externos são aqueles que não são produzidos por um pipeline em execução na data factory. Se o conjunto de dados estiver marcado como **externo**, a política **ExternalData** poderá ser definida para influenciar o comportamento da disponibilidade da divisão do conjunto de dados.
 
-A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Geralmente, isso se aplica a entradas de primeira atividade em um pipeline, a menos que uma atividade ou encadeamento de pipeline seja utilizado.
+A menos que um conjunto de dados seja produzido pela Azure Data Factory, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline, a menos que uma atividade ou pipeline encadeamento esteja sendo usado.
 
 | Nome | Descrição | Obrigatório | Valor Padrão |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | Tempo para esperar a verificação na disponibilidade dos dados externos de uma determinada divisão. Por exemplo, se os dados tiverem de estar disponíveis por hora, a verificação para ver se os dados externos estão disponíveis e se a fatia correspondente está Pronta pode ser atrasada usando dataDelay.<br/><br/>Aplica-se apenas à hora atual. Por exemplo, se agora forem 13hs e se esse valor for 10 minutos, a validação começará às 13:10hs.<br/><br/>Essa configuração não afeta fatias no passado (fatias com Hora de Término da Fatia + dataDelay < Agora) e elas são processadas sem atraso.<br/><br/>Um horário superior a 23:59 horas precisa ser especificado usando o formato dia.horas:minutos:segundos. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1.00:00:00. Se você usar 24:00:00, isso será tratado como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. | Não | 0 |
 | retryInterval | O tempo de espera entre uma falha e a próxima tentativa de repetição. Aplica-se a hora atual. Se o anterior falhou, podemos esperar muito tempo após a última tentativa. <br/><br/>Se agora for 13h, iniciaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for 1 minuto e a operação tiver falhado, a próxima repetição será 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 13h02. <br/><br/>Para fatias no passado, não haverá nenhum atraso. A repetição acontece imediatamente. | Não | 00:01:00 (1 minuto) | 
-| retryTimeout | O tempo limite para cada tentativa de repetição.<br/><br/>Se for definido como 10 minutos, a validação deverá ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut. | Não | 00:10:00 (10 minutos) |
+| retryTimeout | O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida para 10 minutos, a validação precisará ser concluída em 10 minutos. Se demorar mais de 10 minutos para executar a validação, a repetição atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação excederem o tempo limite, a fatia será marcada como TimedOut. | Não | 00:10:00 (10 minutos) |
 | maximumRetry | Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. | Não | 3 | 
 
 ## Conjuntos de dados com escopo
-Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets**. Esses conjuntos de dados só podem ser usados por atividades dentro deste pipeline, e não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados - InputDataset-rdc and OutputDataset-rdc - a serem usados dentro do pipeline.
+Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets**. Esses conjuntos de dados só podem ser usados por atividades dentro deste pipeline, e não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados - InputDataset-rdc e OutputDataset-rdc - a serem usados no pipeline:
 
 > [AZURE.IMPORTANT] Há suporte apenas para conjuntos de dados com escopo com pipelines avulsos (**pipelineMode** definido como **OneTime**). Confira [Pipeline avulso](data-factory-scheduling-and-execution.md#onetime-pipeline) para obter detalhes.
 
@@ -344,4 +342,4 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
 	    }
 	}
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -87,6 +87,13 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 	    context.done();
 	};
 
+## Exemplo de código de Hub de Notificação do Azure para um gatilho de temporizador do F#
+
+Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
 ## Exemplo de código de Hub de Notificação do Azure para um gatilho de fila do C#
 
 Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `message`.
@@ -157,4 +164,4 @@ Código de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

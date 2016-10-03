@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/16/2016"
 	ms.author="andrela"/>
 
 
 # Conectar-se ao Banco de Dados SQL usando o Ruby 
 
-[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 Este tópico mostra como conectar e consultar um Banco de Dados SQL do Azure usando o Ruby. Você pode executar essa amostra de plataformas Windows, Ubuntu Linux ou Mac.
 
@@ -50,4 +50,4 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

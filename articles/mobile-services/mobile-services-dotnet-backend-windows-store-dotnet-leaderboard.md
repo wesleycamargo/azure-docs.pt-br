@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure
@@ -122,7 +122,7 @@ A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.micros
 
 Em seguida, você adicionará controladores de API Web a `Player` e a `PlayerRank`. Em vez de controladores de API Web simples, você adicionará um tipo especial de controlador chamado *controlador de tabela*, projetado especialmente para os Serviços Móveis do Azure.
 
-Clique com o botão direito do mouse na pasta Controladores > **Adicionar** > **Novo item Scaffolded**.
+Clique com o botão direito do mouse na pasta Controladores > **Adicionar**** > Novo item Scaffolded**.
 
 ![][6]
 
@@ -765,4 +765,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 [Adicionar notificações por push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

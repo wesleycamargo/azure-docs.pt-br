@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Introdução ao manipulador de extensão de configuração do estado desejado do Azure #
@@ -27,7 +27,7 @@ O agente de VM do Azure e as extensões associadas são parte dos serviços de i
 Este artigo apresenta a extensão de configuração de estado desejado (DSC) do PowerShell para VMs do Azure como parte do SDK do Azure PowerShell. Você pode usar os novos cmdlets para carregar e aplicar uma DSC do PowerShell em uma VM do Azure habilitada com a extensão de DSC do PowerShell. A extensão de DSC do PowerShell chama a DSC do PowerShell para aplicar a configuração DSC recebida na VM. Essa funcionalidade também está disponível por meio do portal do Azure.
 
 ## Pré-requisitos ##
-**Máquina local** Para interagir com a extensão de VM do Azure, você precisará usar o portal do Azure ou o SDK do Azure PowerShell.
+**Máquina local** Para interagir com a extensão de VM do Azure, você precisa usar o Portal do Azure ou o SDK do Azure PowerShell.
 
 **Agente convidado** A VM do Azure que será configurada para a configuração do DSC precisará ser um sistema operacional que suporta o Windows Management Framework (WMF) 4.0 ou 5.0. A lista completa de versões com suporte do sistema operacional pode ser encontrada no [Histórico de versões da extensão de DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
@@ -44,9 +44,9 @@ Dados de configuração - um arquivo .psd1 contendo dados ambientais para uma co
 
 A extensão de DSC do Azure usa a estrutura do Agente de VM do Azure para entregar, aplicar e gerar relatórios sobre configurações da DSC executadas em VMs do Azure. A extensão de DSC espera um arquivo .zip contendo pelo menos um documento de configuração e um conjunto de parâmetros fornecidos por meio do SDK do Azure PowerShell ou do portal do Azure.
 
-Quando a extensão é chamada pela primeira vez, executa um processo de instalação. Esse processo instala uma versão do Windows Management Framework (WMF) conforme definido abaixo:
+Quando a extensão é chamada pela primeira vez, executa um processo de instalação. Esse processo instala uma versão do Windows Management Framework (WMF) usando a lógica a seguir:
 
-1. Se o sistema operacional da VM do Azure for o Windows Server 2016, nenhuma ação é executada. O WS 2016 já possui a versão mais recente do PowerShell instalada.
+1. Se o sistema operacional da VM do Azure for o Windows Server 2016, nenhuma ação é executada. O Windows Server 2016 já possui a versão mais recente do PowerShell instalada.
 2. Se a propriedade `wmfVersion` for especificada, essa versão do WMF é instalada, a menos que ele não seja compatível com o sistema operacional da VM.
 3. Se nenhuma propriedade `wmfVersion` for especificada, a versão mais recente do WMF aplicável é instalada.
 
@@ -60,7 +60,7 @@ O `Publish-AzureVMDscConfiguration` recebe um arquivo de configuração, verific
 
 O arquivo .zip criado por esse cmdlet possui o script de configuração .ps1 na raiz da pasta de arquivamento. Os recursos possuem a pasta de módulo colocada na pasta de arquivo morto.
 
-O `Set-AzureVMDscExtension` aplicará as configurações necessárias pela extensão de DSC do PowerShell em um objeto de configuração da VM, que pode ser aplicado a uma VM do Azure com `Update-AzureVM`.
+`Set-AzureVMDscExtension` injeta as configurações necessárias pela extensão de DSC do PowerShell em um objeto de configuração da VM, que pode ser aplicado a uma VM do Azure com `Update-AzureVM`.
 
 O `Get-AzureVMDscExtension` recupera o status da extensão de DSC de uma VM específica.
 
@@ -82,13 +82,13 @@ O `Remove-AzureVMDscExtension` remove o manipulador de extensão de uma determin
 ## Funcionalidade do portal do Azure ##
 Navegue até uma VM clássica. Em Configurações -> Geral, clique em "Extensões". Um novo painel é criado. Clique em "Adicionar" e selecione DSC do PowerShell.
 
-O portal precisa de entrada. **Script ou módulos de configuração**: é um campo obrigatório. Requer um arquivo. ps1 contendo um script de configuração ou um arquivo .zip com um script de configuração .ps1 na raiz e todos os recursos dependentes em pastas de módulo dentro do .zip. Ele pode ser criado com o cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluído no SDK do Azure PowerShell. O arquivo .zip será carregado em seu armazenamento de blobs de usuário protegido por um token SAS.
+O portal precisa de entrada. **Script ou módulos de configuração**: esse campo é obrigatório. Requer um arquivo. ps1 contendo um script de configuração ou um arquivo .zip com um script de configuração .ps1 na raiz e todos os recursos dependentes em pastas de módulo dentro do .zip. Ele pode ser criado com o cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluído no SDK do Azure PowerShell. O arquivo .zip será carregado em seu armazenamento de blobs de usuário protegido por um token SAS.
 
-**Arquivo de configuração PSD1 de dados**: é um campo opcional. Se sua configuração exigir um arquivo de dados de configuração em .psd1, use este campo para selecioná-lo e carregá-lo no armazenamento de blobs de usuário, onde eles serão protegidos por um token SAS.
+**Arquivo de configuração PSD1 de dados**: esse campo é opcional. Se sua configuração exigir um arquivo de dados de configuração em .psd1, use este campo para selecioná-lo e carregá-lo no armazenamento de blobs de usuário, onde eles serão protegidos por um token SAS.
  
 **Nome de configuração qualificado por módulo**: os arquivos .ps1 podem ter várias funções de configuração. Insira o nome do script .ps1 de configuração seguido por um '' e o nome da função de configuração. Por exemplo, se o seu script .ps1 tiver o nome "configuration.ps1" e se a configuração for "IisInstall", insira: `configuration.ps1\IisInstall`
 
-**Argumentos de configuração**: se a função de configuração leva argumentos, insira-os aqui no formato `argumentName1=value1,argumentName2=value2`. Observe que esse é um formato diferente daquele como argumentos de configuração são aceitos por meio de cmdlets do PowerShell ou modelos do Resource Manager.
+**Argumentos de configuração**: se a função de configuração leva argumentos, insira-os aqui no formato `argumentName1=value1,argumentName2=value2`. Observe que esse formato é diferente daquele como argumentos de configuração são aceitos por meio de cmdlets do PowerShell ou modelos do Resource Manager.
 
 ## Introdução ##
 
@@ -140,8 +140,10 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[Version Number]
 
 Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
+Examine o [modelo do Azure Resource Manager para a extensão de DSC](virtual-machines-windows-extensions-dsc-template.md).
+
 Para encontrar a funcionalidade adicional que você pode gerenciar com a DSC do PowerShell, [navegue na galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para conhecer mais recursos da DSC.
 
 Para obter detalhes sobre como passar parâmetros confidenciais em configurações, consulte [Gerenciar credenciais com segurança com o manipulador de extensão de DSC](virtual-machines-windows-extensions-dsc-credentials.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

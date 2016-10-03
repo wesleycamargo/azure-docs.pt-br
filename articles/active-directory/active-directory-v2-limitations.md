@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Devo usar o ponto de extremidade da v2.0?
@@ -121,4 +121,4 @@ Há um conjunto de recursos de desenvolvedor disponíveis no serviço do Active 
 - Declarações de grupo para usuários do Azure AD
 - Funções de aplicativo e declarações de função
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

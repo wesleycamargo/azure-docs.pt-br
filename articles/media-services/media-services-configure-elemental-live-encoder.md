@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurar codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única" 
+	pageTitle="Configurar o codificador Elemental Live para enviar uma transmissão ativa de taxa de bits única | Microsoft Azure" 
 	description="Este tópico mostra como configurar o codificador Elemental Live para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="cenkdin;anilmur;juliako"/>
 
 #Usar o codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única
@@ -32,8 +32,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 
 - Deve ter um conhecimento prático de uso da interface Web do Elemental Live para criar eventos ativos.
 - [Criar uma conta de Serviços de Mídia do Azure](media-services-create-account.md)
-- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-manage-origins.md)
-
+- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
 - Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie a ferramenta e conecte-se à sua conta do AMS.
 
@@ -141,7 +140,7 @@ Após a transmissão estar em execução por 30 segundos, navegue de volta até 
 
 Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
 ###Criar um programa
 
@@ -162,7 +161,7 @@ A transmissão agora está pronta para ser inserida em um player ou distribuída
 
 ## Solucionar problemas
 
-Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
+Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -173,4 +172,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Escopos, permissões e consentimento no ponto de extremidade v2.0
@@ -120,4 +120,4 @@ Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá ref
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência do protocolo v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

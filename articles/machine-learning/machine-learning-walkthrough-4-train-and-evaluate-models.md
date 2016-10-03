@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@ Existem diversos modelos dentre os quais podemos escolher. Para ver os modelos d
 
 > [AZURE.TIP] Para obter ajuda para decidir qual algoritmo do Aprendizado de Máquina melhor se ajusta ao problema específico que você está tentando resolver, consulte [Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
 
-##Treinar os modelos
+## Treinar os modelos
+
 Primeiro, vamos configurar o modelo de árvore de decisão aumentada:
 
 1.	Localize o módulo [Árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree] na paleta do módulo e arraste-o para as telas.
@@ -60,7 +61,7 @@ Esta parte do teste se parece um pouco com o seguinte:
 
 Em seguida, configuramos o modelo SVM.
 
-Primeiro, uma pequena explicação sobre o SVM. Árvores de decisão aumentadas funcionam bem com recursos de qualquer tipo. No entanto, como o módulo SVM gera um classificador linear, o modelo que ele gera apresenta o melhor erro de teste quando todos os recursos numéricos possuem a mesma escala. Então, para converter todos os recursos numéricos para a mesma escala, vamos usar uma transformação de "Tanh" (com o módulo [Normalizar Dados][normalize-data]), que transformará nossos números no intervalo [0,1] \(recursos de cadeia de caracteres são convertidos pelo módulo SVM para recursos categóricos e, em seguida, para recursos binários 0/1, portanto, não precisamos transformar manualmente os recursos de cadeia de caracteres). Também não desejamos transformar a coluna Risco de Crédito (coluna 21) – ela é numérica, mas esse é o valor que estamos treinando para o modelo prever, portanto, precisamos deixá-la intacta.
+Primeiro, uma pequena explicação sobre o SVM. Árvores de decisão aumentadas funcionam bem com recursos de qualquer tipo. No entanto, como o módulo SVM gera um classificador linear, o modelo que ele gera apresenta o melhor erro de teste quando todos os recursos numéricos possuem a mesma escala. Então, para converter todos os recursos numéricos para a mesma escala, vamos usar uma transformação de "Tanh" (com o módulo [Normalizar Dados][normalize-data]), que transformará nossos números no intervalo [0,1] (recursos de cadeia de caracteres são convertidos pelo módulo SVM para recursos categóricos e, em seguida, para recursos binários 0/1, portanto, não precisamos transformar manualmente os recursos de cadeia de caracteres). Também não desejamos transformar a coluna Risco de Crédito (coluna 21) – ela é numérica, mas esse é o valor que estamos treinando para o modelo prever, portanto, precisamos deixá-la intacta.
 
 Para configurar o modelo SVM, faça o seguinte:
 
@@ -82,7 +83,8 @@ Esta parte de nosso teste deve se parecer um pouco com o seguinte:
 
 ![Treinando o segundo modelo][2]
 
-##Pontuar e avaliar os modelos
+## Pontuar e avaliar os modelos
+
 Usaremos os dados de teste que foram separados pelo módulo [Dividir Dados][split] para pontuar nossos modelos treinados. Podemos comparar os resultados dos dois modelos para ver quais geraram os melhores resultados.
 
 1.	Localize o módulo [Modelo de pontuação][score-model] e arraste-o para as telas.
@@ -143,4 +145,4 @@ Ao examinar esses valores, você pode decidir qual modelo está mais próximo de
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 
 2. Clique em **Dados + Análise** e clique em **Hubs de Eventos**.
 
-	![][9]
+	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
 3. Na folha **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 
@@ -16,23 +16,23 @@
 
 6. Na lista de namespaces do Hubs de Eventos, clique no namespace recém-criado.
 
-	![][2]
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
 7. Na folha do namespace, clique em **Hubs de Eventos**.
 
-	![][3]
+	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
 8. Na parte superior da folha, clique em **Adicionar Hub de Eventos**.
 
-	![][4]
+	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
 3. Digite um nome para seu Hub de Eventos e clique em **Criar**.
 
-	![][5]
+	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
 4. Na lista de Hubs de Eventos, clique no nome do Hub de Eventos recém-criado.
 
-	![][6]
+	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
 5. Novamente na folha do namespace (e não na folha do Hub de Eventos específico), clique em **Políticas de acesso compartilhado** e clique em **RootManageSharedAccessKey**.
 
@@ -40,18 +40,10 @@
 
 5. Clique no botão de cópia para copiar a cadeia de conexão **RootManageSharedAccessKey** na área de transferência. Salve essa cadeia de conexão para usá-la posteriormente no tutorial.
 
-	![][8]
+	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
 Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
-[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
-[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
-[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
-
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

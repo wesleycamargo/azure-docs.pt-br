@@ -19,13 +19,13 @@
 
 # Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL usando o Data Factory 
 > [AZURE.SELECTOR]
-- [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Como usar o Editor do Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Como usar o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Usando a API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Como usar a API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
+- [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 
 Neste tutorial, você cria um data factory com um pipeline para copiar dados do Armazenamento de Blobs para o banco de dados SQL.
 
@@ -62,7 +62,7 @@ Você precisa dos nomes do servidor, banco de dados e usuário SQL do Azure para
 5. Feche todas as folhas, clicando em **X**.
 
 ## Permitir que os serviços do Azure acessem o servidor 
-Certifique-se de a configuração **Permitir acesso aos serviços do Azure** esteja definida como **ATIVADA** para o servidor do SQL Azure para que o serviço Data Factory possa acessar seu SQL Server do Azure. Para verificar e ativar essa configuração, faça o seguinte:
+Certifique-se de a configuração **Permitir acesso aos serviços do Azure** esteja definida como **ATIVADA** para o servidor do SQL Azure para que o serviço Data Factory possa acessar seu SQL Server do Azure. Para verificar e ativar essa configuração, faça as seguintes etapas:
 
 1. Clique no hub **PROCURAR** à esquerda e clique em **SQL Servers**.
 2. Selecione **seu servidor**, e clique em **CONFIGURAÇÕES** sobre a folha **SQL SERVER**.
@@ -94,20 +94,18 @@ Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azur
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Este artigo usa o [Portal do Azure](http://manage.windowsazure.com), e não o [Portal do Azure](https://portal.azure.com), para configurar o firewall para um SQL server do Azure.
+	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Este artigo usa o [portal do Azure clássico](http://manage.windowsazure.com), não o [novo portal do Azure](https://portal.azure.com), para configurar um firewall para um SQL Server do Azure.
 
-	Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Consulte [este artigo](../sql-database/sql-database-configure-firewall-settings.md) para obter as etapas para configurar o firewall para o SQL Server do Azure.
+	Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Veja [este artigo](../sql-database/sql-database-configure-firewall-settings.md) para obter as etapas para configurar o firewall para o SQL Server do Azure.
 
+Você concluiu os pré-requisitos. Clique em uma guia na parte superior para executar o tutorial usando uma das opções:
 
-Faça o seguinte:
-
-- Clique no link [Usando o Editor Data Factory](data-factory-copy-activity-tutorial-using-azure-portal.md) na parte superior para executar o tutorial usando o Editor Data Factory, que faz parte do Portal do Azure.
-- Clique no link [Usando o PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
-- Clique no link [Usando o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) link na parte superior para executar o tutorial usando o Visual Studio 2013.
-
-## A Atividade de Cópia
-Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a Atividade de Cópia no Azure Data Factory.
-
+- Portal do Azure
+- Visual Studio
+- PowerShell
+- API REST
+- API do .NET
+- Assistente de Cópia
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -118,4 +116,4 @@ Confira o artigo [Atividades de movimentação de dados](data-factory-data-movem
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

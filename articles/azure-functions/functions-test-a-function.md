@@ -172,7 +172,7 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
 Você pode testar uma função de gatilho de blob usando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
 
-1. No [Portal do Azure] para seu aplicativo Functions, crie uma nova função de gatilho C# ou Blob do nó. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
+1. No [Portal do Azure] para seu aplicativo Functions, crie uma nova função de gatilho F# ou Blob do nó. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
 
 		files
 
@@ -439,4 +439,4 @@ Na janela do navegador para a função de fila, você verá a cada mensagem que 
 
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

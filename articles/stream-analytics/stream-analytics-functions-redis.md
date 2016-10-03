@@ -4,7 +4,7 @@
 	keywords="transmissão de dados, cache redis, fila do barramento de serviço"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -202,6 +202,7 @@ Você também pode ver os seguintes recursos:
 
 - [Referência do desenvolvedor do Azure Functions](../azure-functions/functions-reference.md)
 - [Referência do desenvolvedor de C# do Azure Functions](../azure-functions/functions-reference-csharp.md)
+- [Referência do desenvolvedor em F# do Azure Functions](../azure-functions/functions-reference-fsharp.md)
 - [Referência do desenvolvedor de NodeJS do Azure Functions](../azure-functions/functions-reference.md)
 - [Gatilhos e de associações do Azure Functions](../azure-functions/functions-triggers-bindings.md)
 - [Como monitorar o Cache Redis do Azure](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Para se manter atualizado sobre todas as notícias e recursos mais recentes, sig
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

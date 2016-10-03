@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/16/2016"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -179,9 +179,12 @@ A partir da Atualização 3, o StorSimple também dá suporte para failback. Ap�
 
 - os contêineres de volume que passam pelo failover são removidos do dispositivo de origem.
 
-- Um trabalho de exclusão por contêiner de volume (com failover) é visto na página **Trabalhos**. O tempo para concluir a exclusão de contêineres de volume depende da quantidade de dados nos contêineres. Se você estiver planejando failbacks/failovers de teste, será recomendável testar contêineres de volume com menos dados (Gbs).
+- Um trabalho em segundo plano por contêiner de volume (failover) é iniciado no dispositivo de origem. Se você tentar o failback enquanto o trabalho estiver em andamento, receberá uma notificação sobre isso. Você precisará aguardar até que o trabalho seja concluído para começar o failback.
 
-- Após a conclusão dos trabalhos de exclusão, você pode tentar o failback.
+	O tempo de conclusão da exclusão de contêineres de volume depende de vários fatores, como a quantidade de dados, o tempo de vida dos dados, o número de backups e a largura de banda de rede disponível para a operação. Se você estiver planejando failbacks/failovers de teste, será recomendável testar contêineres de volume com menos dados (Gbs). Na maioria dos casos, você pode iniciar o failback 24 horas após a conclusão do failover.
+
+
+
 
 ## Perguntas frequentes
 
@@ -215,4 +218,4 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 - Para obter informações sobre como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

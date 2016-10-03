@@ -46,7 +46,7 @@ A extensão de backup exige conectividade com os endereços IP públicos do Azur
 ### Solução
 Nesse cenário, use um dos seguintes métodos para resolver o problema:
 
-- Realizar a lista branca de intervalos de IP do datacenter do Azure
+- Realizar a lista de autorizados de intervalos de IP do datacenter do Azure
 - Criar um caminho para a transmissão do tráfego HTTP
 
 ### Para realizar a lista branca de intervalos de IP do datacenter do Azure
@@ -67,7 +67,7 @@ Saiba como [configurar um proxy HTTP para backups de VM](backup-azure-vms-prepar
 ### Solução
 A maioria das falhas relacionadas ao agente ou relacionadas à extensão para VMs do Linux é causada por problemas que afetam um agente de VM antigo. Como uma diretriz geral, as primeiras etapas para solucionar esse problema são as seguintes:
 
-1. [Instale o agente de VM do Azure mais recente](https://acom-swtest-2.azurewebsites.net/documentation/articles/virtual-machines-linux-update-agent/).
+1. [Instale o agente de VM do Azure mais recente](https://github.com/Azure/WALinuxAgent).
 2. Certifique-se de que o agente do Azure esteja em execução na VM. Para fazer isso, execute o seguinte comando: ```ps -e```
 
     Se esse processo não estiver em execução, use os seguintes comandos para reiniciá-lo.
@@ -136,4 +136,4 @@ As condições a seguir podem causar a falha da tarefa do instantâneo:
 | A VM está em execução com alto uso de CPU ou memória. | Se a VM estiver em execução com alta utilização de CPU (mais de 90%) ou alto uso de memória, a tarefa do instantâneo será enfieirada e postergada e, eventualmente, atingirá o tempo limite. Nessa situação, tente o backup sob demanda. |
 |A VM não pode obter o endereço do host/malha do DHCP.|O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se a VM não puder obter o endereço do host/malha da resposta DHCP 245, ela não poderá baixar ou executar qualquer extensão. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

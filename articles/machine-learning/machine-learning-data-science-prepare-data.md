@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
@@ -21,11 +21,11 @@
 
 O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do TDSP (Processo de Ciência de Dados de Equipe) e, geralmente, seguem uma exploração inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento exigido. Para obter instruções mais detalhadas sobre o processo TDSP, confira as etapas descritas em [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploração de tarefas, podem ser executadas em uma ampla variedade de ambientes, como o SQL ou o Hive ou o Estúdio de Aprendizado de Máquina do Azure e com diversas ferramentas e linguagens, como R ou Python, dependendo de onde seus dados estejam armazenados e de como estejam formatados. Como o CAP é iterativo por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
+As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploração de tarefas, podem ser executadas em uma ampla variedade de ambientes, como o SQL ou o Hive ou o Estúdio de Aprendizado de Máquina do Azure e com diversas ferramentas e linguagens, como R ou Python, dependendo de onde seus dados estejam armazenados e de como estejam formatados. Como o TDSP é iterativo por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
 
 Este artigo apresenta vários conceitos e tarefas de processamento de dados que podem ser executados antes ou depois da ingestão de dados no Aprendizado de Máquina do Azure.
 
-Para obter um exemplo de exploração de dados e pré-processamento concluídos no Estúdio de Aprendizado de Máquina do Azure, consulte o vídeo [Pré-processando dados no Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Para obter um exemplo de exploração de dados e pré-processamento feitos no Azure Machine Learning Studio, consulte o vídeo [Pré-processando dados no Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## Por que pré-processar e limpar os dados?
@@ -54,7 +54,7 @@ Podemos verificar a qualidade geral dos dados confirmando:
 
 Quando você encontrar problemas com os dados, **etapas de processamento** serão necessárias, geralmente envolvendo a limpeza de valores ausentes, normalização de dados, diferenciação, processamento de texto para remover e/ou substituir caracteres incorporados que podem afetar o alinhamento dos dados e tipos de dados mistos em campos comuns, entre outros.
 
-**O Aprendizado de Máquina do Azure consome dados tabulares bem formados**. Se os dados já estiverem em formato tabular, o pré-processamento dos dados pode ser executado diretamente com o Aprendizado de Máquina do Azure no Estúdio AM. Se os dados não estiverem em formato tabular, como XML, por exemplo XML, a análise pode ser necessária para converter os dados em formato tabular.
+**O Aprendizado de Máquina do Azure consome dados tabulares bem formados**. Se os dados já estiverem em formato tabular, o pré-processamento deles poderá ser realizado diretamente com o Azure Machine Learning no Machine Learning Studio. Se os dados não estiverem em formato tabular, como XML, por exemplo XML, a análise pode ser necessária para converter os dados em formato tabular.
 
 ## Quais são as principais tarefas de pré-processamento de dados?
 
@@ -109,4 +109,4 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

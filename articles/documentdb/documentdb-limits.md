@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="09/15/2016" 
 	ms.author="arramac"/>
 
 
@@ -25,4 +25,4 @@ A tabela a seguir descreve as cotas padrão para recursos de banco de dados do B
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

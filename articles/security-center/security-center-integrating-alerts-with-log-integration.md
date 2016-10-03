@@ -75,6 +75,8 @@ O serviço de integração do log do Azure coleta os dados de telemetria do comp
 
 6. Aponte o conector de encaminhamento de arquivos SIEM padrão para a devida pasta para enviar os dados para a instância SIEM. Consulte [Configurações SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) em sua configuração do SIEM.
 
+Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 ## Próximas etapas
 
 Para saber mais sobre os Logs de Auditoria do Azure e as definições das propriedades, consulte:
@@ -88,4 +90,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 - [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

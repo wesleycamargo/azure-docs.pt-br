@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Reprodução de conteúdo" 
+	pageTitle="Reprodução de conteúdo | Microsoft Azure" 
 	description="Este tópico lista os players existentes que você pode usar para reproduzir conteúdo." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -21,18 +21,18 @@
 
 Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para players existentes que você pode usar para testar os fluxos.
 
->[AZURE.NOTE]Para reproduzir conteúdo dinamicamente empacotado ou criptografado dinamicamente, certifique-se de obter pelo menos uma unidade de transmissão para o ponto de extremidade de streaming por meio do qual você planeja distribuir seu conteúdo. Para obter informações sobre unidades de streaming de dimensionamento, consulte: [Como dimensionar unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para reproduzir conteúdo dinamicamente empacotado ou criptografado dinamicamente, certifique-se de obter pelo menos uma unidade de transmissão para o ponto de extremidade de streaming por meio do qual você planeja distribuir seu conteúdo. Para obter informações sobre unidades de streaming de dimensionamento, consulte: [Como dimensionar unidades de streaming](media-services-portal-manage-streaming-endpoints.md).
 
 ###Player de conteúdo dos Serviços de Mídia do Portal Clássico do Azure
 
-O **Portal Clássico do Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
+O portal do **Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
 
-Clique no vídeo desejado (verifique se ele foi [publicado](media-services-manage-content.md#publish)) e clique no botão **Reproduzir** na parte inferior do portal.
- 
+Clique no vídeo desejado (verifique se ele foi [publicado](media-services-portal-publish.md)) e clique no botão **Reproduzir** na parte inferior do portal.
+
 Algumas considerações se aplicam:
 
 - O **PLAYER DE CONTEÚDO DOS SERVIÇOS DE MÍDIA** é reproduzido por meio do ponto de extremidade de streaming padrão. Se você deseja reproduzir por meio de um ponto de extremidade de streaming não padrão, use outro reprodutor. Por exemplo, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
- 
+
 
 ![AMSPlayer][AMSPlayer]
 
@@ -48,7 +48,7 @@ Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplaye
 
 ###Flash Player
 
-####Criptografado com AES com token 
+####Criptografado com AES com token
 
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
@@ -90,7 +90,7 @@ Para obter informações sobre como desenvolver seus próprios players, consulte
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
- 
+
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

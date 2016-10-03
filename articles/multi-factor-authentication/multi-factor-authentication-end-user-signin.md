@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure MFA A experiência de conexão com o Azure Multi-Factor Authentication" 
+<properties
+	pageTitle="Azure MFA A experiência de conexão com o Azure Multi-Factor Authentication"
 	description="Esta página fornecerá orientação de onde procurar os vários métodos de conexão disponíveis com o Azure MFA."
-	keywords="autenticação do usuário, experiência de conexão, conectar com telefone celular, conectar com telefone do escritório" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="autenticação do usuário, experiência de conexão, conectar com telefone celular, conectar com telefone do escritório"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # A experiência de conexão com o Azure Multi-Factor Authentication
 > [AZURE.NOTE]  A documentação a seguir fornecida nesta página mostra uma experiência de logon típica. Para obter ajuda com a conexão, consulte [Problemas com a Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
@@ -27,13 +27,13 @@ Sua experiência variará de acordo com o modo que você se conecta e usa a aute
 
 
 O que você está fazendo?|Descrição
-:------------- | :------------- | 
+:------------- | :------------- |
 [Conectando-se com o telefone celular ou comercial](#signing-in-with-mobile-or-office-phone) | Isso é o que você pode esperar ao entrar usando o telefone celular ou comercial.
 [Entrando com o aplicativo Microsoft Authenticator usando notificação](#signing-in-with-the-microsoft-authenticator-app-using-notification) | Isso é o que você pode esperar ao usar o aplicativo Microsoft Authenticator com notificações.
 [Entrando com o aplicativo Microsoft Authenticator usando o código de verificação](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|Isso é o que você pode esperar ao usar o aplicativo Microsoft Authenticator com um código de verificação.
 [Conectando-se com um método alternativo](#signing-in-with-an-alternate-method)|Isso mostrará o que esperar se você desejar usar um método alternativo.
 
-<h2 id="1">Conectando-se com o telefone celular ou comercial</h2>
+## Conectando-se com o telefone celular ou comercial
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com seu telefone celular ou comercial.
 
@@ -50,7 +50,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 
 - Agora você deve estar conectado.</li>
 
-<h2 id="2">Entrando com o aplicativo Microsoft Authenticator usando notificação</h2>
+## Entrando com o aplicativo Microsoft Authenticator usando notificação
 
 As informações a seguir descrevem a experiência de usar a autenticação multifator com o aplicativo Microsoft Authenticator quando você recebe uma notificação.
 
@@ -71,7 +71,7 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 - Agora você deve estar conectado.
 
 
-<h2 id="3"> Entrando com o aplicativo Microsoft Authenticator usando o código de verificação</h2>
+## Entrando com o aplicativo Microsoft Authenticator usando o código de verificação
 
 As informações a seguir descrevem a experiência de usar autenticação multifator com o aplicativo Microsoft Authenticator quando você o usa com um código de verificação.
 
@@ -91,7 +91,7 @@ As informações a seguir descrevem a experiência de usar autenticação multif
 - Agora você deve estar conectado.
 
 
-<h2 id="4">Conectando-se com um método alternativo</h2>
+## Conectando-se com um método alternativo
 
 
 A seção a seguir mostrará como se conectar com um método alternativo quando seu método principal não estiver disponível.
@@ -105,6 +105,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
 - Escolha um método alternativo e conecte-se.
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

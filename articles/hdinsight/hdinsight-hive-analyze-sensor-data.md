@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016" 
+	ms.date="09/20/2016" 
 	ms.author="larryfr"/>
 
 #Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
@@ -52,6 +52,8 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 2. Na página da Web que é aberta, clique na guia **Galeria de introdução** e na categoria **Soluções com dados de amostra**, clique na amostra **Análise de dados do sensor**.
 
+    ![Imagem da galeria de Introdução](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
+
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

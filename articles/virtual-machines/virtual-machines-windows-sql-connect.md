@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/23/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Conectar-se a uma Máquina Virtual do SQL Server no Azure (Gerenciador de Recursos)
@@ -25,8 +25,7 @@
 
 Este tópico descreve como se conectar à instância do SQL Server em execução em uma máquina virtual do Azure. Ele aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássico. 
-Para ver a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](virtual-machines-windows-classic-sql-connect.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica. Para ver a versão clássica deste artigo, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure Clássico](virtual-machines-windows-classic-sql-connect.md).
 
 Para ver uma apresentação completa sobre provisionamento e conectividade, veja [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -47,6 +46,8 @@ Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Se
 
 Se isso não foi feito durante o provisionamento, é possível configurar manualmente o SQL Server e suas máquinas virtuais seguindo as [etapas nesse artigo para configurar a conectividade manualmente](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
+>[AZURE.NOTE] A imagem de máquina virtual para o SQL Server Express edition não habilita automaticamente o protocolo TCP/IP. Para o Express Edition, você deve usar o SQL Server Configuration Manager para [habilitar manualmente o protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) depois de criar a máquina virtual.
+
 Feito isso, qualquer cliente com acesso à Internet pode se conectar à instância do SQL Server, especificando o endereço IP público da máquina virtual ou o rótulo de DNS atribuído a esse endereço IP. Se a porta do SQL Server for 1433, você não precisará especificá-la na cadeia de conexão.
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
@@ -65,6 +66,8 @@ Redes virtuais também permitem que você adicione suas VMs do Azure a um domín
 
 Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Server com o Resource Manager, as regras de firewall apropriadas para a comunicação na rede virtual serão configuradas ao selecionar **Privada** como a opção de conectividade do SQL. Se isso não foi feito durante o provisionamento, é possível configurar manualmente o SQL Server e suas máquinas virtuais seguindo as [etapas nesse artigo para configurar a conectividade manualmente](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Se você estiver planejando configurar um ambiente de domínio e Autenticação do Windows, não é necessário seguir as etapas nesse artigo para configurar a Autenticação e os logons do SQL. Você também não precisa configurar as regras do Grupo de Segurança de Rede para acesso pela Internet.
 
+>[AZURE.NOTE] A imagem de máquina virtual para o SQL Server Express edition não habilita automaticamente o protocolo TCP/IP. Para o Express Edition, você deve usar o SQL Server Configuration Manager para [habilitar manualmente o protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) depois de criar a máquina virtual.
+
 Supondo que tenha configurado o DNS na sua rede virtual, você pode se conectar à instância do SQL Server especificando o nome do computador da VM do SQL Server na cadeia de conexão. O exemplo a seguir também pressupõe que a autenticação do Windows foi configurada e que o usuário recebeu acesso à instância do SQL Server.
 
 	"Server=mysqlvm;Integrated Security=true"
@@ -81,6 +84,7 @@ Para poder conectar-se à instância do SQL Server na Internet ou em outra VM, v
 - [Configurar o SQL Server para escutar no protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
 - [Configurar o SQL Server para autenticação do modo misto](#configure-sql-server-for-mixed-mode-authentication)
 - [Criar logons de autenticação do SQL Server](#create-sql-server-authentication-logins)
+- [Configurar uma regra de entrada do Grupo de Segurança de Rede](#configure-a-network-security-group-inbound-rule-for-the-vm)
 - [Configurar um rótulo de DNS para o endereço IP público](#configure-a-dns-label-for-the-public-ip-address)
 - [Conectar-se ao Mecanismo de Banco de Dados de outro computador](#connect-to-the-database-engine-from-another-computer)
 
@@ -94,8 +98,8 @@ Para poder conectar-se à instância do SQL Server na Internet ou em outra VM, v
 
 Para ver instruções de provisionamento com estas etapas de conectividade, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server em máquinas virtuais do Azure.
+[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure.
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

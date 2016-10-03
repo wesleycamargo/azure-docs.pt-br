@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="renash"/>
+	ms.date="09/21/2016"
+	ms.author="renash;robinsh"/>
 
 
 # Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento de Blobs
@@ -24,7 +24,7 @@
 O Serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento de blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários TBs de dados de ou para o Azure, mas carregar ou baixar pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
 
 O serviço requer que as unidades de disco rígido sejam criptografadas com bitlocker para a segurança dos seus dados. O serviço dá suporte a contas de armazenamento clássicas presentes em todas as regiões do Azure Público. Você deve enviar as unidades de disco rígido para um dos locais com suporte especificados posteriormente neste artigo.
- 
+
 Neste artigo, você aprenderá mais sobre o serviço de Importação/Exportação do Azure e como enviar as unidades para copiar os dados para e a partir do armazenamento de Blobs do Azure.
 
 > [AZURE.IMPORTANT] Você pode criar e gerenciar a importação e exportação dos trabalhos para o armazenamento clássico usando o portal Clássico ou as [APIs REST do serviço de Importação/Exportação](http://go.microsoft.com/fwlink/?LinkID=329099). As contas de armazenamento do Gerenciador de Recursos não têm suporte no momento.
@@ -207,19 +207,19 @@ Você pode acompanhar o status de seus trabalhos de importação ou exportação
 
 Você verá um dos seguintes status de trabalho, dependendo de onde a unidade está no processo.
 
-Status do Trabalho|Descrição
----|---
-Criando|Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa.
-Remessa|Seu trabalho foi criado e você forneceu as informações de remessa. **Observação**: quando a unidade é entregue ao data center do Azure, o status ainda pode mostrar "Envio" por algum tempo. Depois que o serviço inicia a cópia dos seus dados, o status será alterado para "Transferir". Se você quiser ver o status mais específico de sua unidade, poderá usar a API REST de Importação/Exportação. 
-Transferindo|Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação).
-Empacotamento|A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você.
-Concluído|Seu disco rígido foi enviado de volta para você.
+| Status do Trabalho | Descrição |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Criando | Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa. |
+| Remessa | Seu trabalho foi criado e você forneceu as informações de remessa. **Observação**: quando a unidade é entregue ao data center do Azure, o status ainda pode mostrar "Envio" por algum tempo. Depois que o serviço inicia a cópia dos seus dados, o status será alterado para "Transferir". Se você quiser ver o status mais específico de sua unidade, poderá usar a API REST de Importação/Exportação. |
+| Transferindo | Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação). |
+| Empacotamento | A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você. |
+| Concluído | Seu disco rígido foi enviado de volta para você. |
 
-### Tempo para processar o trabalho 
+### Tempo para processar o trabalho
 
 O tempo necessário para processar um trabalho de importação/exportação varia de acordo com diversos fatores, como tempo de envio, tipo do trabalho, tipo e tamanho dos dados sendo copiados, e tamanho dos discos fornecidos. O Serviço de Importação/Exportação não tem um SLA. Você pode usar a API REST para acompanhar o andamento do trabalho mais de perto. Há um parâmetro de porcentagem completa na operação Listar Trabalhos que fornece uma indicação do andamento da cópia. Contate-nos se precisar de uma estimativa para concluir um trabalho de importação/exportação de tempo crítico.
 
-### Preços 
+### Preços
 
 **Taxa de manuseio de unidade**
 
@@ -243,7 +243,7 @@ Crie um trabalho de importação para copiar os dados para sua conta de armazena
 
 > [AZURE.IMPORTANT] Você pode enviar somente um trabalho por conta de armazenamento. Cada unidade que você enviar pode ser importada para uma conta de armazenamento. Por exemplo, digamos que você deseja importar dados para duas contas de armazenamento. Você deve usar unidades de disco rígido separados para cada conta de armazenamento e criar trabalhos separados por conta de armazenamento.
 
-### Preparar suas unidades	
+### Preparar suas unidades
 
 A primeira etapa ao importar os dados usando o serviço de Importação/Exportação do Azure é preparar suas unidades usando a ferramenta do cliente de Importação/Exportação do Azure. Siga as etapas abaixo para preparar suas unidades.
 
@@ -256,7 +256,7 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
 4.	Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
 
 5.	Use a [Ferramenta de Importação/Exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) para copiar seus dados para um ou mais discos rígidos.
-	
+
 	- A ferramenta de Importação/Exportação do Azure cria sessões de cópia para copiar os dados de origem para as unidades de disco rígido. Em uma sessão de cópia única, a ferramenta pode copiar um único diretório junto com seus subdiretórios, ou um único arquivo.
 
 	- Talvez seja necessário diversas sessões de cópia se os dados de origem abrangerem vários diretórios.
@@ -425,7 +425,7 @@ Qualquer unidade que você deseja enviar para importar os dados deve ser prepara
 
 **É necessário executar alguma preparação de disco ao criar um trabalho de exportação?**
 
-Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, confira [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
+Não, mas algumas pré-verificações são recomendadas. Verifique o número de discos necessários usando o comando PreviewExport da ferramenta Importação/Exportação do Azure. Para obter mais informações, consulte [Visualizando o uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). A ferramenta ajuda você a visualizar o uso da unidade para os blobs que você selecionou, com base no tamanho das unidades que você pretende usar. Verifique também se você pode ler e gravar no disco rígido que será enviado para o trabalho de exportação.
 
 **O que acontecerá se eu enviar por engano uma unidade de disco rígido que não esteja em conformidade com os requisitos com suporte?**
 
@@ -505,4 +505,4 @@ Confira o [Fluxo de trabalho de backup offline no Backup do Azure](../backup/bac
 
 - [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

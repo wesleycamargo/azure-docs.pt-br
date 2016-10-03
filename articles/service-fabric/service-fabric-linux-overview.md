@@ -13,31 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric no Linux
 
-No momento, o Service Fabric está disponível como uma visualização limitada no Linux, permitindo que você compile, implante e gerencie aplicativos altamente disponíveis e escalonáveis naquele ambiente, como faria no Windows. Além disso, as estruturas de alto nível do Service Fabric (Reliable Services e Reliable Actors) agora podem ser compilados em Java.
+A visualização será disponibilizada para o público geral em 26 de setembro conforme anunciado [na postagem deste blog](https://azure.microsoft.com/blog/service-fabric-on-linux-support-available-this-month/). A visualização do Service Fabric no Linux permite criar, implantar e gerenciar aplicativos altamente disponíveis e altamente escalonáveis no Linux, assim como você faria no Windows. Além disso, as estruturas de alto nível do Service Fabric (Reliable Services e Reliable Actors) agora estão disponíveis em Java no Linux.
 
 > [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Sistemas operacionais e linguagens de programação com suporte
 
-A visualização limitada oferece suporte à criação de clusters de desenvolvimento de uma caixa, bem como clusters de vários computadores no Azure executando o Ubuntu Server 15.10.
+A visualização limitada oferece suporte à criação de clusters de desenvolvimento de uma caixa, além de clusters de vários computadores no Azure executando o Ubuntu Server 16.04.
 
-Você pode criar [serviços executáveis convidados](service-fabric-deploy-existing-app.md) com qualquer linguagem ou estrutura. Você também pode usar o Java para criar serviços com base nas estruturas Reliable Services e Reliable Actor.
+Você pode criar [serviços executáveis convidados](service-fabric-deploy-existing-app.md) com qualquer linguagem ou estrutura. Também é possível usar Java ou C# para criar serviços com base nas estruturas Reliable Services e Reliable Actor, além de orquestrar contêineres do Docker.
 
->[AZURE.NOTE] O Java ainda não dá suporte às Reliable Collections.
+>[AZURE.NOTE] O Linux ainda não dá suporte às Reliable Collections.
 
-## Participar da visualização
-
-Se você estiver interessado em ser considerado para o programa de preview limitada, [preencha a pesquisa](http://aka.ms/sflinuxsurvey) para que possamos entender seu cenário e seus requisitos. A visualização será muito pequena no início e aumentará ao longo do tempo.
-
-Observe que o Service Fabric no Linux será conceitualmente equivalente ao que está disponível no Windows (exceto pelas informações específicas do sistema operacional e pelo suporte à linguagem de programação). Então, a maior parte da nossa [documentação existente](http://aka.ms/servicefabricdocs) se aplica e ajudará você a se familiarizar com a tecnologia.
+O Service Fabric no Linux é conceitualmente equivalente ao Service Fabric no Windows (exceto pelas especificações de sistema operacional e pelo suporte à linguagem de programação). Portanto, a maior parte da nossa [documentação existente](http://aka.ms/servicefabricdocs) destina-se a ajudar você a se familiarizar com a tecnologia.
 
 ## Próximas etapas
 
 Conheça as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

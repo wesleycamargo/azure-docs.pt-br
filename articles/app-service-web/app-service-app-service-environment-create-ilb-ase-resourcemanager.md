@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="09/21/2016" 
 	ms.author="stefsch"/>
 
 # Como criar um ASE ILB usando modelos do Azure Resource Manager
@@ -81,7 +81,7 @@ Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 - *pfxBlobString*: a representação de cadeia de caracteres codificada em based64 do arquivo .pfx. Usando o trecho de código mostrado anteriormente, copie a cadeia de caracteres contida no "exportedcert.pfx.b64" e cole-a como o valor do atributo *pfxBlobString*.
 - *password*: a senha usada para proteger o arquivo. pfx.
 - *certificateThumbprint*: impressão digital do certificado. Se você recuperar esse valor do Powershell (por exemplo, *$certificate.Thumbprint* do trecho de código anterior), poderá usar o valor como estiver. No entanto se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos. O *certificateThumbprint* deve ser semelhante a: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-- *certificateName*: um identificador de cadeia de caracteres amigável de sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Azure Resource Manager para a entidade *Microsoft.Web/certificates* que representa o certificado SSL.
+- *certificateName*: um identificador de cadeia de caracteres amigável de sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Azure Resource Manager para a entidade *Microsoft.Web/certificates* que representa o certificado SSL. O nome **precisa** terminar com o seguinte sufixo: \_yourASENameHere\_InternalLoadBalancingASE. Esse sufixo é usado pelo portal como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
 
 
 Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado abaixo:
@@ -107,7 +107,7 @@ Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado abaixo:
                    "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
               },
               "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere"
+                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
               }
          }
     }
@@ -121,7 +121,7 @@ Quando o arquivo *azuredeploy.parameters.json* tiver sido preenchido, o certific
 
 Depois que o modelo do Azure Resource Manager for enviado, levará aproximadamente quarenta minutos por front-end do ASE para aplicar a alteração. Por exemplo, com um ASE padrão dimensionado usando dois front-ends, o modelo levará aproximadamente uma hora e vinte minutos para concluir. Enquanto o modelo estiver em execução, o ASE não poderá ser dimensionado.
 
-Quando o modelo for concluído, os aplicativos no ASE ILB poderão ser acessados via HTTPS e as conexões serão protegidas usando o certificado SSL padrão. O certificado SSL padrão será usado quando aplicativos no ASE ILB forem endereçados utilizando uma combinação de nome do aplicativo com o nome de host padrão. Por exemplo *https://mycustomapp.internal-contoso.com* usaria o certificado SSL padrão **.internal contoso.com*.
+Quando o modelo for concluído, os aplicativos no ASE ILB poderão ser acessados via HTTPS e as conexões serão protegidas usando o certificado SSL padrão. O certificado SSL padrão será usado quando aplicativos no ASE ILB forem endereçados utilizando uma combinação de nome do aplicativo com o nome de host padrão. Por exemplo, *https://mycustomapp.internal-contoso.com* usaria o certificado SSL padrão **.internal-contoso.com*.
 
 No entanto, assim como os aplicativos em execução no serviço público multilocatário, os desenvolvedores podem também configurar nomes de host personalizados para aplicativos individuais e configurar associações de certificado SSL SNI exclusivas para aplicativos individuais.
 
@@ -142,4 +142,4 @@ Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo est
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

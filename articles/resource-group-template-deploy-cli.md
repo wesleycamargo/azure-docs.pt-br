@@ -65,9 +65,11 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
    
         info:     New mode is arm
 
-4. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o nome do grupo de recursos e o local necessários para sua solução. Um resumo do novo grupo de recursos é retornado.
+4. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o nome do grupo de recursos e o local necessários para sua solução. Você precisa fornecer um local para o grupo de recursos pois o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, é recomendável que você especifique um local em que a maioria de seus recursos residirá. Usar o mesmo local pode simplificar seu modelo.
 
         azure group create -n ExampleResourceGroup -l "West US"
+
+     Um resumo do novo grupo de recursos é retornado.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -85,7 +87,7 @@ Se você não utilizou anteriormente a CLI do Azures com o Gerenciamento de Recu
 
         azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
-5. Para implantar recursos em seu grupo de recursos, execute o comando a seguir e ofereça os parâmetros necessários. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário.
+5. Para implantar recursos em seu grupo de recursos, execute o comando a seguir e ofereça os parâmetros necessários. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo e qualquer outro parâmetro necessário para seu cenário.
    
      Você tem as três opções a seguir para fornecer valores de parâmetro:
 
@@ -171,4 +173,4 @@ Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 - Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

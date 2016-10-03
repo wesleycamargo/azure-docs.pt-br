@@ -22,7 +22,7 @@ O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem públ
 
 **Como ler este artigo**
 
-O Azure está aumentando o tempo todo, portanto, é fácil ficar sobrecarregado. Os serviços básicos são listados anteriormente no documento. Comece por eles e, então, passe para os serviços adicionais. Isso não significa que você não pode utilizar os serviços adicionais por conta própria, mas os serviços básicos compõem o núcleo de um aplicativo sendo executado pelo Azure.
+O Azure está aumentando o tempo todo, portanto, é fácil ficar sobrecarregado. Comece com os serviços básicos, que são listados primeiro neste artigo e, em seguida, vá para serviços adicionais. Isso não significa que você não pode utilizar os serviços adicionais por conta própria, mas os serviços básicos compõem o núcleo de um aplicativo sendo executado pelo Azure.
 
 **Fornecer feedback**
 
@@ -33,7 +33,7 @@ Seu feedback é importante. Este artigo deve oferecer a você uma visão geral e
 
 O Azure agrupa serviços em categorias no Portal de Gerenciamento e em vários recursos visuais, como [O que é o infográfico do Azure](https://azure.microsoft.com/documentation/infographics/azure/). O Portal de Gerenciamento é o que você utiliza para gerenciar a maior parte (mas não todos) os serviços no Azure.
 
-Este documento utilizará uma **organização diferente** para tratar de serviços baseados em uma função similar e para chamar sub-serviços que são parte de serviços maiores.
+Este artigo utilizará uma **organização diferente** para tratar de serviços baseados em uma função similar e para chamar sub-serviços que são parte de serviços maiores.
 
 ![Componentes do Azure](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) *Figura: o Azure fornece serviços de aplicativos acessíveis pela Internet, sendo executados em datacenters do Azure.*
 
@@ -606,4 +606,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="O que são senhas de aplicativo no Azure MFA?" 
-	description="Esta página ajudará os usuários a entender o que são senhas de aplicativo e para que elas são usadas em relação ao Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="O que são senhas de aplicativo no Azure MFA?"
+	description="Esta página ajudará os usuários a entender o que são senhas de aplicativo e para que elas são usadas em relação ao Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -25,7 +25,7 @@ Determinados aplicativos que não usam navegador, como o cliente de email nativo
 >[AZURE.NOTE] Autenticação moderna para os clientes do Office 2013
 >
 > Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para obter mais informações, consulte [Anúncio do preview público da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
- 
+
 ## Como usar senhas de aplicativo
 
 Veja a seguir do que se lembrar sobre como usar senhas de aplicativo.
@@ -34,7 +34,7 @@ Veja a seguir do que se lembrar sobre como usar senhas de aplicativo.
 - Atualmente, há um limite de 40 senhas por usuário. Se você tentar criar uma depois de ter atingido o limite, será solicitado que você exclua uma de suas senhas de aplicativo existentes para criar uma nova.
 - É recomendável que as senhas de aplicativo sejam criadas por dispositivo, e não por aplicativo. Por exemplo, você pode criar uma senha de aplicativo para seu laptop e usá-la para todos os aplicativos nesse laptop.
 - Você recebe uma senha de aplicativo na primeira vez que se conecta. Se precisar de mais, é possível criá-las.
- 
+
 ![Configuração](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
 Quando tiver uma senha de aplicativo, você poderá usá-la no lugar da senha original com esses aplicativos que não usam navegador. Desse modo, se você estiver usando a autenticação multifator, por exemplo, e o cliente de email nativo da Apple no seu telefone, use a senha de aplicativo para que a autenticação multifator seja ignorada e ele continue funcionando.
@@ -43,12 +43,12 @@ Quando tiver uma senha de aplicativo, você poderá usá-la no lugar da senha or
 Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar. Além disso, você também pode criar e excluir senhas de aplicativo posteriormente. Como fazer isso depende de como você usa a autenticação multifator. Escolha a forma que se aplica a você.
 
 Como você usa a autenticação multifator|Descrição
-:------------- | :------------- | 
-<a href="#Office">Eu a uso com o Office 365</a> | Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
-<a href="#Microsoft">Não sei</a>|Isso significa que você desejará criar senhas de aplicativo por meio de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-<a href="#vai">Eu a uso com o Microsoft Azure</a> | Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
+:------------- | :------------- |
+[Eu a uso com o Office 365](#creating-and-deleting-app-passwords-with-office-365)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Office 365.
+[Não sei](#creating-and-deleting-app-passwords-with-myapps-portal)|Isso significa que você desejará criar senhas de aplicativo por meio de [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[Eu a uso com o Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Isso significa que você desejará criar senhas de aplicativo por meio do portal do Azure.
 
-<h2 id="Office">Eu a uso com o Office 365</h2> 
+## Criação e exclusão de senhas de aplicativo com o Office 365
 
 Se você usar uma multi-factor authentication com o Office 365, talvez seja conveniente criar e excluir senhas de aplicativo por meio do portal do Office 365.
 
@@ -81,7 +81,7 @@ Se você usar uma multi-factor authentication com o Office 365, talvez seja conv
 9. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Microsoft">Eu a uso com o Microsoft Azure</h2>
+## Criação e exclusão de senhas de aplicativo com portal do Myapps.
 Se você não tiver certeza de como usar a multi-factor authentication, você sempre pode criar e excluir senhas de aplicativo por meio do portal do Myapps.
 
 ### Para criar uma senha de aplicativo usando o portal do Myapps
@@ -107,7 +107,7 @@ Se você não tiver certeza de como usar a multi-factor authentication, você se
 8. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="vai">Crie senhas de aplicativo no portal do Azure</h2>
+## Crie senhas de aplicativo no portal do Azure
 
 Se você usar uma autenticação multifator com o Azure, talvez seja conveniente criar senhas de aplicativo por meio do portal do Azure.
 
@@ -129,4 +129,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 5. Confirme a exclusão clicando em **sim**.
 6. Quando a senha do aplicativo for excluída, clique em **fechar**. ![Fechar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/09/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -193,11 +193,11 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 1. Execute o de arquivo de instalação do Provedor.
 2. Em **Microsoft Update**, você pode aceitar as atualizações para que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
 3. Em **Instalação**, aceite ou modifique o local de instalação padrão do Provedor e clique em **Instalar**.
-5. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre baixado. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+4. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave do cofre baixado. Especifique a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
 	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4\. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
+5\. Em **Configurações de Proxy**, especifique como o Provedor que será instalado no servidor se conectará ao Azure Site Recovery pela Internet.
 
 - Se quiser que o Provedor se conecte diretamente, selecione **Connect directly without a proxy (Conectar diretamente sem um proxy)**.
 - Se quiser se conectar ao proxy que está configurado atualmente no servidor, selecione **Connect with existing proxy settings (Conectar com as configurações de proxy existentes)**.
@@ -207,9 +207,9 @@ Configure o site do Hyper-V, instale o Provedor do Azure Site Recovery e o agent
 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5\. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre. ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+6\. Quando a instalação terminar, clique em **Registrar** para registrar o servidor no cofre. ![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na folha **Configurações** > **Infraestrutura do Site Recovery** > **Hosts do Hyper-V**.
+7\. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na folha **Configurações** > **Infraestrutura do Site Recovery** > **Hosts do Hyper-V**.
 
 
 ### Instalação de linha de comando
@@ -469,4 +469,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

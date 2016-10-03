@@ -73,7 +73,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
 
     O Azure DevTest Labs permite que você defina uma política no laboratório para especificar o número máximo de máquinas virtuais que podem ser criadas por um estagiário no laboratório.
 
-    Se você estiver realizando o treinamento em vários dias e deseja interromper todas as VMs em determinado momento do dia para reiniciá-los no dia seguinte, poderá fazer isso facilmente definindo políticas de desligamento automático e início automático no laboratório.
+    Se você estiver realizando um treinamento de vários dias e quiser interromper todas as VMs em determinado momento do dia para reiniciá-las no dia seguinte, poderá fazer isso facilmente definindo políticas de desligamento automático e início automático no laboratório.
 
     Finalmente, quando o treinamento estiver concluído, você poderá excluir todas as VMs ao mesmo tempo executando um único script do PowerShell.
 
@@ -108,4 +108,4 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

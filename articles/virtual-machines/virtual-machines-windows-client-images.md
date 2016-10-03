@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usando imagens do cliente do Windows para desenvolvimento/teste | Microsoft Azure"
+   pageTitle="Usando imagens do cliente do Windows para cenários de desenvolvimento/teste | Microsoft Azure"
    description="Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7/8/10 no Azure em cenários de desenvolvimento/teste"
    services="virtual-machines-windowse"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/31/2016"
    ms.author="iainfou"/>
 
-# Usando o cliente do Windows no Azure para desenvolvimento/teste
+# Usando o cliente do Windows no Azure para cenários de desenvolvimento/teste
 
 Você pode usar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento + teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente conhecido como MSDN). Este artigo descreve os requisitos de qualificação para execução do cliente do Windows no Azure e uso das imagens da Galeria do Azure.
 
@@ -57,4 +57,4 @@ Você também pode exibir a ID de oferta na [guia “Assinaturas”](http://acco
 ## Próximas etapas
 Agora você pode implantar suas VMs usando o [PowerShell](virtual-machines-windows-ps-create.md), os [modelos do Resource Manager](virtual-machines-windows-ps-template.md) ou o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

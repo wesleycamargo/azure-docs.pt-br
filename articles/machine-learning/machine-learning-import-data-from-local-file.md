@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/16/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -38,6 +38,6 @@ Você pode importar dados de um disco rígido local fazendo o seguinte:
 
 Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo carregado. O tempo de carregamento depende do tamanho de seus dados e da velocidade da sua conexão com o serviço. Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Estúdio de Aprendizado de Máquina enquanto espera. No entanto, fechar o navegador fará com que o carregamento de dados falhe.
 
-Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho. Você pode encontrar o conjunto de dados, juntamente com todos os conjuntos de dados de exemplo pré-carregados, na lista **Conjuntos de Dados Salvos** na paleta de módulos quando estiver editando um experimento. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
+Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho. Quando estiver editando um experimento, você pode encontrar o conjunto de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

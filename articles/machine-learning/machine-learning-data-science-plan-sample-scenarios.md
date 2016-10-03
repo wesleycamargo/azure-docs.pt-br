@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # Cenários para análises avançadas no Aprendizado de Máquina do Azure
 
-Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo TDSP (Processo de Ciência de Dados de Equipe). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
+Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
 
 A **árvore de decisão** para selecionar os cenários de exemplo apropriados para seus dados e objetivo é apresentada na seção anterior.
 
@@ -28,10 +28,9 @@ A **árvore de decisão** para selecionar os cenários de exemplo apropriados pa
 
 Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cenário, são listados uma possível ciência de dados ou fluxo de análise avançada e os recursos de suporte do Azure.
 
->[AZURE.NOTE] **Para todos os cenários a seguir, você precisa:**
-
-*   [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
-*   [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
+>[AZURE.NOTE] **Para todos os cenários a seguir, você precisa:** <br/>
+>* [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md) <br/>
+>* [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Cenário 1: conjunto de dados tabular pequeno a médio em arquivos locais
@@ -92,7 +91,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 9. Leia os dados dos blobs do Azure usando o módulo [Importar Dados][import-data].
 
-10. Crie um fluxo experimental do AM do Azure, começando com os conjuntos de dados ingeridos.
+10. Crie um fluxo experimental do Azure Machine Learning, começando com os conjuntos de dados ingeridos.
 
 
 ## <a name="smalllocaltodb"></a>Cenário 4: conjunto de dados pequeno a médio em arquivos locais, com o SQL Server na Máquina Virtual do Azure como destino
@@ -113,18 +112,18 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 6.  Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
 
-    a. Opção 1: usar o SQL Server Management Studio.
+    Opção 1: usar o SQL Server Management Studio.
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+    - Faça logon na VM do SQL Server
+    - Execute o SQL Server Management Studio.
+    - Crie o banco de dados e as tabelas de destino.
+    - Use um dos métodos de importação em massa para carregar os dados dos arquivos locais da VM.
 
-    b. Opção 2: usar o IPython Notebook – não é aconselhável para conjuntos de dados médios e maiores
-
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+    Opção 2: usar o IPython Notebook – não é aconselhável para conjuntos de dados médios e maiores
+    <!-- -->    
+    - Use uma cadeia de conexão ODBC para acessar o SQL Server na VM.
+    - Crie o banco de dados e as tabelas de destino.
+    - Use um dos métodos de importação em massa para carregar os dados dos arquivos locais da VM.
 
 7.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -134,7 +133,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 10. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
-11. Crie um fluxo experimental do AM do Azure, começando com os conjuntos de dados ingeridos.
+11. Crie um fluxo experimental do Azure Machine Learning, começando com os conjuntos de dados ingeridos.
 
 ## <a name="largelocaltodb"></a>Cenário 5: conjunto de dados grande em arquivos locais, com o SQL Server na VM do Azure
 
@@ -168,7 +167,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
     f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
- > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+     > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -178,7 +177,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
-9. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados ingeridos
+9. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado
 
 ## <a name="largedbtodb"></a>Cenário 6: conjunto de dados grande em um banco de dados do SQL Server local, com o SQL Server em uma Máquina Virtual do Azure como destino
 
@@ -190,7 +189,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 2.  Use um dos métodos de exportação de dados para exportar os dados do SQL Server para arquivos de despejo.
 
-    a. Observação: se você decidir mover todos os dados do banco de dados local, há um método alternativo (mais rápido) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
+    > [AZURE.NOTE] Caso você decida mover todos os dados do banco de dados local, há um método alternativo (mais rápido) para mover o banco de dados completo para a instância do SQL Server no Azure. Ignore as etapas para exportar dados, criar o banco de dados e carregar/importar dados para o banco de dados de destino e execute o método alternativo.
 
 3.  Carregue os arquivos de despejo no contêiner de armazenamento do Azure.
 
@@ -208,7 +207,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 	f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
-> [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+    > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -218,7 +217,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
-9. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados carregados.
+9. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado.
 
 ### Método alternativo para copiar um banco de dados completo de um SQL Server local para o Banco de Dados SQL do Azure
 
@@ -226,7 +225,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 #### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 
-Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você deve copiar um banco de dados de um local/servidor para outro, supondo que o banco de dados possa ficar offline temporariamente. Você pode fazer isso no GUI do Pesquisador de Objetos do SQL Server Management Studio ou usando os comandos Transact-SQL equivalentes.
+Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você deve copiar um banco de dados de um local/servidor para outro, supondo que o banco de dados possa ficar offline temporariamente. Você pode fazer isso no Pesquisador de Objetos do SQL Server Management Studio ou usando os comandos Transact-SQL equivalentes.
 
 1. Desanexe o banco de dados no local de origem. Para saber mais, consulte [Desanexar um banco de dados](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. Na janela de prompt de comando do Windows Explorer ou Windows, copie os arquivos do banco de dados e os arquivos de log desanexados para o local de destino na VM do SQL Server no Azure.
@@ -282,7 +281,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 
 9. Leia os dados diretamente do `Hive Queries` usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 
-10. Fluxo experimental simples do AM do Azure, começando com os conjuntos de dados carregados.
+10. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado.
 
 ## <a name="decisiontree"></a>Árvore de decisão para a seleção do cenário
 ------------------------
@@ -314,4 +313,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

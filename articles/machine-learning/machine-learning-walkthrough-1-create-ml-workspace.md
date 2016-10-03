@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ Esta é a primeira etapa do passo a passo, [Desenvolver uma solução de anális
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
+
+<!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 Para usar o Estúdio de Aprendizado de Máquina, você precisa ter um espaço de trabalho do Aprendizado de Máquina do Microsoft Azure. Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
@@ -51,4 +53,4 @@ Após seu espaço de trabalho do Aprendizado de Máquina ser criado, você o ver
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

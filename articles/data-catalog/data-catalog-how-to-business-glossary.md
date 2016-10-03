@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="05/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maroche"/>
 
 # Como configurar o glossário de negócios para Marcação Governada
@@ -27,7 +27,7 @@ Um recurso do Catálogo de Dados que promove maior compreensão dos dados dos at
 No entanto, a marcação às vezes pode causar seus próprios problemas. Alguns exemplos dos problemas que podem ser introduzidos pela marcação são:
 
 1.	Usuários usando abreviações de alguns ativos e texto expandido em outros durante a marcação. Essa inconsistência impede a descoberta de ativos, mesmo que o objetivo tenha sido marcar os ativos com a mesma marca.
-2.	Marcas que significam coisas diferentes em diferentes contextos. Por exemplo, uma marca chamada "Receita" em um conjunto de dados do cliente pode significar a receita por cliente, mas a mesma marca em um conjunto de dados de vendas trimestral pode significar a receita trimestral da empresa.  
+2.	Marcas que significam coisas diferentes em diferentes contextos. Por exemplo, uma marca chamada "Receita" em um conjunto de dados do cliente pode significar a receita por cliente, mas a mesma marca em um conjunto de dados de vendas trimestral pode significar a receita trimestral da empresa.
 
 Para ajudar a resolver esses e outros desafios semelhantes, o Catálogo de Dados inclui um Glossário de Negócios.
 
@@ -44,14 +44,14 @@ O glossário de negócios pode ser acessado por meio da opção "Glossário" no 
 ![Acessando o glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-Os administradores do Catálogo de Dados podem criar, editar e excluir termos do glossário no glossário de negócios. Todos os usuários do Catálogo de Dados podem exibir as definições de termos e podem marcar os ativos com os termos do glossário.
+Os administradores do Catálogo de Dados e membros da função Administradores do Glossário podem criar, editar e excluir os termos do glossário no glossário de negócios. Todos os usuários do Catálogo de Dados podem exibir as definições de termos e podem marcar os ativos com os termos do glossário.
 
 ![Adicionar um novo termo de glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
 ## Criar termos do glossário
 
-Os administradores do Catálogo de Dados podem criar novos termos de glossário clicando no botão “Novo Termo” para criar termos de glossário com os seguintes campos:
+Os administradores do Catálogo de Dados e administradores do Glossário podem criar novos termos do glossário clicando no botão Novo Termo para criar termos de glossário com os seguintes campos:
 
 * Uma definição de negócios para o termo
 * Uma descrição que captura o uso pretendido ou regras de negócios para o ativo/coluna
@@ -84,8 +84,8 @@ Ambas as marcas de glossário e de usuário podem ser pesquisadas e aplicadas co
 ## Resumo
 O glossário de negócios no Catálogo de Dados do Azure, e a marcação habilitada por ele, permite que os ativos de dados sejam identificados, gerenciados e descobertos de maneira consistente. O glossário de negócios pode promover a aprendizagem do vocabulário de negócios entre usuários de uma organização e dar suporte à captura de metadados significativos, facilitando muito a descoberta e a compreensão dos ativos.
 
-## Veja também
+## Consulte também
 
 - [Documentação da API REST para operações de glossário de negócios](https://msdn.microsoft.com/library/mt708855.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

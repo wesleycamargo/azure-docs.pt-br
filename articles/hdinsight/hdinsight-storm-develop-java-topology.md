@@ -14,16 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/01/2016"
+   ms.date="09/14/2016"
    ms.author="larryfr"/>
 
 #Desenvolver topologias baseadas em Java para um aplicativo básico de contagem de palavras com Apache Storm e Maven no HDInsight
 
-Aprenda a um processo básico para criar uma topologia baseada em Java para o Apache Storm no HDInsight usando o Maven. Você percorrerá o processo de criação de um aplicativo de contagem de palavras básico usando Maven e Java. Embora sejam fornecidas instruções para usar o Eclipse, você também poderá usar o editor de texto à sua escolha.
+Aprenda como criar uma topologia baseada em Java para o Apache Storm no HDInsight usando o Maven. Você percorrerá o processo de criação de um aplicativo de contagem de palavras básico usando Maven e Java, em que a topologia é definida em Java. Em seguida, você aprenderá como definir a topologia usando a estrutura Flux.
+
+> [AZURE.NOTE] A estrutura Flux está disponível no Storm 0.10.0 ou posterior. O Storm 0.10.0 está disponível com o HDInsight 3.3 e 3.4.
 
 Depois de concluir as etapas neste documento, você terá uma topologia básica que pode implantar para o Apache Storm no HDInsight.
 
-> [AZURE.NOTE] uma versão completa dessa topologia está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> [AZURE.NOTE] uma versão completa das topologias criadas neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Pré-requisitos
 
@@ -51,7 +53,7 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 
 ##Criar um novo projeto Maven
 
-Na linha de comando, use o seguinte para criar um novo projeto Maven chamado **Contagem de Palavras**:
+Na linha de comando, use o seguinte para criar um novo projeto Maven chamado **WordCount**:
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -73,6 +75,22 @@ Já que estamos criando nosso aplicativo, exclua os arquivos de aplicativo e de 
 
 *  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
+##Adicionar propriedades
+
+O Maven permite que você defina valores de nível de projeto chamados propriedades. Adicione o seguinte após a linha `<url>http://maven.apache.org</url>`:
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+        Storm 0.10.0 is for HDInsight 3.3 and 3.4.
+        To find the version information for earlier HDInsight cluster
+        versions, see https://azure.microsoft.com/pt-BR/documentation/articles/hdinsight-component-versioning/
+        -->
+        <storm.version>0.10.0</storm.version>
+    </properties>
+
+Agora podemos usar esses valores em outras seções. Por exemplo, ao especificar a versão de componentes do Storm, podemos usar `${storm.version}` em vez de fazer hard-coding de um valor.
+
 ##Adicionar dependências
 
 Como essa é uma topologia Storm, você deverá adicionar uma dependência a componentes do Storm. Abra o arquivo **pom.xml** e adicione o código a seguir na seção **& lt;dependências >**:
@@ -80,10 +98,7 @@ Como essa é uma topologia Storm, você deverá adicionar uma dependência a com
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
 	  <artifactId>storm-core</artifactId>
-      <!-- Storm 0.10.0 is for HDInsight 3.3 and 3.4.
-           To find the version information for earlier HDInsight cluster
-           versions, see https://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/ -->
-	  <version>0.10.0</version>
+      <version>${storm.version}</version>
 	  <!-- keep storm out of the jar-with-dependencies -->
 	  <scope>provided</scope>
 	</dependency>
@@ -129,6 +144,8 @@ Para topologias Storm, o <a href="http://mojo.codehaus.org/exec-maven-plugin/" t
       </configuration>
     </plugin>
 
+> [AZURE.NOTE] Observe que a entrada `<mainClass>` usa `${storm.topology}`. Não definimos isso anteriormente na seção de propriedades (mas poderíamos ter definido). Em vez disso, definiremos esse valor na linha de comando ao executar a topologia em seu ambiente de desenvolvimento em uma etapa posterior.
+
 Outro plug-in útil é o <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Plug-in do compilador Apache Maven</a>, que é usado para alterar opções de compilação. O principal motivo pelo qual precisamos disso é alterar a versão de Java que o Maven usa para origem e destino de seu aplicativo. Queremos a versão 1.7.
 
 Adicione o seguinte à seção `<plugins>` do arquivo **pom.xml** para incluir o plug-in Compilador do Apache Maven e defina as versões de origem e de destino como 1.7.
@@ -169,7 +186,7 @@ Uma topologia Storm baseada em Java consiste em três componentes que você deve
 
 ###Criar o spout
 
-Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um spout fornecido com os ([exemplos Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
+Para reduzir os requisitos para configurar fontes de dados externas, o seguinte spout simplesmente emite sentenças aleatórias. É uma versão modificada de um spout fornecido com os [exemplos Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).
 
 > [AZURE.NOTE] Para obter um exemplo de um spout que lê de uma fonte de dados externa, consulte um dos exemplos a seguir:
 >
@@ -330,13 +347,16 @@ Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretó
 
     import java.util.HashMap;
     import java.util.Map;
+    import java.util.Iterator;
 
+    import backtype.storm.Constants;
     import backtype.storm.topology.BasicOutputCollector;
     import backtype.storm.topology.OutputFieldsDeclarer;
     import backtype.storm.topology.base.BaseBasicBolt;
     import backtype.storm.tuple.Fields;
     import backtype.storm.tuple.Tuple;
     import backtype.storm.tuple.Values;
+    import backtype.storm.Config;
 
     // For logging
     import org.apache.logging.log4j.Logger;
@@ -344,36 +364,63 @@ Crie dois novos arquivos, **SplitSentence.java** e **WordCount.Java** no diretó
 
     //There are a variety of bolt types. In this case, we use BaseBasicBolt
     public class WordCount extends BaseBasicBolt {
-      //Create logger for this class
-      private static final Logger logger = LogManager.getLogger(WordCount.class);
-      
-      //For holding words and counts
+        //Create logger for this class
+        private static final Logger logger = LogManager.getLogger(WordCount.class);
+        //For holding words and counts
         Map<String, Integer> counts = new HashMap<String, Integer>();
+        //How often we emit a count of words
+        private Integer emitFrequency;
+
+        // Default constructor
+        public WordCount() {
+            emitFrequency=5; // Default to 60 seconds
+        }
+
+        // Constructor that sets emit frequency
+        public WordCount(Integer frequency) {
+            emitFrequency=frequency;
+        }
+
+        //Configure frequency of tick tuples for this bolt
+        //This delivers a 'tick' tuple on a specific interval,
+        //which is used to trigger certain actions
+        @Override
+        public Map<String, Object> getComponentConfiguration() {
+            Config conf = new Config();
+            conf.put(Config.TOPOLOGY_TICK_TUPLE_FREQ_SECS, emitFrequency);
+            return conf;
+        }
 
         //execute is called to process tuples
         @Override
         public void execute(Tuple tuple, BasicOutputCollector collector) {
-          //Get the word contents from the tuple
-          String word = tuple.getString(0);
-          //Have we counted any already?
-          Integer count = counts.get(word);
-          if (count == null)
-            count = 0;
-          //Increment the count and store it
-          count++;
-          counts.put(word, count);
-          //Emit the word and the current count
-          collector.emit(new Values(word, count));
-          //Log information
-          logger.info("Emitting a count of " + count + " for word " + word);
+            //If it's a tick tuple, emit all words and counts
+            if(tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID)
+                    && tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID)) {
+                for(String word : counts.keySet()) {
+                    Integer count = counts.get(word);
+                    collector.emit(new Values(word, count));
+                    logger.info("Emitting a count of " + count + " for word " + word);
+                }
+            } else {
+                //Get the word contents from the tuple
+                String word = tuple.getString(0);
+                //Have we counted any already?
+                Integer count = counts.get(word);
+                if (count == null)
+                    count = 0;
+                //Increment the count and store it
+                count++;
+                counts.put(word, count);
+            }
         }
 
         //Declare that we will emit a tuple containing two fields; word and count
         @Override
         public void declareOutputFields(OutputFieldsDeclarer declarer) {
-          declarer.declare(new Fields("word", "count"));
+            declarer.declare(new Fields("word", "count"));
         }
-      }
+    }
 
 Reserve um tempo para ler os comentários do código para entender o funcionamento de cada bolt.
 
@@ -495,22 +542,184 @@ Depois de salvar os arquivos, use o comando a seguir para testar a topologia loc
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word white
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word seven
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word i
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word at
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word with
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word nature
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word two
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 51 for word am
 
-Ao examinar o registro em log emitido pelo bot WordCount, é possível ver que ‘maçã’ foi emitida 53 vezes. A contagem continuará a crescer durante a execução da topologia porque as mesmas frases são aleatoriamente emitidas de forma contínua e a contagem nunca é reiniciada.
+Ao examinar o registro em log emitido pelo bot WordCount, é possível ver que ‘e’ foi emitido 113 vezes. A contagem continuará a crescer enquanto a topologia for executada porque o spout emite continuamente as mesmas sentenças.
+
+Também haverá um intervalo de 5 segundos entre a emissão de palavras e as contagens. Isso ocorre porque o componente __WordCount__ está configurado para emitir informações somente quando chega uma tupla de escala e solicita que essas tuplas sejam entregues somente a cada 5 segundos, por padrão.
+
+## Converter a topologia para Flux
+
+Flux é uma nova estrutura disponível com o Storm 0.10.0, que permite que você separe a configuração da implementação. Os componentes (bolts e spouts) ainda são definidos em Java, mas a topologia é definida usando um arquivo YAML.
+
+O arquivo YAML define os componentes a usar para a topologia, como os dados fluem entre eles e quais valores usar ao inicializar os componentes. Você pode incluir um arquivo YAML como parte do arquivo jar que contém o projeto quando o implanta, ou você pode usar um arquivo YAML externo ao iniciar a topologia.
+
+1. Mova o arquivo __WordCountTopology.java__ para fora do projeto. Anteriormente isso definia a topologia, mas nós não o utilizaremos para o Flux.
+
+2. No diretório __resources__, crie um novo arquivo chamado __topology.yaml__. Use o conteúdo a seguir para este arquivo.
+
+        # topology definition
+
+        # name to be used when submitting. This is what shows up...
+        # in the Storm UI/storm command-line tool as the topology name
+        # when submitted to Storm
+        name: "wordcount"
+
+        # Topology configuration
+        config:
+        # Hint for the number of workers to create
+        topology.workers: 1
+
+        # Spout definitions
+        spouts:
+        - id: "sentence-spout"
+            className: "com.microsoft.example.RandomSentenceSpout"
+            # parallelism hint
+            parallelism: 1
+
+        # Bolt definitions
+        bolts:
+        - id: "splitter-bolt"
+            className: "com.microsoft.example.SplitSentence"
+            parallelism: 1
+
+        - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+            - 10
+            parallelism: 1
+
+        # Stream definitions
+        streams:
+        - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+            # The stream emitter
+            from: "sentence-spout"
+            # The stream consumer
+            to: "splitter-bolt"
+            # Grouping type
+            grouping:
+            type: SHUFFLE
+
+        - name: "Splitter -> Counter"
+            from: "splitter-bolt"
+            to: "counter-bolt"
+            grouping:
+            type: FIELDS
+            # field(s) to group on
+            args: ["word"]
+
+    Dedique uns momentos para ler e entender o que cada seção faz e como ela se relaciona com a definição baseada em Java no arquivo __WordCountTopology.java__.
+
+3. Faça as alterações a seguir ao arquivo __pom.xml__.
+
+    * Adicione a nova dependência a seguir à seção `<dependencies>`:
+
+            <!-- Add a dependency on the Flux framework -->
+            <dependency>
+                <groupId>org.apache.storm</groupId>
+                <artifactId>flux-core</artifactId>
+                <version>${storm.version}</version>
+            </dependency>
+
+    * Adicione o plug-in a seguir à seção `<plugins>`. Este plug-in cuida da criação de um pacote (arquivo jar) para o projeto e aplica algumas transformações específicas ao Flux durante a criação do pacote.
+
+            <!-- build an uber jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <transformers>
+                        <!-- Keep us from getting a "can't overwrite file error" -->
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                        <!-- We're using Flux, so refer to it as main -->
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>org.apache.storm.flux.Flux</mainClass>
+                        </transformer>
+                    </transformers>
+                    <!-- Keep us from getting a bad signature error -->
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+    * Na seção `<configuration>` do __exec-maven-plugin__, altere o valor de `<mainClass>` para `org.apache.storm.flux.Flux`. Isso permite que o Flux cuide da execução da topologia quando o executamos localmente durante o desenvolvimento.
+
+    * Na seção `<resources>`, adicione o seguinte a `<includes>`. Isso inclui o arquivo YAML que define a topologia como parte do projeto.
+    
+            <include>topology.yaml</include>
+
+## Testar a topologia do Flux localmente
+
+1. Use o seguinte para compilar e executar a topologia do Flux usando o Maven.
+
+        mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
+    
+    Se você estiver usando o PowerShell, use o seguinte:
+    
+        mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
+
+    Se você estiver em um sistema Unix/Linux/OS X e tiver [instalado Storm em seu ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), você poderá usar os seguintes comandos em vez disso:
+
+        mvn compile package
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
+
+    O parâmetro `--local` executa a topologia no modo local no ambiente de desenvolvimento. O parâmetro `-R /topology.yaml` usa o recurso de arquivo `topology.yaml` do arquivo jar para definir a topologia.
+
+    À medida que é executada, a topologia exibirá informações de inicialização. Em seguida, ela começa a exibir linhas semelhantes às opções a seguir à medida que frases são emitidas do spout e processadas pelos bolts.
+
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    
+    Haverá um atraso de 10 segundos entre lotes de informações registradas em log, visto que o arquivo `topology.yaml` transmite um valor de `10` quando o componente de WordCount é criado. Isso define o intervalo de atraso para a tupla de escala como 10 segundos.
+
+2.  Faça uma cópia do arquivo `topology.yaml` do projeto. Dê a ele um nome semelhante a `newtopology.yaml`. No arquivo, localize a seção a seguir e altere o valor de `10` para `5`. Isso altera o intervalo entre as emissões de lotes de contagens de palavras de 10 segundos para 5.
+
+          - id: "counter-bolt"
+            className: "com.microsoft.example.WordCount"
+            constructorArgs:
+            - 5
+            parallelism: 1
+
+3. Para executar a topologia, use o seguinte comando:
+
+        mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
+
+    Ou, se você tiver o Storm em seu ambiente de desenvolvimento do Unix/Linux/OS X:
+
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
+
+    Altere o `/path/to/newtopology.yaml` para o caminho para o arquivo newtopology.yaml criado por você na etapa anterior. Esse comando usará o newtopology.yaml como a definição da topologia. Como não incluímos o parâmetro `compile`, o Maven reutilizará a versão do projeto criado nas etapas anteriores.
+
+    Depois que a topologia começar, você deverá observar uma alteração no tempo entre os lotes emitidos refletindo o valor em newtopology.yaml. Veja então que você pode alterar sua configuração por meio de um arquivo YAML sem ter que recompilar a topologia.
+
+Vários outros recursos que o Flux oferece não são discutidos aqui, como a substituição de variáveis no arquivo YAML com base em parâmetros passados em tempo de execução, ou de variáveis de ambiente. Para obter mais informações sobre esses e outros recursos da estrutura do Flux, consulte [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 ##Trident
 
 O Trident é uma abstração de alto nível fornecida pelo Storm. Ele dá suporte ao processamento com monitoramento de estado. A principal vantagem do Trident é que ele pode garantir que todas as mensagens que entrarem na topologia sejam processadas somente uma vez. Isso é difícil de atingir em uma topologia bruta do Java, que garante que as mensagens serão processadas pelo menos uma vez. Também existem outras diferenças, como componentes internos que podem ser usados em vez da criação de bolts. Na verdade, os bolts são completamente substituídos por componentes menos genéricos, como filtros, projeções e funções.
 
-Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas etapas básicas como apresentado anteriormente neste artigo — somente o código é diferente.
+Os aplicativos Trident podem ser criados usando projetos Maven. Use as mesmas etapas básicas como apresentado anteriormente neste artigo — somente o código é diferente. O Trident também (atualmente) não pode ser usado com a estrutura do Flux.
 
 Para obter mais informações sobre o Trident, consulte a <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Visão geral da API do Trident</a>.
 
@@ -526,4 +735,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

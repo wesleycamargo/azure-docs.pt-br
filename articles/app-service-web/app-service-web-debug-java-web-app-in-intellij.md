@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Depurar um aplicativo Web Java no Azure no IntelliJ
@@ -29,7 +29,7 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
 * Um JDK (Java Developer Kit) versão 1.8 ou posterior.
 * IntelliJ IDEA Ultimate Edition. Isso pode ser baixado em <https://www.jetbrains.com/idea/download/index.html>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
-* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
+* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/pt-BR/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
 * O Kit de Ferramentas do Azure para IntelliJ. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para IntelliJ].
 * Um Projeto Web Dinâmico criado e implantado no Serviço de Aplicativo do Azure; por exemplo, confira [Criar um aplicativo Web Hello World do Azure no IntelliJ].
 
@@ -104,4 +104,4 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

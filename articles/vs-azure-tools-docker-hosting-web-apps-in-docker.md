@@ -3,7 +3,7 @@
    description="Saiba como usar as Ferramentas do Visual Studio para Docker para implantar um aplicativo Web do ASP.NET Core em um contêiner do Docker em execução em uma VM do Linux do Host do Docker do Azure"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # Implantar um contêiner ASP.NET em um host remoto do Docker
 
@@ -25,11 +25,12 @@ O Docker é um mecanismo de contêiner leve, semelhante em alguns pontos a uma m
 Para concluir este tutorial, você precisará:
 
 - Criar uma VM de Host do Docker no Azure, conforme descrito em [Usar o computador Docker com o driver do Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
-- Instalar o [Visual Studio 2015 Atualização 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- Instalar o [Visual Studio 2015 Atualização 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [SDK do Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 - Instalar as [Ferramentas do Visual Studio 2015 para Docker - Prévia](http://aka.ms/DockerToolsForVS)
 
-## 1\. Criar um aplicativo Web ASP.NET 5
-As etapas a seguir guiarão você na criação de um aplicativo básico ASP.NET 5 que será usado neste tutorial.
+## 1\. Criar um aplicativo Web ASP.NET Core
+As etapas a seguir guiarão você na criação de um aplicativo básico ASP.NET Core que será usado neste tutorial.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ As etapas a seguir guiarão você na criação de um aplicativo básico ASP.NET 
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -35,7 +35,7 @@ Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Ser
 
 ## O que você implantará?
 
-Com este modelo, você implantará um namespace do Barramento de Serviço com um SKU [Básico ou Standard](https://azure.microsoft.com/pricing/details/service-bus/).
+Com esse modelo, você implantará um namespace de Barramento de Serviço com uma SKU [Básica, Standard ou Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
@@ -69,7 +69,8 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
 
 ```
 
-O modelo definirá os valores que são permitidos para esse parâmetro (Básico ou Standard) e atribuirá um valor padrão (Standard) se nenhum valor for especificado.
-
-Há um encargo de base da camada Standard de US$ 10 por mês, que permite que você execute até 12,5 milhões de operações por mês sem custos adicionais. A camada Básica custa US$ 0,05 por milhão de operações.
+O modelo definirá os valores permitidos para esse parâmetro (Basic, Standard ou Premium) e atribuirá um valor padrão (Standard) se nenhum valor for especificado.
 
 Para obter mais informações sobre os preços do Barramento de Serviço, consulte [Barramento de Serviço, preços e cobrança][].
 
@@ -154,4 +153,4 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

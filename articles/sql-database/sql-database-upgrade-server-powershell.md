@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 # Atualizar para o Banco de Dados SQL V12 usando o PowerShell
@@ -32,11 +32,11 @@ O V12 de banco de dados SQL é a versão mais recente para atualizar para o V12 
 
 Esse artigo fornece instruções para atualizar os servidores existentes V11 de banco de dados SQL e bancos de dados para V12 de banco de dados SQL.
 
-Durante o processo de atualização para V12 você vai atualizar qualquer banco de dados da Web e Business para uma nova camada de serviço para que instruções atualizem o bancos de dados da Web e Business que estão incluídos.
+Durante o processo de atualização para V12, você vai atualizar qualquer banco de dados da Web e Business para uma nova camada de serviço para que instruções atualizem o bancos de dados da Web e Business que estão incluídos.
 
-Além disso, migrar para um [pool de banco de dados elástico](sql-database-elastic-pool.md) pode ser mais econômico do que a atualização para níveis de desempenho individual (faixas de preço) para bancos de dados únicos. Os pools também simplificam o gerenciamento de banco de dados porque você só precisa gerenciar as configurações de desempenho para o pool em vez de gerenciar separadamente os níveis de desempenho de bancos de dados individuais. Se você tiver bancos de dados em vários servidores, considere movê-los para o mesmo servidor e aproveitando para colocá-los em um pool.
+Além disso, migrar para um [pool de banco de dados elástico](sql-database-elastic-pool.md) pode ser mais econômico do que a atualização para níveis de desempenho individual (faixas de preço) para bancos de dados únicos. Os pools também simplificam o gerenciamento de banco de dados porque você só precisa gerenciar as configurações de desempenho para o pool em vez de gerenciar separadamente os níveis de desempenho de bancos de dados individuais. Se você tiver bancos de dados em vários servidores, considere movê-los para o mesmo servidor, aproveitando para colocá-los em um pool.
 
-Você pode facilmente migrar automaticamente dos servidores V11 diretamente para os pools de banco de dados elásticos executando as etapas neste artigo.
+Execute as etapas neste artigo para migrar facilmente os bancos de dados dos servidores V11 diretamente para os pools de banco de dados elásticos.
 
 Observe que os bancos de dados permanecerão online e continuarão a trabalhar em toda a operação de atualização. No momento da transição real para o novo nível de desempenho temporário podem ocorrer quedas das conexões ao banco de dados com duração muito curtas que é normalmente em torno de 90 segundos, mas pode ser até 5 minutos. Se seu aplicativo [tiver um tratamento de falha transitória para encerramentos de conexão](sql-database-connectivity-issues.md), isso será suficiente para proteger contra a queda de conexões ao final da atualização.
 
@@ -53,24 +53,22 @@ Após a atualização para V12, as [recomendações de nível de serviço](sql-d
 
 ## Pré-requisitos
 
-Para atualizar um servidor para a V12 com o PowerShell, você precisa ter o Azure PowerShell instalado e em execução e, dependendo da versão, talvez seja preciso alterná-lo para o modo de gerenciador de recursos, a fim de acessar os Cmdlets do PowerShell do Gerenciador de Recursos do Azure.
-
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Para atualizar um servidor para V12 com o PowerShell, você precisa ter o Azure PowerShell mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 ## Configurar suas credenciais e selecionar sua assinatura
 
-Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
+Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiro você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
 	Add-AzureRmAccount
 
 Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
 
-Para selecionar a assinatura com a qual deseja trabalhar, você precisará da ID (**-SubscriptionId**) ou do nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados.
+Para selecionar a assinatura com a qual deseja trabalhar, você precisa da ID (**-SubscriptionId**) ou do nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados.
 
 Execute o cmdlet a seguir com as informações da sua assinatura para definir a assinatura atual:
 
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Set-AzureRmContext -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 Os comandos a seguir serão executados na assinatura que você acabou de selecionar acima.
 
@@ -80,7 +78,7 @@ Para obter a recomendação para a atualização do servidor, execute o seguinte
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-Para obter mais informações, veja [Criar um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md) e [Recomendações sobre tipo de preço do Banco de Dados SQL do Azure](sql-database-service-tier-advisor.md).
+Para saber mais, veja [Criar um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md) e [Recomendações sobre tipo de preço do Banco de Dados SQL do Azure](sql-database-service-tier-advisor.md).
 
 
 
@@ -109,7 +107,7 @@ Quando você executar este comando, o processo de atualização será iniciado. 
 
     # Selecting the right subscription
     #
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Set-AzureRmContext -SubscriptionName $SubscriptionName
 
     # Getting the upgrade recommendations
     #
@@ -163,7 +161,7 @@ Após a atualização, é recomendável monitorar o banco de dados ativamente pa
 Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico [usando o portal](sql-database-elastic-pool-manage-portal.md) ou com o [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-**Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis através do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
+**Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis por meio do DMV [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -182,7 +180,7 @@ Informações adicionais de monitoramento:
 
 
 
-**Alertas:** configurar “Alertas” no Portal do Azure para ser notificado quando o consumo de DTU de um banco de dados atualizado aproximar-se de certo nível alto. Alertas de banco de dados podem ser configurados no Portal do Azure para várias métricas de desempenho como Log, CPU, E/S e DTU. Navegue até o banco de dados e selecione **Regras de alerta** na folha **Configurações**.
+**Alertas:** configurar “Alertas” no Portal do Azure para ser notificado quando o consumo de DTU de um banco de dados atualizado aproximar-se de certo nível alto. Os alertas de banco de dados podem ser configurados no portal do Azure para várias métricas de desempenho como Log, CPU, E/S e DTU. Navegue até o banco de dados e selecione **Regras de alerta** na folha **Configurações**.
 
 Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU” se o valor da porcentagem média de DTU exceder 75% nos últimos 5 minutos. Confira [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md) para saber mais sobre como configurar notificações de alerta.
 
@@ -201,4 +199,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

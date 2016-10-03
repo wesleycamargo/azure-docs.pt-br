@@ -20,7 +20,7 @@
 
 # Referências de gatilhos e de bindings do Azure Functions para desenvolvedores
 
-Os artigos a seguir explicam como configurar e codificar gatilhos e bindings no Azure Functions. Os artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md) ou do [Node.js](functions-reference-node.md) para desenvolvedores.
+Os artigos a seguir explicam como configurar e codificar gatilhos e bindings no Azure Functions. Os artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md) para desenvolvedores.
 
 ## Artigos sobre gatilhos e bindings
 
@@ -35,4 +35,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

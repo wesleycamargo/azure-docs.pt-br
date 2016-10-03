@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
 
-2. [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
+2. [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md)
 
 3. [Provisionar uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que servirá como um SQL Server, bem como um servidor do IPython Notebook.
 
@@ -358,8 +358,7 @@ Inicialize as configurações de conexão de banco de dados nas seguintes variá
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-O tempo para ler a tabela de exemplo é de 6.492000 segundos  
-Número de linhas e colunas recuperadas = (84952, 21)
+O tempo para ler a tabela de exemplo é de 6.492000 segundos Número de linhas e colunas recuperadas = (84952, 21)
 
 #### Estatísticas Descritivas
 
@@ -609,7 +608,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 ## <a name="mlmodel"></a>Criando modelos no Aprendizado de Máquina do Azure
 
-Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do Aprendizado de Máquina do Azure. Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do Aprendizado de Máquina do Azure. Se ainda não tiver criado um espaço de trabalho do Machine Learning, consulte [Criar um espaço de trabalho do Azure Machine Learning](machine-learning-create-workspace.md).
 
 1. Para ver os primeiros passos no Aprendizado de Máquina do Azure, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md)
 
@@ -620,7 +619,7 @@ Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho d
 Uma experiência de treinamento típico consiste no seguinte:
 
 1. Criar uma experiência **+NEW**.
-2. Levar os dados ao AM do Azure.
+2. Transmitir dados para o Azure Machine Learning.
 3. Pré-processar, transformar e manipular os dados conforme necessário.
 4. Gerar recursos conforme necessário.
 5. Dividir os dados em conjuntos de dados de treinamento/validação/teste (ou conjuntos de dados separados para cada um desses).
@@ -630,11 +629,11 @@ Uma experiência de treinamento típico consiste no seguinte:
 9. Avaliar os modelos para computar a métrica relevante para o problema de aprendizado.
 10. Ajustar os modelos e selecionar o melhor modelo a ser implantado.
 
-Neste exercício, já exploramos e engenhamos os dados no SQL Server, e escolhemos o tamanho da amostra para ingestão no AM do Azure. Para compilar um ou mais dos modelos de previsão, decidimos:
+Neste exercício, já exploramos e definimos os dados no SQL Server e escolhemos o tamanho da amostra para ingestão no Azure Machine Learning. Para compilar um ou mais dos modelos de previsão, decidimos:
 
-1. Obtenha os dados no Azure ML usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
+1. Transmita os dados para o Azure Machine Learning usando o módulo [Importar Dados][import-data], disponível na seção **Entrada e Saída de Dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
 
-	![Dados de Importação de AM do Azure][17]
+	![Importar Dados no Azure Machine Learning][17]
 
 2. Selecione **Banco de Dados SQL do Azure** como a **Fonte de dados** no painel **Propriedades**.
 
@@ -650,7 +649,7 @@ Neste exercício, já exploramos e engenhamos os dados no SQL Server, e escolhem
 
 Um exemplo de um experimento de classificação binária lendo dados diretamente do banco de dados do SQL Server é mostrado na figura abaixo. Experimentos semelhantes podem ser construídos por meio de classificação multiclasse e problemas de regressão.
 
-![Treino do AM do Azure][10]
+![Treinamento do Azure Machine Learning][10]
 
 > [AZURE.IMPORTANT] Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 >
@@ -658,7 +657,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 
 ## <a name="mldeploy"></a>Implantando modelos no Aprendizado de Máquina do Azure
 
-Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do AM do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 
@@ -679,7 +678,7 @@ Quando o experimento de pontuação for criado, revise-o e ajuste conforme neces
 
 Um exemplo de experimento de pontuação é mostrado na figura abaixo. Quando estiver pronto para implantar, clique no botão **PUBLICAR SERVIÇO WEB** na barra de ação inferior.
 
-![Publicação do AM do Azure][11]
+![Publicação do Azure Machine Learning][11]
 
 Para recapitular, neste tutorial passo a passo, você criou um ambiente de ciência de dados do Azure, trabalhou com um grande conjunto de dados públicos até a aquisição dos dados para o treinamento de modelo e a implantação de um serviço Web do Aprendizado de Máquina do Azure.
 
@@ -689,9 +688,7 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 ### Referências
 
-• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -719,4 +716,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

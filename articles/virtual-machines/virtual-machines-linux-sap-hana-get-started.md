@@ -1,20 +1,20 @@
 <properties
    pageTitle="Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure | Microsoft Azure"
    description="Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # Guia de início rápido para a instalação manual do SAP HANA de instância única em VMs do Azure
@@ -384,11 +384,11 @@ Além de instalar o SAP HANA como parte de uma instalação distribuída por mei
 
 Confira três fontes de informações sobre a ferramenta hdblcm de HANA:
 
-[Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm) (Escolhendo o HDBLCM do SAP HANA correto para sua tarefa)
+[Choosing the Correct SAP HANA HDBLCM for Your Task (Escolhendo o HDBLCM do SAP HANA correto para sua tarefa)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 
-[SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/) (Ferramentas de gerenciamento de ciclo de vida do SAP HANA)
+[SAP HANA Lifecycle Management Tools (Ferramentas de gerenciamento de ciclo de vida do SAP HANA)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 
-[SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf) (Guia de instalação e atualização do servidor SAP HANA)
+[SAP HANA Server Installation and Update Guide (Guia de instalação e atualização do servidor SAP HANA)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 
 
@@ -484,4 +484,4 @@ E, finalmente, após a instalação do servidor de aplicativo SAP e do SAP GUI, 
 
 * Baixe o HANA SP12 Platform Edition no SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="carlrab"/>
 
 # Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
@@ -42,10 +42,10 @@ Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico
 A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
 ```
-– Calcula o tamanho do banco de dados. 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats;
-GO 
+-- Calculates the size of the database.
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats;
+GO
 ```
 
 A consulta a seguir retorna o tamanho do dos objetos individuais (em megabytes) no seu banco de dados:
@@ -76,7 +76,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se o usuário tiver permissão **VIEW DATABASE STATE** no banco de dados, o usuário verá todas as sessões em execução no banco de dados; caso contrário, o usuário verá apenas a sessão atual.
+> [AZURE.NOTE] Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
 
 ## Monitoramento de desempenho da consulta
 
@@ -131,8 +131,8 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## Consulte também
+## Confira também
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

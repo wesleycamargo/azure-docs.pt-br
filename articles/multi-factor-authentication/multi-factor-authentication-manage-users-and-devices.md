@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Relatórios do Azure Multi-Factor Authentication" 
-	description="Isso descreve como alterar as configurações de usuário, como forçar os usuários a fazer o processo de verificação novamente." 
-	documentationCenter="" 
-	services="multi-factor-authentication" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Relatórios do Azure Multi-Factor Authentication"
+	description="Isso descreve como alterar as configurações de usuário, como forçar os usuários a fazer o processo de verificação novamente."
+	documentationCenter=""
+	services="multi-factor-authentication"
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Gerenciando configurações de usuário com o Azure Multi-Factor Authentication na nuvem
 
@@ -86,4 +86,4 @@ Os administradores têm a capacidade de restaurar o Multi-Factor Authentication 
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

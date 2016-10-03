@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/14/2016"
+ms.date="09/16/2016"
 ms.author="garye;krishnan"/>
 
 # Executar análises avançadas com o Aprendizado de Máquina do Azure usando os dados de um banco de dados do SQL Server local
@@ -70,49 +70,49 @@ Nesse passo a passo, você vai configurar um Gateway de Gerenciamento de Dados e
 
 A primeira etapa é criar e configurar o gateway para acessar o banco de dados SQL local.
 
-1.  Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/Home/) e selecione o espaço de trabalho no qual você deseja trabalhar.
+1. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/Home/) e selecione o espaço de trabalho no qual você deseja trabalhar.
 
-2.  Clique na folha **CONFIGURAÇÕES** à esquerda e clique na guia **GATEWAYS DE DADOS** na parte superior.
+2. Clique na folha **CONFIGURAÇÕES** à esquerda e clique na guia **GATEWAYS DE DADOS** na parte superior.
 
-3.  Clique em **NOVO GATEWAY DE DADOS** na parte inferior da tela.
+3. Clique em **NOVO GATEWAY DE DADOS** na parte inferior da tela.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  Na caixa de diálogo **Novo gateway de dados**, insira o **Nome do Gateway** e, se preferir, adicione uma **Descrição**. Clique na seta no canto inferior direito para ir para a próxima etapa da configuração.
+4. Na caixa de diálogo **Novo gateway de dados**, insira o **Nome do Gateway** e, se preferir, adicione uma **Descrição**. Clique na seta no canto inferior direito para ir para a próxima etapa da configuração.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
-5.  No diálogo Baixar e registrar gateway de dados, copie a CHAVE DE REGISTRO DO GATEWAY para a área de transferência.
+5. No diálogo Baixar e registrar gateway de dados, copie a CHAVE DE REGISTRO DO GATEWAY para a área de transferência.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>Se você ainda não tiver baixado e instalado o Gateway de Gerenciamento de Dados da Microsoft, clique em **Baixar gateway de gerenciamento de dados**. Isso levará você ao Centro de Download da Microsoft, em que você pode selecionar a versão de gateway necessária, baixá-la e instalá-la. Você pode encontrar informações detalhadas sobre pré-requisitos de instalação, etapas de instalação e dicas de solução de problemas nas seções de início do artigo [Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+6. <span id="note-1" class="anchor"></span>Se você ainda não tiver baixado e instalado o Gateway de Gerenciamento de Dados da Microsoft, clique em **Baixar gateway de gerenciamento de dados**. Isso levará você ao Centro de Download da Microsoft, em que você pode selecionar a versão de gateway necessária, baixá-la e instalá-la. Você pode encontrar informações detalhadas sobre pré-requisitos de instalação, etapas de instalação e dicas de solução de problemas nas seções de início do artigo [Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-7.  Depois que o gateway estiver instalado, o Gerenciador de Configurações do Gateway de Gerenciamento de Dados será aberto e a caixa de diálogo **Registrar gateway** será exibida. Cole a **Chave de Registro de Gateway** que você copiou para a área de transferência e clique em **Registrar**.
+7. Depois que o gateway estiver instalado, o Gerenciador de Configurações do Gateway de Gerenciamento de Dados será aberto e a caixa de diálogo **Registrar gateway** será exibida. Cole a **Chave de Registro de Gateway** que você copiou para a área de transferência e clique em **Registrar**.
 
-8.  Se você já tiver um gateway instalado, execute o Gerenciador de Configurações do Gateway de Gerenciamento de Dados, clique em **Alterar chave**, cole a **Chave de Registro de Gateway** que você copiou para a área de transferência e clique em **OK**.
+8. Se você já tiver um gateway instalado, execute o Gerenciador de Configurações do Gateway de Gerenciamento de Dados, clique em **Alterar chave**, cole a **Chave de Registro de Gateway** que você copiou para a área de transferência e clique em **OK**.
 
-9.  Quando a instalação estiver concluída, a caixa de diálogo **Registrar gateway** para o Gerenciador de Configurações do Gateway de Gerenciamento de Dados da Microsoft será exibida. Cole a CHAVE DE REGISTRO DE GATEWAY que você copiou para a área de transferência acima e clique em **Registrar**.
+9. Quando a instalação estiver concluída, a caixa de diálogo **Registrar gateway** para o Gerenciador de Configurações do Gateway de Gerenciamento de Dados da Microsoft será exibida. Cole a CHAVE DE REGISTRO DE GATEWAY que você copiou para a área de transferência acima e clique em **Registrar**.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
-10.  A configuração do gateway é concluída quando os seguintes valores são definidos na guia **Início** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados Microsoft:
+10. A configuração do gateway é concluída quando os seguintes valores são definidos na guia **Início** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados Microsoft:
 
-    -   O **Nome do gateway** e o **Nome da instância** são definidos como o nome do gateway.
+    - O **Nome do gateway** e o **Nome da instância** são definidos como o nome do gateway.
 
-    -   **Registro** é definido como **Registrado**.
+    - **Registro** é definido como **Registrado**.
 
-    -   O **Status** é definido como **Iniciado**.
+    - O **Status** é definido como **Iniciado**.
 
-    -   A barra de status inferior exibe **Conectado ao Serviço de Nuvem do Gateway de Gerenciamento de Dados** com uma marca de seleção verde.
+    - A barra de status inferior exibe **Conectado ao Serviço de Nuvem do Gateway de Gerenciamento de Dados** com uma marca de seleção verde.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-    O Estúdio de Aprendizado de Máquina do Azure também é atualizado quando o registro é bem-sucedido.
+     O Estúdio de Aprendizado de Máquina do Azure também é atualizado quando o registro é bem-sucedido.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-registered.png)
 
-11.  Na caixa de diálogo **Baixar e registrar o gateway de dados**, clique na marca de seleção para concluir a instalação. A página **Configurações** exibe o status do gateway como "Online". No painel à direita, você encontrará o status e outras informações úteis.
+11. Na caixa de diálogo **Baixar e registrar o gateway de dados**, clique na marca de seleção para concluir a instalação. A página **Configurações** exibe o status do gateway como "Online". No painel à direita, você encontrará o status e outras informações úteis.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-status.png)
 
@@ -162,4 +162,4 @@ Quando o experimento concluir a execução, você poderá visualizar os dados im
 
 Depois de concluir o desenvolvimento de seu experimento, você poderá implantar e colocar o modelo em operação. Usando o Serviço de Execução em Lotes, os dados do banco de dados do SQL Server local configurados no módulo **Importar Dados** serão lidos e usados para pontuação. Embora você possa usar o Serviço de Resposta de Solicitação para pontuar dados locais, a Microsoft recomenda usar o [Suplemento do Excel](machine-learning-excel-add-in-for-web-services.md). Atualmente, gravar em um banco de dados do SQL Server local por meio de **Exportar Dados** não é permitido em seus experimentos ou em serviços Web publicados.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Notas de versão dos Serviços de Mídia" 
+	pageTitle="Notas de versão dos Serviços de Mídia | Microsoft Azure" 
 	description="Notas de versão dos Serviços de Mídia" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/14/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 # Notas de versão dos Serviços de Mídia do Azure
@@ -150,7 +150,7 @@ O AMS (Serviços de Mídia do Azure) agora também está disponível nos seguint
 
 - Anunciando a disponibilidade geral do Media Encoder Standard. Para saber mais, confira [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	O Codificador de Mídia Padrão usa as predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Lembre-se de que, ao usar uma predefinição para codificações 4k, você deverá adquirir o tipo de unidade reservada **Premium**. Para saber mais, confira [Como dimensionar a codificação](media-services-portal-encoding-units).
+	O Codificador de Mídia Padrão usa as predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Lembre-se de que, ao usar uma predefinição para codificações 4k, você deverá adquirir o tipo de unidade reservada **Premium**. Para saber mais, confira [Como dimensionar a codificação](media-services-scale-media-processing-overview.md).
 - Legendas em tempo real ativas com os Serviços de Mídia e o Player do Azure. Para saber mais, consulte [esta postagem no blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Atualizações do SDK do .NET dos Serviços de Mídia
@@ -261,12 +261,12 @@ Esta versão marcou o construtor Microsoft.WindowsAzure.MediaServices.Client.Con
 
 ##<a id="november_changes_14"></a>Versão de novembro de 2014
 
-- Os Serviços de Mídia agora permitem que você inclua um conteúdo de Smooth Streaming (FMP4) ao vivo em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. Para saber mais sobre a transmissão ao vivo, confira [Trabalhando com a Transmissão ao Vivo dos Serviços de Mídia do Azure].
-- Observe que no momento, você não pode inserir um fluxo ao vivo RTMP por uma conexão SSL.
-- Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS.
-- Observe que você só pode transmitir por SSL se o ponto de extremidade de streaming por meio do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming após 10 de setembro, a URL contém "streaming.mediaservices.windows.net" (o novo formato). URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a SSL. Se a sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, [crie um novo ponto de extremidade de streaming](media-services-manage-origins.md). Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL.
-   
-##<a id="october_changes_14"></a>Versão de outubro de 2014
+        - Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+        - Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
+        - You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+        - Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+
+        ##<a id="october_changes_14"></a>October 2014 Release
 
 ### <a id="new_encoder_release"></a>Versão do codificador de Serviços de Mídia
 
@@ -623,7 +623,6 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [StreamingEndpoint.aspx]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Trabalhando com Live Streaming dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
-[Trabalhando com a Transmissão ao Vivo dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [Usando o serviço de entrega de chave e criptografia dinâmica do AES-128]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Usando o serviço de entrega de licença e criptografia dinâmica do PlayReady]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Preview features]: http://azure.microsoft.com/services/preview/
@@ -648,4 +647,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

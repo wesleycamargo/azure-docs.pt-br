@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Criar um Application Gateway usando o portal
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O aplicativo fornece muitos recursos do Controlador de Entrega de Aplicativos (ADC), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de Secure Sockets Layer (SSL), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Application Gateway](application-gateway-introduction.md)
+O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de Entrega de Aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](application-gateway-create-gateway-portal.md)
@@ -83,7 +83,7 @@ Clique em **Escolher uma rede virtual** para configurar a rede virtual.
 
 Na folha *Escolher Rede Virtual*, clique em **Criar Novo**
 
-Enquanto não é explicada neste cenário, uma Rede Virtual existente pode ser selecionada neste momento. Se uma rede virtual existente for usada, é importante saber que a rede virtual precisa uma sub-rede vazia ou uma sub-rede somente com recursos de gateway de aplicativo a serem usados.
+Enquanto não é explicada neste cenário, uma Rede Virtual existente pode ser selecionada neste momento. Se uma rede virtual existente for usada, é importante saber que a rede virtual precisa usar uma sub-rede vazia ou uma sub-rede somente com recursos de gateway de aplicativo.
 
 ![escolher folha da rede virtual][4]
 
@@ -157,4 +157,4 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

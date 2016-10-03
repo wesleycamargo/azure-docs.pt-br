@@ -32,7 +32,7 @@ Este artigo mostra como executar cenários comuns usando o Armazenamento de Blob
 
 ## Criar um aplicativo do Node.js
 
-Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] \(Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
+Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] (Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -83,9 +83,7 @@ Para criar um novo contêiner, use **createContainerIfNotExists**. O exemplo de 
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
 	    if(!error){
-	      // Container exists and allows
-	      // anonymous read access to blob
-	      // content and metadata within this container
+	      // Container exists and is private
 	    }
 	});
 
@@ -103,7 +101,9 @@ O exemplo de código a seguir demonstra a configuração do nível de acesso par
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
-	      // Container exists and is private
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
 	    }
 	});
 
@@ -415,4 +415,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Práticas recomendadas de segurança para o uso do Azure MFA" 
-	description="Este documento fornece as práticas recomendadas sobre o uso do Azure MFA com contas do Azure" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Práticas recomendadas de segurança para o uso do Azure MFA"
+	description="Este documento fornece as práticas recomendadas sobre o uso do Azure MFA com contas do Azure"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Práticas recomendadas de segurança para o uso do Azure Multi-Factor Authentication com contas do AD do Azure
 
@@ -31,7 +31,7 @@ Para fornecer a todos os usuários a autenticação multifator e aproveitar as v
 ![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 A primeira etapa recomendada para a adoção do Azure MFA na nuvem com o uso do Azure AD Premium ou do Enterprise Mobility Suite é atribuir licenças aos usuários. O Azure Multi-Factor Authentication faz parte desses pacotes e, assim, sua organização não precisa de mais nada para estender a funcionalidade de autenticação multifator para todos os usuários.
- 
+
 Ao configurar o Multi-Factor Authentication, considere o seguinte:
 
 - Você não precisa criar um Provedor de Multi-Factor Authentication. O Azure AD Premium e o Enterprise Mobility Suite são incluídos no Azure Multi-Factor Authentication. Se você criar um Provedor de Autenticação, você pode ser cobrado duas vezes.
@@ -102,7 +102,7 @@ Se a sua organização for federada usando o SSO com o AD do Azure e você prete
 Use a lista abaixo para entender algumas considerações adicionais e práticas recomendadas para cada componente que será implantado localmente:
 
 Método|Descrição
-:------------- | :------------- | 
+:------------- | :------------- |
 [Serviço de Federação do Active Directory](multi-factor-authentication-get-started-adfs.md)|Informações sobre como configurar o Azure Multi-Factor Authentication com o AD FS.
 [Autenticação RADIUS](multi-factor-authentication-get-started-server-radius.md)| Informações sobre instalação e como configurar o Servidor Azure MFA com o RADIUS.
 [Autenticação IIS](multi-factor-authentication-get-started-server-iis.md)|Informações sobre instalação e como configurar o Servidor Azure MFA com o IIS.
@@ -111,7 +111,7 @@ Método|Descrição
 [Gateway de Área de Trabalho Remota e Servidor Azure Multi-Factor Authentication usando RADIUS](multi-factor-authentication-get-started-server-rdg.md)| Informações sobre instalação e como configurar o Servidor Azure MFA com o Gateway de Área de Trabalho Remota usando RADIUS.
 [Sincronizar com o Active Directory do Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Informações sobre instalação e como configurar a sincronização entre o Active Directory e o Servidor Azure MFA.
 [Implantando o Serviço Web do aplicativo móvel do Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informações sobre instalação e como configurar o serviço Web do Servidor Azure MFA.
-[Configurações de VPN avançadas com o Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md)|Informações sobre como configurar dispositivos de VPN Cisco ASA, Citrix Netscaler e Juniper/Pulse Secure usando o LDAP ou o RADIUS. 
+[Configurações de VPN avançadas com o Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md)|Informações sobre como configurar dispositivos de VPN Cisco ASA, Citrix Netscaler e Juniper/Pulse Secure usando o LDAP ou o RADIUS.
 
 
 ## Recursos adicionais
@@ -121,4 +121,4 @@ Embora este artigo destaque algumas práticas recomendadas para o Azure MFA, há
 - [Experiência de configuração do Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Perguntas frequentes sobre o Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

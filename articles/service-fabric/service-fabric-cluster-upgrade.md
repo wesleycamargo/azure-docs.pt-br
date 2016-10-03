@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/13/2016"
    ms.author="chackdan"/>
 
 
@@ -29,7 +29,7 @@ A Microsoft mantém o código de malha e a configuração executada em um cluste
 
 Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
 
 - Uma notificação de que precisamos reverter uma atualização de cluster.
 - Sugestões de ações corretivas, se houver alguma.
@@ -43,7 +43,7 @@ Se as políticas de integridade do cluster forem atendidas, a atualização ser�
 
 As políticas de integridade desta fase são definidas de forma que o número de aplicativos íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Assim como na Fase 1, na Fase 2 as atualizações ocorrem em um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e da integridade de todos os aplicativos executados no cluster) são atendidas durante a atualização.
 
-Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
+Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado ao proprietário da assinatura. O email contém as seguintes informações:
 
 - Uma notificação de que precisamos reverter uma atualização de cluster.
 - Sugestões de ações corretivas, se houver alguma.
@@ -61,7 +61,7 @@ Assim como nas duas outras fases, as atualizações da Fase 3 realizam um domín
 
 Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Depois disso, o cluster será marcado para que não receba mais suporte e/ou atualizações.
 
-Um email com essas informações será enviado ao proprietário da assinatura, juntamente com as ações corretivas. Não esperamos que qualquer cluster entre em um estado no qual a Fase 3 falhou.
+Um email com essas informações é enviado ao proprietário da assinatura, juntamente com as ações corretivas. Não esperamos que qualquer cluster entre em um estado no qual a Fase 3 falhou.
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida.
 
@@ -71,13 +71,10 @@ Estas são as configurações que você pode alterar em um cluster ativo.
 
 ### Certificados
 
-Você pode atualizar facilmente os certificados primário ou secundário no Portal do Azure (exibido abaixo) ou por meio da emissão de um comando PUT no recurso servicefabric.cluster.
+Você pode adicionar ou excluir novos certificados do cluster e do cliente facilmente por meio do portal. Confira [este documento para obter instruções detalhadas](service-fabric-cluster-security-update-certs-azure.md)
 
 ![Captura de tela que mostra as impressões digitais do certificado no Portal do Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Antes de identificar um certificado que você deseja usar para os recursos de cluster, é necessário concluir as etapas a seguir, ou o novo certificado não será usado:
-1. Carregar o novo certificado no Cofre de Chaves do Azure. Consulte [Segurança do Service Fabric](service-fabric-cluster-security.md) para obter instruções. Comece com a etapa 2 neste documento.
-2. Atualize todas as VMs (máquinas virtuais) que compõem seu cluster, para que o certificado seja implantado nelas. Para fazer isso, consulte o [Blog da equipe do Cofre de Chaves do Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Portas do aplicativo
 
@@ -87,7 +84,7 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
 1. Adicione uma nova investigação ao balanceador de carga apropriado.
 
-    Se você tiver implantado o cluster usando o portal, os balanceadores de carga receberão o nome "loadBalancer-0", "loadBalancer-1" e assim por diante, um para cada tipo de nó. Como os nomes de balanceador de carga são exclusivos apenas em um grupo de recursos, será melhor pesquisá-los em um grupo de recursos específico.
+    Se você implantou o cluster usando o portal, os balanceadores de carga são nomeados como "LB-nome do grupo de recursos-NodeTypename", um para cada tipo de nó. Como os nomes de balanceador de carga são exclusivos apenas em um grupo de recursos, será melhor pesquisá-los em um grupo de recursos específico.
 
     ![Captura de tela que mostra a adição de uma investigação a um balanceador de carga no portal.][AddingProbes]
 
@@ -102,11 +99,11 @@ Para abrir uma nova porta em todas as VMs em um tipo de nó, faça o seguinte:
 
 Para cada um dos tipos de nó, é possível adicionar as propriedades de posicionamento personalizadas que você deseja usar em seus aplicativos. NodeType é uma propriedade padrão que você pode usar sem adicioná-la explicitamente.
 
->[AZURE.NOTE] Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, consulte a seção "Restrições de posicionamento e propriedades de nó" no documento do Gerenciador de recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md).
+>[AZURE.NOTE] Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, confira a seção "Restrições de posicionamento e propriedades de nó" no documento do Gerenciador de Recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Métricas de capacidade
 
-Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, consulte os documentos do Gerenciador de recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [Métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
+Para cada um dos tipos de nó, é possível adicionar métricas de capacidade personalizadas que você deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, confira os documentos do Gerenciador de Recursos do cluster do Service Fabric em [Descrevendo seu cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [Métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
 
 ### Patches do sistema operacional nas VMs que fazem parte do cluster
 
@@ -122,8 +119,8 @@ Se for necessário atualizar a imagem do sistema operacional nas máquinas virtu
 - Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md)
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

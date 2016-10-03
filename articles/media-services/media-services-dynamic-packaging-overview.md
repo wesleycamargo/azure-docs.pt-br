@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral do empacotamento dinâmico"
+	pageTitle="Visão geral do empacotamento dinâmico | Microsoft Azure"
 	description="O tópico apresenta uma visão geral do empacotamento dinâmico."
 	authors="Juliako"
 	manager="erikre"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#Empacotamento dinâmico 
+#Empacotamento dinâmico
 
 ##Visão geral
 
@@ -34,7 +34,7 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 ![Codificação dinâmica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
 
 ##Cenário comum
 
@@ -56,11 +56,11 @@ Para preparar o ativo de streaming dinâmico você tem duas opções:
 3. [Transmita seu conteúdo](media-services-deliver-content-overview.md).
 
 -OU-
- 
+
 1. Carregue os arquivos MP4 pré-codificados.
 
-	>[AZURE.NOTE] Essa opção não é recomendada.
-	
+>[AZURE.NOTE] Essa opção não é recomendada.
+
 2. [Valide seus arquivos pré-codificados](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Transmita seu conteúdo](media-services-deliver-content-overview.md).
 
@@ -80,4 +80,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->
