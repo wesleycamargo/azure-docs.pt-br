@@ -57,7 +57,7 @@ Se o site aceitar uploads ou hospedar arquivos de mídia, use o armazenamento de
 
 ![Um aplicativo Web do Azure, hospedado em várias regiões, usando-se o roteador de Alta Disponibilidade do CDBR para MySQL, com Cache Gerenciado, armazenamento de Blob e CDN][performance-diagram]
 
-Como o armazenamento de blob é distribuído geograficamente entre várias regiões por padrão, você não precisa se preocupar com a replicação de arquivos em todos os sites. Também é possível habilitar a [Rede de Distribuição de Conteúdo][cdn] (CDN) do Azure para armazenamento de Blob, que distribui arquivos para nós finais mais próximos dos visitantes.
+Como o armazenamento de blob é distribuído geograficamente entre várias regiões por padrão, você não precisa se preocupar com a replicação de arquivos em todos os sites. Também é possível habilitar a [Rede de Distribuição de Conteúdo][cdn] \(CDN) do Azure para armazenamento de Blob, que distribui arquivos para nós finais mais próximos dos visitantes.
 
 ### Planejamento
 

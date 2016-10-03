@@ -70,7 +70,7 @@ Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão d
 
 **Pré-requisitos**
 
-1. Instale o Azure Powershell mais recente na [página Downloads do Azure][AzureDownloads] (de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
+1. Instale o Azure Powershell mais recente na [página Downloads do Azure][AzureDownloads] \(de junho de 2015 em diante). Em "Ferramentas de linha de comando", há um link "Instalar" em "Windows Powershell" que instalará os cmdlets mais recentes do PowerShell.
 
 2. É recomendável que uma sub-rede exclusiva seja criada para uso exclusivo por um Ambiente do Serviço de Aplicativo. Isso garante que as UDRs aplicadas à sub-rede abrirão apenas tráfego de saída para o Ambiente do Serviço de Aplicativo.
 3. **Importante**: não implante o Ambiente do Serviço de Aplicativo **até** que as etapas de configuração a seguir sejam seguidas. Isso garante que a conectividade de rede de saída esteja disponível antes da tentativa de implantar um Ambiente do Serviço de Aplicativo.

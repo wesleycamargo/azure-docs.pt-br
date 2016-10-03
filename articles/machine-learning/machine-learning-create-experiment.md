@@ -112,7 +112,7 @@ Quando o experimento for concluído, todos os módulos terão uma marca de sele�
 
 ![Primeira execução do experimento][screen5]
 
-Tudo o que fizemos no experimento até esse ponto é limpar os dados. Se desejar exibir o conjunto de dados limpo, clique na porta de saída à esquerda do módulo [Limpar dados ausentes][clean-missing-data] ("conjunto de dados limpo") e selecione **Visualizar**. Observe que a coluna **normalized-losses** não está mais incluída e não há valores ausentes.
+Tudo o que fizemos no experimento até esse ponto é limpar os dados. Se desejar exibir o conjunto de dados limpo, clique na porta de saída à esquerda do módulo [Limpar dados ausentes][clean-missing-data] \("conjunto de dados limpo") e selecione **Visualizar**. Observe que a coluna **normalized-losses** não está mais incluída e não há valores ausentes.
 
 Agora que os dados estão limpos, estamos prontos para especificar quais recursos usaremos no modelo preditivo.
 

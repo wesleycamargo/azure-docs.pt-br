@@ -41,6 +41,6 @@ Por padrão, o Visual Studio dá suporte a pontos de extremidade REST de nuvem p
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[Como baixar e importar informações de assinatura e configurações de publicação] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
+[Como baixar e importar informações de assinatura e configurações de publicação](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
 <!---HONumber=AcomDC_0817_2016-->

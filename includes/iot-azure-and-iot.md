@@ -10,7 +10,7 @@ O diagrama abaixo mostra uma arquitetura comum da solução IoT. Observe que ela
 
 ![Arquitetura da solução de IoT][img-solution-architecture]
 
-> [AZURE.NOTE] Para ver uma análise detalhada da arquitetura IoT, confira o [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Arquitetura de Referência da IoT do Microsoft Azure).
+> [AZURE.NOTE] Para ver uma análise detalhada da arquitetura IoT, confira o [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Arquitetura de Referência da IoT do Microsoft Azure).
 
 ### Conectividade do dispositivo
 

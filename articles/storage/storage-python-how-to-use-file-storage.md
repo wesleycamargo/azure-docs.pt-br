@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-Este artigo mostra como executar cenários comuns usando o Armazenamento de Arquivos. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abordados incluem carregamento, listagem, download e exclusão de arquivos.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Arquivos. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] \(SDK do Armazenamento do Microsoft Azure para Python). Os cenários abordados incluem carregamento, listagem, download e exclusão de arquivos.
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 

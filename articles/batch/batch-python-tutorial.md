@@ -372,7 +372,7 @@ Agora que um trabalho foi criado, as tarefas serão adicionadas para a execuçã
 
 As **tarefas** do Lote são as unidades individuais de trabalho executadas nos nós de computação. Uma tarefa tem uma linha de comando e executa os scripts ou os executáveis especificados na linha de comando.
 
-Para realmente executar o trabalho, as tarefas devem ser adicionadas a um trabalho. Cada [CloudTask][py_task] é configurada com uma propriedade de linha de comando e [ResourceFiles][py_resource_file] (assim como acontece com a StartTask do pool) que a tarefa baixa para o nó antes de a linha de comando ser executada automaticamente. No exemplo, cada tarefa processa apenas um arquivo. Portanto, sua coleção ResourceFiles contém um único elemento.
+Para realmente executar o trabalho, as tarefas devem ser adicionadas a um trabalho. Cada [CloudTask][py_task] é configurada com uma propriedade de linha de comando e [ResourceFiles][py_resource_file] \(assim como acontece com a StartTask do pool) que a tarefa baixa para o nó antes de a linha de comando ser executada automaticamente. No exemplo, cada tarefa processa apenas um arquivo. Portanto, sua coleção ResourceFiles contém um único elemento.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
