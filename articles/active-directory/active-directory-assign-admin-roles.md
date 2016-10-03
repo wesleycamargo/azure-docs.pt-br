@@ -56,8 +56,8 @@ As seguintes funções de administrador estão disponíveis:
 - **Administrador do serviço SharePoint**: os usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=pt-BR&rs=pt-BR&ad=US).
 
 - **Administrador de serviço**: gerencia as solicitações de serviço e monitora a integridade do serviço.
-> [AZURE.NOTE]
-> Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure.
+
+	> [AZURE.NOTE] Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure.
 
 - **Administrador da conta de usuário**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
 
@@ -71,31 +71,31 @@ As seguintes funções de administrador estão disponíveis:
 
 O que ele pode fazer | O que não pode fazer
 ------------- | -------------
-<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office gerenciar</p><p>Executar operações de faturamento e compra para produtos do Office</p> | <p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p>
+<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office gerenciar</p><p>Executar operações de faturamento e compra para produtos do Office</p> | <p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Exibir relatórios</p>
 
 ### Administrador global
 
 O que ele pode fazer | O que não pode fazer
 ------------- | -------------
-<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de faturamento e compra para produtos do Office</p> <p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Habilitar ou desabilitar a autenticação multifator</p> | N/D
+<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Executar operações de faturamento e compra para produtos do Office</p> <p>Redefinir senhas de usuário</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Habilitar ou desabilitar a autenticação multifator</p><p>Exibir relatórios</p> | N/D
 
 ### Administrador de senha
 
 O que ele pode fazer | O que não pode fazer
 ------------- | -------------
-<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário</p> | <p>Realizar operações de faturamento e compra para produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p>
+<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário</p> | <p>Realizar operações de faturamento e compra para produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Exibir relatórios</p>
 
 ### Administrador de serviço
 
 O que ele pode fazer | O que não pode fazer
 ------------- | -------------
-<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p> | <p>Redefinir senhas de usuários</p><p>Realizar operações de faturamento e compra para produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p>
+<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p> | <p>Redefinir senhas de usuários</p><p>Realizar operações de faturamento e compra para produtos do Office</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Exibir relatórios</p>
 
 ### Administrador de usuários
 
 O que ele pode fazer | O que não pode fazer
 ------------- | -------------
-<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário, com limitações. Eles não podem redefinir senhas para administradores de cobrança, globais e de serviço.</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário, com limitações. Eles não podem excluir um administrador global ou criar outros administradores.</p> | <p>Realizar operações de faturamento e de compra para produtos do Office</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Habilitar ou desabilitar a autenticação multifator</p>
+<p>Exibir informações da empresa e do usuário</p><p>Gerenciar tíquetes de suporte do Office</p><p>Redefinir senhas de usuário, com limitações. Eles não podem redefinir senhas para administradores de cobrança, globais e de serviço.</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Criar, editar e excluir usuários e grupos e gerenciar licenças de usuário, com limitações. Eles não podem excluir um administrador global ou criar outros administradores.</p> | <p>Realizar operações de faturamento e de compra para produtos do Office</p><p>Gerenciar domínios</p><p>Gerenciar informações da empresa</p><p>Delegar funções administrativas a outros</p><p>Usar a sincronização de diretório</p><p>Habilitar ou desabilitar a autenticação multifator</p><p>Exibir relatórios</p>
 
 ### Leitor de segurança
 
@@ -147,4 +147,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 
 - [Gerenciar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

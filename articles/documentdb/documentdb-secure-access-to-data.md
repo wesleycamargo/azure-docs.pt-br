@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="09/19/2016" 
 	ms.author="kipandya"/>
 
 # Protegendo o acesso a dados no Banco de Dados de Documentos
@@ -29,7 +29,7 @@ Após ler esta visão geral, você poderá responder as perguntas a seguir:
 
 ## Conceitos de controle de acesso do Banco de Dados de Documentos
 
-O Banco de Dados de Documentos conta com conceitos de primeira classe de controle de acesso a seus recursos. Neste tópico, os recursos do Banco de Dados de Documentos estão agrupados em duas categorias:
+O Banco de Dados de Documentos conta com conceitos de primeira classe de controle de acesso a seus recursos. Neste tópico, os recursos do DocumentDB estão agrupados em duas categorias:
 
 - Recursos administrativos
 	- Conta
@@ -38,6 +38,7 @@ O Banco de Dados de Documentos conta com conceitos de primeira classe de control
 	- Permissão
 - Recursos de aplicativos
 	- Coleção
+	- Oferta
 	- Documento
 	- Anexo
 	- Procedimento armazenado
@@ -47,7 +48,7 @@ O Banco de Dados de Documentos conta com conceitos de primeira classe de control
 No contexto dessas duas categorias, o Banco de Dados de Documentos dá suporte a três tipos de personas de controle de acesso: administrador da conta, administrador somente leitura e usuário do banco de dados. Os direitos de cada identidade de controle de acesso são:
  
 - Administrador da conta: acesso completo a todos os recursos (administrativos e de aplicativos) de uma determinada conta do Banco de Dados de Documentos.
-- Administrador somente leitura: acesso somente leitura a todos os recursos (administrativos e de aplicativos) de uma determinada conta do Banco de Dados de Documentos. 
+- Administrador somente leitura: acesso somente leitura a todos os recursos (administrativos e de aplicativos) de uma determinada conta do Banco de Dados de Documentos.
 - Usuário do banco de dados: O recurso de usuário do Banco de Dados de Documentos associado a um conjunto específico de recursos de banco de dados do Banco de Dados de Documentos (como coleções, documentos, scripts). Pode haver um ou mais recursos de usuário associados a um determinado banco de dados, e cada recurso de usuário pode ter uma ou mais permissões associadas a ele.
 
 Tendo em mente as categorias e recursos mencionados, o modelo de controle de acesso do Banco de Dados de Documentos define três tipos de constructos de acesso:
@@ -91,17 +92,17 @@ Você pode usar um token de recurso (criando usuários e permissões do Banco de
 
 Da mesma forma, as chaves somente leitura do Banco de Dados de Documentos fornecem acesso de leitura a todos os recursos - exceto recursos de permissão, é claro – de uma conta do Banco de Dados de Documentos e não podem ser usadas para fornecer um acesso mais granular a recursos específicos dele.
 
-O token de recurso do Banco de Dados de Documentos fornece uma alternativa segura que permite que os clientes leiam, gravem e excluam recursos da sua conta de acordo com as permissões que você conceder, e sem a necessidade de uma chave mestra ou de somente leitura.
+Os tokens de recurso do DocumentDB fornecem uma alternativa segura que permite que os clientes leiam, gravem e excluam recursos da sua conta de acordo com as permissões que você conceder, e sem a necessidade de uma chave mestra ou de somente leitura.
 
 Este é um padrão de design típico no qual tokens de recurso podem ser solicitados, gerados e fornecidos aos clientes:
 
 1. Um serviço de camada intermediária é configurado para atender a um aplicativo móvel de compartilhamento de fotos do usuário.
 2. O serviço de camada intermediária tem a chave mestra da conta do Banco de Dados de Documentos.
-3. O aplicativo de fotos é instalado em dispositivos móveis de usuários finais. 
+3. O aplicativo de fotos é instalado em dispositivos móveis de usuários finais.
 4. No logon, o aplicativo de fotos estabelece a identidade do usuário com o serviço de camada intermediária. Esse mecanismo de estabelecimento de identidade depende apenas do aplicativo.
 5. Depois que a identidade é estabelecida, o serviço de camada intermediária solicita permissões com base na identidade.
 6. O serviço de camada intermediária envia um token de recurso de volta para o aplicativo móvel.
-7. O aplicativo móvel pode continuar usando o token de recurso para acessar diretamente recursos do Banco de Dados de Documentos com as permissões definidas pelo token e no intervalo permitido por ele. 
+7. O aplicativo móvel pode continuar usando o token de recurso para acessar diretamente recursos do Banco de Dados de Documentos com as permissões definidas pelo token e no intervalo permitido por ele.
 8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado. Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
 
 ![Fluxo de trabalho dos tokens de recurso do Banco de Dados de Documentos](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
@@ -128,7 +129,7 @@ Um recurso de permissão do Banco de Dados de Documentos é associado a um usuá
 > [AZURE.NOTE] Para executar procedimentos armazenados no Banco de Dados de Documentos, o usuário precisa ter a permissão Tudo na coleção na qual o procedimento armazenado será executado.
 
 
-O trecho de código a seguir mostra como criar um recurso de permissão, ler o token de recurso (token) do recurso de permissão e associar as permissões ao usuário criado anteriormente.
+O trecho de código a seguir mostra como criar um recurso de permissão, ler o token de recurso do recurso de permissão e associar as permissões ao usuário criado anteriormente.
 
     // Create a permission.
     Permission docPermission = new Permission
@@ -166,4 +167,4 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

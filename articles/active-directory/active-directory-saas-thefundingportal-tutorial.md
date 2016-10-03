@@ -219,7 +219,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 ### Criação de um usuário de teste do The Funding Portal
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no The Funding Portal. Nesta seção, você criará uma usuária chamada Brenda Fernandes no The Funding Portal. Se você não souber como adicionar Brenda Fernandes ao The Funding Portal, trabalhe com a equipe de suporte do The Funding Portal para adicionar o usuário de teste e habilitar o SSO. Entre em contato com eles pelo email info@regenteducation.com.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no The Funding Portal. Se você não souber como adicionar Brenda Fernandes ao The Funding Portal, trabalhe com a equipe de suporte do The Funding Portal para adicionar o usuário de teste e habilitar o SSO. Entre em contato com eles pelo email info@regenteducation.com.
 
 ### Atribuição do usuário de teste do AD do Azure
 
@@ -282,4 +282,4 @@ Quando você clicar no bloco do The Funding Portal no Painel de Acesso, deverá 
 [204]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

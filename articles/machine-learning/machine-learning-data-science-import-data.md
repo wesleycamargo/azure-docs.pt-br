@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@ Você pode importar vários tipos de dados para seu experimento, dependendo de q
 - Texto sem formatação (.txt)
 - Valores separados por vírgulas (CSV) com cabeçalho (.csv) ou sem (.nh.csv)
 - Valores separados por tabulação (TSV) com cabeçalho (.tsv) ou sem (.nh.tsv)
+- Arquivo do Excel
+- Tabela do Azure
 - Tabela do Hive
 - Tabela de Banco de Dados SQL
 - Valores de OData
@@ -89,4 +91,4 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -24,7 +24,7 @@ O suporte a VPN do Gerenciamento de API permite que você conecte seu gateway de
 
 ## <a name="enable-vpn"> </a>Habilitar conexões VPN
 
->A conectividade VPN só está disponível na camada **Premium**. Para alternar para ela, abra o serviço de Gerenciamento de API no [Portal Clássico do Azure][] e, em seguida, abra a guia **Escala**. Na seção **Geral**, selecione a camada Premium e clique em Salvar.
+>A conectividade VPN só está disponível nos tipos **Premium** e **Developer**. Para alternar para ela, abra o serviço de Gerenciamento de API no [Portal Clássico do Azure][] e, em seguida, abra a guia **Escala**. Na seção **Geral**, selecione a camada Premium e clique em Salvar.
 
 Para habilitar a conectividade VPN, abra o serviço de Gerenciamento de API no [Portal Clássico do Azure][] e alterne para a guia **Configurar**.
 
@@ -85,4 +85,4 @@ O Gerenciamento de API depende de uma série de serviços do Azure. Quando uma i
 [Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

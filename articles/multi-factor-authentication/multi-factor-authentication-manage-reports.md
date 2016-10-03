@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Relatórios do Azure Multi-Factor Authentication" 
-	description="Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Relatórios do Azure Multi-Factor Authentication"
+	description="Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Relatórios no Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ O Azure Multi-Factor Authentication fornece vários relatórios que podem ser us
 Você pode acessar relatórios por meio do Portal de Gerenciamento do Azure
 
 Name| Descrição
-:------------- | :------------- | 
+:------------- | :------------- |
 Uso | Os relatórios de uso exibem informações sobre o uso geral, resumo do usuário e detalhes do usuário.
 Status do servidor|Este relatório exibe o status dos servidores da autenticação multifator associada à sua conta.
 Histórico de usuário bloqueado|Esses relatórios mostram o histórico de solicitações para bloquear ou desbloquear usuários.
@@ -47,6 +47,5 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 
 * [Para usuários](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

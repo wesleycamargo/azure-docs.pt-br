@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure" 
-	description="Este tópico fornece uma visão geral e oferece uma comparação dos codificadores de Mídia sob Demanda do Azure." 
+	pageTitle="Visão geral e comparação de codificadores de mídia sob demanda do Azure | Microsoft Azure" 
+	description="Este tópico fornece uma visão geral e uma comparação dos codificadores de mídia sob demanda do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
-#Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure
+#Visão geral e comparação de codificadores de mídia sob demanda do Azure
 
 ##Visão Geral de Codificação
 
@@ -29,7 +29,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
 
 - Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
-- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-portal-manage-streaming-endpoints.md).
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
@@ -38,7 +38,7 @@ Os Serviços de Mídia são compatíveis com os seguintes codificadores sob dema
 
 Este artigo fornece uma breve visão geral dos codificadores de mídia sob demanda e fornece links para artigos que oferecem informações mais detalhadas. O tópico também fornece uma comparação entre os codificadores.
 
-Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-portal-encoding-units.md).
+Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codificação ativa por vez. Você pode reservar unidades de codificação que permitem ter várias tarefas de codificação em execução simultaneamente, uma para cada unidade reservada de codificação que você comprar. Para saber mais, consulte [Dimensionamento das unidades de codificação](media-services-scale-media-processing-overview.md).
 
 ##Media Encoder Standard
 
@@ -72,7 +72,7 @@ Para obter informações, veja [Como cortar vídeos usando o Codificador de Míd
 
 Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
-###Consulte também
+###Confira também
 
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
  
@@ -242,4 +242,4 @@ Para obter ajuda da equipe dos **Serviços de Mídia**, abra um [tíquete de sup
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

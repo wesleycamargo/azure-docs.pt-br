@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
@@ -219,7 +219,7 @@ Para criar novos logons do SQL Server usando o SQL Server Management Studio:
 
 11. Se esse for o primeiro logon que você está criando, talvez você queira designá-lo como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**.
 
-    **Observação sobre segurança:** os membros da função de servidor fixa sysadmin tem controle total sobre o Mecanismo de Banco de Dados. Você deve restringir cuidadosamente a associação nessa função.
+    > [AZURE.IMPORTANT] Os membros da função de servidor fixa sysadmin tem controle total sobre o Mecanismo de Banco de Dados. Por motivos de segurança, você deve restringir cuidadosamente a associação nessa função.
 
     ![sysadmin][12]
 
@@ -306,4 +306,4 @@ As próximas etapas no processo de ciência de dados são mapeadas no [Processo 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

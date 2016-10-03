@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -24,11 +24,11 @@
 
 Se você enfrentou dificuldades para solucionar problemas de conexão RDP (Área de Trabalho Remota) ou de acesso ao aplicativo em uma VM (máquina virtual) do Azure baseada em Windows, reimplantar a VM pode ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando o Azure PowerShell ou o Portal do Azure.
 
-> [AZURE.NOTE] Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados à interface de rede virtual serão atualizados.
+> [AZURE.NOTE] Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual serão atualizados.
 
 ## Usando o PowerShell do Azure
 
-Verifique se você tem o Azure PowerShell 1.x mais recente instalado em seu computador. Leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações.
+Verifique se você tem o Azure PowerShell 1.x mais recente instalado em seu computador. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md):
 
 Use este comando do Azure PowerShell para reimplantar a máquina virtual:
 
@@ -41,4 +41,4 @@ Use este comando do Azure PowerShell para reimplantar a máquina virtual:
 ## Próximas etapas
 Você pode encontrar ajuda específica em [Solução de problemas de conexões RDP](virtual-machines-windows-troubleshoot-rdp-connection.md) ou [Etapas detalhadas de solução de problemas de RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md) se você estiver enfrentando problemas para se conectar à sua VM. Você também pode ler [problemas com a solução de problemas de aplicativo](virtual-machines-windows-troubleshoot-app-connection.md) se não conseguir acessar um aplicativo em execução em sua VM.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

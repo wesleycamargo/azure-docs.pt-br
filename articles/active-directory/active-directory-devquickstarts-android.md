@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Integrando o AD do Azure em um aplicativo Android
@@ -22,9 +22,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Se você estiver desenvolvendo um aplicativo da área de trabalho, o Azure AD tornará a autenticação dos usuários com as contas do Active Directory simples e direta. Ele também habilita seu aplicativo a consumir com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
+Se você estiver desenvolvendo um aplicativo da área de trabalho, o Azure AD tornará a autenticação dos usuários com as contas do Active Directory simples e direta. Ele também permite que seu aplicativo consuma com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
 
-Para clientes Android que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL. A única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas pendentes para Android que:
+Para clientes Android que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL. Única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas pendentes para Android que:
 
 -	Obtém tokens de acesso para chamar a API da lista de tarefas pendentes usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 -	Obtém a lista de tarefas pendentes de um usuário
@@ -270,7 +270,8 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente se houver uma conta de usuário criada nesse autenticador e o Desenvolvedor optar por não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
+11. **Agente**: 
+  o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -287,9 +288,9 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
 
  O manifesto do seu aplicativo deve ter permissões para usar contas do AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Usando este passo a passo, você deve ter o que precisa para se integrar com êxito com o Active Directory do Azure. Para obter mais exemplos de como isso funciona, visite o repositório AzureADSamples/ no GitHub.
@@ -395,7 +396,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
-Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Rastreamentos de rede
 
@@ -456,4 +457,4 @@ Saiba [como habilitar o SSO entre aplicativos no Android usando a ADAL](active-d
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Introdução à camada Premium do Cache Redis do Azure
@@ -24,9 +24,9 @@ A nova camada Premium é uma camada pronta para Empresas, que inclui todos os re
 ## Melhor desempenho em relação às camadas Standard ou Basic.
 **Melhor desempenho em relação às camadas Standard ou Básica.** Os caches na camada Premium são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado às Camadas Standard ou Básica. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas.
 
-**A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard.** Por exemplo: para um Cache de 53 GB, a taxa de transferência de P4 (Premium) é de 250 mil solicitações por segundo quando comparada a 150 mil do C6 (Standard).
+**A taxa de transferência para o Cache do mesmo tamanho é maior na camada Premium quando comparada à camada Standard.** Por exemplo, a taxa de transferência para um Cache de 53 GB P4 (Premium) é de 250 mil solicitações por segundo quando comparada a 150 mil do C6 (Standard).
 
-Consulte [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obter mais detalhes sobre o tamanho, taxa de transferência e largura de banda com caches premium.
+Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches premium, veja [Perguntas frequentes sobre o Cache Redis do Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ## Persistência de dados do Redis
 A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em um cache Básico/Standard, todos os dados são armazenados apenas na memória. Em caso de problemas de infraestrutura subjacente, pode haver uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O Cache Redis do Azure oferece opções de RDB e AOF (em breve) na [persistência do Redis](http://redis.io/topics/persistence).
@@ -48,7 +48,7 @@ Para saber mais, consulte [Como configurar o suporte de Rede Virtual para um Cac
 
 ## Importar/exportar
 
-A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de página em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
+A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados para o Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob de páginas em uma Conta de Armazenamento do Azure. Isso permite migrar entre diferentes instâncias do Cache Redis do Azure ou popular o cache com os dados antes de usar.
 
 A importação pode ser usada para trazer arquivos RDB compatíveis com o Redis de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer provedor de nuvem como Amazon Web Services e similares. Importar os dados é uma maneira fácil de criar um cache com dados previamente populados. Durante o processo de importação, o Cache Redis do Azure carrega os arquivos RDB do armazenamento do Azure para a memória e insere as chaves no cache.
 
@@ -90,4 +90,4 @@ Crie um cache e explore os novos recursos da camada premium.
 -	[Como administrar o Cache Redis do Azure](cache-administration.md)
   
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

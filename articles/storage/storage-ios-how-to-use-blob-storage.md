@@ -4,16 +4,17 @@
     services="storage"
     documentationCenter="ios"
     authors="micurd"
-    manager="jahogg"/>
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
-    ms.devlang="Objective-C"
+    ms.devlang="objective-c"
     ms.topic="article"
-    ms.date="07/27/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # Como usar o armazenamento de Blob no iOS
 
@@ -371,4 +372,4 @@ Agora que você aprendeu como usar o Armazenamento de Blobs do iOS, siga esses l
 
 Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Excedente de pilha](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

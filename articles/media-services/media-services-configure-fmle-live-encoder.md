@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única" 
-	description="Este tópico mostra como configurar o codificador Flash Media Live Encoder (FMLE) para enviar um único fluxo de taxa de bits para os canais AMS que são habilitados para codificação ativa." 
+	pageTitle="Configurar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única | Microsoft Azure" 
+	description="Este tópico mostra como configurar o codificador FMLE (Flash Media Live Encoder) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
@@ -24,7 +24,7 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-Este tópico mostra como configurar o codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) para enviar um único fluxo de taxa de bits para os canais AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este tópico mostra como configurar o codificador [FMLE](http://www.adobe.com/products/flash-media-encoder.html) (Flash Media Live Encoder) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
@@ -33,7 +33,7 @@ Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o F
 ##Pré-requisitos
 
 - [Criar uma conta de Serviços de Mídia do Azure](media-services-create-account.md)
-- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-manage-origins.md)
+- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 - Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie a ferramenta e conecte-se à sua conta do AMS.
 
@@ -137,7 +137,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
 ##Criar um programa
 
@@ -159,7 +159,7 @@ A transmissão agora está pronta para ser inserida em um player ou distribuída
 
 ## Solucionar problemas
 
-Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
+Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

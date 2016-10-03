@@ -22,9 +22,9 @@ Saiba mais sobre a integração de log do Azure, seus principais recursos e como
 
 ## Visão geral
 
-Tanto a PaaS (plataforma como serviço) quanto a IaaS (infraestrutura como serviço) hospedadas no Azure geram uma grande quantidade de dados nos logs de segurança. Esses logs contêm informações importantes que podem fornecer inteligência e entendimentos significativos sobre as violações de política, as ameaças internas e externas, os problemas de conformidade normativa e as anomalias na rede, no host e na atividade do usuário.
+PaaS (plataforma como serviço) e IaaS (infraestrutura como serviço) hospedadas no Azure geram uma grande quantidade de dados em logs de segurança. Esses logs contêm informações importantes que podem fornecer inteligência e entendimentos significativos sobre as violações de política, as ameaças internas e externas, os problemas de conformidade normativa e as anomalias na rede, no host e na atividade do usuário.
 
-A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração de log do Azure coleta o Diagnóstico do Azure de suas máquinas virtuais do Windows *(WAD)* e do Linux *(LAD)*, bem como os diagnósticos das soluções de parceiros, como um WAF (Firewall do Aplicativo Web). Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
+A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta diagnóstico do Azure de suas máquinas virtuais do Windows *(WAD)*, bem como diagnósticos de soluções de parceiros, como um WAF (Firewall do Aplicativo Web). Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
 
 ![Integração de log do Azure][1]
 
@@ -36,6 +36,8 @@ O Azure produz um log abrangente para cada um de seus serviço. Esses logs são 
 - **Logs do plano de dados**, que oferecem visibilidade nos eventos gerados como parte do uso de um recurso do Azure. Os exemplos desse tipo de log são os Logs do Sistema de Eventos do Windows, de Segurança e Aplicativo em uma máquina virtual.
 
 A integração do log do Azure atualmente dá suporte para a integração dos Logs de Auditoria do Azure, aos logs de máquina virtual e aos alertas da Central de Segurança do Azure.
+
+Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 
 ## Próximas etapas
 
@@ -51,4 +53,4 @@ Neste documento, você foi apresentado à integração de log do Azure. Para sab
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/16/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
@@ -113,10 +113,7 @@ As informações de local podem ser destacadas da maneira indicada a seguir, sep
 Os recursos baseados em local indicados acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
 
 
-> [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) [Uma amostra do HelloWorld para acessar o SQL Server com o Python]).
- 
-
-> [AZURE.TIP] Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) [Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
@@ -152,4 +149,4 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

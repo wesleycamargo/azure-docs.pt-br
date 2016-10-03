@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Como ativar ou desativar funções no Azure AD Privileged Identity Management
@@ -31,10 +31,7 @@ Use o aplicativo do Azure AD Privileged Identity Management no [Portal do Azure]
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você vai operar.
-3. Selecione **Novo** > **Segurança + Identidade** > **Azure AD Privileged Identity Management**.
-
-    ![Habilitar o PIM no portal][1]
-
+3. Selecione **Mais serviços** e use a caixa de texto Filtrar para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management é aberto.
 
 ## Ativar uma função
@@ -72,4 +69,4 @@ Caso você esteja interessado em aprender mais sobre o Azure AD Privileged Ident
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

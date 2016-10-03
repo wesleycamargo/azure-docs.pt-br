@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # Desenvolvimento de ação de script com o HDInsight
@@ -167,6 +167,11 @@ Isso torna os auxiliares a seguir disponíveis para uso em seu script:
 | `test_is_headnode` | Se executado em um nó de cabeçalho do cluster, retorna 1. Caso contrário, 0. |
 | `test_is_datanode` | Se o nó atual é um nó de dados (de trabalho), retorna 1; caso contrário, 0. |
 | `test_is_first_datanode` | Se o nó atual é o primeiro nó de dados (de trabalho, chamado workernode0), retorna 1; caso contrário, retorna 0. |
+| `get_headnodes` | Retorna o nome de domínio totalmente qualificado dos nós de cabeçalho primários no cluster. Os nomes são delimitados por vírgula. Uma cadeia de caracteres vazia retorna em caso de erro. |
+| `get_primary_headnode` | Obtém o nome de domínio totalmente qualificado do nó de cabeçalho primário. Uma cadeia de caracteres vazia retorna em caso de erro. |
+| `get_secondary_headnode` | Obtém o nome de domínio totalmente qualificado do nó de cabeçalho secundário. Uma cadeia de caracteres vazia retorna em caso de erro. |
+| `get_primary_headnode_number` | Obtém o sufixo numérico do nó de cabeçalho primário. Uma cadeia de caracteres vazia retorna em caso de erro. |
+| `get_secondary_headnode_number` | Obtém o sufixo numérico do nó de cabeçalho secundário. Uma cadeia de caracteres vazia retorna em caso de erro. |
 
 ## <a name="commonusage"></a>Padrões comuns de uso
 
@@ -268,4 +273,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

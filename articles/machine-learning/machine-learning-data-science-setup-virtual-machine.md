@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configurar uma máquina virtual do Azure como um servidor do IPython Notebook para análises avançadas
@@ -85,9 +85,9 @@ O *&#60;nome DNS da máquina virtual>* pode ser encontrado no Portal Clássico d
 
 Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
 
-Internet Explorer: ![Criar espaço de trabalho][20]
+**Internet Explorer:** ![Criar espaço de trabalho][20]
 
-Chrome: ![Criar espaço de trabalho][21]
+**Chrome:** ![Criar espaço de trabalho][21]
 
 Depois de fazer logon no IPython Notebook, o diretório *DataScienceSamples* aparecerá no navegador. Esse diretório contém o IPython Notebooks de amostra que é compartilhado pela Microsoft para ajudar os usuários a realizar tarefas de ciência de dados. Esses IPython Notebooks de amostra são verificados no [**repositório Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) para as máquinas virtuais durante o processo de configuração do servidor do IPython Notebook. A Microsoft mantém e atualiza esse repositório com frequência. Os usuários podem visitar o repositório Github para obter a amostra do IPython Notebooks atualizada mais recentemente. ![Criar espaço de trabalho][18]
 
@@ -142,4 +142,4 @@ As próximas etapas no Processo de Ciência de Dados de Equipe são mapeadas no 
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/01/2016"
-	ms.author="bradsev;"/>
+	ms.author="bradsev;deguhath"/>
 
 
 # Ciência de Dados usando o Scala e o Spark no Azure
@@ -1164,4 +1164,4 @@ Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o 
 
 [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md) mostra como usar o código Scala para carregar e pontuar automaticamente novos conjuntos de dados com modelos de aprendizado de máquina compilados no Spark e salvos no armazenamento de Blobs do Azure. Você pode seguir as instruções fornecidas nele e simplesmente substituir o código Python pelo código Scala neste artigo para o consumo automatizado.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

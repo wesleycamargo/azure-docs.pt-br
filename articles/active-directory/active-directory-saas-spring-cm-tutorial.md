@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o SpringCM
@@ -21,7 +21,7 @@ O objetivo deste tutorial é mostrar como configurar o logon único entre o Acti
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
--   Uma assinatura do SpringCM com logon único habilitado
+-   Uma assinatura habilitada para logon único do SpringCM
   
 Depois de concluir este tutorial, os usuários do Active Directory do Azure que você atribuiu ao SpringCM poderão fazer um logon único no aplicativo usando o Painel de Acesso do AAD.
 
@@ -86,7 +86,7 @@ Esta descreve como permitir que os usuários se autentiquem no SpringCM com a re
 
 4.  Na página **Configurar logon único no SpringCM**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar o Logon Único")
+    ![Configurar o Logon Único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar o Logon Único")
 
 5.  Em outra janela do navegador da Web, entre em seu site de empresa do **SpringCM** como administrador.
 
@@ -138,7 +138,7 @@ Para permitir que os usuários do AD do Azure façam logon no SpringCM, eles dev
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao SpringCM, execute as seguintes etapas:
 
@@ -154,4 +154,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

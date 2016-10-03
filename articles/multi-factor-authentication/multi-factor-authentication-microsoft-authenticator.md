@@ -3,7 +3,7 @@
 	description="Saiba como atualizar para a versão mais recente do Azure Authenticator."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="femila"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Microsoft Authenticator
 
@@ -68,13 +68,13 @@ Para cada conta que você deseja adicionar ao aplicativo Microsoft Authenticator
 
 	![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-7. Após a conclusão da entrada do PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
+7. Após digitar o PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
 8. É recomendável que você insira seu número de telefone celular caso perca o acesso ao aplicativo. Especifique o seu país na lista suspensa e insira o número do celular na caixa ao lado do país. Selecione **Avançar**.
-9. Neste ponto, você configurou o método de contato. Agora, é hora de configurar as senhas do aplicativo para os aplicativos sem navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, selecione **Concluído**. Caso contrário, passe para a próxima etapa.
+9. Neste ponto, você configurou o método de contato. Agora, é hora de configurar as senhas do aplicativo para os aplicativos sem navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, selecione **Concluído**. Caso contrário, prossiga para a próxima etapa.
 
 	![Tela para criar uma senha do aplicativo](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
-10. Se você estiver usando aplicativos sem navegador, copie a senha do aplicativo fornecida e cole-a em seus aplicativos. Para ver as etapas dos aplicativos individuais, como o Outlook e Lync, consulte Como alterar a senha em seu email para a senha do aplicativo e Como alterar a senha em seu aplicativo para a senha do aplicativo.
+10. Se estiver usando aplicativos sem navegador, copie a senha do aplicativo fornecida e cole-a em seus aplicativos. Para ver as etapas de aplicativos individuais, como o Outlook e o Lync, consulte Como alterar a senha em seu email para a senha do aplicativo e Como alterar a senha em seu aplicativo para a senha do aplicativo.
 11. Selecione **Concluído**.
 
 Agora, você deverá ver a nova conta na tela de **contas**.
@@ -137,4 +137,4 @@ Para remover uma conta do aplicativo Microsoft Authenticator, selecione a conta,
 
 ![Botão Excluir](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

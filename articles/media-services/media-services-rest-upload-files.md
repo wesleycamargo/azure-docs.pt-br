@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Carregar arquivos em uma conta dos Serviços de Mídia usando o REST" 
+	pageTitle="Carregar arquivos em uma conta dos Serviços de Mídia usando REST | Microsoft Azure" 
 	description="Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,11 @@
 
 Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais.
 
-
->[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>[AZURE.NOTE]As seguintes considerações se aplicam ao escolher um nome de arquivo de ativo:
+>
+>- Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>
+>- O comprimento do nome não deve ser maior do que 260 caracteres.
 
 O fluxo de trabalho básico para o carregamento de Ativos é dividido nas seguintes seções:
 
@@ -517,7 +520,9 @@ O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP PO
 
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -531,4 +536,4 @@ O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP PO
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

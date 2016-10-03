@@ -74,10 +74,16 @@ Para configurar as notificações por email para alertas
 5. Na caixa de diálogo **Gravidade**, escolha um ou mais níveis que você deseja para disparar a notificação por email.
 
 6. Clique em **Salvar**.
+### Quais tipos de alertas estão disponíveis para o backup da VM IaaS do Azure?
+| Nível de alerta | Alertas enviados |
+| ------------- | ------------- |
+| Crítico | Falha de backup, falha na recuperação |
+| Aviso | Nenhum |
+| Informativo | Nenhum | 
 
 ### Há situações em que o email não será enviado mesmo se as notificações estiverem configuradas?
 
-Há situações em que um alerta não é enviado, mesmo que as notificações tenham sido corretamente configuradas. Nas situações a seguir, não serão enviadas notificações por email:
+Há situações em que um alerta não é enviado, mesmo que as notificações tenham sido corretamente configuradas. Nas situações a seguir, notificações por email não serão enviadas para evitar ruídos de alerta:
 
 - Se as notificações forem configuradas como Resumo de Hora em Hora e se um alerta for gerado e resolvido em uma hora.
 - O Trabalho é cancelado.
@@ -231,4 +237,4 @@ Para obter uma explicação abrangente dos eventos, operações e os logs de aud
 
 Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

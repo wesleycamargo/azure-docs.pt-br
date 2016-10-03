@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
@@ -55,7 +55,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 1. Embora as especificidades de cada registrador variem, em geral, você mapeia *de* seu nome de domínio personalizado (como **contoso.com**,) *para* o nome de domínio do Gerenciador de Tráfego (**contoso.trafficmanager.net**) que é usado para seu aplicativo web.
 
-> [AZURE.NOTE] Como alternativa, se um registro já estiver em uso e você precisar vincular seus aplicativos a ele, crie um registro TXT para **awverify.contoso.com** em **contoso.trafficmanager.net**.
+    > [AZURE.NOTE] Como alternativa, se um registro já está em uso e você precisa associar preventivamente seus aplicativos a ele, pode criar um registro CNAME adicional. Por exemplo, para associar preventivamente **www.contoso.com** a seu aplicativo Web, crie um registro CNAME de **awverify.www** para **contoso.trafficmanager.net**. Você pode adicionar "www.contoso.com" ao seu aplicativo Web sem alterar o registro CNAME "www". Para obter mais informações, confira [Criar registros DNS para um aplicativo Web em um domínio personalizado][CREATEDNS].
 
 1. Depois de terminar a adição ou a modificação de registros DNS no registrador, salve as alterações.
 
@@ -72,4 +72,8 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodej
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-- URL List -->
+
+[CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
+
+<!---HONumber=AcomDC_0921_2016-->

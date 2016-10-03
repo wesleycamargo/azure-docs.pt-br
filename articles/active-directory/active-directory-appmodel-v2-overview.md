@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
@@ -61,4 +61,4 @@ Estes links serão úteis na exploração em profundidade da plataforma:
   - [Cliente OAuth2 do Android](https://github.com/wuman/android-oauth-client)
   - [Cliente OpenID Connect do Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de Transmissão do Hadoop
 Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de Transmissão do Hadoop de um pipeline do Azure Data Factory. O trecho de código JSON a seguir mostra a sintaxe para usar HDInsightStreamingActivity em um arquivo JSON do pipeline.
 
-A Atividade de Transmissão do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas de Transmissão do Hadoop [em seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou cluster HDInsight [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) baseado no Windows/Linux. Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral de transformação de dados e as atividades de transformação para as quais há suporte.
+A Atividade de Transmissão do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas de Transmissão do Hadoop [em seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou cluster HDInsight [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) baseado no Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
 ## Exemplo de JSON
 O cluster HDInsight é preenchido automaticamente com os programas de exemplo (wc.exe e cat.exe) e os dados (DaVinci). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster.
@@ -68,20 +68,20 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 	    }
 	}
 
-Observe o seguinte:
+Observe os seguintes pontos:
 
-1. Defina **linkedServiceName** como o nome do serviço vinculado que aponta para o cluster HDInsight no qual o trabalho do MapReduce de transmissão será executado.
+1. Defina **linkedServiceName** para o nome do serviço vinculado que aponta para o cluster do HDInsight no qual o trabalho do MapReduce de transmissão é executado.
 2. Defina o tipo da atividade como **HDInsightStreaming**.
-3. Para a propriedade **mapper**, especifique o nome do executável do mapeador. No exemplo acima, cat.exe é o executável do mapeador.
-4. Para a propriedade **reducer**, especifique o nome do executável do redutor. No exemplo acima, wc.exe é o executável do redutor.
-5. Para a propriedade de tipo **input**, especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: wasb://adfsample@<nome da conta>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
-6. Para a propriedade de tipo **output**, especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de Transmissão do Hadoop será gravada no local especificado para essa propriedade.
+3. Para a propriedade **mapper**, especifique o nome do executável do mapeador. No exemplo, cat.exe é o executável do mapeador.
+4. Para a propriedade **reducer**, especifique o nome do executável do redutor. No exemplo, wc.exe é o executável do redutor.
+5. Para a propriedade de tipo **input**, especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: "wasb://adfsample@<nome conta>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contêiner de blobs, example/data/Gutenberg é a pasta e davinci.txt é o blob.
+6. Para a propriedade de tipo **output**, especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade.
 7. Na seção **filePaths**, especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
 8. Para a propriedade **fileLinkedService**, especifique o serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.
 9. Para a propriedade **arguments**, especifique os argumentos para o trabalho de transmissão.
 10. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como Falha, os logs são baixados somente em caso de falha de execução. Quando ela é definida como Todos, os logs sempre são baixados, não importa o status de execução.
 
-> [AZURE.NOTE] Conforme mostrado no exemplo, você precisará especificar um conjunto de dados de saída para a atividade de Streaming do Hadoop para a propriedade de **saídas**. Isso é apenas um conjunto de dados fictício que é necessário para direcionar a agenda de pipeline. Você não precisa especificar qualquer conjunto de dados de entrada para a atividade da propriedade **entradas**.
+> [AZURE.NOTE] Como mostrado no exemplo, você especifica um conjunto de dados de saída da Atividade de Transmissão do Hadoop para a propriedade **outputs**. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline. Você não precisa especificar qualquer conjunto de dados de entrada para a atividade da propriedade **entradas**.
 
 	
 ## Exemplo
@@ -121,7 +121,7 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 ### Conjunto de dados
 
 #### Conjunto de dados de saída
-O pipeline neste exemplo não tem entradas. Você precisará especificar um conjunto de dados de saída para a atividade de streaming do HDInsight. Isso é apenas um conjunto de dados fictício que é necessário para direcionar a agenda de pipeline.
+O pipeline neste exemplo não tem entradas. Você especifica um conjunto de dados de saída para a Atividade de Transmissão do HDInsight. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline.
 
 	{
 	    "name": "StreamingOutputDataset",
@@ -192,11 +192,11 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 	    }
 	}
 
-## Veja também
+## Consulte também
 - [Atividade de Hive](data-factory-hive-activity.md)
 - [Atividade Pig](data-factory-pig-activity.md)
 - [Atividade MapReduce](data-factory-map-reduce.md)
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

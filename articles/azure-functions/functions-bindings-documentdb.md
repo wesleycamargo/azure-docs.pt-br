@@ -68,6 +68,29 @@ Usando o function.json de exemplo acima, a associação de entrada do Banco de D
 	    document.text = "This has changed.";
 	}
 
+#### Exemplo de código de entrada do Azure DocumentDB para um gatilho de fila do F#
+
+Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos irá recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para o parâmetro 'document'. Se esse documento não for encontrado, o parâmetro 'document' será nulo. O documento será então atualizado com o novo valor de texto quando a função sair.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+Você precisará de um arquivo `project.json` que usa o NuGet para especificar os pacotes `FSharp.Interop.Dynamic` e `Dynamitey` como dependências do pacote, da seguinte forma:
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+Isso usará o NuGet para buscar suas dependências e fará referência a elas em seu script.
+
 #### Exemplo de código de entrada do Banco de Dados de Documentos do Azure para um gatilho de fila do Node.js
  
 Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos vai recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para a propriedade de associação `documentIn`. Em funções do Node.js, os documentos atualizados não são enviados de volta à coleção. No entanto, você pode passar a associação de entrada diretamente para uma associação de saída do Banco de Dados de Documentos chamada `documentOut` para dar suporte a atualizações. Este exemplo de código atualiza a propriedade de texto do documento de entrada e o define como o documento de saída.
@@ -131,6 +154,12 @@ O documento de saída:
 	}
  
 
+#### Exemplo de código de saída do Azure DocumentDB para um gatilho de fila do F#
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### Exemplo de código de saída do Banco de Dados de Documentos do Azure para um gatilho de fila do C#
 
 
@@ -178,6 +207,27 @@ Você poderia usar o seguinte código C# em uma função de gatilho de fila:
 	    };
 	}
 
+Ou o código equivalente em F#:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 Saída de exemplo:
 
 	{
@@ -191,4 +241,4 @@ Saída de exemplo:
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

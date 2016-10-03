@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@ Existem diversos modelos dentre os quais podemos escolher. Para ver os modelos d
 
 > [AZURE.TIP] Para obter ajuda para decidir qual algoritmo do Aprendizado de Máquina melhor se ajusta ao problema específico que você está tentando resolver, consulte [Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
 
-##Treinar os modelos
+## Treinar os modelos
+
 Primeiro, vamos configurar o modelo de árvore de decisão aumentada:
 
 1.	Localize o módulo [Árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree] na paleta do módulo e arraste-o para as telas.
@@ -82,7 +83,8 @@ Esta parte de nosso teste deve se parecer um pouco com o seguinte:
 
 ![Treinando o segundo modelo][2]
 
-##Pontuar e avaliar os modelos
+## Pontuar e avaliar os modelos
+
 Usaremos os dados de teste que foram separados pelo módulo [Dividir Dados][split] para pontuar nossos modelos treinados. Podemos comparar os resultados dos dois modelos para ver quais geraram os melhores resultados.
 
 1.	Localize o módulo [Modelo de pontuação][score-model] e arraste-o para as telas.
@@ -143,4 +145,4 @@ Ao examinar esses valores, você pode decidir qual modelo está mais próximo de
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

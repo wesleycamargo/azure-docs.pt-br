@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -83,6 +83,6 @@ Se o serviço de nuvem existente não estiver associado a uma rede virtual basea
 
 ## Próximas etapas
 
-Se você encontrar problemas ao criar uma nova VM do Linux no Azure, consulte [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+Se você encontrar problemas ao criar uma nova VM do Linux no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -41,7 +41,8 @@ A próxima etapa neste passo a passo é criar um novo teste no Estúdio de Apren
 3.	Na paleta do módulo à esquerda das telas de teste, expanda **Conjuntos de dados salvos**.
 4.	Localize o conjunto de dados que você criou em**Meus Conjuntos de Dados**e arraste-o para a tela. Você também pode localizar o conjunto de dados inserindo o nome na caixa **Pesquisar** acima da paleta.
 
-##Preparar os dados
+## Preparar os dados
+
 É possível exibir as 100 primeiras linhas dos dados, e algumas informações estatísticas de todo o conjunto de dados, clicando na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecionando **Visualizar**.
 
 Como o arquivo de dados não foi fornecido com títulos de coluna, o Estúdio forneceu títulos genéricos (Col1, Col2 *etc.*). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Também, quando eventualmente publicarmos esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.
@@ -75,7 +76,8 @@ Para usar [Editar Metadados][edit-metadata], você deve determinar quais colunas
 
 > [AZURE.TIP] Se quer verificar os títulos de coluna, execute o teste (clique em **EXECUTAR** abaixo da tela do teste). Quando ele terminar a execução (uma marca de seleção verde aparecerá em [Editar Metadados][edit-metadata]), clique na porta de saída do módulo [Editar Metadados][edit-metadata] e selecione **Visualizar**. Você pode exibir a saída de qualquer módulo da mesma maneira para exibir o progresso dos dados durante o teste.
 
-##Criar conjuntos de dados de treinamento e teste
+## Criar conjuntos de dados de treinamento e teste
+
 A próxima etapa do teste é gerar conjuntos de dados separados que serão utilizados para treinamento e teste de nosso modelo.
 
 Para isso, usamos o módulo [Dividir Dados][split].
@@ -130,4 +132,4 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

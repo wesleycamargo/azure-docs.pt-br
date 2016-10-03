@@ -4,8 +4,8 @@
 	keywords="introdução ao MFA, visão do geral do mfa, o que é mfa"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # O que é o Azure Multi-Factor Authentication?
 O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários. Ela funciona, exigindo dois ou mais dos métodos de verificação a seguir:
@@ -47,8 +47,8 @@ O Azure Multi-Factor Authentication é uma solução fácil de usar, escalonáve
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Fácil de usar**|**Escalonável**|**Sempre protegidos**|**Confiável**
 
-- **Fácil de usar** - a Multi-Factor Authentication do Azure é simples de configurar e usar. A proteção adicional que acompanha o Azure Multi-Factor Authentication permite que os usuários usem e gerenciem os seus próprios dispositivos e, em muitos casos, ele pode ser configurado com apenas alguns cliques.
-- **Escalonável** - a Multi-Factor Authentication do Azure utiliza os recursos da nuvem e integra-se ao seu AD e aplicativos personalizados locais. Essa proteção ainda é estendida aos seus cenários essenciais de missão de alto volume.
+- **Fácil de usar** – a Multi-Factor Authentication do Azure é simples de configurar e usar. A proteção adicional que acompanha o Azure Multi-Factor Authentication permite que os usuários usem e gerenciem os seus próprios dispositivos e, em muitos casos, ele pode ser configurado com apenas alguns cliques.
+- **Escalonável** – a Multi-Factor Authentication do Azure utiliza os recursos da nuvem e integra-se ao seu AD e a aplicativos personalizados locais. Essa proteção ainda é estendida aos seus cenários essenciais de missão de alto volume.
 - **Sempre protegidos** - o Azure Multi-Factor Authentication fornece autenticação forte usando os mais altos padrões do setor.
 - **Confiável** - Garantimos 99,9% de disponibilidade do Azure Multi-Factor Authentication. O serviço é considerado indisponível quando não é possível receber ou processar solicitações de autenticação parao Multi-Factor Authentication.
 
@@ -147,12 +147,12 @@ Escolha o modelo baseado em consumo que funciona melhor para sua organização. 
 
 Como há vários tipos de Azure Multi-Factor Authentication, precisamos determinar algumas coisas para descobrir qual versão é a correta para usar. Esses elementos são:
 
--	[O que estou tentando proteger](#what-am-i-trying-to-secure)
--	[Onde os usuários estão localizados](#where-are-the-users-located)
+-	<a href="#1">O que estou tentando proteger?</a>
+-	<a href="#2">Onde os usuários estão localizados</a>
 
 As seções a seguir fornecem orientações sobre como determinar a cada um deles.
 
-### O que estou tentando proteger?
+<h3 id="1">O que estou tentando proteger?</h3>
 
 Para determinar a solução de autenticação multifator correta, precisamos responder primeiro à pergunta de o que você está tentando proteger com um segundo método de autenticação. É um aplicativo no Azure? Ou é um sistema de acesso remoto, por exemplo. Ao determinar o que estamos tentando proteger, passaremos a responder à pergunta de onde a autenticação multifator precisa ser habilitada.
 
@@ -168,7 +168,7 @@ Acesso remoto, como VPN, RDG| |* |
 
 
 
-### Onde os usuários estão localizados
+<h3 id="2">Onde os usuários estão localizados</h3>
 
 Em seguida, dependendo de onde os usuários estão localizados, podemos determinar a solução correta para usar, seja a autenticação multifator na nuvem ou no local usando o Servidor MFA.
 
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -23,7 +23,7 @@
 
 Como administrador global de um serviço de nuvem da Microsoft, você pode usar o Módulo Active Directory do Microsoft Azure para Windows PowerShell para configurar senhas de usuário de modo que não expirem. Você também pode usar os cmdlets do Windows PowerShell para remover as configurações que nunca expiram ou para ver quais senhas de usuário são configuradas para não expirar. Este artigo fornece ajuda para serviços de nuvem, como o Microsoft Intune e o Office 365, que dependem do Microsoft Azure Active Directory para serviços de identidade e diretório.
 
-  > [AZURE.NOTE] Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para obter mais informações sobre sincronização de diretórios, consulte a lista de tópicos no [Roteiro de sincronização de diretório](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+  > [AZURE.NOTE] Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para saber mais sobre sincronização de diretórios, consulte a lista de tópicos no [Roteiro de sincronização de diretório](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
 Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
@@ -51,9 +51,9 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 2.  Faça uma das opções a seguir:
 
-	- Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
+	- Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
 
-	- Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
+	- Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ## Definir uma senha para nunca expirar
 
@@ -61,12 +61,12 @@ Para usar os cmdlets do Windows PowerShell, primeiro você deve instalá-los.
 
 2.  Faça uma das opções a seguir:
 
-	- Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
+	- Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o nome UPN ou a ID do usuário: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
 
-	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+	- Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## Próximas etapas
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

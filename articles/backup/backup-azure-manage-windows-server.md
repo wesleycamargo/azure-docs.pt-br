@@ -60,7 +60,12 @@ Na parte superior do Painel:
 - Excluir - se um cofre dos serviços de recuperação ainda não estiver sendo usado, você poderá exclui-lo para liberar espaço de armazenamento. A exclusão é habilitada somente depois que todos os servidores protegidos foram excluídos do cofre.
 
 ![Tarefas do painel Backup](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## Alertas de backups usando o agente de backup do Azure:
+| Nível de alerta | Alertas enviados |
+| ------------- | ------------- |
+| Crítico | Falha de backup, falha na recuperação |
+| Aviso | Backup foi concluído com avisos (quando menos de centenas de arquivos ficam sem backup devido a problemas de corrupção e mais de um milhão de arquivos têm o backup feito com êxito) |
+| Informativo | Nenhum |
 ## Gerenciar alertas de Backup
 Clique no bloco **Alertas de Backup** para abrir a folha **Alertas de Backup** e gerenciar os alertas.
 
@@ -285,9 +290,14 @@ R3. A seguir, os casos quando a notificação não será enviada para reduzir o 
    - o Trabalho será cancelado.
    - O segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento.
 
+## Solucionando problemas de monitoramento<br>
+#### Problema: trabalhos e alertas do agente de backup do Azure não aparecem no portal.
+##### Etapas para solucionar problemas:
+"OBRecoveryServicesManagementAgent" é usado para enviar os dados dos trabalhos e alertas para o serviço de backup do Azure. Abra o gerenciador de tarefas e veja se o processo "OBRecoveryServicesManagementAgent" está sendo executado. Algumas vezes, esse processo pode ter sido atingido ou desligado. Se o processo não está em execução, navegue pela lista de serviços no painel de controle e inicie ou reinicie o "Agente de gerenciamento dos Serviços de Recuperação do Microsoft Azure”. Para saber mais, procure os logs em "pasta de instalação do agente de backup do Azure"\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider*. <b>Por exemplo:</b> C:\\Arquivos de Programas\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider0.errlog
+
 ## Próximas etapas
 - [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -28,7 +28,7 @@ Normalmente, os microsserviços no Service Fabric executado em um subconjunto de
 2. Conecte-se ao serviço.
 3. Determine a causa de falhas de conexão e resolva novamente a localização do serviço quando necessário.
 
-Esse processo geralmente envolve a quebra automática de bibliotecas de comunicação de cliente em um loop de repetição que implementa as políticas de repetição e resolução de serviço. Para obter mais informações sobre esse tópico, consulte [comunicando-se com os serviços](service-fabric-connect-and-communicate-with-services.md).
+Esse processo geralmente envolve a quebra automática de bibliotecas de comunicação de cliente em um loop de repetição que implementa as políticas de repetição e resolução de serviço. Para obter mais informações sobre esse tópico, confira o artigo sobre a [comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
 ### Comunicando-se pelo proxy inverso do SF
 O proxy inverno do Service Fabric é executado em todos os nós no cluster. Ele executa o processo de resolução de todo o serviço em nome do cliente e, em seguida, encaminha a solicitação do cliente. Portanto, clientes em execução no cluster podem simplesmente usar bibliotecas de comunicação do cliente HTTP para se comunicar com o serviço de destino por meio do proxy inverso do SF executando localmente no mesmo nó.
@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. No caso de tráfego HTTPS, terminação SSL ocorre no proxy inverso. Solicitações que são encaminhadas pelo proxy inverso para serviços no cluster são por http.
- - **FQDN do gateway | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster (por exemplo, mycluster.eastus.cloudapp.azure.com). Por padrão, o proxy reverso é executado em cada nó, então para o tráfego interno, ele pode ser acessado no host local ou em qualquer nó interno de IP (por exemplo, 10.0.0.1).
+ - **FQDN do Cluster| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
  - **Porta:** a porta que foi especificada para o proxy inverso. Por exemplo, 19008.
  - **ServiceInstanceName:** esse é o nome da instância de serviço implantado totalmente qualificado do serviço que você está tentando acessar do esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você deve usar *myapp/myservice*.
  - **Caminho de sufixo:** esse é o caminho de URL real para o serviço que você deseja se conectar. Por exemplo, *myapi/values/add/3*
@@ -130,7 +130,7 @@ O proxy inverso do Service Fabric pode ser habilitado para o cluster por meio do
 
 Depois de obter o modelo do cluster que você deseja implantar (de modelos de exemplo ou criando um modelo do Resource Manager personalizado), o proxy inverso poderá ser habilitado no modelo ao seguir as etapas a seguir.
 
-1. Defina uma porta para o proxy inverso na seção [Parâmetros](../resource-group-authoring-templates.md) do modelo.
+1. Defina uma porta para o proxy inverso na [seção Parâmetros](../resource-group-authoring-templates.md) do modelo.
 
     ```json
     "SFReverseProxyPort": {
@@ -205,7 +205,7 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
         ]
     }
     ```
-4. Para configurar certificados SSL na porta de proxy inverso, adicione o certificado à propriedade httpApplicationGatewayCertificate na seção **Cluster** [Tipo de recurso](../resource-group-authoring-templates.md)
+4. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade httpApplicationGatewayCertificate no **Cluster** [seção Tipo de recurso](../resource-group-authoring-templates.md)
 
     ```json
     {
@@ -229,7 +229,7 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
     ```
 
 ## Próximas etapas
- - Veja um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+ - Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 
  - [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
@@ -241,4 +241,4 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

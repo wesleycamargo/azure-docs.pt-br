@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/16/2016"
 	ms.author="rajanaki"/>
 
 # Replicar máquinas virtuais Hyper-V em nuvens VMM para Azure usando o PowerShell e o Azure Resource Manager
@@ -35,11 +35,11 @@ Este artigo mostra como usar o PowerShell para automatizar tarefas comuns que vo
 O artigo inclui pré-requisitos para o cenário e mostra a você como:
 
 - Configurar um cofre dos Serviços de Recuperação
-- Instalar o Provedor do Azure Site Recovery no servidor VMM de origem 
+- Instalar o Provedor do Azure Site Recovery no servidor VMM de origem
 - Registrar o servidor no cofre e adicionar uma conta de armazenamento do Azure
 - Instalar o agente dos Serviços de Recuperação do Azure nos servidores host do Hyper-V
-- Configurar as definições de proteção para nuvens VMM, que serão aplicadas a todas as máquinas virtuais protegidas 
-- Habilitar a proteção para essas máquina virtuais 
+- Configurar as definições de proteção para nuvens VMM, que serão aplicadas a todas as máquinas virtuais protegidas
+- Habilitar a proteção para essas máquina virtuais
 - Testar o failover para garantir que tudo esteja funcionando como esperado.
 
 Se você enfrentar problemas ao configurar esse cenário, publique suas perguntas no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -75,7 +75,7 @@ Verifique se estes pré-requisitos estão em vigor:
 ### Pré-requisitos do Hyper-V
 
 - Os servidores host Hyper-V devem estar executando pelo menos o Windows Server 2012 com a função Hyper-V e ter as últimas atualizações instaladas.
-- Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster de baseados em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. Para 
+- Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster de baseados em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. Por
 - Para obter instruções, confira [Como Configurar o Agente de Réplica do Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Qualquer cluster ou servidor host Hyper-V para o qual você desejar gerenciar a proteção deverá ser incluído em uma nuvem VMM.
 
@@ -89,7 +89,7 @@ Quando você protege máquinas virtuais no Azure, o mapeamento de rede mapeia as
 Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 - As máquinas virtuais que você deseja proteger no servidor VMM de origem devem estar conectadas a uma rede VM. Essa rede deve ser vinculada a uma rede lógica que esteja associada à nuvem.
-- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará essa rede no momento do failover. A rede deve estar na mesma região que sua assinatura do Azure Site Recovery.
+- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará essa rede no momento do failover. A rede deve estar na mesma região de sua assinatura do Azure Site Recovery.
 
 Saiba mais sobre mapeamento de rede em
 
@@ -103,7 +103,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiv
 
 Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâmetro, entradas e saídas, que normalmente são tratados no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
-## Etapa 1: definir sua assinatura 
+## Etapa 1: definir a assinatura 
 
 1. No Azure PowerShell, faça logon na conta do Azure usando os seguintes cmdlets:
  
@@ -182,7 +182,7 @@ Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâ
 		$ResourceGroupName =  “myRG” 			#ResourceGroupName 
 		$RecoveryStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Type “StandardGRS” -Location $StorageAccountGeo
 
-Observe que a conta de armazenamento precisa estar na mesma região que o serviço do Azure Site Recovery e ser associada à mesma assinatura.
+Observe que a conta de armazenamento precisa estar na mesma região que o serviço Azure Site Recovery e associada à mesma assinatura.
 
 ## Etapa 6: instalar o agente dos Serviços de Recuperação do Azure
 
@@ -345,4 +345,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 [Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

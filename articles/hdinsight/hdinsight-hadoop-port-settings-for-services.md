@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # Portas e URIs usados pelo HDInsight
@@ -36,9 +36,9 @@ Todos os nós em um cluster HDInsight estão localizados em uma Rede Virtual do 
 
 | O Barramento de | Port | Protocolo | Descrição |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Conecta clientes ao sshd no nó de cabeçalho 0. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 22 | SSH | Conecta os clientes a sshd no nó de cabeçalho primário. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | Conecta clientes ao sshd no nó de borda (apenas HDInsight Premium). Confira [Introdução ao uso do Servidor R no HDInsight](hdinsight-hadoop-r-server-get-started.md) |
-| sshd | 23 | SSH | Conecta clientes ao sshd no nó de cabeçalho 1. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 23 | SSH | Conecta os clientes a sshd no nó de cabeçalho secundário. Confira [Usar SSH com HDInsight baseado no Linux](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | Ambari | 443 | HTTPS | Interface de usuário da Web do Ambari. Confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari | 443 | HTTPS | API REST do Ambari. Confira [Gerenciar clusters HDInsight usando a API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat | 443 | HTTPS | API REST do HCatalog. Confira [Usar Hive com Curl](hdinsight-hadoop-use-Pig-curl.md), [Usar Pig com Curl](hdinsight-hadoop-use-Pig-curl.md), [Usar MapReduce com Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
@@ -143,4 +143,4 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 | Agente | Nós de trabalho | 9092 | [Protocolo Kafka Wire ](http://kafka.apache.org/protocol.html) | Usado para comunicação do cliente |
 | &nbsp; | Nós do Zookeeper | 2181 | &nbsp; | A porta que os clientes usam para se conectar ao Zookeeper |
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

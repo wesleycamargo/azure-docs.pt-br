@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar a persistência de dados para um Cache Redis do Azure Premium
 
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo o nova camada Premium.
 
-A camada premium do Cache Redis do Azure inclui clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência em uma instância premium do Cache Redis do Azure.
+A camada premium do Cache Redis do Azure inclui recursos como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência em uma instância premium do Cache Redis do Azure.
 
-Para obter informações sobre outros recursos de cache premium, veja [Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md) e [Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md).
+Para obter informações sobre outros recursos de cache premium, veja [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md).
 
 ## O que é a persistência de dados?
-A persistência do Redis permite persistir os dados armazenados no Redis. Você também pode tirar instantâneos e fazer backup dos dados que podem ser carregados no caso de falha de hardware. Essa é uma enorme vantagem em relação às camadas Básica ou Standard, em que todos os dados são armazenados na memória e pode haver uma possível perda de dados em caso de falha quando os nós do Cache estiverem inativos.
+A persistência do Redis permite persistir os dados armazenados no Redis. Você também pode tirar instantâneos e fazer backup dos dados, que podem ser carregados em caso de falha de hardware. Essa é uma enorme vantagem em relação às camadas Básica ou Standard, em que todos os dados são armazenados na memória e pode haver uma possível perda de dados em caso de falha quando os nós do Cache estiverem inativos.
 
 O Cache Redis do Azure oferece a persistência do Redis usando o [modelo RDB](http://redis.io/topics/persistence), onde os dados são armazenados em uma conta de armazenamento do Azure. Quando a persistência é configurada, o Cache Redis do Azure persiste um instantâneo do cache Redis em um formato binário do Redis em disco com base em uma frequência de backup configurável. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com o uso do instantâneo mais recente.
 
@@ -33,7 +33,7 @@ A persistência pode ser configurada na folha de **Novo Cache Redis** durante a 
 
 ## Criar um cache premium
 
-Para criar um cache e configurar a persistência, faça o logon no [Portal do Azure](https://portal.azure.com) e clique em **Novo**->**Dados + Armazenamento**>**Cache Redis**.
+Para criar um cache e configurar a persistência, entre no [Portal do Azure](https://portal.azure.com) e clique em **Novo**->**Dados + Armazenamento**>**Cache Redis**.
 
 ![Criar um Cache Redis][redis-cache-new-cache-menu]
 
@@ -57,9 +57,9 @@ Para habilitar a persistência do Redis, clique em **Habilitado** para habilitar
 
 Para configurar o intervalo de backup, selecione uma **Frequência de Backup** na lista suspensa. As opções incluem **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** e **24 horas**. Esse intervalo inicia a contagem regressiva depois que a operação de backup anterior for concluída com êxito e quando ela expira, um novo backup é iniciado.
 
-Clique em **Conta de Armazenamento** para selecionar a conta de armazenamento a ser usada e escolha a **Chave primária** ou **Chave secundária** a ser usada na lista suspensa **Chave de Armazenamento**. Escolha uma conta de armazenamento na mesma região que o cache. Uma conta **Armazenamento Premium** é recomendada porque o armazenamento premium tem maior taxa de transferência.
+Clique em **Conta de Armazenamento** para selecionar a conta de armazenamento a ser usada e escolha a **Chave primária** ou **Chave secundária** a ser usada na lista suspensa **Chave de Armazenamento**. Você deve escolher uma conta de armazenamento na mesma região que o cache e uma conta do **Armazenamento Premium** é recomendada, pois o armazenamento premium tem uma maior taxa de transferência.
 
->[AZURE.IMPORTANT] Se a chave de armazenamento para a sua conta de persistência for regenerada, escolha novamente a chave desejada no menu suspenso Chave de Armazenamento.
+>[AZURE.IMPORTANT] Se a chave de armazenamento para a sua conta de persistência for regenerada, escolha novamente a chave desejada no menu suspenso **Chave de Armazenamento**.
 
 ![Persistência do Redis][redis-cache-persistence-selected]
 
@@ -85,7 +85,7 @@ Sim, a persistência do Redis pode ser configurada na criação do cache e em ca
 
 ### Posso alterar a frequência de backup depois de criar o cache?
 
-Sim, você pode alterar a frequência de backup na folha de ** Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
+Sim, você pode alterar a frequência de backup na folha de **Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
 
 ### Por que se eu tiver uma frequência de backup de 60 minutos haverá mais de 60 minutos entre os backups?
 
@@ -99,13 +99,12 @@ Todos os backups, exceto pelo mais recente, serão excluídos automaticamente. E
 
 -	Se você tiver dimensionado para um tamanho maior, não haverá nenhum impacto.
 -	Se você tiver dimensionado para um tamanho menor e tiver uma configuração de [bancos de dados](cache-configure.md#databases) personalizada que é maior do que o [limite de bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
--	Se você tiver dimensionado para um tamanho menor e não há espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando o usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
+-	Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ## Próximas etapas
 Aprenda a usar mais recursos de cache premium.
 
--	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
--	[Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium](cache-how-to-premium-vnet.md)
+-	[Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -119,4 +118,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

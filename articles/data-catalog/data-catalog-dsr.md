@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/13/2016"
+   ms.date="09/15/2016"
    ms.author="trhabe"/>
 
 # Fontes de dados com suporte do Catálogo de Dados do Azure
@@ -269,7 +269,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>XIBIÇÕES de cálculo e Exibições analíticas. Não há suporte para Exibições de atributo.</font></td>
     </tr>
 
     <tr>
@@ -1166,4 +1166,4 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

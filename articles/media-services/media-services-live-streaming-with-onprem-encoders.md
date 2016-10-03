@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits" 
+	pageTitle="Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits | Microsoft Azure" 
 	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits
@@ -69,7 +69,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
 1. Publique o ativo associado ao programa.
 
-	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+	Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
@@ -221,7 +221,7 @@ Parada|Parada|Não
 
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-Padrão|Observações
+Standard|Observações
 ---|---
 CEA-708 e EIA-608 (708/608)|CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ao vivo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregarão o conteúdo com legendas inseridas a seus usuários.
 TTML em ismt (faixas de texto de Smooth Streaming)|O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: MPEG DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você só poderá entregar o fluxo a clientes de Smooth Streaming.
@@ -271,10 +271,10 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)
 
-[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-live-streaming-workflow.md)
+[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-overview.md)
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight
 
-Neste passo a passo, usamos o Processo de Ciência de Dados de Equipe em um cenário completo usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
+Neste passo a passo, usamos o [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md) em um cenário de ponta a ponta usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
 
 Para ver um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) em um cenário semelhante usando clusters Hadoop do HDInsight para processamento de dados, confira [Processo de Ciência de Dados de Equipe — usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -111,7 +111,7 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados
+* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
 * ***&#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
 * ***&#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
 * ***&#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
@@ -454,7 +454,7 @@ O argumento *-S* incluído neste comando suprime a impressão de tela de status 
 
 Para o problema de classificação binária descrito na seção [Exemplos de tarefas de previsão](machine-learning-data-science-process-hive-walkthrough.md#mltasks), é útil saber se uma dica foi fornecida ou não. Essa distribuição de gorjetas é binária:
 
-* gorjeta dada(Classe 1, tip\_amount > $0)
+* gorjeta dada(Classe 1, tip\_amount > $0)  
 * nenhuma gorjeta (classe 0, tip\_amount = $0).
 
 O arquivo *sample\_hive\_tipped\_frequencies.hql* mostrado a seguir faz isso.
@@ -810,4 +810,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

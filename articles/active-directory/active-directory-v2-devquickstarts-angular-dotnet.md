@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -46,7 +46,7 @@ Primeiro, crie um aplicativo no [Portal de Registro de Aplicativos](https://apps
 
 - Adicionar a plataforma **Web** para seu aplicativo.
 - Inserir o **URI de Redirecionamento** correto. O padrão para esse exemplo é `https://localhost:44326/`
-- Deixe a caixa de seleção **Permitir Fluxo Implícito** habilitada. 
+- Deixe a caixa de seleção **Permitir Fluxo Implícito** habilitada.
 
 Copie a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela em breve.
 
@@ -233,4 +233,4 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia
 
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

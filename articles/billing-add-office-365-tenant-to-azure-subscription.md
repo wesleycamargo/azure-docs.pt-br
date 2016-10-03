@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/16/2016"
 	ms.author="cjiang"/>
 
 # Associar um locatário do Office 365 com uma assinatura do Azure
@@ -26,7 +26,7 @@ Cenários: você adquiriu as assinaturas do Azure e do Office 365 separadamente 
 Se você deseja associar seu locatário do Office 365 à assinatura do Azure, use sua conta do Azure para adicionar o locatário do Office 365 e, depois, associe sua assinatura do Azure ao locatário do Office 365. Consulte as etapas detalhadas.
 
 ## Etapas detalhadas
-Nesse cenário, Clara Barbosa é um usuário que tem uma assinatura do Azure na conta kelly.wall@outlook.com. Clara também tem uma assinatura do Office 365 sob a conta kelley.wall@contoso.onmicrosoft.com. Agora, Clara quer acessar o locatário do Office 365 com a assinatura do Azure.
+Nesse cenário, Clara Barbosa é um usuário que tem uma assinatura do Azure na conta kelly.wall@outlook.com. Clara também tem uma assinatura do Office 365 na conta kelley.wall@contoso.onmicrosoft.com. Agora, Clara quer acessar o locatário do Office 365 com a assinatura do Azure.
 
 ![msa-aad-status](./media/billing-add-office-365-tenant-to-azure-subscription/s31_msa-aad-status.png)
 
@@ -145,4 +145,4 @@ Para associar o locatário do Office 365 à assinatura do Azure, siga estas etap
 ## Próximas etapas
 Esses são cenários relacionados nos quais você já tem uma assinatura do Office 365 e está pronto para uma assinatura do Azure, mas deseja usar as contas de usuário existentes do Office 365 para sua assinatura do Azure. Outra opção seria se você é assinante do Azure e deseja obter uma assinatura do Office 365 para os usuários no Azure Active Directory existentes. Para saber como realizar essas tarefas, confira [Use sua conta existente do Office 365 com sua assinatura do Azure ou vice-versa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="09/15/2016" 
 	ms.author="anhoh"/>
 
 # Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos
@@ -37,7 +37,7 @@ Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco
 ![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
 **Modelo de recursos hierárquico**   
 
-Para começar a trabalhar com os recursos, você deve [criar uma conta de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
+Para começar a trabalhar com os recursos, você deve [criar uma conta do DocumentDB](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.
 
 |Recurso |Descrição
 |-----------|-----------
@@ -54,9 +54,9 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 
 
 ## Recursos definidos pelo sistema versus usuário
-Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
+Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos possuem um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+> [AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 <table>
     <tbody>
@@ -119,9 +119,9 @@ Cada recurso também tem um identificador de recurso hierárquico gerado pelo si
 As APIs REST de Banco de Dados de Documentos têm suporte para manipular recursos e roteamento de solicitações pelas propriedades de id e \_rid.
 
 ## Contas de banco de dados
-Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
+Você pode criar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure.
 
-Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Documentos](documentdb-create-account.md) no Portal do Azure em [http://portal.azure.com/](https://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
+Você pode [criar e gerenciar as contas do DocumentDB](documentdb-create-account.md) no Portal do Azure em [http://portal.azure.com/](https://portal.azure.com/). Criar e gerenciar uma conta do banco de dados requer acesso administrativo e pode ser feito somente com sua assinatura do Azure.
 
 ### Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
@@ -134,7 +134,7 @@ Como parte do provisionamento e gerenciamento de uma conta do banco de dados, vo
         </tr>
         <tr>
             <td valign="top"><p>Política de Consistência</p></td>
-            <td valign="top"><p>Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. <p><p>Observe que essa propriedade somente se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma coerência forte.</p></td>
+            <td valign="top"><p>Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. <p><p>Observe que essa propriedade somente se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma forte consistência.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Chaves de autorização</p></td>
@@ -143,13 +143,12 @@ Como parte do provisionamento e gerenciamento de uma conta do banco de dados, vo
     </tbody>
 </table>
 
-Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados no Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e os [SDKs de clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Observe que, além de provisionar, configurar e gerenciar sua conta do banco de dados no Portal do Azure, também é possível criar e gerenciar programaticamente as contas do DocumentDB usando as [APIs REST do DocumentDB do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e os [SDKs do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
 
-![Modelo hierárquico de coleções e conta de banco de dados][2]  
-**Um banco de dados é um contêiner lógico de usuários e coleções**
+![Modelo hierárquico de coleções e conta de banco de dados][2] **Um banco de dados é um contêiner lógico de usuários e coleções**
 
 Um banco de dados pode conter praticamente um armazenamento de documentos ilimitado, particionado por coleções, que formam os domínios de transação para os documentos contidos neles.
 
@@ -168,7 +167,7 @@ Assim como com outros recursos do modelo de recursos do Banco de Dados de Docume
 Uma coleção do Banco de Dados de Documentos é um contêiner para seus documentos JSON. Uma coleção também é uma unidade de dimensionamento para transações e consulta.
 
 ### Armazenamento de documentos com suporte de SSD elástico
-Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições dentro de uma coleção é determinado pelo Banco de Dados de Documentos com base no tamanho do armazenamento e na produtividade provisionada da coleção. Cada partição no Banco de Dados de Documentos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo Banco de Dados de Documentos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do Banco de Dados de Documentos são **praticamente ilimitadas** em termos de armazenamento e produtividade.
+Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições dentro de uma coleção é determinado pelo Banco de Dados de Documentos com base no tamanho do armazenamento e na produtividade provisionada da coleção. Cada partição no Banco de Dados de Documentos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo Banco de Dados de Documentos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do DocumentDB são **praticamente ilimitadas** em termos de armazenamento e produtividade.
 
 ### Indexação automática de coleções
 O Banco de Dados de Documentos é um verdadeiro sistema de banco de dados livre de esquema. Ele não assume nem requer qualquer esquema para os documentos JSON. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos os indexa automaticamente e eles ficam disponíveis para consulta. A indexação automática de documentos sem exigir esquemas ou índices secundários é uma capacidade chave do Banco de Dados de Documentos e é ativada por técnicas de manutenção de índice com gravação otimizada, livres de bloqueios e estrutura de log. O Banco de Dados de Documentos oferece suporte a um volume permanente de gravações extremamente rápidas ao mesmo tempo em que oferece consultas consistentes. Ambos os armazenamentos de documentos e de índices são usados para calcular o armazenamento consumido por cada coleção. Você pode controlar os compromissos de armazenamento e desempenho associados à indexação configurando a política de indexação para uma coleção.
@@ -176,18 +175,18 @@ O Banco de Dados de Documentos é um verdadeiro sistema de banco de dados livre 
 ### Configurando a política de indexação de uma coleção
 A política de indexação de cada coleção permite realizar compromissos de desempenho e armazenamento associados à indexação. As seguintes opções estão disponíveis como parte da configuração de indexação:
 
--	Escolha se a coleção indexa automaticamente todos os documentos ou não. Por padrão, todos os documentos são indexados automaticamente. Você pode escolher desativar a indexação automática e adicionar seletivamente somente documentos específicos para o índice. Da mesma forma, é possível escolher seletivamente excluir somente documentos específicos. Isso pode ser feito definindo a propriedade automática como verdadeira ou falsa na indexingPolicy de uma coleção e usando o cabeçalho de solicitação [x-ms-indexingdirective] ao inserir, substituir ou excluir um documento.  
--	Escolha se deseja incluir ou excluir caminhos ou padrões específicos em seus documentos do índice. Isso pode ser feito definindo includedPaths e excludedPaths na indexingPolicy de uma coleção, respectivamente. Também é possível configurar os compromissos de armazenamento e desempenho para consultas de intervalo e hash para padrões de caminho específicos. 
+-	Escolha se a coleção indexa automaticamente todos os documentos ou não. Por padrão, todos os documentos são indexados automaticamente. Você pode escolher desativar a indexação automática e adicionar seletivamente somente documentos específicos para o índice. Da mesma forma, é possível escolher seletivamente excluir somente documentos específicos. Isso pode ser feito definindo a propriedade automática como verdadeira ou falsa na indexingPolicy de uma coleção e usando o cabeçalho de solicitação [x-ms-indexingdirective] ao inserir, substituir ou excluir um documento.
+-	Escolha se deseja incluir ou excluir caminhos ou padrões específicos em seus documentos do índice. Isso pode ser feito definindo includedPaths e excludedPaths na indexingPolicy de uma coleção, respectivamente. Também é possível configurar os compromissos de armazenamento e desempenho para consultas de intervalo e hash para padrões de caminho específicos.
 -	Escolha entre atualizações de índice síncronas (consistentes) e assíncronas (lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos. Enquanto o Banco de Dados de Documentos é otimizado para gravação e suporta volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa para coleções basicamente de leitura intensa.
 
 A política de indexação pode ser alterada executando-se um PUT na coleção. Isso pode ser obtido por meio do [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), do [Portal do Azure](https://portal.azure.com) ou de [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Consultando uma coleção
-Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que apresenta avançados operadores hierárquicos, relacionais e espaciais e extensibilidade por meio de UDFs baseados em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado por técnicas de indexação automáticas do Banco de Dados de Documentos, bem como pelo dialeto SQL do Banco de Dados de Documentos. A linguagem de consulta do Banco de Dados de Documentos é formada por três aspectos principais:
+Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL do DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), que apresenta operadores hierárquicos, relacionais e espaciais avançados, e extensibilidade por meio de UDFs baseados em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado por técnicas de indexação automáticas do Banco de Dados de Documentos, bem como pelo dialeto SQL do Banco de Dados de Documentos. A linguagem de consulta do Banco de Dados de Documentos é formada por três aspectos principais:
 
-1.	Um pequeno conjunto de operações de consulta que é mapeado naturalmente para a estrutura de árvore, incluindo projeções e consultas hierárquicas. 
-2.	Um subconjunto de operações relacionais, incluindo composição, filtragem, projeções, agregados e junções automáticas. 
-3.	UDFs puras baseadas em JavaScript que funcionam com (1) e (2).  
+1.	Um pequeno conjunto de operações de consulta que é mapeado naturalmente para a estrutura de árvore, incluindo projeções e consultas hierárquicas.
+2.	Um subconjunto de operações relacionais, incluindo composição, filtragem, projeções, agregados e junções automáticas.
+3.	UDFs puras baseadas em JavaScript que funcionam com (1) e (2).
 
 O modelo de consulta do Banco de Dados de Documentos tenta criar um equilíbrio entre funcionalidade, eficiência e simplicidade. O mecanismo de banco de dados do Banco de Dados de Documentos compila nativamente e executa as instruções de consulta SQL. Você pode consultar uma ação usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou qualquer uma das [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx). O SDK do .NET é fornecido com o provedor LINQ.
 
@@ -304,7 +303,7 @@ A execução de um procedimento armazenado é feita com a emissão de um HTTP PO
 	    });
 
 ### Cancelando o registro de um procedimento armazenado
-Cancelar o registro de um procedimento armazenado é um processo simples, feito com a emissão de um HTTP DELETE para um recurso de procedimento armazenado existente.
+Cancelar o registro de um procedimento armazenado é um processo simples, feito com a emissão de um HTTP DELETE para um recurso do procedimento armazenado existente.
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -346,7 +345,7 @@ A execução de um gatilho é realizada especificando o nome de um gatilho exist
 	    });
 
 ### Cancelando o registro de um pré-gatilho
-O cancelamento do registro de um gatilho é realizado simplesmente ao emitir um comando HTTP DELETE para um recurso de gatilho existente.
+O cancelamento do registro de um gatilho é feito simplesmente ao emitir um comando HTTP DELETE para um recurso de gatilho existente.
 
 	client.deleteTriggerAsync(createdPreTrigger._self);
 	    .then(function(response) {
@@ -383,7 +382,7 @@ Uma UDF pode ser especificada como parte da consulta SQL e é usada como uma man
 	    });
 
 ### Cancelando o registro de uma UDF 
-O cancelamento do registro de uma UDF é realizado simplesmente ao emitir um comando HTTP DELETE em relação a um recurso de UDF existente.
+O cancelamento do registro de uma UDF é feito simplesmente ao emitir um comando HTTP DELETE para um recurso de UDF existente.
 
 	client.deleteUserDefinedFunctionAsync(createdUdf._self)
 	    .then(function(response) {
@@ -392,7 +391,7 @@ O cancelamento do registro de uma UDF é realizado simplesmente ao emitir um com
 	        console.log("Error");
 	    });
 
-Embora os trechos acima mostrem o registro (POST), cancelamento de registro (PUT) / leitura/lista (GET) e execução (POST) por meio do [SDK do JavaScript do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-js), você também pode usar [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou outros [SDKs cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Embora os trechos acima mostrem o registro (POST), cancelamento do registro (PUT), leitura/lista (GET) e execução (POST) por meio do [SDK do JavaScript do DocumentDB](https://github.com/Azure/azure-documentdb-js), você também pode usar as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou outros [SDKs do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Documentos
 Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Banco de Dados de Documentos não exige nenhum esquema nem índices secundários a fim de oferecer suporte a consultas em relação a documentos em uma coleção.
@@ -408,15 +407,15 @@ O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banc
 
 Considere um aplicativo de leitura social que utiliza o Banco de Dados de Documentos para armazenar anotações de tintas e metadados incluindo comentários, destaques, favoritos, classificações, preferências/não preferências, etc., associados a um e-book de um determinado usuário.
 
--	O conteúdo do livro em si é armazenado no armazenamento de mídia disponível como parte da conta do Banco de Dados de Documentos ou de um armazenamento remoto de mídia. 
--	Um aplicativo poderá armazenar os metadados de cada usuário como um documento distinto, por exemplo, os metadados de Joe para o book1 são armazenados em um documento cuja referência é /colls/joe/docs/book1. 
--	Anexos indicando para as páginas de conteúdo de um determinado livro de um usuário são armazenados no documento correspondente, p. ex., /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2, etc. 
+-	O conteúdo do livro em si é armazenado no armazenamento de mídia disponível como parte da conta do Banco de Dados de Documentos ou de um armazenamento remoto de mídia.
+-	Um aplicativo poderá armazenar os metadados de cada usuário como um documento distinto, por exemplo, os metadados de Joe para o book1 são armazenados em um documento cuja referência é /colls/joe/docs/book1.
+-	Anexos indicando para as páginas de conteúdo de um determinado livro de um usuário são armazenados no documento correspondente, p. ex., /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2, etc.
 
 Observe que os exemplos listados acima utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivos.
 
 Para a mídia gerenciada pelo Banco de Dados de Documentos, a propriedade \_media do anexo fará referência à mídia por meio de seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo ao fazer o upload da nova mídia e preencher \_media para indicar a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its \_media.
 
-Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
+Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.  
 ## Usuários
 Um usuário do Banco de Dados de Documentos representa um namespace lógico para agrupar permissões. Um usuário do Banco de Dados de Documentos pode corresponder a um usuário em um sistema de gerenciamento de identidades ou uma função de aplicativo predefinida. Para o Banco de Dados de Documentos, um usuário simplesmente representa uma abstração para agrupar um conjunto de permissões em um banco de dados.
 
@@ -425,18 +424,19 @@ Para implementar multilocatários para seu aplicativo, você pode criar usuário
 Como seus aplicativos precisam ser escalados conforme o crescimento do usuário, você pode adotar várias maneiras de fragmentar seus dados. Você pode modelar seus usuários da seguinte forma:
 
 -	Cada usuário é mapeado para um banco de dados.
--	Cada usuário é mapeado para uma coleção. 
--	Documentos correspondentes a vários usuários vão para uma coleção dedicada. 
--	Documentos correspondentes a vários usuários vão para um conjunto de coleções.   
+-	Cada usuário é mapeado para uma coleção.
+-	Documentos correspondentes a vários usuários vão para uma coleção dedicada.
+-	Documentos correspondentes a vários usuários vão para um conjunto de coleções.
 
 Independentemente da estratégia de fragmentação específica escolhida, você pode modelar seus usuários reais como usuários no banco de dados do Banco de Dados de Documentos e associar permissões de refinamento a cada usuário.
 
-![Coleções do usuário][3] **Estratégias de fragmentação e modelagem de usuários**
+![Coleções do usuário][3]  
+**Estratégias de fragmentação e modelagem de usuários**
 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
 ## Permissões
-De uma perspectiva de controle de acesso, recursos como contas do banco de dados, bancos de dados, usuários e permissões são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (p. ex., coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).
+De uma perspectiva do controle de acesso, recursos como as contas do banco de dados, bancos de dados, usuários e permissão são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (p. ex., coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).
 
 A única maneira de obter uma chave de recurso é criar um recurso de permissão em um determinado usuário. Observe que, a fim de criar ou recuperar uma permissão, uma chave mestre deve ser apresentada no cabeçalho de autorização. Um recurso de permissão vincula o recurso, seu acesso e o usuário. Após criar um recurso de permissão, o usuário só precisa apresentar a chave de recurso associada para obter acesso ao recurso relevante. Portanto, uma chave de recurso pode ser visualizada como uma representação lógica e compacta do recurso de permissão.
 
@@ -450,4 +450,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

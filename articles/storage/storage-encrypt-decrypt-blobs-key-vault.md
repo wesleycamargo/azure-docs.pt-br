@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure | Microsoft Azure"
-   description="Este tutorial explica como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o armazenamento da Cofre da Chave do Armazenamento do Microsoft Azure."
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure | Microsoft Azure"
+	description="Este tutorial explica como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o armazenamento da Cofre da Chave do Armazenamento do Microsoft Azure."
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/>
 
 # Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 - Uma conta de armazenamento do Azure
 - Visual Studio 2013 ou posterior.
-- PowerShell do Azure
+- Azure PowerShell
 
 
 ## Visão geral da criptografia do lado do cliente
@@ -235,4 +235,4 @@ Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0921_2016-->

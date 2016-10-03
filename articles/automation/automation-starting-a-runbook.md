@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/12/2016"
+   ms.date="09/15/2016"
    ms.author="magoedte;bwren"/>
 
 # Como iniciar um Runbook na Automação do Azure
@@ -32,14 +32,6 @@ A tabela a seguir o ajuda a determinar o método de inicialização de runbook n
 A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de um runbook. Isso inclui as diferentes formas como um runbook é iniciado na Automação do Azure, os componentes necessários para que o Hybrid Runbook Worker execute runbooks da Automação do Azure e as interações entre diferentes componentes. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, veja [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Arquitetura do runbook](media/automation-starting-runbook/runbooks-architecture.png)
-
-## Iniciando um runbook com o portal do Azure
-
-1.	No portal do Azure, selecione **Automação** e clique no nome de uma conta de automação.
-2.	Selecione a guia **Runbooks**.
-3.	Selecione um runbook e clique em **Iniciar**.
-4.	Se o runbook tiver parâmetros, você deverá fornecer valores com uma caixa de texto para cada parâmetro. Confira [Parâmetros de runbook](#Runbook-parameters) abaixo para mais detalhes sobre os parâmetros.
-5.	Selecione **Exibir trabalho** ao lado da mensagem **Iniciando** ou selecione a guia **Trabalhos** do runbook para exibir o seu status de trabalho.
 
 ## Iniciando um runbook com o portal do Azure
 
@@ -91,7 +83,7 @@ O serviço Web da Automação do Azure fornece uma funcionalidade especial para 
 
 ### Valores nomeados
 
-Se o parâmetro é do tipo de dados [object], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. Esses valores devem ser tipos simples. O runbook receberá o parâmetro como um [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) com propriedades que correspondem a cada valor nomeado.
+Se o parâmetro é do tipo de dados [object], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. Esses valores devem ser tipos simples. O runbook receberá o parâmetro como um [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) com propriedades que correspondem a cada valor nomeado.
 
 Considere o runbook de teste a seguir que aceita um parâmetro chamado user.
 
@@ -195,4 +187,4 @@ jsmith
 -	A arquitetura de runbook no artigo atual oferece uma visão geral de alto nível do gerenciamento de recursos de runbooks no Azure e no local com o Hybrid Runbook Worker. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, consulte [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 -	Para saber mais sobre a criação de runbooks modulares a serem usados em outros runbooks para funções específicas ou comuns, consulte [Runbooks filho](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

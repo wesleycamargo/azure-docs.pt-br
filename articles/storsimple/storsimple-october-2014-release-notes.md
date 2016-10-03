@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/21/2016"
+    ms.date="09/21/2016"
     ms.author="alkohli" />
 
 # Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014  
@@ -27,24 +27,24 @@ Examine as informações contidas nas notas de versão antes de implantar as atu
 
 >[AZURE.IMPORTANT]
 > 
--	Use o serviço StorSimple Manager e não o Windows PowerShell para StorSimple para instalar as atualizações de Outubro.  
--	As atualizações geralmente levam cerca de três horas.  
--	A versão de outubro do StorSimple não contém todas as atualizações para o dispositivo virtual do StorSimple. Você ainda poderá aplicar quaisquer atualizações disponíveis do Windows, incluindo correções de segurança recentes, mas não verá uma alteração na versão para o dispositivo virtual.  
+-	Use o serviço StorSimple Manager e não o Windows PowerShell para StorSimple para instalar as atualizações de Outubro.
+-	As atualizações geralmente levam cerca de três horas.
+-	A versão de outubro do StorSimple não contém todas as atualizações para o dispositivo virtual do StorSimple. Você ainda poderá aplicar quaisquer atualizações disponíveis do Windows, incluindo correções de segurança recentes, mas não verá uma alteração na versão para o dispositivo virtual.
 
 Verifique se os seguintes pré-requisitos foram atendidos antes de atualizar seu dispositivo do StorSimple.
 
-- Verifique se ambos os controladores de dispositivo estão em execução antes de verificar se há atualizações. Se o controlador não estiver em execução, a verificação falhará. Para verificar se os controladores estão em um estado íntegro, navegue até **Status de Hardware** na página **Manutenção**. Se houver componentes que **Precisam de atenção**, contate o Suporte da Microsoft antes de avançar.  
-- Verifique se os IPs fixos para o Controlador 0 e Controlador 1 são roteáveis e podem se conectar à Internet, pois são usados para atender às atualizações para o dispositivo. Você pode usar o [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para executar o ping de um endereço conhecido fora da rede, como outlook.com, para verificar se o controlador tem conectividade com a rede externa.  
-- Certifique-se de que as portas de saída necessárias estejam disponíveis em seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
-- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Dados 2 e 3, se habilitadas, antes de iniciar a atualização. Se você deixar as portas de Dados 2 ou 3 habilitadas ao aplicar a atualização, isso pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e a E/S será interrompida durante a atualização.  
+- Verifique se ambos os controladores de dispositivo estão em execução antes de verificar se há atualizações. Se o controlador não estiver em execução, a verificação falhará. Para verificar se os controladores estão em um estado íntegro, navegue até **Status de Hardware** na página **Manutenção**. Se houver componentes que **Precisam de atenção**, contate o Suporte da Microsoft antes de avançar.
+- Verifique se os IPs fixos para o Controlador 0 e Controlador 1 são roteáveis e podem se conectar à Internet, pois são usados para atender às atualizações para o dispositivo. Você pode usar o [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para executar o ping de um endereço conhecido fora da rede, como outlook.com, para verificar se o controlador tem conectividade com a rede externa.
+- Certifique-se de que as portas de saída necessárias estejam disponíveis em seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Dados 2 e 3, se habilitadas, antes de iniciar a atualização. Se você deixar as portas de Dados 2 ou 3 habilitadas ao aplicar a atualização, isso pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e a E/S será interrompida durante a atualização.
 
 ## O que há de novo na versão de Outubro
 
 Esta atualização inclui os seguintes aprimoramentos:
 
-- Agora você pode usar a interface do usuário do serviço StorSimple Manager para gerenciar os controladores de dispositivo. As ações de gerenciamento incluem reiniciar, desligar ou ativar um controlador. Para obter mais informações, vá para [Gerenciar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).  
-- Você pode agendar a alocação de largura de banda WAN conforme as combinações de dia da semana e hora do dia. Isso permite fazer melhor uso da largura de banda WAN durante os horários de pico. Modelos diferentes de largura de banda são permitidos para contêineres de volume diferente. Para obter mais informações, vá para [Gerenciar seus modelos de largura de banda do StorSimple](storsimple-manage-bandwidth-templates.md).  
-- Você pode configurar notificações por email para notificar de forma pró-ativa os administradores de TI e outros sobre problemas existentes ou possivelmente futuros. Para obter mais informações, consulte [Definir configurações de alerta](storsimple-manage-alerts.md#configure-alert-settings).  
+- Agora você pode usar a interface do usuário do serviço StorSimple Manager para gerenciar os controladores de dispositivo. As ações de gerenciamento incluem reiniciar, desligar ou ativar um controlador. Para obter mais informações, vá para [Gerenciar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).
+- Você pode agendar a alocação de largura de banda WAN conforme as combinações de dia da semana e hora do dia. Isso permite fazer melhor uso da largura de banda WAN durante os horários de pico. Modelos diferentes de largura de banda são permitidos para contêineres de volume diferente. Para obter mais informações, vá para [Gerenciar seus modelos de largura de banda do StorSimple](storsimple-manage-bandwidth-templates.md).
+- Você pode configurar notificações por email para notificar de forma pró-ativa os administradores de TI e outros sobre problemas existentes ou possivelmente futuros. Para obter mais informações, consulte [Definir configurações de alerta](storsimple-manage-alerts.md#configure-alert-settings).
 
 ## Problema corrigidos na versão de outubro
 
@@ -99,4 +99,4 @@ Esta versão também se aplica a uma atualização de firmware cumulativa que re
 Esta versão não contém todas as atualizações para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -22,7 +22,7 @@ Leia o processo completamente antes de começar e compreender onde e por que cad
 ## Baixe as ferramentas e aplicativos necessários
 Você deve ter os seguintes itens prontos antes de iniciar o processo:
 
-- Dependendo de qual sistema operacional você está buscando, instale os cmdlets do Azure PowerShell ou uma ferramenta de interface de linha de comando do Linux na página Downloads do Azure.
+- Dependendo de qual sistema operacional você está buscando, instale os [cmdlets do Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou uma [ferramenta de interface de linha de comando do Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) na página [Downloads do Azure](https://azure.microsoft.com/downloads/).
 - Instale o Gerenciador do Armazenamento do Azure no CodePlex.
 - Baixe e instale a Ferramenta do teste de certificação para o Certificado Azure:
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Você precisará de um computador baseado no Windows para executar a ferramenta de certificação. Se você não tiver um computador baseado no Windows disponível, você pode executar a ferramenta usando uma VM com base em Windows no Azure.
@@ -46,11 +46,11 @@ Você pode desenvolver VHDs do Azure na nuvem ou no local:
 ## Próximas etapas
 Agora você revisou os pré-requisitos e concluiu a tarefa necessária, pode prosseguir com a criação de sua oferta de imagem da Máquina Virtual, conforme detalhado no [Guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md)
 
-## Consulte também
+## Confira também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines-windows-hero-tutorial/)
+- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

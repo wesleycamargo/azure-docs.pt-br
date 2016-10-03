@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -28,8 +28,8 @@ Embora o Azure Stream Analytics ofereça suporte à retomada de um trabalho desd
 Essa parte é aplicável às seguintes entradas/saídas:
 
 * Armazenamento de Blob
-* Hubs de Evento
-* Banco de dados SQL
+* Hubs de Eventos
+* Banco de Dados SQL
 * Armazenamento de tabela
 
 Para outras entradas/saídas, prossiga para a Parte 2.
@@ -56,7 +56,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 10. Copie a chave recém-gerada: ![elementográfico13][graphic13]
 11. Prossiga para a Parte 2.
 
-###Banco de dados SQL
+###Banco de Dados SQL
 
 >[AZURE.NOTE] Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Gerenciamento do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
 
@@ -108,7 +108,7 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 3.	Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
 4.	Prossiga para a Parte 4.
 
-###Banco de dados SQL
+###Banco de Dados SQL
 1.	Localize os campos Nome de usuário e Senha e cole seu conjunto de credenciais recém-criado neles: ![elementográfico38][graphic38]
 2.	Clique no comando Salvar e confirme o salvamento das alterações: ![elementográfico39][graphic39]
 3.	Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
@@ -123,8 +123,8 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 ##Parte 5: Removendo o conjunto de credenciais antigo
 Essa parte é aplicável às seguintes entradas/saídas:
 * Armazenamento de Blob
-* Hubs de Evento
-* Banco de dados SQL
+* Hubs de Eventos
+* Banco de Dados SQL
 * Armazenamento de tabela
 
 ###Armazenamento de blob/Armazenamento de tabela
@@ -198,4 +198,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

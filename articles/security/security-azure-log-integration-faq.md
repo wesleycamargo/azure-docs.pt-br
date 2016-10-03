@@ -113,7 +113,9 @@ O exemplo a seguir é uma configuração onde apenas a EventID 4624 e a EventID 
 
 Depois de fazer alterações, verifique a conta de armazenamento para garantir que os eventos corretos sejam coletados.
 
+Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

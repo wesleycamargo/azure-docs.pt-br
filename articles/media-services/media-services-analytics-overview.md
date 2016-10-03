@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Visão Geral da Análise dos Serviços de Mídia do Azure
+# Visão Geral da Análise dos Serviços de Mídia do Azure | Microsoft Azure
 
 ##Visão geral
 
@@ -45,16 +45,18 @@ O diagrama a seguir mostra a **Análise de Mídia** e outras partes importantes 
 
 - **Reconhecimento óptico de caracteres** - o OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável. Isso permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia.
  
+- **Edição facial escalonável** – o **Azure Media Redactor** é um MP do Azure Media Analytics que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](media-services-face-redaction.md) artigo.
+
  
 ## Cenários comuns
 
 Veja abaixo alguns cenários em que a Análise de Mídia do Azure pode ajudar as organizações e empresas em vários setores a obter novas percepções de vídeo para criar envolvimentos mais personalizados dos funcionários com o público, além de gerenciar grandes volumes de conteúdo de vídeo com mais eficácia:
 
-- **Call centers** – Mesmo com o advento da mídia social, os call centers de clientes ainda facilitam um grande percentual de transações de serviço de atendimento ao cliente. Há uma grande quantidade de informações sobre clientes codificada nesses dados de áudio que podem ser analisadas para melhorar planos de produtos e treinar funcionários de call center para obter maior satisfação do cliente. Usando o Indexador de Mídia do Azure, os clientes conseguem extrair texto e criar um índice de pesquisa e painéis para extrair a inteligência dos problemas mais comuns, fontes de reclamações e outros dados relevantes.
+- **Call centers** – mesmo com o advento da mídia social, os call centers de clientes ainda facilitam um grande percentual de transações de serviço de atendimento ao cliente. Há uma grande quantidade de informações sobre clientes codificada nesses dados de áudio que podem ser analisadas para melhorar planos de produtos e treinar funcionários de call center para obter maior satisfação do cliente. Usando o Indexador de Mídia do Azure, os clientes conseguem extrair texto e criar um índice de pesquisa e painéis para extrair a inteligência dos problemas mais comuns, fontes de reclamações e outros dados relevantes.
 
-- **Moderação de conteúdo gerado pelo usuário** – Dos meios de comunicação às delegacias de polícia, muitas organizações têm portais voltados ao público em que aceitam mídia UGC, como vídeos e imagens. O volume de conteúdo pode ter picos devido a eventos inesperados. Nesses cenários, é quase impossível conduzir uma revisão manual eficaz do conteúdo em relação à adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
+- **Moderação de conteúdo gerado pelo usuário** – dos meios de comunicação às delegacias de polícia, muitas organizações têm portais voltados ao público em que aceitam mídia UGC, como vídeos e imagens. O volume de conteúdo pode ter picos devido a eventos inesperados. Nesses cenários, é quase impossível conduzir uma revisão manual eficaz do conteúdo em relação à adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
 
-- **Vigilância** – Com a expansão das câmeras IP, houve um aumento explosivo de vídeos de vigilância. Revisar manualmente o vídeo de vigilância consome muito tempo e está sujeito a erros humanos. A Análise de Mídia do Azure fornece vários componentes, como detecção de movimento, detecção de face e Hyperlapse para facilitar o processo de revisão, gerenciamento e criação de derivados.
+- **Vigilância** – com a expansão das câmeras IP, houve um aumento explosivo de vídeos de vigilância. Revisar manualmente o vídeo de vigilância consome muito tempo e está sujeito a erros humanos. A Análise de Mídia do Azure fornece vários componentes, como detecção de movimento, detecção de face e Hyperlapse para facilitar o processo de revisão, gerenciamento e criação de derivados.
 
 ## Processadores de Mídia da Análise dos Serviços de Mídia 
 
@@ -127,7 +129,9 @@ Resposta:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -144,4 +148,4 @@ Resposta:
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->
