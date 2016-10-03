@@ -48,7 +48,7 @@ Digamos que decidimos que o modelo de árvore aumentada foi o melhor modelo a us
 
 - [Computador de vetor de suporte de duas classes][two-class-support-vector-machine]
 - Módulos [Treinar modelo][train-model] e [Modelo de pontuação][score-model] que foram conectados a ele
-- [Normalizar dados][normalize-data] (ambos)
+- [Normalizar dados][normalize-data] \(ambos)
 - [Avaliar modelo][evaluate-model]
 
 Selecione o módulo e pressione a tecla Delete, ou clique com o botão direito do mouse no módulo e selecione **Excluir**.
@@ -91,7 +91,7 @@ Agora o teste deve se parecer como isto:
 
 Execute o teste uma última vez (clique em **Executar**). Se você deseja verificar se o modelo ainda está funcionando, clique na saída do módulo [Modelo de Pontuação][score-model] e selecione **Exibir Resultados**. Você verá os dados originais exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidades de pontuação ("Probabilidades de pontuação").
 
-## Implantar o serviço Web
+##Implantar o serviço Web
 
 Você pode implantar o teste como um serviço Web clássico ou um novo serviço Web com base no Azure Resource Manager.
 

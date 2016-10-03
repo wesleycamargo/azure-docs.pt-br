@@ -79,7 +79,7 @@ Siga o tutorial [Criar sua primeira Função do Azure][functions-getstarted] par
 1. No portal, selecione Serviços de Aplicativos da navegação à esquerda, clique no seu nome do Aplicativo de funções do Azure para chegar ao site do Aplicativo de funções. ![Captura de tela da lista de função dos Serviços de Aplicativos](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Clique em **Nova função > ServiceBusQueueTrigger – C#**. Para os seguintes campos, siga estas instruções:
-	- **Nome da fila**: o mesmo nome que aquele que você inseriu ao criar a fila em [Introdução às Filas do Barramento de Serviço][servicebus-getstarted] (não o nome do barramento de serviço). Certifique-se de usar a fila que está conectada à saída do Stream Analytics.
+	- **Nome da fila**: o mesmo nome que aquele que você inseriu ao criar a fila em [Introdução às Filas do Barramento de Serviço][servicebus-getstarted] \(não o nome do barramento de serviço). Certifique-se de usar a fila que está conectada à saída do Stream Analytics.
 	- **Conexão do Barramento de Serviço**: selecione **Adicionar uma cadeia de conexão**. Para localizar a cadeia de conexão, acesse o portal clássico, selecione **Barramento de Serviço**, o barramento de serviço que você criou e **INFORMAÇÕES DE CONEXÃO** na parte inferior da tela. Verifique se você está na tela principal nesta página. Copie e cole a cadeia de conexão. Fique à vontade para inserir qualquer nome de conexão.
 	
 		![Captura de tela da conexão do Barramento de Serviço](./media/stream-analytics-functions-redis/servicebus-connection.png)
@@ -202,6 +202,7 @@ Você também pode ver os seguintes recursos:
 
 - [Referência do desenvolvedor do Azure Functions](../azure-functions/functions-reference.md)
 - [Referência do desenvolvedor de C# do Azure Functions](../azure-functions/functions-reference-csharp.md)
+
 - [Referência do desenvolvedor em F# do Azure Functions](../azure-functions/functions-reference-fsharp.md)
 - [Referência do desenvolvedor de NodeJS do Azure Functions](../azure-functions/functions-reference.md)
 - [Gatilhos e de associações do Azure Functions](../azure-functions/functions-triggers-bindings.md)

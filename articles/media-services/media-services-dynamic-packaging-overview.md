@@ -38,8 +38,8 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 
 ##Cenário comum
 
-1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador de Mídia Padrão](media-services-media-encoder-standard-formats.md)).
-
+1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador dos Serviços de Mídia](media-services-azure-media-encoder-formats)).
+ 
 1. Codifique o arquivo de mezanino para conjuntos de taxa de bits adaptável MP4 H.264.
 
 1. Publique o ativo que contém a taxa de bits adaptável MP4 definida ao criar o localizador OnDemand.

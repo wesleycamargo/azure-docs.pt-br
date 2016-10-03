@@ -1464,7 +1464,7 @@ Use `unpersist()` para excluir objetos armazenados em cache na memória.
 PythonRDD[122] em RDD em PythonRDD.scala:43
 
 
-**Imprima o caminho para arquivos de modelo a serem usados no notebook de consumo. ** Para consumo e pontuação de um conjunto de dados independente, você precisará copiar e colar esses nomes de arquivo no "Notebook de consumo".
+**Imprima o caminho para arquivos de modelo a serem usados no notebook de consumo.** Para consumo e pontuação de um conjunto de dados independente, você precisará copiar e colar esses nomes de arquivo no "Notebook de consumo".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

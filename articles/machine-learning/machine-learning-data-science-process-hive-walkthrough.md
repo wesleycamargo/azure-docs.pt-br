@@ -111,7 +111,7 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados
+* ***& #60; path\_to\_data\_folder >*** o diretório (juntamente com o caminho) no computador que contêm os arquivos de dados descompactados  
 * ***&#60;nome da conta de armazenamento do cluster do Hadoop>*** a conta de armazenamento associada ao cluster HDInsight
 * ***&#60;contêiner padrão do cluster do Hadoop>*** o contêiner padrão usado pelo seu cluster. Observe que o nome do contêiner padrão geralmente é o mesmo nome que o do cluster em si. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
 * ***&#60;chave de conta de armazenamento>*** a chave para a conta de armazenamento usada pelo cluster
@@ -434,10 +434,10 @@ Um objetivo comum da análise exploratória de dados é eliminar registros invá
 
 Aqui está o conteúdo do arquivo *sample\_hive\_quality\_assessment.hql* para inspeção.
 
-	    SELECT COUNT(*) FROM nyctaxidb.trip
-	    WHERE month=1
-	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+    	SELECT COUNT(*) FROM nyctaxidb.trip
+    	WHERE month=1
+    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -454,7 +454,7 @@ O argumento *-S* incluído neste comando suprime a impressão de tela de status 
 
 Para o problema de classificação binária descrito na seção [Exemplos de tarefas de previsão](machine-learning-data-science-process-hive-walkthrough.md#mltasks), é útil saber se uma dica foi fornecida ou não. Essa distribuição de gorjetas é binária:
 
-* gorjeta dada(Classe 1, tip\_amount > $0)
+* gorjeta dada(Classe 1, tip\_amount > $0)  
 * nenhuma gorjeta (classe 0, tip\_amount = $0).
 
 O arquivo *sample\_hive\_tipped\_frequencies.hql* mostrado a seguir faz isso.
@@ -564,10 +564,10 @@ Essa consulta também reduz as amostras dos dados para que os resultados da cons
 
 A seguir estão os conteúdos do arquivo *sample\_hive\_prepare\_for\_aml\_full.hql*, que prepara os dados para o modelo de compilação no Aprendizado de Máquina do Azure.
 
-        set R = 3959;
-        set pi=radians(180);
+		set R = 3959;
+	    set pi=radians(180);
 
-        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ A seguir estão os conteúdos do arquivo *sample\_hive\_prepare\_for\_aml\_full.
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-        t.direct_distance,
+		t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -794,7 +794,9 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
+•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png

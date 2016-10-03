@@ -83,7 +83,8 @@ Alguns desses eventos de risco estão disponíveis por meio dos relatórios de A
 | Entradas de dispositivos infectados | Entradas de dispositivos possivelmente infectados |
 | Entradas de endereços IP anônimos | Entradas de fontes desconhecidas |
 | Entradas de endereços IP com atividade suspeita |	Entradas de endereços IP com atividade suspeita |
-| Entrada de locais desconhecidos | - | | Eventos de bloqueio | - |
+| Entradas de locais desconhecidos | - |
+| Eventos de bloqueio (que não estão na preview pública) | - |
 
 Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no portal do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
 
@@ -113,7 +114,7 @@ Vários clientes herdados não dão suporte à detecção e prevenção de event
 ## Investigação
 Sua jornada pelo Identity Protection normalmente inicia no Painel do Identity Protection.
 
-![Correção](./media/active-directory-identityprotection/1000.png "Correção")
+<br><br> ![Correção](./media/active-directory-identityprotection/29.png "Correção") <br>
 
 O painel concede acesso a:
  
@@ -141,7 +142,7 @@ O nível de risco do usuário é calculado usando as seguintes entradas:
 - Nível de risco desses eventos
 - Se foram tomadas ações de correção
 
-![Riscos do usuário](./media/active-directory-identityprotection/1001.png "Riscos do usuário")
+<br> ![Riscos do usuário](./media/active-directory-identityprotection/86.png "Riscos do usuário") <br>
 
 
 
@@ -157,7 +158,7 @@ Na maioria dos casos, você tomará ações de correção, como uma redefiniçã
 
 Já que eventos de risco **Ativos** contribuem para o cálculo de risco do usuário, talvez seja necessário reduzir manualmente um nível de risco fechando eventos de risco manualmente. Durante a investigação, você pode optar por executar uma das seguintes ações para alterar o status de um evento de risco:
 
-![Ações](./media/active-directory-identityprotection/34.png "Ações")
+<br> ![Ações](./media/active-directory-identityprotection/34.png "Ações") <br>
 
 - **Resolver** - Se, após investigar um evento de risco, você tomou uma ação de correção apropriada fora do Identity Protection e acredita que o evento de risco deve ser considerado fechado, marque o evento como Resolvido. Eventos resolvidos definirão o status do evento de risco como Fechado e ele não contribuirá com o risco do usuário.
 

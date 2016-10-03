@@ -42,7 +42,7 @@
 
 	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos. 
 
 [portal do Azure]: https://portal.azure.com/
 

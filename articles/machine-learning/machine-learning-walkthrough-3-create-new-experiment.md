@@ -53,7 +53,7 @@ Para usar [Editar Metadados][edit-metadata], você deve determinar quais colunas
 
 1.	Na paleta de módulo, digite "metadados" na caixa **Pesquisar**. Você verá o [Editor de Metadados][edit-metadata] na lista de módulos.
 2.	Clique e arraste o módulo [Editar Metadados][edit-metadata] nas telas e solte-o abaixo do conjunto de dados que adicionamos anteriormente.
-3.	Conecte o conjunto de dados a [Editar Metadados][edit-metadata]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] (o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
+3.	Conecte o conjunto de dados a [Editar Metadados][edit-metadata]\: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] \(o círculo pequeno na parte superior do módulo) e solte o botão do mouse. O conjunto de dados e o módulo permanecerão conectados mesmo se você mover um deles nas telas.
 
     O teste deve se parecer como o seguinte:
 

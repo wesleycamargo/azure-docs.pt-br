@@ -45,7 +45,7 @@ De volta à folha _Introdução_, em **Criar uma API de tabela**, escolha **C#**
 
 ### Criar um back-end do .NET usando o Visual Studio 2013 e o Visual Studio 2015
 
-Instale o [SDK do Azure para .NET][4] (versão 2.9.0 ou posterior) para criar um projeto dos Aplicativos Móveis no Visual Studio. Depois de instalar o SDK, crie um aplicativo ASP.NET usando as seguintes etapas:
+Instale o [SDK do Azure para .NET][4] \(versão 2.9.0 ou posterior) para criar um projeto dos Aplicativos Móveis no Visual Studio. Depois de instalar o SDK, crie um aplicativo ASP.NET usando as seguintes etapas:
 
 1. Abra o diálogo **Novo Projeto** (de *Arquivo* > **Novo** > **Projeto...**).
 2. Expanda **Modelos** > **Visual C#** e selecione **Web**.
