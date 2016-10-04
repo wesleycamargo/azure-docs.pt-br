@@ -36,7 +36,7 @@ Esta seção aborda algumas partes fundamentais do código da amostra do Hello W
 
 ### Criação do gateway
 
-O desenvolvedor deve gravar o *processo de gateway*. Este programa cria a infraestrutura interna (o barramento de mensagem), carrega os módulos e configura tudo para funcionar corretamente. O SDK fornece a função **Gateway\_Create\_From\_JSON** para que você possa inicializar um gateway em um arquivo JSON. Para usar a função **Gateway\_Create\_From\_JSON**, é necessário transmitir a ela o caminho para um arquivo JSON que especifica os módulos a serem carregados.
+O desenvolvedor deve gravar o *processo de gateway*. Este programa cria a infraestrutura interna (o agente), carrega os módulos e configura tudo para funcionar corretamente. O SDK fornece a função **Gateway\_Create\_From\_JSON** para que você possa inicializar um gateway em um arquivo JSON. Para usar a função **Gateway\_Create\_From\_JSON**, é necessário transmitir a ela o caminho para um arquivo JSON que especifica os módulos a serem carregados.
 
 É possível encontrar o código para o processo de gateway na amostra do Hello World no arquivo [main.c][lnk-main-c]. Para legibilidade, o trecho de código abaixo mostra uma versão abreviada do código do processo de gateway. Este programa cria um gateway e aguarda até que o usuário pressione a tecla **ENTER** antes de eliminar o gateway.
 
@@ -65,21 +65,34 @@ O arquivo de configurações do JSON contém uma lista dos módulos a serem carr
 - **module\_path**: o caminho para a biblioteca que contém o módulo. Para o Linux, é um arquivo .so, no Windows, é um arquivo .dll.
 - **args**: todas as informações de configuração de que o módulo precisa.
 
-A amostra a seguir apresenta o arquivo de configurações do JSON usado para configurar a amostra do Hello World no Linux. A necessidade de um argumento por um módulo dependerá do design do módulo. Neste exemplo, o módulo do agente usa um argumento que é o caminho para o arquivo de saída e o módulo do Hello World não usa nenhum argumento:
+O arquivo JSON também contém os links entre os módulos que serão transmitidos para o agente. Um link tem duas propriedades:
+- **source**: o nome de um módulo da seção `modules` ou "*".
+- **sink**: o nome de um módulo da seção `modules`
+
+Cada link define uma rota e uma direção para as mensagens. Mensagens do módulo `source` devem ser entregues ao módulo `sink`. O `source` pode ser definido como "*", indicando que as mensagens de qualquer módulo serão recebidas pelo `sink`.
+
+A amostra a seguir apresenta o arquivo de configurações do JSON usado para configurar a amostra do Hello World no Linux. Cada mensagem produzida pelo módulo `hello_world` será consumida pelo módulo `logger`. A necessidade de um argumento por um módulo dependerá do design do módulo. Neste exemplo, o módulo do agente usa um argumento que é o caminho para o arquivo de saída e o módulo do Hello World não usa nenhum argumento:
 
 ```
 {
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
 			"args" : null
+        }
+    ],
+    "links" :
+    [
+        {
+            "source" : "hello_world",
+            "sink" : "logger"
         }
     ]
 }
@@ -92,24 +105,24 @@ A amostra a seguir apresenta o arquivo de configurações do JSON usado para con
 ```
 int helloWorldThread(void *param)
 {
-    // Create data structures used in function.
+    // create data structures used in function.
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
     
-    // Add a property named "helloWorld" with a value of "from Azure IoT
+    // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
+    // set the content for the message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // Set the properties for the message
+    // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
     
-    // Create a message based on the msgConfig structure
+    // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -121,8 +134,8 @@ int helloWorldThread(void *param)
         }
         else
         {
-            // Publish the message to the bus
-            (void)MessageBus_Publish(handleData->busHandle, helloWorldMessage);
+            // publish the message to the broker
+            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
 
@@ -137,7 +150,7 @@ int helloWorldThread(void *param)
 
 ### Processamento de mensagem do módulo do Hello World
 
-O módulo do Hello World nunca precisa processar nenhuma mensagem publicada no barramento de mensagem por outros módulos. Isso torna a implementação do retorno de chamada de mensagem no módulo do Hello World uma função não operacional.
+O módulo do Hello World nunca precisa processar nenhuma mensagem publicada no agente por outros módulos. Isso torna a implementação do retorno de chamada de mensagem no módulo do Hello World uma função não operacional.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -148,9 +161,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### Publicação e processamento de mensagem de módulo do agente
 
-O módulo do Agente recebe mensagens do barramento de mensagem e as grava em um arquivo. Ele nunca publica mensagens no barramento de mensagem. Portanto, o código do módulo do agente nunca chama a função **MessageBus\_Publish**.
+O módulo do Agente recebe mensagens do agente e as grava em um arquivo. Ele nunca publica as mensagens. Portanto, o código do módulo do agente nunca chama a função **Broker\_Publish**.
 
-A função **Logger\_Receive** no arquivo [logger.c][lnk-logger-c] é o retorno de chamada que invoca o barramento de mensagem para entregar mensagens ao módulo do agente. O trecho de código abaixo mostra uma versão corrigida com comentários adicionais sem alguns códigos de tratamento de erro para legibilidade:
+A função **Logger\_Receive** no arquivo [logger.c][lnk-logger-c] é o retorno de chamada que invoca o agente para entregar mensagens ao módulo do agente. O trecho de código abaixo mostra uma versão corrigida com comentários adicionais sem alguns códigos de tratamento de erro para legibilidade:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -205,4 +218,4 @@ Para saber mais sobre como usar o SDK do Gateway, veja o seguinte:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -49,7 +49,7 @@ O diagrama a seguir mostra a arquitetura com mais detalhes.
 
 **Nós de computação:** os nós de computação servem como a força por trás do SQL Data Warehouse. Eles são Bancos de Dados SQL que armazenam seus dados e processam sua consulta. Quando você adiciona dados, o SQL Data Warehouse distribui as linhas entre seus nós de computação. Os nós de computação são os trabalhadores que executam as consultas paralelas em seus dados. Após o processamento, eles passam os resultados novamente para o nó de controle. Para concluir a consulta, o nó de controle agrega os resultados e retorna o resultado final.
 
-**Armazenamento:** os dados são armazenados no Armazenamento de Blobs do Azure. Quando os nós de computação interagem com seus dados, eles gravam e leem diretamente no e do armazenamento de blobs. Como o armazenamento do Azure expande de modo transparente e ilimitado, o SQL Data Warehouse pode fazer o mesmo. Como a computação e o armazenamento são independentes, o SQL Data Warehouse pode expandir automaticamente o armazenamento, separadamente da expansão da computação, e vice-versa. O Armazenamento de Blobs do Azure também é totalmente tolerante a falhas, além de simplificar o processo de backup e restauração.
+**Armazenamento:** os dados são armazenados no Armazenamento de Blobs do Azure. Quando os nós de computação interagem com seus dados, eles gravam e leem diretamente no e do armazenamento de blobs. Como o armazenamento do Azure expande de modo transparente e amplo, o SQL Data Warehouse pode fazer o mesmo. Como a computação e o armazenamento são independentes, o SQL Data Warehouse pode expandir automaticamente o armazenamento, separadamente da expansão da computação, e vice-versa. O Armazenamento de Blobs do Azure também é totalmente tolerante a falhas, além de simplificar o processo de backup e restauração.
 
 **Serviço de Movimentação de Dados:** o DMS (Serviço de Movimentação de Dados) move dados entre os nós. O DMS oferece aos nós de computação acesso aos dados que eles precisam para junções e agregações. DMS não é um serviço do Azure. É um serviço do Windows executado junto com o Banco de Dados SQL em todos os nós. Como o DMS é executado em segundo plano, você não irá interagir com ele diretamente. No entanto, ao examinar os planos de consulta, você perceberá que eles incluem algumas operações DMS, uma vez que a movimentação dos dados é necessária para executar cada consulta em paralelo.
 
@@ -83,7 +83,7 @@ A alocação de recursos para o SQL Data Warehouse é medida em DWUs (Unidades d
 
 - A Microsoft pode fazer ajustes à arquitetura subjacente do serviço sem afetar o desempenho de sua carga de trabalho.
 
-- A Microsoft pode aprimorar rapidamente o desempenho do SQL Data Warehouse de uma forma escalonável e afetando uniformemente o sistema.
+- A Microsoft pode aprimorar rapidamente o desempenho do SQL Data Warehouse de uma forma escalonável e que afeta uniformemente o sistema.
 
 As Unidades de Data Warehouse fornecem uma medida de três métricas precisas altamente correlacionadas ao desempenho da carga de trabalho do data warehouse. O objetivo é que essas métricas de carga de trabalho principais aumentem linearmente com as DWUs que você escolheu para o data warehouse.
 
@@ -114,13 +114,13 @@ O SQL Data Warehouse tem base no mecanismo de banco de dados relacional do SQL S
 
 - O SQL Data Warehouse também contém vários recursos recentes do SQL Server, incluindo índices **columnstore** clusterizados, integração de PolyBase e auditoria de dados (completo com avaliação de ameaças).
 
-- Talvez determinados elementos de linguagem T-SQL que são menos comuns para cargas de trabalho de armazenamento de dados, ou que são mais recentes para o SQL Server, não estejam disponíveis no momento. Para saber mais, confira a [Documentação de migração][].
+- Talvez determinados elementos de linguagem T-SQL que são menos comuns para cargas de trabalho de armazenamento de dados, ou que são mais recentes para o SQL Server, não estejam disponíveis no momento. Para obter mais informações, consulte a [Documentação de migração][].
 
 Com a semelhança do Transact-SQL e recursos entre o SQL Server, SQL Data Warehouse, Banco de Dados SQL e Analytics Platform System, você pode desenvolver uma solução adequada às suas necessidades de dados. Você pode decidir onde manter os dados, com base no desempenho, na segurança e nos requisitos de escala e, em seguida, transferir dados, conforme a necessidade, entre sistemas diferentes.
 
 ## Proteção de dados
 
-O SQL Data Warehouse armazena todos os dados no armazenamento com redundância local do Azure Premium. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. Além disso, o SQL Data Warehouse faz o backup automaticamente dos bancos de dados ativos (sem pausa) em intervalos regulares usando Instantâneos de Armazenamento do Azure. Para saber mais sobre como o backup e a restauração funcionam, confira a [Visão geral de backup e restauração ][].
+O SQL Data Warehouse armazena todos os dados no armazenamento com redundância local do Azure Premium. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas. Além disso, o SQL Data Warehouse faz o backup automaticamente dos bancos de dados ativos (sem pausa) em intervalos regulares usando Instantâneos de Armazenamento do Azure. Para saber mais sobre como o backup e a restauração funcionam, consulte a [Visão geral de backup e restauração ][].
 
 ## Integrado com as ferramentas da Microsoft
 
@@ -130,11 +130,11 @@ O SQL Data Warehouse também integra muitas das ferramentas com as quais os usu�
 
 **Ferramentas baseadas em nuvem:** o SQL Data Warehouse pode ser usado junto com várias ferramentas novas do Azure, incluindo o Data Factory, o Stream Analytics, o Aprendizado de Máquina e o Power BI. Para obter uma lista mais completa, confira [Visão geral das ferramentas integradas][].
 
-**Ferramentas de terceiros:** vários provedores de ferramenta de terceiros têm integração certificada de suas ferramentas com o SQL Data Warehouse. Para obter uma lista completa, confira [Parceiros de solução do SQL Data Warehouse][].
+**Ferramentas de terceiros:** vários provedores de ferramenta de terceiros têm integração certificada de suas ferramentas com o SQL Data Warehouse. Para obter uma lista completa, consulte [Parceiros de solução do SQL Data Warehouse][].
 
 ## Cenários de fontes de dados híbridos
 
-O uso do SQL Data Warehouse com PolyBase fornece a capacidade sem precedentes de mover dados entre seus ecossistemas, desbloqueando a capacidade de configuração avançada de cenários híbridos com fontes de dados não relacionais e locais.
+O uso do SQL Data Warehouse com o PolyBase fornece a capacidade sem precedentes de mover os dados entre seus ecossistemas, desbloqueando a capacidade de configuração avançada de cenários híbridos com fontes de dados não relacionais e locais.
 
 O Polybase permite que você aproveite dados de fontes diferentes usando comandos conhecidos de T-SQL. O Polybase permite consultar dados não relacionais mantidos no Armazenamento de Blobs do Azure, como se fosse uma tabela normal. Use o Polybase para consultar dados não relacionais ou importar dados não relacionais no SQL Data Warehouse.
 
@@ -142,16 +142,17 @@ O Polybase permite que você aproveite dados de fontes diferentes usando comando
 
 - O Polybase não depende de sua integração. Ele expõe os mesmos recursos e funcionalidade a todas as fontes as quais oferece suporte. Os dados lidos pelo Polybase podem estar em vários formatos, incluindo arquivos delimitados ou ORC.
 
-- O PolyBase pode ser usado para acessar o armazenamento de blobs que também está sendo usado como armazenamento para um cluster HD Insight. Isso fornece a você acesso aos mesmos dados com ferramentas relacionais e não relacionais.
+- O PolyBase pode ser usado para acessar o armazenamento de blobs que também está sendo usado como armazenamento para um cluster do HDInsight. Isso fornece a você acesso aos mesmos dados com ferramentas relacionais e não relacionais.
 
 ## Próximas etapas
 
 Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um Data Warehouse SQL][] e [carregar dados de amostra][] rapidamente. Se você for novo no Azure, você pode encontrar o [Glossário do Azure][] úteis à medida que encontrar nova terminologia. Ou, dê uma olhada em alguns desses outros recursos do SQL Data Warehouse.
 
+- [Histórias de sucesso de clientes]
 - [Blogs]
 - [Solicitações de recursos]
 - [Vídeos]
-- [Blogs da equipe CAT]
+- [Blogs da Equipe Consultoria para Clientes]
 - [Criar um tíquete de suporte]
 - [Fórum do MSDN]
 - [Fórum Stack Overflow]
@@ -162,24 +163,25 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um D
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Criar um tíquete de suporte]: sql-data-warehouse-get-started-create-support-ticket.md
-[carregar dados de amostra]: sql-data-warehouse-load-sample-databases.md
-[criar um Data Warehouse SQL]: sql-data-warehouse-get-started-provision.md
-[Documentação de migração]: sql-data-warehouse-overview-migrate.md
-[Parceiros de solução do SQL Data Warehouse]: sql-data-warehouse-partner-business-intelligence.md
-[Visão geral das ferramentas integradas]: sql-data-warehouse-overview-integrate.md
-[Visão geral de backup e restauração ]: sql-data-warehouse-restore-database-overview.md
+[Criar um tíquete de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[carregar dados de amostra]: ./sql-data-warehouse-load-sample-databases.md
+[criar um Data Warehouse SQL]: ./sql-data-warehouse-get-started-provision.md
+[Documentação de migração]: ./sql-data-warehouse-overview-migrate.md
+[Parceiros de solução do SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
+[Visão geral das ferramentas integradas]: ./sql-data-warehouse-overview-integrate.md
+[Visão geral de backup e restauração ]: ./sql-data-warehouse-restore-database-overview.md
 [Glossário do Azure]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Histórias de sucesso de clientes]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Blogs da equipe CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Blogs da Equipe Consultoria para Clientes]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Fórum do MSDN]: https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=AzureSQLDataWarehouse
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Relatórios do Azure Active Directory - visualização
@@ -26,7 +26,7 @@ Há duas áreas principais de relatórios:
 
 - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
 
-- **Atividades do sistema** - informações de auditoria sobre o gerenciamento de usuários e de grupos, os aplicativos gerenciados e as atividades de diretório
+- **Logs de auditoria** - informações de auditoria sobre o gerenciamento de usuários e de grupos, os aplicativos gerenciados e as atividades de diretório
 
 Dependendo do escopo dos dados que você estiver procurando, será possível acessar esses relatórios clicando em **Usuários e grupos** ou em **Aplicativos empresariais** na lista de serviços no [portal do Azure](https://portal.azure.com).
 
@@ -118,7 +118,7 @@ Outro método para filtrar as entradas das atividades de entrada é procurar ite
 
 ![Relatórios](./media/active-directory-reporting-azure-portal/84.png "Relatórios")
 
-## Atividades do sistema
+## Logs de auditoria
 
 Os logs de auditoria no Azure Active Directory fornecem registros de atividades do sistema para fins de conformidade.
 
@@ -216,4 +216,4 @@ Outro método para filtrar as entradas de um log de auditoria é procurar itens 
 
 Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

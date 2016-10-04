@@ -17,6 +17,12 @@
    ms.author="ryanwi"/>
 
 # Preparar seu ambiente de desenvolvimento
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, instale o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
 
 ## Pré-requisitos
@@ -62,4 +68,4 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Link do WebPI do SDK principal"
 [powershell5-download]: https://www.microsoft.com/pt-BR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

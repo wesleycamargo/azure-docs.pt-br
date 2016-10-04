@@ -34,9 +34,9 @@ Você pode experimentar este fluxo de trabalho usando dados de exemplo no Docume
 
 ## Fontes de dados com suporte do Assistente para Importação de Dados
 
-A automação e as ferramentas de indexação estão disponíveis para as seguintes fontes de dados:
+O Assistente de importação de dados oferece suporte às seguintes fontes de dados:
 
-- Banco de Dados SQL Azure
+- Banco de Dados SQL do Azure
 - Dados relacionais do SQL Server em uma VM do Azure
 - Banco de Dados de Documentos do Azure
 - Armazenamento de Blobs do Azure (em versão de visualização)
@@ -119,4 +119,4 @@ Consulte estes links para saber mais sobre os indexadores:
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

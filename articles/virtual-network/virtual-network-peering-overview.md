@@ -31,7 +31,7 @@ Requisitos e principais aspectos do emparelhamento VNet:
 - As duas redes virtuais emparelhadas devem estar na mesma região do Azure.
 - As redes virtuais emparelhadas não devem ter espaços de endereço IP sobrepostos.
 - O emparelhamento VNet ocorre entre duas redes virtuais, e não há nenhuma relação transitiva derivada. Por exemplo, se a rede virtual A estiver emparelhada com a rede virtual B, e se a rede virtual B estiver emparelhada com a rede virtual C, isso não significa que a rede virtual A estará emparelhada com a rede virtual C.
-- O emparelhamento pode ser estabelecido entre redes virtuais em duas assinaturas diferentes desde que um usuário privilegiado das duas assinaturas autorize o emparelhamento.
+- O emparelhamento pode ser estabelecido as entre redes virtuais em duas assinaturas diferentes desde que um usuário privilegiado das duas assinaturas autorize o emparelhamento e as assinaturas estejam associadas ao mesmo locatário do Active Directory.
 - Uma rede virtual que usa o modelo de implantação do Resource Manager pode ser emparelhada com outra rede virtual que usa esse modelo, ou com uma rede virtual que usa o modelo de implantação clássico. No entanto, as redes virtuais que usam o modelo de implantação clássico não podem ser emparelhadas entre si.
 - Embora a comunicação entre as máquinas virtuais nas redes virtuais emparelhadas não tenha nenhuma restrição de largura de banda extra, o limite da largura de banda com base no tamanho da VM ainda se aplica.
 
@@ -88,4 +88,4 @@ O Emparelhamento VNet será gratuito durante o período de análise. Após a lib
 - Saiba mais sobre [NSGs](virtual-networks-nsg.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

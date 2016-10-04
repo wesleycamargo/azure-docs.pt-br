@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -67,7 +67,7 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 Você pode monitorar o status do processo na área de mensagem na parte inferior da janela.
 
-O status alterado para Ativa quando a conta foi criada com êxito. A página **serviços de mídia** é aberta com a nova conta exibida.
+O status alterado para Ativa quando a conta foi criada com êxito. A página **serviços de mídia ** é aberta com a nova conta exibida.
 
 Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica nesse botão, é exibida uma página com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações de chave primária para acessar a conta de Serviços de Mídia de modo programático.
 
@@ -106,4 +106,4 @@ Além disso, você pode exibir o código que usa o SDK dos Serviços de Mídia d
 
   [Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

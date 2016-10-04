@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
 
@@ -86,4 +86,4 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

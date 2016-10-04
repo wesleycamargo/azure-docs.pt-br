@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
 
 # Trabalhando com modelos do Azure Resource Manager no Visual Studio Code
@@ -136,4 +136,4 @@ Quando o modelo estiver pronto, você pode implantar os novos recursos seguindo 
 - Para obter a lista completa das funções do modelo, confira [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 - Para obter mais exemplos de como trabalhar com o Visual Studio Code, confira [Criar aplicativos de nuvem com o Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) da [demonstração](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Para ver mais guias de início rápido da demonstração do HealthClinic.biz, consulte [Guias de Início Rápido das Ferramentas de Desenvolvedor do Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

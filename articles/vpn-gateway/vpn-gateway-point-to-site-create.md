@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/27/2016"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão Ponto a Site em uma VNet usando o portal clássico
@@ -25,12 +25,12 @@
 
 Uma configuração Ponto a Site (P2S) permite que você crie uma conexão segura de um computador cliente individual com uma rede virtual. Uma conexão P2S é útil quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando há apenas alguns clientes que precisam se conectar a uma rede virtual.
 
-Este artigo fornece uma orientação sobre a criação de uma VNet com uma conexão Ponto a Site no **modelo de implantação clássica** usando o **Portal Clássico**. No momento, você não pode criar essa configuração de ponta a ponta para o modelo de implantação clássico no Portal do Azure. Você pode executar algumas das etapas no Portal do Azure, mas o PowerShell ainda é necessário para o download da configuração de cliente VPN.
+Este artigo fornece uma orientação sobre a criação de uma VNet com uma conexão Ponto a Site no **modelo de implantação clássica** usando o **Portal Clássico**.
 
 As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. Para saber mais sobre as conexões Ponto a Site, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Planejamento e design](vpn-gateway-plan-design.md).
 
 
-**Modelos de implantação e ferramentas para conexões Site a Site**
+### Modelos e métodos de implantação para as conexões P2S
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -193,4 +193,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar um
 
 Se quiser saber mais sobre Redes Virtuais, consulte a página [Documentação da Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -29,7 +29,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 No bloco **Integridade da segurança do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver vários problemas com gravidade média e alta que exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
 
-![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
@@ -51,29 +51,29 @@ Esta seção mostra o número total de VMs que foram inicializadas para coleta d
 
 
 ####Recomendações de máquina virtual
-Esta seção tem um conjunto de recomendações para cada VM monitorada pela Central de Segurança do Azure. A primeira coluna lista a recomendação, a segunda coluna o indica número total de VMs que são afetadas por essa recomendação e a terceira coluna mostra a gravidade do problema, conforme ilustrado abaixo.
+Esta seção tem um conjunto de [recomendações para cada VM](security-center-virtual-machine-recommendations.md) monitorada pela Central de Segurança do Azure. A primeira coluna lista a recomendação, a segunda coluna o indica número total de VMs que são afetadas por essa recomendação e a terceira coluna mostra a gravidade do problema, conforme ilustrado abaixo.
 
 ![Recomendações de VM](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
 > [AZURE.NOTE] Apenas as VMs com pelo menos um ponto de extremidade público são mostradas na folha Integridade da Rede na lista Topologia da rede.
 
-Cada recomendação tem um conjunto de ações que podem ser executadas assim que você clica nela. Por exemplo, se você clicar em **Atualizações do sistema ausentes**, a folha **Atualizações do sistema ausentes** será aberta. Ela lista as VMs que têm correções ausentes e a gravidade da atualização ausente, conforme mostrado abaixo.
+Cada recomendação tem um conjunto de ações que podem ser executadas assim que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta. Ela lista as VMs que têm correções ausentes e a gravidade da atualização ausente, conforme mostrado abaixo.
 
 ![Atualizações de sistema ausentes](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
-A folha **Atualizações do sistema ausentes** mostrará uma tabela com as seguintes informações:
+A folha **Atualizações de sistema ausentes** mostrará uma tabela com as seguintes informações:
 
-- **MÁQUINA VIRTUAL**: o nome da máquina virtual sem as atualizações.
-- **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que faltam.
-- **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez se a VM teve atualizações.
+- **MÁQUINA VIRTUAL**: o nome da máquina virtual com atualizações ausentes.
+- **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que estão ausentes.
+- **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez se a VM tinha atualizações.
 - **ESTADO**: o estado atual da recomendação:
 	- **Aberta**: a recomendação ainda não foi resolvida
-	- **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; nenhuma ação é requerida
-	- **Resolvida**: a recomendação já foi concluída (quando o problema foi resolvido, a entrada fica acinzentada).
+	- **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; não é exigido que você realize nenhuma ação
+	- **Resolvida**: A recomendação já foi concluída (quando o problema for resolvido, a entrada será esmaecida).
 - **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
-	- **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança da rede) e ela requer atenção
+	- **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança de rede) e ela requer atenção
 	- **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade
-	- **Baixa**: uma vulnerabilidade deve ser endereçada, mas não exige uma atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
+	- **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
 
 Para exibir os detalhes da recomendação, clique no nome da VM. Uma nova folha dessa VM será aberta com a lista de atualizações, conforme mostrado abaixo.
 
@@ -103,12 +103,12 @@ Você precisará seguir as etapas na recomendação para atualizar a versão do 
 
 ![Detalhes do Serviço de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver a uma explicação mais detalhada sobre essa recomendação, clique em Atualizar **versão do SO**, na coluna **DESCRIÇÃO**. A folha **Atualizar versão do SO (Visualização)** será aberta com mais detalhes.
+Para ver uma explicação mais detalhada sobre essa recomendação, clique em Atualizar **Versão do sistema operacional**, na coluna **DESCRIÇÃO**. A folha **Atualizar versão do sistema operacional (Visualização)** será aberta com mais detalhes.
 
 ![Recomendações dos Serviços de Nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
 
 ### Monitorar redes virtuais
-Quando você clicar em **Rede** no bloco **Integridade da Segurança do Recurso**, a folha **Rede** será aberta com mais detalhes, como mostrado abaixo:
+Quando você clicar em **Rede** no bloco **Integridade de segurança de recursos**, a folha **Rede** será aberta com mais detalhes, como mostrado abaixo:
 
 ![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -116,7 +116,7 @@ Quando você clicar em **Rede** no bloco **Integridade da Segurança do Recurso*
 
 Como as informações de integridade de recursos de máquinas virtuais, essa folha fornece uma lista resumida dos problemas na parte superior da folha e uma lista de redes monitoradas na parte inferior.
 
-A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece recomendações. Os possíveis problemas podem incluir:
+A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece [recomendações](security-center-network-recommendations.md). Os possíveis problemas podem incluir:
 
 - Firewall da Próxima Geração (NGFW) não instalado
 - Grupos de Segurança da Rede (NSGs) em sub-redes não habilitadas
@@ -160,8 +160,8 @@ Nessa exibição da topologia, o primeiro nível tem as [Redes Virtuais](../virt
 
 A parte inferior dessa folha tem as recomendações para essa VM, semelhante ao que está descrito acima. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração/controle de segurança necessário.
 
-###Monitorar recursos do SQL
-Quando você clicar em **SQL** no bloco **Integridade da Segurança do Recursos**, a folha SQL será aberta com recomendações para os problemas, como a auditoria e a criptografia de dados transparente não habilitadas. Ela também contém recomendações para o estado de integridade geral do banco de dados.
+###Dados de monitoramento
+Quando você clica em **Dados** no bloco **Integridade de segurança dos recursos**, a folha **SQL** é aberta com recomendações para problemas como a não habilitação da auditoria e criptografia de dados transparente. Ela também contém [recomendações ](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados.
 
 ![Integridade de recursos do SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -200,10 +200,10 @@ Esta folha terá uma lista de todas as recomendações para este aplicativo. Qua
 ## Consulte também
 Neste documento, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança
 - [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->
