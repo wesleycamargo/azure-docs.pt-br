@@ -24,7 +24,7 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 
 **Tempo estimado para conclusão:** 20 minutos
 
->[AZURE.NOTE]  Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure que uma das etapas inclui, ou seja, como autorizar um aplicativo para usar uma chave ou um segredo no cofre da chave.
+>[AZURE.NOTE] Este tutorial não inclui instruções sobre como escrever o aplicativo do Azure que uma das etapas inclui, ou seja, como autorizar um aplicativo para usar uma chave ou um segredo no cofre da chave.
 >
 >Este tutorial usa o Azure PowerShell. Para obter instruções de interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 

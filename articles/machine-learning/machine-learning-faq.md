@@ -262,7 +262,7 @@ Confira [Códigos de erro do módulo de Aprendizado de Máquina](https://msdn.mi
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensioná-lo com até 200 solicitações simultâneas por ponto de extremidade, e os serviços Web com até 10.000 pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas são executadas automaticamente conforme a fila anda.
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e é possível dimensionar cada serviço Web em 10.000 pontos de extremidade, conforme descrito no artigo [pontos de extremidade de API de dimensionamento](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez e solicitações adicionais, além de 40 solicitações que são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
