@@ -111,7 +111,7 @@ A IU do Storm fornece uma interface Web para trabalhar com as topologias em func
 
 A página principal da interface do usuário do Storm fornece as seguintes informações:
 
-* **Resumo do cluster **: informações básicas sobre o cluster do Storm
+* **Resumo do cluster**: informações básicas sobre o cluster do Storm
 
 * **Resumo da topologia**: uma lista das topologias em execução. Use os links desta seção para exibir mais informações sobre topologias específicas.
 
