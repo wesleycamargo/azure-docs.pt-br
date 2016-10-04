@@ -144,6 +144,8 @@ Geralmente, é uma prática recomendada trabalhar com um modelo que implante tod
 
 Embora cada implantação mostre apenas as alterações feitas em seu grupo de recursos, a qualquer momento você pode exportar um modelo para exibir os atributos de todo o seu grupo de recursos.
 
+> [AZURE.NOTE] Você não pode exportar um modelo para um grupo de recursos que tenha mais de 200 recursos.
+
 1. Para exibir o modelo de um grupo de recursos, selecione **Script de automação**.
 
       ![exportar grupo de recursos](./media/resource-manager-export-template/export-resource-group.png)
@@ -193,7 +195,7 @@ Selecionar a mensagem mostra exatamente quais tipos de recursos não foram expor
      
 ![mostrar erros](./media/resource-manager-export-template/show-error-details.png)
 
-Este tópico mostra as correções comuns a seguir. Para implementar esses recursos, você precisará adicionar parâmetros ao modelo. Para saber mais, confira [Personalizar e reimplantar o modelo exportado](resource-manager-customize-template.md).
+Este tópico mostra as seguintes correções comuns. Para implementar esses recursos, você precisará adicionar parâmetros ao modelo. Para saber mais, confira [Personalizar e reimplantar o modelo exportado](resource-manager-customize-template.md).
 
 ### Cadeia de conexão
 
@@ -343,4 +345,4 @@ Parabéns! Você aprendeu a exportar um modelo a partir dos recursos criados no 
 - Para ver como exportar um modelo por meio do PowerShell, consulte [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para ver como exportar um modelo por meio da CLI do Azure, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 
@@ -77,6 +77,8 @@ Descreveremos as tarefas da forma como são realizadas no portal clássico do Az
 
 No Azure AD, você pode configurar com facilidade uma regra simples para determinar quais usuários devem ser membros do grupo. Uma regra simples é aquele que faz uma única comparação. Por exemplo, se um grupo for atribuído a um aplicativo SaaS, você poderá configurar uma regra para adicionar usuários que têm o cargo de "Representante de Vendas". Essa regra concede então acesso ao aplicativo SaaS para todos os usuários com esse cargo no diretório.
 
+Quando os atributos de um usuário são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração do atributo do usuário dispararia adições ou remoções de grupo. Se um usuário atender a uma regra em um grupo, ele será adicionado como membro a esse grupo. Se ele não satisfizer mais à regra de um grupo do qual é membro, será removido do grupo.
+
 > [AZURE.NOTE] Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. Atualmente não há suporte a associações de grupo aninhadas para atribuição com base em grupo para aplicativos.
 >
 > As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
@@ -114,4 +116,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como adicionar uma identidade visual à página de entrada do Azure e à página do painel de acesso da empresa"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
 
@@ -29,7 +29,7 @@ Este tópico explica como você pode personalizar a página de entrada e a pági
 
 > [AZURE.NOTE]
 >
-- A identidade visual da empresa é um recurso que está disponível somente se você atualizou para a edição Premium ou Basic do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+- A identidade visual da empresa é um recurso que só estará disponível se você tiver atualizado para a edição Premium ou Basic do Azure Active Directory ou se for um usuário do Office 365. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 - As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -164,7 +164,7 @@ Pode demorar até uma hora para que a nova alteração feita à identidade visua
 
     c. Remova o texto de todas as caixas de texto.
 
-    d. Clique em **Próximo**.
+    d. Clique em **Avançar**.
 
     e. Remova o texto de todas as caixas de texto.
 
@@ -219,4 +219,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

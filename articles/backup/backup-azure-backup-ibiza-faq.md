@@ -23,11 +23,11 @@
 - [Perguntas frequentes sobre backup para o modo Clássico](backup-azure-backup-faq.md)
 - [Perguntas frequentes sobre backup para o modo do Gerenciador de recursos](backup-azure-backup-ibiza-faq.md)
 
-Este artigo fornece informações específicas ao cofre de Serviços de Recuperação e complementa as [Perguntas frequentes sobre Backup do Azure](backup-azure-backup-faq). As perguntas frequentes sobre o Backup do Azure oferecem o conjunto completo de perguntas e respostas sobre o serviço Backup do Azure.
+Este artigo fornece informações específicas ao cofre de Serviços de Recuperação e complementa as [Perguntas frequentes sobre Backup do Azure](backup-azure-backup-faq.md). As perguntas frequentes sobre o Backup do Azure oferecem o conjunto completo de perguntas e respostas sobre o serviço Backup do Azure.
 
 Você pode fazer perguntas sobre o Backup do Azure na seção Disqus deste artigo ou do artigo relacionado. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Os cofres dos Serviços de Recuperação se baseiam no Gerenciador de Recursos; os Cofres de backup (modo clássico) ainda têm suporte? <br/>
+## Os cofres dos Serviços de Recuperação se baseiam no Resource Manager. Os cofres de Backup (modo clássico) ainda têm suporte? <br/>
 Sim, os cofres de Backup ainda têm suporte. Crie os cofres de Backup no [portal Clássico](https://manage.windowsazure.com). Crie cofres dos Serviços de Recuperação no [portal do Azure](https://portal.azure.com). No entanto, é altamente recomendável que você crie o cofre de serviços de recuperação, pois todos os aperfeiçoamentos futuros estarão disponíveis somente no cofre de Serviços de Recuperação.
 
 ## Pode migrar um cofre de Backup para um cofre dos Serviços de Recuperação? <br/>
@@ -43,4 +43,4 @@ Os backups de VMs clássicas no cofre de backup não migrarão automaticamente p
 2. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. Verifique se o armazenamento e a rede correspondentes à máquina virtual também são migrados para o modo do Gerenciador de Recursos.
 3. Criar um cofre dos serviços de recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Saiba mais sobre como [habilitar o backup no cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

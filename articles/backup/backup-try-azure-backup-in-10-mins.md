@@ -3,8 +3,8 @@
    description="Saiba como fazer backup de dados do Windows Server criando um cofre, instalando o agente dos Serviços de Recuperação e fazendo backup de seus arquivos e pastas no Azure."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="como fazer backup; como fazer backup"/>
 
@@ -14,8 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
 
 # Introdução: fazer backup de arquivos e pastas com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
 
@@ -39,7 +39,7 @@ Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Ser
 
 ### Para criar um cofre de Serviços de Recuperação
 
-1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
+1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
 
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
 
@@ -49,7 +49,7 @@ Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Ser
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    A folha do cofre de Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
@@ -98,17 +98,17 @@ Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de 
 
     ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
 
-4. Selecione **Local** no menu Onde sua carga de trabalho está em execução?
+4. Selecione **Local** no menu Onde a sua carga de trabalho está sendo executada?
 
 5. Selecione **Arquivos e pastas** no menu Do que você deseja fazer backup? e clique em **OK**.
 
 ### Baixar o agente dos Serviços de Recuperação
 
-1. Clique em **Baixar agente do Windows Server ou cliente Windows** na folha **Preparar infraestrutura**.
+1. Clique em **Baixar agente do Windows Server ou Windows Client** na folha **Preparar infraestrutura**.
 
     ![preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 
-2. Clique em **Salvar** no pop-up do download. Por padrão, o arquivo **MARSagentinstaller.exe** será salvo em sua pasta Downloads.
+2. Clique em **Salvar** no pop-up de download. Por padrão, o arquivo **MARSagentinstaller.exe** será salvo em sua pasta Downloads.
 
 ### Baixar as credenciais do cofre
 
@@ -153,7 +153,7 @@ Para concluir o backup inicial, você deverá usar o agente dos Serviços de Rec
 
     ![Agendar um backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. Na tela de Introdução do Assistente para Agendar Backup, clique em **Avançar**.
+3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
 
 4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
 
@@ -167,7 +167,7 @@ Para concluir o backup inicial, você deverá usar o agente dos Serviços de Rec
 
     ![Itens para o backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] Para obter mais informações sobre como especificar o agendamento de backup, consulte o artigo [Usar o Backup do Azure para substituir a infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Para saber mais sobre como especificar o agendamento de backup, confira o artigo [Usar o Backup do Azure para substituir a sua infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
 
 8. Na página **Selecionar Política de Retenção**, escolha a **Política de Retenção** para a cópia de backup.
 
@@ -177,7 +177,7 @@ Para concluir o backup inicial, você deverá usar o agente dos Serviços de Rec
 
     Você pode fazer backup automaticamente pela rede ou pode fazer backup offline. O restante deste artigo descreve o processo para realização de backup automático. Se preferir fazer um backup offline, examine o artigo [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md) para obter informações adicionais.
 
-10. Na tela Confirmação, examine as informações e clique em **Concluir**.
+10. Na página Confirmação, examine as informações e clique em **Concluir**.
 
 11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
@@ -191,7 +191,7 @@ Para concluir o backup inicial, você deverá usar o agente dos Serviços de Rec
 
 3. Clique em **Fechar** para fechar o assistente. Se você fizer isso antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 
-Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console do backup.
+Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
 ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
@@ -203,4 +203,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 - Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->
