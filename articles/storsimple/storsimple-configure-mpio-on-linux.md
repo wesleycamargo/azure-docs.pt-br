@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -82,7 +82,7 @@ Esta seção detalha os pré-requisitos de configuração para o servidor CentOS
 
 
 
-1. Certifique-se de que seu host CentOS tenha duas interfaces de rede habilitadas. Digite:
+1. Certifique-se de que seu host CentOS tenha duas interfaces de rede habilitadas. Tipo:
 
 	`ifconfig`
 
@@ -123,12 +123,12 @@ Esta seção detalha os pré-requisitos de configuração para o servidor CentOS
 
 	1. Faça logon como `root` em seu host CentOS.
 
-	1. Instale o *iSCSI-initiator-utils*. Digite:
+	1. Instale o *iSCSI-initiator-utils*. Tipo:
 		
 		`yum install iscsi-initiator-utils`
 
 
-	1. Após a instalação bem-sucedida do *iSCSI-Initiator-utils*, inicie o serviço iSCSI. Digite:
+	1. Após a instalação bem-sucedida do *iSCSI-Initiator-utils*, inicie o serviço iSCSI. Tipo:
 
 		`service iscsid start`
 
@@ -151,7 +151,7 @@ Esta seção detalha os pré-requisitos de configuração para o servidor CentOS
 		No exemplo acima, você pode ver que o seu ambiente iSCSI será executado no momento da inicialização em níveis de execução 2, 3, 4 e 5.
 
 
-1. Instale o *device-mapper-multipath*. Digite:
+1. Instale o *device-mapper-multipath*. Tipo:
 
 	`yum install device-mapper-multipath`
 
@@ -220,14 +220,14 @@ As etapas de configuração para vários caminhos envolvem a configuração dos 
 
 Os dispositivos multipath-supported podem ser automaticamente descobertos e configurados.
 
-1. Inicialize o arquivo `/etc/multipath.conf`. Digite:
+1. Inicialize o arquivo `/etc/multipath.conf`. Tipo:
 
 	 `Copy mpathconf --enable`
 	
 	O comando acima criará um arquivo `sample/etc/multipath.conf`.
 
 
-1. Inicie o serviço de vários caminhos. Digite:
+1. Inicie o serviço de vários caminhos. Tipo:
 
     ``Copy service multipathd start``
 	
@@ -235,7 +235,7 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
 
 	`Starting multipathd daemon:`
 
-1. Habilite a descoberta automática dos vários caminhos. Digite:
+1. Habilite a descoberta automática dos vários caminhos. Tipo:
 
 	`mpathconf --find_multipaths y`
 
@@ -251,7 +251,7 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
 
 Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
-1. Edite o arquivo `/etc/mulitpath.conf`. Digite:
+1. Edite o arquivo `/etc/mulitpath.conf`. Tipo:
 
 	`vi /etc/multipath.conf`
 
@@ -272,7 +272,7 @@ Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.co
 
 Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponíveis para o controlador ativo em um round robin balanceado.
 
-1. Edite o arquivo `/etc/multipath.conf`. Digite:
+1. Edite o arquivo `/etc/multipath.conf`. Tipo:
 
 	`vi /etc/multipath.conf`
 
@@ -310,7 +310,7 @@ Os valores mais comuns de `path_grouping_policy` incluem:
 1. Primeiro, verifique se a conexão iSCSI foi estabelecida como dispositivo StorSimple da seguinte maneira:
 
 
-	1. Descubra seu dispositivo StorSimple. Digite:
+	1. Descubra seu dispositivo StorSimple. Tipo:
 		
 		`iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
 
@@ -324,7 +324,7 @@ Os valores mais comuns de `path_grouping_policy` incluem:
 
 
 
-	1. Conecte-se ao dispositivo usando o IQN de destino. O dispositivo StorSimple é o destino iSCSI aqui. Digite:
+	1. Conecte-se ao dispositivo usando o IQN de destino. O dispositivo StorSimple é o destino iSCSI aqui. Tipo:
 
 		`iscsiadm -m node --login -T <IQN of iSCSI target>`
 
@@ -345,7 +345,7 @@ Os valores mais comuns de `path_grouping_policy` incluem:
 	
 	1. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) por meio do Portal Clássico do Azure em seu dispositivo StorSimple.
 
-	1. Verifique os caminhos disponíveis. Digite:
+	1. Verifique os caminhos disponíveis. Tipo:
 
 		`multipath –l`
 
@@ -390,7 +390,7 @@ R. Normalmente, não ver todos os vários caminhos sugere um problema com o daem
 
 Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, já que nenhuma resposta das listagens de vários caminhos também poderia significar que você não tem discos.
 
-- Use o comando a seguir para examinar novamente o barramento SCSI: 
+- Use o comando a seguir para examinar novamente o barramento SCSI:
  
 	`$ rescan-scsi-bus.sh `(parte do pacote sg3\_utils)
  
@@ -492,4 +492,4 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 - [Configurando o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guia de treinamento do Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -117,4 +117,4 @@ Clique no botão **Iniciar** para reiniciar a VM quando você estiver pronto par
 
 - Se você estiver interessado na automatização das implantações, consulte [Criar uma máquina virtual do Windows usando um modelo do Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0912_2016--->
+<!----HONumber=AcomDC_0912_2016--->

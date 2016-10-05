@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="tamram"
-	manager="na"
+	manager="carmonm"
 	editor="tysonn" />
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="08/03/2016"
-	ms.author="tamram" />
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram" />
 
 # Exemplos do Armazenamento do Azure
 
@@ -90,4 +90,4 @@ Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenament
 - [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)
 - [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

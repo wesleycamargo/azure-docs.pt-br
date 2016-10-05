@@ -12,11 +12,15 @@
  ms.tgt_pltfrm="na"
  ms.devlang="multiple"
  ms.topic="article"
- ms.date="08/24/2016"
+ ms.date="09/15/2016"
  ms.author="casoper"/>
 
 
 # Gerenciar a expiração de conteúdo do Azure Storage Blob no Azure CDN
+
+> [AZURE.SELECTOR]
+- [Serviços de Nuvem/Aplicativos Web do Azure, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Serviço Blob do Armazenamento do Azure](cdn-manage-expiration-of-blob-content.md)
 
 O [serviço Blob](../storage/storage-introduction.md#blob-storage) no [Armazenamento do Azure](../storage/storage-introduction.md) é uma das várias origens com base no Azure integradas ao Azure CDN. Qualquer conteúdo de blob publicamente acessível pode ser armazenado em cache no Azure CDN até que o tempo de vida (TTL) seja decorrido. O TTL é determinado pelo [cabeçalho *Controle de Cache*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) na resposta HTTP do Armazenamento do Azure.
 
@@ -108,4 +112,4 @@ Você pode verificar facilmente a TTL de seus blobs. Usando as [ferramentas de d
 - [Ler sobre o cabeçalho de *Controle de Cache*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 - [Aprender a gerenciar a expiração de conteúdo do Serviço de Nuvem no Azure CDN](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

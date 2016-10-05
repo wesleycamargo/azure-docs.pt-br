@@ -389,7 +389,7 @@ AP4000
 
 ### Descrição
 
-O uso de [ConfigurationManager] (https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) de classe de projetos, como o site do Azure e serviços móveis do Azure não introduz problemas de tempo de execução. Como prática recomendada, no entanto, é uma boa ideia usar Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) como uma forma unificada de gerenciamento de configurações para todos os aplicativos de nuvem do Azure.
+O uso de [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) de classe de projetos, como o site do Azure e serviços móveis do Azure não introduz problemas de tempo de execução. Como prática recomendada, no entanto, é uma boa ideia usar Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) como uma forma unificada de gerenciamento de configurações para todos os aplicativos de nuvem do Azure.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
@@ -449,7 +449,7 @@ Armazene cadeias de conexão em arquivos de configuração ou ambientes do Azure
 
 - Para aplicativos do vNext do ASP.NET, use configuration.json para armazenar cadeias de conexão.
 
-Para obter informações sobre como usar arquivos de configurações, como web.config ou app.config, consulte [Diretrizes de configuração Web do ASP.NET] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Para obter informações sobre como variáveis de ambiente do Azure funcionam, consulte [Sites do Azure: como as cadeias de aplicativo e cadeias de conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Para obter informações sobre o armazenamento de cadeia de conexão no controle do código-fonte, consulte [Evitar colocar informações confidenciais, como cadeias de conexão em arquivos armazenados no repositório de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
+Para obter informações sobre como usar arquivos de configurações, como web.config ou app.config, consulte [Diretrizes de configuração Web do ASP.NET](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx). Para obter informações sobre como variáveis de ambiente do Azure funcionam, consulte [Sites do Azure: como as cadeias de aplicativo e cadeias de conexão funcionam](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Para obter informações sobre o armazenamento de cadeia de conexão no controle do código-fonte, consulte [Evitar colocar informações confidenciais, como cadeias de conexão em arquivos armazenados no repositório de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control).
 
 ## Usar arquivo de configuração de diagnóstico
 

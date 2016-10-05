@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication" 
-	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Office 365." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Criar senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication"
+	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Office 365."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Criar ou excluir senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication
 
@@ -68,9 +68,4 @@ Se você usar uma multi-factor authentication com o Office 365, talvez seja conv
 <li>Aparecerá um pop-up solicitando que você confirme a exclusão.</li>
 <li>Clique em **Sim**.</li>
 
-
-
- 
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

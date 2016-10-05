@@ -99,7 +99,7 @@ Você precisará de:
 - [Saiba mais](site-recovery-vmware-to-azure.md#azure-prerequisites) sobre os requisitos de implantação no Portal do Azure.
 - [Saiba mais](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) sobre os requisitos de implantação aprimorada no Portal Clássico.
 - [Saiba mais](site-recovery-failback-azure-to-vmware.md) sobre o failback no Portal do Azure.
-- [Saiba mais] (site-recovery-failback-azure-to-vmware-clas- [Saiba mais](site-recovery-failback-azure-to-vmware-classic.md) sobre failback no portal.sic.md do Azure) sobre failback no Portal Clássico.
+- [Saiba mais](site-recovery-failback-azure-to-vmware-classic.md) sobre failback no portal.sic.md do Azure) sobre failback no Portal Clássico.
 
 ## Replicar no Azure: VMs Hyper-V não gerenciadas pelo VMM
 

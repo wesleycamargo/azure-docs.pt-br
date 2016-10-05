@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="tamram;aungoo"/>
 
 
 # Fazer backup de discos de máquina virtual do Azure com instantâneos incrementais
 
-## Visão geral 
+## Visão geral
 
 O Armazenamento do Azure oferece a capacidade de fazer instantâneos dos blobs. Os instantâneos capturam o estado do blob no momento em questão. Neste artigo, descrevemos um cenário de como você pode manter backups dos discos de máquinas virtuais usando instantâneos. Você pode usar essa metodologia quando optar por não usar o Serviço de Backup e Recuperação do Azure e desejar criar uma estratégia de backup personalizada para seus discos da máquina virtual.
 
@@ -128,4 +128,4 @@ Saiba mais sobre como criar instantâneos de um blob e planejar a infraestrutura
 - [Criando um instantâneo de um Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Planejar sua Infraestrutura de backup de VM](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

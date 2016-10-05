@@ -297,6 +297,10 @@ Neste exemplo, duas tabelas de roteamento são criadas, uma para a sub-rede de f
 2. Tráfego de rede virtual com um Próximo Salto definido como firewall, isso substitui a regra padrão que permite que o tráfego de rede virtual local seja roteado diretamente.
 3. Todo o tráfego restante (0/0) com um Próximo Salto definido como o firewall.
 
+>[AZURE.TIP] A falta da entrada de sub-rede local no UDR interromperá as comunicações na sub-rede local.
+> - Em nosso exemplo, 10.0.1.0/24 apontando para VNETLocal é fundamental, já que, caso contrário, o pacote que sai do servidor Web (10.0.1.4) destinado a outro servidor local (por exemplo) 10.0.1.25 falhará, pois ele será enviado através de NVA, que irá enviá-lo para a sub-rede e esta o enviará novamente para o NVA e assim por diante.
+> - As chances de um loop de roteamento são geralmente maiores em dispositivos de várias NICs conectados diretamente a cada sub-rede com que estão se comunicando, o que é normalmente o caso de dispositivos tradicionais locais.
+
 Depois que as tabelas de roteamento são criadas, elas são associadas às respectivas sub-redes. A tabela de roteamento da sub-rede de front-end, uma vez criada e associada à sub-rede, deverá ter essa aparência:
 
         Effective routes : 
@@ -306,12 +310,9 @@ Depois que as tabelas de roteamento são criadas, elas são associadas às respe
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] Há algumas restrições ao usar o UDR com a Rota Expressa devido à complexidade do roteamento dinâmico usado no gateway virtual do Azure:
+>[AZURE.NOTE] O UDR agora pode ser aplicado à sub-rede de gateway a qual o circuito de ExpressRoute está conectado.
 >
->- O UDR não deve ser aplicado à sub-rede de gateway à qual o gateway virtual do Azure vinculado à Rota Expressa está conectado.
-> - O gateway virtual do Azure vinculado à Rota Expressa não pode ser o dispositivo NextHop para outras sub-redes associadas ao UDR.
->
->Exemplos de como habilitar a rede de perímetro com a rede site a site ou de Rota Expressa são mostrados nos exemplos 3 e 4.
+> Exemplos de como habilitar a rede de perímetro com a rede site a site ou de Rota Expressa são mostrados nos exemplos 3 e 4.
 
 
 #### Descrição de Encaminhamento IP
@@ -361,7 +362,7 @@ Para este exemplo, precisamos de sete tipos de regras:
 Depois que todas as regras anteriores forem criadas, será importante examinar a prioridade de cada regra para garantir que o tráfego seja permitido ou negado como desejado. Neste exemplo, as regras estão em ordem de prioridade.
 
 #### Conclusão
-Essa é uma maneira mais complexa, porém mais completa de proteger e isolar a rede do que nos exemplos anteriores. (o Exemplo 2 protege apenas o aplicativo e o Exemplo 1 isola apenas sub-redes). Esse design permite monitorar o tráfego em ambos os trajetos e protege não apenas o servidor de aplicativos de entrada, mas impõe políticas de segurança de rede para todos os servidores nessa rede. Além disso, dependendo do dispositivo usado, pode-se conseguir auditoria e reconhecimento total de tráfego. Para obter mais informações, consulte as [instruções detalhadas de build][Example3]. Essas instruções incluem:
+Essa é uma maneira mais complexa, porém mais completa de proteger e isolar a rede do que nos exemplos anteriores. (o Exemplo 2 protege apenas o aplicativo e o Exemplo 1 isola apenas sub-redes). Esse design permite monitorar o tráfego em ambos os trajetos e protege não apenas o servidor de aplicativos de entrada, mas impõe políticas de segurança de rede para todos os servidores nessa rede. Além disso, dependendo do dispositivo usado, pode-se conseguir auditoria e reconhecimento total de tráfego. Para saber mais, confira as [instruções detalhadas de build][Example3]. Essas instruções incluem:
 
 - Como criar essa rede de perímetro de exemplo com scripts do PowerShell.
 - Como criar esse exemplo com um modelo do Azure Resource Manager.
@@ -472,7 +473,7 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 - Documentação do roteamento definido pelo usuário: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](./virtual-network/virtual-networks-udr-overview.md)
 - Gateways virtuais do Azure: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
 - VPNs Site a Site: [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- Documentação da Rota Expressa (confira as seções "Introdução" e "Tutoriais"): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
+- Documentação da ExpressRoute (confira as seções "Introdução" e "Tutoriais"): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Fluxograma de opções de segurança"
@@ -484,7 +485,7 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Rede híbrida com três limites de segurança"
 [7]: ./media/best-practices-network-security/example1design.png "DMZ de entrada com NSG"
 [8]: ./media/best-practices-network-security/example2design.png "DMZ de entrada com NVA e NSG"
-[9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
+[9]: ./media/best-practices-network-security/example3design.png "rede de perímetro bidirecional com NVA, NSG e UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [11]: ./media/best-practices-network-security/example4designoptions.png "DMZ com rede híbrida conectada com NVA"
 [12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando uma VPN site a site"
@@ -504,4 +505,4 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0921_2016-->

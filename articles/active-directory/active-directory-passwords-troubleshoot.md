@@ -466,7 +466,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
 							</p>
             </td>
             <td>
-              <p>[Localize a conta do Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com no máximo 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
+              <p>[Localize a conta do Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com no máximo 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
 							</p>
             </td>
           </tr>

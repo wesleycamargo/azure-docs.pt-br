@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/19/2016" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
@@ -41,9 +41,8 @@ Na primeira vez que um trabalho do Stream Analytics é criado em uma região, vo
 | Métrica | Definição |
 |--------|-------------|
 | % de utilização do SU | A utilização das unidades de Streaming é atribuída a um trabalho na guia Escala do trabalho. Se esse indicador alcançar 80% ou acima, há grande probabilidade de que o processamento de eventos se atrase ou pare. |
-| Eventos de entrada | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em termos de contagem de eventos. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
-| Bytes de evento de entrada | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em termos de taxa de transferência em bytes |
-| Eventos de saída | Quantidade de dados enviados pelo trabalho do Stream Analytics para o destino de saída, em termos de contagem de evento. |
+| Eventos de entrada | Quantidade de dados recebidos pelo trabalho do Stream Analytics, em termos de eventos. Isso pode ser usado para validar que os eventos estão sendo enviados para a fonte de entrada. |
+| Eventos de saída | Quantidade de dados enviados pelo trabalho do Stream Analytics para o destino de saída, em números de evento. |
 | Eventos fora de ordem | Número de eventos recebidos fora de ordem que foram descartados ou que receberam um carimbo de data/hora ajustado, com base na Política de ordenação de evento. Isso pode ser afetado pela configuração da definição da Janela de tolerância fora de ordem. |
 | Erros de conversão de dados | Número de erros de conversão de dados gerado por um trabalho do Stream Analytics. |
 | Erros de tempo de execução | O número de erros que ocorrem durante a execução de um trabalho do Stream Analytics. |
@@ -107,4 +106,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

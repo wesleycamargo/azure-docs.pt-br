@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Como executar uma análise de acesso no Azure AD Privileged Identity Management
@@ -30,11 +30,8 @@ Você pode usar o aplicativo Azure AD PIM (Privileged Identity Management) no [p
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você vai operar.
-3. Selecione **Novo** > **Segurança + Identidade** > **Azure AD Privileged Identity Management**.
-
-	![Habilitar o PIM no portal][1]
-
-4. Marque a opção **Fixar no painel** e clique no botão **Criar**. O Painel Privileged Identity Management é aberto.
+3. Selecione **Mais serviços** e use a caixa de texto Filtrar para procurar **Azure AD Privileged Identity Management**.
+4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management será aberto.
 
 
 ## Aprovar ou negar acesso
@@ -56,4 +53,4 @@ Ao aprovar ou negar o acesso, você está apenas dizendo ao revisor se ainda usa
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

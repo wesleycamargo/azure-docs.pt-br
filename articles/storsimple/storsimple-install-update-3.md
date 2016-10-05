@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/07/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 3 em seu dispositivo StorSimple
@@ -27,7 +27,7 @@ A Atualização 3 inclui atualizações de software de dispositivo, firmware e d
 
 > - Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são executadas somente se você aplicar as atualizações no portal clássico do Azure.
 > - Recomendamos que você instale as atualizações de software e driver através do Portal clássico do Azure. Você só deve ir para a interface do Windows PowerShell do dispositivo (para instalar atualizações) se a verificação de pré-atualização de gateway falhar no portal. Dependendo da versão da qual você está atualizando, as atualizações podem levar de 1,5 a 2,5 horas para serem instaladas. As atualizações do modo de manutenção devem ser instaladas por meio da interface do Windows PowerShell do dispositivo. Como as atualizações do modo de manutenção são atualizações com interrupção, elas resultarão em um tempo de inatividade para seu dispositivo.
-> - Se você estiver executando o StorSimple Snapshot Manager opcional, verifique se atualizou sua versão do Snapshot Manager para a Atualização 3 antes de atualizar o dispositivo.
+> - Se estiver executando o StorSimple Snapshot Manager opcional, certifique-se de ter atualizado sua versão Snapshot Manager para a Atualização 2 antes de atualizar o dispositivo.
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -126,4 +126,4 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 Saiba mais sobre a [versão de Atualização 3](storsimple-update3-release-notes.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

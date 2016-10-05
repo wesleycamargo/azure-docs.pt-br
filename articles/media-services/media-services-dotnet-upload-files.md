@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET" 
+	pageTitle="Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET | Microsoft Azure" 
 	description="Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="08/30/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,6 +28,12 @@
 No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 
 Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
+
+>[AZURE.NOTE]As seguintes considerações se aplicam ao escolher um nome de arquivo de ativo:
+>
+>- Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>
+>- O comprimento do nome não deve ser maior do que 260 caracteres.
 
 Quando você cria ativos, você pode especificar as seguintes opções de criptografia.
 
@@ -44,7 +50,6 @@ Se você especificar para o ativo a ser criptografado com uma opção **CommonEn
 
 Se você especificar que o ativo deve ser criptografado com uma opção **StorageEncrypted**, o SDK dos serviços de mídia para .NET criará um **StorateEncrypted** **ContentKey** para o ativo.
 
->[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia, bem como extensões do SDK do .NET dos Serviços de Mídia para carregar arquivos em um ativo dos Serviços de Mídia.
 
@@ -311,11 +316,11 @@ O exemplo a seguir chama a função UploadFile e especifica a criptografia de ar
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Próxima etapa
 
-##Próximas etapas
 Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][].
 
 [Como obter um processador de mídia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

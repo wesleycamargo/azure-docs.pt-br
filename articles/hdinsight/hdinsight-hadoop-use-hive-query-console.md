@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # Executar consultas Hive usando o Console de Consulta
@@ -23,7 +23,7 @@
 
 Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
 
-> [AZURE.NOTE] O Console de Consulta está disponível somente em clusters HDInsight baseados no Windows.
+> [AZURE.IMPORTANT] O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. Se você estiver usando um cluster HDInsight baseado em Linux, consulte [Executar consultas Hive usando a Exibição do Hive](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
 ##<a id="prereq"></a>Pré-requisitos
@@ -128,4 +128,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

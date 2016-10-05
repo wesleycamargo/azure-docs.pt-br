@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Integrar o Azure AD em um aplicativo iOS
@@ -48,7 +48,7 @@ O formato do iOS para um URI de redirecionamento é:
 - 	**aap-scheme** - isso é registrado em seu projeto XCode. É como os outros aplicativos podem chamar você. Você pode encontrar isso em Info.plist -> tipos de URL -> identificador de URL. Você deve criar um se você ainda não tiver um ou mais configurados.
 - 	**bundle-id** - esse é o identificador de pacote localizado em "identidade" nas configurações do seu projeto no XCode.
 
-Um exemplo para este código do Guia de início rápido seria: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Um exemplo para este código do Guia de início rápido seria: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Registrar o aplicativo DirectorySearcher*
 Para habilitar seu aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do AD do Azure e conceder permissão para acessar a Graph API do AD do Azure:
@@ -227,8 +227,8 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 Agora você pode passar para cenários de adicionais. Você pode desejar experimentar:
 
 - [Proteger uma API Web Node.js com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
-- Saiba [como habilitar o SSO entre aplicativos no iOS usando a ADAL](active-directory-sso-ios.md)  
+- Saiba [como habilitar o SSO entre aplicativos no iOS usando a ADAL](active-directory-sso-ios.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

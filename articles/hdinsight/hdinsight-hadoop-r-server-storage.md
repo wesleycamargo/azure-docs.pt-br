@@ -5,7 +5,7 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
 />
 
@@ -190,4 +190,4 @@ Agora que você aprendeu os fundamentos para usar o console do R em uma sessão 
 - [Add RStudio Server to HDInsight premium (Adicionar o servidor RStudio ao HDInsight premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

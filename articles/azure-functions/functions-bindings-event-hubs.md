@@ -65,6 +65,13 @@ Usando o function.json de exemplo acima, o corpo da mensagem de evento será reg
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
+#### Exemplo do F# de gatilho do Hub de Eventos do Azure
+
+Usando o exemplo de function.json acima, o corpo da mensagem de evento será registrado com o código de função em F# abaixo:
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+
 #### Exemplo do Node.js de gatilho do Hub de Eventos do Azure
  
 Usando o function.json de exemplo acima, o corpo da mensagem de evento será registrado com o código de função do Node.js abaixo:
@@ -113,6 +120,15 @@ O seguinte código de função de exemplo do C# demonstra a gravação de um eve
 	    outputEventHubMessage = msg;
 	}
 
+#### Exemplo de código do F# de associação de saída do Hub de Eventos do Azure
+
+O seguinte código de função de exemplo do F# demonstra a gravação de um evento em uma transmissão de evento do Hub de Eventos. Este exemplo representa a associação de saída do Hub de Eventos mostrada acima como aplicada a um gatilho de temporizador do C#.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
+
 #### Exemplo de código do Node.js de associação de saída do Hub de Eventos do Azure
  
 O seguinte código de função de exemplo do Node.js demonstra a gravação de um evento em uma transmissão de evento do Hub de Eventos. Este exemplo representa a associação de saída do Hub de Eventos mostrada acima como aplicada a um gatilho de temporizador do Node.js.
@@ -136,4 +152,4 @@ O seguinte código de função de exemplo do Node.js demonstra a gravação de u
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,28 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/27/2016"
+	ms.author="Markvi"/>
 
 # Introdução ao registro de dispositivos do Azure Active Directory
 
 O registro de dispositivo do Active Directory do Azure é a base para cenários de acesso condicional com base no dispositivo. Quando um dispositivo é registrado, o registro de dispositivo do Azure Active Directory fornece o dispositivo com uma identidade que é usada para autenticar o dispositivo quando o usuário faz logon. O dispositivo autenticado e os atributos desse dispositivo podem, em seguida, ser usados para impor políticas de acesso condicional para aplicativos locais e hospedados em nuvem.
 
-Quando combinado com uma solução de gerenciamento de dispositivos móveis (MDM), como Intune, os atributos do dispositivo no Azure Active Directory serão atualizados com informações adicionais sobre o dispositivo. Isso permite que você crie regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade.
-
-O registro de dispositivo do Active Directory do Azure está disponível no seu Active Directory do Azure. O serviço inclui suporte para dispositivos com iOS, Android e Windows. Os cenários individuais que utilizam o registro de dispositivo do Active Directory do Azure podem ter requisitos e suporte de plataforma mais específicos.
+Quando combinado com uma solução de MDM (gerenciamento de dispositivo móvel), como o Microsoft Intune, os atributos do dispositivo no Azure Active Directory são atualizados com informações adicionais sobre o dispositivo. Isso permite que você crie regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade. Para saber mais sobre o registro de dispositivos no Microsoft Intune, veja [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
 ## Cenários habilitados por registro de dispositivos do Active Directory do Azure
 
 O Registro de Dispositivos do Azure Active Directory inclui suporte para dispositivos iOS, Android e Windows. Os cenários individuais que utilizam o registro de dispositivo do AD do Azure podem ter requisitos e suporte de plataforma mais específicos. Esses cenários são os seguintes:
 
-- **Acesso condicional a aplicativos que são hospedados no local**: você pode usar dispositivos registrados com políticas de acesso de aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](active-directory-conditional-access-on-premises-setup.md).
+- **Acesso condicional a aplicativos que são hospedados localmente**: é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2. Para obter mais informações sobre como configurar o acesso condicional para local, consulte [Configurando o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](active-directory-conditional-access-on-premises-setup.md).
 
-- **Acesso condicional para aplicativos do Office 365 com Microsoft Intune**: os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos, ao mesmo tempo que permitem aos operadores de informações em dispositivos em conformidade acessem os serviços. Para saber mais, veja Políticas de dispositivo de acesso condicional para serviços do Office 365.
+- **Acesso condicional para aplicativos do Office 365 com o Microsoft Intune**: os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos e, simultaneamente, permitir que os trabalhadores de informações em dispositivos compatíveis acessem os serviços. Para mais informações, consulte [Políticas de dispositivo de acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md).
 
 ##Configuração do registro de dispositivos Active Directory do Azure
 
 Você precisa habilitar o Registro de Dispositivos do AD do Azure no Portal do Azure para que os dispositivos móveis possam descobrir o serviço procurando registros DNS conhecidos. Você deve configurar o DNS da sua empresa para que os dispositivos Windows 10, Windows 8.1, Windows 7, Android e iOS possam descobrir e usar o serviço. Você pode exibir e habilitar/desabilitar dispositivos registrados usando o Portal de administrador no Active Directory do Azure.
+
+>[AZURE.NOTE]
+ Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ### Habilitar o serviço Registro de Dispositivos do Azure Active Directory
 
@@ -52,9 +53,9 @@ O registro com o Microsoft Intune ou o gerenciamento de dispositivos móveis par
 
 Por padrão, a autenticação de dois fatores não está habilitada para o serviço. No entanto, a autenticação de dois fatores é recomendável ao registrar um dispositivo.
 
-- Antes de solicitar a autenticação de dois fatores para esse serviço, você deve configurar um provedor de autenticação de dois fatores no Azure Active Directory e configurar suas contas de usuário para Multi-Factor Authentication. Consulte [Adição do Multi-Factor Authentication ao Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+- Antes de solicitar a autenticação de dois fatores para esse serviço, você deve configurar um provedor de autenticação de dois fatores no Azure Active Directory e configurar suas contas de usuário para Autenticação Multifator. Confira [Adição da Autenticação Multifator ao Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 
-- Se estiver usando o AD FS com o Windows Server 2012 R2, você deverá configurar um módulo de autenticação de dois fatores no AD FS. Veja [Uso do Multi-Factor Authentication com Serviços de Federação do Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+- Se estiver usando o AD FS com o Windows Server 2012 R2, você deverá configurar um módulo de autenticação de dois fatores no AD FS. Veja [Uso da Autenticação Multifator com Serviços de Federação do Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## Configurar a descoberta de registro de dispositivos do Active Directory do Azure
 Os dispositivos com Windows 7 e Windows 8.1 descobrirão o serviço Registro de Dispositivos combinando o nome da conta de usuário com um nome do servidor de Registro de Dispositivos conhecido.
@@ -87,4 +88,4 @@ Você pode registrar seus dispositivos de domínio associado com Windows 7 e Win
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

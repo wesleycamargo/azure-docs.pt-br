@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="09/19/2016" 
 	ms.author="mimig"/>
 
 # Dicas de desempenho para o Banco de Dados de Documentos
 
 O Banco de Dados de Documentos do Azure é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e taxa de transferência. Você não precisa fazer grandes alterações de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Banco de Dados de Documentos. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). No entanto, como o Banco de Dados de Documentos é acessado por meio de chamadas de rede, há otimizações no lado do cliente que você pode fazer para obter o desempenho máximo.
 
-Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções.
+Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
 
 ## Rede
 <a id="direct-connection"></a>
@@ -71,12 +71,12 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 <a id="same-region"></a>
 4. **Colocar os clientes na mesma região do Azure para o desempenho**
 
-    Quando possível, coloque quaisquer aplicativos que chamam o Banco de Dados de Documentos na mesma região do Banco de Dados de Documentos. Para obter uma comparação aproximada, chamadas ao Banco de Dados de Documentos na mesma região são concluídos de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é > 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível será alcançada garantindo que o aplicativo de chamada estará localizado na mesma região do Azure como o ponto de extremidade do Banco de Dados de Documentos provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
+    Quando possível, coloque quaisquer aplicativos que chamam o Banco de Dados de Documentos na mesma região do Banco de Dados de Documentos. Para obter uma comparação aproximada, chamadas ao DocumentDB na mesma região são concluídos de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é > 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada estará localizado na mesma região do Azure como o ponto de extremidade do DocumentDB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustração da política de conexão do Banco de Dados de Documentos](./media/documentdb-performance-tips/azure-documentdb-same-region.png) <a id="increase-threads"></a>
 5. **Aumentar o número de threads/tarefas**
 
-    Como as chamadas para o Banco de Dados de Documentos são feitas pela rede, talvez seja necessário variar o grau de paralelismo de suas solicitações para que o aplicativo cliente espere bem pouco tempo entre as solicitações. Por exemplo, se você estiver usando a [Biblioteca de Paralelismo de Tarefas](https://msdn.microsoft.com//library/dd460717.aspx) do .NET, crie centenas de tarefas de leitura ou gravação no Banco de Dados de Documentos.
+    Como as chamadas para o Banco de Dados de Documentos são feitas pela rede, talvez seja necessário variar o grau de paralelismo de suas solicitações para que o aplicativo cliente espere bem pouco tempo entre as solicitações. Por exemplo, se você estiver usando a [Biblioteca de Paralelismo de Tarefas](https://msdn.microsoft.com//library/dd460717.aspx) do .NET, crie centenas de tarefas de leitura ou gravação no DocumentDB.
 
 ## Uso do SDK
 
@@ -89,34 +89,46 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     Observe que cada instância do DocumentClient tem um thread seguro e realiza um gerenciamento de conexão eficiente e o cache de endereço ao operar no Modo Direto. Para permitir o gerenciamento de conexão eficiente e o melhor desempenho por DocumentClient, é recomendável usar uma única instância de DocumentClient por AppDomain durante a vida útil do aplicativo.<a id="max-connection"></a>
 3. **Aumentar System.Net MaxConnections por host**
 
-    As solicitações do Banco de Dados de Documentos são feitas por HTTPS/REST por padrão e estão sujeitas aos limites de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir isso como um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas ao Banco de Dados de Documentos. No SDK do .NET 1.8.0 e posterior, o valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/pt-BR/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais alto.
+    As solicitações do DocumentDB são feitas por HTTPS/REST por padrão e estão sujeitas aos limites de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir MaxConnections como um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas ao DocumentDB. No SDK do .NET 1.8.0 e posterior, o valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/pt-BR/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais alto.
 
-4. **Ativar o GC no lado do servidor**
+4. **Ajustar consultas paralelas para coleções particionadas**
+
+    O SDK .NET do DocumentDB versão 1.9.0 e superiores oferecem suporte a consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo. Para saber mais, consulte Trabalhar com os SDKs e exemplos de código relacionados. Eles foram projetados para melhorar a taxa de transferência e a latência da consulta. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos próprios requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições que podem ser consultadas em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
     
-    A redução da frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) para true.
+    (a) ***Ajuste de MaxDegreeOfParallelism:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, os dados de uma coleta particionada individual são buscados em série com relação à consulta. Então, definir MaxDegreeOfParallelism como o número de partições representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, defina MaxDegreeOfParallelism como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o MaxDegreeOfParallelism.
+    
+    É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um afunilamento dessas partições.
+    
+    (b) ***Ajuste MaxBufferedItemCount:*** a consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar a quantidade de resultados pré-obtidos. Configurar MaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
+    
+    Observe que a busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.
 
-5. **Implementar a retirada em intervalos de RetryAfter**
+5. **Ativar o GC no lado do servidor**
+    
+    A redução da frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
+
+6. **Implementar a retirada em intervalos de RetryAfter**
  
-    Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação no intervalo de nova tentativa do servidor especificado. Isso garante que você perca o mínimo de tempo de espera entre as tentativas. O suporte da política de repetição está incluído na Versão 1.8.0 e posterior do Banco de Dados de Documentos [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), e a versão 1.9.0 e posterior do [Node.js](documentdb-sdk-nodejs.md) e [Python](documentdb-sdk-python.md). Para obter mais informações, consulte [Exceder os limites da taxa de transferência reservada](documentdb-request-units.md#exceeding-reserved-throughput-limits) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação no intervalo de nova tentativa do servidor especificado. Respeitar a retirada garante que você perca o mínimo de tempo de espera entre as tentativas. O suporte da política de repetição está incluído na Versão 1.8.0 e posterior do DocumentDB [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), e a versão 1.9.0 e posterior do [Node.js](documentdb-sdk-nodejs.md) e [Python](documentdb-sdk-python.md). Para saber mais, confira [Exceder os limites da taxa de transferência reservada](documentdb-request-units.md#exceeding-reserved-throughput-limits) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 
-6. **Escalar horizontalmente sua carga de trabalho do cliente**
+7. **Escalar horizontalmente sua carga de trabalho do cliente**
 
     Se você estiver testando em altos níveis da taxa de transferência (>50.000 RU/s), o aplicativo cliente poderá fazer um afunilamento devido à limitação do computador na utilização da CPU ou da Rede. Se você chegar a este ponto, poderá continuar a forçar a conta do Banco de Dados de Documentos escalando seus aplicativos clientes horizontalmente entre vários servidores.
 
-7. **Armazenar em cache os URIs do documento para uma menor latência de leitura**
+8. **Armazenar em cache os URIs do documento para uma menor latência de leitura**
 
     Armazene em cache os URIs do documento sempre que possível para ter o melhor desempenho de leitura. <a id="tune-page-size"></a>
-8. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
+9. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
 
-    Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (ou seja, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do Banco de Dados de Documentos, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
+    Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (ou seja, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do DocumentDB, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
-    Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação x-ms-max-item-count para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados de uma vez, também será possível diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida pelas leituras e consultas.
+    Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação x-ms-max-item-count para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas dez resultados de uma vez, também será possível diminuir o tamanho da página para dez para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
     Você também pode definir o tamanho da página usando os SDKs do Banco de Dados de Documentos disponíveis. Por exemplo:
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 
-9. **Aumentar o número de threads/tarefas**
+10. **Aumentar o número de threads/tarefas**
 
 	Consulte [Aumentar o número de threads/tarefas](increase-threads.md) na seção Rede.
 
@@ -124,9 +136,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 1. **Usar a indexação lenta para as taxas de ingestão de tempo máximo mais rápidas**
 
-    O Banco de Dados de Documentos permite que você especifique – no nível da coleção – uma política de indexação, que possibilita escolher se você deseja que os documentos em uma coleção sejam indexados automaticamente ou não. Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo [nível de consistência](documentdb-consistency-levels.md) das leituras de documentos sem demora para o índice “atualizado”.
+    O Banco de Dados de Documentos permite que você especifique – no nível da coleção – uma política de indexação, que possibilita escolher se você deseja que os documentos em uma coleção sejam indexados automaticamente ou não. Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. O modo síncrono permite que as consultas obedeçam ao mesmo [nível de consistência](documentdb-consistency-levels.md) das leituras de documentos sem demora para o índice “atualizado”.
     
-    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. Isso permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que quando a indexação lenta for ativada, os resultados da consulta serão finalmente consistentes, não dependendo do nível de consistência configurado para a conta do Banco de Dados de Documentos.
+    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. A indexação lenta permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que quando a indexação lenta for ativada, os resultados da consulta serão finalmente consistentes, não dependendo do nível de consistência configurado para a conta do Banco de Dados de Documentos.
 
     Portanto, o modo de indexação Consistente (IndexingPolicy.IndexingMode é definido para Consistente) incorre no maior custo de unidade de solicitação por gravação, enquanto o modo de indexação Lento (IndexingPolicy.IndexingMode é definido para Lento) e nenhuma indexação (IndexingPolicy.Automatic é definido para False) têm um custo zero de indexação no momento da gravação.
 
@@ -139,7 +151,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
         collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
         collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
-    Para obter mais informações, consulte [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
+    Para obter mais informações, consulte [Políticas de indexação do DocumentDB](documentdb-indexing-policies.md).
 
 ## Taxa de transferência
 <a id="measure-rus"></a>
@@ -165,7 +177,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
                   Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
              }
         
-    A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2.000 RUs/segundo). Por exemplo, se a consulta acima retornar 1.000 documentos de 1KB, o custo da operação será 1.000. Assim, em um segundo, o servidor manterá apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para obter mais informações, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
+    A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta acima retornar 1.000 documentos de 1KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
 
 2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
@@ -179,7 +191,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Se você tiver mais de um cliente operando cumulativamente de como consistente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida para 9 internamente pelo cliente poderá não ser suficiente. Nesse caso, o cliente irá gerar uma DocumentClientException com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo RetryOptions na instância de ConnectionPolicy. Por padrão, a DocumentClientException com o código de status 429 será retornada após uma espera cumulativa de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário.
 
-    Embora o comportamento de repetição automática ajude a melhorar a resiliência e a utilidade da maioria dos aplicativos, ela pode entrar em conflito ao fazer comparações de desempenho, especialmente ao medir a latência. A latência observada pelo cliente terá um pico se o teste atingir a limitação do servidor e fizer com que o SDK do cliente repita silenciosamente. Para evitar picos de latência durante os testes de desempenho, meça o custo retornado por cada operação e verifique se as solicitações estão operando abaixo da taxa de solicitação reservada. Para obter mais informações, consulte [Unidades de solicitação](documentdb-request-units.md).
+    Embora o comportamento de repetição automática ajude a melhorar a resiliência e a utilidade da maioria dos aplicativos, ela pode entrar em conflito ao fazer comparações de desempenho, especialmente ao medir a latência. A latência observada pelo cliente terá um pico se o teste atingir a limitação do servidor e fizer com que o SDK do cliente repita silenciosamente. Para evitar picos de latência durante os testes de desempenho, meça o custo retornado por cada operação e verifique se as solicitações estão operando abaixo da taxa de solicitação reservada. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md).
    
 3. **Design de documentos menores para uma maior taxa de transferência**
 
@@ -189,14 +201,14 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 1. **Usar níveis de consistência mais fracos para ter melhores latências de leitura**
 
-    Outro fator importante a levar em conta ao ajustar o desempenho dos aplicativos do Banco de Dados de Documentos é o nível de consistência. A escolha do nível de consistência tem implicações de desempenho para as leituras e as gravações. Você pode configurar o nível de consistência padrão na conta do banco de dados e o nível de consistência escolhido, então, aplicar em todas as coleções (em todos os bancos de dados) em sua conta do Banco de Dados de Documentos. Em termos de operações de gravação, o impacto de alterar o nível de consistência é observado como a latência da solicitação. Quando níveis de consistência mais fortes forem usados, as latências de gravação aumentarão. Por outro lado, o impacto do nível de consistência nas operações de leitura é observado em termos de taxa de transferência. Os níveis de consistência mais fracos permitem uma taxa de transferência de leitura mais alta a ser realizada pelo cliente.
+    Outro fator importante a levar em conta ao ajustar o desempenho dos aplicativos do DocumentDB é o nível de consistência. A escolha do nível de consistência tem implicações de desempenho para as leituras e as gravações. Você pode configurar o nível de consistência padrão na conta do banco de dados e o nível de consistência escolhido, então, aplicar em todas as coleções (em todos os bancos de dados) em sua conta do Banco de Dados de Documentos. Em termos de operações de gravação, o impacto de alterar o nível de consistência é observado como a latência da solicitação. Quando níveis de consistência mais fortes forem usados, as latências de gravação aumentarão. Por outro lado, o impacto do nível de consistência nas operações de leitura é observado em termos de taxa de transferência. Os níveis de consistência mais fracos permitem uma taxa de transferência de leitura mais alta a ser realizada pelo cliente.
 
-    Por padrão, todas as leituras e consultas executadas nos recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Porém, você pode diminuir o nível de consistência de uma determinada solicitação de leitura/consulta especificando o cabeçalho de solicitação x-ms-consistency-level. Para obter mais informações, consulte [Níveis de consistência no Banco de Dados de Documentos](documentdb-consistency-levels.md).
+    Por padrão, todas as leituras e consultas executadas nos recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Porém, você pode diminuir o nível de consistência de uma determinada solicitação de leitura/consulta especificando o cabeçalho de solicitação x-ms-consistency-level. Para saber mais, confira [Níveis de consistência no DocumentDB](documentdb-consistency-levels.md).
 
 ## Próximas etapas
 
-Para ver um aplicativo de exemplo usado para avaliar o Banco de Dados de Documentos para os cenários de alto desempenho em um pequeno número de computadores cliente, consulte [Teste de desempenho e dimensionamento com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+Para ver um aplicativo de exemplo usado para avaliar o DocumentDB para os cenários de alto desempenho em alguns computadores cliente, consulte [Teste de desempenho e dimensionamento com o Azure DocumentDB](documentdb-performance-testing.md).
 
-Além disso, para saber mais sobre como criar seu aplicativo para a escala e o alto desempenho, consulte [Particionamento e dimensionamento no Banco de Dados de Documentos do Azure](documentdb-partition-data.md).
+Além disso, para saber mais sobre como criar seu aplicativo para a escala e o alto desempenho, consulte [Particionamento e dimensionamento no Azure DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

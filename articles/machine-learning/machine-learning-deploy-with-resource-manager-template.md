@@ -117,13 +117,19 @@ Verifique se o grupo de recursos está provisionado corretamente. **Provisioning
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Depois que a implantação estiver concluída, é fácil acessar as propriedades do espaço de trabalho que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
+Depois que a implantação for concluída, é fácil acessar as propriedades do espaço de trabalho que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+Outra maneira de recuperar tokens de um espaço de trabalho existente é usar o comando Invoke-AzureRmResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os espaços de trabalho.
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Estúdio de Aprendizado de Máquina do Azure usando o [Módulo do PowerShell para Aprendizado de Máquina do Azure](http://aka.ms/amlps).
 
 ## Próximas etapas 
@@ -138,4 +144,4 @@ Depois que o espaço de trabalho estiver provisionado, você também poderá aut
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -72,7 +72,7 @@ Se não encontrar seu dispositivo listado como um dispositivo VPN compatível co
 
 ### Por que meu túnel VPN baseado em políticas é desativado quando o tráfego está ocioso?
 
-Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente. Se tiver um gateway de VPN baseado em rotas (também conhecido como dinâmico), você não terá esse comportamento.
+Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente.
 
 ### Posso usar VPNs de software para me conectar ao Azure?
 
@@ -276,4 +276,4 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

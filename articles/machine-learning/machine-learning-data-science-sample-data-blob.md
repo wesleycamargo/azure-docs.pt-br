@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="sunliangms;fashah;garye;bradsev" />
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
@@ -33,7 +33,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 ## Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir:
 
-	    from azure.storage.blob import BlobService
+    	from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -53,12 +53,12 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 
 		import pandas as pd
 
-	    #directly ready from file on disk
+		#directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 3. Reduza os dados usando o `random.choice` da `numpy`, da seguinte maneira:
 
-	    # A 1 percent sample
+    	# A 1 percent sample
     	sample_ratio = 0.01 
     	sample_size = np.round(dataframe_blobdata.shape[0] * sample_ratio)
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
@@ -102,4 +102,4 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

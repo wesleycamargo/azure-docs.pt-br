@@ -36,8 +36,6 @@ Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-###  <a name="skugw"></a>Taxa de transferência agregada estimada por SKU e tipo de gateway
-
 A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
@@ -95,7 +93,7 @@ Atualmente, o Azure tem dois modelos de implantação: o clássico e o Resource 
 
 #### Emparelhamento VNet
 
-Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que a rede virtual atenda a certos requisitos. O emparelhamento de Rede Virtual não usa um gateway de rede virtual. O [emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) está em visualização no momento.
+Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que a rede virtual atenda a certos requisitos. O emparelhamento de Rede Virtual não usa um gateway de rede virtual. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Modelos de implantação e métodos para VNet a VNet
@@ -150,4 +148,4 @@ Planeje sua configuração de gateway VPN. Consulte [Design e Planejamento do Ga
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

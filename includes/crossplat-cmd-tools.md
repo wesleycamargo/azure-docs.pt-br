@@ -29,7 +29,7 @@ A lista a seguir contém informações para instalar as ferramentas de linha de 
 
 * **Mac**: baixe o [Instalador do SDK do Azure][mac-installer]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
 
-* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] (confira [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]) e execute o seguinte comando:
+* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] confira [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]) e execute o seguinte comando:
 
 		npm install azure-cli -g
 

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -80,7 +80,7 @@ Devido ao grande volume de autenticações e entradas processadas pela plataform
 
 ### Entre no portal clássico do Azure
 
-Primeiro, será necessário entrar no [portal clássico do Azure](https://manage.windowsazure.com) como administrador global ou de conformidade. Também será necessário ser um administrador ou coadministrador de serviço de assinatura do Azure ou usar a assinatura do Azure "Acesso ao AD do Azure".
+Primeiro, será necessário entrar no [portal clássico do Azure](https://manage.windowsazure.com) como administrador global ou de conformidade. Também será necessário ser um administrador ou coadministrador de serviço de assinatura do Azure ou usar a assinatura do Azure "Acesso ao Azure AD".
 
 ### Navegue até Relatórios
 
@@ -156,4 +156,4 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 
 > [AZURE.TIP] Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

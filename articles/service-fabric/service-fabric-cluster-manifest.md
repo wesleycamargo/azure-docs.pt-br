@@ -27,8 +27,8 @@ Vamos examinar abaixo as várias seções desse arquivo.
 Isso abrange as configurações específicas mais amplas do cluster, conforme mostra o trecho de JSON abaixo.
 
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
 
 Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável **name**. Você pode alterar o **clusterManifestVersion** de acordo com a sua configuração; será necessário atualizá-lo antes de atualizar sua configuração do Service Fabric. Você pode deixar a **apiVersion** com o valor padrão.
 
@@ -68,27 +68,33 @@ Um cluster do Service Fabric exige no mínimo 3 nós. Você pode adicionar mais 
 |upgradeDomain|Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais Domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos.| 
 
 
-## Configurações de diagnóstico
-Você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, usando a seção **diagnosticsFileShare** conforme mostra o trecho a seguir.
-
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
-        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
-    },
-
-Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. [Despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) para o nó do Service Fabric, bem como o cluster, podem ser direcionados para a pasta **crashDumpConnectionString**. Os [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) do cluster podem ser direcionados para a pasta **perfCtrConnectionString** em seu computador.
-
-
 ## **Propriedades** do cluster
 
 A seção **propriedades** no ClusterConfig.JSON é usada para configurar o cluster da seguinte maneira.
 
+### **diagnosticsStore**
+Você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster usando a seção **diagnosticsStore**, conforme mostra o trecho a seguir.
+
+    "diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+    }
+
+Os **metadados** são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. Todos os logs que incluem [Despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) podem ser direcionados para a pasta **connectionString** em seu computador. Você também pode usar **AzureStorage** para o armazenamento de diagnóstico. Veja abaixo um exemplo de trecho de código.
+
+	"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "AzureStorage",
+        "IsEncrypted": "false",
+        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+    }
+
 ### **segurança** 
-A seção **segurança** é necessária para um cluster de autônomo seguro do Service Fabric. O trecho a seguir mostra uma parte desta seção.
+A seção **segurança** é necessária para um cluster autônomo seguro do Service Fabric. O trecho a seguir mostra uma parte desta seção.
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
@@ -97,19 +103,19 @@ A seção **segurança** é necessária para um cluster de autônomo seguro do S
 		. . .
 	}
 
-**Metadados** contêm uma descrição do seu cluster seguro e podem ser definidos de acordo com a sua configuração. **ClusterCredentialType** e **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos para *X509* para segurança baseada em certificados ou *Windows* para uma segurança baseada no Azure Active Directory. O restante da seção **segurança** terá base no tipo de segurança. leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para obter informações sobre como preencher o resto da seção **segurança**.
+Os **metadados** são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O **ClusterCredentialType** e o **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos como *X509* para segurança baseada em certificados ou como *Windows* para segurança baseada no Azure Active Directory. O restante da seção **segurança** será baseado no tipo de segurança. Leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para saber como preencher o restante da seção de **segurança**.
 
 ### **reliabilityLevel**
-**reliabilityLevel** define o número de cópias de serviços do sistema que podem ser executadas em nós primários do cluster. Isso aumenta a confiabilidade desses serviços e, portanto, do cluster. Você pode definir essa variável como *Bronze*, *Prata*, *Ouro* ou *Platina* para 3, 5, 7 ou 9 cópias desses serviços, respectivamente. Veja um exemplo abaixo.
+O **reliabilityLevel** define o número de cópias de serviços do sistema que podem ser executadas nos nós primários do cluster. Isso aumenta a confiabilidade desses serviços e, portanto, do cluster. Você pode definir essa variável como *Bronze*, *Prata*, *Ouro* ou *Platina* para três, cinco, sete ou nove cópias desses serviços, respectivamente. Veja um exemplo abaixo.
 
 	"reliabilityLevel": "Bronze",
 	
-Observe que como um nó principal executa uma única cópia dos serviços do sistema, você precisaria de no mínimo três nós primários para os níveis de confiabilidade *Bronze*, 5 para *Prata*, 7 para *Ouro* e 9 para *Platina*.
+Observe que, uma vez que um nó principal executa uma única cópia dos serviços do sistema, você precisaria de pelo menos três nós primários para os níveis de confiabilidade *Bronze*, cinco para *Prata*, sete para *Ouro* e nove para *Platina*.
 
 
 <a id="nodetypes"></a>
 ### **nodeTypes**
-A seção **nodeTypes** descreve o tipo de nó que o cluster possui. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir.
+A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir.
 
 	"nodeTypes": [{
         "name": "NodeType0",
@@ -127,7 +133,7 @@ A seção **nodeTypes** descreve o tipo de nó que o cluster possui. Pelo menos 
         "isPrimary": true
     }]
 
-O **nome** é o nome amigável para este tipo de nó específico. Para criar um nó desse tipo de nó, será necessário atribuir o nome amigável para este tipo de nó à variável **nodeTypeRef** desse nó, conforme mencionado na seção [Nós no cluster](#clusternodes) acima. Para cada tipo de nó, você pode definir vários pontos de extremidade para se conectar a esse cluster. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster com vários tipos de nó, haverá um tipo de nó primário, com **isPrimary** definido como *true*. O restante dos nós terá **isPrimary** definido como *false*. Leia [Considerações de planejamento de capacidade para cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre os valores de **nodeTypes** e **reliabilityLevel**, de acordo com a capacidade de seu cluster, bem como para saber a diferença entre os tipos de nó primários e não primários.
+O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo de nó, será necessário atribuir o nome amigável para esse tipo de nó à variável **nodeTypeRef** daquele nó, conforme mencionado na seção [Nós no cluster](#clusternodes) acima. Para cada tipo de nó, você pode definir vários pontos de extremidade para se conectar a esse cluster. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster com vários tipos de nó, haverá um tipo de nó primário, com **isPrimary** definido como *true*. O restante dos nós terá **isPrimary** definido como *false*. Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre os valores de **nodeTypes** e **reliabilityLevel**, de acordo com a capacidade de seu cluster, bem como para saber a diferença entre os tipos de nó primários e não primários.
 
 
 ### **fabricSettings**
@@ -143,11 +149,11 @@ Esta seção permite que você defina os diretórios raiz para os dados e logs d
             "value": "C:\ProgramData\SF\Log"
     }]
 
-Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
+Recomenda-se usar uma unidade não de SO, como FabricDataRoot e FabricLogRoot, pois isso proporciona mais confiabilidade contra falhas do SO. Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
 
 
 ## Próximas etapas
 
-Uma vez que o arquivo ClusterConfig.JSON estiver totalmente configurado de acordo com a configuração do cluster autônomo, você poderá implantar o cluster seguindo o artigo [Criar um cluster do Azure Service Fabric no local ou na nuvem](service-fabric-cluster-creation-for-windows-server.md) e ir para [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Quando o arquivo ClusterConfig.JSON estiver totalmente configurado conforme a configuração de cluster autônomo, você poderá implantar o cluster seguindo o artigo [Criar um cluster do Azure Service Fabric local ou na nuvem](service-fabric-cluster-creation-for-windows-server.md) e então consultando [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
    description="Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -12,56 +12,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/18/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # Solucionar problemas de desenvolvimento do Docker do Visual Studio
 
 Ao trabalhar com o Visual Studio Tools para Docker Preview, você pode encontrar alguns problemas devido à natureza de versão de visualização. Veja a seguir alguns problemas comuns e suas resoluções.
 
-##Falha ao configurar Program.cs a fim de fornecer suporte ao Docker
 
-Ao adicionar suporte ao docker, o `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` deve ser adicionado ao WebHostBuilder(). Se a função `Main()` ou uma nova classe WebHostBuilder não for encontrada em `.UseUrls()`, um aviso será exibido. `Program.cs` é necessário para permitir que Kestrel ouça o tráfego de entrada, além de localhost quando executado dentro de um contêiner do docker. Após a conclusão, o código terá a seguinte aparência:
+## Não é possível validar o mapeamento de volume
+O mapeamento de volume é necessário para compartilhar o código-fonte e os binários do seu aplicativo com a pasta de aplicativo no contêiner. Mapeamentos de volume específico estão contidos nos arquivos docker-compose.dev.debug.yml e docker-compose.dev.release.yml. Como os arquivos são alterados em seu computador host, os contêineres refletem essas alterações em uma estrutura de pastas semelhante.
 
-```
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? String.Empty)
-            .UseKestrel()
-            .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
-            .UseIISIntegration()
-            .UseStartup<Startup>()
-            .Build();
+Para habilitar o mapeamento de volume, abra **Configurações...** no ícone de bandeja do Docker do Windows "moby" e selecione a guia **Unidades Compartilhadas**. Certifique-se de que a letra da unidade que hospeda o projeto, bem como a letra da unidade em que reside o %USERPROFILE% são compartilhadas ao verificá-las e, em seguida, clicando em **Aplicar**.
 
-        host.Run();
-    }
-}
-```
+Para testar se o mapeamento do volume está funcionando, depois que as unidades forem compartilhadas, recrie e aperte F5 no Visual Studio ou tente o seguinte de um prompt de comando:
 
-UseUrls() configurou o WebHost para escutar o tráfego da URL de entrada. As [Ferramentas do Docker para Visual Studio](http://aka.ms/DockerToolsForVS) configurarão uma variável de ambiente no modo dockerfile.debug/release da seguinte maneira:
+*Em um prompt de comando do Windows*
 
-```
-# Configure the listening port to 80
-ENV ASPNETCORE_SERVER.URLS http://*:80
-```
-
-## O mapeamento de volume não está funcionando
-Para habilitar os recursos de Editar e Atualizar, o mapeamento do volume está configurado para compartilhar o código-fonte de seu projeto na pasta .app dentro do contêiner. Quando os arquivos forem alterados em seu computador host, o diretório /app dos contêineres usará o mesmo diretório. Em docker-compose.debug.yml, a configuração a seguir permite o mapeamento do volume
-
-```
-volumes:
-    - ..:/app
-```
-
-Para testar se o mapeamento do volume está funcionando, tente o seguinte comando:
-
-**No Windows**
-
+*[Observação: isso pressupõe que sua pasta de usuários está localizada na unidade "C" e que ela foi compartilhada. Atualizar conforme necessário se você tiver compartilhado uma unidade diferente]*
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
+```
+
+*No contêiner do Linux*
+
+```
 / # ls
 ```
 
@@ -78,61 +53,90 @@ Mude para o diretório wormhole para ver o conteúdo do diretório `/c/Users/Pub
 / # cd wormhole/
 /wormhole # ls
 AccountPictures  Downloads        Music            Videos
-Desktop          Host             NuGet.Config     a.txt
-Documents        Libraries        Pictures         desktop.ini
+Desktop          Host             NuGet.Config     desktop.ini
+Documents        Libraries        Pictures
 /wormhole #
 ```
 
-> [AZURE.NOTE] Ao trabalhar com as VMs do Linux, o sistema de arquivos do contêiner diferencia maiúsculas de minúsculas.
+**Observação:** *ao trabalhar com as VMs do Linux, o sistema de arquivos do contêiner irá diferenciar as letras maiúsculas das minúsculas.*
 
-Se você não conseguir ver o conteúdo, tente o seguinte:
+##Compilação: a tarefa "PrepareForBuild" falhou inesperadamente.
 
-**Docker para a versão beta do Windows**
-- Verifique se o aplicativo da área de trabalho Docker para Windows está em execução procurando o ícone `moby` na bandeja do sistema e verificando se ele está branco e funcional.
-- Verifique se o mapeamento do volume está configurado clicando com o botão direito no ícone `moby` na bandeja do sistema, selecionando as configurações e clicando em **Gerenciar unidades compartilhadas...**
+Microsoft.DotNet.Docker.CommandLine.ClientException: erro ao tentar se conectar:
 
-**Caixa de ferramentas do Docker com VirtualBox**
+Verifique se o host do Docker padrão está em execução. Abra um prompt de comando e execute:
 
-Por padrão, o VirtualBox compartilha `C:\Users` como `c:/Users`. Se possível, mova o projeto abaixo desse diretório. Caso contrário, adicione manualmente ao VirtualBox as [Pastas compartilhadas](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
-	
-##Criação: falha ao criar a imagem, erro ao verificar a conexão TLS: o host não está em execução
+```
+docker info
+```
 
-- Verifique se o host do Docker padrão está em execução. Consulte o artigo [Configurar o cliente Docker](./vs-azure-tools-docker-setup.md).
+Se isso retorna um erro, tente iniciar o aplicativo da área de trabalho **Docker para Windows**. Se o aplicativo da área de trabalho estiver em execução, o ícone **moby** na bandeja deve estar visível. Clique com o botão direito do mouse no ícone de bandeja e abra **Configurações**. Clique na guia **Redefinir** e, em seguida, **Docker de reinicialização..**.
 
-##Usar o Microsoft Edge como o navegador padrão
-
-Se você estiver usando o navegador Microsoft Edge, o site pode não abrir se o Edge considerar que o endereço IP não é seguro. Para corrigir esse problema, execute as seguintes etapas:
-
-1. Vá para **Opções da Internet**.
-    - No Windows 10, você pode digitar `Internet Options` na caixa Executar do Windows.
-    - No Internet Explorer, você pode ir para o menu **Configurações** e selecionar **Opções da Internet**.
-1. Selecione **Opções da Internet** quando forem exibidas.
-1. Selecione a guia **Segurança**.
-1. Selecione a zona **Intranet Local**.
-1. Selecione **Sites**.
-1. Adicione o IP da máquina virtual (nesse caso, o Host do Docker) à lista.
-1. Atualize a página no Edge e verá o site em funcionamento.
-1. Para obter mais informações sobre esse problema, visite a postagem do blog de Scott Hanselman, [O Microsoft Edge não pode ver nem abrir sites da Web locais hospedados no VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
-
-##Solução de problemas da versão 0.15 ou anterior
+##Atualização manual da versão 0.31 para 0.40
 
 
-###A execução do aplicativo faz com que o PowerShell abra, exiba um erro e feche. A página do navegador não abre.
-
-A falha ao abrir o navegador pode ser um erro durante `docker-compose-up`. Para exibir o erro, execute as seguintes etapas:
-
-1. Abra o arquivo `Properties\launchSettings.json`
-1. Localize a entrada do Docker.
-1. Localize a linha que começa assim:
+1. Fazer backup do projeto
+1. Exclua os seguintes arquivos do projeto:
 
     ```
-    "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+      Dockerfile
+      Dockerfile.debug
+      DockerTask.ps1
+      docker-compose-yml
+      docker-compose.debug.yml
+      .dockerignore
+      Properties\Docker.props
+      Properties\Docker.targets
     ```
-	
-1. Adicione o parâmetro `-noexit` para que a linha agora se pareça com o seguinte. Esse código manterá o PowerShell aberto para que você possa exibir o erro.
+
+1. Feche a Solução e remova as seguintes linhas do arquivo .xproj:
 
     ```
-	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+      <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
+      <Import Project="Properties\Docker.props" />
+      <Import Project="Properties\Docker.targets" />
     ```
 
-<!---HONumber=AcomDC_0824_2016-->
+1. Reabra a Solução
+1. Remova as seguintes linhas do arquivo Properties\\launchSettings.json:
+
+    ```
+      "Docker": {
+        "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine '$(DockerMachineName)'"
+      }
+    ```
+
+1. Remova os seguintes arquivos relacionados ao Docker de project.json no publishOptions:
+
+    ```
+    "publishOptions": {
+      "include": [
+        ...
+        "docker-compose.yml",
+        "docker-compose.debug.yml",
+        "Dockerfile.debug",
+        "Dockerfile",
+        ".dockerignore"
+      ]
+    },
+    ```
+
+1. Desinstale a versão anterior e instale as ferramentas do Docker 0.40 e, em seguida, **Adicionar->Suporte ao Docker** novamente no menu de contexto para o ASP.Net Core Web ou aplicativo de Console. Isso adicionará os novo artefatos necessários do Docker de volta ao seu projeto.
+
+## Uma caixa de diálogo de erro ocorre ao tentar **Adicionar->Suporte ao Docker** ou Depurar (F5) um aplicativo de núcleo do ASP.NET em um contêiner
+
+Ocasionalmente, vimos que ao desinstalar e instalar extensões, o cache MEF (Managed Extensibility Framework) do Visual Studio pode ser corrompido. Quando isso ocorre, ele pode causar várias caixas de diálogo de erro ao adicionar Suporte ao Docker e/ou tentar executar ou Depurar (F5) seu aplicativo do ASP.NET Core. Como solução temporária, execute as seguintes etapas para excluir e gerar novamente o cache MEF.
+
+1. Feche todas as instâncias do Visual Studio
+1. Abra %USERPROFILE%\\AppData\\Local\\Microsoft\\VisualStudio\\14.0\\
+1. Exclua as seguintes pastas
+     ```
+       ComponentModelCache
+       Extensions
+       MEFCacheBackup
+    ```
+1. Abra o Visual Studio
+1. Tente o cenário novamente
+
+<!---HONumber=AcomDC_0921_2016-->

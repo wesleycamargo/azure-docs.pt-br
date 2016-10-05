@@ -26,7 +26,7 @@ Este tutorial orienta você durante a criação de um [runbook gráfico](automat
 
 Para concluir este tutorial, você precisará do seguinte.
 
--	do Microsoft Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
+-	Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
 -	[Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 -	Uma máquina virtual do Azure. Vamos parar e iniciar esse computador, portanto ele não deve ser de produção.
 
@@ -85,7 +85,7 @@ O runbook que acabamos de criar ainda está em Modo de rascunho. Precisamos publ
 
 ## Etapa 5: criar ativos de variável
 
-Testamos e publicamos nosso runbook, mas até o momento ele não faz nada útil. Gostaríamos que ele gerenciasse recursos do Azure. Antes de configurarmos o runbook para autenticar, criaremos uma variável para conter a ID de assinatura e fazer referência a ela depois que configuramos a atividade para autenticar na etapa 6 abaixo. Incluir uma referência ao contexto de assinatura permite que você trabalhe facilmente entre várias assinaturas. Antes de prosseguir, copie a ID de assinatura na opção Assinaturas do Painel de navegação.
+Testamos e publicamos nosso runbook, mas até o momento ele não faz nada útil. Gostaríamos que ele gerenciasse recursos do Azure. Antes de configurarmos o runbook a ser autenticado, criaremos uma variável para conter a ID de assinatura e usá-la como referência depois que configurarmos a atividade a ser autenticada na etapa 6 abaixo. A inclusão de uma referência no contexto da assinatura facilita o seu trabalho entre as várias assinaturas. Antes de prosseguir, copie a ID de assinatura na opção Assinaturas do Painel de navegação.
 
 1. Na folha Contas de Automação, clique no bloco **Ativos** e a folha **Ativos** será aberta.
 2. Na folha Ativos, clique no bloco **Variáveis**.
@@ -130,7 +130,7 @@ Seu runbook deve ser semelhante ao seguinte: <br>![Configuração da autenticaç
 Agora, adicionaremos uma atividade **Start-AzureRmVM** para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual na sua assinatura do Azure e, por enquanto, embutiremos esse nome no cmdlet.
 
 1. No controle Biblioteca, digite **Start-AzureRm** na caixa de texto de pesquisa.
-2. Adicione **Start-AzureRmVM** à tela, então, clique e arraste-a para baixo de **Conectar ao Azure**.
+2. Adicione **Start-AzureRmVM** à tela, clique e arraste-a para baixo de **Especificar Id de Assinatura**.
 3. Passe o mouse sobre **Especificar Id de Assinatura** até que um círculo apareça na parte inferior da forma. Clique no círculo e arraste a seta para **Start-AzureRmVM**.
 4.	Selecione **Start-AzureRmVM**. Clique em **Parâmetros** e **Conjunto de Parâmetros** para exibir os conjuntos de **Start-AzureRmVM**. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Observe que **ResourceGroupName** e **Name** têm pontos de exclamação ao lado deles. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
 5.	Selecione **Name**. Selecione a **Expressão do PowerShell** para a **Fonte de dados** e digite o nome da máquina virtual entre aspas duplas com a qual iniciaremos este runbook. Clique em **OK**.<br>![Valor do Parâmetro Name do Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -211,4 +211,4 @@ Agora, modificaremos o runbook para que ele tente iniciar a máquina virtual ape
 -	Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 -	Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

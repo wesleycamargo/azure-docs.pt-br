@@ -74,8 +74,8 @@ Aqui está um exemplo de configuração de cluster em que os certificados de Clu
  ```
  {
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
     "nodes": [{
         "nodeName": "vm0",
 		"metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -98,15 +98,14 @@ Aqui está um exemplo de configuração de cluster em que os certificados de Clu
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
     }],
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
-        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
-    },
     "properties": {
+		"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+		}
         "security": {
             "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -184,7 +183,7 @@ $cert = Get-Item Cert:\LocalMachine\My<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
 
-Como alternativa, se você tiver uma assinatura do Azure, siga a seção [Adquirir os certificados X.509](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) para criar seus certificados.
+Como alternativa, se você tiver uma assinatura do Azure, siga a seção de como [adquirir os certificados X.509](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) para criar seus certificados.
 
 ## Instalar os certificados
 Quando tiver o(s) certificado(s), você poderá instalá-lo(s) nos nós de cluster. Os nós precisam ter o mais recente Windows PowerShell 3. x instalado neles. Você precisará repetir essas etapas em cada nó, para os certificados do Cluster e do Servidor e todos os certificados secundários.
@@ -263,4 +262,4 @@ Para remover o cluster, chame o seguinte comando:
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

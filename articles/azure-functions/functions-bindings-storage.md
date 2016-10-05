@@ -461,6 +461,21 @@ public class Person
 }
 ```
 
+O exemplo de código F# a seguir também funciona com o arquivo *function.json* anterior para ler uma entidade de tabela única.
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+```
+
 O exemplo de código Node a seguir também funciona com o arquivo *function.json* anterior para ler uma entidade de tabela única.
 
 ```javascript
@@ -567,6 +582,47 @@ public class Person
 
 ```
 
+#### Exemplo de tabelas de armazenamento: criar entidades de tabela em F#
+
+O exemplo de *function.json* e *run.csx* a seguir mostra como gravar entidades de tabela em F#.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
 #### Exemplo de tabelas de armazenamento: criar uma entidade de tabela em Node
 
 O exemplo de *function.json* e *run.csx* a seguir mostra como gravar uma entidade de tabela em Node.
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

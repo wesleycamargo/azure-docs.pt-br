@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Contatar o Suporte da Microsoft
@@ -45,10 +45,10 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 3. Na caixa de diálogo **Fundamentos**, preencha o seguinte:
 	1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
 	2. Selecione uma **Assinatura** na lista suspensa.
-	3. Na lista suspensa **Serviço**, selecione o **StorSimple**. 
+	3. Na lista suspensa **Serviço**, selecione o **StorSimple**.
 	4. Selecione um **Plano de suporte** na lista suspensa. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
 
-4. Clique em **Próximo**. A caixa de diálogo **Problema** é exibida.
+4. Clique em **Avançar**. A caixa de diálogo **Problema** é exibida.
 
 	![Painel de nova solicitação de suporte](./media/storsimple-contact-microsoft-support/Ibiza5a.png)
 
@@ -56,13 +56,13 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
     1.  Selecione um nível de **Severidade** na lista suspensa.
     2.  Selecione um **Tipo de problema** na lista suspensa.
-    3.  Selecione uma **Categoria** na lista suspensa. 
+    3.  Selecione uma **Categoria** na lista suspensa.
     4.  Descreva seu problema brevemente na caixa **Detalhes**.
     5.  Na caixa **Período**, indique a data, hora e fuso horário correspondentes à ocorrência mais recente do seu problema.
     6.  Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
     7.  Marque a caixa de seleção **Compartilhar informações de diagnóstico**.
 
-6. Clique em **Próximo**. A caixa de diálogo das **Informações de contato** é exibida.
+6. Clique em **Avançar**. A caixa de diálogo das **Informações de contato** é exibida.
 
 	![Painel de nova solicitação de suporte](./media/storsimple-contact-microsoft-support/Ibiza6a.png)
 
@@ -102,4 +102,4 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 > [AZURE.IMPORTANT] Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

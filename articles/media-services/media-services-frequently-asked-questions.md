@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Perguntas frequentes" 
+	pageTitle="Perguntas frequentes | Microsoft Azure" 
 	description="Perguntas frequentes (FAQs)" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#Perguntas frequentes  
+#Perguntas frequentes
 
-##Perguntas frequentes sobre o AMS geral 
+##Perguntas frequentes sobre o AMS geral
 
 P: Como você dimensiona indexação?
 
-R: As unidades reservadas são as mesmas para tarefas de codificação e indexação. Siga as instruções em [Como dimensionar unidades reservadas de codificação](media-services-how-to-scale.md). **Observação** o desempenho do indexador não é afetado pelo tipo de unidade reservada.
+R: As unidades reservadas são as mesmas para tarefas de codificação e indexação. Siga as instruções em [Como dimensionar unidades reservadas de codificação](media-services-scale-media-processing-overview.md). **Observação** o desempenho do indexador não é afetado pelo tipo de unidade reservada.
 
 P: Carreguei, codifiquei e publiquei um vídeo. Qual seria o motivo pelo qual o vídeo não é reproduzido quando tento transmiti-lo?
 
-R: Um dos motivos mais comuns é que você não tem pelo menos uma unidade de streaming reservada alocada no ponto de extremidade de streaming do qual está tentando reproduzir. Siga as instruções em [Como dimensionar unidades reservadas de streaming](media-services-how-to-scale.md).
+R: Um dos motivos mais comuns é que você não tem pelo menos uma unidade de streaming reservada alocada no ponto de extremidade de streaming do qual está tentando reproduzir. Siga as instruções em [Como dimensionar unidades reservadas de streaming](media-services-portal-scale-streaming-endpoints.md).
 
 P: Posso fazer a composição em um fluxo ao vivo?
 
@@ -35,7 +35,7 @@ R: A composição de fluxos ao vivo atualmente não é oferecida nos Serviços d
 
 P: Pode usar o CDN do Azure com a transmissão ao vivo?
 
-R: Os Serviços de Mídia dão suporte à integração com o Azure CDN (para obter mais informações, consulte [Como gerenciar pontos de extremidade de streaming em uma conta dos Serviços de Mídia](media-services-manage-origins.md#enable_cdn)). Você pode usar a transmissão ao vivo o com CDN. Os Serviços de Mídia do Azure fornecem saídas de Smooth Streaming, HLS e MPEG-DASH. Todos esses formatos usam HTTP para transferir dados e obtêm os benefícios do cache de HTTP. Na transmissão ao vivo real, os dados de áudio/vídeo são divididos em fragmentos, e esses fragmentos individuais são armazenados em cache na CDN. Os únicos dados que precisam ser atualizados são os dados de manifesto. A CDN atualiza periodicamente os dados de manifesto.
+R: Os Serviços de Mídia dão suporte à integração com o Azure CDN (para obter mais informações, consulte [Como gerenciar pontos de extremidade de streaming em uma conta dos Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)). Você pode usar a transmissão ao vivo o com CDN. Os Serviços de Mídia do Azure fornecem saídas de Smooth Streaming, HLS e MPEG-DASH. Todos esses formatos usam HTTP para transferir dados e obtêm os benefícios do cache de HTTP. Na transmissão ao vivo real, os dados de áudio/vídeo são divididos em fragmentos, e esses fragmentos individuais são armazenados em cache na CDN. Os únicos dados que precisam ser atualizados são os dados de manifesto. A CDN atualiza periodicamente os dados de manifesto.
 
 P: Os Serviços de Mídia do Azure dão suporte ao armazenamento de imagens?
 
@@ -83,4 +83,4 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

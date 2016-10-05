@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/21/2016"
+	ms.date="09/19/2016"
 	ms.author="pratshar"/>
 
 #  Criando sua infraestrutura de rede para a recuperação de desastres
@@ -36,7 +36,7 @@ Quando os administradores estiverem planejando implantar uma solução de recupe
 
 Ao criar a rede para o site de recuperação, o administrador tem duas opções:
 
-- Usar um intervalo de endereços IP diferente para a rede no site de recuperação. Nesse cenário, a máquina virtual, após o failover, terá um novo endereço IP e o administrador terá de fazer uma atualização de DNS. Leia mais sobre como fazer a atualização de DNS [aqui](site-recovery-vmm-to-vmm.md#test-your-deployment) 
+- Usar um intervalo de endereços IP diferente para a rede no site de recuperação. Nesse cenário, a máquina virtual, após o failover, terá um novo endereço IP e o administrador terá de fazer uma atualização de DNS. Leia mais sobre como fazer a atualização de DNS [aqui](site-recovery-vmm-to-vmm.md#test-your-deployment)
 - Usar o mesmo intervalo de endereços IP para a rede no site de recuperação. Em determinados cenários, os administradores preferem manter os endereços IP que eles têm no site primário, mesmo após o failover. Em um cenário normal, um administrador teria que atualizar as rotas para indicar o novo local dos endereços IP. Mas no cenário no qual uma VLAN ampliada é implantada entre os sites primário e de recuperação, reter os endereços IP para as máquinas virtuais torna-se uma opção atraente. Manter os mesmos endereços IP simplifica o processo de recuperação eliminando qualquer etapa pós-failover relacionada à rede.
 
 
@@ -120,7 +120,7 @@ Antes do failover
 Para ajudar o Woodgrove a atender seus requisitos de negócios, precisamos implementar os fluxos de trabalho os seguir:
 
 - Crie uma rede adicional, chame-a de Rede de Recuperação, onde as máquinas virtuais de failover seriam criadas.
-- Para garantir que o IP de uma VM seja mantido após um failover, vá para a guia Configurar em Propriedades da VM, especifique o mesmo IP que d máquina virtual tem no local, em seguida, clique em Salvar. Quando a VM tiver um failover, o Azure Site Recovery atribuirá o IP fornecido para a máquina virtual. 
+- Para garantir que o IP de uma VM seja mantido após um failover, vá para a guia Configurar em Propriedades da VM, especifique o mesmo IP que d máquina virtual tem no local, em seguida, clique em Salvar. Quando a VM tiver um failover, o Azure Site Recovery atribuirá o IP fornecido para a máquina virtual.
 
 ![Propriedades da rede](./media/site-recovery-network-design/network-design8.png)
 
@@ -179,4 +179,4 @@ A postagem [ Configuração da Infraestrutura de Rede como um Site de Recuperaç
 
 [Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e de destino quando um servidor VMM está sendo usado para gerenciar o site primário.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Recursos de detecção da Central de Segurança do Azure
@@ -83,9 +83,10 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 
 - [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 - [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
+- [Alertas de Segurança por Tipo na Central de Segurança do Azure](security-center-alerts-type.md)
 - [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
 - [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 - [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

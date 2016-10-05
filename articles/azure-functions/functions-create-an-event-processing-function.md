@@ -1,7 +1,7 @@
 <properties
    pageTitle="Criar um função de processamento de eventos | Microsoft Azure"
    description="Use o Azure Functions para criar uma função do C# executada com base em um temporizador de eventos."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 # Criar uma função de processamento de evento do Azure
@@ -44,7 +44,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. Antes
 
 	![Criar uma nova função disparada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. Na **Saída da Fila de Armazenamento do Azure**, clique em **selecionar** ao lado de **Conexão da conta de armazenamento**, selecione a conta de armazenamento existente ou crie um novo, então clique em **Salvar**.
+5. Em **Saída da Fila de Armazenamento do Azure**, selecione uma **conexão da conta de armazenamento** existente ou crie uma nova e clique em **Salvar**.
 
 	![Criar uma nova função disparada por temporizador](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -63,7 +63,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. Antes
 
 	Este código adiciona uma nova mensagem à fila com a data e a hora atuais quando a função é executada.
 
-7. Clique em **Salvar** e examine as janelas **Logs** para verificar a próxima execução da função.
+7. Clique em **Salvar** e verifique a próxima execução da função nas janelas **Logs**.
 
 8. (Opcional) Navegue até a conta de armazenamento e verifique se as mensagens estão sendo adicionadas à fila.
 
@@ -75,10 +75,10 @@ Este é um exemplo bem simplificado de um gatilho de temporizador e de uma assoc
 
 Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
-+ [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para codificação de funções e definição de gatilhos e de associações.
++ [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para a codificação de funções e a definição de gatilhos e de associações.
 + [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
++ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

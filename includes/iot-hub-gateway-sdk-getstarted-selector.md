@@ -6,10 +6,10 @@ Este artigo fornece uma passo a passo detalhado do [código de exemplo do Hello 
 
 Este passo a passo aborda:
 
-- **Conceitos**: uma visão geral conceitual dos componentes que formam qualquer gateway criado com o SDK do Gateway.  
+- **Conceitos**: uma visão geral conceitual dos componentes que formam qualquer gateway criado com o SDK do Gateway.
 - **Arquitetura da amostra do Hello World**: descreve como os conceitos se aplicam à amostra do Hello World e como os componentes se complementam.
 - **Como criar a amostra**: as etapas necessárias para criar a amostra.
-- **Como executar a amostra**: as etapas necessárias para executar a amostra. 
+- **Como executar a amostra**: as etapas necessárias para executar a amostra.
 - **Saída típica**: um exemplo da saída esperada ao executar a amostra.
 - **Trechos de código**: uma coleção de trechos de código para mostrar como a amostra do Hello World implementa os principais componentes do gateway.
 
@@ -35,13 +35,15 @@ O SDK fornece uma camada de abstração que permite criar gateways para serem ex
 
 ### Mensagens
 
-Mesmo que pensar sobre os módulos que transmitem mensagens entre si seja uma maneira conveniente de conceitualizar o funcionamento de um gateway, ela não reflete com precisão o que acontece. Os módulos usam um barramento de mensagem para se comunicar entre si, eles publicam mensagens no barramento e o barramento difunde as mensagens para todos os módulos conectados ao barramento.
+Mesmo que pensar sobre os módulos que transmitem mensagens entre si seja uma maneira conveniente de conceitualizar o funcionamento de um gateway, ela não reflete com precisão o que acontece. Os módulos usam um agente para se comunicar entre si, publicar mensagens no agente (barramento, pubsub ou outro padrão de mensagens) e permitir que o agente faça o roteamento da mensagem para os módulos conectados a ele.
 
-Um módulo usa a função **MessageBus\_Publish** para publicar uma mensagem no barramento de mensagem. O barramento de mensagem entrega as mensagens para um módulo, invocando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
+Um módulo usa a função **Broker\_Publish** para publicar uma mensagem no agente. O agente entrega as mensagens para um módulo, invocando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
 
 ![][3]
 
-Cada módulo é responsável por filtrar as mensagens, pois o barramento de mensagem usa um mecanismo de difusão para entregar cada mensagem a cada módulo conectado a ele. Um módulo só deve executar uma ação em mensagens destinadas a ele. A filtragem da mensagem cria efetivamente o pipeline de mensagens. Em geral, um módulo filtra as mensagens recebidas usando as propriedades da mensagem para identificar as mensagens que ele deve processar.
+### Roteamento e filtragem de mensagens
+
+Há duas maneiras de direcionar mensagens para os módulos corretos. Um conjunto de links pode ser transmitido para o agente para que este saiba a origem e o coletor de cada módulo, ou o módulo pode filtrar as propriedades da mensagem. Um módulo só deve agir em relação a uma mensagem se a mensagem é destinada a ele. Os links e a filtragem de mensagens são o que efetivamente cria um pipeline de mensagem.
 
 ## Arquitetura de amostra do Hello World
 
@@ -52,11 +54,11 @@ A amostra do Hello World ilustra os conceitos descritos na seção anterior. A a
 
 ![][4]
 
-Conforme descrito na seção anterior, o módulo do Hello World não transmite mensagens diretamente para o módulo de agente a cada cinco segundos. Em vez disso, ele publica uma mensagem no barramento de mensagem a cada cinco segundos.
+Conforme descrito na seção anterior, o módulo do Hello World não transmite mensagens diretamente para o módulo de agente a cada cinco segundos. Em vez disso, ele publica uma mensagem no agente a cada cinco segundos.
 
-O módulo do agente recebe a mensagem do barramento de mensagem e inspeciona suas propriedades em um filtro. Se o módulo do agente determinar que ele deve processar a mensagem, ele gravará o conteúdo da mensagem em um arquivo.
+O módulo de agente recebe a mensagem do agente e age sobre ele gravando o conteúdo da mensagem em um arquivo.
 
-O módulo do agente consome apenas as mensagens do barramento de mensagem; ele nunca publica novas mensagens no barramento.
+O módulo do agente consome apenas as mensagens do agente; ele nunca publica novas mensagens no agente.
 
 ![][5]
 
@@ -73,3 +75,4 @@ A figura acima mostra a arquitetura da amostra do Hello World e os caminhos rela
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
+<!---HONumber=AcomDC_0928_2016-->

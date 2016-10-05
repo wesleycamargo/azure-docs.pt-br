@@ -2,7 +2,7 @@ Os caches podem ser acessados no [Portal do Azure](https://portal.azure.com) usa
 
 ![Folha de navegação de Cache Redis do Azure](media/redis-cache-browse/redis-cache-browse.png)
 
-Clique em **Procurar > Caches Redis** para exibir seus caches. Se você navegou recentemente até um Cache Redis, poderá clicar em **Caches Redis** diretamente na lista sem clicar em **Procurar**.
+Para exibir seus caches, clique **Mais serviços > Caches Redis**. Se você navegou recentemente até um Cache Redis, poderá clicar em **Caches Redis** diretamente na lista sem clicar em **Mais serviços**.
 
 Selecione o cache desejado para exibir as propriedades desse cache.
 
@@ -12,4 +12,4 @@ Clique em **Configurações** ou em **Todas as configurações** para exibir e c
 
 ![Todas as configurações de Cache Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

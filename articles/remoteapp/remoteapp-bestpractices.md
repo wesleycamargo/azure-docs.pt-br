@@ -33,7 +33,7 @@ As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azu
 
 
 - Salve e feche os aplicativos do RemoteApp ao terminar com o aplicativo. O não fechamento do aplicativo pode resultar em perda de dados.
-- Valide aplicativos personalizados antes de usá-los no RemoteApp do Azure. Isso inclui garantir que eles funcionam em uma plataforma de várias sessões e não consomem recursos desnecessários, como memória e CPU que podem enfraquecer outro usuário na mesma coleção. Para obter informações, baixe e analise as [Práticas recomendadas de compatibilidade de aplicativos para os serviços de área de trabalho remota](http://www.microsoft.com/download/details.aspx?id=18704).
+- Valide aplicativos personalizados antes de usá-los no RemoteApp do Azure. Isso inclui garantir que eles funcionam em uma plataforma de várias sessões e não consomem recursos desnecessários, como memória e CPU que podem enfraquecer outro usuário na mesma coleção. Para obter informações, baixe e analise as [Práticas recomendadas de compatibilidade de aplicativos para os serviços de área de trabalho remota](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
 
 ## Configuração e gerenciamento
 
@@ -46,4 +46,4 @@ As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azu
 	- Configure quaisquer configurações gerais do sistema na imagem do modelo em vez de em máquinas virtuais individuais em um serviço.
 	- Desabilite atualizações automáticas de software para aplicativos publicados - em vez disso, aplique-as manualmente à imagem do modelo e teste-as antes da implantação do modelo.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

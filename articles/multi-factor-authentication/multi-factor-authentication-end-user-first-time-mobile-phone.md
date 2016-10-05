@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Usar o telefone celular como método de contato com o Azure MFA" 
-	description="Esta página mostrará aos usuários como usar o telefone celular como o método de contato principal para o Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Usar o telefone celular como método de contato com o Azure MFA"
+	description="Esta página mostrará aos usuários como usar o telefone celular como o método de contato principal para o Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Usar o telefone celular como método de contato com o Azure Multi-Factor Authentication
 
@@ -42,7 +42,4 @@ Se desejar usar seu telefone celular como o método de contato principal, você 
 
 <center>![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

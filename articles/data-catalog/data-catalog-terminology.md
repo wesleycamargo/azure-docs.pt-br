@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Terminologia do Catálogo de Dados do Azure
@@ -40,7 +40,7 @@ Metadados estruturais são metadados extraídos de uma fonte de dados que descre
 
 ## Metadados descritivos
 
-Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. A ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services e da propriedade estendida [ms\_description](https://technet.microsoft.com/library/ms190243.aspx) em bancos de dados do SQL Server, se essas propriedades foram preenchidas com valores.
+Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. Por exemplo, a ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services, e da propriedade [estendida ms\_description](https://technet.microsoft.com/library/ms190243.aspx) nos bancos de dados do SQL Server, caso essas propriedades estejam preenchidas com valores.
 
 ## Solicitar acesso
 
@@ -80,10 +80,10 @@ Um proprietário é um usuário que tem privilégios adicionais para gerenciar u
 
 Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados e copiá-los no serviço de Catálogo de Dados do Azure. Ativos de dados que foram registrados podem ser anotados e descobertos.
 
-## Consulte também
+## Confira também
 
 - [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) - Este artigo fornece uma visão geral do serviço do Catálogo de Dados do Azure, a vantagem que ele oferece e os cenários aos quais ele dá suporte.
 
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -16,4 +16,4 @@
 
 8. Clique em **Criar** para criar o gateway de rede local.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

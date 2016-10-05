@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -34,7 +34,7 @@ Para aplicativos do Xamarin que precisam acessar recursos protegidos, o AD do Az
 Para compilar o aplicativo completo funcionando, você precisará:
 
 2. Configurar seu ambiente de desenvolvimento do Xamarin
-2. Registrar seu aplicativo com o AD do Azure.
+2. Registrar seu aplicativo no Azure AD.
 3. Instalar e configurar a ADAL.
 5. Usar a ADAL para obter tokens do AD do Azure.
 
@@ -185,4 +185,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

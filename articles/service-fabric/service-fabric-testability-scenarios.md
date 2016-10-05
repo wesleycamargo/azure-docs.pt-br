@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
+   manager="rsinha"
    editor="toddabel"/>
 
 <tags
@@ -20,6 +20,8 @@
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.
 
 O serviço Análise de Falhas fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços em caso de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para fazer mais testes, você pode usar os cenários de teste no Service Fabric: um teste de caos e um de failover. Esses cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando um teste é configurado com a taxa e o tipo de falha, ele pode ser iniciado por meio de APIs do C# ou do PowerShell para gerar falhas no cluster e no serviço.
+
+>[AZURE.WARNING] ChaosTestScenario está sendo substituído por um Chaos baseado em serviço mais resiliente. Confira o novo artigo [Controlled Chaos](service-fabric-controlled-chaos.md) para obter mais detalhes.
 
 ## Teste de caos
 O cenário de caos gera falhas em todo o cluster do Service Fabric. O cenário compacta falhas geralmente vistas em meses ou em anos em apenas algumas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Isso leva a uma melhoria significativa na qualidade do código do serviço.
@@ -247,4 +249,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

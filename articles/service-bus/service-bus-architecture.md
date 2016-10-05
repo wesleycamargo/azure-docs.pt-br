@@ -31,7 +31,7 @@ Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A 
 
 - **Um repositório de gateway.** O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
 
-- **Múltiplos repositórios de mensagens.** Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md) do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
+- **Múltiplos repositórios de mensagens.** Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](../service-bus-messaging/service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](../service-bus-messaging/service-bus-premium-messaging.md) do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
 
 ## Contêineres
 
@@ -55,8 +55,8 @@ Quando a conexão de retransmissão é estabelecida, os clientes podem trocar me
 
 Agora que você teve uma visão geral da arquitetura do Barramento de Serviço, para começar, visite os links abaixo:
 
-- [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+- [Visão geral de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
-- [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Uma solução de mensagens na fila usando filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

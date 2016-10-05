@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Com usar o Serviço de Cache Gerenciado do Azure" 
+	pageTitle="Com usar o Serviço de Cache gerenciado do Azure" 
 	description="Saiba como melhorar o desempenho de seus aplicativos do Azure com o Serviço de Cache Gerenciado do Azure" 
 	services="cache" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
-# Com usar o Serviço de Cache Gerenciado do Azure
+# Com usar o Serviço de Cache gerenciado do Azure
 
 Este guia mostra como começar a usar o **Serviço de Cache Gerenciado do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **criação e configuração de um cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado da sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache do Azure, consulte a seção [Próximas etapas][].
 
->[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. A nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
-## O que é o Serviço de Cache Gerenciado do Azure?
+## O que é o Serviço de Cache gerenciado do Azure?
 
 O Serviço de Cache Gerenciado do Azure é uma solução distribuída, na memória e dimensionável que permite que você crie aplicativos altamente dimensionáveis e dinâmicos fornecendo acesso super-rápido aos dados.
 
@@ -69,7 +69,7 @@ Invocar o cmdlet [Add-AzureAccount][], e inserir o endereço do email e a senha 
 
 >Se você tiver configurado o PowerShell do Azure com um certificado para sua conta, então você pode pular esta etapa. Para obter mais informações sobre conectar o Azure PowerShell com sua conta do Azure, consultar [Como instalar e configurar o Azure PowerShell][].
 
-Uma assinatura é escolhida por padrão e será exibida. Para alterar a assinatura, invocar o cmdlet [Select-AzureSubscription][].
+Por padrão, uma assinatura é escolhida e exibida. Para alterar a assinatura, invocar o cmdlet [Select-AzureSubscription][].
 
 Invocar o cmdlet [New-AzureManagedCache][] e especificar o nome, região, oferta de cache, e tamanho para o cache.
 
@@ -150,7 +150,7 @@ Notificações de cache que permitem que seus aplicativos recebam notificações
 
 >As Notificações só estão disponíveis nas ofertas de cache Padrão e Premium e não estão disponíveis na oferta de cache básico. Para obter mais informações, consulte [Configurações do cache][].
 
-## Alta Disponibilidade ##
+## Alta disponibilidade ##
 
 Quando a alta disponibilidade está habilitada, é feita uma cópia de backup de cada item adicionado ao cache. Se ocorrer uma falha inesperada na cópia principal do item, a cópia de backup ainda estará disponível.
 
@@ -258,10 +258,10 @@ Se seu projeto for um projeto web, a referência ao assembly a seguir também se
 
 -	Microsoft.Web.DistributedCache.dll.
 
-Depois que o projeto de cliente estiver configurado para cache, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
+Depois que o projeto de cliente estiver configurado para caching, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
 
 <a name="working-with-caches"></a>
-## Trabalhando com Caches
+## Trabalhando com caches
 
 As etapas desta seção descrevem como realizar tarefas comuns com o Cache.
 
@@ -377,7 +377,7 @@ Para saber mais sobre como usar o provedor de estado de sessão do Serviço de C
 <a name="store-page"></a>
 ## Como armazenar o cache de saída de página ASP.NET no cache
 
-O Provedor de Cache de Saída para o Cache do Azure é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de cache de saída, primeiro configure o cluster de cache e, em seguida, configure seu aplicativo ASP.NET para cache usando o pacote NuGet de Cache, conforme descrito em [Introdução ao serviço de Cache Gerenciado][]. Quando o pacote NuGet de Cache está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Cache do Azure.
+O Provedor de Cache de Saída para o Cache do Azure é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de cache de saída, primeiro configure o cluster de cache e, em seguida, configure seu aplicativo ASP.NET para cache usando o pacote NuGet de Cache, conforme descrito em [Introdução ao serviço de Cache Gerenciado][]. Quando o pacote NuGet de Caching está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Caching do Azure.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -486,4 +486,4 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

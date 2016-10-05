@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/11/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
@@ -58,10 +58,6 @@ Ao abrir ativos de dados no Microsoft Excel no portal do **Catálogo de Dados do
 
 Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-### Colunas BLOB e UDT não encontradas nas visualizações
-
-Ao registrar tabelas e exibições que contêm BLOB (objeto binário grande) e colunas de UDT (tipo de dados definido pelo usuário) e ao selecionar incluir visualização dos ativos de dados, essas colunas não serão incluídas na visualização.
-
 ### Registro da fonte de dados e configuração de proxy e política
 
 Os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon.
@@ -88,4 +84,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

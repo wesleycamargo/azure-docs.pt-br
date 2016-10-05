@@ -58,15 +58,14 @@ Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplic
 
 	a) "Renovar automaticamente" seu domínio todos os anos
 	
-	b) Aceitar a "Proteção da privacidade" que está incluída no preço de compra GRATUITAMENTE
+	b) Aceitar a "Proteção da privacidade" que está incluída no preço de compra GRATUITAMENTE (exceto para TLDs cujo registro não dá suporte a Privacidade. Por exemplo: .co.in, .co.uk, etc.)
 	
 	c) "Atribuir nomes de host padrão" para WWW e raiz do domínio para o Aplicativo Web atual.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. Clique em **Selecionar** na folha **Comprar domínios** e você verá as informações de compra na folha **Confirmação de compra**. Se você aceitar os termos legais e clicar em **Comprar**, seu pedido será enviado e você poderá monitorar o processo de compra em **Notificação**. A compra de domínio pode demorar alguns minutos para ser concluída.
 
@@ -103,4 +102,4 @@ Se você comprou o domínio personalizado a partir da folha **Domínios personal
 - Você pode ter excluído o domínio personalizado em algum momento. Verifique os logs de auditoria clicando em **Configurações** > **Logs de auditoria** a partir da folha principal do seu aplicativo.
 - A folha **Domínios personalizados e SSL** que você está procurando pode pertencer a um aplicativo criado em uma assinatura diferente do Azure. Alterne para outro aplicativo em uma assinatura diferente e verifique sua folha **Domínios personalizados e SSL** . No portal, você não conseguirá ver nem gerenciar os domínios personalizados criados em uma assinatura do Azure diferente da do aplicativo. No entanto, se você clicar em **Gerenciamento avançado** na folha do domínio **Gerenciar domínio**, será redirecionado para o site do provedor do domínio, onde poderá [configurar manualmente seu domínio personalizado como qualquer domínio personalizado externo](web-sites-custom-domain-name.md) para os aplicativos criados em uma assinatura diferente do Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

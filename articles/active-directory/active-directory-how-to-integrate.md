@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Integração ao Active Directory do Azure
@@ -90,4 +90,4 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 [Conectar usuários usando o AD do Azure](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

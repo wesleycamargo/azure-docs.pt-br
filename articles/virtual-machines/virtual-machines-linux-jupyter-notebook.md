@@ -187,7 +187,7 @@ Se você acessar o [repositório][] de código-fonte do IPython, você encontrar
 
 O Bloco de Anotações do Jupyter fornece uma interface avançada para acesso interativo à tecnologia do ecossistema Python no Azure. Ela abrange diversos casos de uso, incluindo exploração simples, aprendizado do Python, análise de dados e visualização, simulação e computação paralela. Os documentos resultantes do Bloco e notas contêm um registro completo das computações executadas e podem ser compartilhados com outros usuários do Jupyter. O Bloco de Anotações do Jupyter pode ser usado como um aplicativo local e é ideal para implantações em nuvem no Azure
 
-Os recursos principais do Jupyter também estão disponíveis no Visual Studio por meio do [Ferramentas Python para Visual Studio][] (PTVS). O PTVS é um plug-in gratuito e de código aberto da Microsoft que transforma o Visual Studio em um ambiente de implantação avançado do Python, incluindo um editor avançado com IntelliSense, depuração, criação de perfil e integração de computação paralela.
+Os recursos principais do Jupyter também estão disponíveis no Visual Studio por meio do [Ferramentas Python para Visual Studio][] \(PTVS). O PTVS é um plug-in gratuito e de código aberto da Microsoft que transforma o Visual Studio em um ambiente de implantação avançado do Python, incluindo um editor avançado com IntelliSense, depuração, criação de perfil e integração de computação paralela.
 
 ## Próximas etapas
 

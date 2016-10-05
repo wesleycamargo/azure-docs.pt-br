@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016" 
+	ms.author="bradsev" />
 
 
 # O que é o TDSP (Processo de Ciência de Dados de Equipe)?
 
-O TDSP (Processo de Ciência de Dados de Equipe) fornece uma abordagem sistemática para a criação de aplicativos inteligentes que permite às equipes de cientistas de dados colaborarem de maneira eficiente por todo o ciclo de vida de atividades necessárias para transformar esses aplicativos em produtos. O TDSP descreve uma sequência de etapas que fornecem **diretrizes** sobre como definir o problema, configurar as ferramentas e o ambiente necessários, analisar dados relevantes, criar e avaliar modelos preditivos e, em seguida, implantar esses modelos em aplicativos corporativos.
+O [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md) fornece uma abordagem sistemática para a criação de aplicativos inteligentes que permite às equipes de cientistas de dados colaborarem de maneira eficiente por todo o ciclo de vida de atividades necessárias para transformar esses aplicativos em produtos. O TDSP descreve uma sequência de etapas que fornecem **diretrizes** sobre como definir o problema, configurar as ferramentas e o ambiente necessários, analisar dados relevantes, criar e avaliar modelos preditivos e, em seguida, implantar esses modelos em aplicativos corporativos.
 
 Veja a seguir as etapas em **Processo de Ciência de Dados de Equipe**:
 
@@ -96,4 +96,4 @@ Também serão fornecidos passo a passos completos que demonstram todas as etapa
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

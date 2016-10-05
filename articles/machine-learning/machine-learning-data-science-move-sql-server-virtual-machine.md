@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
 # Mover dados para o SQL Server em uma máquina virtual do Azure
 
@@ -31,7 +31,7 @@ A tabela a seguir resume as opções para mover dados para o SQL Server em uma m
 
 <b>FONTE</b> |<b>DESTINO: SQL Server na VM do Azure</b> |
 ------------------ |-------------------- |
-<b>Arquivo simples</b> |1\. <a href="#insert-tables-bcp">Utilitário de cópia em massa da linha de comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">Utilitários gráficos internos no SQL Server</a>
+<b>Arquivo simples</b> |1\. <a href="#insert-tables-bcp">Utilitário de BCP (cópia em massa de linha de comando) </a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">Utilitários gráficos internos no SQL Server</a>
 <b>SQL Server local</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistente para implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportar para um arquivo simples </a><br> 3. <a href="#sql-migration">Assistente de Migração de Banco de Dados SQL </a> <br> 4. <a href="#sql-backup">Backup e restauração de banco de dados </a><br>
 
 Observe que este documento pressupõe que os comandos SQL sejam executados no SQL Server Management Studio ou no Gerenciador de Banco de Dados do Visual Studio.
@@ -52,14 +52,14 @@ Este tutorial presume que você tenha:
 
 Se os dados estiverem em um arquivo simples (organizado em um formato de linha/coluna), ele pode ser movido para a VM do SQL Server no Azure pelos métodos a seguir:
 
-1. [Utilitário de cópia em massa de linha de comando (BCP)](#insert-tables-bcp)
+1. [Utilitário de BCP (cópia em massa de linha de comando)](#insert-tables-bcp)
 2. [Consulta SQL de inserção em massa ](#insert-tables-bulkquery)
 3. [Utilitários gráficos internos no SQL Server (Importar/Exportar, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilitário de cópia em massa de linha de comando (BCP)
+### <a name="insert-tables-bcp"></a>Utilitário de BCP (cópia em massa de linha de comando)
 
-O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas para mover os dados. Ele funciona em todas as três variantes do SQL Server (SQL Server local, SQL Azure e VM do SQL Server no Azure).
+O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas de mover dados. Ele funciona em todas as três variantes do SQL Server (SQL Server local, SQL Azure e VM do SQL Server no Azure).
 
 > [AZURE.NOTE] **Onde os dados devem estar para o BCP?** Embora não seja necessário, ter arquivos que contêm dados de origem localizados no mesmo computador que o SQL Server de destino possibilita transferências mais rápidas (velocidade rede em comparação com velocidade de E/S do disco local). Você pode mover os arquivos simples que contêm dados para máquina em que o SQL Server está instalado usando várias ferramentas de cópia de arquivo, como [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) ou copiar/colar do Windows via protocolo RDP.
 
@@ -74,11 +74,11 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
 			<columnname3> <datatype> <constraint>
 		) 
 	
-2. Gere o arquivo de formato que descreve o esquema da tabela emitindo o comando a seguir na linha de comando do computador onde o bcp está instalado.
+2. Gere o arquivo de formato que descreve o esquema da tabela emitindo o comando a seguir na linha de comando do computador em que o BCP está instalado.
 
 	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
-3. Insira os dados no banco de dados usando o comando bcp da seguinte maneira. Isso deve funcionar na linha de comando, supondo que o SQL Server está instalado no mesmo computador:
+3. Insira os dados no banco de dados usando o comando bcp da seguinte maneira. Isso deve funcionar na linha de comando, supondo que o SQL Server esteja instalado no mesmo computador:
 
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
@@ -92,7 +92,7 @@ Se os dados que você está movendo forem grandes, você pode acelerar as coisas
 > [AZURE.NOTE] **Ingestão de big data** Para otimizar o carregamento de dados para conjuntos de dados grandes e muito grandes, particione suas tabelas de banco de dados lógicas e físicas usando várias tabelas de partição e grupos de arquivos. Para obter mais informações sobre como criar e carregar dados em tabelas de partição, consulte [Tabelas de partição do SQL de carga paralela](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
-O script do PowerShell de exemplo abaixo demonstra inserções paralelas usando bcp:
+O script do PowerShell de exemplo abaixo demonstra inserções paralelas usando BCP:
 	
 	$NO_OF_PARALLEL_JOBS=2
 
@@ -211,7 +211,7 @@ O SQL Server dá suporte a:
 1. [Funcionalidade de backup e restauração de banco de dados](https://msdn.microsoft.com/library/ms187048.aspx) (para um arquivo local ou exportação de bacpac para blob) e [Aplicativos de Camada de Dados](https://msdn.microsoft.com/library/ee210546.aspx) (usando bacpac).
 2. Capacidade de criar VMs do SQL Server diretamente no Azure com um banco de dados copiado ou copiar um banco de dados do SQL do Azure existente. Para obter mais detalhes, consulte [Usar o Assistente para Cópia de Banco de Dados](https://msdn.microsoft.com/library/ms188664.aspx).
 
-Abaixo está uma captura de tela das opções de backup/restauração de banco de dados do Estúdio de Gerenciamento do SQL Server.
+Abaixo está uma captura de tela das opções de backup/restauração de banco de dados do SQL Server Management Studio.
 
 ![Ferramenta de Importação do SQL Server][1]
 
@@ -224,4 +224,4 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

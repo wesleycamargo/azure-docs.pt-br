@@ -29,11 +29,11 @@ O Armazenamento do Azure fornece um conjunto abrangente de recursos de seguranç
 
 A SSE criptografa dados quando eles são gravados no Armazenamento do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimos. Ela funciona para o seguinte:
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   Contas de armazenamento de finalidade geral e contas de Armazenamento de Blobs
+-   Armazenamento Standard e armazenamento primário
+-   Todos os níveis de redundância (LRS, ZRS, GRS e RA-GRS)
+-   Contas de armazenamento do Azure Resource Manager (mas não clássico)
+-   Todas as regiões
 
 Essa captura de tela mostra onde encontrar a configuração da Criptografia do Serviço de Armazenamento usando o [portal do Azure](https://azure.portal.com). Nessa tela, clique em Criptografia para continuar.
 
@@ -195,4 +195,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -24,7 +24,8 @@
 - [Portal do Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-Este artigo mostra como importar o Banco de Dados SQL de um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) usando o utilitário de linha de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
+Este artigo mostra como importar o Banco de Dados SQL de um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) usando o utilitário de linha de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx). Esse utilitário acompanha as versões mais recentes do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), ou você pode baixar a versão mais recente do [SqlPackage](https://www.microsoft.com/pt-BR/download/details.aspx?id=53876) diretamente do Centro de Download da Microsoft.
+
 
 > [AZURE.NOTE] As etapas a seguir supõem que você já configurou um servidor de Banco de Dados SQL, tem as informações de conexão disponíveis e verificou se o banco de dados de origem é compatível.
 
@@ -60,4 +61,4 @@ Use as etapas a seguir para usar o utilitário de linha de comando [SqlPackage.e
 - [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 - [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

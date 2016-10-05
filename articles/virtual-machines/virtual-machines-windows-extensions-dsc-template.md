@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Windows VMSS e configuração de estado desejado com modelos do Azure Resource Manager
@@ -90,7 +90,7 @@ Um nó VMSS tem uma seção "properties" com o atributo "VirtualMachineProfile",
 
 ## Informações de configuração detalhadas
 
-Este é o esquema para a parte das configurações da extensão DSC do Azure em um modelo do Azure Resource Manager.
+O esquema a seguir serve para a parte das configurações da extensão DSC do Azure em um modelo do Azure Resource Manager.
 
 ```json
 
@@ -169,7 +169,7 @@ Se a configuração precisar de credenciais, elas poderão ser incluídas em pro
 
 O exemplo a seguir é derivado da seção "Introdução" da página [Visão geral do manipulador de extensão de DSC](virtual-machines-windows-extensions-dsc-overview.md). Este exemplo usa modelos do Resource Manager, em vez de cmdlets para implantar a extensão. Salve a configuração de "IisInstall.ps1", coloque-o em um arquivo .ZIP e carregue-o em uma URL acessível. Este exemplo usa o Armazenamento de Blobs do Azure, mas é possível baixar os arquivos .ZIP de qualquer local aleatório.
 
-No modelo do Resource Manager, há a instrução para a VM baixar o arquivo correto e executar a função apropriada do PowerShell:
+No modelo do Azure Resource Manager, o código a seguir instrui a VM a baixar o arquivo correto e executar a função apropriada do PowerShell:
 
 ```json
 "settings": {
@@ -188,7 +188,7 @@ No modelo do Resource Manager, há a instrução para a VM baixar o arquivo corr
 ## Atualização do formato anterior
 Todas as configurações no formato anterior (que contém as propriedades públicas ModulesUrl, ConfigurationFunction, SasToken ou Properties) serão automaticamente adaptadas ao formato atual e executadas exatamente como antes.
 
-O esquema de configurações anteriores parece com o seguinte:
+O esquema de configurações a seguir se parece com o esquema de configurações anterior:
 
 ```json
 "settings": {
@@ -224,8 +224,8 @@ Veja como formato anterior se adapta ao formato atual:
 | --- | --- |
 | settings.wmfVersion | settings.WMFVersion |
 | settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | 1º parte de settings.ConfigurationFunction (antes de '\\\') |
-| settings.configuration.function | 2º parte de settings.ConfigurationFunction (depois de '\\\') |
+| settings.configuration.script | Primeira parte de settings.ConfigurationFunction (antes de '\\\') |
+| settings.configuration.function | Segunda parte de settings.ConfigurationFunction (depois de '\\\') |
 | settings.configurationArguments | settings.Properties |
 | settings.configurationData.url | protectedSettings.DataBlobUri (sem token SAS) |
 | settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
@@ -257,7 +257,7 @@ Solução: verifique todas as URLs fornecidas. Certifique-se de que todas as URL
 
 Problema: a propriedade ConfigurationArguments não pode resolver um objeto Hashtable.
 
-Solução: torne sua propriedade ConfigurationArguments uma tabela de hash. Siga o formato fornecido no exemplo acima. Fique atento às chaves, vírgulas e aspas.
+Solução: torne sua propriedade ConfigurationArguments uma tabela de hash. Siga o formato fornecido no exemplo anterior. Fique atento às chaves, vírgulas e aspas.
 
 ### ConfigurationArguments duplicado
 "Argumentos '{0}' duplicados encontrados em configurationArguments públicos e protegidos"
@@ -285,4 +285,14 @@ Soluções:
 - Forneça a propriedade ausente.
 - Remova a propriedade que precisa da propriedade ausente.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## Próximas etapas
+[Saiba mais sobre DSC e VMSS](virtual-machines-scale-sets-dsc.md)
+
+Encontre mais detalhes sobre [Gerenciamento de credenciais seguras do DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Para saber mais sobre o manipulador de extensões DSC do Azure, confira [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](virtual-machines-windows-extensions-dsc-overview.md).
+
+Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

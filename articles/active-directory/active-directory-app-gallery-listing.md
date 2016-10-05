@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Os requisitos de listagem para cada modo estão abaixo.
 
 Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor](active-directory-authentication-scenarios.md). Responda às perguntas abaixo e envie para waadpartners@microsoft.com.
 
-* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
+* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.
 
 * Forneça instruções sobre como a equipe do AD do Azure pode entrar e conectar uma instância do AD do Azure em seu aplicativo usando a [estrutura de consentimento do AD do Azure](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
@@ -67,7 +67,7 @@ Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor
 
 Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a um locatário do AD do Azure usando [estas instruções para adicionar um aplicativo personalizado](active-directory-saas-custom-apps.md). Depois de testar se a integração do aplicativo funciona com o AD do Azure, envie as informações a seguir para <waadpartners@microsoft.com>.
 
-* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.  
+* Fornece credenciais para uma conta ou locatário de teste com o aplicativo que pode ser usado pela equipe do Azure AD para testar a integração.
 
 * Forneça os valores da URL de logon do SAML, da URL de emissor (ID da entidade) e da URL de resposta (serviço do consumidor de declaração) para seu aplicativo, conforme descrito [aqui](active-directory-saas-custom-apps.md). Se você geralmente fornece esses valores como parte de um arquivo de metadados do SAML, envie este também.
 
@@ -97,4 +97,4 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->
