@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/12/2016"
 	ms.author="piyushjo" />
 
 #Notas de versão do SDK do iOS no Mobile Engagement do Azure
+
+##4\.0.0 (12/09/2016)
+
+-   Notificação fixa não acionada em dispositivos com iOS 10.
+-   Substituir o XCode 7.
 
 ##3\.2.4 (30/06/2016)
 
@@ -71,4 +76,4 @@
 -   Aprimoramentos de segurança.
 -   Controle SmartAd removido.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

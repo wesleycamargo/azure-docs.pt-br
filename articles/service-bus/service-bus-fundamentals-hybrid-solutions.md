@@ -110,9 +110,9 @@ A conexão de aplicativos sempre fez parte da criação de soluções completas 
 
 Agora que você aprendeu os conceitos básicos do barramento de serviço do Azure, siga estes links para obter mais informações.
 
-- Como usar as [filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
-- Como usar os [tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Como usar a [retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
+- Como usar as [filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Como usar os [tópicos do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Como usar a [retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Exemplos do Barramento de Serviço](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

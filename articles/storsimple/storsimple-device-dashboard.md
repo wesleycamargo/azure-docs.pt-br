@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/09/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Usar o painel de dispositivo do StorSimple Manager
@@ -100,4 +100,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 - Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0921_2016-->

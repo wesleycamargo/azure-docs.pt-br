@@ -112,7 +112,7 @@ A personalização funciona substituindo um marcador por uma marca de informaç�
 O modo de entrega "Somente fora do aplicativo" fornece notificação por push quando o aplicativo é fechado. Esta é a notificação por push padrão. Ao selecionar "Somente fora do aplicativo", você deve ter fornecido os certificados da plataforma que o seu aplicativo está compilando (APNS ou GCM).
 
 ### Confira também
--  [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] (http://developer.android.com/google/gcm/index.html)
+-  [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] \(http://developer.android.com/google/gcm/index.html)
 
 ### Modo de entrega "Apenas no aplicativo"
 ![Differentiate3][17]

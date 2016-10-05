@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # O que é o TDSP (Processo de Ciência de Dados de Equipe)?
@@ -74,9 +74,9 @@ A próxima etapa será obter uma compreensão mais profunda dos dados investigan
 Os cientistas de dados, em colaboração com os especialistas de domínio, devem identificar os recursos que capturam as propriedades relevantes do conjunto de dados e que podem ser usados com mais eficiência para a previsão das principais variáveis de negócios identificadas durante o planejamento. Esses novos recursos podem ser derivados de dados existentes ou podem exigir a coleta de dados adicionais. Esse processo é conhecido como **engenharia de recursos** e é uma das principais etapas da criação de um sistema eficiente de análise preditiva. Esta etapa requer uma combinação criativa de experiência de domínio e das ideias obtidas na etapa de exploração de dados. Para obter diretrizes, confira [Feature engineering in the Team Data Science Process (Engenharia de recurso no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-create-features.md).
 
 
-## 4\. Criar e treinar modelos de AM
+## 4\. Criar e treinar modelos de Machine Learning
 
-Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, confira [How to choose algorithms for Team Azure Machine Learning (Como escolher algoritmos para Aprendizado de Máquina do Azure de Equipe)](machine-learning-algorithm-choice.md).
+Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, confira [How to choose algorithms for Azure Machine Learning (Como escolher algoritmos para o Azure Machine Learning)](machine-learning-algorithm-choice.md).
 
 Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
 
@@ -100,4 +100,4 @@ Embora o TDSP não prescreva tipos específicos de artefato de **documentação*
 
 Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados com descrições em miniatura no tópico [Team Data Science Process walkthroughs (Passo a passo do Processo de Ciência de Dados de Equipe)](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

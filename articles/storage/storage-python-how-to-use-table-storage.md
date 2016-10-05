@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Como usar o Armazenamento de tabela do Python | Microsoft Azure"
-	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um armazenamento de dados NoSQL."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Como usar o Armazenamento de tabela do Python
@@ -23,7 +23,7 @@
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] (SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python] \(SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
 
 [AZURE.INCLUDE [armazenamento-tabela-conceitos-include](../../includes/storage-table-concepts-include.md)]
 
@@ -150,4 +150,4 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Tabelas, siga
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

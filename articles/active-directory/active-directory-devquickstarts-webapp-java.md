@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -313,7 +313,7 @@ Isso basicamente redireciona para uma página segura protegida por nosso filtro.
 </html>
 ```
 
-- Por fim, vamos criar a página da Web segura que queremos por meio da criação de uma pasta em `\webapp`, chamada de `\secure`, para que o diretório seja agora `\webapp\secure`. 
+- Por fim, vamos criar a página da Web segura que queremos por meio da criação de uma pasta em `\webapp`, chamada de `\secure`, para que o diretório seja agora `\webapp\secure`.
 
 - Nesse diretório, vamos criar um arquivo `aad.jsp` e recortar/colar o seguinte:
 
@@ -360,7 +360,7 @@ Para obter dados sobre o usuário, precisamos usar a Graph API do Active Directo
 
 Vamos escrever alguns arquivos Java para fazer esse trabalho para nós:
 
-1. crie uma pasta no diretório raiz chamado “adal4jsample” para armazenar todos os nossos arquivos java. 
+1. crie uma pasta no diretório raiz chamado “adal4jsample” para armazenar todos os nossos arquivos java.
 
 Usaremos o namespace `com.microsoft.aad.adal4jsample` em nossos arquivos java. A maioria dos IDEs cria uma estrutura de pastas aninhadas para isso (por exemplo, `/com/microsoft/aad/adal4jsample`). Você é livre para fazer isso, mas não é necessário.
 
@@ -1751,4 +1751,4 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

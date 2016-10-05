@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Preview dos Serviços de Domínio do Azure Active Directory: Guia de Administração | Microsoft Azure"
+	pageTitle="Serviços de Domínio do Azure Active Directory: guia de administração | Microsoft Azure"
 	description="Ingresse uma máquina virtual do Windows em um domínio gerenciado usando o Azure PowerShell e o modelo de implantação clássico."
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 
-# Criar máquinas virtuais do Windows com o PowerShell e o modelo de implantação clássico
+# Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando o PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal clássico do Azure - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
@@ -29,7 +29,7 @@
 
 Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShell que criam e pré-configuram uma máquina virtual do Azure baseada em Windows usando uma abordagem de bloco de construção. Essas etapas ajudam a criar uma máquina virtual do Azure baseada no Windows e a ingressá-la no domínio gerenciado dos Serviços de Domínio do Azure AD.
 
-Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
+Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você ainda não conhece o PowerShell ou se quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
 Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do Windows PowerShell.
 
@@ -40,7 +40,7 @@ Se você ainda não fez isso, use as instruções em [Como instalar e configurar
 3. Digite a senha da sua conta.
 4. Clique em **Entrar**.
 
-## Etapa 2: definir a assinatura e a conta de armazenamento
+## Etapa 2: Definir a assinatura e a conta de armazenamento
 
 Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Windows PowerShell. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
@@ -49,7 +49,7 @@ Defina a assinatura e a conta de armazenamento do Azure executando estes comando
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome de assinatura correto na propriedade SubscriptionName na saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
+Você pode obter o nome de assinatura correto na propriedade SubscriptionName da saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
 
 
 ## Etapa 3: Passo a passo - provisionar a máquina virtual e ingressa-la ao domínio gerenciado
@@ -147,4 +147,11 @@ Aqui está o script de exemplo completo para criar a máquina virtual do Windows
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0706_2016-->
+<br>
+
+## Conteúdo relacionado
+- [Serviços de Domínio do Azure AD - guia de Introdução](./active-directory-ds-getting-started.md)
+
+- [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -418,7 +418,7 @@ No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de d
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-A EmpID é especificada como a chave da partição.
+DivisionID é especificada como a chave de partição.
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -432,7 +432,7 @@ A EmpID é especificada como a chave da partição.
 
 ### Mapeamento de tipo de Tabela do Azure
 
-Conforme mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas de tipos de fonte para tipos de coletor, com a abordagem de duas etapas a seguir.
+Como mencionado no artigo sobre as [atividades de movimentação de dados](data-factory-data-movement-activities.md), a atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas.
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -531,4 +531,4 @@ Nesse caso, o Data Factory fará automaticamente as conversões de tipo, inclusi
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

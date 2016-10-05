@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Configurar políticas de segurança na Central de Segurança do Azure
@@ -64,7 +64,7 @@ Por exemplo, os recursos usados para o desenvolvimento ou teste podem ter requis
 
 9. Na folha **Política de Segurança**, clique em **Ativar** para habilitar as recomendações de segurança que você deseja usar nesta assinatura. Clique em **Política de prevenção** para ver opções como as mostradas na seguinte captura de tela:
 
-	![Selecionar as políticas de segurança](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selecionar as políticas de segurança](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Use a tabela a seguir como referência para entender cada opção:
 
@@ -77,8 +77,9 @@ Use a tabela a seguir como referência para entender cada opção:
 | Grupos de segurança de rede | Recomenda que os [grupos de segurança da rede](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as VMs com pontos de extremidade públicos. Os grupos de segurança da rede configurados para uma sub-rede serão herdados por todas as interfaces de rede da máquina virtual, a menos que o contrário seja especificado. Além de verificar se um grupo de segurança da rede foi configurado, essa política avalia as regras de segurança de entrada para identificar as regras que permitem o tráfego de entrada. |
 | Firewall do aplicativo Web | Recomenda que um firewall do aplicativo Web seja provisionado nas máquinas virtuais quando uma das seguintes opções é verdadeira:</br></br>[O IP público em nível de instância](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) é usado e as regras de segurança de entrada para o grupo de segurança de rede associado são configuradas para permitir o acesso à porta 80/443.</br></br>O IP de balanceamento de carga é usado e o balanceamento de carga associado e as regras NAT (conversão do endereço de rede de entrada) são configurados para permitir o acesso à porta 80/443. (Para obter mais informações, consulte [Suporte do Azure Resource Manager para o Balanceador de Carga](../load-balancer/load-balancer-arm.md). |
 | Firewall da próxima geração | Estende as proteções da rede para além dos grupos de segurança da rede, que são internos no Azure. A Central de Segurança descobrirá as implantações para as quais um firewall da próxima geração é recomendado e permitirá que você forneça um dispositivo virtual. |
-| Auditoria do SQL | Recomenda que a auditoria de acesso ao Banco de Dados do Azure esteja habilitada para a conformidade, detecção avançada e investigação. |
+| Auditoria e detecção de ameaças do SQL | Recomenda que a auditoria de acesso ao Banco de Dados do Azure esteja habilitada para conformidade, e também para detecção de ameaça avançada, para fins de investigação. |
 | Transparent data encryption do SQL | Recomenda que a criptografia em repouso seja habilitada para o Banco de Dados SQL, backups associados e arquivos do log de transação. Mesmo se seus dados sejam violados, eles não poderão ser lidos. |
+| Avaliação de vulnerabilidade | Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
 
 Depois de configurar todas as opções, clique em **OK** na folha **Política de Segurança** com as recomendações e clique em **Salvar** na folha **Política de Segurança** com as configurações iniciais.
 
@@ -106,4 +107,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 - [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

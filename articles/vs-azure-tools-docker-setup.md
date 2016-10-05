@@ -3,7 +3,7 @@
    description="Instruções passo a passo para configurar uma instância de Docker padrão usando a máquina Docker e o VirtualBox"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Configurar um host do Docker com o VirtualBox
 
@@ -62,4 +62,4 @@ Para configurar um cliente Docker, apenas abra o Windows PowerShell e execute as
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -65,6 +65,6 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 - [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Saiba mais sobre esquemas de integração corporativa")
 - [Validação de mensagem XML](./app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
 - [Transformação de XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
-- [Conectores do Enterprise Integration](../connectors/apis-list.md "Saiba mais sobre os conectores do enterprise integration pack")
+- [Conectores de integração Enterprise](../connectors/apis-list.md "Saiba mais sobre os conectores do enterprise integration pack")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

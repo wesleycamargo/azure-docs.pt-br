@@ -189,7 +189,7 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
 > [AZURE.NOTE] Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-overview.md
 [Conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md
 [portal clássico do Azure]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -198,4 +198,4 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

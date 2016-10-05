@@ -14,12 +14,14 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="07/26/2016"
-	ms.author="robinsh"/>
+	ms.author="micurd;robinsh"/>
 
 
 # Sobre as contas de armazenamento do Azure
 
-[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Visão geral
 
@@ -157,4 +159,4 @@ Para saber mais, veja a [Documentação da Máquina Virtual do Azure](http://azu
 - [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

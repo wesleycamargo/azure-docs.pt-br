@@ -34,7 +34,7 @@ Parabéns! Agora você criou um namespace Mensagens do Barramento de Serviço.
 
 Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) que mostram alguns dos recursos mais avançados de Mensagens do Barramento de Serviço do Azure.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

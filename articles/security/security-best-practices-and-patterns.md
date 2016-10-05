@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Padrões e práticas recomendadas de segurança do Azure
@@ -44,4 +44,4 @@ Para cada prática recomendada, buscamos explicar:
 
 Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

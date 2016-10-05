@@ -1,4 +1,4 @@
-Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Quando o gateway de rede virtual é criado, ele é compilado como hardware virtual. Quando você seleciona um SKU de gateway maior, mais poder de processamento é alocado para o gateway a fim de rotear o tráfego e, no caso do Gateway de VPN, processar a criptografia de VPN. Os SKUs de gateways se aplicam a ambos os modelos de implantação, Resource Manager e clássico.
+Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Quando você seleciona um SKU de gateway maior, mais CPUs e largura de banda da rede são alocados para o gateway e como resultado, o gateway pode dar suporte a uma taxa de transferência de rede mais alta para a rede virtual.
 
 O Gateway de VPN pode usar os SKUs a seguir:
 
@@ -6,4 +6,4 @@ O Gateway de VPN pode usar os SKUs a seguir:
 - Standard
 - HighPerformance
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

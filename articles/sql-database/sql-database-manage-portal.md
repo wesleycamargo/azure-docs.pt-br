@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@ Para exibir o nome de seu servidor de bancos de dados, clique em **Visão geral*
 Para exibir, criar ou atualizar regras de firewall, clique em **Definir firewall do servidor** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Configurar uma regra de firewall no nível de servidor do Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-configure-firewall-settings.md).
 
 
-![regras de firewall](./media/sql-database-manage-portal/commands.png)
+![regras de firewall](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## Como posso alterar meu nível de desempenho ou camada de serviço do Banco de Dados SQL?
@@ -128,14 +128,14 @@ Para realizar um failover para um secundário replicado geograficamente, clique 
 Para copiar um banco de dados SQL, clique em **Copiar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Copiar um Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-copy-portal.md).
 
 
-![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/commands.png)
+![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## Como arquivar um Banco de Dados SQL do Azure em um arquivo BACPAC?
 
 Para criar um BACPAC de um banco de dados SQL, clique em **Exportar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Arquivar um Banco de Dados SQL do Azure em um arquivo BACPAC usando o Portal do Azure](sql-database-export.md).
 
 
-![exportar banco de dados SQL](./media/sql-database-manage-portal/commands.png)
+![exportar banco de dados SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@ Para criar um BACPAC de um banco de dados SQL, clique em **Exportar** na folha *
 Para restaurar um banco de dados SQL, clique em **Restaurar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore-portal.md).
 
 
-![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/commands.png)
+![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## Como criar um arquivo do banco de dados SQL do Azure de um arquivo BACPAC?
@@ -163,7 +163,7 @@ Para restaurar um banco de dados SQL excluído, clique em **Bancos de dados excl
 
 Para excluir um banco de dados SQL, clique em **Excluir** na folha **Banco de Dados SQL**.
 
-![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/commands.png)
+![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
@@ -172,4 +172,4 @@ Para excluir um banco de dados SQL, clique em **Excluir** na folha **Banco de Da
 - [Banco de Dados SQL](sql-database-technical-overview.md)
 - [Monitorar e gerenciar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

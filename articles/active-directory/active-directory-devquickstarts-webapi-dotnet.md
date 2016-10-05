@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -29,7 +29,7 @@ Em aplicativos da Web Asp.NET, você pode fazer isso usando a implementação da
 
 Para isso, você precisará:
 
-1. Registrar um aplicativo com o AD do Azure
+1. Registrar um aplicativo com o Active Directory do Azure
 2. Configurar seu aplicativo para usar o pipeline de autenticação OWIN.
 3. Configurar um aplicativo cliente chamar a API da Web da lista de tarefas
 
@@ -96,7 +96,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Quando um chamador autorizado invoca com êxito uma das `TodoListController` APIs, a ação pode precisar ter acesso às informações sobre o chamador. O OWIN fornece acesso às declarações dentro do token de portador por meio do objeto `ClaimsPrincpal`.  
+- Quando um chamador autorizado invoca com êxito uma das `TodoListController` APIs, a ação pode precisar ter acesso às informações sobre o chamador. O OWIN fornece acesso às declarações dentro do token de portador por meio do objeto `ClaimsPrincpal`.
 - É um requisito comum para APIs da Web é validar os "escopos" presentes no token. Isso garante que o usuário final concedeu as permissões necessárias para acessar o serviço de lista de tarefas:
 
 ```C#
@@ -140,4 +140,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

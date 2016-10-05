@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -31,7 +31,7 @@ As etapas a seguir mostram como copiar um banco de dados SQL com Transact-SQL pa
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
+- Uma assinatura do Azure. Caso você precise de uma assinatura do Azure, basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um banco de dados SQL Azure. Se você não tiver um banco de dados SQL, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx). Se você não tiver o SSMS, ou se os recursos descritos neste artigo não estiverem disponíveis, [Baixe a versão mais recente](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -86,7 +86,7 @@ Todos os usuários no novo banco de dados mantêm as permissões que tinham no b
 ## Próximas etapas
 
 - Confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) para ter uma visão geral de como copiar um Banco de Dados SQL do Azure.
-- Confira [Copy an Azure SQL database using the Azure Portal (Copiar um banco de dados SQL do Azure usando o Portal do Azure)](sql-database-copy-portal.md) para copiar um banco de dados usando o Portal do Azure.
+- Confira [Copiar um banco de dados SQL do Azure usando o Portal do Azure](sql-database-copy-portal.md) para copiar um banco de dados usando o Portal do Azure.
 - Confira [Copiar um Banco de Dados SQL do Azure usando o PowerShell](sql-database-copy-powershell.md) para copiar um banco de dados usando o PowerShell.
 - Confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md) para saber mais sobre como gerenciar logons e usuários ao copiar um banco de dados para um servidor lógico diferente.
 
@@ -100,4 +100,4 @@ Todos os usuários no novo banco de dados mantêm as permissões que tinham no b
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

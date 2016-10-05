@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Obtenha percepções de dados da Central de Segurança do Azure com o Power BI
@@ -26,7 +26,7 @@ Você também pode usar o painel da Central de Segurança do Azure para acessar 
 
 1. No painel **Central de Segurança do Azure**, clique no botão **Explorar no Power BI**.
 
-	![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png)
+	![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 
 2. A folha **Explorar no Power BI** será aberta no lado direito, como mostrado na tela a seguir:
 
@@ -115,4 +115,4 @@ Neste documento, você aprendeu a usar o Power BI na Central de Segurança do Az
 - [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

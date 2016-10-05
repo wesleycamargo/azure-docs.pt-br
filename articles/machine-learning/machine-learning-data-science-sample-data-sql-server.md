@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no SQL Server no Azure
@@ -25,7 +25,7 @@ A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/
 
 >[AZURE.NOTE] O código de exemplo SQL neste documento pressupõe que os dados estejam em um SQL Server no Azure. Caso não estejam, consulte o tópico [Mover dados para o SQL Server no Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obter instruções sobre como mover os dados para um SQL Server no Azure.
 
-**Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Ciência de Dados de Equipe é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+**Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento.
 
@@ -60,7 +60,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 
 ###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-Usar diretamente as consultas de exemplo acima no módulo Importar Dados do AM do Azure para buscar os dados dinamicamente e colocá-los em um experimento do AM do Azure. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
+Use diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um experimento do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
    
 ![sql leitor][1]
 
@@ -83,7 +83,7 @@ Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas.
 
 ###<a name="python-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um experimento de AM do Azure usando o *Módulo Importar Dados*. As etapas são as seguintes:
+Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um experimento do Azure Machine Learning usando o [Módulo Importar Dados][import-data]. As etapas são as seguintes:
 
 1. Gravar o quadro de dados Pandas em um arquivo local
 
@@ -111,7 +111,7 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leia dados do blob do Azure usando o *Módulo Importar Dados* do AM do Azure, como mostra a captura de tela abaixo:
+3. Leia dados do blob do Azure usando o módulo [Importar Dados][import-data] do Azure Machine Learning, como mostra a captura de tela abaixo:
  
 ![blob de leitor][2]
 
@@ -122,6 +122,6 @@ Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
- 
+ [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

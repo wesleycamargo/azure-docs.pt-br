@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # O que há de diferente no ponto de extremidade v2.0?
@@ -132,4 +132,4 @@ Para saber mais sobre as declarações específicas emitidas em tokens da v2.0, 
 ## Limitações
 Há algumas restrições que merecem atenção ao usar o ponto v2.0. Consulte o [documento de limitações da v2.0](active-directory-v2-limitations.md) para ver se alguma dessas restrições se aplica ao seu cenário específico.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/14/2016"
+ ms.date="09/19/2016"
  ms.author="elioda"/>
 
 # Dimensionamento do Hub IoT
 
-O Hub do IoT do Azure pode oferecer suporte a até um milhão de dispositivos conectados ao mesmo tempo. Para saber mais, confira [Preço do Hub IoT][lnk-pricing]. Cada unidade do Hub IoT permite uma quantidade de mensagens diárias.
+O Hub do IoT do Azure pode oferecer suporte a até um milhão de dispositivos conectados ao mesmo tempo. Para saber mais, confira [Preço do Hub IoT][lnk-pricing]. Cada unidade do Hub IoT permite uma determinada quantidade de mensagens diárias.
 
 Para dimensionar corretamente sua solução, considere sua utilização específica do Hub IoT. Em particular, considere a taxa de transferência de pico necessária para as seguintes categorias de operações:
 
@@ -40,8 +40,6 @@ As mensagens do dispositivo para a nuvem seguem estas diretrizes de taxa de tran
 | S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
 | S3 | Até 814 MB/minuto por unidade<br/>(1144,4 GB/dia/unidade) | Média de 208,333 mensagens/minuto por unidade<br/>(300 milhões de mensagens/dia por unidade) |
 
-O desempenho de mensagens da nuvem para o dispositivo é dimensionado por dispositivo, e cada dispositivo recebe até cinco mensagens por minuto.
-
 ## Taxa de transferência de operações de registro de identidade
 
 As operações de registro de identidade do Hub IoT não devem ser operações em tempo de execução, pois estão relacionadas principalmente com provisionamento do dispositivo.
@@ -59,7 +57,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 - [Guia do desenvolvedor][lnk-devguide]
 - [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
 - [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
-- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+- [Gerenciar Hubs IoT por meio do portal do Azure][lnk-portal]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [Cotas e limites do Hub IoT]: iot-hub-devguide.md#throttling
@@ -75,4 +73,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

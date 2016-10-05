@@ -3,7 +3,7 @@
 	description="Use o HDInsight Spark para fazer a exploração de dados e treinar modelos de classificação e regressão binários usando a validação cruzada e a otimização de hiperparâmetro."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Modelagem e exploração de dados avançados com o Spark 
 
@@ -113,7 +113,7 @@ Os kernels PySpark fornecidos com os notebooks do Jupyter têm um contexto prede
 
 O kernel PySpark fornece algumas “palavras mágicas” predefinidas, que são comandos especiais que podem ser chamados com %%. Há dois comandos que são usados nesses exemplos de código.
 
-- **%%local** Especifica que o código nas linhas posteriores será executado localmente. O código deve ser um código Python válido.
+- **%%local** Especificou que o código nas linhas posteriores será executado localmente. O código deve ser um código Python válido.
 - **%%sql -o <nome da variável>** Executa uma consulta do Hive em sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
  
 
@@ -1496,4 +1496,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 **Consumo de modelos:** para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

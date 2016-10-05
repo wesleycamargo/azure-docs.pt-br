@@ -9,12 +9,12 @@ editor=""
 tags="connectors"/>
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
+ms.workload="integration"
+ms.date="09/19/2016"
 ms.author="mandia"/>
 
 # Introdução ao conector do Twilio
@@ -25,8 +25,8 @@ Conecte-se a Twilio para enviar e receber mensagens SMS, MMS e de IP globais.
 
 Com o Twilio, você pode:
 
-- Compile seu fluxo de negócios baseado nos dados obtidos do Twilio. 
-- Use ações para obter uma mensagem, listar mensagens e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando você recebe uma nova mensagem do Twilio, você pode obtê-la e usá-la como um fluxo de trabalho do Barramento de Serviço. 
+- Compile seu fluxo de negócios baseado nos dados obtidos do Twilio.
+- Use ações para obter uma mensagem, listar mensagens e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando você recebe uma nova mensagem do Twilio, você pode obtê-la e usá-la como um fluxo de trabalho do Barramento de Serviço.
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -208,9 +208,9 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 
 |Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|mms|booleano|não|
-|sms|booleano|não|
-|voice|booleano|não|
+|mms|Booliano|não|
+|sms|Booliano|não|
+|voice|Booliano|não|
 
 #### AvailablePhoneNumbers: Números de Telefone Disponíveis
 
@@ -224,9 +224,9 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 |postal\_code|string|não|
 |rate\_center|string|não|
 |region|string|não|
-|MMS|booleano|não|
-|SMS|booleano|não|
-|voice|booleano|não|
+|MMS|Booliano|não|
+|SMS|Booliano|não|
+|voice|Booliano|não|
 
 
 #### UsageRecords: classe de Registros de Uso
@@ -248,4 +248,4 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

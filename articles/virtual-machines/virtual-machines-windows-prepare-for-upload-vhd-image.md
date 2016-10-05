@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/18/2016"
 	ms.author="glimoli;genli"/>
 
 # Preparar um VHD do Windows para upload no Azure
-Para carregar uma VM do Windows do local para o Azure, você deve preparar corretamente o VHD (disco rígido virtual). Você pode concluir várias etapas recomendadas antes de carregar um VHD no Azure. Executar o `sysprep` é um processo comum, mas é apenas uma etapa para generalizar uma imagem. Este artigo mostra como preparar um VHD do Windows para upload no Microsoft Azure.
+Para carregar uma VM do Windows do local para o Azure, você deve preparar corretamente o VHD (disco rígido virtual). Você pode concluir várias etapas recomendadas antes de carregar um VHD no Azure. Este artigo mostra como preparar um VHD do Windows para upload no Microsoft Azure e também explica [usar o Sysprep](#step23).
 
 ## Preparar o disco virtual
 
@@ -248,8 +248,8 @@ Se você tiver uma imagem da VM Windows no [formato de arquivo VMDK](https://en.
 
 14. Remova quaisquer filtros de Interface do Driver de Transporte extra, como o software que analisa pacotes de TCP.
 15. Para verificar se o disco está íntegro e consistente, execute o comando `CHKDSK /f`.
-16.	Desinstale todos os outros drivers e softwares de terceiros.
-17. Verifique se um aplicativo de terceiros não está usando a porta 3389. Esta porta é usada para o serviço de RDP no Azure.
+16.	Desinstale qualquer outro software e driver de terceiros relacionados a componentes físicos ou qualquer outra tecnologia de virtualização.
+17. Verifique se um aplicativo de terceiros não está usando a porta 3389. Esta porta é usada para o serviço de RDP no Azure. Você pode usar o comando `netstat -anob` para verificar as portas usadas pelos aplicativos.
 18.	Se o VHD do Windows que você deseja carregar for um controlador de domínio, execute [estas etapas extra](https://support.microsoft.com/kb/2904015) para preparar o disco.
 19.	Reinicialize a VM para garantir que o Windows ainda esteja íntegro e possa ser alcançado usando a conexão de RDP.
 20.	Redefina a senha do administrador local atual e verifique se você pode usar essa conta para entrar no Windows por meio da conexão de RDP. Essa permissão de acesso é controlada pelo objeto de política "Permitir logon pelos Serviços de Área de Trabalho Remota". O objeto está localizado em "Configuração do Computador\\Configurações do Windows\\Configurações de Segurança\\Políticas Locais\\Atribuição de direitos de usuário".
@@ -279,13 +279,13 @@ Se você tiver uma imagem da VM Windows no [formato de arquivo VMDK](https://en.
 	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: atualização de segurança do Microsoft Windows para tratar da elevação de privilégio: 8 de março de 2016
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: descrição da atualização de segurança para CSRSS: 12 de abril de 2016
-	- [KB2904100](https://support.microsoft.com/kb/2904100) O sistema congela durante a E/S do disco no Windows
-
-23. Se quiser criar uma imagem para implantar várias máquinas dela, você precisará generalizar a imagem executando `sysprep` antes de carregar o VHD no Azure. Para obter mais informações sobre como criar uma imagem generalizada, consulte os seguintes artigos:
+	- [KB2904100](https://support.microsoft.com/kb/2904100) O sistema congela durante a E/S do disco no Windows <a id="step23"></a>
+23. Se quiser criar uma imagem para implantar várias máquinas dela, você precisará generalizar a imagem executando `sysprep` antes de carregar o VHD no Azure. Você não precisa executar `sysprep` para usar um VHD especializado. Para obter mais informações sobre como criar uma imagem generalizada, consulte os seguintes artigos:
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação do Gerenciador de Recursos)](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação clássico)](virtual-machines-windows-classic-capture-image.md)
 	- [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## Configurações adicionais sugeridas
@@ -319,4 +319,4 @@ As seguintes configurações não afetam o carregamento do VHD. No entanto, é a
 
 - [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

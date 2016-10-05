@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/20/2016"
    ms.author="devtiw"/>
 
 
@@ -858,4 +858,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

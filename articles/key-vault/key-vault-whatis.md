@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="09/27/2016"
 	ms.author="cabailey"/>
 
 
@@ -36,8 +36,8 @@ Use a tabela a seguir para entender melhor como o Cofre da Chave pode ajudar a a
 
 | Função | Problema declarado | Solucionado pelo Cofre da Chave do Azure |
 | ------------- |-------------|-----|
-| Desenvolvedor de um aplicativo do Azure | "Eu quero escrever um aplicativo para o Azure que use chaves de assinatura e criptografia, mas quero que elas sejam externas ao aplicativo, para que a solução seja adequada a um aplicativo distribuído geograficamente. <br/><br/>Também quero que essas chaves e segredos sejam protegidos, sem precisar escrever o código eu mesmo, e quero que seja fácil usá-las em meu aplicativo, com um desempenho ideal". | √ As chaves são armazenadas em um cofre e invocadas pelo URI quando necessário.<br/><br/> √ As chaves são protegidas pelo Azure, usando algoritmos, comprimentos de chave e HSMs (módulos de segurança de hardware) padrão da indústria.<br/><br/> √ As chaves são processadas em HSMs localizadas dentro dos mesmos datacenters do Azure em que se encontram os aplicativos, o que resulta em melhor confiabilidade e menor latência do que se as chaves estiverem separadas desses datacenters - por exemplo, se estiverem no próprio local.|
-| Desenvolvedor de SaaS (software como serviço) |"Eu não quero a responsabilidade ou ser o possível culpado por problemas com as chaves e segredos de locatário dos meus clientes. <br/><br/>Quero que os clientes tenham e gerenciem suas chaves para que eu possa me concentrar em fazer o que faço melhor, que é fornecer os recursos centrais do software." | √ Os clientes podem importar suas próprias chaves para o Azure e gerenciá-las. Quando um aplicativo de SaaS precisa executar operações criptográficas usando as chaves de seus clientes, o Cofre da Chave faz isso em nome dele. O aplicativo não vê as chaves dos clientes.|
+| Desenvolvedor de um aplicativo do Azure | "Eu quero escrever um aplicativo para o Azure que use chaves de assinatura e criptografia, mas quero que as chaves sejam externas ao aplicativo, para que a solução seja adequada a um aplicativo distribuído geograficamente. <br/><br/>Também quero que essas chaves e segredos sejam protegidos, sem precisar escrever o código sozinho. E também que essas chaves e segredos sejam fáceis de usar em meu aplicativo, com desempenho ideal.” | √ As chaves são armazenadas em um cofre e invocadas pelo URI quando necessário.<br/><br/> √ As chaves são protegidas pelo Azure, usando algoritmos, comprimentos de chave e HSMs (módulos de segurança de hardware) padrão da indústria.<br/><br/> √ As chaves são processadas em HSMs que residem nos mesmos datacenters do Azure que os aplicativos. Isso permite uma maior confiabilidade e uma latência reduzida do que quando as chaves ficam em um local separado, como localmente.|
+| Desenvolvedor de SaaS (software como serviço) |"Eu não quero a responsabilidade ou ser o possível culpado por problemas com as chaves e segredos de locatário dos meus clientes. <br/><br/>Quero que os clientes tenham e gerenciem suas chaves para que eu possa me concentrar em fazer o que faço melhor, que é fornecer os recursos centrais do software." | √ Os clientes podem importar suas próprias chaves para o Azure e gerenciá-las. Quando um aplicativo de SaaS precisa executar operações criptográficas usando as chaves de seus clientes, o Cofre de Chaves faz essas operações em nome dele. O aplicativo não vê as chaves dos clientes.|
 | Diretor-chefe de segurança (CSO) | "Quero saber que nossos aplicativos estão em conformidade com HSMs FIPS 140-2 Nível 2, para um gerenciamento de chaves seguro. <br/><br/>Quero garantir que minha organização controle o ciclo de vida da chave e possa monitorar seu uso. <br/><br/>E embora usemos vários recursos e serviços do Azure, quero gerenciar as chaves de um único local no Azure. |√ Os HSMs têm certificação FIPS 140-2 Nível 2.<br/><br/>√ O Cofre da Chave foi criado de modo que a Microsoft não veja ou extraia suas chaves.<br/><br/>√ Registro em log do uso da chave quase em tempo real <br/><br/>√ O cofre fornece uma única interface, independentemente de quantos cofres você tenha no Azure, quais sejam as regiões com suporte e quais aplicativos as usem. |
 
 
@@ -61,10 +61,10 @@ Para ver um tutorial de introdução para um administrador, consulte [Introduç�
 
 Para saber mais sobre o log de uso do Cofre da Chave, confira [Log do Cofre da Chave do Azure](key-vault-logging.md).
 
-Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, consulte [Sobre Chaves e Segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Para saber mais sobre o uso de chaves e segredos com o Cofre de Chaves do Azure, confira [Sobre Chaves, segredos e certificados](https://msdn.microsoft.com/library/azure/dn903623(v=azure.1).aspx).
 
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

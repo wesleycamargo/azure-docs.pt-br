@@ -40,7 +40,7 @@ A DSC do PowerShell introduziu um novo conceito, chamado de configurações. As 
 
 Dentro do bloco de configuração, você pode definir blocos de configuração de nó que especificam a configuração desejada para um conjunto de nós (computadores) em seu ambiente que devem ser configurados exatamente da mesma maneira. Assim, uma configuração de nó representa uma "função" que um ou mais nós devem assumir. Um bloco de configuração de nó começa com a palavra-chave do nó. Inclua depois dessa palavra-chave o nome da função, que pode ser uma variável ou expressão. Após o nome da função, use chaves {} para delimitar o bloco de configuração de nó.
 
-![texto alt](./media/automation-dsc-overview/AADSC_2.png)
+![texto alternativo](./media/automation-dsc-overview/AADSC_2.png)
  
 Dentro do bloco de configuração de nó, você pode definir blocos de recursos para configurar recursos específicos da DSC. Um bloco de recursos começa com o nome do recurso, seguido do identificador que você deseja especificar para o bloco e chaves {} para delimitar o bloco.
 
@@ -101,7 +101,7 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 
 - Ao atualizar para WMF 5 RTM, se a máquina já estiver registrada como um nó no DSC de Automação do Azure, cancele o registro do DSC de Automação do Azure e registre-a novamente após a atualização para WMF 5 RTM.
 
-- No momento, o DSC de Automação do Azure não dá suporte a configurações do DSC parciais ou compostas. No entanto, os recursos de composição da DSC podem ser importados e usados como no PowerShell local, permitindo a reutilização da configuração.
+- No momento, o DSC de Automação do Azure não dá suporte a configurações do DSC parciais ou compostas. No entanto, os recursos de composição da DSC podem ser importados e usados nas Configurações de DSC de Automação do Azure como no PowerShell local, permitindo a reutilização da configuração.
 
 - A última versão do WMF 5 deve ser instalada para que o agente da DSC do PowerShell para Windows possa se comunicar com a Automação do Azure. A versão mais recente do agente DSC do PowerShell para Linux deve ser instalada para que o Linux possa se comunicar com a Automação do Azure.
 
@@ -128,4 +128,4 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 - [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 - [Implantação contínua em VMs de IaaS usando o DSC de Automação do Azure e o Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

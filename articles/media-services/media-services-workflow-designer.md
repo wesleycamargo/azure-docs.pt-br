@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho" 
+	pageTitle="Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho | Microsoft Azure" 
 	description="Saiba mais sobre como criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho
@@ -74,8 +74,9 @@ O vídeo do Dia 3 abrange:
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## Próxima etapa
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -86,8 +87,8 @@ O vídeo do Dia 3 abrange:
 
 Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trabalho personalizados na ferramenta Designer de Fluxo de Trabalho, envie um email para mepd@microsoft.com.
 
-##Veja também
+##Consulte também
 
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

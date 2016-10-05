@@ -13,23 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 # Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 
-Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de big data para um banco de dados SQL, a importação de dados para o banco de dados SQL e as consultas subsequentes podem ser melhorados usando _Tabelas Particionadas e Exibições_.
+Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando _Exibições e Tabelas Particionadas_.
 
 
 ## Criar um novo banco de dados e um conjunto de grupos de arquivos
 
-- [Criar um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx) (se já não existir)
+- [Criar um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx) (se ainda não houver um)
 - Adicionar grupos de arquivos de banco de dados ao banco de dados que vai conter os arquivos físicos particionados
-- Isso pode ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx) se for novo ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx) se o banco de dados já existir
+
+  Observação: isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx) se for novo ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx) se o banco de dados já existir
 
 - Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados
 
- > [AZURE.NOTE] Especifique o grupo de arquivos de destino que conterá os dados para essa partição e os nomes do arquivo de banco de dados físico em que serão armazenados os dados do grupo de arquivos.
+ > [AZURE.NOTE] Especifique o grupo de arquivos de destino que contém os dados dessa partição e os nomes dos arquivos de banco de dados físico em que serão armazenados os dados do grupo de arquivos.
  
 O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que não são os grupos principal e de registro, contendo um arquivo físico cada um. Os arquivos de banco de dados são criados na pasta de Dados do SQL Server padrão, conforme configurado na instância do SQL Server. Para obter mais informações sobre os locais de arquivo padrão, consulte [Locais de arquivo para instâncias padrão e nomeadas do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -74,7 +75,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- Dica: para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
+  Dica: para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- Para obter mais informações, consulte [Criar tabelas e índices particionados](https://msdn.microsoft.com/library/ms188730.aspx).
+Para obter mais informações, consulte [Criar tabelas e índices particionados](https://msdn.microsoft.com/library/ms188730.aspx).
 
 
 ## Importe os dados em massa para cada tabela de partição individual
@@ -187,4 +188,4 @@ ou
 Para obter um exemplo passo a passo completo do Processo de Análise do Cortana com um conjunto de dados público, consulte [Processo de Análise do Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

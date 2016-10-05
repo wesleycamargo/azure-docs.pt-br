@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 #Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
@@ -41,6 +41,10 @@ Os clusters HDInsight fornecem um nó de cabeçalho secundário, que permite que
 
 > [AZURE.IMPORTANT] Ambos os nós de cabeçalho estão ativos e em execução no cluster simultaneamente. Alguns serviços, como HDFS ou YARN, são apenas “active” em um nó de cabeçalho a qualquer momento (e fica de “standby” no outro nó de cabeçalho). Outros serviços, como HiveServer2 ou MetaStore Hive estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
+Nós de cabeçalho (e outros nós no HDInsight,) tem um valor numérico como parte do nome do host do nó. Por exemplo, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
+
+> [AZURE.IMPORTANT] Não associe o valor numérico a um nó primário ou secundária; o valor numérico existe apenas para fornecer um nome exclusivo para cada nó.
+
 ###Nós Nimbus
 
 Para clusters Storm, os nós Nimbus fornecem funcionalidade semelhante ao JobTracker do Hadoop, distribuindo e monitorando o processamento nos nós de trabalho. O HDInsight fornece dois nós Nimbus para o tipo de cluster Storm.
@@ -64,9 +68,9 @@ Atualmente, o Servidor R no HDInsight é o único tipo de cluster que fornece um
 
 ## Acessando os nós
 
-O acesso ao cluster pela Internet é fornecido por meio de um gateway público e é limitado à conexão com os nós de cabeçalho e – no caso de um Servidor R no cluster HDInsight –, o nó de borda. O acesso aos serviços em execução nos nós de cabeçalho não é afetado pelo fato de ter vários nós de cabeçalhos, já que o gateway público encaminha solicitações para o nó de cabeçalho que hospeda o serviço solicitado. Por exemplo, se, no momento, o Ambari estiver hospedado no nó de cabeçalho 1, o gateway encaminhará solicitações de entrada para o Ambari nesse nó.
+O acesso ao cluster pela Internet é fornecido por meio de um gateway público e é limitado à conexão com os nós de cabeçalho e – no caso de um Servidor R no cluster HDInsight –, o nó de borda. O acesso aos serviços em execução nos nós de cabeçalho não é afetado pelo fato de ter vários nós de cabeçalhos, já que o gateway público encaminha solicitações para o nó de cabeçalho que hospeda o serviço solicitado. Por exemplo, se, no momento, o Ambari estiver hospedado no nó de cabeçalho secundário, o gateway encaminhará solicitações de entrada para o Ambari nesse nó.
 
-Ao acessar o cluster usando o SSH, a conexão pela porta 22 (o padrão de SSH) vai conectar ao nó de cabeçalho 0; a conexão pela porta 23 vai conectar ao nó de cabeçalho 1. Por exemplo, `ssh username@mycluster-ssh.azurehdinsight.net` se conectará ao nó de cabeçalho 0 do cluster chamado __mycluster__.
+Ao acessar o cluster usando o SSH, a conexão pela porta 22 (o padrão de SSH) vai conectar ao nó de cabeçalho primário; a conexão pela porta 23 vai conectar ao nó de cabeçalho secundário. Por exemplo, o `ssh username@mycluster-ssh.azurehdinsight.net` se conectará ao nó de cabeçalho primário do cluster chamado __mycluster__.
 
 > [AZURE.NOTE] Isso também se aplica aos protocolos baseados no SSH, como o SFTP (protocolo FTP do SSH).
 
@@ -143,7 +147,7 @@ A resposta será semelhante ao seguinte:
 	  }
 	}
 
-A URL indica que o serviço está sendo executado no **nó de cabeçalho 0**.
+A URL indica que o serviço está sendo executado no __hn0-CLUSTERNAME__.
 
 O estado indica que o serviço está sendo executado ou **INICIADO**.
 
@@ -225,4 +229,4 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

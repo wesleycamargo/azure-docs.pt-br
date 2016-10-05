@@ -3,7 +3,7 @@
 	description="Como usar o Azure Data Lake para realizar tarefas de classificação binária e de exploração de dados em um conjunto de dados."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Ciência de dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta
 
-Este passo a passo mostra como usar o Azure Data Lake para exploração de dados e tarefas de classificação binária em uma amostra do conjunto de dados de tarifas e corridas de táxi de Nova York para prever se uma gorjeta será ou não paga por uma tarifa. Ele orienta você pelas etapas do [Processo de Ciência de Dados](http://aka.ms/datascienceprocess), de ponta a ponta, da aquisição de dados até o treinamento de modelo e, em seguida, para a implantação de um serviço Web que publica o modelo.
+Este passo a passo mostra como usar o Azure Data Lake para exploração de dados e tarefas de classificação binária em uma amostra do conjunto de dados de tarifas e corridas de táxi de Nova York para prever se uma gorjeta será ou não paga por uma tarifa. Ele orienta você pelas etapas do [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess), de ponta a ponta, da aquisição de dados até o treinamento de modelo e, em seguida, para a implantação de um serviço Web que publica o modelo.
 
 
 ### Análise Azure Data Lake
@@ -76,10 +76,8 @@ Para preparar o ambiente de ciência de dados para este passo a passo, crie os s
 - Conta do Estúdio de Aprendizado de Máquina do Azure
 - Ferramentas do Azure Data Lake para Visual Studio (Recomendado)
 
-Esta seção fornece instruções sobre como criar cada um desses recursos. Se você optar por usar as tabelas de Hive com o Aprendizado de Máquina do Azure, em vez de Python, para compilar um modelo, você também precisará provisionar um cluster HDInsight (Hadoop). Esse procedimento alternativo está descrito na seção apropriada abaixo.
-
->AZURE.NOTE O **Repositório Azure Data Lake** pode ser criado separadamente ou quando você cria a **Análise Azure Data Lake** como o armazenamento padrão. As instruções são referenciadas para criar cada um desses recursos separadamente abaixo, mas a conta do repositório Data Lake não precisa ser criada em etapas separadas.
-
+Esta seção fornece instruções sobre como criar cada um desses recursos. Se optar por usar tabelas de Hive com o Azure Machine Learning, em vez do Python, para compilar um modelo, você também precisará provisionar um cluster HDInsight (Hadoop). Esse procedimento alternativo está descrito na seção apropriada abaixo. <br/>
+>AZURE.NOTE O **Repositório Azure Data Lake** pode ser criado separadamente ou quando você cria a **Análise Azure Data Lake** como o armazenamento padrão. As instruções são referenciadas para criar cada um desses recursos separadamente abaixo, mas a conta de armazenamento do Data Lake não precisa ser criada separadamente. <br/>
 ### Criar um Repositório Azure Data Lake
 
 Crie um ADLS no [Portal do Azure](http://portal.azure.com). Para obter detalhes, consulte [Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de configurar a Identidade AAD do Cluster na folha **Fonte de Dados** da folha **Configuração Opcional** ali descrita.
@@ -741,4 +739,4 @@ O roteiro de aprendizagem do [TDSP (Processo de Ciência de Dados de Equipe)](ht
 - [O Processo de Ciência de Dados de Equipe: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Visão geral do Processo de Ciência de Dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

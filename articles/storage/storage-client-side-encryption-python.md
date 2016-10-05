@@ -3,9 +3,9 @@
 	description="A Biblioteca do cliente do Armazenamento do Azure para Python dá suporte à criptografia do lado do cliente para segurança máxima para seus aplicativos do Armazenamento do Azure."
 	services="storage"
 	documentationCenter="python"
-	authors="rickle-msft"
-	manager="carmonm"
-	editor=""/>
+	authors="dineshmurthy"
+	manager="jahogg"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="t-rickle"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Criptografia do lado do cliente com Python para o Armazenamento do Microsoft Azure
@@ -226,4 +226,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 - Baixar a [Biblioteca do cliente do Armazenamento do Azure para o pacote Java PyPi](https://pypi.python.org/pypi/azure-storage)
 - Baixar o [Código-fonte da Biblioteca do cliente do Armazenamento do Azure para Python do GitHub](https://github.com/Azure/azure-storage-python)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

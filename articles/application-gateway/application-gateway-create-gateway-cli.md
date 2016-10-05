@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Criar um gateway de aplicativo usando a CLI do Azure
@@ -53,6 +53,28 @@ Este cenário:
 
 O Azure Application Gateway requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
 
+## Fazer logon no Azure
+
+Abra o **Prompt de comando do Microsoft Azure** e faça logon.
+
+    azure login
+
+Depois de digitar o exemplo anterior, um código será fornecido. Navegue até https://aka.ms/devicelogin em um navegador para continuar o processo de logon.
+
+![cmd mostrando logon de dispositivo][1]
+
+No navegador, digite o código recebido. Você será redirecionado para uma página de entrada.
+
+![navegador para inserir código][2]
+
+Depois que o código foi inserido, você estará conectado. Feche o navegador para continuar com o cenário.
+
+![conectado com êxito][3]
+
+## Alternar para o modo do Resource Manager
+
+    azure config mode arm
+
 ## Criar o grupo de recursos
 
 Antes de criar o gateway de aplicativo, um grupo de recursos é criado para conter o gateway de aplicativo. O código a seguir mostra o comando.
@@ -73,11 +95,13 @@ Após a criação da rede virtual, uma sub-rede é adicionada ao gateway de apli
 
 ## Criar o gateway de aplicativo
 
-Depois que a rede virtual e a sub-rede forem criadas, os pré-requisitos para o gateway de aplicativo estarão completos. Adicionalmente, um certificado .pfx exportado anteriormente e a senha do certificado são necessários para a etapa a seguir. Os endereços IP usados para o back-end são os endereços IP para o servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end.
+Depois que a rede virtual e a sub-rede forem criadas, os pré-requisitos para o gateway de aplicativo estarão completos. Além disso, um certificado .pfx exportado anteriormente e a senha do certificado são necessários para a etapa seguinte: os endereços IP usados para o back-end são os endereços IP para seu servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-Este exemplo cria um Application Gateway básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Ele também configura o descarregamento de SSL. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido. Se você já tiver o seu aplicativo Web definido com os endereços IP para o pool de back-end definido nas etapas anteriores, quando o gateway de aplicativo for provisionado e iniciado, o balanceamento de carga será iniciado.
+
+
+Este exemplo cria um Application Gateway básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Ele também configura o descarregamento de SSL. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido. Se você já tiver o seu aplicativo Web definido com o pool de back-end nas etapas anteriores, o balanceamento de carga começará depois que ele for criado.
 
 ## Próximas etapas
 
@@ -88,5 +112,8 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

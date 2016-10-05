@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="09/19/2016"
     ms.author="aungoo-msft"/>
 
 # Armazenamento Premium do Azure: projeto para alto desempenho
@@ -230,6 +230,8 @@ Lembre-se de que os discos do Armazenamento Premium têm recursos de desempenho 
 
 ## Cache de disco  
 As VMs de alta escala que aproveitam o Armazenamento Premium do Azure têm uma tecnologia de cache de várias camadas chamada BlobCache. O BlobCache usa uma combinação de RAM da máquina Virtual e SSD local para cache. Esse cache está disponível para os discos persistentes do Armazenamento Premium e os discos locais da VM. Por padrão, essa configuração de cache é definida como Leitura/Gravação para discos do SO e ReadOnly para discos de dados hospedados no Armazenamento Premium. Com o cache de disco habilitado nos discos do Armazenamento Premium, as VMs de alta escala podem atingir níveis extremamente altos de desempenho que excedem o desempenho do disco subjacente.
+
+>[AZURE.WARNING] Alterar a configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache do disco.
 
 Para saber mais sobre como o BlobCache funciona, consulte a postagem do blog interno [Armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/).
 
@@ -540,4 +542,4 @@ Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de de
 - [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

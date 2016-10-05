@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="java"
 	authors="dineshmurthy"
-	manager="carmonm"
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="dineshm"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Criptografia do lado do cliente com Java para o Armazenamento do Microsoft Azure   
@@ -247,4 +247,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 	- Pacote [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Visitar a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

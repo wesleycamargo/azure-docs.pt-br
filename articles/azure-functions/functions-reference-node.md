@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
+	keywords="azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
 	ms.service="functions"
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script em F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
 A experiência de Node/JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de bindings.
@@ -46,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-As bindings de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
+Os bindings de `direction === "in"` são passados como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
 
 Os argumentos sempre são passados para a função na ordem em que ocorrem em *function.json*, mesmo se você não especificá-los na sua instrução de exportações. Por exemplo, se tiver `function(context, a, b)` e alterá-lo para `function(context, a)`, você ainda poderá obter o valor de `b` no código de função, fazendo referência ao `arguments[3]`.
 
-Todas os bindings, independentemente da direção, também são transmitidas por todo o objeto `context` (veja abaixo).
+Todos os bindings, independentemente da direção, também são transmitidos por todo o objeto `context` (veja abaixo).
 
 ## objeto de contexto
 
 O tempo de execução usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o tempo de execução.
 
-O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto como você quiser (por exemplo, `ctx` ou `c`).
+O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -67,7 +68,7 @@ module.exports = function(context) {
 
 ## context.bindings
 
-O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de associação *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
+O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de binding *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
 
 ```json
     {
@@ -89,7 +90,7 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução não saberá que a função foi concluída.
+A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução ainda não saberá que a função foi concluída.
 
 A função `context.done` permite que você passe um erro definido pelo usuário de volta para o tempo de execução, bem como um recipiente de propriedades que substituirá as propriedades no objeto `context.bindings`.
 
@@ -140,7 +141,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 ## Versão do Node e gerenciamento de pacote
 
-A versão do Node está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões e torná-las configuráveis.
+A versão do Node está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
 
 Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
@@ -198,6 +199,7 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
+* [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

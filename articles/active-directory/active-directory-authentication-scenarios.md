@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
@@ -96,7 +96,7 @@ Tokens de segurança emitidos pelo Azure AD contêm declarações ou asserções
 | ID do objeto | Contém um identificador exclusivo e imutável da entidade no Azure AD. |
 | Funções | Contém os nomes amigáveis de funções de aplicativo do Azure AD que o usuário recebeu. |
 | Escopo | Indica as permissões concedidas ao aplicativo cliente. |
-| Assunto | Indica a entidade de segurança sobre a qual o token declara informações. |
+| Subject | Indica a entidade de segurança sobre a qual o token declara informações. |
 | ID do locatário | Contém um identificador exclusivo e imutável do locatário do diretório que emitiu o token. |
 | Vida útil do token | Define o intervalo de tempo no qual um token é válido. |
 | Nome principal do usuário | Contém o nome principal de usuário da entidade. |
@@ -468,4 +468,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

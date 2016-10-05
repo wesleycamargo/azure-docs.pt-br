@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits" 
-	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ao vivo para fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
+	pageTitle="Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Azure" 
+	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;anilmur"/>
 
 #Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
@@ -34,7 +34,7 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 
 - **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
->[AZURE.NOTE]Este tópico discute os atributos de canais habilitados para executar a codificação ativa (tipo de codificação **Standard**). Para obter informações sobre como trabalhar com canais que não estão habilitados a realizar a codificação ativa, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam transmissões de taxa de bits múltipla).
+>[AZURE.NOTE]Este tópico discute os atributos de canais que estão habilitados para executar codificação ao vivo (tipo de codificação **Padrão**). Para obter informações sobre como trabalhar com canais que não estão habilitados a realizar a codificação ativa, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam transmissões de taxa de bits múltipla).
 >
 >Certifique-se de examinar a seção [Considerações](media-services-manage-live-encoder-enabled-channels.md#Considerations).
 
@@ -109,7 +109,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
 1. Publique o ativo associado ao programa.
 
-	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
+	Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
 1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
@@ -457,7 +457,9 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 - [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -468,7 +470,7 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 ##Tópicos relacionados
 
-[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-live-streaming-workflow.md)
+[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-overview.md)
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
@@ -476,4 +478,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia" 
+	pageTitle="Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia | Microsoft Azure" 
 	description="Saiba como configurar uma política de autorização para uma chave de conteúdo usando a API REST dos Serviços de Mídia." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="juliako"/>
 
 
-#Criptografia dinâmica: configurar a política de autorização de chave de conteúdo 
+#Criptografia dinâmica: configurar a política de autorização de chave de conteúdo
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
- 
+
 
 ##Visão geral
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte
 
 ###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se você tem pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints).
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se você tem pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
 - O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).
 - Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted**.
 - Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
@@ -53,7 +53,7 @@ Para obter mais informações, consulte
 - No momento, não é possível criptografar o formato de streaming HDS nem downloads progressivos.
 
 
-##Criptografia dinâmica AES-128 
+##Criptografia dinâmica AES-128
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
@@ -483,4 +483,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

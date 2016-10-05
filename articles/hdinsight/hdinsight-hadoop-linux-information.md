@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -71,9 +71,9 @@ Isso retorna um documento JSON que descreve o serviço e, em seguida, o jq extra
 	>
 	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para conectar ao nó do cabeçalho 0, enquanto 23 é usado para a conexão ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para a conexão com o nó de cabeçalho primário, enquanto a 23 é usada para a conexão com o secundário. Para obter mais informações sobre nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE] Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
+	> [AZURE.NOTE] Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH em um nó de cabeçalho.
 
 ## Locais de arquivos
 
@@ -98,7 +98,7 @@ Como é o armazenamento padrão para o HDInsight, você normalmente não precisa
 
 	hdfs dfs -ls /example/data
 
-Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **wasb://** ou **wasbs://**.
+Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
 
 O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;nome do contêiner-name>@&lt;nome da conta>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
@@ -206,7 +206,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. Abra __https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+		1. Abra \_\_https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
 		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
@@ -256,4 +256,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

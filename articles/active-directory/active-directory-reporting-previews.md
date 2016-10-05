@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 # Visualizações de relatório do Active Directory do Azure
@@ -30,7 +30,7 @@ Entradas de várias geografias | Disponibilidade geral
 Entradas de endereços IP com atividade suspeita | Disponibilidade geral
 Entradas de dispositivos possivelmente infectados | Disponibilidade geral
 Usuários com atividade de entrada anômala | Visualização pública
-Usuários com credenciais insuficientes | Visualização pública
+Usuários com credenciais vazadas | Visualização pública
 **Relatórios de aplicativo** |
 Atividade de provisionamento de conta | Disponibilidade geral
 Erros de provisionamento de conta | Disponibilidade geral
@@ -54,4 +54,4 @@ Uso de aplicativos habilitados para RMS | Visualização pública
 **Relatórios de visualização particular** |
 Atividade de entrada de todos os usuários | Visualização particular
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

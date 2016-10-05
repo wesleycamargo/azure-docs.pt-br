@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # Como identificar cenários e planejar o processamento de dados analíticos avançados
 
-Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas e que ajudarão a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita no documento [What is the Team Data Science Process (TDSP)?](data-science-process-overview.md) [O que é o TDSP (Processo de Ciência de Dados de Equipe)?]. Cada uma dessas etapas exigirá recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
+Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas e que ajudarão a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita em [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](data-science-process-overview.md). Cada uma dessas etapas exigirá recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -114,4 +114,4 @@ Depois de responder às perguntas na seção anterior, você está pronto para d
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

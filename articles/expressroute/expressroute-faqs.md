@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2016"
+   ms.date="09/19/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -53,6 +53,7 @@ A maioria dos serviços do Azure tem suporte na Rota Expressa.
 
 - A conectividade com máquinas virtuais e serviços de nuvem implantados em redes virtuais tem suporte pelo caminho privado de emparelhamento.
 - Os sites do Azure têm suporte pelo caminho público de emparelhamento.
+- O Hub IoT tem suporte pelo caminho público de emparelhamento.
 - Há suporte para o Office 365 no caminho de emparelhamento da Microsoft.
 - Todos os outros serviços são acessíveis pelo caminho público de emparelhamento. As exceções são as descritas a seguir
 
@@ -240,4 +241,4 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 ### O Dynamics AX Online pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ A integração do Beeline ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no Azure AD quem tem acesso ao Beeline
 - Você pode permitir que os usuários façam logon automaticamente no Beeline (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -116,7 +116,7 @@ O aplicativo Beeline espera que as declarações SAML estejam em um formato espe
  	
 	![Configurar o logon único](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_03.png)
 
-3. Na página da caixa de diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
+3. Na página do diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_04.png)
 
@@ -132,7 +132,7 @@ O aplicativo Beeline espera que as declarações SAML estejam em um formato espe
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5.  Para configurar o SSO para seu aplicativo, entre em contato com a equipe de suporte do Beeline e ela auxiliará na configuração do SSO. Observe que você precisa enviar o email e anexar o arquivo de metadados baixado e também fornecer a ID da entidade e a URL de serviço de saída única.
@@ -165,11 +165,11 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 	
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_03.png)
 
-4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
  
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_05.png)
 
@@ -177,9 +177,9 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_06.png)
 
@@ -191,13 +191,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_07.png)
 
-8. Na página do diálogo **Obter senha temporária**, realize as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-beeline-tutorial/create_aaduser_08.png)
 
@@ -272,4 +272,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [204]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

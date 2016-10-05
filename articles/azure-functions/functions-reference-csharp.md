@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
+	keywords="azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
 	ms.service="functions"
@@ -22,9 +22,10 @@
 
 > [AZURE.SELECTOR]
 - [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script em F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
  
-A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como função logger e tokens de cancelamento.
+A experiência do C# para Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json` e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento.
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -34,7 +35,7 @@ O formato `.csx` permite escrever menos "clichê" e se concentrar em escrever ap
 
 ## Binding para argumentos
 
-Vários bindings estão vinculadas a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada binding possui seus próprios tipos com suporte, que estão documentados por binding; por exemplo, um gatilho de blob pode dar suporte a uma string, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
+Vários bindings estão vinculados a uma função C# por meio da propriedade `name` na configuração *function.json*. Cada binding tem seus próprios tipos com suporte, que estão documentados por binding; por exemplo, um gatilho de blob pode dar suporte a cadeia de caracteres, POCO e vários outros tipos. Você pode usar o tipo que melhor atenda às suas necessidades.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -76,7 +77,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## Token de cancelamento
 
-Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora sempre seja melhor escrever o código que pode lidar com as falhas, em casos em que você deseja manipular as solicitações de desligamento, defina um argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
+Em alguns casos, você pode ter operações que são sensíveis ao desligamento. Embora seja sempre melhor escrever um código que possa lidar com falhas, nos casos em que você quiser manipular as solicitações de desligamento, é melhor definir um argumento tipado [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Um `CancellationToken` será fornecido se o desligamento do host for disparado.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -171,7 +172,7 @@ Quando você carrega um arquivo *project.json*, o tempo de execução obtém os 
 
 ### Como carregar um arquivo project.json
 
-1. Comece verificando se o aplicativo está em execução, o que pode ser feito abrindo a função no portal do Azure. 
+1. Comece verificando se o aplicativo está em execução, o que pode ser feito abrindo a função no portal do Azure.
 
 	Isso também permite acessar os logs de streaming nos quais a saída da instalação do pacote será exibida.
 
@@ -255,7 +256,8 @@ A diretiva `#load` só funciona com arquivos *.csx* (script C#), e não com arqu
 Para saber mais, consulte os recursos a seguir:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
+* [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-fsharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e bindings do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

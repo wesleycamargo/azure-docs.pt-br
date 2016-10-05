@@ -194,7 +194,7 @@ Para saber mais, consulte os recursos a seguir:
 * [Provisionar um aplicativo Web com um banco de dados SQL](app-service-web-arm-with-sql-database-provision.md)
 * [Provisionar e implantar microsserviços previsíveis no Azure](app-service-deploy-complex-application-predictably.md)
 * [Compilando aplicativos de nuvem do mundo real com o Azure - automatizar tudo](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de livro eletrônico que explica como o aplicativo de amostra mostrado no livro eletrônico usa scripts do Windows PowerShell para criar um ambiente de teste do Azure e implantá-lo. Consulte a seção [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para obter links para a documentação adicional do PowerShell do Azure.
-* [Usando scripts do Windows PowerShell para publicar em ambientes de desenvolvimento e de teste](http://msdn.microsoft.com/library/dn642480.aspx). Como usar os scripts de implantação do Windows PowerShell gerados pelo Visual Studio.
+* [Usando scripts do Windows PowerShell para publicar em ambientes de desenvolvimento e de teste](../vs-azure-tools-publishing-using-powershell-scripts.md). Como usar os scripts de implantação do Windows PowerShell gerados pelo Visual Studio.
 
 ###<a name="api"></a>Automatizar a implantação com a API de gerenciamento do .NET
 
@@ -234,4 +234,4 @@ Para saber mais sobre como usar o Controle de Acesso Baseado em Função do Azur
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

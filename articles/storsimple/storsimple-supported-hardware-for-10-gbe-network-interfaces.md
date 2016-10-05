@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
@@ -130,4 +130,4 @@ A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testad
 
 [Saiba mais sobre os componentes de hardware e o status do StorSimple](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

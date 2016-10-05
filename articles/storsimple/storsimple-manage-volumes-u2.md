@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes (Atualização 2)
@@ -89,12 +89,12 @@ Um volume consiste em uma série de atributos:
 
 Use as instruções neste tutorial para executar as seguintes tarefas:
 
-- Adicionar um volume 
-- Modificar um volume 
+- Adicionar um volume
+- Modificar um volume
 - Alterar o tipo de volume
-- Excluir um volume 
-- Colocar um volume offline 
-- Monitorar um volume 
+- Excluir um volume
+- Colocar um volume offline
+- Monitorar um volume
 
 ## Adicionar um volume
 
@@ -144,8 +144,8 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 > [AZURE.IMPORTANT] 
 >
-> - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. 
-> - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional. 
+> - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também.
+> - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional.
 
 #### Para modificar um volume
 
@@ -299,4 +299,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

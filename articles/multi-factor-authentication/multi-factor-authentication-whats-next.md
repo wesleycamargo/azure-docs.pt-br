@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir" 
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir"
+	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # Configurando o Azure Multi-Factor Authentication
 
@@ -28,12 +28,12 @@ Para acessar o Portal de Gerenciamento de MFA por meio da página Configuraçõe
 
 
 Recurso| Descrição| O que é coberto
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [Alerta de fraude](#fraud-alert)|O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos.|Como instalar, configurar e relatar fraude
 [Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator.|Como instalar e configurar um desvio único
 [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |Como instalar e configurar as mensagens e saudações personalizadas
 [Cache](#caching-in-azure-multi-factor-authentication)|O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |Como instalar e configurar o cache de autenticação.
-[IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator	
+[IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator
 [Senhas de aplicativo](#app-passwords)|As senhas de aplicativo permitem que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando.|Informações sobre senhas de aplicativo.
 [Lembrar o Multi-Factor Authentication para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
 [Métodos de verificação selecionáveis](#selectable-verification-methods)|Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem.|Informações sobre como habilitar ou desabilitar os métodos de autenticação específicos, como mensagens de texto ou chamada.
@@ -66,7 +66,7 @@ O alerta de fraude pode ser informado de duas maneiras. Seja por meio do aplicat
 
 
 
-1. Quando uma verificação é enviada ao seu telefone, clique nele e iniciará o aplicativo Microsoft Authenticator.
+1. Quando uma verificação é enviada ao seu telefone, clique nele e ele iniciará o aplicativo Microsoft Authenticator.
 2. Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando que a equipe de Suporte de TI de suas organizações será notificada.
 3. Clique em Relatar fraude.
 4. No aplicativo, clique em Fechar.
@@ -172,9 +172,9 @@ O cache permite que você defina um momento específico período para que tentat
 
 IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa. Os recursos estão disponíveis para locatários do Azure AD que tenham licenças do Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
 
- 
+
 Tipo de locatário do Azure AD| Opções disponíveis de IPs confiáveis
-:------------- | :------------- | 
+:------------- | :------------- |
 Gerenciada|Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem se desviar da autenticação multifator para usuários que estejam entrando pela intranet da empresa.
 Federado|<li>Todos os usuários federados - todos os usuários federados que estão entrando de dentro da organização se desviarão da autenticação multifator utilizando uma declaração emitida pelo AD FS.</li><li>Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem se desviar da autenticação multifator para usuários que estejam entrando pela intranet da empresa.
 
@@ -182,7 +182,7 @@ Esse desvio só funciona dentro da intranet da empresa. Por exemplo, se você se
 
 
 |IPs confiáveis habilitados| IPs confiáveis desabilitados
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 Dentro da rede corporativa|Para fluxos de navegador, a autenticação multifator NÃO é necessária.|Para fluxos de navegador, a autenticação multifator é necessária.
 |Para aplicativos cliente avançados, senhas comuns funcionarão se o usuário não tiver criado nenhuma senha de aplicativo. Quando uma senha de aplicativo for criada, as senhas de aplicativo são necessárias.|Para aplicativos cliente avançados, as senhas de aplicativo são necessárias
 Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator é necessária.|Para fluxos de navegador, a autenticação multifator é necessária.
@@ -209,7 +209,7 @@ Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator �
 
 
 
- 
+
 ## Senhas de aplicativo
 
 Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você não pode usar autenticação multifator. Para usar esses aplicativos, você precisará usar as "senhas de aplicativo" no lugar de sua senha tradicional. A senha de aplicativo permite que um aplicativo se desvie da autenticação multifator e continue funcionando.
@@ -225,7 +225,7 @@ Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você n
 Veja a seguir uma lista de importante das coisas que você deve saber sobre senhas de aplicativo.
 
 Experiência de autenticação|Para aplicativos baseados em navegador|Para aplicativos não baseados em navegador
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>O fator primário de autenticação é realizado no local</li><li>O fator secundário é um método baseado em telefone realizado pela Identidade na Nuvem.</li>|<ul><li>Os administradores e usuários podem usar senhas de aplicativo para entrar.
 
 - Os usuários podem ter várias senhas de aplicativo, o que aumenta a área de superfície para roubo. Como senhas de aplicativo são difíceis de lembrar, isso pode incentivar as pessoas anotá-las. Isso não é recomendável e deve ser desencorajado, porque apenas um fator é necessário para fazer logon com a senha de aplicativo.
@@ -362,7 +362,7 @@ No entanto, já que os usuários têm permissão para lembrar o MFA para disposi
 Agora é possível escolher os métodos de autenticação que estão disponíveis para os usuários ao usar a Multi-Factor Authentication. Anteriormente, este recurso só estava disponível na versão do servidor local. A tabela a seguir fornece uma visão geral dos vários métodos de autenticação que podem ser habilitados ou desabilitados para os seus usuários.
 
 Método|Descrição
-:------------- | :------------- | 
+:------------- | :------------- |
 [Ligue para o telefone](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Faz uma chamada de voz automática para o telefone de Autenticação. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. Esse número de telefone não será sincronizado com o Active Directory local.
 [Mensagem de texto para telefone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envia para o usuário uma mensagem de texto que contém um código de verificação. O usuário é solicitado a responder à mensagem de texto com o código de verificação ou a inserir o código de verificação na interface de entrada.
 [Notificação pelo aplicativo móvel](multi-factor-authentication-end-user-first-time-mobile-app.md)|Nesse modo, o aplicativo Microsoft Authenticator impede o acesso não autorizado a contas e impede transações fraudulentas. Isso é feito usando uma notificação por push para seu telefone ou dispositivo registrado. Basta exibir a notificação e, se ela for legítima, você tocar em Verificar. Caso contrário, você pode escolher Negar ou optar por negar e reportar a notificação fraudulenta. Para obter informações sobre o relatório de notificações fraudulentas, consulte Como usar o recurso Negar e Denunciar fraude para autenticação multifator.</br></br>O Aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
@@ -379,4 +379,4 @@ Método|Descrição
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -30,4 +30,6 @@ Se você quiser ser capaz de se conectar ao SQL Server pela Internet, você prec
 
 9. Clique em **OK** para salvar a regra para a sua VM.
 
-<!---HONumber=AcomDC_0629_2016-->
+>[AZURE.NOTE] É possível ter um segundo Grupo de Segurança de Rede associado a sua sub-rede (isso é separado do grupo de segurança de rede na máquina virtual). Isso não é feito para você por padrão. No entanto, se você criou um grupo de segurança de rede na sub-rede, você deverá abrir a porta 1433 tanto da sub-rede quanto no Grupo de Segurança de Rede da VM.
+
+<!---HONumber=AcomDC_0921_2016-->

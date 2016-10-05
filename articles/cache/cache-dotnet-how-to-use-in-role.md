@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 
@@ -23,9 +23,9 @@
 
 # Como usar o Cache na Função para Cache do Azure
 
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
 
->[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. A nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
 ## O que é Cache na Função?
@@ -68,7 +68,7 @@ O Cache na Função fornece uma maneira de habilitar caching usando a memória q
 -	**Caching de função dedicada** - as instâncias de função são usadas exclusivamente para caching.
 -	**Caching de função colocalizada** - o cache compartilha os recursos de máquina virtual (largura de banda, CPU e memória) com o aplicativo.
 
-Para usar o cache em instâncias de função, você precisa configurar um cluster de cache e, em seguida, configurar os clientes de cache para que possam acessar o cluster de cache.
+Para usar o caching em instâncias de função, você precisa configurar um cluster de cache e, em seguida, configurar os clientes de cache para que possam acessar o cluster de cache.
 
 -	[Configurar o cluster de cache][]
 -	[Configurar os clientes de cache][]
@@ -199,12 +199,12 @@ Se sua função for uma função web ASP.NET, a referência ao assembly a seguir
 
 -	Microsoft.Web.DistributedCache.dll.
 
-Depois que o projeto de cliente estiver configurado para cache, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
+Depois que o projeto de cliente estiver configurado para caching, você poderá usar as técnicas descritas nas seções a seguir para trabalhar com o cache.
 
 <a name="working-with-caches"></a>
-## Trabalhando com Caches
+## Trabalhando com caches
 
-As etapas desta seção descrevem como realizar tarefas comuns com o cache.
+As etapas desta seção descrevem como realizar tarefas comuns com o caching.
 
 -	[Como criar um objeto DataCache][]
 -   [Como adicionar e recuperar um objeto do cache][]
@@ -318,7 +318,7 @@ Para saber mais sobre como usar o provedor de estado de sessão do serviço de c
 <a name="store-page"></a>
 ## Como armazenar o cache de saída de página ASP.NET no cache
 
-O Provedor de Cache de Saída do Cache na Função é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de estado de cache de saída, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][]. Quando o pacote NuGet de Cache está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Cache na Função.
+O Provedor de Cache de Saída do Cache na Função é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de estado de cache de saída, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][]. Quando o pacote NuGet de Caching está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Cache na Função.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -411,4 +411,4 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

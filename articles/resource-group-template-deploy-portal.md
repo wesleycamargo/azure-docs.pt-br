@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # Implantar recursos com modelos do Resource Manager e o portal do Azure
@@ -34,7 +34,7 @@ Atualmente, nem todo serviço dá suporte ao portal ou ao Gerenciador de Recurso
 
     ![criar grupo de recursos vazio](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. Dê a ele um nome e uma localização e, se necessário, selecione uma assinatura.
+2. Dê a ele um nome e uma localização e, se necessário, selecione uma assinatura. Você precisa fornecer um local para o grupo de recursos pois o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, é recomendável que você especifique um local em que a maioria de seus recursos residirá. Usar o mesmo local pode simplificar seu modelo.
 
     ![definir valores de grupo](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -118,4 +118,4 @@ O portal permite que você salve um modelo em sua conta do Azure e o reimplante 
 - Para solucionar os erros de implantação, confira [Solução de problemas das implantações dos grupos de recursos com o Portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para recuperar um modelo de uma implantação ou de um grupo de recursos, confira [Exportar um modelo do Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/13/2016" 
 	ms.author="nitinme"/>
 
 # Instalar e usar o Hue em clusters de Hadoop do HDInsight
@@ -68,15 +68,24 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 1. Use as informações em [Usar túnel SSH para acessar a interface do usuário da Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md) para criar um túnel SSH a partir do sistema de cliente para o cluster HDInsight, e em seguida, configurar seu navegador da Web para usar o túnel como um proxy.
 
-2. Depois de criar um túnel SSH e configurar seu navegador para tráfego de proxy através dele, encontre o nome de host do nó do cabeçalho. Use as seguintes etapas para obter essas informações do Ambari:
+2. Depois de criar um túnel SSH e configurar seu navegador para tráfego de proxy através dele, encontre o nome de host do nó do cabeçalho primário. Você pode fazer isso conectando-se ao cluster usando SSH na porta 22. Por exemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` em que __USERNAME__ é o nome de usuário SSH, e __CLUSTERNAME__ é o nome do cluster.
 
-    1. Em um navegador, vá para https://CLUSTERNAME.azurehdinsight.net. Quando solicitado, use o nome de usuário e a senha de administrador para se autenticar no site.
-    
-    2. No menu na parte superior da página, selecione __Hosts__.
-    
-    3. Selecione a entrada que começa com __hn0__. Quando a página é aberta, o nome do host é exibido na parte superior. O formato do nome do host é __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Esse é o nome de host, que você deve usar ao se conectar ao matiz.
+    Para saber mais sobre como usar SSH, veja os documentos a seguir:
 
-2. Depois de criar um túnel SSH e configurar seu navegador para o tráfego de proxy por ele, use o navegador para abrir o portal do Hue em http://HOSTNAME:8888. Substitua HOSTNAME pelo nome obtido do Ambari na etapa anterior.
+    * [Usar SSH com HDInsight baseado em Linux em um cliente Linux, Unix ou Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com HDInsight baseado em Linux em um cliente com Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+3. Após a conexão, use o seguinte comando para obter o nome de domínio totalmente qualificado do nó de cabeçalho primário:
+
+        hostname -f
+
+    Isso retornará um nome semelhante ao seguinte:
+
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    
+    Esse é o nome do host do nó de cabeçalho primário onde o site da Hue está localizado.
+
+2. Use o navegador para abrir o portal da Hue em http://HOSTNAME:8888. Substitua HOSTNAME pelo nome obtido na etapa anterior.
 
     > [AZURE.NOTE] Ao fazer logon pela primeira vez, será solicitado criar uma conta para poder efetuar logon no portal do Hue. As credenciais que você especificar aqui serão limitadas ao portal e não serão relacionadas às credenciais de usuário SSH ou de administrador que você especificou durante o provisionamento do cluster.
 
@@ -108,7 +117,7 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 ## Considerações importantes
 
-1. O script usado para instalar o Hue instala-o apenas no nó de cabeçalho 0 do cluster.
+1. O script usado para instalar o Hue instala-o apenas no nó de cabeçalho primário do cluster.
 
 2. Durante a instalação, vários serviços do Hadoop (HDFS, YARN, MR2, Oozie) são reiniciados para atualizar a configuração. Depois que o script termina de instalar o Hue, pode levar algum tempo para que outros serviços do Hadoop sejam iniciados. Isso pode, inicialmente, afetar o desempenho do Hue. Depois que todos os serviços tiverem sido iniciados, o Hue estará totalmente funcional.
 
@@ -116,11 +125,11 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 		set hive.execution.engine=mr;
 
-4.	Com clusters do Linux, pode existir um cenário no qual os serviços estão em execução no nó de cabeçalho 0 enquanto o Gerenciador de Recursos pode estar em execução no nó de cabeçalho 1. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
+4.	Com clusters do Linux, você pode ter um cenário no qual os serviços estão em execução no nó de cabeçalho primário enquanto o Gerenciador de Recursos pode estar em execução no secundário. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
 
 	![Erro no portal do Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Erro no portal do Hue")
 
-	Isso ocorre devido a um problema conhecido. Como solução alternativa, modifique o Ambari para que o Gerenciador de Recursos ativo também seja executado em nó de cabeçalho 0.
+	Isso ocorre devido a um problema conhecido. Como solução alternativa, modifique o Ambari para que o Gerenciador de Recursos ativo também seja executado no nó de cabeçalho primário.
 
 5.	O Hue entende o WebHDFS, enquanto os clusters HDInsight utilizam o Armazenamento do Azure com o `wasbs://`. Portanto, o script personalizado utilizado com a ação de script instala WebWasb, que é um serviço compatível com WebHDFS para conversar com o WASB. Portanto, embora em alguns lugares o portal do Hue esteja marcado como HDFS (como quando você move o mouse sobre o **Navegador de Arquivos**), ele deve ser interpretado como WASB.
 
@@ -137,4 +146,4 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

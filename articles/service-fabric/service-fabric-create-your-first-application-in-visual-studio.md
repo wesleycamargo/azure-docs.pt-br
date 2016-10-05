@@ -13,10 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
 
-# Criar seu primeiro aplicativo do Azure Service Fabric no Visual Studio
+
+# Criar seu primeiro aplicativo do Azure Service Fabric
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Este tópico orienta você no processo de criação de seu primeiro aplicativo no Visual Studio.
 
@@ -148,4 +153,4 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

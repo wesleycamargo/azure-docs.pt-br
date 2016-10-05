@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -114,9 +114,9 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 4.	Digite ou selecione os seguintes valores na terceira página:
 
 	* **Alias de entrada**: Insira um nome amigável para a entrada do trabalho, como *CallStream*. Observe que você usará esse nome na consulta posteriormente.
-	* **Hub de Eventos**: Se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
+	* **Hub de Eventos**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
 
-	Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **Namespace do Service Bus**, **Nome do Hub de Eventos**, **Nome da Política do Hub de Eventos**, **Chave de Política do Hub de Eventos** e **Contagem de Partições do Hub de Eventos**.
+	Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente as informações para o **Namespace do Barramento de Serviço**, o **Nome do Hub de Eventos**, o **Nome da Política do Hub de Eventos**, a **Chave de Política do Hub de Eventos** e a **Contagem de Partições do Hub de Eventos**.
 
 	* **Nome do Hub de Eventos**: selecione o nome do Hub de Eventos.
 
@@ -227,7 +227,7 @@ Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se 
 3.	Digite ou selecione os seguintes valores na terceira página:
 
 	* **ALIAS DE SAÍDA**: insira um nome amigável para essa saída de trabalho.
-	* **ASSINATURA**: se o armazenamento de Blobs que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para **CONTA DE ARMAZENAMENTO**, **CHAVE DA CONTA DE ARMAZENAMENTO** e **CONTÊINER**.
+	* **ASSINATURA**: se o Armazenamento de Blobs que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione **Usar Conta de Armazenamento da Assinatura Atual**. Se o armazenamento estiver em uma assinatura diferente, selecione **Usar Conta de Armazenamento de Outra Assinatura** e insira manualmente as informações para a **CONTA DE ARMAZENAMENTO**, a **CHAVE DE CONTA DE ARMAZENAMENTO** e o **CONTÊINER**.
 	* **CONTA DE ARMAZENAMENTO**: selecione o nome da conta de armazenamento.
 	* **CONTÊINER**: selecione o nome do contêiner.
 	* **PREFIXO DE NOME DE ARQUIVO**: digite um prefixo de arquivo a ser usado durante a gravação da saída do blob.
@@ -265,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Excluir um cluster e seus recursos | Microsoft Azure"
+   pageTitle="Excluir um cluster do Azure e seus recursos | Microsoft Azure"
    description="Saiba como excluir por completo um cluster do Service Fabric excluindo o grupo de recursos que contém o cluster ou excluindo os recursos seletivamente."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# Excluir um cluster do Service Fabric e os recursos utilizados
+# Excluir um cluster do Service Fabric e os recursos que ele utiliza
 
-Um cluster do Service Fabric é composto por vários outros recursos do Azure, além do próprio recurso de cluster. Portanto, para excluir por completo um cluster do Service Fabric, também é necessário excluir todos os recursos que o compõem. Você tem duas opções para fazer isso: excluir o grupo de recursos do qual o cluster faz parte (o que exclui o recurso de cluster e quaisquer outros recursos no grupo de recursos) ou excluir especificamente o recurso de cluster e seus recursos associados (mas não os outros recursos no grupo de recursos).
+Um cluster do Service Fabric é composto por vários outros recursos do Azure, além do próprio recurso de cluster. Portanto, para excluir por completo um cluster do Service Fabric, também é necessário excluir todos os recursos que o compõem. Você tem duas opções: excluir o grupo de recursos do qual o cluster faz parte (o que exclui o recurso de cluster e quaisquer outros recursos no grupo de recursos) ou excluir especificamente o recurso de cluster e seus recursos associados (mas não os outros recursos no grupo de recursos).
 
 >[AZURE.NOTE] A exclusão do recurso de cluster **não** exclui todos os outros recursos que compõem o cluster do Service Fabric.
 
@@ -38,14 +38,14 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Você receberá um aviso para confirmar a exclusão, caso não tenha usado a opção *-Force*. Após a confirmação, o RG e todos os recursos que ele contém serão excluídos.
+Você receberá um aviso para confirmar a exclusão, caso não tenha usado a opção *-Force*. Após a confirmação, o RG e todos os recursos que ele contém são excluídos.
 
 ### Excluir um grupo de recursos no portal do Azure  
 
 1. Faça logon no [portal do Azure](https://portal.azure.com).
 2. Navegue até o cluster do Service Fabric que você deseja excluir.
 3. Clique no nome do Grupo de Recursos na página de conceitos básicos do cluster.
-4. Isso abrirá a página **Conceitos básicos do Grupo de Recursos**.
+4. Isso abre a página **Princípios básicos do grupo de recursos**.
 5. Clique em **Excluir**.
 6. Siga as instruções na página para concluir a exclusão do grupo de recursos.
 
@@ -56,7 +56,7 @@ Você receberá um aviso para confirmar a exclusão, caso não tenha usado a op�
 
 Se o grupo de recursos tiver apenas recursos relacionados ao cluster do Service Fabric que você deseja excluir, será mais fácil excluir o grupo de recursos inteiro. Se quiser excluir seletivamente os recursos do grupo de recursos um por um, siga estas etapas.
 
-Caso você tenha implantado o cluster usando o portal ou um dos modelos ARM do Service Fabric da galeria de modelos, todos os recursos usados pelo cluster serão marcados com as duas marcações a seguir. Você pode usá-las para decidir quais recursos deseja excluir.
+Caso você tenha implantado o cluster usando o portal ou um dos modelos do Resource Manager do Service Fabric da galeria de modelos, todos os recursos usados pelo cluster serão marcados com as duas marcações a seguir. Você pode usá-las para decidir quais recursos deseja excluir.
 
 ***Marcação nº 1:*** Chave = clusterName, Valor = “nome do cluster”
 
@@ -111,4 +111,4 @@ Leia os seguintes artigos para saber também sobre como atualizar um cluster e p
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

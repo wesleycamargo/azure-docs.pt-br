@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Como criar e gerenciar o Cache Redis do Azure usando a Interface de Linha de Comando do Azure (CLI do Azure)
@@ -30,7 +30,7 @@ Para criar e gerenciar as instâncias do Cache Redis do Azure usando a CLI do Az
 
 -	Você deve ter uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 -	[Instale a CLI do Azure](../xplat-cli-install.md).
--	Conecte sua instalação da CLI do Azure a uma conta do Azure pessoal, ou a uma conta corporativa ou de estudante do Azure, e faça logon na CLI do Azure usando o comando `azure login`. Para entender as diferenças e escolher entre elas, veja [Conectar-se a uma assinatura do Azure a partir da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md).
+-	Conecte sua instalação da CLI do Azure a uma conta do Azure pessoal, ou a uma conta corporativa ou de estudante do Azure, e faça logon na CLI do Azure usando o comando `azure login`. Para entender as diferenças e escolher entre elas, veja [Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)](../xplat-cli-connect.md).
 -	Antes de executar um dos comandos a seguir, alterne a CLI do Azure para o modo Gerenciador de Recursos executando o comando `azure config mode arm`. Para obter mais informações, veja [Configurar o modo do Azure Resource Manager](../xplat-cli-azure-resource-manager.md#set-the-azure-resource-manager-mode).
 
 ## Propriedades do Cache Redis
@@ -271,4 +271,4 @@ Para saber mais sobre esse comando, execute o comando `azure rediscache list-key
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

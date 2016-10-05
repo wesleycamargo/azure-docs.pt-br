@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # Visão geral do Roteamento Baseado em Caminho de URL
@@ -82,8 +82,8 @@ RequestRoutingRule do tipo PathBasedRouting é usada para associar um ouvinte a 
 
     }
 	
-## Próximas etapas 
+## Próximas etapas
 
 Depois de conhecer o roteamento de conteúdo baseado em URL, acesse [criar um application gateway usando o roteamento baseado em URL](application-gateway-create-url-route-portal.md) para criar um application gateway com as regras de roteamento de URL.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

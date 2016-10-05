@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/20/2016" 
 	ms.author="arramac"/>
 
 # Particionamento e dimensionamento no Banco de Dados de Documentos do Azure
@@ -261,8 +261,8 @@ Os SDKs do Banco de Dados de Documentos 1.9.0 e superiores são compatíveis com
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, isto é, o número máximo de conexões de rede simultâneas com as partições da coleção. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK.
-- Ao definir `MaxBufferedItemCount`, é possível compensar a latência da consulta e a utilização da memória do lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
+- Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, isto é, o número máximo de conexões de rede simultâneas com as partições da coleção. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK. Se o `MaxDegreeOfParallelism` não for especificado nem definido para 0, que é o valor padrão, haverá uma única conexão de rede para as partições da coleção.
+- Ao definir `MaxBufferedItemCount`, é possível compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
 
 Dado o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem da execução serial. Ao executar uma consulta entre partições que inclui classificação (ORDER BY e/ou TOP), o SDK do Banco de Dados de Documentos emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
 
@@ -279,12 +279,12 @@ Na próxima seção, examinaremos como é possível passar de coleções de part
 
 <a name="migrating-from-single-partition"></a>
 ### Migração de coleções de partição única para coleções particionadas
-Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (mais de 10.000 RU/s) ou de maior armazenamento de dados (mais de 10 GB), você poderá usar a [Ferramenta de Migração de Dados do Banco de Dados de Documentos](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada.
+Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (>10.000 RU/s) ou maior armazenamento de dados (>10 GB), você poderá usar a [Ferramenta de Migração de Dados do DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada.
 
 Para migrar de uma coleção de partição única para uma coleção particionada
 
-1. Exporte dados da coleção de partição única para JSON. Confira [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
-2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Confira [Importar para Banco de Dados de Documentos](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
+1. Exporte dados da coleção de partição única para JSON. Consulte [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
+2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Consulte [Importar para DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
 
 ![Migrando Dados para uma Coleção particionada no Banco de Dados de Documentos][3]
 
@@ -329,10 +329,10 @@ Você também pode usar uma abordagem de combinação/em camadas que coloca os l
 ## Próximas etapas
 Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de Documentos do Azure, como você pode criar coleções particionadas e como pode escolher uma chave de partição boa para seu aplicativo.
 
--   Execute testes de desempenho e escalabilidade com o Banco de Dados de Documentos. Confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos](documentdb-performance-testing.md) para obter um exemplo.
+-   Execute testes de desempenho e escalabilidade com o Banco de Dados de Documentos. Consulte [Teste de Desempenho e Escada com o DocumentDB do Azure](documentdb-performance-testing.md) para obter um exemplo.
 -   Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
--   Saiba mais sobre a [produtividade provisionada no Banco de Dados de Documentos](documentdb-performance-levels.md)
--   Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Confira [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
+-   Saiba mais sobre a [produtividade provisionada no DocumentDB](documentdb-performance-levels.md)
+-   Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Consulte [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -340,4 +340,4 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

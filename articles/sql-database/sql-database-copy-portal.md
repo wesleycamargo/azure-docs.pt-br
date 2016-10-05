@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,29 +26,30 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-As etapas a seguir mostram como copiar um banco de dados SQL com o [Portal do Azure](https://portal.azure.com) para o mesmo ou outro servidor.
+As etapas a seguir mostram como copiar um banco de dados SQL com o [portal do Azure](https://portal.azure.com) para o mesmo ou outro servidor.
 
-Para copiar um banco de dados SQL, você precisará de:
+Para copiar um banco de dados SQL, você precisa dos seguintes itens:
 
-- Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
+- Uma assinatura do Azure. Caso você precise de uma assinatura do Azure, basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um banco de dados SQL para copiar. Se você não tiver um banco de dados SQL, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 
 
 ## Copiar seu banco de dados SQL
 
-Abra a folha do banco de dados SQL do banco de dados que você deseja copiar:
+Abra a página do banco de dados SQL do banco de dados que você deseja copiar:
 
 1.	Vá para o [Portal do Azure](https://portal.azure.com).
-2.	Vá para o banco de dados que você deseja copiar: Procurar > Bancos de dados SQL
-3.	Na lâmina do banco de dados SQL, clique em **Copiar** para abrir a folha **Copiar**:
+2.	Clique em **Mais serviços** > **Bancos de dados SQL** e clique no banco de dados desejado.
+3.	Na página do banco de dados SQL, clique em **Copiar**:
 
-    ![copiar banco de dados][1]
+    ![Banco de Dados SQL](./media/sql-database-copy-portal/sql-database-copy.png)
 
-1.  Insira um nome para a cópia do banco de dados. Um nome padrão será fornecido, mas você poderá alterá-lo se quiser.
-2.  Selecione um **Servidor de destino**. O servidor de destino é onde a cópia do banco de dados será criada. Você pode criar um novo servidor ou selecione um servidor existente na lista.
+1.  Na página **Copiar**, é fornecido um nome de banco de dados padrão. Digite um nome diferente se desejar (todos os bancos de dados em um servidor devem ter nomes exclusivos).
+2.  Selecione um **Servidor de destino**. A cópia do banco de dados é criada no servidor de destino. Você pode copiar o banco de dados no mesmo servidor ou em outro servidor. Você pode criar um servidor ou escolher um servidor existente na lista.
+3.  Depois de escolher o **Servidor de destino**, o **Pool de banco de dados elástico** e o **Tipo de preço** as opções serão habilitadas. Se o servidor tiver um pool, você poderá copiar o banco de dados nele.
 3.  Clique em **OK** para iniciar o processo de cópia.
 
-    ![nome e servidor de banco de dados][2]
+    ![Banco de Dados SQL](./media/sql-database-copy-portal/copy-page.png)
 
 
 ## Monitorar o andamento da operação de cópia
@@ -62,7 +63,7 @@ Abra a folha do banco de dados SQL do banco de dados que você deseja copiar:
 
 ## Verificar se o banco de dados reside no servidor
 
-- Clique em **PROCURAR** > **Bancos de dados SQL** e verifique se o novo banco de dados está **Online**.
+- Clique em **Mais serviços** > **Bancos de dados SQL** e verifique se o novo banco de dados está **Online**.
 
 
 ## Resolver logons
@@ -96,4 +97,4 @@ Para resolver logons após a conclusão da operação de cópia, confira [Resolv
 [3]: ./media/sql-database-copy-portal/copy-notification.png
 [4]: ./media/sql-database-copy-portal/monitor-copy.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

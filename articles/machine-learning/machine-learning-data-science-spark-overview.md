@@ -3,7 +3,7 @@
 	description="O kit de ferramentas Spark MLlib traz recursos consideráveis de modelagem de aprendizado de máquina para o ambiente distribuído do HDInsight."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Visão geral da Ciência de dados usando Spark no Azure HDInsight
 
@@ -37,7 +37,11 @@ As etapas de configuração e o código fornecidos neste passo a passo são refe
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+<!-- -->
+
 > [AZURE.NOTE] Para ver um tópico que mostra como usar o Scala, em vez do Python, para concluir as tarefas em um processo completo de ciência de dados, confira [Ciência de dados usando Scala com Spark no Azure](machine-learning-data-science-process-scala-walkthrough.md).
+
+<!-- -->
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@ Agora que configurou um cluster HDInsight Spark e carregou os notebooks do Jupyt
 
 **Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

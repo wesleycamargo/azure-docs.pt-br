@@ -62,7 +62,7 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
 
 3. Normalmente, ao implantar um novo modelo, convém criar um novo grupo de recursos para conter os recursos. Se tiver um grupo de recursos existente no qual deseja implantar, você poderá ignorar esta etapa e usar esse grupo de recursos.
 
-     Para criar um grupo de recursos, forneça um nome e localização para esse grupo.
+     Para criar um grupo de recursos, forneça um nome e localização para esse grupo. Você precisa fornecer um local para o grupo de recursos pois o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, é recomendável que você especifique um local em que a maioria de seus recursos residirá. Usar o mesmo local pode simplificar seu modelo.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -193,4 +193,4 @@ Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir
 - Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

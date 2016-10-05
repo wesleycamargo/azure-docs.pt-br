@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure" 
+	pageTitle="Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure | Microsoft Azure" 
 	description="Este tópico fornece uma visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
@@ -43,7 +43,7 @@ Nos Serviços de Mídia do Azure, **Canais**, **Programas** e **StreamingEndpoin
 
 Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
-- Um codificador ativo local envia taxa de bits múltipla **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os seguintes codificadores ativos produzem RTMP: transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+- Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os seguintes codificadores ativos produzem RTMP: transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 	>[AZURE.NOTE] Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Veja os detalhes de [preços](/pricing/details/media-services/).
 	
@@ -82,7 +82,7 @@ O diagrama a seguir mostra as partes principais da plataforma AMS que estão env
 
 ![Fluxo de trabalho ao vivo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
-Para obter mais informações, veja [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md) (Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais).
+Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
 
@@ -109,7 +109,7 @@ Um [Programa](https://msdn.microsoft.com/library/azure/dn783463.aspx) permite qu
 
 ArchiveWindowLength também determina que a quantidade máxima de clientes de tempo pode buscar de volta no tempo a partir da posição atual em tempo real. Programas podem ser executados sobre o período de tempo especificado, mas o conteúdo que sair do comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada programa está associado um Ativo. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter esse localizador permitirá que você compile um URL de transmissão que você poderá fornecer aos seus clientes.
+Cada programa está associado um ativo. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
 Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
 
@@ -166,4 +166,4 @@ Parada|Parada|Não
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -25,8 +25,10 @@ Este tópico explica a finalidade da criação de recursos e fornece exemplos de
 
 Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos é uma parte do processo de TDSP descrito em [What is the Team Data Science Process? (O que é o Processo de Ciência de Dados de Equipe?)](data-science-process-overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do CAP.
+A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos é uma parte do processo de TDSP descrito em [What is the Team Data Science Process? (O que é o Processo de Ciência de Dados de Equipe?)](data-science-process-overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
+
 * **engenharia de recursos**: esse processo tenta criar outros recursos relevantes com base nos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+
 * **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
@@ -95,4 +97,4 @@ Recursos de engenharia e selecionados aumentam a eficiência do processo de trei
 Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

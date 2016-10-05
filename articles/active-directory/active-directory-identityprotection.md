@@ -14,24 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2016"
+	ms.date="09/20/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
 
-O Azure Active Directory Identity Protection é um serviço de segurança que fornece uma exibição consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A Microsoft tem protegido identidades baseadas em nuvem há mais de uma década e, com o Azure AD Identity Protection, ela está disponibilizando esses mesmos sistemas de proteção para os clientes empresariais. O Identity Protection aproveita os recursos de detecção de anomalias existentes do Azure AD (disponíveis por meio dos Relatórios de Atividade Anômala do Azure AD) e apresenta novos tipos de evento de risco que pode detectar anomalias em tempo real.
+O Azure Active Directory Identity Protection é um recurso da edição Azure AD Premium P2 que oferece uma exibição consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A Microsoft tem protegido identidades baseadas em nuvem há mais de uma década e, com o Azure AD Identity Protection, ela está disponibilizando esses mesmos sistemas de proteção para os clientes empresariais. O Identity Protection aproveita os recursos de detecção de anomalias existentes do Azure AD (disponíveis por meio dos Relatórios de Atividade Anômala do Azure AD) e apresenta novos tipos de evento de risco que pode detectar anomalias em tempo real.
 
-## Limitações da visualização atual
-
-O Azure Active Directory Identity Protection tem as seguintes limitações em conjunto com domínios federados:
-
-- Para que a política de segurança de Risco de Usuário funcione para domínios federados
-
-	- O [Write-back de senha](active-directory-passwords-getting-started.md) deve ser habilitado para o domínio federado, para que a alteração da senha na nuvem possa ser gravada no local.
-
-	- Uma licença do Azure AD Premium deve ser atribuída ao usuário final.
-
-- Eventos de risco só são detectados em relação a aplicativos em federação com o Azure Active Directory
 
 
 ##Introdução
@@ -54,7 +43,7 @@ Contudo, o Azure Active Directory Identity Protection é mais do que apenas uma 
 
 - Fornecer recomendações personalizadas para melhorar a postura de segurança geral ao realçar as vulnerabilidades
 
-<br>
+
 
 **Investigação dos eventos de risco:**
 
@@ -66,7 +55,7 @@ Contudo, o Azure Active Directory Identity Protection é mais do que apenas uma 
 
 - Fornecer acesso fácil às ações de correção, tais como redefinição de senha
 
-<br>
+
 
 **Políticas de acesso condicional baseadas em risco:**
 
@@ -83,7 +72,7 @@ Contudo, o Azure Active Directory Identity Protection é mais do que apenas uma 
 
 Eventos de risco são eventos que foram marcados como suspeitos pelo Identity Protection e indicam que uma identidade pode ter sido comprometida. Para obter uma lista completa de eventos de risco, confira [Tipos de eventos de risco detectados pelo Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md).
 
-Alguns desses eventos de risco estão disponíveis por meio dos relatórios de Atividade Anômala do Azure AD no Portal de Gerenciamento do Azure. A tabela abaixo lista os diversos tipos de evento de risco e o relatório de Atividade **Anômala do Azure AD** correspondente. A Microsoft continua a investir nesta área e planeja melhorar continuamente a precisão da detecção dos eventos de risco existentes e adicionar novos tipos de evento de risco continuamente.
+Alguns desses eventos de risco estão disponíveis por meio dos relatórios de Atividade Anômala do Azure AD no portal do Azure. A tabela abaixo lista os diversos tipos de evento de risco e o relatório de Atividade **Anômala do Azure AD** correspondente. A Microsoft continua a investir nesta área e planeja melhorar continuamente a precisão da detecção dos eventos de risco existentes e adicionar novos tipos de evento de risco continuamente.
 
 
 
@@ -97,7 +86,7 @@ Alguns desses eventos de risco estão disponíveis por meio dos relatórios de A
 | Entradas de locais desconhecidos | - |
 | Eventos de bloqueio (que não estão na preview pública) | - |
 
-Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no Portal de Gerenciamento do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
+Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no portal do Azure, contudo serão preteridos futuramente, pois estão sendo substituídos pelos eventos de risco do Identity Protection.
 
 - Entradas após várias falhas
 - Entradas de várias geografias
@@ -162,12 +151,12 @@ Você pode usar os níveis de risco do usuário para criar políticas de acesso 
 
 ## Fechar eventos de risco manualmente
 
-Na maioria dos casos, você tomará ações de correção, como uma redefinição de senha de segurança, para fechar automaticamente os eventos de risco. No entanto, isso nem sempre é possível. <br> É o caso, por exemplo, quando:
+Na maioria dos casos, você tomará ações de correção, como uma redefinição de senha de segurança, para fechar automaticamente os eventos de risco. No entanto, isso nem sempre é possível. É o caso, por exemplo, quando:
 
 - um usuário com eventos de risco ativo foi excluído
 - uma investigação revela que um evento de risco relatado foi executado pelo usuário legítimo
 
-Já que eventos de risco **Ativos** contribuem para o cálculo de risco do usuário, talvez seja necessário reduzir manualmente um nível de risco fechando eventos de risco manualmente. <br> Durante a investigação, você pode optar por executar uma das seguintes ações para alterar o status de um evento de risco:
+Já que eventos de risco **Ativos** contribuem para o cálculo de risco do usuário, talvez seja necessário reduzir manualmente um nível de risco fechando eventos de risco manualmente. Durante a investigação, você pode optar por executar uma das seguintes ações para alterar o status de um evento de risco:
 
 <br> ![Ações](./media/active-directory-identityprotection/34.png "Ações") <br>
 
@@ -179,11 +168,35 @@ Já que eventos de risco **Ativos** contribuem para o cálculo de risco do usuá
 
 - **Reativar** - Eventos de risco fechados manualmente (escolhendo **Resolver**, **Falso positivo** ou **Ignorar**) podem ser reativados, definindo o status do evento novamente como **Ativo**. Eventos de risco reativados contribuem no cálculo de nível de risco do usuário. Eventos de risco fechados por meio de correção (como redefinir uma senha de segurança) não podem ser reativados.
 
+
+
+
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Usuários com riscos sinalizados**. <br><br> ![Redefinição de senha manual](./media/active-directory-identityprotection/408.png "Redefinição de senha manual") <br>
+1. Na folha **Azure AD Identity Protection**, em **Investigar**, clique em **Eventos de risco**.
 
-2. Clique com o botão direito do mouse no usuário afetado. <br><br> ![Redefinição de senha manual](./media/active-directory-identityprotection/437.png "Redefinição de senha manual") <br>
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1002.png "Redefinição de senha manual")
+
+2. Na lista **Eventos de risco**, clique em um risco.
+
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1003.png "Redefinição de senha manual")
+
+2. Na folha de risco, clique com o botão direito do mouse em um usuário.
+
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1004.png "Redefinição de senha manual")
+
+
+
+### Fechar manualmente todos os eventos de risco para um usuário
+
+Em vez de fechar manualmente os eventos de risco de um usuário de forma individual, o Azure Active Directory Identity Protection também fornece um método para fechar todos os eventos para um usuário com um clique.
+
+
+![Ações](./media/active-directory-identityprotection/2222.png "Ações")
+
+Quando você clica em **Descartar todos os eventos**, todos os eventos são fechados e o usuário afetado não está mais em risco.
+
+
 
 ## Corrigir eventos de risco do usuário
 
@@ -208,15 +221,25 @@ A caixa de diálogo correspondente fornece dois métodos diferentes para redefin
 
 **Senha temporária** - selecione **Gerar uma senha temporária** para invalidar imediatamente a senha existente e criar uma nova senha temporária para o usuário. Envie a nova senha temporária para um endereço de email alternativo para o usuário ou para o gerente dele. Como a senha é temporária, o usuário precisará alterá-la após entrar.
 
-<br> ![Política](./media/active-directory-identityprotection/71.png "Política") <br>
+
+![Política](./media/active-directory-identityprotection/1005.png "Política")
+
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Usuários com riscos sinalizados**. <br><br> ![Redefinição de senha manual](./media/active-directory-identityprotection/408.png "Redefinição de senha manual") <br>
+1. Na folha **Azure AD Identity Protection**, clique em **Usuários com riscos sinalizados**.
 
-2. Clique no usuário afetado <br><br> ![Redefinição de senha manual](./media/active-directory-identityprotection/404.png "Redefinição de senha manual") <br>
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1006.png "Redefinição de senha manual")
 
-2. Clique em Redefinir senha <br><br>![Redefinição de senha manual](./media/active-directory-identityprotection/420.png "Redefinição de senha manual") <br>
+
+2. Na lista de usuários, selecione um usuário com eventos de pelo menos um risco.
+
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1007.png "Redefinição de senha manual")
+
+
+2. Na folha de usuário, clique em **Redefinir senha**.
+
+	![Redefinição de senha manual](./media/active-directory-identityprotection/1008.png "Redefinição de senha manual")
 
 
 
@@ -224,34 +247,37 @@ A caixa de diálogo correspondente fornece dois métodos diferentes para redefin
 
 ## Política de segurança de risco do usuário
 
-Uma política de segurança de risco do usuário é uma política de acesso condicional que avalia o nível de risco de um usuário específico e aplica ações de correção e mitigação com base em regras e condições predefinidas. <br><br> ![Política de risco do usuário](./media/active-directory-identityprotection/500.png "Política de risco do usuário") <br>
+Uma política de segurança de risco do usuário é uma política de acesso condicional que avalia o nível de risco de um usuário específico e aplica ações de correção e mitigação com base em regras e condições predefinidas.
+
+
+![Política de risco do usuário](./media/active-directory-identityprotection/1009.png "Política de risco do usuário")
+
 
 O Azure AD Identity Protection ajuda a gerenciar a mitigação e correção de usuários sinalizados para riscos, permitindo:
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/501.png "Política de risco do usuário")
-<br>
+- Defina os usuários e os grupos aos quais a política se aplica:
 
-- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara uma alteração de senha:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/502.png "Política de risco do usuário")
-<br>
+	![Política de risco do usuário](./media/active-directory-identityprotection/1010.png "Política de risco do usuário")
 
-- definir o limite de nível de risco do usuário (baixo, médio ou alto) que dispara o bloqueio de um usuário:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/503.png "Política de risco do usuário")
-<br>
 
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-<br>
+- Defina o limite de nível de risco do usuário (baixo, médio ou alto) que dispara a política:
 
-- examinar e avaliar o impacto de uma alteração antes de ativá-la:
-<br><br>
-![Política de risco do usuário](./media/active-directory-identityprotection/504.png "Política de risco do usuário")
-<br>
+	![Política de risco do usuário](./media/active-directory-identityprotection/1011.png "Política de risco do usuário")
+
+
+- Defina os controles a serem impostos quando a política for disparada:
+
+	![Política de risco do usuário](./media/active-directory-identityprotection/1012.png "Política de risco do usuário")
+
+
+- Alterne o estado de sua política:
+
+	![Política de risco do usuário](./media/active-directory-identityprotection/403.png "Registro de MFA")
+
+
+- Examine e avalie o impacto de uma alteração antes de ativá-la:
+
+	![Política de risco do usuário](./media/active-directory-identityprotection/1013.png "Política de risco do usuário")
 
 
 Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários. No entanto, isso exclui usuários sinalizados com **Baixo** e **Médio** risco da política, o que pode não proteger as identidades ou os dispositivos que sofreram comprometimento conhecido ou suspeito.
@@ -277,9 +303,9 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Configurações**.<br><br> ![Política de risco do usuário](./media/active-directory-identityprotection/401.png "Política de risco do usuário") <br>
+1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de usuário**.
 
-2. Na seção **Políticas de Segurança**, clique em **Risco de usuário**. <br><br> ![Política de risco do usuário](./media/active-directory-identityprotection/500.png "Política de risco do usuário") <br>
+	![Política de risco do usuário](./media/active-directory-identityprotection/1009.png "Política de risco do usuário")
 
 
 
@@ -309,34 +335,40 @@ Você pode usar o acesso condicional no Azure AD Identity Protection para mitiga
 
 ## Política de segurança de risco de entrada
 
-Uma política de segurança de risco de entrada é uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas. <br><br> ![Política de risco de entrada](./media/active-directory-identityprotection/700.png "Política de risco de entrada") <br>
+Uma política de segurança de risco de entrada é uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas.
+
+![Política de risco de entrada](./media/active-directory-identityprotection/1014.png "Política de risco de entrada")
+
 
 O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arriscadas, permitindo:
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/701.png "Política de risco de entrada")
-<br>
+- Defina os usuários e os grupos aos quais a política se aplica:
 
-- definir o limite do nível de risco de credenciais (baixo, médio ou alto) que dispara um desafio de autenticação multifator para as entradas afetadas: <br><br> ![Política de risco de entrada](./media/active-directory-identityprotection/702.png "Política de risco de entrada") <br>
+	![Política de risco de entrada](./media/active-directory-identityprotection/1015.png "Política de risco de entrada")
 
-- definir o limite de nível de risco de credenciais (baixo, médio ou alto) que bloqueia as entradas afetadas:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/703.png "Política de risco de entrada")
-<br>
 
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-<br>
+- Defina o limite de nível de risco da entrada (baixo, médio ou alto) que dispara o bloqueio de um usuário:
 
-- examinar e avaliar o impacto de uma alteração antes de ativá-la:
-<br><br>
-![Política de risco de entrada](./media/active-directory-identityprotection/704.png "Política de risco de entrada")
-<br>
+	![Política de risco de entrada](./media/active-directory-identityprotection/1016.png "Política de risco de entrada")
+
+
+- Defina os controles a serem impostos quando a política for disparada:
+
+	![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
+
+
+- Alterne o estado de sua política:
+
+	![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
+
+- Examine e avalie o impacto de uma alteração antes de ativá-la:
+
+	![Política de risco de entrada](./media/active-directory-identityprotection/1018.png "Política de risco de entrada")
 
  
-Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.<br> No entanto, isso exclui entradas sinalizadas com **Baixa** e **Médio** risco da política, o que pode não impedir que um invasor explore uma identidade comprometida.
+Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.
+ 
+No entanto, isso exclui entradas sinalizadas com **Baixa** e **Médio** risco da política, o que pode não impedir que um invasor explore uma identidade comprometida.
 
 Ao definir a política,
 
@@ -377,45 +409,52 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Configurações**.<br><br> ![Registro de MFA](./media/active-directory-identityprotection/401.png "Registro de MFA") <br>
+1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de entrada**.
 
-1. Na seção **políticas de segurança**, clique em **Risco de entrada**. <br><br> ![Registro de MFA](./media/active-directory-identityprotection/700.png "Registro de MFA") <br>
+	![Política de risco do usuário](./media/active-directory-identityprotection/1014.png "Política de risco do usuário")
+
 
 
 
 
 ## Política de registro de autenticação multifator
 
-O Azure Multi-Factor Authentication é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ele fornece uma segunda camada de segurança para logons de usuário e transações. <br> Recomendamos exigir o Azure Multi-Factor Authentication para entradas de usuário porque:
+A autenticação multifator do Azure é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ele fornece uma segunda camada de segurança para logons de usuário e transações. Recomendamos exigir a autenticação multifator do Azure para entradas de usuário porque:
 
 - fornece autenticação forte com uma variedade de opções de verificação fácil
 
 - desempenha um papel fundamental na preparação de sua organização para proteger e recuperar comprometimentos de conta
+
+![Política de risco do usuário](./media/active-directory-identityprotection/1019.png "Política de risco do usuário")
+
+
 
 Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
 O Azure AD Identity Protection ajuda a gerenciar a implementação do registro de autenticação multifator configurando uma política que permite:
 
-- exibir o status atual do registro:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/603.png "Registro de MFA")
-<br>
 
-- definir os usuários e grupos aos quais a política se aplica:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/601.png "Registro de MFA")
-<br>
 
-- definir por quanto tempo eles têm permissão para ignorar o registro:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/602.png "Registro de MFA")
-<br>
+- Defina os usuários e os grupos aos quais a política se aplica:
 
-- alternar o estado de sua política:
-<br><br>
-![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-<br>
+	![Política do MFA](./media/active-directory-identityprotection/1020.png "Política do MFA")
+
+
+
+- Defina os controles a serem impostos quando a política for disparada:
+
+	![Política do MFA](./media/active-directory-identityprotection/1021.png "Política do MFA")
+
+
+- Alterne o estado de sua política:
+
+	![Política do MFA](./media/active-directory-identityprotection/403.png "Política do MFA")
+
+- Exiba o status atual do registro:
+
+	![Política do MFA](./media/active-directory-identityprotection/1022.png "Política do MFA")
+
 
 Para obter uma visão geral da experiência do usuário relacionada, confira:
 
@@ -429,23 +468,27 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Configurações**.<br><br> ![Registro de MFA](./media/active-directory-identityprotection/401.png "Registro de MFA") <br>
+1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Registro de autenticação multifator**.
 
-2. Na seção **Multi-Factor Authentication**, clique em **Registro**. <br><br> ![Registro de MFA](./media/active-directory-identityprotection/402.png "Registro de MFA") <br>
-
-
+	![Política do MFA](./media/active-directory-identityprotection/1019.png "Política do MFA")
 
 
-## Confira também
+
+
+
+## Próximas etapas
 
  - [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Habilitando o Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Tipos de eventos de risco detectados pelo Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Notificações do Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
  - [Fluxos do Azure Active Directory Identity Protection](active-directory-identityprotection-flows.md)
  - [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossário do Azure Active Directory Identity Protection.](active-directory-identityprotection-glossary.md)
+
+ - [Habilitando o Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+ - [Azure Active Directory Identity Protection - como desbloquear usuários](active-directory-identityprotection-unblock-howto.md)
+
  - [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

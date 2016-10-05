@@ -23,15 +23,34 @@ Você pode usar esquemas para confirmar que os documentos XML recebidos são vá
 
 ## Como adicionar um esquema
 No Portal do Azure:
+
 1. Escolha **Mais Serviços** ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)
 2. Insira **integração** na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)
 3. Escolha a **conta de integração** à qual você adicionará o esquema ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)
-4.  Escolha o bloco **Esquemas** ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)
+4. Escolha o bloco **Esquemas** ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)
+
+#### Para adicionar arquivo de esquema com menos de 2 MB  
+
 5. Escolha o botão **Adicionar** na folha Esquemas que é aberta ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)
 6. Insira um **Nome** para o esquema e, para carregar o arquivo de esquema, clique no ícone de pasta à direita da caixa de texto **Esquema**. Após a conclusão do processo de upload, selecione o botão **OK**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)
-7. Para adicionar um arquivo de esquema com mais de 2 MB (máx. de 8 MB)
-   * Carregue o esquema no armazenamento e copie o URI ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)
-   * Escolha Arquivo grande em Adicionar Esquema e forneça o URI no URI de Conteúdo ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png) 8.Você deve ver o esquema recentemente adicionado ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
+
+#### Para adicionar um arquivo de esquema com mais de 2 MB (máx. de 8 MB)  
+
+7. Se o nível de acesso de segurança do blob é **público** ![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)
+
+  * Carregue o esquema no armazenamento e copie o URI ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)
+
+  * Selecione o arquivo grande em Adicionar Esquema e forneça o URI no URI de Conteúdo ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
+
+8. Se o nível de acesso de segurança do blob é **Sem acesso anônimo** ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)
+
+  * Carregue o esquema de armazenamento ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
+
+  * Gerar um URI de Assinatura de Acesso Compartilhado para o esquema ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+
+  * Escolha Arquivo grande em Adicionar Esquema e forneça o URI da Assinatura de Acesso Compartilhado no URI de Conteúdo ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
+
+9. Você deverá ver o esquema recém-adicionado: ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
 
 ## Como usar esquemas
 - Esquemas são usados para validar mensagens trocadas em um cenário B2B.
@@ -55,4 +74,4 @@ No Portal do Azure:
 
 - [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

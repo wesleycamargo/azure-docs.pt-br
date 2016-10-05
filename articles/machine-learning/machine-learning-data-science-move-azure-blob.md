@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;sunliangms;sachouks" />
+	ms.date="09/14/2016"
+	ms.author="bradsev;sachouks" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure
 
@@ -26,9 +26,16 @@ Orientações sobre as tecnologias usadas para mover dados para e/ou do armazena
  
 O melhor método para você depende de seu cenário. O artigo [Cenários para análises avançadas no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md) ajudará você a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
 
-> [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-> [AZURE.TIP] Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
+Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para:
+
+- criar e agendar um pipeline que baixa os dados do Armazenamento de Blobs do Azure,
+- passá-lo para um serviço Web publicado do Azure Machine Learning,
+- receber os resultados da análise preditiva, e
+- carrega os resultados no armazenamento.
+
+Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
 
 ## Pré-requisitos
 
@@ -37,4 +44,4 @@ Este documento pressupõe que você tenha uma assinatura, uma conta de armazenam
 - Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
