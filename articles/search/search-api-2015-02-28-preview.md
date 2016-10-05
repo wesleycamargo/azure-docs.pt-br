@@ -1898,7 +1898,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não há garantias de que todas as sugestões de correspondência estejam presentes nos resultados. Se a rechamada for mais importante para seu aplicativo do que a disponibilidade, é melhor não diminuir `minimumCoverage` para abaixo de seu valor padrão de 80.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Suggestions** com GET ou POST.
 
