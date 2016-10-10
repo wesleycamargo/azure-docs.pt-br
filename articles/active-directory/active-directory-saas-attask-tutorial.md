@@ -19,7 +19,8 @@
 
 # Tutorial: integração do Active Directory do Azure com o @Task
 
-O objetivo deste tutorial é mostrar como integrar o @Task ao Azure AD (Azure Active Directory). A integração do @Task ao Azure AD oferece os seguintes benefícios:
+O objetivo deste tutorial é mostrar como integrar o @Task ao Azure AD (Azure Active Directory).  
+A integração do @Task ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no AD do Azure quem tem acesso ao @Task
 - Você pode habilitar seus usuários a fazerem logon automaticamente no @Task (logon único) com suas contas do AD do Azure
@@ -45,7 +46,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
+O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
 1. Adicionando o @Task por meio da galeria
 2. Configurar e testar o logon único do AD do Azure
@@ -273,7 +275,8 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando você clica no bloco @Task no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo @Task.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
+Quando você clica no bloco @Task no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo @Task.
 
 
 ## Recursos adicionais

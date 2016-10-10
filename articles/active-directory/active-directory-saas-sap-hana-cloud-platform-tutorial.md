@@ -140,7 +140,9 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
         |Atributo de Asserção| Atributo de Entidade|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------|
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]A configuração dos Atributos depende de como os aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta do SAML e por qual nome (Atributo de Entidade) eles acessam esse atributo no código.
     >  
@@ -154,7 +156,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
   
 Como uma etapa opcional, você pode configurar grupos com base na asserção para seu Provedor de Identidade do Active Directory do Azure
 
->[AZURE.NOTE]Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. Por exemplo, se a declaração contém o atributo “*contract=temporary*”, talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo “*TEMPORARY*”. O grupo “*TEMPORARY*” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
+>[AZURE.NOTE]Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. Por exemplo, se a declaração contém o atributo “ *contract=temporary* ”, talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo “ *TEMPORARY* ”. O grupo “ *TEMPORARY* ” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
 >  
 >Use os grupos com base em asserção se desejar atribuir em massa vários usuários para uma ou mais funções de aplicativos em sua conta da Plataforma de Nuvem HANA SAP. Se você quer atribuir um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia "**Autorizações**" da ferramenta Cockpit da SAP HANA Cloud Platform.
 

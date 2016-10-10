@@ -40,7 +40,7 @@ Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo 
 	
 	![Captura de tela da guia servidor do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação ** (MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
+3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação **(MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
 
 	![Captura de tela da guia autenticação do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 

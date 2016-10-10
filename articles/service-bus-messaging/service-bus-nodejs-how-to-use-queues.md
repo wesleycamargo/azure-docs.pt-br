@@ -26,7 +26,7 @@ Este artigo descreve como usar as filas do Barramento de Serviço no Node.js. As
 
 ## Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][]\(usando o Windows PowerShell).
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 

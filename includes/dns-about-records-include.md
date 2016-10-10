@@ -25,7 +25,7 @@ O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em 
 
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
-Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*". Ou use um nome com o rótulo "*", por exemplo, "*.foo".
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*". Ou use um nome com o rótulo "\*", por exemplo, "\*.foo".
 
 #### Conjuntos de registros CNAME
 

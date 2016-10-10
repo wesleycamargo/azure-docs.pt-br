@@ -84,7 +84,9 @@ Na saída de Get-MsolFederationProperty ou de Get-AdfsCertificate, verifique a d
 
 | AutoCertificateRollover | Certificados em sincronia com o Azure AD | Os metadados de federação do AD FS estão acessíveis publicamente | Validade | Ação |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Sim | Sim | Sim | - | Nenhuma ação é necessária. Confira [Renovar certificado de assinatura de token automaticamente](#autorenew) | | Sim | Não | - | Menos de 15 dias | Renovar imediatamente. Veja [Renovar certificado de assinatura de token manualmente](#manualrenew). | | Sim | Não | - | Menos de 30 dias | Renovar imediatamente. Confira [Renovar certificado de assinatura de token](#manualrenew). |
+| Sim | Sim | Sim | - | Nenhuma ação é necessária. Confira [Renovar certificado de assinatura de token automaticamente](#autorenew) |
+| Sim | Não | - | Menos de 15 dias | Renovar imediatamente. Veja [Renovar certificado de assinatura de token manualmente](#manualrenew). |
+| Sim | Não | - | Menos de 30 dias | Renovar imediatamente. Confira [Renovar certificado de assinatura de token](#manualrenew). |
 
 [-] Não importa
 

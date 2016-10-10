@@ -81,7 +81,7 @@ Você só pode usar o System Center Configuration Manager para implantar políti
 
 	b. Para **Usar um TPM (Trusted Platform Module)**, selecione **Obrigatório**.
 
-	c. Para **Método de autenticação", selecione ** Baseado em certificado**.
+	c. Para **Método de autenticação", selecione** Baseado em certificado**.
 
 	d. Clique em **Avançar**.
 

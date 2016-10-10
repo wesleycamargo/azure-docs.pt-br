@@ -718,7 +718,7 @@ Para o CentOS 7.2, há suporte para a criptografia de disco do sistema operacion
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 
-É recomendável salvar o [diagnóstico de inicialização](https://azure.microsoft.com/pt-BR/blog/boot-diagnostics-for-virtual-machines-v2/) da VM *antes* da reinicialização.
+É recomendável salvar o [diagnóstico de inicialização](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) da VM *antes* da reinicialização.
 
 #### Monitorando o progresso da criptografia do sistema operacional
 
@@ -753,7 +753,7 @@ Em InstanceView, role a tela para baixo para ver o status da criptografia das un
 
 ![Exibição de instância VM](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-2\. Examine o [diagnóstico de inicialização](https://azure.microsoft.com/pt-BR/blog/boot-diagnostics-for-virtual-machines-v2/). As mensagens da extensão ADE deverão ser prefixadas com `[AzureDiskEncryption]`.
+2\. Examine o [diagnóstico de inicialização](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). As mensagens da extensão ADE deverão ser prefixadas com `[AzureDiskEncryption]`.
 
 3\. Faça logon na VM por meio do SSH e obtenha o log de extensão do
 
@@ -787,7 +787,7 @@ Não é recomendável fazer logon na VM durante a criptografia do sistema operac
 
 ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute a última etapa (desprovisionamento da VM) ainda.
+6\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute a última etapa (desprovisionamento da VM) ainda.
 
 ###### Configurar a criptografia para trabalhar com o Azure
 
@@ -862,7 +862,7 @@ Não é recomendável fazer logon na VM durante a criptografia do sistema operac
 
 ![Instalação do openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute a última etapa (desprovisionamento da VM) ainda.
+3\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute a última etapa (desprovisionamento da VM) ainda.
 
 ###### Configurar a criptografia para trabalhar com o Azure
 
@@ -942,7 +942,7 @@ para
 
 ![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute a última etapa (desprovisionamento da VM) ainda.
+5\. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute a última etapa (desprovisionamento da VM) ainda.
 
 6\. Agora você pode desprovisionar a VM e [carregar o VHD](#upload-encrypted-vhd-to-an-azure-storage-account) no Azure.
 

@@ -19,7 +19,9 @@
 
 # Como usar o armazenamento de tabela do PHP
 
-[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[AZURE.INCLUDE [armazenamento-seletor-tabela-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Visão geral
 
@@ -87,7 +89,7 @@ Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
 ## Criar uma tabela
 
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, confira [Setting Timeouts for Table Service Operations][table-service-timeouts] (Definindo tempos limite para operações do serviço Tabela.))
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, confira [Setting Timeouts for Table Service Operations][table-service-timeouts] \(Definindo tempos limite para operações do serviço Tabela.))
 
 	require_once 'vendor\autoload.php';
 
@@ -109,7 +111,7 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-Para obter informações sobre restrições em nomes de tabelas, confira [Understanding the Table Service Data Model][table-data-model] (Noções básicas sobre o modelo de dados do serviço Tabela).
+Para obter informações sobre restrições em nomes de tabelas, confira [Understanding the Table Service Data Model][table-data-model] \(Noções básicas sobre o modelo de dados do serviço Tabela).
 
 ## Adicionar uma entidade a uma tabela
 

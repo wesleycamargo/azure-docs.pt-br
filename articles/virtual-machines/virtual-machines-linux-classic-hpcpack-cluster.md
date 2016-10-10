@@ -174,9 +174,9 @@ Você também verá os nós Linux na exibição do **Mapa de Calor**.
 
 Você tem várias opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Aqui estão três métodos comuns.
 
-* **Arquivo do Azure ** – expõe um compartilhamento de arquivos SMB gerenciado para armazenar arquivos de dados no armazenamento do Azure. Os nós do Windows e do Linux poderão montar um compartilhamento de Arquivos do Azure como uma unidade ou pasta ao mesmo tempo, mesmo se eles estiverem implantados em diferentes redes virtuais.
+* **Arquivo do Azure** – expõe um compartilhamento de arquivos SMB gerenciado para armazenar arquivos de dados no armazenamento do Azure. Os nós do Windows e do Linux poderão montar um compartilhamento de Arquivos do Azure como uma unidade ou pasta ao mesmo tempo, mesmo se eles estiverem implantados em diferentes redes virtuais.
 
-* **Compartilhamento do nó de cabeçalho SMB ** – monta uma pasta compartilhada padrão do Windows do nó de cabeçalho em nós do Linux.
+* **Compartilhamento do nó de cabeçalho SMB** – monta uma pasta compartilhada padrão do Windows do nó de cabeçalho em nós do Linux.
 
 * **Servidor NFS do nó de cabeçalho** – fornece uma solução de compartilhamento de arquivos para um ambiente misto do Windows e do Linux.
 

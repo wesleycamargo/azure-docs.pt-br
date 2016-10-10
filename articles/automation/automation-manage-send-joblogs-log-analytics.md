@@ -55,7 +55,7 @@ Para localizar os valores para *AutomationAccountName*, no portal do Azure, sele
 
 ## Configurar a integração com o Log Analytics
 
-1. Em seu computador, inicie o ** Windows PowerShell** na tela **Inicial**.
+1. Em seu computador, inicie o **Windows PowerShell** na tela **Inicial**.
 2. No shell de linha de comando do PowerShell, navegue até a pasta que contém o script baixado e execute-o alterando os valores dos parâmetros *- AutomationAccountName* e *- LogAnalyticsWorkspaceName*.
 
     >[AZURE.NOTE] Você deverá se autenticar com o Azure depois de executar o script. Você **deve** fazer logon com uma conta que seja membro da função Administradores de Assinatura e coadministrador da assinatura.

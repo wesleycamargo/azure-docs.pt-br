@@ -118,13 +118,17 @@ A permissão é concedida se um usuário final tem acesso no nível do diretóri
 #### Etapa 1: Selecione o escopo de acesso apropriado
 Para permitir a um usuário o acesso no nível *todas as instâncias de serviço* no Azure AD Connect Health, abra a folha principal no Azure AD Connect Health.<br>
 #### Etapa 2: Adicione usuários, grupos e atribua funções
-1. Clique na parte "Usuários" na seção Configurar.<br> ![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Clique na parte "Usuários" na seção Configurar.<br>
+![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selecione "Adicionar"
-3. Selecione a "Função", por exemplo, "Proprietário"<br> ![Adicionar Usuários do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Digite o nome ou identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo. Clique em "selecionar". ![Selecionar Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+3. Selecione a "Função", por exemplo, "Proprietário"<br>
+![Adicionar Usuários do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Digite o nome ou identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo. Clique em "selecionar".
+![Selecionar Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selecione "Ok".<br>
 
-6. Uma vez concluída a atribuição da função, os usuários e/ou grupos aparecerão na lista.<br> ![Lista de Usuários do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+6. Uma vez concluída a atribuição da função, os usuários e/ou grupos aparecerão na lista.<br>
+![Lista de Usuários do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Essas etapas permitirão acesso aos usuários e grupos listados de acordo com suas funções.
 >[AZURE.NOTE]
@@ -133,13 +137,15 @@ Essas etapas permitirão acesso aos usuários e grupos listados de acordo com su
 
 #### Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois de atribuir permissões, um usuário poderá acessar o Azure AD Connect Health em [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Uma vez na folha, o usuário poderá fixar a folha, ou partes diferentes, no painel clicando em "Fixar no painel"<br> ![fixar folha do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+2. Uma vez na folha, o usuário poderá fixar a folha, ou partes diferentes, no painel clicando em "Fixar no painel"<br>
+![fixar folha do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
 >[AZURE.NOTE] Um usuário com a função "Leitor" atribuída não poderá executar a operação "criar" para obter a extensão do Azure AD Connect Health no Azure Marketplace. Esse usuário ainda pode obter a folha indo para o link acima. Para uso subsequente, o usuário pode fixar a folha no painel.
 
 ### Remover usuários e/ou grupos
-Você pode remover um usuário ou grupo adicionado à parte de controle de acesso baseado em função do Azure AD Connect Health clicando com botão direito e selecionando remover.<br> ![Remover Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
+Você pode remover um usuário ou grupo adicionado à parte de controle de acesso baseado em função do Azure AD Connect Health clicando com botão direito e selecionando remover.<br>
+![Remover Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "Fim da seção de RBAC"
 

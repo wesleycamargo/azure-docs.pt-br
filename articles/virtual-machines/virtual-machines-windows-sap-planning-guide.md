@@ -652,7 +652,8 @@ Cada máquina Virtual no Azure precisa ser conectado a uma Rede Virtual.
 
 Mais detalhes podem ser encontrados [neste artigo][resource-groups-networking] e [nesta página](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (MShermannd TODO Não conseguiu localizar um artigo que inclua o tópico OpenLDAP + ARM;) [comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
+[comment]: <> (MShermannd TODO Não conseguiu localizar um artigo que inclua o tópico OpenLDAP + ARM;) 
+[comment]: <> (MSSedusch <https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [AZURE.NOTE] Por padrão, quando uma VM é implantada, não é possível alterar a configuração de rede virtual. As configurações de TCP/IP devem ser deixadas para o servidor DHCP do Azure. O comportamento padrão é a atribuição de IP dinâmico.
 
@@ -686,12 +687,17 @@ A Figura acima mostra que duas assinaturas do Azure têm subintervalos de endere
 #### VPN ponto a site
 VPN ponto a site requer que cada computador cliente conecte-se com seu próprio VPN ao Azure. Para os cenários SAP que estamos vendo, a conectividade ponto a site não é prática. Portanto, não será feita nenhuma referência posterior à conectividade VPN ponto a site.
 
-[comment]: <> (MSSedusch - Mais informações podem ser encontradas aqui) [comment]: <> (MShermannd TODO O link não é mais válido; mas ARM, mesmo assim, não tem suporte - confira o próximo link abaixo) [comment]: <> (MSSedusch - <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) [comment]: <> (MShermannd TODO Ponto a site ainda não tem suporte com ARM) [comment]: <> (MSSedusch - <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
+[comment]: <> (MSSedusch - Mais informações podem ser encontradas aqui) 
+[comment]: <> (MShermannd TODO O link não é mais válido; mas ARM, mesmo assim, não tem suporte - confira o próximo link abaixo) 
+[comment]: <> (MSSedusch - <http://msdn.microsoft.com/library/azure/dn133798.aspx>.) 
+[comment]: <> (MShermannd TODO Ponto a site ainda não tem suporte com ARM) 
+[comment]: <> (MSSedusch - <https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### VPN de múltiplos sites
 Hoje em dia, o Azure também oferece a possibilidade de criar a conectividade VPN de múltiplos sites para uma assinatura do Azure. Antes, uma única assinatura era limitada a uma ligação VPN site a site. Essa limitação desapareceu com ligações VPN de múltiplos sites para uma única assinatura. Isso torna possível aproveitar mais de uma Região do Azure para uma assinatura específica por meio de configurações entre instalações.
 
-Para obter mais documentação, confira [neste artigo][vpn-gateway-create-site-to-site-rm-powershell] [comment]: <> (MShermannd TODO nenhum link de documentação do ARM encontrado)
+Para obter mais documentação, confira [neste artigo][vpn-gateway-create-site-to-site-rm-powershell] 
+[comment]: <> (MShermannd TODO nenhum link de documentação do ARM encontrado)
 
 #### Conexão VNet a VNet
 Usando VPN de múltiplos sites, você precisa configurar uma Rede Virtual do Azure separada em cada uma das regiões. No entanto, com frequência, você tem o requisito de que os componentes de software em diferentes regiões devem comunicar-se uns com os outros. Idealmente, essa comunicação não deve ser roteada de uma Região do Azure para local e daí para outra Região do Azure. Como atalho, o Azure oferece a possibilidade de configurar uma conexão de uma Rede Virtual do Azure em uma região a outra Rede Virtual do Azure hospedada em outra região. Essa funcionalidade é chamada de conexão de VNet a VNet. Mais detalhes sobre essa funcionalidade podem ser encontrados aqui: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
@@ -763,7 +769,8 @@ O Portal do Azure é uma das três interfaces para gerenciar implantações de V
  
 ![Portal do Microsoft Azure - visão geral de máquina virtual][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>) 
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Tarefas de administração e configuração para a instância de Máquina Virtual são possíveis de dentro do Portal do Azure.
 
@@ -774,7 +781,9 @@ O Portal do Azure oferece as funcionalidades básicas para implantar e configura
 * Carregar VHDs no Azure
 * Copiar VMs
 
-[comment]: <> (MShermannd TODO e quanto à automação de serviços para VMs SAP?) [comment]: <> (MSSedusch implantação de várias VMs enquanto possível) [comment]: <> (MSSedusch Além disso, qualquer tipo de automação relacionada à implantação não é possível com o portal do Azure. Tarefas como a implantação com script de várias VMs não é possível por meio do Portal do Azure.)
+[comment]: <> (MShermannd TODO e quanto à automação de serviços para VMs SAP?) 
+[comment]: <> (MSSedusch implantação de várias VMs enquanto possível) 
+[comment]: <> (MSSedusch Além disso, qualquer tipo de automação relacionada à implantação não é possível com o portal do Azure. Tarefas como a implantação com script de várias VMs não é possível por meio do Portal do Azure.)
 
 ### Gerenciamento via cmdlets do Microsoft Azure PowerShell
 O Windows PowerShell é uma estrutura poderosa e extensível que foi amplamente adotada por clientes implantando grandes quantidades de sistemas no Azure. Após a instalação dos cmdlets do PowerShell em um desktop, laptop ou estação de gerenciamento dedicada, os cmdlets do PowerShell podem ser executados remotamente.
@@ -787,7 +796,8 @@ A experiência do cliente até agora tem sido que o PS (PowerShell) é certament
 
 Confira um exemplo aqui: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO descrever o novo comando CLI quando testado) A implantação da extensão de monitoramento do Azure para SAP (confira o capítulo [Solução de monitoramento do Azure para SAP][planning-guide-9.1] deste documento) só é possível por meio do PowerShell ou CLI. Portanto, é obrigatório instalar e configurar o PowerShell ou CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.
+[comment]: <> (MShermannd TODO descrever o novo comando CLI quando testado) 
+A implantação da extensão de monitoramento do Azure para SAP (confira o capítulo [Solução de monitoramento do Azure para SAP][planning-guide-9.1] deste documento) só é possível por meio do PowerShell ou CLI. Portanto, é obrigatório instalar e configurar o PowerShell ou CLI ao implantar ou administrar um sistema SAP NetWeaver no Azure.
 
 Conforme o Azure fornece mais funcionalidade, serão adicionados novos cmdlets do PS que exigirão uma atualização dos cmdlets. Portanto, faz sentido verificar o site de Download do Azure pelo menos uma vez por mês <https://azure.microsoft.com/downloads/> para obter uma nova versão dos cmdlets. A nova versão será instalada substituindo a versão antiga.
 
@@ -821,7 +831,11 @@ ___
 
 > ![Windows][Logo_Windows] Windows
 >
-> As configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas/generalizadas na VM local por meio do comando sysprep. [comment]: <> (MSSedusch > Veja mais detalhes aqui:) [comment]: <> (MShermannd TODO o primeiro link é sobre o modelo clássico. Um artigo de documentação do Azure não foi encontrado) [comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) [comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
+> As configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas/generalizadas na VM local por meio do comando sysprep. 
+[comment]: <> (MSSedusch > Veja mais detalhes aqui:) 
+[comment]: <> (MShermannd TODO o primeiro link é sobre o modelo clássico. Um artigo de documentação do Azure não foi encontrado) 
+[comment]: <> (MSSedusch > <https://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/>) 
+[comment]: <> (MSSedusch > <http://blogs.technet.com/b/blainbar/archive/2014/09/12/modernizing-your-infrastructure-with-hybrid-cloud-using-custom-vm-images-and-resource-groups-in-microsoft-azure-part-21-blain-barton.aspx>)
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -842,7 +856,8 @@ Um método de implantação comum é mover, do local para o Azure, uma VM existe
 
 Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 
-* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. [comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
+* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. 
+[comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. O mesmo limite de tamanho do disco de SO se aplica também aos discos de dados. VHDs podem ter um tamanho máximo de 1 TB. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * Adicione outra conta local com privilégios de administrador que possa ser usada pelo suporte da Microsoft ou que possa ser atribuída como contexto no qual serviços e aplicativos sejam executados até que a VM seja implantada e mais usuários apropriados possam ser usados.
@@ -867,7 +882,8 @@ Os arquivos VHD que contêm um SO generalizado também são armazenados em cont�
 
 Os requisitos ao preparar sua própria Imagem de VM do Azure são:
 
-* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. [comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
+* Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure. 
+[comment]: <> (MShermannd TODO é preciso verificar se a CLI também o converte para estático)
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. O mesmo limite de tamanho do disco de SO se aplica também aos discos de dados. VHDs podem ter um tamanho máximo de 1 TB. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * Já que todos os usuários do domínio registrados como usuários na VM não existirão em um cenário de implantação somente em nuvem (confira o capítulo [Somente em nuvem - Implantações de Máquinas Virtuais no Azure sem dependências na rede do cliente local][planning-guide-2.1] deste documento), serviços usando tais contas de domínio poderão não funcionar depois que a imagem do Azure for implantada no Azure. Isso é especialmente verdadeiro para contas usadas para executar serviços como os aplicativos SAP ou DBMS. Portanto, você precisa substituir essas contas de domínio por contas locais da VM e excluir as contas de domínio locais na VM. Manter os usuários do domínio local na imagem da VM pode não ser um problema quando a VM é implantada no cenário entre instalações, conforme descrito no capítulo [Entre instalações - Implantação de uma ou várias VMs SAP no Azure com o requisito de estarem totalmente integradas à rede local][planning-guide-2.2] deste documento.
@@ -947,7 +963,7 @@ __Modelo__
 #### Implantação de uma imagem de VM
 Para carregar uma VM ou VHD existente da rede local para usá-lo como uma imagem de VM do Azure, essa VM ou VHD precisa atender aos requisitos listados no capítulo [Preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] deste documento.
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture]
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture]
 * Fazer logon na assinatura com _Login-AzureRmAccount_
 * Definir a assinatura de seu contexto com _Set-AzureRmContext_ e o parâmetro SubscriptionId ou SubscriptionName - confira <https://msdn.microsoft.com/library/mt619263.aspx>
 * Carregar o VHD em uma Conta de Armazenamento do Azure com _Add-AzureRmVhd_ - confira <https://msdn.microsoft.com/library/mt603554.aspx>
@@ -956,7 +972,7 @@ Para carregar uma VM ou VHD existente da rede local para usá-lo como uma imagem
 
 __CLI do Azure__
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
 * Mudar para o modo do Azure Resource Manager com _azure config mode arm_
 * Fazer logon na assinatura com _logon do azure_
 * Selecione a assinatura com _conjunto de contas do azure `<subscription name or id`>_
@@ -965,7 +981,7 @@ __CLI do Azure__
 
 __Modelo__
 
-* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] (Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
+* Use _sysprep_ no Windows ou _waagent -deprovision_ no Linux para generalizar sua VM — confira [How to capture a Windows virtual machine in the Resource Manager deployment model][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] \(Como capturar uma máquina virtual Windows no modelo de implantação do Resource Manager) ou [Como capturar uma máquina virtual Linux para ser usada como um modelo do Resource Manager][virtual-machines-linux-capture-image-capture] para Linux
 * Carregar o VHD com o Powershell ou a CLI do Azure
 * Implantar a VM com um modelo JSON referenciando o VHD da imagem, conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 

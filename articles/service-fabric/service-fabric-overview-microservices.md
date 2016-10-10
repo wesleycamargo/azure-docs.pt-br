@@ -145,7 +145,7 @@ O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativ
 
 * Para mais informações:
     * [Visão geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
-    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/pt-BR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

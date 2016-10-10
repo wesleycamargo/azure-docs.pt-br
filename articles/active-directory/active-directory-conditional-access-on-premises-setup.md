@@ -238,7 +238,7 @@ Você deve registrar seu dispositivo antes de poder acessar este aplicativo.
 Adicione o dispositivo iOS à área de trabalho.
 
 
-**Se você estiver usando um dispositivo Windows 8.1**, pode adicionar seu dispositivo acessando **Configurações do PC**> **Rede ** >**Local de Trabalho**.
+**Se você estiver usando um dispositivo Windows 8.1**, pode adicionar seu dispositivo acessando **Configurações do PC**> **Rede** >**Local de Trabalho**.
 
 
 Em que "**nome de confiança de terceira parte confiável**" é o nome do objeto de confiança de terceira parte confiável do seu aplicativo no AD FS. Em que **seudomínio.com** é o nome de domínio que você configurou com o Active Directory do Azure. Por exemplo, contoso.com. Não deixe de remover qualquer quebra de linha (se houver) do conteúdo html que você passa para o cmdlet **Set-AdfsRelyingPartyWebContent**.

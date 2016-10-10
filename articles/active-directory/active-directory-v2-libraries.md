@@ -20,7 +20,7 @@
 # Bibliotecas de autenticação do Azure AD (Active Directory) v2.0
 O ponto de extremidade do v2.0 do Azure AD dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Várias bibliotecas da Microsoft e de outras fontes podem ser usadas com o ponto de extremidade v2.0.
 
-Ao criar um aplicativo que usa o ponto de extremidade v2.0, recomendamos que você use bibliotecas escritas por especialistas de domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), [como a seguida pela Microsoft][Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga o SDL e pondere com cuidado as considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
+Ao criar um aplicativo que usa o ponto de extremidade v2.0, recomendamos que você use bibliotecas escritas por especialistas de domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), [como a seguida pela Microsoft]\[Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga o SDL e pondere com cuidado as considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
 
 ## Tipos de bibliotecas
 Há dois tipos de bibliotecas que funcionam com v2.0:
@@ -107,7 +107,7 @@ Use a seção de comentários do Disqus a seguir para fornecer seus comentários
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]: /
@@ -119,6 +119,6 @@ Use a seção de comentários do Disqus a seguir para fornecer seus comentários
 [ServerLib-NetCore-Owin-Oauth-Sample]: /
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/pt-BR/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/
 
 <!---HONumber=AcomDC_0928_2016-->

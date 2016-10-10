@@ -26,7 +26,7 @@ Você pode habilitar o dimensionamento automático quando um pool é criado ou e
 
 ## Fórmulas de dimensionamento automático
 
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] (API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] \(API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode pensar nas fórmulas de dimensionamento automático como se estivesse usando uma "linguagem" de dimensionamento automático do Lote. As instruções da fórmula são expressões de forma livre que podem incluir as variáveis definidas pelo serviço (variáveis definidas pelo serviço de Lote) e as variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações com esses valores usando tipos, operadores e funções internas. Por exemplo, uma instrução pode ter a seguinte forma:
 
@@ -133,7 +133,14 @@ Essas **operações** são permitidas nos tipos listados acima.
 | timeinterval *operador* timeinterval | +, - | timeinterval |
 | timeinterval *operador* timestamp | + | timestamp |
 | timestamp *operador* timeinterval | + | timestamp |
-| timestamp *operador* timestamp | - | timeinterval | | *operador*double | -, ! | double | | *operador*timeinterval | - | timeinterval | | double *operador* double | <, <=, ==, >=, >, != | double | | string *operador* string | <, <=, ==, >=, >, != | double | | timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | | double *operador* double | &&, || | double |
+| timestamp *operador* timestamp | - | timeinterval |
+| *operador*double | -, ! | double |
+| *operador*timeinterval | - | timeinterval |
+| double *operador* double | <, <=, ==, >=, >, != | double |
+| string *operador* string | <, <=, ==, >=, >, != | double |
+| timestamp *operador* timestamp | <, <=, ==, >=, >, != | double |
+| timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double |
+| double *operador* double | &&, &#124;&#124; | double |
 
 Ao testar um double com um operador ternário (`double ? statement1 : statement2`), um item diferente de zero é **true** e zero é **false**.
 

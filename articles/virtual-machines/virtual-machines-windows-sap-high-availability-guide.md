@@ -434,7 +434,8 @@ Sem ciclos longos de compra, o Microsoft Azure permite que as empresas adquiram 
 Este documento detalha todas as etapas necessárias para implantar sistemas SAP altamente disponíveis no Azure usando nosso novo método com o novo modelo de implantação do Azure Resource Manager. O guia orientará você nas etapas principais:
 
 
-- Localizar os guias e as Notas de instalação apropriados do SAP, listados mais adiante na seção [Recursos][sap-ha-guide-2]. O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
+- Localizar os guias e as Notas de instalação apropriados do SAP, listados mais adiante na seção [Recursos][sap-ha-guide-2].  
+  O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
 
 - Entender a diferença entre o modelo de implantação clássico do Azure e o novo modelo de implantação do Azure Resource Manager.
 
