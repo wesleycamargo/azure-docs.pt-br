@@ -14,21 +14,20 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="09/14/2016"
+	ms.date="09/21/2016"
 	ms.author="markvi"/>
 
 
 # Acesso condicional ao Azure Active Directory   
   
-A proteção do acesso aos recursos da empresa é importante para toda a organização. Com o advento dos serviços de nuvem e dos dispositivos móveis, a forma como os usuários acessam aos recursos das empresas sofreu uma mudança significativa. Isso requer uma nova abordagem de segurança.
+A proteção do acesso aos recursos da empresa é importante para toda a organização. Com o advento dos serviços de nuvem e dos dispositivos móveis, a forma como os usuários acessam os recursos da empresa sofreu uma mudança significativa. A proliferação de dispositivos pessoais e corporativos exige uma nova abordagem ao acesso de recursos corporativos e à segurança.
   
 ## Para que serve o acesso condicional?  
 
-Os recursos de controle de acesso condicional no Azure Active Directory oferecem maneiras simples de as empresas protegerem recursos, tanto na nuvem quanto localmente. As políticas de acesso condicional podem ser usadas para ajudar a proteger contra o roubo e a captura de credenciais ao exigirem autenticação multifator e ao ajudarem a proteger dados da empresa, exigindo que um dispositivo gerenciado do Intune conceda acesso aos serviços confidenciais.
+Os recursos de controle de acesso condicional do Azure Active Directory oferecem maneiras simples de as empresas protegerem recursos, tanto na nuvem quanto localmente. As políticas de acesso condicional podem proteger contra o risco de roubo e captura de credenciais com a autenticação multifator. Você também pode impor políticas de acesso condicional para proteger dados da empresa, de tal forma que apenas os dispositivos registrados em um sistema de gerenciamento de dispositivo móvel, como o Microsoft Intune, receba acesso a serviços confidenciais.
 
 
-
-## Requisitos de licenciamento
+## Pré-requisitos
 
 O acesso condicional do Azure Active Directory é um recurso do [Azure AD Premium](http://www.microsoft.com/identity). Todos os usuários que acessam um aplicativo com a política de acesso condicional aplicada deverão ter uma licença do Azure AD Premium. Você pode aprender mais sobre o uso com o [Relatório de usuário não licenciado](https://aka.ms/utc5ix).
 
@@ -42,25 +41,24 @@ Com o controle de acesso condicional, o Active Directory do Azure verifica as co
 
 ## Condições
   
-- **Associação a um grupo**: você pode controlar o nível de acesso de um usuário com base na associação dele a um ou mais grupos.
+- **Associação a um grupo**: controle o nível de acesso de um usuário com base na associação dele a um ou mais grupos.
 
-- **Local**: você pode usar o local do usuário para disparar o MFA e bloquear controles quando um usuário não estiver em uma rede confiável.
+- **Local**: use o local do usuário para disparar a MFA (Autenticação multifator) e bloquear os controles quando um usuário não estiver em uma rede confiável.
 
-- **Plataforma de dispositivo**: você pode usar o tipo de plataforma do dispositivo, como iOS, Android, Windows Mobile e Windows, como uma condição para a aplicação da política.
+- **Plataforma de dispositivo**: use o tipo de plataforma do dispositivo, como iOS, Android, Windows Mobile e Windows, como uma condição para a aplicação da política.
 
-- **Dispositivo habilitado**: dispositivo habilitado/desabilitado é validado durante a avaliação da política de dispositivo. Ao desabilitar um dispositivo perdido ou roubado no diretório, ele não poderá ser usado para atender aos requisitos da política.
+- **Dispositivo habilitado**: o estado habilitado/desabilitado do dispositivo é validado durante a avaliação da política do dispositivo. Ao desabilitar um dispositivo perdido ou roubado no diretório, ele não poderá ser usado para atender aos requisitos da política.
 
-- **Risco do usuário e para entrar**: políticas de risco de Acesso Condicional estão disponíveis com o Azure AD Identity Protection e fornecem proteção avançada com base em eventos de risco e atividades de entrada incomuns.
+- **Risco do usuário e para entrar**: políticas de risco de Acesso Condicional estão disponíveis com o [Azure AD Identity Protection](active-directory-identityprotection.md) e fornecem proteção avançada com base em eventos de risco e atividades de entrada incomuns.
 
 
 ## Controles
    
-- **MFA (Autenticação Multifator)**: você pode exigir autenticação forte com MFA. A MFA pode ser fornecida pelo Azure MFA ou por um provedor MFA local, usando o ADFS. A autenticação MFA ajuda a proteger seus recursos de serem acessados por um usuário não autorizado que obteve acesso ao nome de usuário e à senha de um usuário válido.
+- **MFA (Autenticação Multifator)**: você pode exigir autenticação forte com MFA. A MFA pode ser fornecida pelo Azure MFA ou por um provedor MFA local, usando o AD FS (Servidor de Federação do Active Directory). A MFA ajuda a proteger seus recursos de serem acessados por um usuário não autorizado que obteve acesso às credenciais de um usuário válido.
 
-- **Bloqueio**: o acesso pode ser aplicado sob condições como o local do usuário. Por exemplo, o bloqueio do acesso quando um usuário não está em uma rede confiável.
+- **Bloco**: condições como o local do usuário podem ser aplicadas para bloquear o acesso de usuário. Por exemplo, o bloqueio do acesso quando um usuário não está em uma rede confiável.
 
-- **Dispositivos compatíveis**: no nível do dispositivo, você pode definir políticas que impõem que somente os computadores ingressados no domínio ou dispositivos móveis registrados no MDM (gerenciamento de dispositivo móvel) e que atendam aos requisitos de conformidade tenham permissão de acesso. O Microsoft Intune é usado para verificar a conformidade em dispositivos e reportá-la de volta ao Azure Active Directory para a imposição durante o acesso do aplicativo.
- 
+- **Dispositivos compatíveis**: no nível do dispositivo, você pode definir políticas que impõem condições de modo que somente os computadores ingressados no domínio ou dispositivos móveis registrados em um aplicativo MDM (gerenciamento de dispositivo móvel) e que atendam aos requisitos de conformidade tenham permissão de acesso. Por exemplo, o Microsoft Intune pode ser usado para verificar a conformidade em dispositivos e reportá-la de volta ao Azure Active Directory para a imposição durante o acesso do aplicativo. Para obter orientações detalhadas sobre como usar o Microsoft Intune para proteger aplicativos e dados, consulte [Proteger os aplicativos e dados com o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). Você também pode aplicar proteção de dados para dispositivos perdidos ou roubados através do Microsoft Intune. Para saber mais, confira [Ajudar a proteger seus dados com apagamento completo ou seletivo usando o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
 ## Aplicativos
 
@@ -69,18 +67,18 @@ Com o controle de acesso condicional, o Active Directory do Azure verifica as co
 
 ## Acesso condicional com base em dispositivo
 
-Você também pode restringir o acesso a aplicativos de dispositivos que estejam registrados no Azure AD e que atendam a condições específicas. Isso é útil para proteger recursos organizacionais caso usuários válidos tentem acessar esses recursos de:
+Você também pode restringir o acesso a aplicativos de dispositivos que estejam registrados no Azure AD e que atendam a condições específicas. O acesso condicional baseado no dispositivo protege recursos organizacionais contra usuários que acessam esses recursos de:
 
 - Dispositivos desconhecidos/não gerenciados
 - Dispositivos que não atendam às políticas de segurança, conforme definido pela sua organização.
 
 As políticas podem ser definidas com base nos seguintes requisitos:
 
-- **Dispositivos ingressados no domínio** - você pode definir uma política para restringir o acesso a dispositivos que façam parte de um domínio do Active Directory local e também estejam registrados no Azure AD. Essa política aplica-se a desktops, laptops ou tablets da empresa executando Windows que pertençam a um domínio do Active Directory local que tenha sido registrado no Azure AD. Para obter mais informações sobre como configurar o registro automático de dispositivos Windows ingressados no domínio com o Azure AD, consulte [Como configurar o registro automático de dispositivos Windows ingressados no domínio com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+- **Dispositivos ingressados no domínio** - você pode definir uma política para restringir o acesso a dispositivos que façam parte de um domínio do Active Directory local e também estejam registrados no Azure AD. Essa política aplica-se a desktops, laptops ou tablets da empresa executando Windows que pertençam a um domínio do Active Directory local que tenha sido registrado no Azure AD. Para saber mais sobre como configurar o registro automático de dispositivos Windows ingressados no domínio com o Azure AD, consulte [Como configurar o registro automático de dispositivos Windows ingressados no domínio com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 - **Dispositivos compatíveis** - você pode definir uma política para restringir o acesso a dispositivos marcados como **compatíveis** no diretório pelo sistema de gerenciamento. Essa política garante que apenas os dispositivos que atendam às políticas de segurança como imposição de criptografia de arquivos em um dispositivo tenham permissão para acesso. Essa política pode ser usada para restringir o acesso dos seguintes dispositivos:
 
-    - **Dispositivos com Windows ingressados no domínio** gerenciados pelo System Center Configuration Manager 2016 (branch atual) implantados em uma configuração híbrida.
+    - **Dispositivos com Windows ingressados no domínio** gerenciados pelo System Center Configuration Manager 2016 (ramificação atual) implantados em uma configuração híbrida.
 
     - **Dispositivos móveis pessoais ou de trabalho do Windows 10** que são gerenciados pelo Microsoft Intune ou por um sistema de MDM (gerenciamento de dispositivo móvel) de terceiros com suporte.
 
@@ -111,7 +109,7 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 
 - [Correção de usuário ao acessar aplicativos protegidos com acesso condicional baseado em dispositivos do Azure AD](active-directory-conditional-access-device-remediation.md)
 
-- [Ajudar a proteger os dados que exigem o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+- [Proteger dados em dispositivos perdidos ou roubados usando o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 
 ### Protegendo recursos com base em riscos de entrada
@@ -123,4 +121,4 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 - [Perguntas frequentes sobre acesso condicional](active-directory-conditional-faqs.md)
 - [Referência técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

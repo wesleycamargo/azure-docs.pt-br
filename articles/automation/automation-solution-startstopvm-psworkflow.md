@@ -87,9 +87,9 @@ Os runbooks [emitirão uma mensagem](automation-runbook-output-and-messages.md) 
 | Start-AzureVMs | A máquina virtual já está em execução | MyVM já está em execução |
 | Start-AzureVMs | Solicitação de inicialização para máquina virtual enviada com êxito | MyVM foi iniciada |
 | Start-AzureVMs | Falha na solicitação de inicialização para máquina virtual | Falha ao iniciar a MyVM |
-| Stop-AzureVMs | A máquina virtual já está em execução | MyVM já foi parada |
-| Stop-AzureVMs | Solicitação de inicialização para máquina virtual enviada com êxito | MyVM foi iniciada |
-| Stop-AzureVMs | Falha na solicitação de inicialização para máquina virtual | Falha ao iniciar a MyVM |
+| Stop-AzureVMs | A máquina virtual já está parada | MyVM já foi parada |
+| Stop-AzureVMs | Solicitação de parada da máquina virtual enviada com êxito | MyVM foi parada |
+| Stop-AzureVMs | Falha na solicitação de parada da máquina virtual | Falha ao para a MyVM |
 
 Por exemplo, o trecho de código a seguir de um runbook tenta iniciar todas as máquinas virtuais com o nome de serviço *MyServiceName*. Se algumas das solicitações de inicialização falhar, as ações de erro poderão ser executadas.
 
@@ -193,4 +193,4 @@ As próximas linhas exploram cada máquina virtual. Primeiro o **PowerState** da
 - Para saber mais sobre como trabalhar com runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
 - Para saber mais sobre mensagens de saída durante a execução de runbook e registro em log para ajudar a solucionar problemas, consulte [Saída e mensagens de runbook na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

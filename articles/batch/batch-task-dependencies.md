@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Dependências de tarefa no Lote do Azure
@@ -24,17 +24,17 @@ O recurso de dependências de tarefa de Lote do Azure é uma boa opção se voc�
 - Trabalhos cujas tarefas de processamento de dados podem ser expressas como um DAG (gráfico acíclico dirigido).
 - Qualquer outro trabalho no qual tarefas downstream dependem da saída das tarefas upstream.
 
-Com esse recurso, você pode criar tarefas que são agendadas para execução em nós de computação somente após a conclusão bem-sucedida de uma ou mais outras tarefas. Por exemplo, você pode criar um trabalho que processa cada quadro de um filme 3D com tarefas paralelas separadas. A tarefa final, a "tarefa de mesclagem", mescla os quadros renderizados no filme completo somente depois que todos os quadros são gerados com êxito.
+Esse recurso permite que você crie tarefas que são agendadas para execução em nós de computação somente após a conclusão bem-sucedida de uma ou mais outras tarefas. Por exemplo, você pode criar um trabalho que processa cada quadro de um filme 3D com tarefas paralelas separadas. A tarefa final, a "tarefa de mesclagem", mescla os quadros renderizados no filme completo somente depois que todos os quadros são gerados com êxito.
 
 Você pode criar tarefas que dependem de outras tarefas em uma relação um para um ou um para muitos. Você pode até mesmo criar uma dependência de intervalo em que uma tarefa depende da conclusão bem-sucedida de um grupo de tarefas em um intervalo específico de IDs de tarefa. Você pode combinar esses três cenários básicos para criar relações muitos-para-muitos.
 
 ## Dependências de tarefas com o .NET do Lote
 
-Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Depois, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
+Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
 
 ## Habilitar dependências de tarefas
 
-Para usar as dependências de tarefas no aplicativo do Lote, primeiro você deve informar ao serviço de Lote que o trabalho usará dependências de tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] definindo a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
+Para usar as dependências de tarefas no aplicativo do Lote, primeiro você deve informar ao serviço de Lote que o trabalho usa dependências de tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] definindo a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -44,7 +44,7 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-No trecho de código, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
+No trecho de código anterior, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
 
 ## Criar tarefas dependentes
 
@@ -143,7 +143,7 @@ O recurso de [pacotes de aplicativos](batch-application-packages.md) do lote for
 
 ### Instalação de aplicativos e preparação de dados
 
-Confira a postagem [Instalação de aplicativos e preparação de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparação de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, esta postagem é um bom guia sobre as diferentes maneiras de incluir arquivos (incluindo aplicativos e dados de entrada de tarefa) em seus nós de computação. Ela fornece algumas considerações especiais a serem levadas em conta para cada método.
+Confira a postagem [Instalação de aplicativos e preparação de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparação de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, esta postagem é um bom guia sobre as diferentes maneiras de incluir arquivos (incluindo aplicativos e dados de entrada de tarefa) em seus nós de computação.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/pt-BR/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -166,4 +166,4 @@ Confira a postagem [Instalação de aplicativos e preparação de dados em nós 
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um-para-muitos"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de ids de tarefas"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

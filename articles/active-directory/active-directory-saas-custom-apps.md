@@ -3,7 +3,7 @@
     description="Saiba como conectar aplicativos ao Active Directory do Azure por conta própria usando SAML e SSO baseado em senha" 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -22,9 +22,9 @@ A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplic
 Os clientes com licenças do [Active Directory Premium do Azure](active-directory-editions.md) também obtêm estes recursos adicionais:
 
 * Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
-* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
-* Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](active-directory-scim-provisioning))
-* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
+* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](active-directory-scim-provisioning.md))
+* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 
 Isso pode incluir não apenas aplicativos SaaS usados por você que ainda não foram integrados à galeria de aplicativos do AD do Azure, mas também aplicativos Web de terceiros que sua organização implantou em servidores sob seu controle, seja na nuvem ou locais.
 
@@ -55,9 +55,9 @@ Selecione esta opção para configurar a autenticação baseada em SAML no aplic
  
 Estes são:
 
-* **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor serviço, quando um usuário navegar para essa URL, o provedor de serviço fará o redirecionamento necessário para o Azure AD a fim de autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do AD do Azure ou da URL de logon único do Azure AD (pode ser copiada da guia Painel de Controle).
+* **URL de logon (somente iniciado por SP)** – onde o usuário vai para entrar nesse aplicativo. Se o aplicativo estiver configurado para executar logon único iniciado pelo provedor de serviços, quando um usuário navegar para essa URL, o provedor de serviços fará o redirecionamento necessário para o Azure AD a fim de autenticar e conectar o usuário. Se esse campo estiver preenchido, o Azure AD usará essa URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se esse campo for omitido, o Azure AD executará, em vez disso, o logon iniciado pelo provedor de identidade quando o aplicativo for iniciado do Office 365, do painel de acesso do Azure AD ou da URL de logon único do Azure AD (pode ser copiada da guia Painel).
 
-* **URL do emissor** -a URL do emissor deve identificar exclusivamente o aplicativo para o qual SSO está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro **Público-alvo** do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a **ID da entidade** em todos os metadados SAML fornecidos pelo aplicativo. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a ID da Entidade ou o valor Público-alvo. Abaixo está um exemplo de como a URL do Público-alvo aparece no token SAML retornado para o aplicativo:
+* **URL do emissor** – a URL do emissor deve identificar exclusivamente o aplicativo para o qual o SSO está sendo configurado. Esse é o valor que o Azure AD envia para o aplicativo como o parâmetro **Audiência** do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a **ID da entidade** em todos os metadados SAML fornecidos pelo aplicativo. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a ID da Entidade ou o valor Audiência. Abaixo está um exemplo de como a URL da Audiência aparece no token SAML retornado para o aplicativo:
 
 ```
     <Subject>
@@ -71,7 +71,7 @@ Estes são:
       </Conditions>
 ```
 
-* **URL de resposta** - a URL de resposta é onde o aplicativo espera receber o token SAML. Isso também é chamado de **URL de ACS (Serviço de Declaração do Consumidor)**. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a URL de resposta de token SAML ou a URL de ACS. Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure. 
+* **URL de resposta** – a URL de resposta é onde o aplicativo espera receber o token SAML. Ela também é chamada de **URL de ACS (Serviço do Consumidor de Declaração)**. Verifique a documentação SAML do aplicativo para obter detalhes sobre o que é a URL de resposta de token SAML ou a URL de ACS. Depois que eles tiverem sido inseridos, clique em **Próximo** para prosseguir para a próxima tela. Esta tela fornece informações sobre o que precisa ser configurado no lado do aplicativo para habilitá-lo a aceitar um token SAML do AD do Azure.
 
 ![][5]
 
@@ -125,7 +125,7 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 
 Selecione esta opção para adicionar um link para um aplicativo no Painel de Acesso do AD do Azure ou no portal do Office 365 da sua organização. Você pode usar isso para adicionar links para aplicativos Web personalizado que atualmente usam o Serviços de Federação do Active Directory do Azure (ou outro serviço de federação) em vez do AD do Azure para autenticação. Ou você pode adicionar links profundos para páginas específicas do SharePoint ou outras páginas da Web que você queira que apareçam somente nos Painéis de Acesso do usuário.
 
-Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) desses usuários.
+Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do AD do Azure](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) desses usuários.
 
 Observação: você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
 
@@ -144,4 +144,4 @@ Observação: você pode carregar um logotipo de bloco para o aplicativo usando 
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

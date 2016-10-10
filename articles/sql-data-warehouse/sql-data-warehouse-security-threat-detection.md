@@ -13,21 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="09/24/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Introdução à detecção de ameaças
 
 > [AZURE.SELECTOR]
-- [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
+- [Auditoria](sql-data-warehouse-auditing-overview.md)
 - [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
-- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
-- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
 
 ## Visão geral
 
@@ -99,4 +93,4 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

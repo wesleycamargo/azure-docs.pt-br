@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/08/2016"
+   ms.date="09/22/2016"
    ms.author="carlrab"/>
 
 # Umbraco usa o Banco de Dados SQL do Azure para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem
 
-![Logotipo da Umbraco](./media/sql-database-case-study-umbraco/umbracologo.png)
+![Logotipo da Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 A Umbraco é um conhecido CMS (sistema de gerenciamento de conteúdo) de software livre que pode executar qualquer coisa, de pequenos sites de campanha e folhetos a aplicativos complexos para empresas da Fortune 500 e sites de mídia global.
 
@@ -33,7 +33,7 @@ Para simplificar as implantações do cliente, a Umbraco adicionou a UaaS (Umbra
 A UaaS permite que os clientes de SaaS usem os recursos de CMS da Umbraco que anteriormente estavam fora de seu alcance. Esses clientes são provisionados com um ambiente de trabalho CMS que inclui um banco de dados de produção. Os clientes podem incluir até dois bancos de dados adicionais para ambientes de desenvolvimento e preparo, de acordo com os respectivos requisitos. Quando um novo ambiente é solicitado, um processo automatizado atribui esse cliente a um banco de dados automaticamente. O novo banco de dados fica pronto em segundos, pois ele já foi pré-provisionado pela Umbraco de um pool elástico de bancos de dados disponíveis do Azure (veja a Figura 1).
 
 
-![A figura 1](./media/sql-database-case-study-umbraco/figure1.png)
+![Ciclo de vida de provisionamento da Umbraco](./media/sql-database-implementation-umbraco/figure1.png)
 
 Figura 1. Provisionando o ciclo de vida da UaaS (Umbraco como serviço)
  
@@ -53,9 +53,9 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
 
     Os clientes usam de um a três ambientes (para produção, preparo e/ou desenvolvimento), cada um com seu próprio banco de dados. Os bancos de dados do cliente estão em pools de banco de dados elásticos, o que permite à Umbraco fornecer dimensionamento sem a necessidade de provisionamento excessivo.
 
-    ![Figura 2](./media/sql-database-case-study-umbraco/figure2.png)
+    ![Visão geral do projeto da Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
 
-    ![A figura 3](./media/sql-database-case-study-umbraco/figure3.png)
+    ![Detalhes do projeto da Umbraco](./media/sql-database-implementation-umbraco/figure3.png)
 
     Figura 2. Site do cliente da UaaS (Umbraco como serviço), mostrando a visão geral e os detalhes do projeto
 
@@ -85,7 +85,7 @@ Na verdade, de acordo com Morten Christensen, líder técnico da Umbraco, "Agora
 
 Se um cliente não precisar mais de um segundo e/ou terceiro ambiente, ele simplesmente poderá removê-los. Isso libera recursos que podem ser usados por outros clientes como parte do pool de disponibilidade de bancos de dados elásticos da Umbraco.
 
-![Figura 4](./media/sql-database-case-study-umbraco/figure4.png)
+![Arquitetura de implantação da Umbraco](./media/sql-database-implementation-umbraco/figure4.png)
 
 Figura 3. Arquitetura de implantação da UaaS no Microsoft Azure
 
@@ -101,7 +101,7 @@ Quando os desenvolvedores da Umbraco inicialmente tomaram a decisão de mudar pa
 
 Uma meta importante dos desenvolvedores da Umbraco era fornecer uma maneira para os clientes da UaaS de provisionar ambientes rapidamente e sem limitações de capacidade. Mas, fornecer um serviço hospedado dedicado em datacenters da Umbraco exigiria muita capacidade excedente para lidar com picos de processamento. Isso significaria adicionar infraestrutura considerável de computação que teria sido regulamente subutilizada.
 
-Além disso, a equipe de desenvolvimento da Umbraco queria uma solução que a permitisse reutilizar o código existente o quanto fosse possível. Como desenvolvedor da Umbraco, Mikkel Hansen declara, "Estávamos felizes com as ferramentas de desenvolvimento da Microsoft com as quais já estávamos familiarizados, como o Microsoft SQL Server, Banco de Dados SQL do Microsoft Azure, ASP.net e IIS (Serviços de Informações da Internet). Antes de investir em uma IaaS ou em uma solução de nuvem PaaS, queríamos ter certeza de que ela daria suporte às nossas ferramentas e plataformas Microsoft, assim não teríamos que fazer mudanças massivas em nossa base de código".
+Além disso, a equipe de desenvolvimento da Umbraco queria uma solução que a permitisse reutilizar o código existente o quanto fosse possível. Como o desenvolvedor da Umbraco Mikkel Madsen afirma, "Estávamos felizes com as ferramentas de desenvolvimento da Microsoft com as quais já estávamos familiarizados, como o Microsoft SQL Server, Banco de Dados SQL do Microsoft Azure, ASP.net e IIS (Serviços de Informações da Internet). Antes de investir em uma IaaS ou em uma solução de nuvem PaaS, queríamos ter certeza de que ela daria suporte às nossas ferramentas e plataformas Microsoft, assim não teríamos que fazer mudanças massivas em nossa base de código".
 
 Para atender a todos os critérios, a Umbraco buscou um parceiro de nuvem com as seguintes qualificações:
 
@@ -117,7 +117,7 @@ Morten continua, "Antes, tínhamos que provisionar servidores para bancos de dad
 
 Morten também está satisfeito com os recursos de dimensionamento fornecidos pelo Azure. "Os pools de banco de dados elásticos são ideais para nossa oferta de SaaS, pois podemos aumentar ou diminuir a capacidade conforme a necessidade. O provisionamento é fácil, e com a nossa configuração, podemos manter a utilização no máximo”. Morten afirma, "A simplicidade dos pools elásticos, com a garantia das DTUs baseadas em camada de serviço, nos dá o poder de provisionar novos pools de recursos sob demanda. Recentemente, um de nossos maiores clientes chegou ao pico de 100 DTUs em seu ambiente ativo. Usando o Azure, nosso pools elásticos forneceram aos bancos de dados do cliente os recursos que eles precisavam em tempo real sem precisar prever os requisitos de DTU. De modo simplista, nossos clientes obtém o tempo de mudança que esperavam, e podemos cumprir nossos contratos de nível de serviço de desempenho".
 
-Mikkel Hansen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure que conecta um cenário comum de SaaS (integrando novos clientes em tempo real em escala) ao nosso padrão de aplicativo (pré-provisionando bancos de dados, tanto de desenvolvimento, quanto ativos) sobre a tecnologia subjacente (usando as filas do Barramento de Serviço do Azure em conjunto com o Banco de Dados SQL do Azure)".
+Mikkel Madsen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure que conecta um cenário comum de SaaS (integrando novos clientes em tempo real em escala) ao nosso padrão de aplicativo (pré-provisionando bancos de dados, tanto de desenvolvimento quanto ativos) sobre a tecnologia subjacente (usando as filas do Barramento de Serviço do Azure em conjunto com o Banco de Dados SQL do Azure)".
 
 ##Com o Azure, a UaaS está superando as expectativas dos clientes
 
@@ -139,4 +139,4 @@ Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz 
 
 - Para saber mais sobre a Umbraco como serviço, confira [Umbraco](https://umbraco.com/cloud).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

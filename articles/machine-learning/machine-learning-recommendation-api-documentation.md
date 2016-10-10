@@ -26,22 +26,22 @@ Este documento descreve as APIs de Recomendação do Aprendizado de Máquina do 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##1\. Visão geral
-Este documento é uma referência para a API. Você deve começar pelo documento “Recomendação de Aprendizagem de Máquina do Azure – Início Rápido".
+Este documento é uma referência para a API. Você deve começar pelo documento "Recomendação de Aprendizagem de Máquina do Azure - Início Rápido".
 
 A API de Recomendações do Aprendizado de Máquina do Azure pode ser dividida nos seguintes grupos lógicos:
 
 - <ins>Limitações</ins> - limitações da API de recomendações.
 - <ins>Informações gerais</ins> -informações sobre autenticação, controle de versão e URI de serviço.
-- <ins>Modelo Básico</ins> – APIs que permitem realizar operações básicas no modelo (por exemplo, criar, atualizar e excluir um modelo).
-- <ins>Modelo Avançado</ins> – APIs que permitem aprofundar-se nos dados avançados no modelo
-- <ins>Modelo de Regras de Negócio</ins> – APIs que permitem gerenciar regras comerciais dos resultados de recomendação do modelo.
-- <ins>Catálogo</ins> – APIs que permitem executar operações básicas em um catálogo de modelo. Um catálogo contém informações de metadados sobre os itens dos dados de uso.
+- <ins>Modelo Básico</ins> - APIs que permitem realizar operações básicas no modelo (por exemplo, criar, atualizar e excluir um modelo).
+- <ins>Modelo Avançado</ins> - APIs que permitem aprofundar-se nos dados avançados no modelo.
+- <ins>Modelo de Regras de Negócio</ins> - APIs que permitem gerenciar regras comerciais dos resultados de recomendação do modelo.
+- <ins>Catálogo</ins> - APIs que permitem executar operações básicas em um catálogo de modelo. Um catálogo contém informações de metadados sobre os itens dos dados de uso.
 - <ins>Recurso</ins> - APIs que permitem obter informações no item presente no catálogo e como usar essas informações para criar recomendações melhores.
-- <ins>Dados de uso</ins> – APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &#60;usuárioId&#62;,&#60;itemId&#62;.
-- <ins>Compilação</ins> – APIs que permitem disparar uma compilação de modelo e realizam operações básicas relacionadas a essa compilação. Você pode iniciar uma compilação de modelo uma vez que você tenha dados de uso valiosos.
-- <ins>Recomendação</ins> – após a compilação de um modelo terminar, você pode consumir recomendações usando essas APIs.
+- <ins>Dados de uso</ins> - APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &#60;usuárioId&#62;,&#60;itemId&#62;.
+- <ins>Compilação</ins> - APIs que permitem disparar uma compilação de modelo e realizam operações básicas relacionadas a essa compilação. Você pode iniciar uma compilação de modelo uma vez que você tenha dados de uso valiosos.
+- <ins>Recomendação</ins> - após a compilação de um modelo terminar, você pode consumir recomendações usando essas APIs.
 - <ins>Dados de usuário</ins> - APIs que permitem que você busque informações sobre os dados de uso do usuário.
-- <ins>Notificações</ins> – APIs que permitem receber notificações sobre problemas relacionados às suas operações de API. (Por exemplo, você está reportando dados de uso por meio da aquisição de dados e a maioria dos eventos de processamento está com falha. Uma notificação de erro será gerada.)
+- <ins>Notificações</ins> - APIs que permitem receber notificações sobre problemas relacionados às suas operações de API. (Por exemplo, você está reportando dados de uso por meio da aquisição de dados e a maioria dos eventos de processamento está com falha. Uma notificação de erro será gerada.)
 
 ##2\. Limitações
 
@@ -156,16 +156,16 @@ Código de status HTTP: 200
 
 Os dados do modelo podem ser encontrados sob os seguintes elementos:
 
-- `feed/entry/content/properties/Id` – ID exclusivo do modelo.
-- `feed/entry/content/properties/Name` – Nome do modelo.
-- `feed/entry/content/properties/Date` – Data de criação do modelo.
-- `feed/entry/content/properties/Status` – Status do modelo. Um dos seguintes:
+- `feed/entry/content/properties/Id` - ID exclusivo do modelo.
+- `feed/entry/content/properties/Name` - Nome do modelo.
+- `feed/entry/content/properties/Date` - Data de criação do modelo.
+- `feed/entry/content/properties/Status` - Status do modelo. Um dos seguintes:
     - Criado - O modelo é criado e não contém Catálogo e Uso.
-	- ReadyForBuild – O modelo é criado e contém Catálogo e Uso.
-- `feed/entry/content/properties/HasActiveBuild` – Indica se o modelo foi criado com êxito.
-- `feed/entry/content/properties/BuildId` – ID da compilação ativa do modelo.
-- `feed/entry/content/properties/Mpr` – Classificação porcentual média do modelo (MPR - consulte ModelInsight para obter mais informações).
-- `feed/entry/content/properties/UserName` – Nome do usuário interno do modelo.
+	- ReadyForBuild - O modelo é criado e contém Catálogo e Uso.
+- `feed/entry/content/properties/HasActiveBuild` - Indica se o modelo foi criado com êxito.
+- `feed/entry/content/properties/BuildId` - ID da compilação ativa do modelo.
+- `feed/entry/content/properties/Mpr` - Classificação porcentual média do modelo (MPR - consulte ModelInsight para obter mais informações).
+- `feed/entry/content/properties/UserName` - Nome do usuário interno do modelo.
 
 XML de OData
 
@@ -217,20 +217,20 @@ Recupera todos os modelos do usuário atual.
 
 Código de status HTTP: 200
 
-- `feed/entry/content/properties/Id` – ID exclusivo do modelo.
-- `feed/entry/content/properties/Name` – Nome do modelo.
-- `feed/entry/content/properties/Date` – Data de criação do modelo.
-- `feed/entry/content/properties/Status` – Status do modelo. Um dos seguintes:
+- `feed/entry/content/properties/Id` - ID exclusivo do modelo.
+- `feed/entry/content/properties/Name` - Nome do modelo.
+- `feed/entry/content/properties/Date` - Data de criação do modelo.
+- `feed/entry/content/properties/Status` - Status do modelo. Um dos seguintes:
   - Criado - O modelo é criado e não contém Catálogo e Uso.
-  - ReadyForBuild – O modelo é criado e contém Catálogo e Uso.
-- `feed/entry/content/properties/HasActiveBuild` – Indica se o modelo foi criado com êxito.
-- `feed/entry/content/properties/BuildId` – ID da compilação ativa do modelo.
-- `feed/entry/content/properties/Mpr` – MPR do modelo MPR (consulte o ModelInsight para obter mais informações).
-- `feed/entry/content/properties/UserName` – Nome do usuário interno do modelo.
-- `feed/entry/content/properties/UsageFileNames` – Lista de arquivos de uso do modelo separados por vírgula.
-- `feed/entry/content/properties/CatalogId` – ID do catálogo do modelo.
-- `feed/entry/content/properties/Description` – Descrição do modelo.
-- `feed/entry/content/properties/CatalogFileName` – Nome do arquivo do catálogo do modelo.
+  - ReadyForBuild - O modelo é criado e contém Catálogo e Uso.
+- `feed/entry/content/properties/HasActiveBuild` - Indica se o modelo foi criado com êxito.
+- `feed/entry/content/properties/BuildId` - ID da compilação ativa do modelo.
+- `feed/entry/content/properties/Mpr` - MPR do modelo MPR (consulte o ModelInsight para obter mais informações).
+- `feed/entry/content/properties/UserName` - Nome do usuário interno do modelo.
+- `feed/entry/content/properties/UsageFileNames` - Lista de arquivos de uso do modelo separados por vírgula.
+- `feed/entry/content/properties/CatalogId` - ID do catálogo do modelo.
+- `feed/entry/content/properties/Description` - Descrição do modelo.
+- `feed/entry/content/properties/CatalogFileName` - Nome do arquivo do catálogo do modelo.
 
 XML de OData
 
@@ -268,7 +268,7 @@ XML de OData
 
 ###5\.4. Atualizar modelo
 
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br> <ins>ID de compilação ativa</ins> – Cada compilação de cada modelo possui uma ID da compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br> Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa.<br> <ins>ID de compilação ativa</ins> - cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.<br> Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
 
 | Método HTTP | URI |
@@ -576,7 +576,7 @@ Disponível somente para compilação de Recomendação.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-|	buildId |	Opcional – número que identifica uma compilação bem-sucedida. |
+|	buildId |	Opcional - número que identifica uma compilação bem-sucedida. |
 |	apiVersion | 1\.0 |
 |||
 | Corpo da solicitação | NENHUM |
@@ -836,9 +836,9 @@ Estes são os tipos de regras com suporte:
 
 Código de status HTTP: 200
 
-- `feed/entry/content/properties/Id` – Identificador exclusivo desta regra.
-- `feed/entry/content/properties/Type` – O tipo da regra.
-- `feed/entry/content/properties/Parameter` – O parâmetro da regra.
+- `feed/entry/content/properties/Id` - Identificador exclusivo desta regra.
+- `feed/entry/content/properties/Type` - O tipo da regra.
+- `feed/entry/content/properties/Parameter` - O parâmetro da regra.
 
 XML de OData
 
@@ -898,9 +898,9 @@ Código de status HTTP: 200
 
 A API retorna a regra recém-criada com seus detalhes. A propriedade de regras pode ser recuperada dos caminhos a seguir:
 
-- `feed/entry/content/properties/Id` – Identificador exclusivo desta regra.
-- `feed/entry/content/properties/Type` – O tipo de regra: BlockList ou Upsale.
-- `feed/entry/content/properties/Parameter` – O parâmetro da regra.
+- `feed/entry/content/properties/Id` - Identificador exclusivo desta regra.
+- `feed/entry/content/properties/Type` - O tipo de regra: BlockList ou Upsale.
+- `feed/entry/content/properties/Parameter` - O parâmetro da regra.
 
 XML de OData
 
@@ -1051,12 +1051,12 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por item de catálogo. Cada entrada tem os seguintes dados:
 
-- `feed/entry/content/properties/ExternalId` – ID externa do item do catálogo, fornecida pelo cliente.
-- `feed/entry/content/properties/InternalId` – ID interna do item do catálogo, gerada pelas Recomendações do Aprendizado de Máquina do Azure.
-- `feed/entry/content/properties/Name` – Nome do item do catálogo.
-- `feed/entry/content/properties/Category` – Categoria do item do catálogo.
-- `feed/entry/content/properties/Description` – Descrição do item do catálogo.
-- `feed/entry/content/properties/Metadata` – Metadados do item do catálogo.
+- `feed/entry/content/properties/ExternalId` - ID externa do item do catálogo, fornecida pelo cliente.
+- `feed/entry/content/properties/InternalId` - ID interna do item do catálogo, gerada pelas Recomendações do Machine Learning do Azure.
+- `feed/entry/content/properties/Name` - Nome do item do catálogo.
+- `feed/entry/content/properties/Category` - Categoria do item do catálogo.
+- `feed/entry/content/properties/Description` - Descrição do item do catálogo.
+- `feed/entry/content/properties/Metadata` - Metadados do item do catálogo.
 
 
 XML de OData
@@ -1154,12 +1154,12 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por item de catálogo. Cada entrada tem os seguintes dados:
 
-- `feed/entry/content/properties/InternalId` – ID interna do item do catálogo, gerada pelas Recomendações do Aprendizado de Máquina do Azure.
-- `feed/entry/content/properties/Name` – Nome do item do catálogo.
-- `feed/entry/content/properties/Rating` – (para uso futuro)
-- `feed/entry/content/properties/Reasoning` – (para uso futuro)
-- `feed/entry/content/properties/Metadata` – (para uso futuro)
-- `feed/entry/content/properties/FormattedRating` – (para uso futuro)
+- `feed/entry/content/properties/InternalId` - ID interna do item do catálogo, gerada pelas Recomendações do Machine Learning do Azure.
+- `feed/entry/content/properties/Name` - Nome do item do catálogo.
+- `feed/entry/content/properties/Rating` - (para uso futuro)
+- `feed/entry/content/properties/Reasoning` - (para uso futuro)
+- `feed/entry/content/properties/Metadata` - (para uso futuro)
+- `feed/entry/content/properties/FormattedRating` - (para uso futuro)
 
 XML de OData
 
@@ -1373,10 +1373,10 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por arquivo de uso. Cada entrada tem os seguintes dados:
 
-- `feed\entry\content\properties\Id` – ID do arquivo de uso.
-- `feed\entry\content\properties\Length` – Comprimento de arquivo de uso em MB.
-- `feed\entry\content\properties\DateModified` – Data da criação do arquivo de uso.
-- `feed\entry\content\properties\UseInModel` – Se o arquivo de uso foi usado no modelo ou não.
+- `feed\entry\content\properties\Id` - ID do arquivo de uso.
+- `feed\entry\content\properties\Length` - Comprimento de arquivo de uso em MB.
+- `feed\entry\content\properties\DateModified` - Data da criação do arquivo de uso.
+- `feed\entry\content\properties\UseInModel` - Se o arquivo de uso foi usado no modelo ou não.
 
 XML de OData
 
@@ -1440,8 +1440,8 @@ Código de status HTTP: 200
 
 Uma coleção de elementos de chave/valor. Cada um deles contém a soma dos eventos para um tipo de evento específico agrupados por hora.
 
-- `feed\entry[i]\content\properties\Key` – Contém a hora (agrupados por hora) e o tipo de evento.
-- `feed\entry[i]\content\properties\Value` – Contagem de eventos total.
+- `feed\entry[i]\content\properties\Key` - Contém a hora (agrupados por hora) e o tipo de evento.
+- `feed\entry[i]\content\properties\Value` - Contagem de eventos total.
 
 XML de OData
 
@@ -1909,13 +1909,13 @@ Você não pode consumir recomendações até a compilação terminar.
 
 Status de compilação válidos:
 
-- Criar – A solicitação de compilação foi criada.
-- Em fila – A solicitação de compilação foi enviada e será enfileirada.
-- Compilando – A compilação está em andamento.
-- Sucesso – A compilação concluída com êxito.
-- Erro – A compilação foi concluída com uma falha.
-- Cancelado – A compilação foi cancelada.
-- Cancelando – Uma solicitação de cancelamento para a compilação foi enviada.
+- Criar - A solicitação de compilação foi criada.
+- Em fila - A solicitação de compilação foi enviada e será enfileirada.
+- Compilando - A compilação está em andamento.
+- Sucesso - A compilação concluída com êxito.
+- Erro - A compilação foi concluída com uma falha.
+- Cancelado - A compilação foi cancelada.
+- Cancelando - Uma solicitação de cancelamento para a compilação foi enviada.
 
 
 Observe que a ID de compilação pode ser encontrada no seguinte caminho: `Feed\entry\content\properties\Id`
@@ -1985,13 +1985,13 @@ Você não pode consumir recomendações até a compilação terminar.
 
 Status de compilação válidos:
 
-- Criado – O modelo foi criado.
-- Na fila – A compilação do modelo foi disparada e está na fila.
-- Criando – O modelo está sendo criado.
-- Sucesso – A compilação concluída com êxito.
-- Erro – A compilação foi concluída com uma falha.
-- Cancelado – A compilação foi cancelada.
-- Cancelando – A compilação está sendo cancelada.
+- Criado - O modelo foi criado.
+- Na fila - A compilação do modelo foi disparada e está na fila.
+- Criando - O modelo está sendo criado.
+- Sucesso - A compilação concluída com êxito.
+- Erro - A compilação foi concluída com uma falha.
+- Cancelado - A compilação foi cancelada.
+- Cancelando - A compilação está sendo cancelada.
 
 Observe que a ID de compilação pode ser encontrada no seguinte caminho: `Feed\entry\content\properties\Id`
 
@@ -2058,28 +2058,28 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes dados:
 
-- `feed/entry/content/properties/UserName` – O nome do usuário.
-- `feed/entry/content/properties/ModelName` – O nome do modelo.
-- `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
-- `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada (ou seja, uma compilação ativa).
-- `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
+- `feed/entry/content/properties/UserName`Nome do usuário.
+- `feed/entry/content/properties/ModelName` - O nome do modelo.
+- `feed/entry/content/properties/ModelId` - Identificador exclusivo do modelo.
+- `feed/entry/content/properties/IsDeployed` - Se a compilação é implantada (ou seja, uma compilação ativa).
+- `feed/entry/content/properties/BuildId` - Identificador exclusivo da compilação.
 - `feed/entry/content/properties/BuildType` - Tipo de compilação.
-- `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito.
-- `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
-- `feed/entry/content/properties/Progress` – Andamento da compilação (%).
-- `feed/entry/content/properties/StartTime` – Hora de início da compilação.
-- `feed/entry/content/properties/EndTime` – Hora de término da compilação.
-- `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
-- `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
+- `feed/entry/content/properties/Status` - Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito.
+- `feed/entry/content/properties/StatusMessage` - Mensagem de status detalhada (aplica-se somente a estados específicos).
+- `feed/entry/content/properties/Progress` - Andamento da compilação (%).
+- `feed/entry/content/properties/StartTime` - Hora de início da compilação.
+- `feed/entry/content/properties/EndTime` - Hora de término da compilação.
+- `feed/entry/content/properties/ExecutionTime` - Duração da compilação.
+- `feed/entry/content/properties/ProgressStep` - Detalhes sobre o estágio atual de uma compilação em andamento.
 
 Status de compilação válidos:
 - Criada - a entrada da solicitação de compilação foi criada.
-- Em fila – a solicitação de build foi disparada e está na fila.
-- Compilando – a build está em andamento.
-- Sucesso – A compilação concluída com êxito.
-- Erro – A compilação foi concluída com uma falha.
-- Cancelado – A compilação foi cancelada.
-- Cancelando – A compilação está sendo cancelada.
+- Em fila - a solicitação de build foi disparada e está na fila.
+- Compilando - a build está em andamento.
+- Sucesso - A compilação concluída com êxito.
+- Erro - A compilação foi concluída com uma falha.
+- Cancelado - A compilação foi cancelada.
+- Cancelando - A compilação está sendo cancelada.
 
 Valores válidos para o tipo de compilação:
 - Classificação - compilação de classificação.
@@ -2142,28 +2142,28 @@ Código de status HTTP: 200
 
 A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes dados:
 
-- `feed/entry/content/properties/UserName` – O nome do usuário.
-- `feed/entry/content/properties/ModelName` – O nome do modelo.
-- `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
-- `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada.
-- `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
+- `feed/entry/content/properties/UserName`Nome do usuário.
+- `feed/entry/content/properties/ModelName` - O nome do modelo.
+- `feed/entry/content/properties/ModelId` - Identificador exclusivo do modelo.
+- `feed/entry/content/properties/IsDeployed` - Se a compilação é implantada.
+- `feed/entry/content/properties/BuildId` - Identificador exclusivo da compilação.
 - `feed/entry/content/properties/BuildType` - Tipo de compilação.
-- `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelado, Cancelando e Êxito.
-- `feed/entry/content/properties/StatusMessage` – Mensagem de status detalhada (aplica-se somente a estados específicos).
-- `feed/entry/content/properties/Progress` – Andamento da compilação (%).
-- `feed/entry/content/properties/StartTime` – Hora de início da compilação.
-- `feed/entry/content/properties/EndTime` – Hora de término da compilação.
-- `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
-- `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
+- `feed/entry/content/properties/Status` - Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelado, Cancelando e Êxito.
+- `feed/entry/content/properties/StatusMessage` - Mensagem de status detalhada (aplica-se somente a estados específicos).
+- `feed/entry/content/properties/Progress` - Andamento da compilação (%).
+- `feed/entry/content/properties/StartTime` - Hora de início da compilação.
+- `feed/entry/content/properties/EndTime` - Hora de término da compilação.
+- `feed/entry/content/properties/ExecutionTime` - Duração da compilação.
+- `feed/entry/content/properties/ProgressStep` - Detalhes sobre o estágio atual de uma compilação em andamento.
 
 Status de compilação válidos:
 - Criada - a entrada da solicitação de compilação foi criada.
-- Em fila – a solicitação de build foi disparada e está na fila.
-- Compilando – a build está em andamento.
-- Sucesso – A compilação concluída com êxito.
-- Erro – A compilação foi concluída com uma falha.
-- Cancelado – A compilação foi cancelada.
-- Cancelando – A compilação está sendo cancelada.
+- Em fila - a solicitação de build foi disparada e está na fila.
+- Compilando - a build está em andamento.
+- Sucesso - A compilação concluída com êxito.
+- Erro - A compilação foi concluída com uma falha.
+- Cancelado - A compilação foi cancelada.
+- Cancelando - A compilação está sendo cancelada.
 
 
 Valores válidos para o tipo de compilação:
@@ -2258,8 +2258,8 @@ Recupera parâmetros de compilação.
 Código de status HTTP: 200
 
 Essa API retorna uma coleção de elementos de chave/valor. Cada elemento representa um parâmetro e seu valor:
-- `feed/entry/content/properties/Key` – nome do parâmetro de build.
-- `feed/entry/content/properties/Value` – valor do parâmetro de build.
+- `feed/entry/content/properties/Key` - nome do parâmetro de build.
+- `feed/entry/content/properties/Value` - valor do parâmetro de build.
 
 A tabela a seguir descreve o valor que cada chave representa.
 
@@ -2470,10 +2470,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 A resposta de exemplo a seguir inclui 10 itens recomendados.
 
@@ -2651,10 +2651,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2681,12 +2681,12 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por conjunto de item recomendado (um conjunto de itens que são geralmente comprados junto com o item de semente/entrada). Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id1` – ID do item recomendado.
-- `Feed\entry\content\properties\Name1` – Nome do item.
-- `Feed\entry\content\properties\Id2` – ID do segundo item recomendado (opcional).
-- `Feed\entry\content\properties\Name2` – nome do segundo item (opcional).
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id1` - ID do item recomendado.
+- `Feed\entry\content\properties\Name1` - Nome do item.
+- `Feed\entry\content\properties\Id2` - ID do segundo item recomendado (opcional).
+- `Feed\entry\content\properties\Name2` - nome do segundo item (opcional).
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 A resposta de exemplo a seguir inclui 3 conjuntos de itens recomendados.
 
@@ -2773,12 +2773,12 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por conjunto de item recomendado (um conjunto de itens que são geralmente comprados junto com o item de semente/entrada). Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id1` – ID do item recomendado.
-- `Feed\entry\content\properties\Name1` – Nome do item.
-- `Feed\entry\content\properties\Id2` – ID do segundo item recomendado (opcional).
-- `Feed\entry\content\properties\Name2` – nome do segundo item (opcional).
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id1` - ID do item recomendado.
+- `Feed\entry\content\properties\Name1` - Nome do item.
+- `Feed\entry\content\properties\Id2` - ID do segundo item recomendado (opcional).
+- `Feed\entry\content\properties\Name2` - nome do segundo item (opcional).
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.3
 
@@ -2810,10 +2810,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2847,10 +2847,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2882,10 +2882,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2920,10 +2920,10 @@ Código de status HTTP: 200
 
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – classificação da recomendação; um número mais alto significa maior confiança.
-- `Feed\entry\content\properties\Reasoning` – motivo da recomendação (por exemplo, explicações de recomendação).
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - Classificação da recomendação; número mais alto significa maior confiança.
+- `Feed\entry\content\properties\Reasoning` - Raciocínio da recomendação (por exemplo, explicações de recomendação).
 
 Veja um exemplo de resposta no 12.1
 
@@ -2953,10 +2953,10 @@ Recupere a lista de itens usada na compilação ativa ou na compilação especif
 Código de status HTTP: 200
 
 A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguintes dados:
-- `Feed\entry\content\properties\Id` – ID do item recomendado.
-- `Feed\entry\content\properties\Name` – Nome do item.
-- `Feed\entry\content\properties\Rating` – N/D.
-- `Feed\entry\content\properties\Reasoning` – N/D.
+- `Feed\entry\content\properties\Id` - ID do item recomendado.
+- `Feed\entry\content\properties\Name` - Nome do item.
+- `Feed\entry\content\properties\Rating` - N/A.
+- `Feed\entry\content\properties\Reasoning` - N/A.
 
 XML de OData
 
@@ -3014,11 +3014,11 @@ Código de status HTTP: 200
 XML de OData
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -3085,10 +3085,7 @@ Código de status HTTP: 200
 
 
 ##15\. Legal
-Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br>
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br>
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br>
-© 2015 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

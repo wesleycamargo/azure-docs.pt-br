@@ -17,8 +17,14 @@
 	ms.author="spelluru"/>
 
 # Agendamento e execução com o Data Factory
+Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
 
-Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. Este artigo se baseia em [Criando pipelines](data-factory-create-pipelines.md) e [Criando conjuntos de dados](data-factory-create-datasets.md). Ele presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados.
+## Pré-requisitos
+Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os seguintes artigos:
+
+- [Introdução ao Data Factory](data-factory-introduction.md)
+- [Pipelines](data-factory-create-pipelines.md)
+- [Conjunto de dados](data-factory-create-datasets.md)
 
 ## Agendar uma atividade
 
@@ -37,13 +43,13 @@ Para a janela de atividade atualmente em execução, o intervalo de tempo associ
 
 A propriedade **agendador** dá suporte às mesmas subpropriedades que a propriedade **disponibilidade** em um conjunto de dados. Confira [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability) para obter detalhes. Exemplos: agendamento em um deslocamento de tempo específico, ou definir o modo para alinhar o processamento no início ou no fim do intervalo para a janela de atividade.
 
-Você pode especificar propriedades de agendador para uma atividade, mas isso é opcional. Se você especificar uma propriedade, ela deverá corresponder à cadência que você especificar na definição do conjunto de dados de saída. Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada.
+Você pode especificar propriedades **scheduler** para uma atividade, mas isso é **opcional**. Se você especificar uma propriedade, ela deverá corresponder à cadência que você especificar na definição do conjunto de dados de saída. Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada.
 
 ## Conjuntos de dados de série temporal e fatias de dados
 
 Dados de série temporal são uma sequência contínua de pontos de dados normalmente consistindo em sucessivas medidas feitas durante um intervalo de tempo. Exemplos comuns de dados de série temporal incluem dados de sensor e dados de telemetria de aplicativo.
 
-Com o Data Factory, é possível processar dados de série temporal em lote com execuções da atividade. Normalmente, há uma cadência recorrentes na qual os dados de entrada chegam e os dados de saída devem ser produzidos. Essa cadência é modelada especificando a **availability** no conjunto de dados da seguinte maneira:
+Com o Data Factory, é possível processar dados de série temporal de maneira em lote com execuções da atividade. Normalmente, há uma cadência recorrentes na qual os dados de entrada chegam e os dados de saída devem ser produzidos. Essa cadência é modelada especificando a **availability** no conjunto de dados da seguinte maneira:
 
     "availability": {
       "frequency": "Hour",
@@ -60,9 +66,9 @@ O intervalo de tempo associado à fatia atual que está sendo gerada pode ser ac
 
 Atualmente, o Data Factory exige que a agenda especificada na atividade corresponda exatamente à agenda especificada na **disponibilidade** do conjunto de dados de saída. Portanto, **WindowStart**, **WindowEnd**, **SliceStart** e **SliceEnd** sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
 
-Para obter mais informações sobre propriedades diferentes disponíveis para a seção disponibilidade, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md).
+Para saber mais sobre propriedades diferentes disponíveis para a seção disponibilidade, confira [Criando conjuntos de dados](data-factory-create-datasets.md).
 
-## Mover dados do banco de dados SQL para o armazenamento de Blobs do Azure com a Atividade de Cópia
+## Mover dados do Banco de Dados SQL para o Armazenamento de Blobs
 
 Vamos colocar tudo em ação criando um pipeline que copia dados de uma tabela do banco de dados SQL do Azure para o armazenamento de Blobs do Azure a cada hora.
 
@@ -216,26 +222,23 @@ Após o pipeline ser implantado, o blob do Azure é populado da seguinte maneira
 -	Arquivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt. txt sem dados.
 
 
-## Criar uma fatia de dados, definir o período ativo para um pipeline e executar as fatias simultaneamente
+## Período ativo do pipeline
 
 [Criando pipelines](data-factory-create-pipelines.md) introduziu o conceito de período ativo para um pipeline especificado definindo as propriedades **start** e **end**.
 
 Você pode definir a data de início para o período ativo do pipeline no passado. O Data Factory calcula automaticamente (faz preenchimento de fundo) todas as fatias de dados no passado e começa a processá-las.
 
-Você pode configurar para que as fatias de dados preenchidas sejam executadas em paralelo. Você pode fazer isso definindo a propriedade **simultaneidade** na seção política da atividade JSON, conforme mostrado em [Criando pipelines](data-factory-create-pipelines.md).
+## Processamento paralelo de fatias de dados
+Você pode configurar as fatias de dados preenchidas para serem executadas em paralelo, definindo a propriedade **concurrency** na seção de política da atividade JSON. Para saber mais sobre essa propriedade, confira [Criando pipelines](data-factory-create-pipelines.md).
 
-## Executar novamente uma fatia de dados com falha e acompanhar a dependência de dados automaticamente
-
+## Executar novamente uma fatia de dados com falha 
 Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Confira [Monitorando e gerenciando pipelines usando folhas do Portal do Azure](data-factory-monitor-manage-pipelines.md) ou [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um conjunto de dados de série temporal com fatias como saída, que é consumida como entrada pela Atividade2 para produzir o conjunto de dados de série temporal final de saída.
 
 ![Fatia com falha](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>
-
 O diagrama mostra que, de três fatias recentes, houve uma falha ao produzir a fatia de 9-10h para Dataset2. O Data Factory controla automaticamente a dependência para o conjunto de dados de série temporal. Como resultado, ele não inicia a execução da atividade para a fatia downstream de 9-10h.
-
 
 Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico da fatia com falha, para que você localize facilmente a causa raiz do problema e corrija-o. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais detalhes sobre como executar novas execuções e compreender as transições de estado para fatias de dados, confira [Monitorando e gerenciando pipelines usando folhas do Portal do Azure](data-factory-monitor-manage-pipelines.md) ou [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md).
 
@@ -262,7 +265,7 @@ Conforme mencionado anteriormente, as atividades podem estar no mesmo pipeline. 
 ![Encadeando atividades no mesmo pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copiar sequencialmente
-É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Por exemplo, talvez você tenha duas atividades de cópia em um pipeline: CopyActivity1 e CopyActivity2 com os conjuntos de dados de saída dos dados de entrada a seguir.
+É possível executar várias operações de cópia, uma após a outra de maneira sequencial/ordenada. Por exemplo, você pode ter duas atividades de cópia em um pipeline (CopyActivity1 e CopyActivity2) com os seguintes conjuntos de dados de saída dos dados de entrada:
 
 CopyActivity1
 
@@ -581,7 +584,7 @@ Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive q
 
 A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
 
-Você precisa especificar isso para cada execução de atividade, o Data Factory deve usar a fatia de dados da semana passada para o conjunto de dados de entrada semanal. Você pode fazer isso com a ajuda de funções do Azure Data Factory, conforme mostrado no trecho de código a seguir.
+Você precisa especificar isso para cada execução de atividade, o Data Factory deve usar a fatia de dados da semana passada para o conjunto de dados de entrada semanal. Use as funções do Azure Data Factory conforme mostrado no trecho a seguir para implementar esse comportamento.
 
 **Saída1: blob do Azure**
 
@@ -731,7 +734,7 @@ Para gerar uma fatia do conjunto de dados por uma execução de atividade, o Dat
 
 O intervalo de tempo dos conjuntos de dados de entrada necessários para gerar a fatia do conjunto de dados de saída é chamado de *período de dependência*.
 
-Executar uma atividade gera uma fatia do conjunto de dados somente depois que as fatias de dados nos conjuntos de dados de entrada dentro do período de dependência estão disponíveis. Isso significa que todas as fatias de entrada que compõem o período de dependência devem estar com status **Pronto** para execução da atividade produza uma fatia do conjunto de dados de saída.
+Executar uma atividade gera uma fatia do conjunto de dados somente depois que as fatias de dados nos conjuntos de dados de entrada dentro do período de dependência estão disponíveis. Em outras palavras, todas as fatias de entrada que compõem o período de dependência devem estar com status **Pronto** para que a execução da atividade produza uma fatia do conjunto de dados de saída.
 
 Para gerar a fatia do conjunto de dados [**início**, **fim**], uma função deve mapear a fatia do conjunto de dados para seu período de dependência. Essa função é essencialmente uma fórmula que converte o início e fim da fatia do conjunto de dados até o início e fim do período de dependência. Mais formalmente:
 
@@ -740,7 +743,7 @@ Para gerar a fatia do conjunto de dados [**início**, **fim**], uma função dev
 
 **F** e **g** são funções de mapeamento que calculam o início e término do período de dependência para cada entrada de atividade.
 
-Como visto nos exemplos, o período de dependência é igual ao período da fatia de dados que será produzida. Nesses casos, o Data Factory calcula automaticamente as fatias de entrada que se enquadram no período de dependência.
+Como visto nos exemplos, o período de dependência é igual ao período da fatia de dados produzida. Nesses casos, o Data Factory calcula automaticamente as fatias de entrada que se enquadram no período de dependência.
 
 Por exemplo: no exemplo de agregação, em que a saída é produzida diariamente e dados de entrada estão disponíveis a cada hora, o período da fatia de dados é de 24 horas. O Data Factory localiza as fatias de entrada de hora em hora relevantes para esse período de tempo e torna a fatia de saída dependente da fatia de entrada.
 
@@ -752,7 +755,7 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 Nesses casos, quando a execução da fatia tiver terminado, o status da fatia de saída será alterado para **Aguardando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**.
 
-Se uma fatia de dados foi produzida mas não passou na validação, as execuções de atividade para fatias downstream que dependem da fatia na qual houve falha na validação não são processadas.
+Se uma fatia de dados foi produzida mas não passou na validação, as execuções de atividade para fatias downstream que dependem dessa fatia não são processadas.
 
 Os diversos estados de fatias de dados no Data Factory são abordados no artigo [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md).
 
@@ -835,4 +838,4 @@ Observe o seguinte:
 - A exibição de diagrama não mostra pipelines únicos. Este comportamento ocorre por design.
 - Pipelines avulsos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

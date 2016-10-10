@@ -2,7 +2,9 @@
 
 Cada registro DNS tem um nome e um tipo. Os registros são organizados em vários tipos de acordo com os dados que eles contêm. O tipo mais comum é um registro "A", que mapeia um nome para um endereço IPv4. Outro tipo é um registro “MX”, que mapeia um nome para um servidor de email.
 
-O DNS do Azure dá suporte a todos os tipos de registro DNS comuns, incluindo A, AAAA, CNAME, MX, NS, SOA, SRV e TXT. Conjuntos de registro SOA são criados automaticamente com cada zona. Eles não podem ser criados separadamente. Observe que os registros SPF devem ser criados usando o tipo de registro TXT. Para saber mais, confira [esta página](http://tools.ietf.org/html/rfc7208#section-3.1).
+O DNS do Azure dá suporte a todos os tipos de registro DNS comuns, incluindo A, AAAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Observe que:
+- Conjuntos de registros SOA são criados automaticamente com cada zona; eles não podem ser criados separadamente.
+- Os registros SPF devem ser criados usando o tipo de registro TXT. Para obter mais informações, consulte [esta página](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio "totalmente qualificado") inclui o nome da zona, enquanto um nome "relativo" não o inclui. Por exemplo, o nome relativo do registro "www" na zona "contoso.com" fornece o nome totalmente qualificado do registro www.contoso.com.
 
@@ -23,10 +25,10 @@ O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em 
 
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
-Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*". Ou use um nome com o rótulo "\*", por exemplo, "\*.foo".
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*". Ou use um nome com o rótulo "*", por exemplo, "*.foo".
 
 #### Conjuntos de registros CNAME
 
 Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um conjunto de registros CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Como o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, não é possível criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS e não são limitações do DNS do Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
     
 # Instalar a CLI do Azure
@@ -23,11 +23,11 @@
 - [PowerShell](powershell-install-configure.md)
 - [CLI do Azure](xplat-cli-install.md)
 
-Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções para instalar a versão mais recente:
+Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções para instalar essas ferramentas de plataforma cruzada em seu computador:
 
-* instalar de um pacote npm (requer o Node.js e o npm)
-* usar um dos pacotes de instalador fornecidos para diferentes sistemas operacionais
-* instalar a CLI do Azure como contêiner em um host do Docker
+* **pacote npm** – Execute o npm (o gerenciador de pacotes para JavaScript) para instalar o pacote mais recente da CLI do Azure em sua distribuição do Linux ou sistema operacional. Exige o node.js e o npm em seu computador.
+* **Installer** – Baixe um instalador para facilitar a instalação no Mac ou Windows.
+* **Contêiner do Docker** – Comece a usar a CLI mais recente em um contêiner do Docker pronto para ser executado. Exige um host do Docker em seu computador.
     
 Para obter mais opções e um histórico, consulte o repositório do projeto no [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -37,33 +37,35 @@ Quando a CLI do Azure estiver instalada, [conecte-a à sua assinatura do Azure](
 
 ## Opção 1. Instalar um pacote npm
 
-Para instalar a CLI de um pacote npm, você precisa do Node.js e do npm mais recentes instalados em seu sistema. Em seguida, para instalar a CLI do Azure, use o seguinte comando. (Em distribuições Linux, talvez você precise usar **sudo** para executar o comando __npm__ com êxito.)
+Para instalar a CLI de um pacote npm, você precisa do Node.js e do npm mais recentes instalados em seu sistema. Em seguida, execute o seguinte comando para instalar o pacote da CLI do Azure publicado em [npmjs.com](https://www.npmjs.com). (Em distribuições Linux, talvez você precise usar **sudo** para executar o comando __npm__ com êxito.)
 
-	npm install azure-cli -g
+	npm install -g azure-cli
 
-> [AZURE.NOTE]Se precisar instalar ou atualizar o Node.js e o npm no sistema operacional, consulte a documentação em [Nodejs.org](https://nodejs.org/en/download/package-manager/). Recomendamos que você instale a versão mais recente do Node.js LTS (4.x). Se você usar uma versão mais antiga, poderá obter erros de instalação. Encontre mais informações sobre npm em [npmjs.com](https://www.npmjs.com/).
+> [AZURE.NOTE]Se você precisar instalar ou atualizar o Node.js e o npm em sua distribuição do Linux ou sistema operacional, consulte a documentação em [Nodejs.org](https://nodejs.org/en/download/package-manager/). Recomendamos que você instale a versão mais recente do Node.js LTS (4.x). Se você usar uma versão mais antiga, poderá obter erros de instalação.
+
+Se preferir, baixe o [arquivo tar][linux-installer] do Linux mais recente para o pacote npm localmente. Em seguida, instale o pacote npm baixado da seguinte maneira (em distribuições Linux, talvez seja necessário usar **sudo**):
+
+    npm install -g <path to downloaded tar file>
 
 ## Opção 2. Usar um instalador
 
-Os seguintes pacotes de instalador da CLI também estão disponíveis para download:
-
+Se você usar um computador com Windows ou Mac, os instaladores de CLI a seguir estarão disponíveis para download:
 
 * [Instalador do Mac OS X][mac-installer]
 
-* [Windows installer][windows-installer]
+* [Windows MSI][windows-installer]
 
-* [Arquivo tar do Linux][linux-installer] \(requer o Node.js e o npm) – instale executando `sudo npm install -g <path to downloaded tar file>`
+>[AZURE.TIP]No Windows, você também pode baixar o [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) para instalar a CLI. Esse instalador lhe dá a opção de instalar o SDK do Azure e ferramentas de linha de comando adicionais após a instalação da CLI.
 
 
 ## Opção 3. Usar um contêiner do Docker
 
-Se você tiver configurado um host do Docker, execute a CLI do Azure em um contêiner do Docker. Execute:
+Se você tiver configurado seu computador como um host do [Docker](https://docs.docker.com/engine/understanding-docker/), execute a CLI mais recente do Azure em um contêiner do Docker. Execute:
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
-Para saber mais sobre o Docker, consulte [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Executar comandos da CLI do Azure
 Quando a CLI do Azure estiver instalada, execute o comando **azure** na interface do usuário de linha de comando (Bash, Terminal, Prompt de comando e assim por diante). Por exemplo, para executar o comando de ajuda, digite o seguinte:
@@ -85,7 +87,7 @@ azure --version
 
 Agora você está pronto! Para acessar todos os comandos da CLI para trabalhar com seus próprios recursos, [conecte-se à sua assinatura do Azure por meio da CLI do Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE] Ao usar a CLI do Azure, você verá uma mensagem perguntando se deseja permitir que a Microsoft colete informações sobre como você usa a CLI. A participação é voluntária. Se optar por participar, você poderá parar a qualquer momento executando `azure telemetry --disable`. Para habilitar a participação a qualquer momento, execute `azure telemetry --enable`.
+>[AZURE.NOTE] Ao usar a CLI do Azure pela primeira vez, você verá uma mensagem perguntando se deseja permitir que a Microsoft colete informações de uso. A participação é voluntária. Se optar por participar, você poderá parar a qualquer momento executando `azure telemetry --disable`. Para habilitar a participação a qualquer momento, execute `azure telemetry --enable`.
 
 
 ## Atualizar a CLI
@@ -130,4 +132,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

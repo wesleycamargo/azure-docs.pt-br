@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial do aplicativo de Smooth Streaming da Windows Store" 
+	pageTitle="Tutorial do Aplicativo Windows Store do Smooth Streaming | Microsoft Azure" 
 	description="Saiba como usar os Serviços de Mídia do Azure para criar um aplicativo C# da Windows Store com um controle XML MediaElement para reprodução de conteúdo de Smooth Streaming." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -217,7 +217,7 @@ O arquivo code-behind concluído deve ser semelhante ao seguinte:
 5.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
 6.	Clique em **Definir Origem**. Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente. Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e **Parar**. É possível controlar o volume da mídia usando o controle deslizante vertical. No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado.
 
-Você concluiu a Lição 1. Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming. Na próxima lição, você adicionará um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
+Você concluiu a Lição 1. Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming. Na próxima lição, você irá adicionar um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
 
 
 ##Lição 2: Adicionar um barra deslizante para controlar o andamento da mídia
@@ -488,7 +488,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 2.	Pressione **F5** para executar o aplicativo.
 3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL.
 4.	Clique em **Definir Origem**.
-5.	Teste a barra de controle deslizante.
+5.	Testar a barra de controle deslizante.
 
 Você concluiu a lição 2. Nesta lição, você adicionou um controle deslizante ao aplicativo.
 
@@ -986,4 +986,4 @@ Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

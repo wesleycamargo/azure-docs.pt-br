@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento" 
+	pageTitle="Atualizar os Serviços de Mídia após implantar as chaves de acesso de armazenamento | Microsoft Azure" 
 	description="Este artigo fornece diretrizes sobre como atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="milangada;cenkdin;juliako"/>
 
-#Como: Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
+#Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
 
 Ao criar uma nova conta dos Serviços de Mídia do Azure, você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Observe que você pode [adicionar mais de uma conta de armazenamento](meda-services-managing-multiple-storage-accounts.md) à sua conta dos Serviços de Mídia.
 
 Quando uma nova conta de armazenamento é criada, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticar o acesso à sua conta de armazenamento. Para manter as conexões de armazenamento mais seguro, é recomendável regenerar periodicamente e fazer uma rotação de sua chave de acesso de armazenamento. Duas chaves de acesso (primária e secundária) são fornecidas para habilitá-lo a manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra chave de acesso. Esse procedimento também é chamado de "implantação de chaves de acesso".
 
-Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. Especificamente, os localizadores que são usados para transmitir ou baixar os ativos dependem da chave de acesso de armazenamento especificada. Quando uma conta AMS é criada, ela usa uma dependência na chave de acesso de armazenamento primário por padrão; no entanto, como um usuário, você pode atualizar a chave de armazenamento que o AMS tem. Você deve garantir que os Serviços de Mídia saibam qual chave usar seguindo as etapas descritas neste tópico. Além disso, durante a implantação de chaves de acesso de armazenamento, você precisa atualizar seus localizadores para que não haja interrupção do serviço de streaming (essa etapa também é descrita no tópico).
+Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. Especificamente, os localizadores que são usados para transmitir ou baixar os ativos dependem da chave de acesso de armazenamento especificada. Quando uma conta AMS é criada, ela usa uma dependência na chave de acesso de armazenamento primário por padrão; no entanto, como um usuário, você pode atualizar a chave de armazenamento que o AMS tem. Você deve garantir que os Serviços de Mídia saibam qual chave usar seguindo as etapas descritas neste tópico. Além disso, durante a implantação das chaves de acesso de armazenamento, você precisa atualizar seus localizadores para que não haja interrupção do serviço de streaming (essa etapa também é descrita no tópico).
 
 >[AZURE.NOTE]Se tiver várias contas de armazenamento, você deverá executar esse procedimento com cada conta de armazenamento.
 >
@@ -159,4 +159,4 @@ Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-sto
 
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

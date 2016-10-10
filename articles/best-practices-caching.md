@@ -339,7 +339,7 @@ Esse é um processo possivelmente complexo, pois pode ser necessário criar vár
 
 Cada par de mestre/subordinado deve estar próximo um do outro para minimizar a latência. No entanto, cada conjunto de pares pode ser executado em diferentes datacenters do Azure localizados em diferentes regiões, caso você deseje posicionar os dados armazenados em cache perto dos aplicativos que têm mais probabilidade de usá-los. A página [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) (Executar o Redis em uma VM Linux CentOS no Azure) no site da Microsoft explica um exemplo que mostra como criar e configurar um nó do Redis em execução como uma VM do Azure.
 
-Observe que, se implementar seu próprio cache Redis desse modo, você será responsável por monitorar, gerenciar e proteger o serviço.
+[AZURE.NOTE] Observe que, se implementar seu próprio cache Redis desse modo, você será responsável por monitorar, gerenciar e proteger o serviço.
 
 ## Particionando um cache Redis
 
@@ -935,4 +935,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 - O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

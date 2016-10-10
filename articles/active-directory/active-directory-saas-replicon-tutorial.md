@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Replicon
@@ -70,11 +70,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal clássico do Azure, na página de integração de aplicativos do **Replicon**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Replicon**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-replicon-tutorial/IC777802.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777802.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, execute as seguintes etapas:
 
@@ -83,14 +83,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  Na caixa de texto **URL de Entrada do Replicon**, digite a URL de locatário do Replicon (por exemplo: *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  Na caixa de texto **URL de Resposta do Replicon**, digite a URL de **AssertionConsumerService** do Replicon (por exemplo: *https://global.replicon.com/!/saml2/company/sso/post*).
 
-        >[AZURE.NOTE] Você pode obter a URL dos metadados do Replicon em:
-        **https://global.replicon.com/!/saml2/\<ChaveSuaEmpresa>**.
+        >[AZURE.NOTE] Você pode obter a URL dos metadados do Replicon em: **https://global.replicon.com/!/saml2/\<ChaveSuaEmpresa>**.
 
     3.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no Replicon**, para baixar os metadados, clique em **Baixar metadados** e salve os metadados no computador.
 
-    ![Configurar logon único](./media/active-directory-saas-replicon-tutorial/IC777804.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-replicon-tutorial/IC777804.png "Configurar o logon único")
 
 5.  Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Replicon como administrador.
 
@@ -136,7 +135,7 @@ Para permitir que os usuários do AD do Azure façam logon no Replicon, eles dev
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Replicon, execute as etapas a seguir:
 
@@ -152,4 +151,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

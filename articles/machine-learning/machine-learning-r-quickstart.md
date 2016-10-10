@@ -4,7 +4,7 @@
 	keywords="guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r"
 	services="machine-learning"
 	documentationCenter=""
-	authors="Blackmist"
+	authors="garyericson"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="larryfr"/>
+	ms.author="garye"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
 
@@ -198,7 +198,7 @@ Agora seu teste deve ser similar a Figura 3.
 
 ####Verificar os dados
 
-Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
+Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv ** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
 
 ![Resumo do conjunto de dados cadairydata.csv][4]
 
@@ -1358,4 +1358,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Implantação contínua para Azure Functions | Microsoft Azure"
    description="Use recursos de implantação contínua do Serviço de Aplicativo do Azure para publicar seu Azure Functions."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Implantação contínua para Azure Functions 
@@ -48,7 +48,9 @@ Use o procedimento a seguir para configurar a implantação contínua para um ap
 1. No aplicativo de função no [portal de Azure Functions](https://functions.azure.com/signin), clique em **Configurações do aplicativo de função** > **Configurar integração contínua** > **Instalação**.
 
 	![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	Você também pode obter a folha Implantações do guia de início rápido Funções clicando em **Iniciar do controle de origem**.
 
 2. Na folha Implantações, clique em **Escolher fonte**, preencha as informações da origem de implantação escolhida e clique em **OK**.
@@ -128,4 +130,4 @@ Para poder baixar arquivos do aplicativo de função, você deve configurar suas
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

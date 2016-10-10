@@ -117,10 +117,12 @@ Observe que, uma vez que um nó principal executa uma única cópia dos serviço
 ### **nodeTypes**
 A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir.
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos u
         "isPrimary": true
     }]
 
-O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo de nó, será necessário atribuir o nome amigável para esse tipo de nó à variável **nodeTypeRef** daquele nó, conforme mencionado na seção [Nós no cluster](#clusternodes) acima. Para cada tipo de nó, você pode definir vários pontos de extremidade para se conectar a esse cluster. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster com vários tipos de nó, haverá um tipo de nó primário, com **isPrimary** definido como *true*. O restante dos nós terá **isPrimary** definido como *false*. Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre os valores de **nodeTypes** e **reliabilityLevel**, de acordo com a capacidade de seu cluster, bem como para saber a diferença entre os tipos de nó primários e não primários.
+O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo de nó, será necessário atribuir o nome amigável para esse tipo de nó à variável **nodeTypeRef** daquele nó, conforme mencionado na seção [Nós no cluster](#clusternodes) acima. Para cada tipo de nó, você pode definir vários pontos de extremidade para se conectar a esse cluster. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Se deseja criar uma porta de gateway de aplicativo http, você pode especificar "reverseProxyEndpointPort": [número da porta], além das outras portas mostradas acima. Em um cluster com vários tipos de nó, haverá um tipo de nó primário, com **isPrimary** definido como *true*. O restante dos nós terá **isPrimary** definido como *false*. Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre os valores de **nodeTypes** e **reliabilityLevel**, de acordo com a capacidade de seu cluster, bem como para saber a diferença entre os tipos de nó primários e não primários.
 
 
 ### **fabricSettings**
@@ -156,4 +158,4 @@ Recomenda-se usar uma unidade não de SO, como FabricDataRoot e FabricLogRoot, p
 
 Quando o arquivo ClusterConfig.JSON estiver totalmente configurado conforme a configuração de cluster autônomo, você poderá implantar o cluster seguindo o artigo [Criar um cluster do Azure Service Fabric local ou na nuvem](service-fabric-cluster-creation-for-windows-server.md) e então consultando [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

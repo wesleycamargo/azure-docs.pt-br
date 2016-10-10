@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conectando-se a conta dos serviços de mídia usando o .NET" 
-	description="Este tópico demonstra como se conectar os serviços de mídia usando o .NET." 
+	description="Este tópico demonstra como conectar os Serviços de Mídia usando o .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 - [.NET](media-services-dotnet-connect_programmatically.md)
 
 
-Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o SDK dos serviços de mídia para .NET.
+Este tópico descreve como obter uma conexão programática com os Serviços de Mídia do Microsoft Azure quando você está programando com o SDK dos Serviços de Mídia para .NET.
 
 
 ## Conectando aos Serviços de Mídia
@@ -196,4 +196,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

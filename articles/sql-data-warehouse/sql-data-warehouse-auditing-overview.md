@@ -13,23 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Auditoria no Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
+- [Auditoria](sql-data-warehouse-auditing-overview.md)
 - [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
-- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
-- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
 
-
-A auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
-
-A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
+A auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua Conta de Armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança. A auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para relatórios e análises de buscas detalhadas.
 
 As ferramentas de auditoria permitem e facilitam a adoção de padrões de conformidade, mas não garantem a conformidade. Para obter mais informações sobre os programas Azure que oferecem suporte à conformidade com os padrões, consulte a <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Central de Confiabilidade do Azure</a>.
 
@@ -151,4 +144,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

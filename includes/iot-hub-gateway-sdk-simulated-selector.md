@@ -27,7 +27,7 @@ O diagrama a seguir mostra os principais componentes da amostra, incluindo os m�
 ![][1]
 
 
-> [AZURE.NOTE] Os módulos não transmitem mensagens diretamente entre si. Os módulos publicam mensagens em um barramento de mensagem interno, que entrega as mensagens para outros módulos usando um mecanismo de assinatura, conforme mostrado no diagrama abaixo. Para obter mais informações, veja [Introdução ao SDK do Gateway][lnk-gw-getstarted].
+> [AZURE.NOTE] Os módulos não transmitem mensagens diretamente entre si. Os módulos publicam mensagens em um agente interno, que entrega as mensagens para outros módulos usando um mecanismo de assinatura, conforme mostrado no diagrama abaixo. Para obter mais informações, veja [Introdução ao SDK do Gateway][lnk-gw-getstarted].
 
 ### Módulo de ingestão de protocolo
 
@@ -69,3 +69,4 @@ Em vez de abrir uma conexão com o Hub IoT de cada dispositivo simulado, este m�
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # Dicas de desempenho para o Banco de Dados de Documentos
@@ -46,7 +46,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     - TCP
     - HTTPS
 
-    O Banco de Dados de Documentos oferece um modelo de programação RESTful simples e aberto em HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Para ter um melhor desempenho, use o protocolo TCP quando possível.
+    O Banco de Dados de Documentos oferece um modelo de programação RESTful simples e aberto em HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para ter um melhor desempenho, use o protocolo TCP quando possível.
 
     O Modo Conectividade é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. Se o Modo Direto for usado, o Protocolo também poderá ser definido no parâmetro ConnectionPolicy.
 
@@ -93,7 +93,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 4. **Ajustar consultas paralelas para coleções particionadas**
 
-    O SDK .NET do DocumentDB versão 1.9.0 e superiores oferecem suporte a consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo. Para saber mais, consulte Trabalhar com os SDKs e exemplos de código relacionados. Eles foram projetados para melhorar a taxa de transferência e a latência da consulta. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos próprios requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições que podem ser consultadas em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
+     O SDK .NET do DocumentDB versão 1.9.0 e superiores oferecem suporte a consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo (confira [Trabalhando com SDKs](documentdb-partition-data.md#working-with-the-sdks) e os [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para saber mais). Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos próprios requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições que podem ser consultadas em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
     
     (a) ***Ajuste de MaxDegreeOfParallelism:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, os dados de uma coleta particionada individual são buscados em série com relação à consulta. Então, definir MaxDegreeOfParallelism como o número de partições representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, defina MaxDegreeOfParallelism como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o MaxDegreeOfParallelism.
     
@@ -211,4 +211,4 @@ Para ver um aplicativo de exemplo usado para avaliar o DocumentDB para os cenár
 
 Além disso, para saber mais sobre como criar seu aplicativo para a escala e o alto desempenho, consulte [Particionamento e dimensionamento no Azure DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

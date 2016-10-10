@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="micurd;robinsh"/>
 
 # Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -752,4 +752,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

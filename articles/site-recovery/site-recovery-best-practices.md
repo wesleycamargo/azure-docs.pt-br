@@ -110,11 +110,12 @@ Contagem do disco do sistema operacional | 1 | A verificação de pré-requisito
 Contagem de disco de dados | 16 ou menos (o valor máximo é uma função do tamanho da máquina virtual que está sendo criada. 16 = XL) | A verificação de pré-requisitos falhará se não houver suporte
 Tamanho do VHD do disco de dados | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 Adaptadores de rede | Há suporte para vários adaptadores |
-Endereço IP estático | Com suporte | Se a máquina virtual primária estiver usando um endereço IP estático, você poderá especificar o endereço IP estático da máquina virtual que será criada no Azure. Observe que não há suporte para endereço IP estático para uma máquina virtual Linux em execução no Hyper-v.
+Endereço IP estático | Suportado | Se a máquina virtual primária estiver usando um endereço IP estático, você poderá especificar o endereço IP estático da máquina virtual que será criada no Azure. Observe que não há suporte para endereço IP estático para uma máquina virtual Linux em execução no Hyper-v.
 Disco iSCSI | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
 VHD compartilhado | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
 Disco FC | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
 Formato de disco rígido| VHD <br/><br/> VHDX | Apesar de atualmente o VHDX não ter suporte no Azure, a Recuperação de Site converterá automaticamente o VHDX em VHD ao realizar o failover para o Azure. Quando você executa o failback para o local, as máquinas virtuais continuam a usar o formato VHDX.
+BitLocker | Sem suporte | O BitLocker deve ser desabilitado antes de proteger uma máquina virtual.
 Nome da máquina virtual| Entre 1 e 63 caracteres. Restrito a letras, números e hifens. Deve começar e terminar com uma letra ou um número | Atualize o valor nas propriedades da máquina virtual na Recuperação de Site
 Tipo de máquina virtual | <p>Geração 1</p> <p>Geração 2 - Windows</p> | Há suporte para a máquina virtual de 2ª geração com o tipo de disco do sistema operacional de um disco básico que inclui os volumes de dados 1 ou 2 com o formato de disco como VHDX, que é menor do que 300GB. Não há suporte para as máquinas virtuais Linux Geração 2. [Para obter mais informações](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
@@ -127,13 +128,13 @@ Use as dicas a seguir para ajudá-lo a otimizar e dimensionar sua implantação.
 - **Tamanho de volume do sistema operacional**: quando você replica uma máquina virtual no Azure, o volume do sistema operacional deve ser inferior a 1TB. Se você tiver mais volumes do que isso, poderá movê-los manualmente para um disco diferente antes de iniciar a implantação.
 - **Tamanho do disco de dados**: se você estiver replicando para o Azure, poderá ter até 32 discos de dados em uma máquina virtual, cada uma com um máximo de 1 TB. Você pode replicar e realizar de forma efetiva o failover de uma máquina virtual de aproximadamente 32 TB.
 - **Limites de plano de recuperação**: a Recuperação de Site pode ser ampliada para milhares de máquinas virtuais. Os planos de recuperação são projetados como um modelo para aplicativos que devem sofrer o failover juntos. Por isso, limitamos para 50 o número de máquinas em um plano de recuperação.
-- **Limites de serviço do Azure**: toda assinatura do Azure vem com um conjunto de limites padrão de núcleos, serviços em nuvem etc. Recomendamos a execução de um failover de teste para validar a disponibilidade de recursos em sua assinatura. Você pode modificar esses limites por meio do suporte do Azure.
-- **Planejamento de capacidade**: leia sobre o [planejamento de capacidade](site-recovery-capacity-planner.md) para a Recuperação de Site.
+- **Limites de serviço do Azure**: toda assinatura do Azure vem com um conjunto de limites padrão de núcleos, serviços de nuvem etc. Recomendamos a execução de um failover de teste para validar a disponibilidade de recursos em sua assinatura. Você pode modificar esses limites por meio do suporte do Azure.
+- **Planejamento de capacidade**: leia sobre o [planejamento de capacidade](site-recovery-capacity-planner.md) para o Site Recovery.
 - **Largura de banda de replicação**: se você tiver pouca largura de banda de replicação, observe o seguinte:
 	- **ExpressRoute**: a Recuperação de Site funciona com o Azure ExpressRoute e com otimizadores de WAN, por exemplo, Riverbed. [Leia mais](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) sobre o ExpressRoute.
 	- **Tráfego de replicação**: a Recuperação de Site realiza uma replicação inicial inteligente usando apenas os blocos de dados e não o VHD inteiro. Somente as alterações são replicadas durante a replicação contínua.
 	- **Tráfego de rede**: você pode controlar o tráfego de rede usado para replicação configurando o [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) com uma política baseada no endereço IP de destino e na porta. Além disso, se você estiver replicando para o Azure Site Recovery usando o agente de Backup do Azure, poderá configurar a limitação desse agente. [Leia mais](https://support.microsoft.com/kb/3056159).
-- **RTO**: para medir o RTO (Objetivo do Tempo de Recuperação) que você pode esperar com a Recuperação de Site, sugerimos executar um failover de teste e exibir os trabalhos de Recuperação de Site a fim de analisar o tempo até a conclusão das operações. Se você estiver efetuando o failover no Azure, para obter o melhor RTO, recomendamos a automatização de todas as ações manuais, integrando com os planos de recuperação e de automação do Azure.
+- **RTO**: para medir o RTO (Objetivo do Tempo de Recuperação) que você pode esperar com o Site Recovery, sugerimos executar um failover de teste e exibir os trabalhos do Site Recovery a fim de analisar o tempo até a conclusão das operações. Se você estiver efetuando o failover no Azure, para obter o melhor RTO, recomendamos a automatização de todas as ações manuais, integrando com os planos de recuperação e de automação do Azure.
 - **RPO**: a Recuperação de Site oferece suporte a um objetivo de ponto de recuperação quase síncrono (RPO) quando você replica para o Azure. Isso pressupõe uma largura de banda suficiente entre seu armazenamento de dados e o Azure.
 
 
@@ -164,4 +165,4 @@ Depois de aprender e comparando os requisitos de implantação geral, você pode
 - [Replicar máquinas virtuais do Hyper-V para um site secundário com SAN](site-recovery-vmm-san.md)
 - [Replicar máquinas virtuais do Hyper-V com um único servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

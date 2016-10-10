@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Planejamento e design para o Gateway de VPN
@@ -46,20 +46,13 @@ A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade par
 
 ### <a name="gwrequire"></a>Requisitos de gateway por tipo de VPN e SKU
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Ao criar um gateway de VPN, você precisa especificar a SKU do gateway que deseja usar. Há três SKUs do Gateway de VPN:
-
-- Basic
-- Standard
-- Alto Desempenho
+Para obter informações sobre os SKUs de gateway, consulte [VPN Gateway settings (Configurações de Gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>Tipos de gateway e estimativas de taxa de transferência agregadas
-
-A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. A taxa de transferência agregada estimada pode ser um fator decisivo para seu design. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+<br> A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. A taxa de transferência agregada estimada pode ser um fator decisivo para seu design. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@ Consulte os artigos [Perguntas frequentes sobre o gateway de VPN](vpn-gateway-vp
 
 Para obter mais informações sobre configurações de gateway específicas, consulte [Sobre as configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

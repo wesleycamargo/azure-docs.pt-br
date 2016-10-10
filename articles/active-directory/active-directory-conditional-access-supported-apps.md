@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/12/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -22,56 +22,41 @@
 
 As regras de acesso condicional têm suporte em aplicativos conectados do Azure Active Directory, aplicativos SaaS federados pré-integrados, aplicativos que usam senha de logon único e a linha de aplicativos de negócios e o Proxy de aplicativo do Azure AD. Para obter uma lista detalhada dos aplicativos em que você pode habilitar o acesso condicional, veja [Serviços habilitados com acesso condicional](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). O acesso condicional funciona com aplicativos móveis e da área de trabalho que usam autenticação moderna. Este tópico explica o que tem suporte em relação à versão móvel e para desktop desses aplicativos.
 
-Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
+Aplicativos com autenticação moderna podem exibir a entrada do Azure AD nas páginas. Isso permite que um usuário seja solicitado de forma embutida para autenticação multifator ou mostre uma mensagem voltada para o usuário final quando o acesso é bloqueado. A autenticação moderna também é necessária para que o dispositivo possa autenticar com o Azure AD para que políticas de acesso condicional com base no dispositivo sejam avaliadas.
+
+É importante entender quais aplicativos têm suporte, bem como as etapas que podem ser necessárias para proteger outros pontos de entrada.
 
 ## Aplicativos que usam autenticação moderna
-Os aplicativos a seguir foram testados com MFA (autenticação multifator) e a política de localização definida no serviço de destino.
+Os aplicativos a seguir oferecem suporte ao acesso condicional ao acessar o Office 365 e outros aplicativos de serviço conectados ao Azure AD:
 
-| Aplicativo | Serviço de Destino | Plataforma |
+| Serviço de Destino | Plataforma | Aplicativo |
 |--------------|-----------------|----------------------------------------------------------------|
-| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
-| Outlook 2013 (exige autenticação moderna para ser habilitado)| Exchange |Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
-|Skype for Business (com autenticação moderna)|Exchange (o Exchange é acessado para o histórico de conversa e calendário)| Windows 10, Windows 8.1, Windows 7 |
-|Aplicativo móvel do Outlook|Exchange| iOS e Android |
-|Office 2016; Word, Excel, Sharepoint|SharePoint| Windows 10, Windows Mobile 10, Windows 8.1, Windows 7, Mac |
-|Office 2013 (exige autenticação moderna para ser habilitado)|SharePoint|Windows 10, Windows Mobile 10, Windows 8.1, Windows 7|
-|Aplicativo Dynamics CRM|Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Aplicativo Yammer|Yammer| Windows Mobile 10, iOS, Android|
-|Aplicativo Remoto do Azure|Serviço de Aplicativo Remoto do Azure|Windows 10, Windows 8.1, Windows 7, Mac, iOS, Android|
-
-
-
-
-
-Os seguintes aplicativos dão suporte a política baseada em dispositivo definida no serviço de destino:
-
-| Aplicativo | Serviço de Destino | Plataforma |
-| :--                                     | :--            | :--      |
-| Email/Calendário/Pessoas | Exchange | Windows 10, Windows Mobile 10 |
-| Office Universal: Word/Excel/PowerPoint | SharePoint | Windows 10, Windows Mobile 10 |
-| Outlook 2016 | Exchange | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
-|Outlook 2013 (exige autenticação moderna para ser habilitado) | Exchange | Windows 8.1, Windows 7 |
-
-
-Os seguintes aplicativos não dão suporte a política baseada em dispositivo definida no serviço de destino.
-
-| Aplicativo | Serviço de Destino | Plataforma |
-| :--                                     | :--            | :--      |
-| One Drive for Business usando o NGSC (Next Generation Sync Client) (Meu site e Sites de equipe) | SharePoint | Windows 10, Windows Mobile 10 |
-| Aplicativo Meus aplicativos | Qualquer | iOS, Android |
+|Office 365 Exchange Online | Windows 10|Aplicativo de Calendário/Email/Pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna habilitada), Skype for Business (com autenticação moderna)|
+|Office 365 Exchange Online| Windows 7, Windows 8.1, |Outlook 2016, Outlook 2013 (com autenticação moderna habilitada), Skype for Business (com autenticação moderna)|
+|Office 365 Exchange Online|iOS, Android| Aplicativo móvel do Outlook|
+|Office 365 Exchange Online|Mac OSX| Outlook 2016 apenas para MFA/local; em breve suporte para políticas com base em dispositivos, suporte para o Skype for Business no futuro|
+|Office 365 SharePoint Online|Windows 10| Aplicativos do Office 2016, Aplicativos universais do Office, Office 2013 (com autenticação moderna habilitada), suporte para aplicativo OneDrive for Business (NGSC ou cliente de sincronização da próxima geração) em breve, suporte de Grupos do Office em breve, suporte para aplicativos do SharePoint em breve|
+|Office 365 SharePoint Online|Windows 7, Windows 8.1,|Aplicativos do Office 2016, Office 2013 (com autenticação moderna habilitada), aplicativo OneDrive for Business (cliente de sincronização do Groove)|
+|Office 365 SharePoint Online|iOS, Android| Aplicativos móveis do Office |
+|Office 365 SharePoint Online|Mac OSX| Aplicativos do Office 2016 somente para MFA/local; suporte para políticas com base em dispositivos em breve|
+|Office 365 Yammer|Windows 10, iOS e Android | Aplicativo Office Yammer|
+|Dynamics CRM|Windows 10, 7, 8.1, iOS e Android | Aplicativo Dynamics CRM|
+|Serviço PowerBI|Windows 10, 7, 8.1, iOS e Android | Aplicativo PowerBI|
+|Serviço de Aplicativo Remoto do Azure|Windows 10, 7, 8.1, iOS e Android, Mac OSX |Aplicativo Remoto do Azure|
+|Qualquer serviço de aplicativo de Meus Aplicativos|Android e iOS|Qualquer serviço de aplicativo de Meus Aplicativos |
 
 
 ## Aplicativos que não usam autenticação moderna
 
 Atualmente, os aplicativos que não usam autenticação moderna devem ter acesso bloqueado ao usar outros métodos, pois eles não são impostos por acesso condicional. Isso é basicamente uma consideração para acesso ao Exchange e SharePoint, pois versões anteriores do aplicativo foram compiladas usando protocolos mais antigos.
 
-## SharePoint
+## Office 365 SharePoint Online
 
 Protocolos herdados podem ser desabilitados no SharePoint, usando o cmdlet Set-SPOTenant. Esse cmdlet impedirá que os clientes do Office usando os protocolos de autenticação não modernas acessem recursos do SharePoint Online.
 
 **Comando de exemplo**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
  
-## Exchange
+## Office 365 Exchange Online
 
 No Exchange, há duas categorias principais de protocolo. Analise e selecione a política certa para a sua organização:
 
@@ -130,4 +115,4 @@ Regra 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

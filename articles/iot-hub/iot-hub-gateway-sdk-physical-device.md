@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # SDK de gateway do IoT (beta): enviar mensagens do dispositivo para a nuvem com um dispositivo real usando o Linux
@@ -41,9 +41,10 @@ Quando você executa o gateway, ele:
 O gateway contém os seguintes módulos:
 
 - Um *módulo BLE* que interage com um dispositivo BLE para receber dados de temperatura do dispositivo e envia comandos para o dispositivo.
-- Um *módulo de agente* que produz diagnósticos de barramento de mensagem.
+- Um *Nuvem BLE para o módulo de dispositivo* que traduz as mensagens JSON provenientes da nuvem em instruções BLE para o *módulo BLE*.
+- Um *módulo logger* que registra todas as mensagens do gateway.
 - Um *módulo de mapeamento de identidade* que faz a conversão entre endereços MAC dos dispositivos BLE e identidades de dispositivos do Hub IoT do Azure.
-- Um *módulo HTTP de Hub IoT* que carrega dados de telemetria para um Hub IoT e recebe comandos de dispositivo de um Hub IoT.
+- Um *módulo do Hub IoT* que carrega dados de telemetria para um Hub IoT e recebe comandos de dispositivo de um Hub IoT.
 - Um *módulo de impressora BLE* que interpreta a telemetria do dispositivo BLE e imprime dados formatados para o console para habilitar a solução de problemas e depuração.
 
 ### Como os dados fluem pelo gateway
@@ -55,20 +56,21 @@ O diagrama de bloco a seguir ilustra o pipeline do fluxo de dados de upload de t
 As etapas que um item de telemetria realiza ao viajar de um dispositivo BLE para o Hub IoT são:
 
 1. O dispositivo BLE gera uma amostra de temperatura e a envia por Bluetooth para o módulo BLE no gateway.
-2. O módulo BLE recebe a amostra e a publica para o barramento de mensagem com o endereço MAC do dispositivo.
-3. O módulo de mapeamento de identidade capta essa mensagem do barramento de mensagem e usa uma tabela interna para converter o endereço MAC do dispositivo em uma identidade de dispositivo do Hub IoT (uma ID de dispositivo e uma chave do dispositivo). Em seguida, ele publica uma nova mensagem no barramento de mensagem que contém os dados de exemplo de temperatura, o endereço MAC, a ID e a chave do dispositivo.
-4. O módulo HTTP de Hub IoT recebe essa nova mensagem (gerada pelo módulo de mapeamento de identidade) do barramento de mensagem e a publica no Hub IoT.
-5. O módulo de agente registra todas as mensagens do barramento de mensagem em um arquivo de disco.
+2. O módulo BLE recebe a amostra e a publica para o agente com o endereço MAC do dispositivo.
+3. O módulo de mapeamento de identidade capta essa mensagem e usa uma tabela interna para converter o endereço MAC do dispositivo em uma identidade de dispositivo do Hub IoT (uma ID de dispositivo e uma chave do dispositivo). Em seguida, ele publica uma nova mensagem que contém os dados de exemplo de temperatura, o endereço MAC, a ID e a chave do dispositivo.
+4. O módulo de Hub IoT recebe essa nova mensagem (gerada pelo módulo de mapeamento de identidade) e a publica no Hub IoT.
+5. O módulo de agente registra todas as mensagens do agente em um arquivo de disco.
 
 O diagrama de bloco a seguir ilustra o pipeline do fluxo de dados de comando do dispositivo:
 
 ![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_command_data_flow.png)
 
-1. O módulo HTTP de Hub IoT periodicamente sonda o Hub IoT quanto a novas mensagens de comando.
-2. Quando o módulo HTTP de Hub IoT recebe uma nova mensagem de comando, ele a publica no barramento de mensagem.
-3. O módulo de mapeamento de identidade capta a mensagem de comando do barramento de mensagem e usa uma tabela interna para converter a ID do dispositivo Hub IoT para um endereço MAC do dispositivo. Em seguida, ele publica uma nova mensagem no barramento de mensagem que inclui o endereço MAC do dispositivo de destino no mapa de propriedades da mensagem.
-4. O módulo BLE capta essa mensagem e executa a instrução de E/S se comunicando com o dispositivo BLE.
-5. O módulo de agente registra todas as mensagens do barramento de mensagem em um arquivo de disco.
+1. O módulo de Hub IoT periodicamente sonda o Hub IoT quanto a novas mensagens de comando.
+2. Quando o módulo de Hub IoT recebe uma nova mensagem de comando, ele a publica no agente.
+3. O módulo de mapeamento de identidade capta a mensagem de comando e usa uma tabela interna para converter a ID do dispositivo Hub IoT para um endereço MAC do dispositivo. Em seguida, ele publica uma nova mensagem que inclui o endereço MAC do dispositivo de destino no mapa de propriedades da mensagem.
+4. O módulo Nuvem BLE para dispositivo pega essa mensagem e a converte na instrução BLE adequada para o módulo BLE. Em seguida, ele publica uma nova mensagem.
+5. O módulo BLE capta essa mensagem e executa a instrução de E/S se comunicando com o dispositivo BLE.
+6. O módulo de agente registra todas as mensagens do agente em um arquivo de disco.
 
 ## Prepare seu hardware
 
@@ -78,10 +80,10 @@ Este tutorial presume que você esteja usando um dispositivo [Texas Instruments 
 
 Antes de começar, você deve se certificar de que pode conectar seu dispositivo Edison à sua rede sem fio. Para configurar seu dispositivo Edison, você precisa se conectar a um computador host. A Intel fornece guias de introdução para os seguintes sistemas operacionais:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Introdução à placa Intel® Edison no Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Introdução à placa de desenvolvimento Intel Edison no Windows 64 bits).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Introdução à placa de desenvolvimento Intel Edison no Windows 32 bits).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Introdução à placa de desenvolvimento Intel Edison no Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Introdução à placa Intel® Edison no Linux).
 
 Para configurar seu dispositivo Edison e se familiarizar com ele, você deve concluir todas as etapas nesses artigos de “Introdução” exceto a última etapa "Choose IDE" (Escolher a IDE), que não é necessária para o tutorial atual. No final do processo de configuração da placa Edison, você:
 
@@ -283,17 +285,18 @@ A configuração de exemplo do dispositivo BLE pressupõe um dispositivo Texas I
 }
 ```
 
-#### Módulo HTTP de Hub IoT
+#### Módulo de Hub IoT
 
 Adicione o nome do Hub IoT. O valor do sufixo é geralmente **azure-devices.net**:
 
 ```json
 {
   "module name": "IoTHub",
-  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothubhttp/libiothubhttp_hl.so",
+  "module path": "/home/root/azure-iot-gateway-sdk/build/modules/iothub/libiothub_hl.so",
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
-    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>"
+    "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
+    "Transport": "HTTP"
   }
 }
 ```
@@ -324,6 +327,26 @@ Adicione o endereço MAC do dispositivo SensorTag e a ID e a chave do dispositiv
     "module path": "/home/root/azure-iot-gateway-sdk/build/samples/ble_gateway_hl/ble_printer/libble_printer.so",
     "args": null
 }
+```
+
+#### Configuração de roteamento
+
+A configuração a seguir garante o seguinte:
+- O módulo **Logger** recebe e registra todas as mensagens.
+- O módulo **SensorTag** envia mensagens para os módulos **mapeamento** e **Impressora BLE**.
+- O módulo **mapeamento** envia mensagens ao módulo **IoTHub** a ser enviado ao seu Hub IoT.
+- O módulo **IoTHub** envia as mensagens de volta para o módulo **mapeamento**.
+- O módulo **mapeamento** envia as mensagens de volta para o módulo **SensorTag**.
+
+```json
+"links" : [
+    {"source" : "*", "sink" : "Logger" },
+    {"source" : "SensorTag", "sink" : "mapping" },
+    {"source" : "SensorTag", "sink" : "BLE Printer" },
+    {"source" : "mapping", "sink" : "IoTHub" },
+    {"source" : "IoTHub", "sink" : "mapping" },
+    {"source" : "mapping", "sink" : "SensorTag" }
+  ]
 ```
 
 Para executar o exemplo, você deve executar o binário **ble\_gateway\_hl** passando o caminho para o arquivo de configuração JSON. Se você usou o arquivo **gateway\_sample.json**, o comando para executar tem uma aparência semelhante a esta:
@@ -428,4 +451,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
@@ -140,9 +140,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
         |Atributo de Asserção| Atributo de Entidade|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------|
-	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------|
-	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| nome|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| sobrenome|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]A configuração dos Atributos depende de como os aplicativos na HCP são desenvolvidos, isto é, quais atributos eles esperam ter na resposta do SAML e por qual nome (Atributo de Entidade) eles acessam esse atributo no código.
     >  
@@ -156,7 +154,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
   
 Como uma etapa opcional, você pode configurar grupos com base na asserção para seu Provedor de Identidade do Active Directory do Azure
 
->[AZURE.NOTE]Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. Por exemplo, se a declaração contém o atributo “ *contract=temporary* ”, talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo “ *TEMPORARY* ”. O grupo “ *TEMPORARY* ” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
+>[AZURE.NOTE]Usar grupos na Plataforma de Nuvem HANA SAP permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da Plataforma de Nuvem HANA SAP, determinados pelos valores de atributos na asserção SAML 2.0. Por exemplo, se a declaração contém o atributo “*contract=temporary*”, talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo “*TEMPORARY*”. O grupo “*TEMPORARY*” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP HANA Cloud Platform.
 >  
 >Use os grupos com base em asserção se desejar atribuir em massa vários usuários para uma ou mais funções de aplicativos em sua conta da Plataforma de Nuvem HANA SAP. Se você quer atribuir um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia "**Autorizações**" da ferramenta Cockpit da SAP HANA Cloud Platform.
 
@@ -180,7 +178,7 @@ Para permitir que os usuários do AD do Azure façam logon na Plataforma de Nuve
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários à Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
 
@@ -196,4 +194,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,19 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse - Suporte a clientes de versão anterior para auditoria e Mascaramento dinâmico de dados
-
-> [AZURE.SELECTOR]
-- [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
-- [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
-- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
-- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
-
 
 A [Auditoria](sql-data-warehouse-auditing-overview.md) funciona com clientes SQL que oferecem suporte ao redirecionamento de TDS.
 
@@ -46,4 +37,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

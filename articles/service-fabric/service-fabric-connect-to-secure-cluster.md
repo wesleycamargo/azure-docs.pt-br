@@ -16,10 +16,11 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# Conectar a um cluster seguro
-Quando um cliente se conecta a um nó de cluster do Service Fabric, o cliente pode ser autenticado e comunicação segura pode ser estabelecida usando segurança de certificado. Isso garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança de certificado deve ter sido previamente habilitada no cluster quando o cluster foi criado. Pelo menos dois certificados devem ser usados para proteger o cluster, um para o cluster e certificado do servidor e outro para acesso para cliente. É recomendável que você também use certificados secundários e certificados de acesso para cliente adicionais. Para obter mais informações sobre cenários de segurança de cluster, consulte [Segurança de cluster](service-fabric-cluster-security.md).
+# Conectar a um cluster seguro sem AAD
+Quando um cliente se conecta a um nó de cluster do Service Fabric, o cliente pode ser autenticado e comunicação segura pode ser estabelecida usando segurança de certificado. Essa autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança de certificado deve ter sido previamente habilitada no cluster quando o cluster foi criado. Pelo menos dois certificados devem ser usados para proteger o cluster, um para o cluster e certificado do servidor e outro para acesso para cliente. É recomendável que você também use certificados secundários e certificados de acesso para cliente adicionais. Para obter mais informações sobre cenários de segurança de cluster, consulte [Segurança de cluster](service-fabric-cluster-security.md).
 
-Para proteger a comunicação entre um cliente e um nó de cluster usando a segurança de certificado, você precisa primeiro obter e instalar o certificado do cliente para o (Meu) repositório pessoal no computador local ou para o repositório pessoal do usuário atual. Você também precisa da impressão digital do certificado do servidor para que o cliente possa autenticar o cluster.
+Para proteger a comunicação entre um cliente e um nó de cluster usando a segurança de certificado, você precisa primeiro obter e instalar o certificado do cliente. O certificado pode ser instalado no repositório Pessoal (Meu) do computador local ou o usuário atual. Você também precisa da impressão digital do certificado do servidor para que o cliente possa autenticar o cluster.
+
 
 Execute o cmdlet do PowerShell a seguir para configurar o certificado do cliente no computador do qual você acessa o cluster.
 
@@ -36,9 +37,41 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
+<a id="connectsecureclustercli"></a>
+## Conectar-se a um cluster seguro usando a CLI do Azure sem AAD
+
+Os seguintes comandos da CLI do Azure descrevem como se conectar a um cluster seguro. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
+ 
+Se o certificado tiver ACs (autoridades de certificação), você precisará adicionar o parâmetro `--ca-cert-path`, como no seguinte exemplo:
+
+```
+ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
+```
+Se você tiver várias ACs, use vírgulas como o delimitador.
+
+ 
+Se o Nome Comum no certificado não coincidir com o ponto de extremidade de conexão, você poderá usar o parâmetro `--strict-ssl-false` para ignorar a verificação.
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```
+ 
+Se você quiser ignorar a verificação de AC, poderá adicionar o parâmetro ``--reject-unauthorized-false``, conforme no seguinte comando:
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```
+ 
+Para se conectar a um cluster protegido com um certificado autoassinado, use o comando a seguir removendo a verificação de AC e a verificação de Nome Comum:
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```
+
+Depois de se conectar, você poderá executar outros comandos da CLI para interagir com o cluster.
 
 <a id="connectsecurecluster"></a>
-## Conectar a um cluster seguro usando o PowerShell
+## Conectar a um cluster seguro usando o PowerShell sem AAD
 
 Execute o seguinte comando do PowerShell para se conectar a um cluster seguro. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
 
@@ -50,7 +83,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Por exemplo, o comando anterior do PowerShell deve ser semelhante ao seguinte. *ServerCertThumbprint* é a impressão digital do certificado do servidor instalado nos nós do cluster, *FindValue* é a impressão digital do certificado do cliente do administrador.
+*ServerCertThumbprint* é a impressão digital do certificado do servidor instalado nos nós do cluster. *FindValue* é a impressão digital do certificado de cliente do administrador. Quando os parâmetros são preenchidos, o comando se parece com o exemplo a seguir:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -60,8 +93,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+
+
+
 ## Conectar-se a um cluster seguro usando as APIs de FabricClient
-O [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) a seguir. Os nós no cluster devem ter certificados válidos cujo nome comum ou nome DNS no SAN apareça na [propriedade RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) definida em [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), o que permite a autenticação mútua entre o cliente e o nó de cluster.
+
+Para obter mais informações sobre APIs do FabricClient, consulte [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Os nós no cluster devem ter certificados válidos cujo nome comum ou nome DNS no SAN aparece na [propriedade RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) definida em [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Seguir esse processo habilita a autenticação mútua entre o cliente e o nó de cluster.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -115,4 +152,4 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 - [Introdução ao modelo de Integridade da Malha de Serviço](service-fabric-health-introduction.md)
 - [Segurança do aplicativo e RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

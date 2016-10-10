@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de alta disponibilidade | Microsoft Azure"
    description="SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide (SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de alta disponibilidade)"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -434,8 +434,7 @@ Sem ciclos longos de compra, o Microsoft Azure permite que as empresas adquiram 
 Este documento detalha todas as etapas necessárias para implantar sistemas SAP altamente disponíveis no Azure usando nosso novo método com o novo modelo de implantação do Azure Resource Manager. O guia orientará você nas etapas principais:
 
 
-- Localizar os guias e as Notas de instalação apropriados do SAP, listados mais adiante na seção [Recursos][sap-ha-guide-2].  
-  O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
+- Localizar os guias e as Notas de instalação apropriados do SAP, listados mais adiante na seção [Recursos][sap-ha-guide-2]. O documento complementa a documentação de instalação do SAP e as anotações do SAP, que representam os recursos primários para instalações e implantações de software SAP em determinadas plataformas.
 
 - Entender a diferença entre o modelo de implantação clássico do Azure e o novo modelo de implantação do Azure Resource Manager.
 
@@ -1432,4 +1431,4 @@ O disco compartilhado agora é montado no nó B do cluster. O SIOS DataKeeper es
 
 _**Figura 62:** SIOS DataKeeper: replicando o volume local do nó B do cluster para o nó A do cluster_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

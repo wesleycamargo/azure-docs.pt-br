@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Detectar a face e a emoção com o Azure Media Analytics"
-	description="Este tópico demonstra como detectar faces e emoções com o Azure Media Analytics."
+	pageTitle="Detectar o Rosto e a Emoção com o Azure Media Analytics | Microsoft Azure"
+	description="Este tópico demonstra como detectar os rostos e as emoções com o Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Detectar a face e a emoção com o Azure Media Analytics
@@ -34,7 +34,7 @@ O MP (processador de mídia) **Azure Media Face Detector** permite que você con
 
 No momento, o MP do **Azure Media Face Detector** está em versão de Visualização.
 
-Este tópico fornece detalhes sobre o **Azure Media Face Detector** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET
+Este tópico fornece detalhes sobre o **Detector de Rostos em Mídias do Azure** e mostra como usá-lo com o SDK dos Serviços de Mídia para o .NET.
 
 ##Arquivos de entrada do Face Detector
 
@@ -537,4 +537,4 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

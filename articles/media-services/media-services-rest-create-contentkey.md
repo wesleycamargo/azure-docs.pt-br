@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar ContentKeys com REST" 
+	pageTitle="Criar ContentKeys com REST | Microsoft Azure" 
 	description="Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 5. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
 6. Associar a entidade **ContentKey** com sua entidade **ativos** por meio da operação $links.
 
-Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam a soma de verificação foram omitidos deste tópico. Somente os exemplos que mostram como interagir com os serviços de mídia são fornecidos.
+Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam a soma de verificação foram omitidos neste tópico. Somente os exemplos que mostram como interagir com os serviços de mídia são fornecidos.
 
 
 >[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
@@ -262,4 +262,4 @@ Resposta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

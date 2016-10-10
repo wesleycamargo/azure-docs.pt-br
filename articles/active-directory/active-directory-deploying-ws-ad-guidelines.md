@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/04/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
@@ -176,7 +176,7 @@ No entanto, como o Azure não fornece recurso de firewall completo nativo, outra
 
 As etapas de alto nível para implantar o AD FS neste caso são as seguintes:
 
-1. Crie uma [rede virtual com conectividade entre locais](../vpn-gateway/vpn-gateway-cross-premises-options.md) usando uma VPN ou a [Rota Expressa](http://azure.microsoft.com/services/expressroute/).
+1. Crie uma rede virtual com conectividade entre locais usando uma VPN ou a [ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 2. Implante controladores de domínio em uma rede virtual. Esta etapa é opcional, mas recomendada.
 
@@ -277,7 +277,7 @@ A seção a seguir descreve os cenários comuns de implantação para chamar a a
 
 #### Descrição
 
-O SharePoint é implantado em uma máquina virtual do Azure e o aplicativo não tem dependências nos recursos da rede corporativa. O aplicativo requer o AD DS do Windows Server, mas *não* exige o AD DS do Windows Server corporativo. Nenhuma confiança federada ou Kerberos é necessária porque os usuários são autoprovisionados pelo aplicativo no domínio do AD DS do Windows Server que também está hospedado na nuvem em máquinas virtuais do Azure.
+O SharePoint é implantado em uma máquina virtual do Azure e o aplicativo não tem dependências nos recursos da rede corporativa. O aplicativo requer o AD DS do Windows Server, mas *não* requer o AD DS do Windows Server corporativo. Nenhuma confiança federada ou Kerberos é necessária porque os usuários são autoprovisionados pelo aplicativo no domínio do AD DS do Windows Server que também está hospedado na nuvem em máquinas virtuais do Azure.
 
 #### Considerações sobre cenário e como as áreas de tecnologia se aplicam ao cenário
 
@@ -385,7 +385,7 @@ Por exemplo, se você implantar uma controlador de domínio de réplica em uma r
 
 ### <a name="BKMK_NetworkTopology"></a>Topologia de rede
 
-Para atender a requisitos de DNS do AD DS do Windows Server e à consistência de endereço IP, primeiro é necessário criar uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e conectar as máquinas virtuais a ela. Durante a criação, você deve decidir se deseja opcionalmente estender a conectividade à rede corporativa local, que conecta de maneira transparente máquinas virtuais do Azure a computadores locais. Isso é obtido usando tecnologias de VPN tradicionais e exige que um ponto de extremidade VPN seja exposto na borda da rede corporativa. Ou seja, a VPN é iniciada do Azure para a rede corporativa, e não o contrário.
+Para atender aos requisitos de consistência de endereço IP e de DNS do AD DS do Windows Server, primeiro é necessário criar uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e conectar as máquinas virtuais a ela. Durante a criação, você deve decidir se deseja opcionalmente estender a conectividade à rede corporativa local, que conecta de maneira transparente máquinas virtuais do Azure a computadores locais. Isso é obtido usando tecnologias de VPN tradicionais e exige que um ponto de extremidade VPN seja exposto na borda da rede corporativa. Ou seja, a VPN é iniciada do Azure para a rede corporativa, e não o contrário.
 
 Observe que encargos adicionais se aplicam ao estender uma rede virtual à sua rede local, além dos encargos padrão que se aplicam a cada máquina virtual. Especificamente, há encargos para o tempo de CPU do gateway de Rede Virtual do Azure e para o tráfego de saída gerado por cada VM que se comunica com computadores locais pela VPN. Para saber mais sobre encargos de tráfego de rede, confira [Visão geral de preços do Azure](http://azure.microsoft.com/pricing/).
 
@@ -468,7 +468,7 @@ Você precisa escolher se deseja instalar um CG (catálogo global). Em uma flore
 
 Em uma floresta de vários domínios, os CGs são necessários para expandir as associações ao Grupo Universal durante o processo de autenticação. Se você não implantar um CG, as cargas de trabalho na rede virtual que autentica em um controlador de domínio no Azure gerarão tráfego de autenticação de saída indiretamente para consultar CGs locais durante cada tentativa de autenticação.
 
-Os custos associados aos CGs serão menos previsíveis porque eles hospedam todos os domínios (parcialmente). Se a carga de trabalho hospeda um serviço de acesso à Internet e autentica usuários no AD DS do Windows Server, os custos podem ser completamente imprevisíveis. Para ajudar a reduzir as consultas de CG fora do site de nuvem durante a autenticação, você pode [habilitar o Cache de Associação ao Grupo Universal](https://technet.microsoft.com/library/cc816928).
+Os custos associados aos CGs serão menos previsíveis porque eles hospedam todos os domínios (parcialmente). Se a carga de trabalho hospeda um serviço de acesso à Internet e autentica usuários no AD DS do Windows Server, os custos podem ser completamente imprevisíveis. Para ajudar a reduzir as consultas de GC fora do site de nuvem durante a autenticação, você pode [habilitar o Cache de Associação ao Grupo Universal](https://technet.microsoft.com/library/cc816928).
 
 ### <a name="BKMK_InstallMethod"></a>Método de instalação
 
@@ -558,4 +558,4 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 
 > [AZURE.NOTE] Para obter o balanceamento de carga para pontos de extremidade do AD FS do Windows Server no Azure, configure todos os membros do farm do AD FS do Windows Server no mesmo serviço de nuvem e use o recurso de balanceamento de carga do Azure para HTTP (padrão 80) e portas HTTPS (padrão 443). Para saber mais, confira [Investigação do balanceador de carga do Azure](https://msdn.microsoft.com/library/azure/jj151530). Não há suporte para o NLB (balanceamento de carga de rede) do Windows Server no Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

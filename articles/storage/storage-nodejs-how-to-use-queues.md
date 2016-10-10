@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="cbrooks;robmcm"/>
 
 
 # Como usar o Armazenamento de Fila do Node.js
@@ -31,7 +31,7 @@ Este guia mostra como executar cenários comuns usando o serviço Fila do Micros
 
 ## Criar um aplicativo Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] \(Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Create a Node.js web app in Azure App Service] (Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure), [Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure] usando o Windows PowerShell ou [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix].
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -325,4 +325,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Criar e implantar um aplicativo Web Node.js no Azure usando o WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

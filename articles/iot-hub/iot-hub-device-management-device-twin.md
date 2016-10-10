@@ -96,7 +96,7 @@ Não é possível fazer uma leitura profunda nas propriedades de serviço ou nas
 
 ### Gravação profunda
 
-Se desejar alterar uma propriedade de dispositivo gravável, você poderá fazer isso com uma gravação profunda que inicia um trabalho do dispositivo para gravar o valor no dispositivo físico. Nem todas as propriedades de dispositivo são graváveis. Para obter uma lista completa, veja o Apêndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+Se desejar alterar uma propriedade de dispositivo gravável, você poderá fazer isso com uma gravação profunda que inicia um trabalho do dispositivo para gravar o valor no dispositivo físico. Nem todas as propriedades de dispositivo são graváveis. Para obter uma lista completa, veja o Apêndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
 O trabalho envia uma mensagem ao dispositivo físico para atualizar a propriedade especificada. O dispositivo gêmeo não é atualizado imediatamente quando o trabalho é concluído. É necessário aguardar até o próximo intervalo de notificação. Quando ocorrer a sincronização, será possível ver a alteração no dispositivo gêmeo com uma leitura superficial.
 
@@ -115,7 +115,7 @@ int level = get_batterylevel();  // call to platform specific code
 set_device_batterylevel(0, level);
 ```
 
-Em vez de usar o método Set, você poderá implementar um retorno de chamada. Para obter mais informações sobre essa opção, veja [Introducing the Azure IoT Hub device management client library][lnk-dm-library] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+Em vez de usar o método Set, você poderá implementar um retorno de chamada. Para obter mais informações sobre essa opção, veja [Introducing the Azure IoT Hub device management client library][lnk-dm-library] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
 ## Próximas etapas
 
@@ -157,4 +157,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -43,7 +43,7 @@ Há três dispositivos IoT conectados ao Hub IoT nesta solução:
 
 ### Software do gateway
 
-O software do gateway é executado como um serviço na placa Edison. Dois dispositivos simulados geram a telemetria da temperatura. O módulo de mapeamento mapeia esses dispositivos simulados para os dispositivos registrados no Hub IoT e o módulo HTTP lida com a comunicação com o ponto de extremidade do Hub IoT. O artigo [SDK do Gateway IoT – enviar mensagens do dispositivo para a nuvem com um dispositivo simulado][lnk-gateway-scenario] descreve esse cenário detalhadamente.
+O software do gateway é executado como um serviço na placa Edison. Dois dispositivos simulados geram a telemetria da temperatura. O módulo de mapeamento mapeia esses dispositivos simulados para os dispositivos registrados no Hub IoT e o módulo do Hub IoT lida com a comunicação com o ponto de extremidade do Hub IoT. O artigo [SDK do Gateway IoT – enviar mensagens do dispositivo para a nuvem com um dispositivo simulado][lnk-gateway-scenario] descreve esse cenário detalhadamente.
 
 ### Cliente de gerenciamento de dispositivos
 
@@ -425,4 +425,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

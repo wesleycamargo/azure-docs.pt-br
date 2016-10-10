@@ -3,7 +3,7 @@
 	description="Solucione as causas comuns de problemas que podem ocorrer quando você se inscreve no Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -87,4 +87,4 @@ Se você já ativou uma assinatura do Azure anteriormente, e a ativação de ava
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

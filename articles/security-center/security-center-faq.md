@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -121,10 +121,10 @@ Se precisar:
 ### Quais recursos do Azure são monitorados pela Central de Segurança do Azure?
 A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
-- Máquinas virtuais (incluindo os Serviços de Nuvem)
+- VMs (máquinas virtuais) (incluindo os [Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md))
 - Redes Virtuais do Azure
 - Serviço do SQL Azure
-- Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web
+- Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md)
 
 ## Máquinas Virtuais
 
@@ -141,9 +141,9 @@ VMs do Linux com suporte:
 
 - Ubuntu versões 12.04, 14.04, 15.10, 16.04
 - Debian versões 7, 8
-- CentOS versões 6.\*, 7.*
-- Red Hat Enterprise Linux (RHEL) versões 6.\*, 7.*
-- SUSE Linux Enterprise Server (SLES) versões 11.\*, 12.*
+- CentOS versões 6.*, 7.*
+- Red Hat Enterprise Linux (RHEL) versões 6.*, 7.*
+- SUSE Linux Enterprise Server (SLES) versões 11.*, 12.*
 
 Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
 
@@ -159,4 +159,4 @@ Pode levar algum tempo (normalmente, menos de uma hora) para que os dados de ver
 
 O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de dados. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. Para obter informações sobre como instalar o Agente da VM em outras VMs, consulte a postagem de blog sobre o [Agente de VM e Extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

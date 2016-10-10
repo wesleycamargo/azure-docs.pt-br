@@ -29,7 +29,7 @@ Este artigo explica como criar e popular um novo grupo na visualização do Azur
 
   ![Abrindo o gerenciamento de usuários](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 
-3. Na folha **Usuários e grupos**, selecione **Todos os grupos**.
+3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
 
   ![Abrindo a folha de grupos](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
 
@@ -39,11 +39,11 @@ Este artigo explica como criar e popular um novo grupo na visualização do Azur
 
 5. Na folha **Grupo**, adicione um nome e uma descrição ao grupo.
 
-6. Para selecionar os membros a serem adicionados ao grupo, selecione **Atribuído** na caixa **Tipo de associação** e, em seguida, selecione **Membros**. Para obter mais informações sobre como gerenciar a associação de um grupo dinamicamente, consulte [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-users-azure-portal.md) ou [Gerenciar regras dinâmicas para dispositivos em um grupo](active-directory-groups-dynamic-devices-azure-portal.md).
+6. Para selecionar os membros a serem adicionados ao grupo, selecione **Atribuído** na caixa **Tipo de associação** e, em seguida, selecione **Membros**. Para saber mais sobre como gerenciar a associação de um grupo dinamicamente, consulte [Usar atributos para criar regras avançadas para a associação de grupo](active-directory-groups-dynamic-membership-azure-portal.md).
 
   ![Selecionando membros para adicionar](./media/active-directory-groups-create-azure-portal/select-members.png)
 
-5. Na folha **Membros**, selecione um ou mais usuários ou dispositivos para adicionar ao grupo e selecione o botão **Selecionar** na parte inferior da folha para adicioná-los ao grupo. A caixa **Usuário** filtra a exibição com base na correspondência de sua entrada com qualquer parte de um nome de usuário ou dispositivo. Caracteres curinga não são aceitos nessa caixa.
+5. Na folha **Membros**, escolha um ou mais usuários ou dispositivos para adicionar ao grupo e escolha o botão **Selecionar** na parte inferior da folha para adicioná-los ao grupo. A caixa **Usuário** filtra a exibição com base na correspondência de sua entrada com qualquer parte de um nome de usuário ou dispositivo. Caracteres curinga não são aceitos nessa caixa.
 
 6. Quando terminar de adicionar membros ao grupo, selecione **Criar** na folha **Grupo**.
 
@@ -62,4 +62,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

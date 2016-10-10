@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/15/2016"
+	ms.date="09/25/2016"
 	ms.author="glenga"/>
 
 # Adicionar notificações por push ao seu aplicativo do Windows
@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-Este tópico mostra como enviar notificações por push para um aplicativo da UWP (Plataforma Universal do Windows) usando os Aplicativos Móveis no Serviço de Aplicativo do Azure com os Hubs de Notificação do Azure. Nesse cenário, quando um novo item é adicionado, o back-end do Aplicativo móvel envia uma notificação por push para todos os aplicativos do Windows registrados com o Serviço de Notificação do Windows (WNS).
+Este tópico mostra como enviar notificações por push para um aplicativo da UWP (Plataforma Universal do Windows) usando os Aplicativos Móveis no Serviço de Aplicativo do Azure com os Hubs de Notificações do Azure. Nesse cenário, quando um novo item é adicionado, o back-end do Aplicativo móvel envia uma notificação por push para todos os aplicativos do Windows registrados com o Serviço de Notificação do Windows (WNS).
 
 Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial de início rápido [Criar um aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started.md). Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -223,4 +223,4 @@ Considere a possibilidade de prosseguir com um dos seguintes tutoriais:
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

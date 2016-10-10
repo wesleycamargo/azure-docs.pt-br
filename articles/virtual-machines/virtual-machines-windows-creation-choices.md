@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Diferentes maneiras de criar uma máquina virtual do Windows com o Gerenciador de Recursos
@@ -34,7 +34,7 @@ As máquinas virtuais exigem uma combinação de recursos (como conjuntos de dis
 - [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos](virtual-machines-windows-ps-template.md)
 
 
-## PowerShell do Azure
+## Azure PowerShell
 
 Se preferir trabalhar em um shell de comando, será possível usar o Azure PowerShell.
 
@@ -47,4 +47,4 @@ Use o Visual Studio para criar, gerenciar e implantar VMs com as Ferramentas do 
 
 [Ferramentas do Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

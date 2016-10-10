@@ -24,15 +24,7 @@ Este artigo explica alguns dos métodos mais comuns para resolver problemas de l
 
 > [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## Portais do Azure
-
-| Nome | Descrição | URL |
-|---|---|---|
-| Portal do Azure |Um local central no qual você pode provisionar e gerenciar os recursos do Azure | [https://portal.azure.com](https://portal.azure.com) |
-| portal clássico do Azure | O antigo portal do Azure |[https://manage.windowsazure.com](https://manage.windowsazure.com) |
-| Central de Contas do Azure | Um local central onde você pode acompanhar o uso do Azure e gerenciar sua assinatura |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions) ||
-
-## Sintoma: a página trava no status de carregamento
+## A página para de responder no status de carregamento
 
 Esse problema pode causar um problema que afeta o seu navegador da Internet.
 
@@ -44,17 +36,17 @@ Para resolver esse problema, tente os seguintes métodos, na ordem fornecida. De
 
 	R. Clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação do InPrivate**.
 
-	B. Navegue até o [portal do Azure](https://portal.azure.com) ou o [portal clássico do Azure](https://manage.windowsazure.com) e entre no portal.
+	B. Navegue até o [portal do Azure](https://portal.azure.com) e entre no portal.
 
-## Sintoma: mensagem de erro "Nenhuma assinatura encontrada"
+## Mensagem de erro "Nenhuma assinatura encontrada"
 
-Esse problema poderá ocorrer se a conta não tiver direitos de usuário suficientes. Um administrador da conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (administradores de serviço) e CA (coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com) ou ao [Portal clássico do Azure](https://manage.windowsazure.com/).
+Esse problema poderá ocorrer se a conta não tiver direitos de usuário suficientes. Um administrador da conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (administradores de serviço) e CA (coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com).
 
-**Cenário 1: mensagem de erro é recebida no portal do Azure ou portal clássico do Azure**
+**Cenário 1: a mensagem de erro é recebida no [Portal do Azure](https://portal.azure.com)**
 
 Para resolver esse problema, [adicione a função de administrador colegas ou proprietário](billing-add-change-azure-subscription-administrator.md) para a conta.
 
-**Cenário 2: a mensagem de erro é recebida no Centro de Contas do Azure**
+**Cenário 2: a mensagem de erro é recebida no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions)**
 
 Verifique se a conta usada é o administrador da conta. Para verificar quem é o administrador da conta, siga estas etapas:
 
@@ -63,7 +55,7 @@ Verifique se a conta usada é o administrador da conta. Para verificar quem é o
 3.	Selecione a assinatura que você deseja verificar e, em seguida, selecione **Configurações**.
 4.	Selecione **Propriedades**. O administrador da conta da assinatura será exibido na caixa **Administrador da Conta**.
 
-## Sintoma: você está automaticamente conectado como um usuário diferente
+## Você está automaticamente conectado como um usuário diferente
 
 Esse problema poderá ocorrer se você estiver usando mais de uma conta de usuário em um navegador da Internet.
 
@@ -76,14 +68,14 @@ Para resolver o problema, tente usar um dos seguintes métodos:
 
 -	Navegue até o portal do Azure no modo de Navegação InPrivate. Para fazer isso, clique em **Ferramentas** ![botão ferramentas](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Segurança** > **Navegação do InPrivate**.
 
-## Conta da Microsoft versus Conta organizacional
+## Entre usando uma conta organizacional
 
 Sua conta da Microsoft é o endereço de e-mail usado, juntamente com sua senha para entrar em qualquer programa do Windows Live ou serviço, como o Outlook, Hotmail, MSN ou OneDrive. Você pode configurar uma conta da Microsoft usando qualquer endereço de e-mail que pertence a você, incluindo o e-mail da sua empresa. Consulte [www.microsoft.com/account](http://www.microsoft.com/account) para obter mais detalhes.
 
-Se sua conta estiver associada uma Conta institucional, selecione a opção de logon correta conforme mostrado abaixo. Para obter mais informações sobre como usar uma Conta institucional, consulte [Inscreva-se no Azure como uma instituição](./active-directory/sign-up-organization.md):
+A página de entrada padrão do Portal do Azure destina-se à conta da Microsoft. Se sua conta estiver associada uma Conta institucional, selecione a opção de logon correta conforme mostrado abaixo. Para obter mais informações sobre como usar uma Conta institucional, consulte [Inscreva-se no Azure como uma instituição](./active-directory/sign-up-organization.md):
 
 ![página de entrada](./media/billing-cannot-login-subscription/signin.png)
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

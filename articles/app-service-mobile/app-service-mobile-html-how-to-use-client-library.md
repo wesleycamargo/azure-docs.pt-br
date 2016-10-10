@@ -22,6 +22,12 @@
 
 Este guia ensina a executar cenários comuns usando o mais recente [SDK do JavaScript para os Aplicativos Móveis do Azure]. Se não estiver familiarizado com os Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end e uma tabela. Neste guia, vamos nos concentrar no uso do back-end móvel em aplicativos Web em HTML/JavaScript.
 
+## Plataformas com suporte
+
+Limitamos o suporte de navegador às versões atuais e mais recentes dos principais navegadores: Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox. Esperamos que o SDK funcione com todos os navegadores relativamente modernos.
+
+O pacote é distribuído como um Módulo de JavaScript Universal e, portanto, ele dá suporte aos formatos AMD, CommonJS e globais.
+
 ##<a name="Setup"></a>Configuração e Pré-requisitos
 
 Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais.
@@ -73,7 +79,7 @@ A execução local pode causar problemas porque, por padrão, a autenticação d
 4. Clique em **Ir** para abrir o gerenciador de recursos para o back-end do Aplicativo Móvel em uma nova janela ou guia.
 5. Expanda o nó **config** > **authsettings** do seu aplicativo.
 6. Clique no botão **Editar** para habilitar a edição do recurso.
-7. Encontre o elemento **allowedExternalRedirectUrls**, que deve ser nulo. Altere-o para o seguinte:
+7. Encontre o elemento **allowedExternalRedirectUrls**, que deve ser nulo. Adicione as URLs em uma matriz:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -97,10 +103,10 @@ Após a atualização do back-end, você poderá usar as novas URLs de loopback 
 <!-- URLs. -->
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Portal do Azure]: https://portal.azure.com/
 [SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

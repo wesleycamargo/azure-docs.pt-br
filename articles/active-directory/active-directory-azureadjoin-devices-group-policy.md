@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10
@@ -33,7 +33,7 @@ O ingresso no domínio no Windows 10 fornecerá os seguintes benefícios depois 
 
 O ingresso no domínio continua a ser útil. No entanto, para obter os benefícios que o AD do Azure pode oferecer, por exemplo, SSO, roaming de configurações com conta corporativa ou de estudante, acesso ao Windows Store com conta corporativa ou de estudante, você precisará do seguinte:
 
-- Assinatura do AD do Azure
+- Assinatura do Azure AD
 - Azure AD Connect para estender o diretório local ao AD do Azure
 - Política definida para conectar dispositivos ingressados no domínio ao AD do Azure
 - Compilação do Windows 10 (compilação 10551 ou mais recente) para dispositivos
@@ -123,21 +123,12 @@ Os computadores com Windows 10 farão a autenticação usando a autenticação i
 
 ### Etapa 2: configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
 
-Você pode usar uma Política de Grupo no Active Directory para configurar os dispositivos ingressados no domínio do Windows 10 para registro automático no AD do Azure. Para isso, use as seguintes instruções passo a passo:
+Você pode usar uma Política de Grupo no Active Directory para configurar os dispositivos ingressados no domínio do Windows 10 para registro automático no AD do Azure.
 
-1. 	Abra o Gerenciador do Servidor e navegue até **Ferramentas** > **Gerenciamento de Política de Grupo**.
-2.	No Gerenciamento de Política de Grupo, navegue até o nó de domínio que corresponde ao domínio no qual você deseja habilitar o Ingresso no AD do Azure.
-3.	Clique com o botão direito do mouse em **Objetos de Política de Grupo** e selecione **Novo**. Nomeie seu objeto de Política de Grupo como, por exemplo, Ingresso no AD do Azure. Clique em **OK**.
-4.	Clique com o botão direito do mouse em seu novo Objeto de Política de Grupo e selecione **Editar**.
-5.	Navegue até **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Ingresso no Local de Trabalho**.
-6.	Clique com o botão direito do mouse em **Ingressar computadores cliente automaticamente no local de trabalho** e selecione **Editar**.
-7.	Selecione o botão de opção **Habilitado** e clique em **Aplicar**. Clique em **OK**.
-8.	Vincule o objeto da Política de Grupo a um local de sua escolha. Para habilitar essa política para todos os dispositivos do Windows 10 associados ao domínio em sua organização, vincule o objeto da Política de Grupo ao domínio. Por exemplo:
- - Uma UO (unidade organizacional) específica no Active Directory onde os computadores ingressados no domínio do Windows 10 estejam localizados.
- - Um grupo de segurança específico com computadores ingressados no domínio do Windows 10 que serão registrados automaticamente no AD do Azure.
-
->[AZURE.NOTE]
-Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo de um computador com o Windows 10, a política será exibida como: <br> **Registrar computadores ingressados no domínio como dispositivos**<br> A política está no seguinte local:<br>***Configuração do Computador/Políticas/Modelos Administrativos/Componentes do Windows/Registro do Dispositivo***
+> [AZURE.NOTE]
+Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver executando a ferramenta Política de Grupo de um computador com o Windows 10, a política será exibida como: <br> **Registrar computadores ingressados no domínio como dispositivos**<br> A política está no seguinte local:<br>***Configuração do Computador/Políticas/Modelos Administrativos/Componentes do Windows/Registro do Dispositivo***
 
 
 ## Informações adicionais
@@ -147,4 +138,4 @@ Esse modelo de Política de Grupo foi renomeado no Windows 10. Se você estiver 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

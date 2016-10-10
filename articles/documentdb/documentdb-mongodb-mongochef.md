@@ -3,7 +3,7 @@
 	description="Saiba como usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização." 
 	keywords="mongochef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
@@ -40,7 +40,7 @@ Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo 
 	
 	![Captura de tela da guia servidor do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação **(MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
+3. Na janela **Nova Conexão**, na guia **Autenticação**, escolha O Padrão do Modo de Autenticação ** (MONGODB-CR ou SCARM-SHA-1)** e insira o USERNAME e a PASSWORD. Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
 
 	![Captura de tela da guia autenticação do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -132,4 +132,4 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

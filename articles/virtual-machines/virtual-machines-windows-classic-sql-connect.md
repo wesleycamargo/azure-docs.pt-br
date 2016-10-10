@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/23/2016"
+	ms.date="09/22/2016"
 	ms.author="jroth" />
 
 # Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
@@ -103,4 +103,4 @@ Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

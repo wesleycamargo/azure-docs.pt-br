@@ -3,7 +3,7 @@
 	description="Use este tutorial para aprender a gerenciar servidores e cofres de Backup do Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="09/27/2016"
 	ms.author="jimpark;markgal"/>
 
 
@@ -115,7 +115,7 @@ Na guia **Ações**, disponibilizada à direita do console do agente de backup, 
 
     Você também pode definir **Configurações de Exclusão** nesta página do assistente. Se você quiser excluir arquivos ou tipos de arquivo, leia o procedimento para adicionar [configurações de exclusão](#exclusion-settings).
 
-4. Selecione os arquivos e as pastas dos quais você deseja fazer backup e clique em **Ok**.
+4. Selecione os arquivos e as pastas dos quais você deseja fazer backup e clique em **OK**.
 
     ![Adicionar itens](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 
@@ -203,4 +203,4 @@ Para habilitar a limitação:
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

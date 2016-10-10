@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao RightAnswers
@@ -74,7 +74,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Configurar o logon único")
 
-3.  Na página **Definir Configurações do Aplicativo**, na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo RightAnswers (por exemplo: *https://fortify.rightanswers.com/portal/ss/*) e clique em **Avançar**.
+3.  Na página **Definir Configurações do Aplicativo**, na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo RightAnswers (por exemplo: **https://fortify.rightanswers.com/portal/ss/*) e clique em **Avançar**.
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Definir configurações de aplicativo")
 
@@ -99,7 +99,7 @@ Os usuários são criados automaticamente, se necessário, durante a primeira te
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao RightAnswers, execute as seguintes etapas:
 
@@ -115,4 +115,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codificação avançada com o Codificador de Mídia Padrão" 
+	pageTitle="Codificação avançada com o Codificador de Mídia Standard | Microsoft Azure" 
 	description="Esse tópico mostra como executar a codificação avançada ao personalizar predefinições de tarefa do Codificador de Mídia Padrão. Esse tópico mostra como usar o SDK do .NET dos Serviços de Mídia para criar um trabalho e uma tarefa de codificação. Ele também mostra como fornecer predefinições personalizadas para o trabalho de codificação." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -37,8 +37,8 @@ As predefinições personalizadas que executam as seguintes tarefas de codifica�
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 - Crie um trabalho de codificação.
-- Obtenha uma referência para o Media Encoder Standard.
-- Carregar a predefinição personalizada de XML ou JSON. Você pode salvar esse XML ou JSON (por exemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) em um arquivo e usar o código a seguir para carregar o arquivo.
+- Obtenha uma referência para o Codificador de Mídia Padrão.
+- Carregar a predefinição personalizada de XML ou JSON. É possível salvar esse XML ou JSON (por exemplo, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) ou [JSON](media-services-custom-mes-presets-with-dotnet.md#json)) em um arquivo e usar o código a seguir para carregar o arquivo.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -237,7 +237,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 ##<a id="thumbnails"></a>Gerar miniaturas
 
-Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
+Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
 
 >[AZURE.NOTE]A configuração **SceneChangeDetection** na predefinição a seguir só poderá ser definida como verdadeira se você estiver codificando um vídeo com taxa de bits única. Se você estiver codificando para um vídeo de várias taxas de bits e definir **SceneChangeDetection** como verdadeiro, o codificador retornará um erro.
 
@@ -569,7 +569,7 @@ Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas 
 
 ###Predefinição XML
 	
-Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo).
+Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (conforme mostrado abaixo).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -692,7 +692,7 @@ O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existen
 
 Além de definir um arquivo de predefinição, você também precisa permitir que os Serviços de Mídia saibam qual arquivo no ativo é uma imagem de sobreposição e qual arquivo contém o vídeo de origem no qual você deseja fazer a sobreposição de imagem. O arquivo de vídeo precisa ser o arquivo **primário**.
 
-O exemplo de .NET acima define duas funções: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. A função UploadMediaFilesFromFolder carrega arquivos de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o arquivo mp4 a ser o arquivo primário no ativo. A função **EncodeWithOverlay** usa o arquivo de predefinição personalizado que foi transmitido para ele (por exemplo, a predefinição a seguir) para criar a tarefa de codificação.
+O exemplo do .NET acima define duas funções: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. A função UploadMediaFilesFromFolder carrega arquivos de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o arquivo mp4 a ser o arquivo primário no ativo. A função **EncodeWithOverlay** usa o arquivo de predefinição personalizado que foi transmitido para ele (por exemplo, a predefinição a seguir) para criar a tarefa de codificação.
 
 >[AZURE.NOTE]Limitações atuais:
 >
@@ -846,7 +846,7 @@ Por padrão, se você enviar uma entrada para o codificador que contenha apenas 
 
 Para forçar o codificador a produzir um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tiver áudio, especifique o valor de "InsertSilenceIfNoAudio".
 
-Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
+Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e fazer a seguinte modificação:
 
 ###Predefinição JSON
 
@@ -866,7 +866,7 @@ Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https:
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Desabilitar o desentrelaçamento automático
+##<a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
 
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
@@ -959,4 +959,4 @@ Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

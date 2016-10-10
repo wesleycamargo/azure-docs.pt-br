@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Implementando o cenário de streaming de failover
@@ -24,7 +24,7 @@ Este passo a passo demonstra como copiar conteúdo (blobs) de um ativo para outr
 1. Carregue um arquivo de mezanino em um ativo de origem.
 1. Codifique o ativo em arquivos MP4 de taxa de vários bits.
 1. Crie um localizador SAS somente leitura para o ativo de origem ter acesso de leitura ao contêiner na conta de armazenamento associada ao ativo de origem.
-1. Obtenha o nome do contêiner do ativo de origem do localizador SAS somente leitura criado na etapa anterior. Precisamos dessas informações para copiar blobs entre contas de armazenamento (explicado posteriormente no tópico).
+1. Obtenha o nome do contêiner do ativo de origem do localizador SAS somente leitura criado na etapa anterior. Precisamos dessas informações para copiar os blobs entre as contas de armazenamento (explicado posteriormente no tópico.)
 1. Crie um localizador de origem para o ativo criado pela tarefa de codificação.
 
 Em seguida, para manipular o failover:
@@ -972,4 +972,4 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

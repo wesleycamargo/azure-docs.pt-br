@@ -280,7 +280,7 @@ R1. Há, no máximo, um atraso de 15 minutos entre o status do trabalho de backu
 
 **P2. Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?**
 
-R2. Um alerta é gerado dentro de 5 minutos na falha do backup do Azure.
+R2. Um alerta é gerado dentro de 20 minutos na falha do backup do Azure.
 
 **P3. Há um caso em que um email não será enviado se as notificações forem configuradas?**
 
@@ -300,4 +300,4 @@ R3. A seguir, os casos quando a notificação não será enviada para reduzir o 
 - Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

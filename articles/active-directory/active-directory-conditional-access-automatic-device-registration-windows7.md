@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="MarkVi"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7
 
-Como um administrador de TI, você pode configurar seus dispositivos ingressados no domínio do Windows 7 para registrarem-se automaticamente com o AD do Azure. Para fazer isso, você deve implantar o pacote de software de registro de dispositivo ao seus dispositivos ingressados no domínio do Windows 7 usando um sistema de distribuição de software, como o System Center Configuration Manager. Certifique-se de ler e concluir os pré-requisitos listados no Registro Automático de Dispositivo com dispositivos ingressados no domínio do Windows do Active Directory do Azure.
+Como um administrador de TI, você pode configurar seus dispositivos ingressados no domínio do Windows 7 para registrarem-se automaticamente com o AD do Azure. Para fazer isso, você deve implantar o pacote de software de registro de dispositivo ao seus dispositivos ingressados no domínio do Windows 7 usando um sistema de distribuição de software, como o System Center Configuration Manager. Certifique-se de ler e concluir os pré-requisitos listados no Registro Automático de Dispositivo com dispositivos ingressados no domínio do Windows do Azure Active Directory.
+
+>[AZURE.NOTE]
+ Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ##Instalar o pacote de software de registro de dispositivo em dispositivos ingressados no Windows 7
 
@@ -60,4 +63,4 @@ O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relaci
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -110,7 +110,7 @@ Como os escopos são hierárquicos, quando um usuário tem permissões em um det
 ### Como criar uma função para permitir que os usuários executem uma tarefa específica?
 Um artigo abrangente sobre como criar funções personalizadas e atribuir permissões a essa função pode ser encontrado aqui. Eis um exemplo de um script que cria a função "Usuário avançado do DevTest Labs", que tem permissão para inicializar e desligar todas as máquinas virtuais do laboratório:
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ Um artigo abrangente sobre como criar funções personalizadas e atribuir permis
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### O Azure DevTest Labs se integra à minha cadeia de ferramentas CI/CD? 
 Se você está usando o VSTS, há uma [extensão Tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que permite automatizar seu pipeline de lançamento no Azure DevTest Labs. Alguns dos usos dessa extensão incluem:
@@ -244,4 +244,4 @@ Consulte a postagem do blog [Como solucionar problemas de falha de Artefatos no 
 ### Por que a minha rede virtual existente não está salvando corretamente?  
 Uma das possibilidades é que o nome da rede virtual contém pontos. Nesse caso, tente remover os pontos ou substituí-los por hifens e tente salvar a rede virtual novamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Entrar e sair de aplicativo Web com o AD do Azure
+# Entrar e sair do aplicativo Web NodeJS com o Azure AD
 
 
 Aqui usaremos o Passport para:
@@ -289,9 +289,9 @@ app.get('/logout', function(req, res){
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
-// Use esse middleware de roteiro em qualquer recurso que precise ser protegido.  Se
-//   a solicitação for autenticada (normalmente por meio de uma sessão de logon persistente),
-//   ela continuará. Caso contrário, o usuário será redirecionado para
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -415,4 +415,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

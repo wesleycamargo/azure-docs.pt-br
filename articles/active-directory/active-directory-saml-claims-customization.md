@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -40,7 +40,7 @@ Para resolver o problema no qual o aplicativo foi implantado usando um nome de u
 
 No menu **Valor do Atributo**, selecione **user.mail** para definir a declaração de NameIdentifier como o endereço de email do usuário no diretório, ou selecione **user.onpremisessamaccountname** para definir como o Nome de Conta SAM do usuário sincronizado do Azure AD local.
 
-Você também pode usar a função ExtractMailPrefix() especial para remover o sufixo do domínio do endereço de email ou do nome principal do usuário, resultando na transmissão apenas da primeira parte do nome de usuário (por exemplo, "joesmith" em vez de joesmith@contoso.com).
+Você também pode usar a função ExtractMailPrefix() especial para remover o sufixo do domínio do endereço de email ou do nome principal do usuário, resultando na transmissão apenas da primeira parte do nome de usuário (por exemplo, "diogomartins" em vez de joesmith@contoso.com).
 
 ![][3]
 
@@ -68,4 +68,4 @@ Se não houver um valor armazenado para um determinado usuário e um atributo se
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0928_2016-->

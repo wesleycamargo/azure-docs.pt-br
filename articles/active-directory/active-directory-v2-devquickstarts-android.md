@@ -32,7 +32,7 @@ O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do 
 
 
 ## Baixar o código do GitHub
-O código para este tutorial é mantido [no GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) ou clonar o esqueleto:
+O código para este tutorial é mantido [no GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou clonar o esqueleto:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
@@ -197,4 +197,4 @@ Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Prot
 
 É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

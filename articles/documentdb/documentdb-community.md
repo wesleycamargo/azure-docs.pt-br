@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/12/2016"
+  ms.date="09/26/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -120,8 +120,9 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu e Tara Jana | Atlanta, GA | 26 a 30 de setembro de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | Nova Iorque, NY | 26 a 29 de setembro de 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[Abertura: habilitar transformação digital com A Eficácia Excessiva de A.C.I.D., com Joseph Sirosh](https://myignite.microsoft.com/sessions/34953)<br><br>[Sessão: Azure DocumentDB em grande escala: padrões de design e o sucesso do cliente, com Syam Kumar Nair e Andrew Liu](https://myignite.microsoft.com/sessions/3066)<br><br>[Sessão: gerenciar ativos de IoT com o Node. js e DocumentDB, com Joshua Davis](https://myignite.microsoft.com/sessions/39704)<br><br>[Sessão: criar aplicativos mais inteligentes e escalonáveis com os Serviços de Banco de Dados do Microsoft Azure, com Tara Jana e Moshe Gutman](https://myignite.microsoft.com/sessions/2633)| Andrew Liu, Syam Kumar Nair e Tara Jana | Atlanta, GA | 26 a 30 de setembro de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Meetup no Ignite - DocumentDB: recursos avançados para aplicativos em larga escala](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Andrew Liu, Syam Kumar Nair | Atlanta, GA | 27 de setembro de 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Visite nosso estande! | Nova Iorque, NY | 26 a 29 de setembro de 2016 | [#StrataConf](https://twitter.com/strataconf) |
 | [Grupo de usuários do .NET de Capital City](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | 3 de novembro de 2016 | n/d |
 
 
@@ -137,7 +138,8 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 | [Grupo de usuários de integração](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Howard S. Edidin | Webcast | Junho de 20, 2016 | [Aplicativos lógicos dão suporte a tratamento de erros?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Meetup: Grupo de usuários do Azure Reino Unido](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Andrew Liu | Londres, Reino Unido | 12 de maio de 2016 | n/d
 |[Meetup: ONETUG - Orlando, grupo de usuários do .NET](http://www.meetup.com/ONETUG/events/230797164/)| Santosh Hari| Orlando, Flórida| 12 de maio de 2016| n/d 
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | n/d| [Meetup: grupo de desenvolvedores de .NET de NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Cidade de Nova York, NY | 21 de abril de 2016 | n/d |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | n/d| 
+| [Meetup: grupo de desenvolvedores de .NET de NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Cidade de Nova York, NY | 21 de abril de 2016 | n/d |
 | [Grupo de usuários de integração](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 de abril de 2016 | n/d |
 | [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | n/d |
 | [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | n/d |
@@ -269,4 +271,4 @@ Assistente | Imagem
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

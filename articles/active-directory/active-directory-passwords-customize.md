@@ -72,7 +72,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
               </td>
               <td>
                 <p>
-                  <strong>Emails "Entre em contato com o seu administrador":</strong>
+                  <strong>"Entre em contato com o seu administrador":</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -202,9 +202,8 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                 </p>
                 <ul>
                   <li class="unordered">
-												Se definida como não, todos os usuários finais em seu diretório poderão se registrar para a redefinição de senha em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
-                  <li class="unordered">
-												Se definido como sim, somente os usuários finais especificados no controle <strong>grupo que pode executar a redefinição de senha</strong> podem se registrar para a redefinição de senha em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                    Essa configuração não afeta o acesso dos usuários ao portal de registro de redefinição de senha. Se <strong>Usuários habilitados para a redefinição de senha</strong> estiver definido como <strong>sim</strong>, todos os usuários finais em seu diretório poderão se registrar para a redefinição de senha em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portal de redefinição de senha:</strong>
@@ -245,7 +244,8 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                 </p>
                 <ul>
                   <li class="unordered">
-												Se a opção <strong>restringir o acesso à redefinição de senha</strong> estiver definida como <strong>sim</strong>, somente os usuários finais nesse grupo serão capazes de se registrar para a redefinição de senha. <br><br></li>
+                    Essa configuração não afeta o acesso dos usuários ao portal de registro de redefinição de senha. Se <strong>Usuários habilitados para a redefinição de senha</strong> estiver definido como <strong>sim</strong>, todos os usuários finais em seu diretório poderão se registrar para a redefinição de senha em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Portal de redefinição de senha:</strong>
@@ -270,12 +270,6 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                 <p>(Visível somente se a opção <strong>usuários habilitados para redefinição de senha</strong> estiver definida como <strong>sim</strong>.)</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Observação:</strong>
                 </p>
@@ -875,4 +869,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

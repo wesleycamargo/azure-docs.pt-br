@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Dimensionar automaticamente nós de computação em um pool do Lote do Azure
@@ -26,7 +26,7 @@ Você pode habilitar o dimensionamento automático quando um pool é criado ou e
 
 ## Fórmulas de dimensionamento automático
 
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] \(API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] (API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode pensar nas fórmulas de dimensionamento automático como se estivesse usando uma "linguagem" de dimensionamento automático do Lote. As instruções da fórmula são expressões de forma livre que podem incluir as variáveis definidas pelo serviço (variáveis definidas pelo serviço de Lote) e as variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações com esses valores usando tipos, operadores e funções internas. Por exemplo, uma instrução pode ter a seguinte forma:
 
@@ -60,99 +60,32 @@ As tabelas a seguir mostram as variáveis de leitura/gravação e somente leitur
 
 Você pode **obter** e **definir** os valores dessas variáveis definidas pelo serviço para gerenciar o número de nós de computação em um pool:
 
-<table>
-  <tr>
-    <th>Leitura-gravação<br/>variáveis definidas pelo serviço</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>O número <b>alvo</b> de <b>nós de computação dedicados</b> para o pool. Esse é o número de nós de computação para o qual o pool deve ser dimensionado. Trata-se de um número "alvo", uma vez que é possível que um pool não atinja o número alvo de nós. Isso pode ocorrer se o número alvo de nós for modificado novamente por uma avaliação de dimensionamento automático subsequente antes do pool atingir a meta inicial. Isso também acontece ao atingir uma cota principal ou de nó da conta do Lote antes de atingir o número alvo de nós.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b> – finaliza tarefas imediatamente e as coloca novamente na fila de trabalhos para que elas sejam reagendadas.</p></li>
-        <li><p><b>terminate</b> – finaliza tarefas imediatamente e as remove da fila de trabalhos.</p></li>
-        <li><p><b>taskcompletion</b> – aguarda que as tarefas em execução sejam concluídas e remove o nó do pool.</p></li>
-        <li><p><b>retaineddata</b> - aguarda que todos os dados de tarefas locais retidos no nó sejam limpos antes de remover o nó do pool.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| Variáveis definidas pelo serviço de leitura/gravação | Descrição |
+| --- | --- |
+| $TargetDedicated | O número de **destino** de **nós de computação dedicados** para o pool. Esse é o número de nós de computação para o qual o pool deve ser dimensionado. Trata-se de um número "alvo", uma vez que é possível que um pool não atinja o número alvo de nós. Isso pode ocorrer se o número alvo de nós for modificado novamente por uma avaliação de dimensionamento automático subsequente antes do pool atingir a meta inicial. Isso também acontece ao atingir uma cota principal ou de nó da conta do Lote antes de atingir o número alvo de nós. |
+| $NodeDeallocationOption | A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>**requeue** -- finaliza as tarefas imediatamente e as coloca novamente na fila de trabalho para que elas sejam reagendadas.<li>**Encerrar** -- finaliza as tarefas imediatamente e as remove da fila de trabalho.<li>**taskcompletion** -- aguarda a conclusão das tarefas atualmente em execução e remove o nó do pool.<li>**retaineddata** -- aguarda que todos os dados locais retidos pela tarefa no nó sejam limpos antes de remover o nó do pool.</ul> |
 
 Você pode **obter** o valor dessas variáveis definidas pelo serviço para fazer ajustes com base nas métricas do serviço de Lote:
 
-<table>
-  <tr>
-    <th>Somente leitura<br/>definida pelo serviço<br/>variáveis</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>O percentual médio de utilização da CPU.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>O número de segundos consumidos.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>O número médio de megabytes usados.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>O número médio de gigabytes usado nos discos locais.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>O número de bytes lidos.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>O número de bytes gravados.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>A contagem de operações de leitura de disco executadas.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>A contagem de operações de gravação em disco executadas.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>O número de bytes de entrada.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>O número de bytes de saída.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>A contagem de nós de computação.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>O número de tarefas que estão em estado ativo.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>O número de tarefas em estado de execução.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>O número de tarefas que foram concluídas com êxito.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>O número de tarefas que falharam.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>O número atual de nós de computação dedicados.</td>
-  </tr>
-</table>
+| Variáveis somente leitura definidas pelo serviço | Descrição |
+| --- | --- |
+| $CPUPercent | O percentual médio de utilização da CPU. |
+| $WallClockSeconds | O número de segundos consumidos. |
+| $MemoryBytes | O número médio de megabytes usados. |
+| $DiskBytes | O número médio de gigabytes usado nos discos locais. |
+| $DiskReadBytes | O número de bytes lidos. |
+| $DiskWriteBytes | O número de bytes gravados. |
+| $DiskReadOps | A contagem de operações de leitura de disco executadas. |
+| $DiskWriteOps | A contagem de operações de gravação em disco executadas. |
+| $NetworkInBytes | O número de bytes de entrada. |
+| $NetworkOutBytes | O número de bytes de saída. |
+| $SampleNodeCount | A contagem de nós de computação. |
+| $ActiveTasks | O número de tarefas que estão em estado ativo. |
+| $RunningTasks | O número de tarefas em estado de execução. |
+| $PendingTasks | A soma de $ActiveTasks e $RunningTasks. |
+| $SucceededTasks | O número de tarefas que foram concluídas com êxito. |
+| $FailedTasks | O número de tarefas que falharam. |
+| $CurrentDedicated | O número atual de nós de computação dedicados. |
 
 > [AZURE.TIP] As variáveis definidas pelo serviço e de somente leitura mostradas acima são *objetos* que fornecem vários métodos para acessar os dados associados a cada uma. Consulte abaixo [Obter dados de exemplo](#getsampledata) para obter mais informações.
 
@@ -163,7 +96,7 @@ Esses **tipos** têm suporte em uma fórmula.
 - double
 - doubleVec
 - doubleVecList
-- cadeia de caracteres
+- string
 - timestamp - timestamp é uma estrutura composta que contém os seguintes elementos:
 
 	- year
@@ -200,14 +133,7 @@ Essas **operações** são permitidas nos tipos listados acima.
 | timeinterval *operador* timeinterval | +, - | timeinterval |
 | timeinterval *operador* timestamp | + | timestamp |
 | timestamp *operador* timeinterval | + | timestamp |
-| timestamp *operador* timestamp | - | timeinterval |
-| *operador*double | -, ! | double |
-| *operador*timeinterval | - | timeinterval |
-| double *operador* double | <, <=, ==, >=, >, != | double |
-| string *operador* string | <, <=, ==, >=, >, != | double |
-| timestamp *operador* timestamp | <, <=, ==, >=, >, != | double |
-| timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double |
-| double *operador* double | &&, &#124;&#124; | double |
+| timestamp *operador* timestamp | - | timeinterval | | *operador*double | -, ! | double | | *operador*timeinterval | - | timeinterval | | double *operador* double | <, <=, ==, >=, >, != | double | | string *operador* string | <, <=, ==, >=, >, != | double | | timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | | double *operador* double | &&, || | double |
 
 Ao testar um double com um operador ternário (`double ? statement1 : statement2`), um item diferente de zero é **true** e zero é **false**.
 
@@ -249,44 +175,13 @@ As fórmulas de dimensionamento automático atuam em dados de métricas (exemplo
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Método</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>O método <b>GetSample()</b> retorna um vetor de exemplos de dados.
-	<p>Um exemplo vale 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme mencionado abaixo, há um atraso entre o momento em que uma amostra é coletada e o momento em que ela fica disponível para uma fórmula. Como tal, nem todos os exemplos para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - especifica o número de exemplos a serem obtidos a partir dos exemplos mais recentes coletados.</p>
-				  <p>GetSample(1) retorna o último exemplo disponível. No entanto, para métricas como $CPUPercent, isso não deve ser usado porque é impossível saber <em>quando</em> a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.</p></li>
-          <li><p><b>doubleVec GetSample ((timestamp | timeinterval) startTime [, double samplePercent])</b>- especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> deve retornar 20 amostras se todas as amostras dos últimos dez minutos estiverem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 exemplos seriam retornados. Nesse caso:<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> falharia, pois somente 90% dos exemplos estão disponíveis.<br/>
-		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> teria êxito.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.</p></li></ul>
-		  <p>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando ela fica disponível para uma fórmula. Isso deve ser considerado ao usar o método <em>GetSample</em>. Consulte <em>GetSamplePercent</em> abaixo.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Retorna o período das amostras que foram colhidas de um conjunto de dados históricos de exemplo.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Retorna o número total de amostras no histórico da métrica.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Retorna o carimbo de data/hora da amostra de dados mais antiga disponível para a métrica.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Retorna a porcentagem de exemplos disponíveis para um determinado intervalo de tempo. Por exemplo:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Como o método GetSample falha se o percentual de amostras retornadas for menor que o samplePercent especificado, você pode usar o método GetSamplePercent para verificar primeiro. Em seguida, você pode executar uma ação alternativa se não houver exemplos suficientes, sem interromper a avaliação do dimensionamento automático.</p></td>
-  </tr>
-</table>
+| Método | Descrição |
+| --- | --- |
+| GetSample() | O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Uma amostra é de 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme mencionado abaixo, há um atraso entre o momento em que uma amostra é coletada e o momento em que ela fica disponível para uma fórmula. Como tal, é possível que nem todas as amostras para um determinado período de tempo estejam disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna a última amostra disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, muito mais antigo. É melhor nesses casos usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados de exemplo. Opcionalmente, também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornaria 20 amostras caso todas as amostras dos últimos dez minutos estivessem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 exemplos seriam retornados. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falhará porque somente 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria êxito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando ela está disponível para uma fórmula. Isso deve ser considerado quando você usar o método `GetSample`. Veja `GetSamplePercent` abaixo.|
+| GetSamplePeriod() | Retorna o período das amostras que foram colhidas de um conjunto de dados históricos de exemplo. |
+| Count() | Retorna o número total de amostras no histórico da métrica. |
+| HistoryBeginTime() | Retorna o carimbo de data/hora da amostra de dados mais antiga disponível para a métrica. |
+| GetSamplePercent() |Retorna a porcentagem de exemplos disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>como o método `GetSample` falhará se o percentual de amostras retornadas for menor do que o `samplePercent` especificado, você poderá usar o método `GetSamplePercent` para verificar primeiro. Em seguida, você pode executar uma ação alternativa se não houver exemplos suficientes, sem interromper a avaliação do dimensionamento automático.|
 
 ### Exemplos, porcentagem de exemplo e método *GetSample()*
 
@@ -361,6 +256,7 @@ Você pode usar as métricas do **recurso** e da **tarefa** quando estiver defin
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
@@ -611,4 +507,4 @@ A fórmula no trecho de código acima:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/pt-BR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

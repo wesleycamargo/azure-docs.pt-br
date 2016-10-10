@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="bsiva"/>
 
 # Replicar máquinas virtuais do Hyper-V em nuvens VMM no Azure usando o PowerShell - Clássico
@@ -73,7 +73,7 @@ Quando você proteger máquinas virtuais na rede do Azure mapeando mapas entre r
 Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 - As máquinas virtuais que você deseja proteger no servidor VMM de origem devem estar conectadas a uma rede VM. Essa rede deve ser vinculada a uma rede lógica que esteja associada à nuvem.
-- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará esta rede no momento do failover. A rede deve estar na mesma região que sua assinatura do Azure Site Recovery.
+- Uma rede do Azure à qual as máquinas virtuais replicadas possam se conectar após o failover. Você selecionará esta rede no momento do failover. A rede deve estar na mesma região de sua assinatura do Azure Site Recovery.
 - [Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede:
 
 ###Pré-requisitos do PowerShell
@@ -81,7 +81,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiv
 
 Para obter dicas que podem ajudar você a usar os cmdlets, por exemplo, como os valores de parâmetro, as entradas e saídas são tratadas normalmente no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
-## Etapa 1: definir sua assinatura 
+## Etapa 1: definir a assinatura 
 
 No PowerShell, execute estes cmdlets:
 
@@ -209,7 +209,7 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 
 ```
 
-Observe que a conta de armazenamento precisa estar na mesma região que o serviço do Azure Site Recovery e ser associada à mesma assinatura.
+Observe que a conta de armazenamento precisa estar na mesma região que o serviço Azure Site Recovery e associada à mesma assinatura.
 
 
 ## Etapa 6: instalar o agente dos Serviços de Recuperação do Azure
@@ -449,4 +449,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 [Leia mais](https://msdn.microsoft.com/library/dn850420.aspx) sobre os cmdlets do PowerShell do Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

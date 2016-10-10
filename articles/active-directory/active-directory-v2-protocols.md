@@ -18,7 +18,7 @@
 
 # Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 
-o ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect. Embora o serviço esteja em conformidade padrão, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou usar uma biblioteca de software livre de terceiros, em vez de usar uma de nossas bibliotecas de software livre.
+O ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect. Embora o serviço esteja em conformidade com o padrão, pode haver diferenças sutis entre duas implementações diferentes desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou usar uma biblioteca de software livre de terceiros, em vez de usar uma de nossas bibliotecas de software livre.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -75,9 +75,9 @@ Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um
 - [Criar aplicativos nativos e móveis com o OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 - [Criar aplicativos Web com o Open ID Connect](active-directory-v2-protocols-oidc.md)
 - [Criar Aplicativos de Página Única com o Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md)
-- Criar Daemons ou Processos Paralelos do Servidor com o Fluxo de Credenciais do Cliente OAuth 2.0 (em breve)
+- [Criar daemons ou processos paralelos do servidor com o fluxo de credenciais do cliente OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 - Obter tokens em uma API Web com o OAuth 2.0 em nome do fluxo (em breve)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

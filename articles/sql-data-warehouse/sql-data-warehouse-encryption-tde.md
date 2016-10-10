@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução ao Transparent Data Encryption (TDE) em SQL Data Warehouse| Microsoft Azure"
-   description="Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse"
+   pageTitle="Transparent Data Encryption no SQL Data Warehouse (Portal) | Microsoft Azure"
+   description="TDE (Transparent Data Encryption) no SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
@@ -13,25 +13,22 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016" 
+   ms.date="09/24/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
-- [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
+- [Autenticação](sql-data-warehouse-authentication.md)
 - [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
-- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
 
+## Permissões necessárias
 
-O Transparent Data Encryption (TDE) do SQL Data Warehouse do Azure ajuda a proteger contra atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
+Para habilitar a TDE (Transparent Data Encryption), você deve ser um administrador ou um membro da função dbmanager.
 
-A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. No Banco de Dados SQL, a chave de criptografia do banco de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor de Banco de Dados SQL. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado pelo SQL Data Warehouse é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption (TDE)].
-
-##Habilitando a criptografia
+## Habilitando a criptografia
 
 Para habilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 
@@ -41,7 +38,7 @@ Para habilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 4. Selecione a configuração **Ativado** ![][2]
 5. Selecione **Salvar** ![][3]
 
-##Desabilitando a criptografia
+## Desabilitando a criptografia
 
 Para desabilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 
@@ -51,7 +48,7 @@ Para desabilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 4. Selecione a configuração **Desativado** ![][4]
 5. Selecione **Salvar** ![][5]
 
-##DMVs de criptografia
+## DMVs de criptografia
 
 A criptografia pode ser confirmada com as DMVs a seguir:
 
@@ -72,4 +69,4 @@ A criptografia pode ser confirmada com as DMVs a seguir:
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

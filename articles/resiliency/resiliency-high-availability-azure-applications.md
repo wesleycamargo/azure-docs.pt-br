@@ -70,7 +70,7 @@ Considere a possibilidade de comunicação assíncrona entre serviços acoplados
 
 Uma variação disso usa armazenamento do Azure (blobs, tabelas, filas) ou filas do Barramento de Serviço como um local de failover para chamadas de banco de dados com falha. Por exemplo, uma chamada síncrona de um aplicativo para outro serviço (como o banco de dados SQL do Azure) falha repetidamente. Você pode serializar os dados no armazenamento durável. Em algum momento posterior, quando o serviço ou o banco de dados estiver novamente online, o aplicativo poderá enviar novamente a solicitação do armazenamento. A diferença nesse modelo é que o local intermediário não é uma parte constante do fluxo de trabalho do aplicativo. Ele é usado apenas em cenários de falha.
 
-Em ambos os cenários, a comunicação assíncrona e o armazenamento intermediário impedem que um serviço de back-end inativo interrompa o aplicativo inteiro. As filas servem como um intermediário lógico. Para saber mais sobre como escolher o serviço de enfileiramento correto, confira [Filas do Azure e filas de Barramento de Serviço do Azure — comparações e contrastes](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+Em ambos os cenários, a comunicação assíncrona e o armazenamento intermediário impedem que um serviço de back-end inativo interrompa o aplicativo inteiro. As filas servem como um intermediário lógico. Para saber mais sobre como escolher o serviço de enfileiramento correto, confira [Filas do Azure e filas de Barramento de Serviço do Azure — comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Lógica de detecção e repetição de falhas
 
@@ -143,4 +143,4 @@ Observe que o diagrama anterior mostra uma implementação dessa abordagem desac
 
 Este artigo faz parte de uma série de artigos com foco na [recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). O próximo artigo desta série é [Recuperação de desastre para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

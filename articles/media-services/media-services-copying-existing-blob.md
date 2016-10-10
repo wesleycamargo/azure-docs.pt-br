@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copiar um Blob existente em um ativo dos Serviços de Mídia" 
-	description="Este tópico mostra como copiar um blob existente para um ativo dos Serviços de Mídia." 
+	pageTitle="Copiando um Blob Existente para um Ativo dos Serviços de Mídia | Microsoft Azure" 
+	description="Este tópico mostra como copiar um blob existente para um Ativo dos Serviços de Mídia." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Copiar um Blob existente em um ativo dos Serviços de Mídia
 
-Este tópico mostra como copiar blobs de uma conta de armazenamento para um novo ativo dos Serviços de Mídia do Microsoft Azure.
+Este tópico mostra como copiar os blobs de uma conta de armazenamento para um novo ativo dos Serviços de Mídia do Microsoft Azure.
 
-Seus blobs podem existir em uma conta de armazenamento associada à conta dos Serviços de Mídia ou em uma conta de armazenamento que não está associada à conta dos Serviços de Mídia. Este tópico mostra como copiar blobs de uma conta de armazenamento para um ativo dos Serviços de Mídia. Observe que você também pode fazer cópias entre os data centers. No entanto, essa ação pode incorrer em encargos. Para obter mais informações sobre preços, consulte o [Transferências de Dados](https://azure.microsoft.com/pricing/#header-11).
+Seus blobs podem existir em uma conta de armazenamento associada à conta dos Serviços de Mídia ou em uma conta de armazenamento que não está associada à conta dos Serviços de Mídia. Este tópico mostra como copiar os blobs de uma conta de armazenamento para um Ativo dos Serviços de Mídia. Observe que você também pode fazer cópias entre os data centers. No entanto, essa ação pode incorrer em encargos. Para obter mais informações sobre preços, consulte o [Transferências de Dados](https://azure.microsoft.com/pricing/#header-11).
 
 >[AZURE.NOTE] Você não deve tentar alterar o conteúdo de contêineres de blob que foram gerados pelos serviços de mídia sem o uso de APIs de serviços de mídia.
 
@@ -30,7 +30,7 @@ Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/sa
 
 ##Pré-requisitos
 
-- Duas contas dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
+- Duas contas dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como Criar uma Conta de Serviços de Mídia](media-services-create-account.md).
 - Sistemas operacionais: Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 - .NET Framework 4.5.
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou posterior.
@@ -322,4 +322,4 @@ O exemplo de código a seguir executa as seguintes tarefas:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

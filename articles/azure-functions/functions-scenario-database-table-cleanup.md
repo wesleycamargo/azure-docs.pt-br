@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usar o Azure Functions para executar uma tarefa de limpeza agendada | Microsoft Azure"
    description="Use o Azure Functions para criar uma função C# executada com base em um temporizador de eventos."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Usar o Azure Functions para executar uma tarefa de limpeza agendada
@@ -38,7 +38,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. É um
 
 1. Vá para o [portal do Azure Functions](https://functions.azure.com/signin) e entre com sua conta do Azure.
 
-2. Se você tiver um aplicativo de funções existente para usar, selecione-o em **Seus aplicativos de função** e clique em **Abrir**. Para criar um novo aplicativo de funções, digite um **Nome** exclusivo para ele ou aceite o que foi gerado, selecione sua **Região** preferencial e clique em **Criar + introdução**.
+2. Se você tiver um aplicativo de função existente para usar, selecione-o em **Seus aplicativos de função** e clique em **Abrir**. Para criar um novo aplicativo de funções, digite um **Nome** exclusivo para ele ou aceite o que foi gerado, selecione sua **Região** preferencial e clique em **Criar + introdução**.
 
 3. No seu aplicativo de funções, clique em **Configurações do aplicativo de funções** > **Ir para configurações do Serviço de Aplicativo**.
 
@@ -52,7 +52,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 ## Criar uma função disparada por temporizador por meio do modelo
 
-1. No aplicativo de funções, clique em **+ Nova Função** > **TimerTrigger - C#** > **Criar**. Isso cria uma função com um nome padrão que é executado na agenda padrão de uma vez a cada minuto. 
+1. No aplicativo de funções, clique em **+ Nova Função** > **TimerTrigger - C#** > **Criar**. Isso cria uma função com um nome padrão que é executado na agenda padrão de uma vez a cada minuto.
 
 	![Criar uma nova função disparada por temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -95,8 +95,8 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 + [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para codificação de funções e definição de gatilhos e de associações.
 + [Testando o Azure Functions](functions-test-a-function.md) Descreve várias ferramentas e técnicas para testar suas funções.
-+ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico e como escolher o plano certo.  
++ [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

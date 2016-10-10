@@ -69,6 +69,17 @@ Sim. Use o botão **Mover** na folha da fábrica de dados, conforme mostrado no 
 
 ![Mover o Data Factory](media/data-factory-faq/move-data-factory.png)
 
+### Quais são os ambientes de computação com suporte do Data Factory?
+A tabela a seguir fornece uma lista dos ambientes de computação com suporte do Data Factory e as atividades que podem ser executadas neles.
+
+| Ambiente de computação | atividades |
+| ------------------- | -------- | 
+| [Cluster HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | 
+| [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Aprendizado de Máquina do Azure](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Análise Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
+| [SQL Azure](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service) ou [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [Procedimento armazenado](data-factory-stored-proc-activity.md)
+
 ## Atividades - Perguntas frequentes
 ### Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory? 
 
@@ -82,8 +93,13 @@ A configuração **disponibilidade** na tabela de dados de saída determina quan
 ### É melhor ter um pipeline com várias atividades ou um pipeline separado para cada atividade? 
 Pipelines devem agrupar atividades relacionadas. Se os conjuntos de dados que os conectam não forem consumidos por nenhuma outra atividade fora do pipeline, você poderá manter as atividades em um pipeline. Desse modo, você não precisaria encadear períodos ativos do pipeline para que eles se alinhem uns com os outros. Além disso, a integridade dos dados nas tabelas internas ao pipeline é melhor preservada ao atualizar o pipeline. A atualização de pipeline interrompe essencialmente todas as atividades no pipeline, remove-as e cria essas atividades novamente. Da perspectiva de criação, também pode ser mais fácil ver o fluxo de dados nas atividades relacionadas em um arquivo JSON para o pipeline.
 
-### Onde a operação de cópia é executada? 
+### Quais são os armazenamentos de dados com suporte?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### Quais são os formatos de arquivo com suporte? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### Onde a operação de cópia é executada? 
 Consulte [Movimento de dados globalmente disponível](data-factory-data-movement-activities.md#global) seção para obter detalhes. Em resumo, quando um armazenamento de dados local estiver envolvido, a operação de cópia é executada pelo Gateway de gerenciamento de dados em seu ambiente local. E, quando a movimentação de dados está entre dois armazenamentos de nuvem, a operação de cópia será executada na região mais próxima para o local de coletor na mesma região geográfica.
 
 
@@ -192,4 +208,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

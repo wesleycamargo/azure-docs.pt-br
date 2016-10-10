@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
+    ms.date="09/23/2016" 
     ms.author="b-hoedid"/>
 
 # Notificações sobre recursos novos ou alterados do Banco de Dados de Documentos usando Aplicativos Lógicos
@@ -1125,7 +1125,7 @@ GetUtcDate\_HoursBack | Usado para definir o número de horas para a data de in�
 sendgridUsername | Usado para definir o número de horas para a data de início da pesquisa
 sendgridPassword | O nome de usuário para o email de Send Grid
 EmailTo | O endereço de email que receberá a notificação por email
-Assunto | O Assunto do email
+Subject | O Assunto do email
 
 ## Exibição dos dados dos pacientes no serviço Blob do Azure
 
@@ -1156,4 +1156,4 @@ Baixe e use o código do Aplicativo Lógico fornecido no [Github](https://github
 
 Para saber mais sobre o Banco de Dados de Documentos, visite o [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

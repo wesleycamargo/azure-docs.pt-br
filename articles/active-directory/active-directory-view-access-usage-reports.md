@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -48,7 +48,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	[Entradas de dispositivos possivelmente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Pode indicar uma tentativa de conexão de dispositivos possivelmente infectados. |
 |	[Atividade de conexão anômala](active-directory-reporting-irregular-sign-in-activity.md) |	Pode indicar eventos anormais para padrões de conexão dos usuários. |
 |	[Usuários com atividade de entrada anômala](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |	Indica os usuários cujas contas podem ter sido comprometidas. |
-|	Usuários com credenciais insuficientes |	Usuários com credenciais insuficientes |
+|	Usuários com credenciais insuficientes |	Usuários com credenciais vazadas |
 |	**Logs de atividade**
 |	Relatório de auditoria |	Eventos auditados em seu diretório |
 |	Atividade de redefinição de senha |	Fornece uma exibição detalhada das redefinições de senha que acontecem em sua organização. |
@@ -67,7 +67,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 
 ## Edições de relatório
 
-|	Relatório |	Grátis |	Básico |	Premium |
+|	Relatório |	Grátis |	Basic |	Premium |
 |	------												|	----	|	-----	|	--------	|
 |	**Relatórios de atividades anômalas**
 |	Entradas de fontes desconhecidas |	✓ |	✓ |	✓ |
@@ -77,7 +77,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 |	Entradas de dispositivos possivelmente infectados | | |	✓ |
 |	Atividade de conexão anômala | | |	✓ |
 |	Usuários com atividade de entrada anômala | | |	✓ |
-|	Usuários com credenciais insuficientes | | |	✓ |
+|	Usuários com credenciais vazadas | | |	✓ |
 |	**Logs de atividade**
 |	Relatório de auditoria |	✓ |	✓ |	✓ |
 |	Atividade de redefinição de senha | | |	✓ |
@@ -286,4 +286,4 @@ Para saber mais sobre as notificações de relatórios do Azure AD, confira [Not
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

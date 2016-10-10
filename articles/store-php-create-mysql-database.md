@@ -19,7 +19,7 @@
 
 # Criar e conectar-se a um banco de dados MySQL no Azure
 
-Este guia mostrará como criar um banco de dados MySQL no [Portal do Azure](https://portal.azure.com) (o provedor é [ClearDB](http://www.cleardb.com/)) e como conectar a ele de um aplicativo Web PHP em execução no [Serviço de Aplicativo do Azure](./app-service/app-service-value-prop-what-is.md).
+Este tutorial mostrará como criar um banco de dados MySQL no [Portal do Azure](https://portal.azure.com) (o provedor é [ClearDB](http://www.cleardb.com/)) e como conectar a ele de um aplicativo Web PHP em execução no [Serviço de Aplicativo do Azure](./app-service/app-service-value-prop-what-is.md).
 
 > [AZURE.NOTE] Você também pode criar um banco de dados MySQL como parte de um [modelo de aplicativo do Marketplace](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -56,17 +56,18 @@ Para criar um banco de dados MySQL no Portal do Azure, faça o seguinte:
 
 	Você receberá outro pop-up depois que a implantação for bem-sucedida. O portal também abrirá automaticamente a folha do banco de dados MySQL.
 
-## Conectar-se ao banco de dados MySQL de um aplicativo Web PHP no Azure
+<a name="connect"></a>
+## Conectar-se ao seu banco de dados MySQL
 
-Para ver as informações de conexão do novo banco de dados MySQL, basta clicar em **Propriedades**. Se você não vir a folha **Configurações**, clique em **Configurações** > **Propriedades**.
+Para ver as informações de conexão do novo banco de dados MySQL, basta clicar em **Propriedades** na folha de seu aplicativo Web.
 	
 ![Criar um banco de dados MySQL no Azure - folha Banco de Dados MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 Agora você pode usar essas informações de conexão em qualquer aplicativo Web. Um exemplo que mostra como usar as informações de conexão de um aplicativo PHP simples está disponível [aqui](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql).
 
-### Conectar um aplicativo Web Laravel (a partir do tutorial de Introdução de PHP)
+## Conectar um aplicativo Web Laravel (a partir do tutorial de Introdução de PHP)
 
-Vamos suporte que você concluiu o tutorial [Criar, configurar e implantar um aplicativo Web PHP no Azure](./app-service-web/app-service-web-php-get-started.md) e te um aplicativo Web [Laravel](https://www.laravel.com/) em execução no Azure, você pode adicionar facilmente recursos de banco de dados ao seu aplicativo Laravel. Basta executar as etapas abaixo:
+Vamos suporte que você concluiu o tutorial [Criar, configurar e implantar um aplicativo Web PHP no Azure](./app-service-web/app-service-web-php-get-started.md) e te um aplicativo Web [Laravel](https://www.laravel.com/) em execução no Azure. Você pode adicionar facilmente recursos de banco de dados ao seu aplicativo Laravel. Basta executar as etapas abaixo:
 
 >[AZURE.NOTE] As etapas a seguir presumem que você concluiu o tutorial [Criar, configurar e implantar um aplicativo Web PHP no Azure](./app-service-web/app-service-web-php-get-started.md).
 
@@ -139,4 +140,4 @@ Vamos suporte que você concluiu o tutorial [Criar, configurar e implantar um ap
 
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->
