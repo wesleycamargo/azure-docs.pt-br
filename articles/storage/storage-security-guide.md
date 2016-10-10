@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.author="cbrooks;robinsh"/>
 
 #Guia de segurança do Armazenamento do Azure
 
@@ -632,4 +632,4 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
 	Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

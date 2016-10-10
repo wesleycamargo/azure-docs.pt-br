@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell – Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Portal clássico](site-recovery-hyper-v-site-to-azure-classic.md)
 
 Leia este artigo para saber como implantar a Recuperaçã de Site para replicar máquinas virtuais Hyper-V no Azure quando os hosts Hyper-V não são gerenciados em nuvens do System Center Virtual Machine Manager (VMM).
@@ -300,4 +300,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

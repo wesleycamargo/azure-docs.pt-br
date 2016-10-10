@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/11/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -62,7 +62,16 @@ Siga estas etapas para configurar o aplicativo:
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Observe que você precisa criar um aplicativo vazio para gerar um token.
-3.	Substitua os valores de EventHubConnectionString e EventHubName em TwitterClient.exe.config pela cadeia de conexão e o nome do Hub de Eventos. A cadeia de conexão que você copiou anteriormente fornece a você tanto o nome quanto a cadeia de conexão do Hub de eventos, então esteja ciente da necessidade de separá-los e colocar cada um no campo correto.
+3.	Substitua os valores de EventHubConnectionString e EventHubName em TwitterClient.exe.config pela cadeia de conexão e o nome do Hub de Eventos. A cadeia de conexão que você copiou anteriormente fornece a você tanto o nome quanto a cadeia de conexão do Hub de eventos, então esteja ciente da necessidade de separá-los e colocar cada um no campo correto. Por exemplo, dada uma cadeia de conexão:
+
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+
+	O arquivo TwitterClient.exe.config deve conter as configurações, como no exemplo a seguir:
+
+	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey" add key="EventHubName" value="yourhub"
+
+	É importante observar que o texto "EntityPath =" NÃO aparece no valor EventHubName.
+	
 4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em TwitterClient.exe.config, se desejar.
 5.	Executar o **TwitterClient.exe** para iniciar o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
 
@@ -236,4 +245,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

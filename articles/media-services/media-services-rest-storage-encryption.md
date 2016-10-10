@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -313,7 +313,7 @@ A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) re
 
 Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
-Depois de carregar seu arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MESCLAR** para atualizar o AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico).
+Depois de carregar seu arquivo de mídia digital em um contêiner de blobs, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico).
 
 **Solicitação HTTP**
 
@@ -375,4 +375,4 @@ Depois de carregar seu arquivo de mídia digital em um contêiner de blob, você
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -199,7 +199,7 @@ De volta à folha **Domínios personalizados** no portal do Azure (consulte a [E
 
 6.  Ao clicar em **Validar**, o Azure iniciará o fluxo de trabalho de verificação de domínio. Isso verificará a propriedade do domínio, bem como a disponibilidade do nome do host e o sucesso ou o erro detalhado do relatório com diretrizes prescritivas sobre como corrigir o erro.
 
-7.  Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. Agora, navegue até o nome de domínio personalizado em um navegador. Agora você verá seu aplicativo em execução usando seu nome de domínio personalizado.
+7.  Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host.
 
 8.  Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
@@ -249,4 +249,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

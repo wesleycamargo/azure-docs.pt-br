@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Codecs e formatos de fluxo de trabalho do Media Encoder Premium" 
-	description="Este tópico fornece uma visão geral dos codecs e formatos de Formatos de Fluxo de Trabalho do Media Encoder Premium" 
+	pageTitle="Codecs e formatos do Fluxo de Trabalho do Media Encoder Premium | Microsoft Azure" 
+	description="Este tópico fornece uma visão geral dos codecs e formatos do Fluxo de Trabalho do Media Encoder Premium" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Codecs e formatos de fluxo de trabalho do Media Encoder Premium
@@ -21,7 +21,7 @@
 
 >[AZURE.NOTE]Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 >
->O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
+>O processador de mídia do Fluxo de Trabalho do Media Encoder Premium analisado neste tópico não está disponível na China.
 
 Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs com suporte pela versão de demonstração pública do codificador de **Fluxo de trabalho do Media Encoder Premium**.
 
@@ -138,4 +138,4 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

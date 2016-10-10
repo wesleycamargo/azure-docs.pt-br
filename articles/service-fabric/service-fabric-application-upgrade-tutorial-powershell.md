@@ -17,9 +17,13 @@
    ms.author="subramar"/>
 
 
-
-
 # Atualização do aplicativo do Service Fabric usando o PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 O mais usado e o método de atualização recomendado é a atualização sem interrupção monitorada. O Service Fabric do Azure monitora a integridade do aplicativo que está sendo atualizado com base em um conjunto de políticas de integridade. Quando um UD (domínio de atualização) for atualizado, o Service Fabric avaliará a integridade do aplicativo e prosseguirá para o próximo domínio de atualização ou retornará um erro para a atualização dependendo das políticas de integridade.
 
@@ -135,4 +139,4 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

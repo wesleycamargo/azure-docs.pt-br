@@ -148,8 +148,9 @@ Para exibir seus nomes de domínio, clique em **Todas as Configurações** > **D
 
 ### Implantações
 
-- Configure a implantação contínua. Consulte [Usando Git para implantar aplicativos Web no Serviço de Aplicativo do Azure]
+- Configure a implantação contínua. Confira [Usando Git para implantar aplicativos Web no Serviço de Aplicativo do Azure](./web-sites-deploy.md).
 - Slots de implantação. Veja [Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure].
+
 
 Para exibir seus slots de implantação, clique em **Todas as Configurações** > **Slots de implantação**.
 
@@ -188,4 +189,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -198,7 +198,7 @@ Não será possível anular a migração se a operação de confirmação falhar
 
 **Será necessário comprar outro circuito de Rota Expressa se eu precisar aproveitar usar a IaaS no Gerenciador de Recursos?**
 
-Não. Recentemente, habilitamos a [coexistência de um circuito de Rota Expressa no clássico e no Gerenciador de Recursos](../expressroute/expressroute-howto-coexist-resource-manager.md). Você não precisará comprar um novo circuito de Rota Expressa se já tiver um.
+Não. Habilitamos recentemente [a movimentação dos circuitos da ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos](../expressroute/expressroute-move.md). Você não precisará comprar um novo circuito de Rota Expressa se já tiver um.
 
 **E se eu tiver configurado políticas de Controle de Acesso Baseado em Função para meus recursos clássicos de IaaS?**
 
@@ -237,4 +237,4 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 - [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.date="09/16/2016"
+	ms.author="lakasa;robinsh"/>
 
 # Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 
@@ -24,18 +24,17 @@ As seções a seguir fornecem orientações detalhadas sobre como usar os recurs
 
 ## Visão geral
 
-
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure, usando a [Criptografia do lado do cliente](storage-client-side-encryption.md), HTTPs ou SMB 3.0. A Criptografia do Serviço de Armazenamento fornece criptografia em repouso, lidando com a criptografia, a descriptografia e o gerenciamento de chaves de forma totalmente transparente. Todos os dados são criptografados usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, um dos codificadores de blocos mais potentes.
 
 A SSE criptografa dados quando eles são gravados no Armazenamento do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimos. Ela funciona para o seguinte:
 
 -   Contas de armazenamento de finalidade geral e contas de Armazenamento de Blobs
--   Armazenamento Standard e armazenamento primário
+-   Armazenamento Standard e Armazenamento Premium
 -   Todos os níveis de redundância (LRS, ZRS, GRS e RA-GRS)
 -   Contas de armazenamento do Azure Resource Manager (mas não clássico)
 -   Todas as regiões
 
-Essa captura de tela mostra onde encontrar a configuração da Criptografia do Serviço de Armazenamento usando o [portal do Azure](https://azure.portal.com). Nessa tela, clique em Criptografia para continuar.
+Para habilitar ou desabilitar a Criptografia do Serviço de Armazenamento para uma conta de armazenamento, faça logon no [Portal do Azure](https://azure.portal.com) e selecione uma conta de armazenamento. Na folha Configurações, procure a seção de Serviço Blob, conforme mostrado nesta captura de tela, e clique em Criptografia.
 
 ![Captura de tela do Portal mostrando a opção Criptografia](./media/storage-service-encryption/image1.png)
 
@@ -127,6 +126,8 @@ R: Não, apenas contas de armazenamento do Resource Manager dão suporte à SSE.
 
 R: Você pode criar uma nova conta de armazenamento do Resource Manager e copiar seus dados usando o [AzCopy](storage-use-azcopy.md) da conta de armazenamento clássica existente para sua nova conta de armazenamento do Resource Manager.
 
+Outra opção é migrar sua conta do armazenamento clássico para uma conta de armazenamento do Resource Manager. Para obter mais informações, consulte [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/).
+
 **P: posso ter uma conta de armazenamento do Resource Manager existente. Posso habilitar o SSE nela?**
 
 R: Sim, mas apenas blobs gravados recentemente serão criptografados. Ela não criptografa dados que já existiam anteriormente.
@@ -195,4 +196,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

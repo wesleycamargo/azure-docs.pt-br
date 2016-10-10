@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do AD do Azure com o Sciforma
@@ -70,11 +70,11 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 1.  No portal clássico do Azure, na página de integração de aplicativos do **Sciforma**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no Sciforma**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-sciforma-tutorial/IC777373.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777373.png "Configurar o logon único")
 
 3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Sciforma**, digite a URL usando o padrão "*https://\<nome-locatário>.Sciforma.com*" e clique em **Avançar**.
 
@@ -82,19 +82,19 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 4.  Na página **Configurar logon único no Sciforma**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de dados localmente como **c:\\SciformaMetaData.xml**.
 
-    ![Configurar logon único](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Configurar o logon único")
 
 5.  Encaminhe esse arquivo de metadados à equipe de suporte do Sciforma. A equipe de suporte precisa configurar o logon único para você.
 
 6.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configurar o logon único")
+    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Sciforma. Quando um usuário atribuído tentar fazer logon no Sciforma usando o painel de acesso, o Sciforma verificará se o usuário existe. Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Sciforma.
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Sciforma, execute as seguintes etapas:
 
@@ -110,4 +110,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

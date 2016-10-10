@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover dados do banco de dados DB2 usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados do DB2 usando o Azure Data Factory
 Este artigo descreve como você pode usar a atividade de cópia em uma Azure Data Factory para mover dados do DB2 para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
@@ -333,4 +333,4 @@ Char | Cadeia de caracteres
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

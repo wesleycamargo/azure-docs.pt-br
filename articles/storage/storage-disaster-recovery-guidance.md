@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="jutang;robinsh"/>
 
 
 # O que fazer se uma interrupção no Armazenamento do Azure ocorrer
@@ -81,4 +81,4 @@ Há algumas abordagens recomendadas para fazer backup de seus dados de armazenam
 
 -   Arquivos – Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em outra região.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

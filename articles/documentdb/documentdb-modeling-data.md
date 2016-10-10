@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como modelar dados para Banco de Dados de Documentos, um banco de dados de documento NoSQL." 
 	keywords="modelando dados"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/05/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Modelando dados no Banco de Dados de Documentos#
 Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos do Azure, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável dedicar algum tempo pensando nos seus dados.
@@ -393,4 +393,4 @@ Para saber como fragmentar seus dados em diversas partições, consulte [Partici
 Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, confira [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

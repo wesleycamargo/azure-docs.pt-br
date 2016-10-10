@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Inserção de anúncios no lado do cliente" 
+	pageTitle="Inserção de anúncios no lado do cliente | Microsoft Azure" 
 	description="Este tópico mostra como inserir anúncios no lado do cliente." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -35,7 +35,7 @@ Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio
 
 Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: VAST (Video Ad Service Template), VMAP (Digital Video Multiple Ad Playlist), MAST (Media Abstract Sequencing Template) e VPAID (Digital Video Player Ad Interface Definition). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios.
 
-Cada estrutura de player funciona de maneira diferente e cada uma será abordada em seu próprio tópico. Este tópico descreve os mecanismos básicos usados para inserir anúncios. Aplicativos de player de vídeo solicitam anúncios de um servidor de anúncios. O servidor do anúncio pode responder de várias maneiras:
+Cada estrutura do player funciona de maneira diferente e cada uma será abordada em seu próprio tópico. Este tópico descreverá os mecanismos básicos usados para inserir anúncios. Os aplicativos do player de vídeo solicitam os anúncios de um servidor de anúncios. O servidor do anúncio pode responder de várias maneiras:
 
 - Retornar um arquivo VAST
 - Retornar um arquivo VMAP (com VAST incorporado)
@@ -813,4 +813,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

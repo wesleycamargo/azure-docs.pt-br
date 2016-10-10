@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
+	ms.date="09/22/2016"
 	ms.author="heidist"/>
 
 #Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
@@ -25,18 +25,19 @@ Atualize-se mais rapidamente com os seguintes vídeos, demonstrações, tutoriai
 
 - O [**Código de exemplo para o site de demonstração: site NYC Jobs**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) fornece código-fonte para o site de Pesquisa do Azure de demonstração dinâmica que usa dados do NYC Jobs, usando o MVC ASP.NET.
 
+- O [**Código de exemplo para o site de demonstração: Galeria de arte Tate**](https://github.com/liamca/azure-search-tate-art-gallery/) fornece um código-fonte para o site do Azure Search de demonstração ao vivo sobre dados de galeria de arte, mostrando o tipo de dados de Coleções e estruturas de dados aninhados, facetas e filtros, nomes de pessoas e imagens em miniatura.
+
 - O [**exemplo de código para a biblioteca de cliente .NET**](https://github.com/Azure-Samples/search-dotnet-getting-started) é um aplicativo ASP.NET MVC 5 que usa a biblioteca de cliente .NET para operações de pesquisa.
 
 - O [**Exemplo de código para a API REST**](https://github.com/Azure-Samples/search-rest-api-getting-started) fornece código de exemplo que ilustra como usar a API REST.
 
 Todos os exemplos de código acima podem ser encontrados no repositório do Github de exemplo do Azure, juntamente com outros exemplos que mostram como usar a Pesquisa do Azure em cenários específicos: [**Exemplos do Azure > Pesquisa do Azure**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
-##Sites de demonstração
+## Sites de demonstração online
 
 Esses sites são aplicativos Web totalmente funcionais que usam a Pesquisa do Azure para a experiência de pesquisa.
 
 [**A demonstração do portal Trabalhos da Cidade de Nova York (NYC) para Pesquisa Azure**](http://aka.ms/azjobsdemo) é um site da Web ASP.NET que demonstra os recursos da Pesquisa do Azure usando os dados da NYC Open Data Initiative. Esse aplicativo usa a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx). Você pode modificar o código para experimentar a [sintaxe Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
 
 [**Site de Demonstração da Pesquisa do Azure**](https://searchsamples.azurewebsites.net/#/) é uma coleção de aplicativos de demonstração da Pesquisa do Azure. Teste aplicativos de pesquisa de mídia, de pesquisa geográfica e de inventário de produto usando a Pesquisa do Azure.
 
@@ -90,4 +91,4 @@ Passo a passo|Descrição
 [Tutorial de perfis de pontuação](search-get-started-scoring-profiles.md)|Testar perfis de pontuação usando um aplicativo de console.
 [Tutorial da API REST de gerenciamento da Pesquisa do Azure](search-get-started-management-api.md)|Como usar a API REST de gerenciamento para provisionar o serviço e gerenciar chaves de api de administração ou de consulta.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

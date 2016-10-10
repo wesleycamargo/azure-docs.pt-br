@@ -3,7 +3,7 @@
 	description="Saiba mais sobre o protocolo de suporte do Banco de Dados de Documentos para MongoDB, agora disponível na versão de visualização pública." 
 	keywords="mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Suporte do protocolo do Banco de Dados de Documentos para o MongoDB
 
@@ -38,4 +38,4 @@ O protocolo de suporte do Banco de Dados de Documentos para MongoDB habilita as 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

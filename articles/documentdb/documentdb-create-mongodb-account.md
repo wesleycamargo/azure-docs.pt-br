@@ -2,7 +2,7 @@
 	pageTitle="Criar uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB | Microsoft Azure" 
 	description="Saiba como criar uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Como criar uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB usando o portal do Azure
 
@@ -78,4 +78,4 @@ Para criar uma conta do Banco de Dados de Documentos com suporte de protocolo pa
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

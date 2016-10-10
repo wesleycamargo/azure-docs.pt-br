@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="ihenkel"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
    <tags
@@ -18,7 +18,7 @@
 
 # Guia de introdução: integrando o Active Directory do Azure com aplicativos
 ## Visão geral
-Este tópico destina-se a fornecer um roteiro para integrar aplicativos com o AD do Azure (Active Directory do Azure). Cada uma das seções abaixo contém um breve resumo de um tópico mais detalhado, para que você possa identificar quais partes deste guia de introdução são relevantes para você. Siga os links para se aprofundar em cada assunto.
+Este tópico destina-se a fornecer um roteiro para integrar aplicativos com o Azure AD (Azure Active Directory). Cada uma das seções abaixo contém um breve resumo de um tópico mais detalhado, para que você possa identificar quais partes deste guia de introdução são relevantes para você. Siga os links para se aprofundar em cada assunto.
 
 ## Antes de começar, faça o inventário
 Antes de ir para a integração de aplicativos com o AD do Azure, é importante saber onde você está e onde deseja ir. As perguntas a seguir destinam-se a ajudá-lo a pensar em seu projeto de integração de aplicativos do AD do Azure.
@@ -52,7 +52,7 @@ Antes de ir para a integração de aplicativos com o AD do Azure, é importante 
 Talvez você não tenha as respostas a todas essas perguntas com antecedência, mas tudo bem. Este guia pode ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.
 
 ## Pré-requisitos
-- Uma assinatura do Azure e um diretório do Active Directory do Azure. Se você ainda não tem uma assinatura do Azure, você pode experimentar o Azure gratuitamente por 30 dias. [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)
+- Uma assinatura do Azure e um diretório do Azure Active Directory. Se você ainda não tem uma assinatura do Azure, você pode experimentar o Azure gratuitamente por 30 dias. [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## Integração de aplicativos com o AD do Azure
 ### Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery
@@ -89,4 +89,4 @@ Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do A
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

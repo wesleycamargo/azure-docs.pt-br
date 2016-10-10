@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS | Microsoft Azure"
    description="SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS"
-   services="virtual-machines-linux,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -1419,4 +1419,4 @@ Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de dis
 
 Consulte também o capítulo [Resumo do SQL Server para SAP no Azure geral][dbms-guide-5.8].
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

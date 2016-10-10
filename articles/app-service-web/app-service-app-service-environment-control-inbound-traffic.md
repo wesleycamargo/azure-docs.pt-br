@@ -23,7 +23,7 @@ Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual do Azu
 
 Um ambiente de serviço de aplicativo sempre deve ser criado em uma sub-rede, porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS é aceito apenas de endereços IP upstream específicos.
 
-O tráfego de rede de entrada e saída em uma sub-rede é controlado usando um [grupo de segurança de rede][NetworkSecurityGroups]. No momento, somente os grupos de segurança de rede criados no modelo de implantação clássico têm suporte para o ambiente do Serviço de Aplicativo. Controlar o tráfego de entrada requer a criação de regras de segurança de rede em um grupo de segurança de rede, seguida da atribuição do grupo de segurança de rede à sub-rede que contém o ambiente de serviço de aplicativo.
+O tráfego de rede de entrada e saída em uma sub-rede é controlado usando um [grupo de segurança de rede][NetworkSecurityGroups]. Controlar o tráfego de entrada requer a criação de regras de segurança de rede em um grupo de segurança de rede, seguida da atribuição do grupo de segurança de rede à sub-rede que contém o ambiente de serviço de aplicativo.
 
 Quando um grupo de segurança de rede é atribuído a uma sub-rede, o tráfego de entrada para aplicativos no ambiente de serviço de aplicativo é permitido/bloqueado com base em regras de permissão e bloqueio definidas no grupo de segurança de rede.
 
@@ -141,4 +141,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

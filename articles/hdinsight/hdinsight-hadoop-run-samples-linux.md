@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapReduce que você pode usar para se familiarizar com a execução de trabalhos de MapReduce do Hadoop. Neste documento, você aprenderá sobre os exemplos disponíveis e verá como é a execução de alguns deles.
+Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapReduce que você pode usar para se familiarizar com a execução de trabalhos de MapReduce do Hadoop. Neste documento, você aprende sobre os exemplos disponíveis e vê como é a execução de alguns deles.
 
 ##Pré-requisitos
 
@@ -47,7 +47,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 - **aggregatewordcount**: programa de mapeamento/redução baseado em Agregação que conta as palavras nos arquivos de entrada
 - **aggregatewordhist**: programa de mapeamento/redução baseado em Agregação que computa o histograma de palavras nos arquivos de entrada
 - **bbp**: um programa de mapeamento/redução que usa Bailey-Borwein-Plouffe para computar os dígitos exatos de Pi
-- **dbcount**: um exemplo de trabalho que faz a contagem das exibições de página de um banco de dados
+- **dbcount**: um trabalho de exemplo que conta os logs de pageview armazenados em um banco de dados
 - **distbbp**: um programa de mapeamento/redução que usa uma fórmula do tipo BBP para computar bits exatos de Pi
 - **grep**: um programa de mapeamento/redução que conta as correspondências de uma regex na entrada
 - **join**: um trabalho que faz a junção de bancos de dados classificados, particionados igualmente
@@ -83,7 +83,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
-    Isso vai gerar a lista de exemplos da seção anterior deste documento.
+    Isso gera a lista de exemplos da seção anterior deste documento.
 
 3. Use o comando a seguir para obter ajuda com um exemplo específico. Neste caso, o exemplo é **wordcount**:
 
@@ -93,7 +93,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
         Usage: wordcount <in> [<in>...] <out>
 
-    Isso indica que você pode fornecer diversos caminhos de entrada para os documentos de origem, e o caminho final é onde a saída (contagem de palavras nos documentos de origem,) ficará localizada.
+    Isso indica que você pode fornecer vários caminhos de entrada para os documentos de origem. O caminho final é onde a saída (contagem de palavras em documentos de origem) está armazenada.
 
 4. Use o seguinte para contar todas as palavras nos blocos de anotações de Leonardo Da Vinci, que são fornecidos como dados de exemplo com o cluster:
 
@@ -101,7 +101,7 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
     A entrada para este trabalho é lida em **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    A saída do exemplo será armazenada em **wasbs:///example/data/davinciwordcount**.
+    A saída do exemplo fica armazenada em **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] Conforme observado na ajuda do exemplo wordcount, você também pode especificar vários arquivos de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaria as palavras em davinci.txt e ulysses.txt.
 
@@ -109,9 +109,9 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
         hdfs dfs -cat /example/data/davinciwordcount/*
 
-    Isso vai concatenar todos os arquivos de saída produzidos pelo trabalho, além de exibi-los. Para este exemplo básico há apenas um arquivo. No entanto, se houvesse mais, o comando iteraria todos eles.
+    Isso concatena todos os arquivos de saída produzidos pelo trabalho, além de exibi-los. Para este exemplo básico há apenas um arquivo. No entanto, se houvesse mais, o comando iteraria todos eles.
 
-    Você verá saídas semelhantes à seguinte neste comando:
+    A saída deverá ser semelhante a esta:
 
         zum     1
         zur     1
@@ -236,4 +236,4 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -120,7 +120,7 @@ error=access_denied
 Agora que você adquiriu um authorization\_code, poderá resgatar `code` para obter um token para o recurso desejado enviando uma solicitação `POST` para o ponto de extremidade `/token`. No Azure AD B2C, o único recurso para o qual você pode solicitar um token é a API Web de back-end do seu aplicativo. A convenção usada para solicitar um token para si mesmo é usar a ID do cliente do aplicativo como o escopo:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -185,7 +185,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Os tokens de Id e acesso têm vida curta. Você deve atualizá-los depois que eles expirarem para poder continuar a acessar os recursos. Faça isso enviando outra solicitação `POST` ao ponto de extremidade `/token`. Dessa vez, forneça o `refresh_token` em vez do `code`:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -244,4 +244,4 @@ Se você quiser experimentar essas solicitações por conta própria, primeiro d
 - [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um redirect\_uri. Você deve incluir uma **cliente nativo** em seu aplicativo.
 - [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

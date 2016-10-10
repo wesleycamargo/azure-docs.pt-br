@@ -7,7 +7,7 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------- | -------- | 
 | columnDelimiter | O caractere usado para separar as colunas em um arquivo. | Somente um caractere é permitido. O valor padrão é vírgula (,). | Não |
-| rowDelimiter | O caractere usado para separar as linhas em um arquivo. | Somente um caractere é permitido. O valor padrão é "\\r\\n" na gravação e qualquer um dos seguintes para leitura: ["\\r\\n", "\\r"," \\n"]. | Não |
+| rowDelimiter | O caractere usado para separar as linhas em um arquivo. | Somente um caractere é permitido. O valor padrão é um dos seguintes valores na leitura ["\\r\\n", "\\r" e "\\n"] e "\\r\\n" na gravação. | Não |
 | escapeChar | O caractere especial usado como escape do delimitador de coluna no conteúdo do arquivo de entrada. <br/><br/>Não é possível especificar ambos escapeChar e quoteChar para uma tabela. | Somente um caractere é permitido. Nenhum valor padrão. <br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: "Hello, world"), você poderá definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte. | Não | 
 | quoteChar | O caractere usado para citar um valor de cadeia de caracteres. Os delimitadores de linha e coluna dentro dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa propriedade é aplicável a ambos os conjuntos de dados de entrada e de saída.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Somente um caractere é permitido. Nenhum valor padrão. <br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: <Hello, world>), você poderá definir " (aspas duplas) como o caractere de citação e usar a cadeia de caracteres "Hello, world" na origem. | Não |
 | nullValue | Um ou mais caracteres usados para representar um valor nulo. | Um ou mais caracteres. Os valores padrão são "\\N" e "NULL" na leitura e "\\N" na gravação. | Não |
@@ -36,7 +36,7 @@ O exemplo a seguir mostra algumas das propriedades de formato para TextFormat.
 	    }
 	},
 
-Para usar um escapeChar em vez de quoteChar, substitua a linha com quoteChar pelo seguinte:
+Para usar um escapeChar em vez de um quoteChar, substitua a linha com quoteChar pelo seguinte escapeChar:
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ Para usar um escapeChar em vez de quoteChar, substitua a linha com quoteChar pel
 
 - Você está copiando de uma fonte que não é de arquivo para um arquivo de texto e deseja adicionar uma linha de cabeçalho que contém os metadados de esquema (por exemplo: esquema SQL). Especifique **firstRowAsHeader** como true no conjunto de dados de saída para esse cenário.
 - Você está copiando de um arquivo de texto contendo uma linha de cabeçalho para um coletor que não é em arquivo e gostaria de remover essa linha. Especifique **firstRowAsHeader** como true no conjunto de dados de entrada.
-- Você está copiando de um arquivo de texto e deseja ignorar algumas linhas no início que não são de dados nem cabeçalho. Especifique **skipLineCount** para indicar o número de linhas a serem ignoradas. Se o restante do arquivo contiver uma linha de cabeçalho, você também poderá especificar **firstRowAsHeader**. Se **skipLineCount** e **firstRowAsHeader** forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada
+- Você está copiando de um arquivo de texto e deseja ignorar algumas linhas no início que não são informações de dados nem de cabeçalho. Especifique **skipLineCount** para indicar o número de linhas a serem ignoradas. Se o restante do arquivo contiver uma linha de cabeçalho, você também poderá especificar **firstRowAsHeader**. Se **skipLineCount** e **firstRowAsHeader** forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada
 
 ### Especificando AvroFormat
 Se o formato é definido como AvroFormat, não é necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
@@ -228,7 +228,7 @@ O conjunto de dados de entrada com o tipo JsonFormat é definido da seguinte man
 Se a estrutura não for definida, a atividade de cópia mescla a estrutura por padrão e copia tudo.
 
 #### Estrutura JSON com suporte
-Observe o seguinte:
+Observe os seguintes pontos:
 
 - Cada objeto com uma coleção de pares nome/valor é mapeado para uma linha de dados em um formato tabular. Objetos podem ser aninhados e você pode definir como mesclar a estrutura em um conjunto de dados com o separador de aninhamento (.) por padrão. Consulte a seção [exemplo de JsonFormat](#jsonformat-example) acima para obter um exemplo.
 - Se a estrutura não for definida no conjunto de dados do Data Factory, a atividade de cópia detectará o esquema do primeiro objeto e mesclará todo o objeto.
@@ -241,14 +241,29 @@ Se o formato for definido como OrcFormat, não será necessário especificar nen
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] Se você não estiver copiando arquivos ORC **como são** entre repositórios de dados locais e na nuvem, você precisará instalar o JRE 8 (Java Runtime Environment) no computador do gateway. Um gateway de 64 bits exige JRE de 64 bits, enquanto um gateway de 32 bits exige JRE de 32 bits. Você pode encontrar as duas versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha aquela que for apropriada.
 
-Observe o seguinte:
+Observe os seguintes pontos:
 
 -	Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION)
 -	O arquivo ORC tem três [opções de compactação](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB e SNAPPY. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo ORC, o Data Factory escolhe ZLIB, que é o padrão para ORC. Não há nenhuma opção para substituir esse comportamento neste momento.
 
-<!---HONumber=AcomDC_0907_2016-->
+### Especificando ParquetFormat
+Se o formato for definido como ParquetFormat, não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] Se você não estiver copiando arquivos Parquet **no estado em que se encontram** entre armazenamentos de dados locais e na nuvem, você precisará instalar o JRE 8 (Java Runtime Environment) no computador do gateway. Um gateway de 64 bits exige JRE de 64 bits, enquanto um gateway de 32 bits exige JRE de 32 bits. Você pode encontrar as duas versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha aquela que for apropriada.
+
+Observe os seguintes pontos:
+
+-	Não há suporte para tipos de dados complexos (MAP, LIST)
+-	O arquivo Parquet tem as seguintes opções relacionadas à compactação: NONE, SNAPPY, GZIP e LZO. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo Parquet, o Data Factory escolhe SNAPPY, que é o padrão para o formato Parquet. Não há nenhuma opção para substituir esse comportamento neste momento.
+
+<!---HONumber=AcomDC_0928_2016-->

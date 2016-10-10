@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="09/22/2016"
 	ms.author="jahogg;tamram"/>
 
 # Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
@@ -86,40 +86,40 @@ O serviço de Armazenamento também inclui suporte para cabeçalhos condicionais
 
 A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.
 
-Operação |Retorna o valor de ETag do contêiner|	Aceita cabeçalhos condicionais|
-------------|-----------------------|------------------------------------|
-Create Container|	Sim|	Não|
-Get Container Properties|	Sim|	Não|
-Get Container Metadata|	Sim|	Não|
-Set Container Metadata|	Sim|	Sim|
-Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)|
-Delete Container| Não| Sim|
-Lease Container| Sim| Sim|
-List Blobs| Não| Não 
+| Operação | Retorna o valor de ETag do contêiner | Aceita cabeçalhos condicionais |
+|:-------------------------|:-----------------------------|:----------------------------|
+| Create Container | Sim | Não |
+| Get Container Properties | Sim | Não |
+| Get Container Metadata | Sim | Não |
+| Set Container Metadata | Sim | Sim |
+| Get Container ACL | Sim | Não |
+| Set Container ACL | Sim | Sim (*) |
+| Delete Container | Não | Sim |
+| Lease Container | Sim | Sim |
+| Listar Blobs | Não | Não |
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.
 
 A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.
 
-Operação |Retorna o valor de ETag |Aceita cabeçalhos condicionais|
------------|-------------------|----------------------------|
-Put Blob|	Sim|	Sim|
-Get Blob|	Sim|	Sim|
-Get Blob Properties|	Sim|	Sim|
-Set Blob Properties|	Sim|	Sim|
-Get Blob Metadata|	Sim|	Sim|
-Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)| Sim| Sim|
-Snapshot Blob| Sim| Sim|
-Copy Blob| Sim| Sim (para blob de origem e destino)|
-Abort Copy Blob| Não| Não|
-Delete Blob| Não| Sim|
-Put Block| Não| Não|
-Put Block List| Sim| Sim|
-Get Block List| Sim| Não|
-Put Page| Sim| Sim|
-Get Page Ranges| Sim| Sim
+| Operação | Retorna o valor de ETag | Aceita cabeçalhos condicionais |
+|:--------------------|:-------------------|:--------------------------------------|
+| Put Blob | Sim | Sim |
+| Get Blob | Sim | Sim |
+| Get Blob Properties | Sim | Sim |
+| Set Blob Properties | Sim | Sim |
+| Get Blob Metadata | Sim | Sim |
+| Set Blob Metadata | Sim | Sim |
+| Lease Blob (*) | Sim | Sim |
+| Blob de instantâneo | Sim | Sim |
+| Copiar blob | Sim | Sim (para o blob de origem e destino) |
+| Anular copiar Blob | Não | Não |
+| Delete Blob | Não | Sim |
+| Put Block | Não | Não |
+| Put Block List | Sim | Sim |
+| Get Block List | Sim | Não |
+| Put Page | Sim | Sim |
+| Get Page Ranges | Sim | Sim |
 
 
 (*) Lease Blob não altera a ETag em um blob.
@@ -284,4 +284,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 - Introdução ao Armazenamento para [Blob](storage-dotnet-how-to-use-blobs.md), [Tabela](storage-dotnet-how-to-use-tables.md), [Filas](storage-dotnet-how-to-use-queues.md) e [Arquivos](storage-dotnet-how-to-use-files.md)
 - Arquitetura de Armazenamento – [Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

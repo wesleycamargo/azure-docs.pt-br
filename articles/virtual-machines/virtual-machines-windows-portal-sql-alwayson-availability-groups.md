@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/12/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Configurar automaticamente o grupo de disponibilidade Always On na VM do Azure - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager: Automático](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -87,7 +87,7 @@ Clique em **Básico** e configure o seguinte:
 
 - **Senha** é a senha da conta de administrador de domínio. Use uma senha complexa. Confirme a senha.
 
-- **Assinatura** é a assinatura que será cobrada pelo Azure para executar todos os recursos implantados para o grupo de disponibilidade. Se sua conta tiver várias assinaturas, você pode especificar uma assinatura diferente.
+- **Assinatura** é a assinatura que será cobrada pelo Azure para executar todos os recursos implantados para o grupo de disponibilidade. Se sua conta tiver várias assinaturas, você poderá especificar uma assinatura diferente.
 
 - **Grupo de recursos** é o nome do grupo ao qual pertencem todos os recursos do Azure criados por este tutorial. Neste tutorial, use **SQL-HA-RG**. Para saber mais, confira (Visão geral do Gerenciador de Recursos do Azure) [resource-group-overview.md/#resource-groups].
 
@@ -259,4 +259,4 @@ Agora você está conectado ao controlador de domínio primário. Para usar o pr
 
 Agora você está conectado ao SQL Server com protocolo RDP. Você pode abrir o SQL Server Management Studio, conectar-se à instância padrão do SQL Server e verificar se o grupo de disponibilidade está configurado.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

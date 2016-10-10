@@ -158,7 +158,7 @@ Ao contrário da VM do servidor de aplicativo, quatro discos foram anexados à V
 O SAP HANA exige configurações específicas de kernel do Linux que não fazem parte das imagens padrão da Galeria do Azure e precisam ser configuradas manualmente. Há uma observação SAP específica que descreve as configurações.
 
 
-SAP Note SAP HANA DB: configurações recomendadas de sistema operacional para SLES 12/SLE para Aplicativos SAP 12: [ SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
+SAP Note SAP HANA DB: configurações recomendadas de sistema operacional para SLES 12/SLES para Aplicativos SAP 12: [ SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 Confira [aqui](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache), no capítulo 6.1 Kernel: limite de cache de página, um tópico adicional sobre cache de página relacionado à execução do SAP HANA em SLES
 
@@ -484,4 +484,4 @@ E, finalmente, após a instalação do servidor de aplicativo SAP e do SAP GUI, 
 
 * Baixe o HANA SP12 Platform Edition no SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

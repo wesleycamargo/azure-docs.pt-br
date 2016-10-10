@@ -22,7 +22,11 @@ Para carregar uma VM do Windows do local para o Azure, você deve preparar corre
 
 ## Preparar o disco virtual
 
->[AZURE.NOTE] Não há suporte para o formato VHDX mais recente no Azure. O VHD deve ter um tamanho fixo, não dinâmico. Se necessário, as instruções a seguir detalham a conversão de discos VHDX ou dinâmicos. O tamanho máximo permitido para o VHD é 1.023 GB.
+>[AZURE.NOTE] 
+O Azure dá suporte somente para [máquinas virtuais de geração 1](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) no formato de arquivo VHD. Não há suporte para o formato VHDX mais recente no Azure.
+>
+> O VHD deve ter um tamanho fixo, não dinâmico. Se necessário, as instruções a seguir detalham a conversão de discos VHDX ou dinâmicos. O tamanho máximo permitido para o VHD é 1.023 GB.
+
 
 Verifique se o VHD do Windows está funcionando corretamente no servidor local. Resolva quaisquer erros na própria VM antes de tentar converter ou carregar no Azure.
 
@@ -319,4 +323,4 @@ As seguintes configurações não afetam o carregamento do VHD. No entanto, é a
 
 - [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Conectando a conta dos serviços de mídia usando a API REST" 
-	description="Este tópico demonstra como se conectar aos serviços de mídia usando a API REST." 
+	pageTitle="Conectando a Conta dos Serviços de Mídia usando a API REST | Microsoft Azure" 
+	description="Este tópico demonstra como conectar os Serviços de Mídia usando a API REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [.NET](media-services-dotnet-connect-programmatically.md)
 - [REST](media-services-rest-connect-programmatically.md)
 
-Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o API REST dos serviços de mídia.
+Este tópico descreve como obter uma conexão programática com os Serviços de Mídia do Microsoft Azure quando você está programando com a API REST dos Serviços de Mídia.
 
 Duas coisas são necessárias ao acessar os Serviços de Mídia do Microsoft Azure: um token de acesso fornecido pelos ACSs (Serviços de Controle de Acesso) e o URI dos Serviços de Mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
 
@@ -177,4 +177,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

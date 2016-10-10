@@ -28,6 +28,7 @@ Veja a seguir as etapas para instalação e configuração das ferramentas do Vi
 
 - [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 - [SDK mais recente do Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou superior)
+- [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
 - Acesso à Web ao usar o designer incorporado
 
 ### Instalar ferramentas do Visual Studio para Aplicativos Lógicos
@@ -105,4 +106,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 - [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

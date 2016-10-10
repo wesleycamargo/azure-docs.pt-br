@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -130,7 +130,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 
 5. Para que o SSO seja configurado para seu aplicativo, contate a equipe de suporte do SECURE DELIVER pelo email [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) e forneça o seguinte:
@@ -177,7 +177,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_05.png)
 
@@ -185,9 +185,9 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Clique em **Próximo**.
+    c. Clique em **Avançar**.
 
-6.  Na página de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png)
 
@@ -199,13 +199,13 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**.
 
-    e. Clique em **Próximo**.
+    e. Clique em **Avançar**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_07.png)
 
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_08.png)
 
@@ -279,4 +279,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="AndKjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 <tags
     ms.service="active-directory"
@@ -17,7 +17,7 @@
 
 # Topologias para o Azure AD Connect
 
-O objetivo deste tópico é descrever diferentes topologias locais e do AD do Azure com o Azure AD Connect Sync como a solução de integração principal. Ele descreve as configurações com e sem suporte.
+O objetivo deste tópico é descrever diferentes topologias locais e do Azure AD com o Azure AD Connect Sync como a solução de integração principal. Ele descreve as configurações com e sem suporte.
 
 Legenda de imagens no documento:
 
@@ -187,4 +187,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 #Fazer a rotação de credenciais de logon para entradas e saídas em trabalhos do Stream Analytics
@@ -70,11 +70,11 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 8.  Clique em Executar: ![elementográfico20][graphic20]
 9.  Volte para etapa 2 e, dessa vez, clique no banco de dados: ![elementográfico21][graphic21]
 10. Clique no comando Gerenciar: ![elementográfico22][graphic22]
-11. digite seu Nome de Usuário, sua Senha e clique em Fazer logon: ![elementográfico23][graphic23]
+11. Digite seu Nome de Usuário, sua Senha e clique em Fazer logon: ![elementográfico23][graphic23]
 12. Clique em Nova Consulta: ![elementográfico24][graphic24]
 13. Digite a consulta a seguir, substituindo <user\_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados (é possível fornecer o mesmo valor atribuído para <login\_name>, por exemplo) e substituindo <login\_name> por seu novo nome de usuário: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Clique em Executar: ![elementográfico25][graphic25]
-15. Agora, você deve fornecer o novo usuário com as mesmas funções e privilégios do usuário original.
+15. Agora, você deve fornecer ao novo usuário as mesmas funções e privilégios que o usuário original tinha.
 16. Prossiga para a Parte 2.
 
 ##Parte 2: Interrompendo o trabalho do Stream Analytics
@@ -198,4 +198,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

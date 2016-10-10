@@ -417,8 +417,8 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [Armazenamento de Blobs do Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[Fila do Barramento de Serviço]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[Fila do Barramento de Serviço]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Guia do desenvolvedor do Hub IoT do Azure — dispositivo para nuvem]: iot-hub-devguide.md#d2c
 
@@ -448,4 +448,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

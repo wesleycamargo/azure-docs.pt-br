@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -38,7 +38,7 @@ O email será enviado se 10 novas atividades de entrada irregular ocorrerem nos 
 
 Ao clicar no link, você será redirecionado à página do relatório no portal clássico do Azure. Para acessar o relatório, você precisa ser ambos:
 
-- Um administrador ou co-administrador de sua assinatura do Azure
+- Um administrador ou coadministrador de sua assinatura do Azure
 
 - Um administrador global no diretório e ter uma licença do Active Directory Premium atribuída a você. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
@@ -51,4 +51,4 @@ Sim, para desligar as notificações relacionadas a entradas anômalas no portal
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

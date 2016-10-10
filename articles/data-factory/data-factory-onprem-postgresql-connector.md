@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover dados do banco de dados PostgreSQL usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados do PostgreSQL usando o Azure Data Factory
 
@@ -325,4 +325,4 @@ texto | | Cadeia de caracteres
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

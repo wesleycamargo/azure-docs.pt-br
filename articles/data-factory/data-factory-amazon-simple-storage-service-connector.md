@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover dados do Amazon S3 (Simple Storage Service) usando o Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados do Amazon Simple Storage Service usando o Azure Data Factory
 
@@ -223,8 +223,8 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | chave | A chave do objeto S3. | Cadeia de caracteres | Não | 
 | prefixo | Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. | Cadeia de caracteres | Não | 
 | version | A versão do objeto S3 se o controle de versão do S3 está habilitado. | Cadeia de caracteres | Não |  
-| formato | Os seguintes tipos de formato têm suporte: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), Especificando [JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.| Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não são compatíveis para dados em **AvroFormat** ou **OrcFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.| Não
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não são compatíveis para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support). | Não |
 
 > [AZURE.NOTE] bucketName + chave especifica a localização do objeto S3 em que bucket é o contêiner raiz para objetos S3 e a chave é o caminho completo para o objeto S3.
 
@@ -318,4 +318,4 @@ Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-ac
 Confira os seguintes artigos:
 - [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

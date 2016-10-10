@@ -37,13 +37,13 @@ Login-AzureRmAccount
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.
 
-Se você tiver várias assinaturas, talvez tenha que indicar uma assinatura específica que tenha sido usada para criar o Cofre da Chave do Azure. Digite o seguinte para ver as assinaturas da sua conta:
+Se você tiver várias assinaturas, talvez tenha que indicar uma assinatura específica que tenha sido usada para criar o Cofre de Chaves do Azure. Digite o seguinte para ver as assinaturas da sua conta:
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Em seguida, para especificar a assinatura associada ao cofre da chave do qual os logs serão registrados, digite:
+Em seguida, para especificar a assinatura associada ao cofre de chaves do qual os logs serão registrados, digite:
 
 ```powershell
 Set-AzureRmContext -SubscriptionId <subscriptionID> 
@@ -241,7 +241,7 @@ Depois que isso for habilitado, os logs de auditoria começarão a realizar a co
 
 > [AZURE.NOTE] Você pode acessar suas informações de log em até 10 minutos após a operação do Cofre de Chaves. Na maioria dos casos, será mais rápido do que isso.
 
-A próxima etapa é [criar uma fila do Barramento de Serviço do Azure](../service-bus/service-bus-dotnet-get-started-with-queues.md). Isso será onde os logs de auditoria do Cofre de Chaves são enviados por push. Uma vez na fila, o aplicativo lógico vai coletá-los e agir neles. Criar um Barramento de Serviço é relativamente simples e a seguir estão as etapas de alto nível:
+A próxima etapa é [criar uma fila do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). Isso será onde os logs de auditoria do Cofre de Chaves são enviados por push. Uma vez na fila, o aplicativo lógico vai coletá-los e agir neles. Criar um Barramento de Serviço é relativamente simples e a seguir estão as etapas de alto nível:
 
 1. Crie um namespace do Barramento de Serviço (se você já tiver um que deseja usar para isso, vá para a etapa 2).
 2. Navegue até o Barramento de Serviço no portal e selecione o namespace no qual deseja criar a fila.
@@ -424,4 +424,4 @@ Para a ação, escolha _Office 365 - send email (Office 365 – enviar email)_. 
 
 Neste ponto, você tem um pipeline de ponta a ponta que, uma vez por minuto, procurará novos logs de auditoria do Cofre de Chaves. Todos os novos logs que encontrar, ele enviará por push para uma Fila de Barramento de Serviço. O aplicativo lógico será disparado assim que uma nova mensagem chegar à fila e, se o appid dentro do evento não corresponder à ID do aplicativo da chamada, enviará um email.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="08/08/2016"
 	ms.author="dastrock"/>
 
 # Protocolos v2.0 - Fluxo de código de autorização do OAuth 2.0
@@ -56,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | obrigatório | A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) atribuiu ao aplicativo. |
 | response\_type | obrigatório | Deve incluir `code` para o fluxo do código de autorização. |
-| redirect\_uri | recomendável | O redirect\_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect\_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Para aplicativos nativos e móveis, você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`. |
+| redirect\_uri | recomendável | O redirect\_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect\_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Para aplicativos nativos e móveis, você deve usar o valor padrão de `https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 | scope | obrigatório | Uma lista separada por espaços de [escopos](active-directory-v2-scopes.md) para os quais você deseja o consentimento do usuário. |
 | response\_mode | recomendável | Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. Pode ser `query` ou `form_post`. |
 | state | recomendável | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -72,7 +72,7 @@ Depois que o usuário se autentica e dá consentimento, o ponto de extremidade v
 Uma resposta bem-sucedida usando `response_mode=query` tem a seguinte aparência:
 
 ```
-GET urn:ietf:wg:oauth:2.0:oob?
+GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
@@ -86,7 +86,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 As respostas de erro também podem ser enviadas ao `redirect_uri` para que o aplicativo possa tratá-las adequadamente:
 
 ```
-GET urn:ietf:wg:oauth:2.0:oob?
+GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
@@ -132,7 +132,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | | Descrição |
 | ----------------------- | ------------------------------- | --------------------- |
-| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | obrigatório | A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) atribuiu ao aplicativo. |
 | grant\_type | obrigatório | Deve ser `authorization_code` para o fluxo do código de autorização. |
 | scope | obrigatório | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na primeira ramificação, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade v2.0 retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](active-directory-v2-scopes.md). |
@@ -233,7 +233,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | | Descrição |
 | ----------------------- | ------------------------------- | -------- |
-| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, veja [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| locatário | obrigatório | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | obrigatório | A Id de Aplicativo que o portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) atribuiu ao aplicativo. |
 | grant\_type | obrigatório | Deve ser `refresh_token` para essa ramificação do código de autorização. |
 | scope | obrigatório | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na ramificação de solicitação authorization\_code original, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade v2.0 retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](active-directory-v2-scopes.md). |
@@ -288,4 +288,4 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 
 Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

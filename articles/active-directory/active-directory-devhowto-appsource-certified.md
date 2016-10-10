@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/05/2016"
+   ms.date="09/22/2016"
    ms.author="skwan;bryanla"/>
 
 #Como certificar o AppSource para o Azure AD (Active Directory) 
@@ -27,7 +27,7 @@ Se você não estiver familiarizado com o desenvolvimento de aplicativos multilo
 3. Para saber como implementar o padrão de entrada multilocatário com o Azure AD, confira [Como entrar com qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário][AAD-Howto-Multitenant-Overview]
 
 ## Conteúdo relacionado
-Para obter mais informações sobre como criar aplicativos que dão suporte à entrada do Azure AD, ou para obter ajuda e suporte, consulte o [Guia do desenvolvedor do Azure AD][AAD-Dev-Guide].
+Para saber mais sobre como criar aplicativos que dão suporte à entrada do Azure AD, ou para obter ajuda e suporte, consulte o [Guia do desenvolvedor do Azure AD][AAD-Dev-Guide].
 
 Use a seção de comentários do Disqus abaixo para fornecer seus comentários e ajudar a refinar e a moldar o nosso conteúdo.
 
@@ -41,4 +41,4 @@ Use a seção de comentários do Disqus abaixo para fornecer seus comentários e
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

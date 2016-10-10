@@ -367,4 +367,4 @@ Para obter mais informações sobre como trabalhar com a saída, consulte [Compa
 
 [deployment2cmdlet]: https://msdn.microsoft.com/library/mt740620(v=azure.200).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

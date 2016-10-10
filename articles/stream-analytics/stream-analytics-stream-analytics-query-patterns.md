@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -25,7 +25,7 @@
 As consultas no Stream Analytics do Azure são expressadas em uma linguagem de consulta do tipo SQL, que está documentada na [Referência de Linguagem de Consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
 ## Exemplo de consulta: conversões de tipo de dados
-**Descrição**: defina os tipos das propriedades no fluxo de entrada. Por exemplo, o peso do carro está vindo no fluxo de entrada como cadeias de caracteres e precisa ser convertido em INT para executar a SOMA.
+**Descrição**: defina os tipos das propriedades no fluxo de entrada. Por exemplo, o peso do carro está vindo no fluxo de entrada como cadeias de caracteres e precisa ser convertido em INT para executar o SUM.
 
 **Entrada**:
 
@@ -55,7 +55,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 
 
 ## Exemplo de consulta: usando Like/Not like para fazer correspondência de padrões
-**Descrição**: verifique se um valor de campo no evento corresponde a um determinado padrão. Por exemplo, retornar placas de carro que comecem com A e terminem com 9
+**Descrição**: verifique se o valor de um campo no evento corresponde a um determinado padrão. Por exemplo, retorne placas de carro que comecem com A e terminem com 9.
 
 **Entrada**:
 
@@ -84,7 +84,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 **Explicação**: use instrução LIKE para verificar se o valor do campo PlacaDeCarro começa com A e depois tem uma cadeia de zero ou mais caracteres e termina com 9.
 
 ## Exemplo de consulta: especifique a lógica para casos/valores diferentes (instruções CASE)
-**Descrição**: forneça uma computação diferente para um campo com base em alguns critérios. Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carros da mesma marca passaram com um caso especial para 1.
+**Descrição**: forneça um cálculo diferente para um campo com base em alguns critérios. Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carros da mesma marca passaram, com um caso especial para 1.
 
 **Entrada**:
 
@@ -118,7 +118,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 **Explicação**: a cláusula CASE nos permite fornecer uma computação diferente com base em alguns critérios (no nosso caso, a contagem de carros na janela de agregação).
 
 ## Exemplo de consulta: enviar dados para várias saídas
-**Descrição**: envie dados para vários destinos de saída de um único trabalho. Por exemplo, analise os dados para um alerta de limite e arquive todos os eventos no armazenamento de blob.
+**Descrição**: envie dados para vários destinos de saída de um único trabalho. Por exemplo, analise dados de um alerta baseado em limite e arquive todos os eventos no armazenamento de blobs
 
 **Entrada**:
 
@@ -169,7 +169,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 	HAVING
 		[Count] >= 3
 
-**Explicação**: a cláusula INTO informa o Stream Analytics quais das saídas gravar os dados dessa instrução. A primeira consulta é uma passagem dos dados que recebemos para uma saída que chamamos de SaídaDeArquivos. A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta de downstream. *Observação*: você também pode reutilizar os resultados de CTEs (ou seja, instruções COM). Isso tem o benefício adicional de abrir menos leitores para a fonte de entrada, por exemplo.
+**Explicação**: a cláusula INTO informa o Stream Analytics quais das saídas gravar os dados dessa instrução. A primeira consulta é uma passagem dos dados que recebemos para uma saída que chamamos de SaídaDeArquivos. A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta de downstream. *Observação*: você também pode reutilizar resultados de CTEs (ou seja, instruções WITH) em múltiplas instruções de saída. Isso tem o benefício adicional de abrir menos leitores para a fonte de entrada. Por exemplo,
 
 	WITH AllRedCars AS (
 		SELECT
@@ -183,7 +183,7 @@ As consultas no Stream Analytics do Azure são expressadas em uma linguagem de c
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Exemplo de consulta: contagem de valores exclusivos
-**Descrição**: conte o número de valores de campo exclusivos que aparecem no fluxo em uma janela de tempo. Por exemplo, quantas marcas exclusivas de carros passaram pelo pedágio em uma segunda janela 2?
+**Descrição**: conte o número de valores de campo exclusivos que aparecem no fluxo em uma janela de tempo. Por exemplo, quantas marcas de carro exclusivas passaram pelo pedágio em uma janela de 2 segundos?
 
 **Entrada**:
 
@@ -353,7 +353,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 **Explicação**: há duas etapas na consulta. A primeira localiza o carimbo de data e hora mais recente em janelas de 10 minutos. A segunda etapa une os resultados da primeira consulta com fluxo original para localizar eventos que correspondem aos carimbos de data e hora mais recentes em cada janela.
 
 ## Exemplo de consulta: detectar a ausência de eventos
-**Descrição**: verifique se um fluxo não tem um valor que corresponde a um determinado critério. Por exemplo, 2 carros consecutivos da mesma marca passaram pelo pedágio em 90 segundos?
+**Descrição**: confirme se um fluxo não tem um valor correspondente a determinados critérios. Por exemplo, 2 carros consecutivos da mesma marca entraram na estrada com pedágio em 90 segundos?
 
 **Entrada**:
 
@@ -386,7 +386,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 **Explicação**: use LAG para inspecionar um fluxo de entrada do evento anterior e obter o valor Marca. Em seguida, compare-o à Marca no evento atual e retire o evento se eles forem iguais e use LAG para obter dados sobre o carro anterior.
 
 ## Exemplo de consulta: detectar a duração entre os eventos
-**Descrição**: localizar a duração de um evento específico. Por exemplo, após receber os dados de sequência de cliques da web, determinar o tempo gasto em um recurso.
+**Descrição**: descubra a duração de um determinado evento. Por exemplo, dada uma sequência de cliques na Web, determine o tempo gasto em um recurso.
 
 **Entrada**:
   
@@ -415,7 +415,7 @@ Agora vamos alterar o problema e localizar o primeiro carro de determinada Marca
 **Explicação**: usar a função LAST para recuperar o último valor temporal, quando o tipo de evento era ‘Start’. Observe que a função LAST usa PARTITION BY [usuário] para indicar que o resultado deverá ser calculado por usuário exclusivo. A consulta tem um limite máximo de uma hora de diferença de tempo entre os eventos ‘Start’ e ‘Stop’, mas é configurável como necessária (LIMIT DURATION(hour, 1).
 
 ## Exemplo de consulta: detectar a duração de uma condição
-**Descrição**: descubra há quanto tempo uma condição ocorreu. Por exemplo, suponha que um bug que resultou no peso incorreto de todos os carros (acima de 9.000 quilos). Queremos calcular a duração do bug.
+**Descrição**: descubra quanto tempo uma condição durou. Por exemplo, suponha que um bug resultou no peso incorreto de todos os carros (acima de 9.000 quilos). Queremos calcular a duração do bug.
 
 **Entrada**:
 
@@ -514,4 +514,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

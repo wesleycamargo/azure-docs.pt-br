@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/06/2016"
+	ms.date="09/26/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Criar seu primeiro pipeline para processar dados usando cluster Hadoop 
@@ -216,4 +216,12 @@ Esta seção fornece instruções sobre o uso da ferramenta **AzCopy** para copi
 	
 		AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
 
-<!---HONumber=AcomDC_0921_2016-->
+Você concluiu os pré-requisitos. Você pode criar um data factory usando um dos caminhos a seguir. Clique em uma das guias na parte superior ou nos links a seguir para executar o tutorial.
+
+- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+<!---HONumber=AcomDC_0928_2016-->

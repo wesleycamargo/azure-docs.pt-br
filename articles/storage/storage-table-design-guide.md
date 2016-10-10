@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Guia de Design de tabela de armazenamento do Azure | Microsoft Azure"
-   description="Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure"
-   services="storage"
-   documentationCenter="na"
-   authors="jasonnewyork" 
-   manager="tadb"
-   editor="tysonn"/>
+	pageTitle="Guia de Design de tabela de armazenamento do Azure | Microsoft Azure"
+	description="Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure"
+	services="storage"
+	documentationCenter="na"
+	authors="jasonnewyork" 
+	manager="tadb"
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="03/18/2016"
-   ms.author="jahogg"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="09/22/2016"
+	ms.author="jahogg;tamram"/>
 
 # Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 
 ## Visão geral
 
-Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar vários fatores, como desempenho, escalabilidade e custo. Se você tiver criado anteriormente esquemas de bancos de dados relacionais, essas considerações serão familiares para você, mas embora haja algumas semelhanças entre o modelo de armazenamento do serviço Tabela do Azure e os modelos relacionais, também há várias diferenças importantes. Normalmente, essas diferenças resultam em muito designs diferentes que podem parecer contraintuitivos ou errados para alguém que esteja familiarizado com bancos de dados relacionais, mas que fazem sentido se você estiver criando para um armazenamento de chave/valor de NoSQL, como o serviço Tabela do Azure. Muitas das suas diferenças de design refletirão o fato de que o serviço Tabela foi projetado para dar suporte a aplicativos de escala de nuvem que podem conter bilhões de entidades (linhas na terminologia de banco de dados relacional) de dados ou de conjuntos de dados que devem dar suporte a grandes volumes de transações: por isso, você precisa pensar de forma diferente sobre como armazenar seus dados e entender como funciona o serviço Tabela. Um repositório de dados NoSQL bem projetado pode permitir que sua solução seja muito mais dimensionável (e a um custo menor) do que uma solução que usa um banco de dados relacional. Este guia o ajudará com esses tópicos.
+Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar vários fatores, como desempenho, escalabilidade e custo. Se você tiver criado anteriormente esquemas de bancos de dados relacionais, essas considerações serão familiares para você, mas embora haja algumas semelhanças entre o modelo de armazenamento do serviço Tabela do Azure e os modelos relacionais, também há várias diferenças importantes. Normalmente, essas diferenças resultam em muito designs diferentes que podem parecer contraintuitivos ou errados para alguém que esteja familiarizado com bancos de dados relacionais, mas que fazem sentido se você estiver criando para um armazenamento de chave/valor de NoSQL, como o serviço Tabela do Azure. Muitas das suas diferenças de design refletirão o fato de que o serviço Tabela foi projetado para dar suporte a aplicativos de escala de nuvem que podem conter bilhões de entidades (linhas na terminologia de banco de dados relacional) de dados ou de conjuntos de dados que devem dar suporte a grandes volumes de transações: por isso, você precisa pensar de forma diferente sobre como armazenar seus dados e entender como funciona o serviço Tabela. Um repositório de dados NoSQL bem projetado pode permitir que sua solução seja muito mais dimensionável (e a um custo menor) do que uma solução que usa um banco de dados relacional. Este guia ajuda você com esses tópicos.
 
 ## Sobre o serviço Tabela do Azure
 
@@ -161,19 +161,19 @@ Essas listas resumem algumas as diretrizes importantes que você deve ter em men
 
 Criando sua solução do serviço Tabela para ser eficiente em *leitura*:
 
--	***Design para consulta em aplicativos com alta taxa de leitura.*** Quando você está criando tabelas, pense sobre as consultas (especialmente aquelas sensíveis a latência) que você executará antes de pensar em como atualizará as entidades. Isso normalmente resulta em uma solução eficiente e de alto desempenho.  
--	***Especifique PartitionKey e RowKey em suas consultas.*** *Consultas de ponto* como essas são as consultas de serviço Tabela mais eficientes.  
--	***Considere armazenar cópias duplicadas de entidades.*** O armazenamento de tabela é barato, portanto, considere armazenar a mesma entidade várias vezes (com chaves diferentes) para permitir consultas mais eficientes.  
--	***Considere a desnormalização de seus dados.*** O armazenamento de tabela é barato, então considere desnormalizar seus dados. Por exemplo, armazene entidades resumidas para que consultas a dados agregados só tenham de acessar uma única entidade.  
--	***Use valores de chave composta.*** As únicas chaves que você tem são **PartitionKey** e **RowKey**. Por exemplo, use valores de chave composta para habilitar caminhos alternativo com chave de acesso para entidades.  
--	***Use a projeção de consulta.*** Você pode reduzir a quantidade de dados transferidos pela rede por meio de consultas que selecionam apenas os campos necessários.  
+-	***Design para consulta em aplicativos com alta taxa de leitura.*** Quando você está criando tabelas, pense sobre as consultas (especialmente aquelas sensíveis a latência) que você executará antes de pensar em como atualizará as entidades. Isso normalmente resulta em uma solução eficiente e de alto desempenho.
+-	***Especifique PartitionKey e RowKey em suas consultas.*** *Consultas de ponto* como essas são as consultas de serviço Tabela mais eficientes.
+-	***Considere armazenar cópias duplicadas de entidades.*** O armazenamento de tabela é barato, portanto, considere armazenar a mesma entidade várias vezes (com chaves diferentes) para permitir consultas mais eficientes.
+-	***Considere a desnormalização de seus dados.*** O armazenamento de tabela é barato, então considere desnormalizar seus dados. Por exemplo, armazene entidades resumidas para que consultas a dados agregados só tenham de acessar uma única entidade.
+-	***Use valores de chave composta.*** As únicas chaves que você tem são **PartitionKey** e **RowKey**. Por exemplo, use valores de chave composta para habilitar caminhos alternativo com chave de acesso para entidades.
+-	***Use a projeção de consulta.*** Você pode reduzir a quantidade de dados transferidos pela rede por meio de consultas que selecionam apenas os campos necessários.
 
 Criar a solução de serviço Tabela para ser eficiente em *gravação*:
 
--	***Não crie partições ativas.*** Escolha chaves que permitam que você distribua suas solicitações por várias partições em qualquer momento.  
+-	***Não crie partições ativas.*** Escolha chaves que permitam que você distribua suas solicitações por várias partições em qualquer momento.
 -	***Evite picos no tráfego.*** Suavize o tráfego por um período razoável de tempo e evite picos no tráfego.
 -	***Não crie, necessariamente, uma tabela separada para cada tipo de entidade.*** Quando você precisar de transações atômicas nos tipos de entidade, pode armazenar esses vários tipos de entidade na mesma partição, na mesma tabela.
--	***Considere a taxa de transferência máxima que deve ser atingida.*** Você deve estar ciente dos destinos de escalabilidade para o serviço Tabela e garantir que seu design não fará com que você os exceda.  
+-	***Considere a taxa de transferência máxima que deve ser atingida.*** Você deve estar ciente dos destinos de escalabilidade para o serviço Tabela e garantir que seu design não fará com que você os exceda.
 
 À medida que você ler este guia, verá exemplos que colocam todos esses princípios em prática.
 
@@ -206,11 +206,11 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 
 A seção anterior, [Visão geral do serviço Tabela do Azure](#overview), descreve alguns dos principais recursos do serviço Tabela do Azure, que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
--	Uma ***Consulta de ponto*** é a pesquisa mais eficiente a usar e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo muito eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
--	A segunda melhor opção é uma ***Consulta de intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
--	A terceira melhor opção é uma ***Verificação de partição***, que usa **PartitionKey** e filtros em outra propriedade não chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
--	Uma ***Verificação de tabela*** não inclui **PartitionKey** e é muito ineficiente, pois pesquisa todas as partições que, por sua vez, compõem sua tabela para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo: $filter=LastName eq 'Dias'  
--	As consultas que retornam várias entidades as retornam classificadas na ordem **PartitionKey** e **RowKey**. Para evitar reclassificar as entidades no cliente escolha uma **RowKey**, que define a ordem de classificação mais comum.  
+-	Uma ***Consulta de ponto*** é a pesquisa mais eficiente a usar e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo muito eficiente, especificando os valores **PartitionKey** e **RowKey**. Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')
+-	A segunda melhor opção é uma ***Consulta de intervalo***, que usa **PartitionKey** e filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'
+-	A terceira melhor opção é uma ***Verificação de partição***, que usa **PartitionKey** e filtros em outra propriedade não chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'
+-	Uma ***Verificação de tabela*** não inclui **PartitionKey** e é muito ineficiente, pois pesquisa todas as partições que, por sua vez, compõem sua tabela para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo: $filter=LastName eq 'Dias'
+-	As consultas que retornam várias entidades as retornam classificadas na ordem **PartitionKey** e **RowKey**. Para evitar reclassificar as entidades no cliente escolha uma **RowKey**, que define a ordem de classificação mais comum.
 
 Observe que o uso de um operador "**or**" para especificar um filtro com base em valores de **RowKey** resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, você deve evitar consultas que usam filtros, como: $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')
 
@@ -218,11 +218,11 @@ Para obter exemplos de código de cliente que usam a Biblioteca de Cliente de Ar
 
 -	[Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library)
 -	[Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq)
--	[Projeção do lado do servidor](#server-side-projection)  
+-	[Projeção do lado do servidor](#server-side-projection)
 
 Para obter exemplos de código do lado do cliente que pode lidar com vários tipos de entidade armazenados na mesma tabela, consulte:
 
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
+-	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Escolhendo uma PartitionKey apropriada  
 
@@ -242,9 +242,9 @@ O serviço Tabela indexa automaticamente suas entidades, usando os valores **Par
 
 Muitos designs devem atender aos requisitos para habilitar a pesquisa de entidades com base em vários critérios. Por exemplo, localizar entidades de funcionário com base em email, ID de funcionário ou sobrenome. Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-patterns), abordam esses tipos de requisito e descrevem maneiras de contornar o fato de que o serviço Tabela não fornece índices secundários:
 
--	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição), a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.  
--	[Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.  
--	[Padrão de entidades de índice](#index-entities-pattern) - Mantenha entidades de índice para permitir pesquisas eficientes que retornem listas de entidades.  
+-	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição), a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.
+-	[Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.
+-	[Padrão de entidades de índice](#index-entities-pattern) - Mantenha entidades de índice para permitir pesquisas eficientes que retornem listas de entidades.
 
 ### Armazenando dados no serviço Tabela  
 
@@ -252,9 +252,9 @@ O serviço Tabela retorna entidades classificadas em ordem crescente com base em
 
 Muitos aplicativos têm requisitos para usar dados classificados em ordens diferentes: por exemplo, classificação de funcionários por nome ou por data de ingresso. Os seguintes padrões, na seção [Padrões de Design de tabela](#table-design-patterns), abordam como alternar as ordens de classificação para suas entidades:
 
--	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey (na mesma partição), para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores de RowKey diferentes.  
+-	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey (na mesma partição), para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores de RowKey diferentes.
 -	[Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições e tabelas separadas, para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de RowKey.
--	[Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
+-	[Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.
 
 ## Design para modificação de dados
 Esta seção enfoca as considerações de design para otimizar inserções, atualizações e exclusões. Em alguns casos, você precisará avaliar a compensação entre designs que otimizam para consulta em relação a designs que otimizam para modificação de dados, da mesma forma que em designs de bancos de dados relacionais (embora as técnicas para gerenciar vantagens e desvantagens do design sejam diferentes em um banco de dados relacional). A seção [Padrões de design de tabela](#table-design-patterns) descreve alguns padrões de design detalhados para o serviço Tabela e destaca algumas compensações. Na prática, você descobrirá que muitos designs otimizados para entidades de consulta também funcionam bem para modificar entidades.
@@ -265,10 +265,10 @@ Para atualizar ou excluir uma entidade, você deve ser capaz de identificá-la u
 
 Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-patterns), abordam a otimização do desempenho ou suas operações de inserção, atualização e exclusão:
 
--	[Padrão de exclusão de alto volume](#high-volume-delete-pattern) - Habilite a exclusão de um alto volume de entidades armazenando todas as entidades para exclusão simultânea em suas próprias tabelas separadas; exclua as entidades por meio da exclusão da tabela.  
--	[Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
--	[Padrão de entidades longas](#wide-entities-pattern) - Use várias entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.  
--	[Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.  
+-	[Padrão de exclusão de alto volume](#high-volume-delete-pattern) - Habilite a exclusão de um alto volume de entidades armazenando todas as entidades para exclusão simultânea em suas próprias tabelas separadas; exclua as entidades por meio da exclusão da tabela.
+-	[Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.
+-	[Padrão de entidades longas](#wide-entities-pattern) - Use várias entidades físicas para armazenar entidades lógicas com mais de 252 propriedades.
+-	[Padrão de entidades grandes](#large-entities-pattern) - Use o armazenamento de blobs para armazenar grandes valores de propriedade.
 
 ### Garantindo a consistência nas suas entidades armazenadas  
 
@@ -276,12 +276,12 @@ Outro fator-chave que influencia sua escolha de chaves para otimizar as modifica
 
 Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-patterns), tratam da consistência de gerenciamento:
 
--	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição), a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.  
--	[Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.  
+-	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição), a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.
+-	[Padrão de índice secundário entre partições](#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.
 -	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) - Habilite comportamento eventualmente consistente entre limites de partição ou limites do sistema de armazenamento usando filas do Azure.
--	[Padrão de entidades de índice](#index-entities-pattern) - Mantenha entidades de índice para habilitar pesquisas eficientes que retornem listas de entidades.  
--	[Padrão de desnormalização](#denormalization-pattern) - Combine dados relacionados juntos em uma única entidade, para que você possa recuperar todos os dados de que precisa com uma única consulta de ponto.  
--	[Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
+-	[Padrão de entidades de índice](#index-entities-pattern) - Mantenha entidades de índice para habilitar pesquisas eficientes que retornem listas de entidades.
+-	[Padrão de desnormalização](#denormalization-pattern) - Combine dados relacionados juntos em uma única entidade, para que você possa recuperar todos os dados de que precisa com uma única consulta de ponto.
+-	[Padrão de série de dados](#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.
 
 Para saber mais sobre transações de grupo, consulte a seção [Transações de grupo de entidades](#entity-group-transactions).
 
@@ -291,8 +291,8 @@ Em muitos casos, um design para consultas eficientes resulta em modificações e
 
 Os padrões a seguir, na seção [Padrões de design de tabela](#table-design-patterns), abordam as compensações entre o design para consultas eficientes e o design para modificação eficiente de dados:
 
--	[Padrão de chave composta](#compound-key-pattern) - Use valores **RowKey** compostos para permitir que um cliente pesquise dados relacionados com uma consulta de único ponto.  
--	[Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
+-	[Padrão de chave composta](#compound-key-pattern) - Use valores **RowKey** compostos para permitir que um cliente pesquise dados relacionados com uma consulta de único ponto.
+-	[Padrão de rastro do log](#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.
 
 ## Criptografando dados de tabela    
      
@@ -389,8 +389,8 @@ Modelos de domínio podem incluir relações um-para-um entre entidades. Se voc�
 
 Observe que também há considerações de implementação que podem levá-lo a implementar relações um-para-um no serviço Tabela:
 
--	Controlando grandes entidades (para obter mais informações, consulte [Padrão de grandes entidades](#large-entities-pattern)).  
--	A implementação de controles de acesso (para saber mais, consulte [Controlando o acesso com assinaturas de acesso compartilhado](#controlling-access-with-shared-access-signatures)).  
+-	Controlando grandes entidades (para obter mais informações, consulte [Padrão de grandes entidades](#large-entities-pattern)).
+-	A implementação de controles de acesso (para saber mais, consulte [Controlando o acesso com assinaturas de acesso compartilhado](#controlling-access-with-shared-access-signatures)).
 
 ### Unindo o cliente  
 
@@ -428,36 +428,36 @@ O serviço Tabela indexa automaticamente as entidades usando os valores **Partit
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o serviço Tabela não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem **RowKey**.
 
 #### Solução
-Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para a **RowKey**, "empid\_" e "email\_" permitem a consulta de um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou IDs de funcionário.
+Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **RowKey**, "empid_" e "email_" permitem a consulta de um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou IDs de funcionário.
 
 ![][7]
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:
 
--	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid\_000223')  
--	$filter=(PartitionKey eq 'Sales') e (RowKey eq 'email_jonesj@contoso.com')  
+-	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid\_000223')
+-	$filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')
 
 Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
 
--	Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000100') and (RowKey le 'empid\_000199')  
--	Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email\_a') and (RowKey lt 'email\_b')  
+-	Para localizar todos os funcionários do departamento de vendas com a ID de funcionário no intervalo de 000100 a 000199, use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')
+-	Para localizar todos os funcionários do departamento de Vendas com um endereço de email que começa com a letra 'a', use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email\_a') and (RowKey lt 'email\_b')
 
- Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
+ Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas e considerações  
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Armazenamento de tabela é relativamente barato, portanto a sobrecarga de custos de armazenar dados duplicados não deve ser uma preocupação importante. No entanto, você deve sempre avaliar o custo de seu design com base nas necessidades de armazenamento previstas e só adicionar entidades duplicadas para dar suporte a consultas que seu aplicativo cliente executará.  
--	Como as entidades de índice secundário são armazenadas na mesma partição que as entidades originais, você deve se certificar de não exceder as metas de escalabilidade para uma partição individual.  
--	Você pode manter suas entidades duplicadas consistentes entre si usando EGTs para atualizar as duas cópias da entidade atomicamente. Isso significa que você deve armazenar todas as cópias de uma entidade na mesma partição. Para saber mais, confira a seção [Usando transações de grupo de entidades](#entity-group-transactions).  
--	O valor usado para **RowKey** deve ser exclusivo para cada entidade. Considere o uso de valores de chave composta.  
--	O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
+-	Armazenamento de tabela é relativamente barato, portanto a sobrecarga de custos de armazenar dados duplicados não deve ser uma preocupação importante. No entanto, você deve sempre avaliar o custo de seu design com base nas necessidades de armazenamento previstas e só adicionar entidades duplicadas para dar suporte a consultas que seu aplicativo cliente executará.
+-	Como as entidades de índice secundário são armazenadas na mesma partição que as entidades originais, você deve se certificar de não exceder as metas de escalabilidade para uma partição individual.
+-	Você pode manter suas entidades duplicadas consistentes entre si usando EGTs para atualizar as duas cópias da entidade atomicamente. Isso significa que você deve armazenar todas as cópias de uma entidade na mesma partição. Para saber mais, confira a seção [Usando transações de grupo de entidades](#entity-group-transactions).
+-	O valor usado para **RowKey** deve ser exclusivo para cada entidade. Considere o uso de valores de chave composta.
+-	O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.
 -	Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em **RowKey** nunca precisarem da idade do funcionário, essas entidades poderão ter a seguinte estrutura:
 
 ![][8]
 
--	Normalmente é melhor armazenar dados duplicados e certificar-se de que você possa recuperar todos os dados que precisa com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para pesquisar os dados necessários.  
+-	Normalmente é melhor armazenar dados duplicados e certificar-se de que você possa recuperar todos os dados que precisa com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para pesquisar os dados necessários.
 
 #### Quando usar esse padrão  
 
@@ -485,29 +485,29 @@ Se você quiser ser capaz de encontrar uma entidade funcionário com base no val
 Você está prevendo um volume muito alto de transações em relação a essas entidades e deseja minimizar o risco de o serviço Tabela limitar o seu cliente.
 
 #### Solução  
-Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia, usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey**, "empid\_" e "email\_", permitem que você identifique o índice que deseja usar para uma consulta.
+Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia, usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey**, "empid_" e "email_" permitem que você identifique o índice que deseja usar para uma consulta.
 
 ![][10]
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:
 
 -	$filter=(PartitionKey eq 'empid\_Sales') and (RowKey eq '000223')
--	$filter=(PartitionKey eq 'email\_Sales') and (RowKey eq 'diasd@contoso.com')  
+-	$filter=(PartitionKey eq 'email\_Sales') and (RowKey eq 'diasd@contoso.com')
 
 Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.
 
--	Para localizar todos os funcionários do departamento de Vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid\_000100') e (RowKey le 'empid\_000199')  
--	Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email\_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
+-	Para localizar todos os funcionários do departamento de Vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid\_000100') e (RowKey le 'empid\_000199')
+-	Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email\_Sales') and (RowKey ge 'a') and (RowKey lt 'b')
 
-Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela; para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
+Observe que a sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).
 
 #### Problemas e considerações  
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Você pode manter suas entidades duplicadas eventualmente consistentes entre si usando o [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para manter as entidades de índice primário e secundário.  
--	Armazenamento de tabela é relativamente barato, portanto a sobrecarga de custos de armazenar dados duplicados não deve ser uma preocupação importante. No entanto, você deve sempre avaliar o custo de seu design com base nas necessidades de armazenamento previstas e só adicionar entidades duplicadas para dar suporte a consultas que seu aplicativo cliente executará.  
--	O valor usado para **RowKey** deve ser exclusivo para cada entidade. Considere o uso de valores de chave composta.  
--	O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
+-	Você pode manter suas entidades duplicadas eventualmente consistentes entre si usando o [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para manter as entidades de índice primário e secundário.
+-	Armazenamento de tabela é relativamente barato, portanto a sobrecarga de custos de armazenar dados duplicados não deve ser uma preocupação importante. No entanto, você deve sempre avaliar o custo de seu design com base nas necessidades de armazenamento previstas e só adicionar entidades duplicadas para dar suporte a consultas que seu aplicativo cliente executará.
+-	O valor usado para **RowKey** deve ser exclusivo para cada entidade. Considere o uso de valores de chave composta.
+-	O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.
 -	Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em **RowKey** nunca precisarem da idade do funcionário, essas entidades poderão ter a seguinte estrutura:
 
 	![][11]
@@ -520,11 +520,11 @@ Use esse padrão quando o aplicativo cliente precisar recuperar entidades usando
 #### Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
--	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern)  
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Transações do Grupo de Entidades](#entity-group-transactions)  
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
+-	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)
+-	[Padrão de índice secundário intrapartição](#intra-partition-secondary-index-pattern)
+-	[Padrão de chave composta](#compound-key-pattern)
+-	[Transações do Grupo de Entidades](#entity-group-transactions)
+-	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Padrão de transações eventualmente consistentes  
 
@@ -534,10 +534,10 @@ Habilite comportamento eventualmente consistente entre limites de partição ou 
 
 EGTs habilitam transações atômicas entre várias entidades que compartilham a mesma chave de partição. Por motivos de escalabilidade e desempenho, você pode optar por armazenar entidades que têm requisitos de consistência em partições separadas ou em um sistema de armazenamento separado: nesse cenário, você não pode usar EGTs para manter a consistência. Por exemplo, você pode ter um requisito para manter a consistência eventual entre:
 
--	Entidades armazenadas em duas partições diferentes na mesma tabela em tabelas diferentes e em contas de armazenamento diferentes.  
--	Uma entidade armazenada no serviço Tabela e um blob armazenado no serviço Blob.  
--	Uma entidade armazenada no serviço Tabela e um arquivo em um sistema de arquivos.  
--	Um repositório de entidades no serviço Tabela ainda indexado usando o serviço de pesquisa do Azure.  
+-	Entidades armazenadas em duas partições diferentes na mesma tabela em tabelas diferentes e em contas de armazenamento diferentes.
+-	Uma entidade armazenada no serviço Tabela e um blob armazenado no serviço Blob.
+-	Uma entidade armazenada no serviço Tabela e um arquivo em um sistema de arquivos.
+-	Um repositório de entidades no serviço Tabela ainda indexado usando o serviço de pesquisa do Azure.
 
 #### Solução  
 
@@ -560,17 +560,17 @@ Alguns erros dos serviços Tabela e Fila são erros transitórios e o aplicativo
 #### Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Esta solução não fornece isolamento da transação. Por exemplo, um cliente pode ler as tabelas **Atual** e **Arquivo morto** quando a função de trabalho estiver entre as etapas **4** e **5** e ver uma exibição inconsistente dos dados . Observe que os dados serão consistentes eventualmente.  
--	Você deve se certificar de que as etapas 4 e 5 sejam idempotentes para garantir a consistência eventual.  
--	Você pode dimensionar a solução usando várias filas e instâncias de função de trabalho.  
+-	Esta solução não fornece isolamento da transação. Por exemplo, um cliente pode ler as tabelas **Atual** e **Arquivo morto** quando a função de trabalho estiver entre as etapas **4** e **5** e ver uma exibição inconsistente dos dados . Observe que os dados serão consistentes eventualmente.
+-	Você deve se certificar de que as etapas 4 e 5 sejam idempotentes para garantir a consistência eventual.
+-	Você pode dimensionar a solução usando várias filas e instâncias de função de trabalho.
 
 #### Quando usar esse padrão  
 Use esse padrão quando quiser garantir a consistência eventual entre entidades que existem nas tabelas ou partições diferentes. Você pode estender esse padrão para garantir a consistência eventual de operações entre o serviço Tabela e o serviço Blob e outras fontes de dados de armazenamento não Azure, como banco de dados ou sistema de arquivos.
 
 #### Diretrizes e padrões relacionados  
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
--	[Transações do Grupo de Entidades](#entity-group-transactions)  
--	[Mesclar ou substituir](#merge-or-replace)  
+-	[Transações do Grupo de Entidades](#entity-group-transactions)
+-	[Mesclar ou substituir](#merge-or-replace)
 
 >[AZURE.NOTE] Se o isolamento da transação for importante para sua solução, você deve considerar a recriação das tabelas para poder usar as EGTs.
 
@@ -589,11 +589,11 @@ Se você quiser ser capaz de recuperar uma lista de entidades de funcionário co
 
 Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de ids de funcionário. Para recuperar entidades de funcionário com determinado sobrenome, como Dias, primeiro localize a lista de ids de funcionário para os funcionários com Dias como sobrenome e recupere essas entidades. Há três opções principais para armazenar listas de ids de funcionário:
 
--	Use o armazenamento de blobs.  
--	Crie entidades de índice na mesma partição que as entidades do funcionário.  
--	Crie entidades de índice em uma partição ou tabela separada.  
+-	Use o armazenamento de blobs.
+-	Crie entidades de índice na mesma partição que as entidades do funcionário.
+-	Crie entidades de índice em uma partição ou tabela separada.
 
-<u>Opção 1: Usar o armazenamento de blobs</u>
+<u>Opção 1: usar o armazenamento de blob</u>
 
 Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blobs uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.
 
@@ -606,17 +606,17 @@ Para a segunda opção, use as entidades de índice que armazenam os dados a seg
 A propriedade **EmployeeIDs** contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em **RowKey**.
 
 As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com ID 000152 e um sobrenome Jones no departamento de Vendas:
-1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.  
-2.	Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insere a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualiza a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção [Transações de grupo de entidades](#entity-group-transactions).  
-3.	Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.  
+1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.
+2.	Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insere a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualiza a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção [Transações de grupo de entidades](#entity-group-transactions).
+3.	Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.
 
 As etapas abaixo descrevem o processo que você deve seguir quando precisar procurar todos os funcionários com determinado sobrenome em um departamento, se estiver usando a segunda opção. Neste exemplo, estamos procurando todos os funcionários com o sobrenome Dias no departamento de Vendas:
 
-1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Jones".  
-2.	Analise a lista de Ids no campo EmployeeIDs.  
-3.	Se precisar de informações adicionais sobre cada um desses funcionários (como endereços de email), recupere cada uma das entidades de funcionário usando o valor de **PartitionKey** igual a "Vendas" e os valores de **RowKey** da lista de funcionários obtida na etapa 2.  
+1.	Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Jones".
+2.	Analise a lista de Ids no campo EmployeeIDs.
+3.	Se precisar de informações adicionais sobre cada um desses funcionários (como endereços de email), recupere cada uma das entidades de funcionário usando o valor de **PartitionKey** igual a "Vendas" e os valores de **RowKey** da lista de funcionários obtida na etapa 2.
 
 <u>Opção 3:</u> criar entidades de índice em uma partição ou tabela separada
 
@@ -631,11 +631,11 @@ Com a terceira opção, você não pode usar EGTs para manter a consistência po
 #### Problemas e considerações  
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
--	Essa solução exige, pelo menos, duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice para obter a lista de valores de **RowKey** e consultas para recuperar cada entidade na lista.  
--	Considerando que uma entidade individual tem um tamanho máximo de 1 MB, as opções nº2 e 3 na solução supõem que a lista de ids de funcionário para determinado sobrenome nunca é maior que 1 MB. Se a lista de ids de funcionário é provavelmente maior que 1 MB em tamanho, use a opção nº1 e armazene os dados de índice no armazenamento de blob.  
--	Se você usar a opção 2(usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário) deve avaliar se o volume de transações abordará os limites de escalabilidade em determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção nº1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.  
--	A opção 2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você quer recuperar uma lista de funcionários com um sobrenome Jones no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Jones em toda a organização, use a opção nº1 ou 3.
--	É possível implementar uma solução baseada em fila que entrega consistência eventual (veja [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para obter mais detalhes).  
+-	Essa solução exige, pelo menos, duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice para obter a lista de valores de **RowKey** e consultas para recuperar cada entidade na lista.
+-	Considerando que uma entidade individual tem um tamanho máximo de 1 MB, as opções nº2 e 3 na solução supõem que a lista de ids de funcionário para determinado sobrenome nunca é maior que 1 MB. Se a lista de ids de funcionário é provavelmente maior que 1 MB em tamanho, use a opção nº1 e armazene os dados de índice no armazenamento de blob.
+-	Se você usar a opção nº2(usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário) deve avaliar se o volume de transações abordará os limites de escalabilidade em determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção nº1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.
+-	A opção nº2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você quer recuperar uma lista de funcionários com um sobrenome Jones no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Jones em toda a organização, use a opção nº1 ou 3.
+-	É possível implementar uma solução baseada em fila que fornece consistência eventual (veja [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para obter mais detalhes).
 
 #### Quando usar esse padrão  
 
@@ -644,10 +644,10 @@ Use esse padrão quando quiser pesquisar um conjunto de entidades que compartilh
 #### Diretrizes e padrões relacionados  
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
--	[Transações do Grupo de Entidades](#entity-group-transactions)  
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
+-	[Padrão de chave composta](#compound-key-pattern)
+-	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)
+-	[Transações do Grupo de Entidades](#entity-group-transactions)
+-	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Padrão de desnormalização  
 
@@ -671,16 +671,16 @@ Com entidades de departamento armazenadas com essas propriedades, agora você po
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Existe alguma sobrecarga de custo associada ao armazenar alguns dados duas vezes. O benefício de desempenho (resultante de menos solicitações ao serviço de armazenamento) normalmente supera o aumento marginal nos custos de armazenamento (e esse custo é parcialmente compensado por uma redução no número de transações que você precisa para obter detalhes de um departamento).  
--	Você deve manter a consistência das duas entidades que armazenam informações sobre os gerentes. Você pode tratar o problema de consistência usando EGTs para atualizar várias entidades em uma única transação atômica: nesse caso, a entidade de departamento e a entidade de funcionário para o gerente do departamento são armazenadas na mesma partição.  
+-	Existe alguma sobrecarga de custo associada ao armazenar alguns dados duas vezes. O benefício de desempenho (resultante de menos solicitações ao serviço de armazenamento) normalmente supera o aumento marginal nos custos de armazenamento (e esse custo é parcialmente compensado por uma redução no número de transações que você precisa para obter detalhes de um departamento).
+-	Você deve manter a consistência das duas entidades que armazenam informações sobre os gerentes. Você pode tratar o problema de consistência usando EGTs para atualizar várias entidades em uma única transação atômica: nesse caso, a entidade de departamento e a entidade de funcionário para o gerente do departamento são armazenadas na mesma partição.
 
 #### Quando usar esse padrão
 Use esse padrão quando precisar pesquisar informações relacionadas com frequência. Esse padrão reduz o número de consultas que o cliente deve fazer para recuperar os dados necessários.
 
 #### Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Transações do Grupo de Entidades](#entity-group-transactions)  
+-	[Padrão de chave composta](#compound-key-pattern)
+-	[Transações do Grupo de Entidades](#entity-group-transactions)
 -	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ### Padrão de chave composta  
@@ -710,14 +710,14 @@ Observe como a **RowKey** agora é uma chave composta de ID de funcionário e o 
 
 O exemplo a seguir descreve como você pode recuperar todos os dados de revisão de um funcionário específico (por exemplo, um funcionário 000123 no departamento de Vendas):
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000123') and (RowKey lt 'empid\_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
 
 #### Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Você deve usar um caractere separador adequado que facilite a análise do valor de **RowKey**: por exemplo, **000123\_2012**.  
+-	Você deve usar um caractere separador adequado que facilite a análise do valor de **RowKey**: por exemplo, **000123\_2012**.
 -	Você também está armazenando essa entidade na mesma partição que outras entidades que contêm dados relacionados para o mesmo funcionário, o que significa que você pode usar EGTs para manter a coerência forte.
--	Você deve considerar com que frequência consultará os dados para determinar se esse padrão é apropriado. Por exemplo, se você for acessar os dados de revisão com pouca frequência e os dados principais do funcionário com mais frequência, deve mantê-los como entidades separadas.  
+-	Você deve considerar com que frequência consultará os dados para determinar se esse padrão é apropriado. Por exemplo, se você for acessar os dados de revisão com pouca frequência e os dados principais do funcionário com mais frequência, deve mantê-los como entidades separadas.
 
 #### Quando usar esse padrão  
 
@@ -727,9 +727,9 @@ Use esse padrão quando precisar armazenar uma ou mais entidades relacionadas qu
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Transações do Grupo de Entidades](#entity-group-transactions)  
--	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)  
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
+-	[Transações do Grupo de Entidades](#entity-group-transactions)
+-	[Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
+-	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)
 
 ### Padrão de final do log  
 
@@ -759,8 +759,8 @@ A consulta a tabela tem esta aparência:
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Você precisa preencher o valor da escala invertida com zeros para garantir que o valor de cadeia de caracteres seja classificado conforme o esperado.  
--	Você deve estar ciente das metas de escalabilidade no nível de uma partição. Cuidado não criar partições com ponto de acesso.  
+-	Você precisa preencher o valor da escala invertida com zeros para garantir que o valor de cadeia de caracteres seja classificado conforme o esperado.
+-	Você deve estar ciente das metas de escalabilidade no nível de uma partição. Cuidado não criar partições com ponto de acesso.
 
 #### Quando usar esse padrão  
 
@@ -770,8 +770,8 @@ Use esse padrão quando precisar acessar entidades na ordem inversa de data/hora
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Antipadrão prefixar/acrescentar](#prepend-append-anti-pattern)  
--	[Recuperando entidades](#retrieving-entities)  
+-	[Antipadrão prefixar/acrescentar](#prepend-append-anti-pattern)
+-	[Recuperando entidades](#retrieving-entities)
 
 ### Padrão de exclusão de alto volume  
 
@@ -795,10 +795,10 @@ Use uma tabela separada para cada dia de tentativas de logon. Você pode usar o 
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	Seu design dá suporte a outras formas de uso dos dados pelo aplicativo, como pesquisa em entidades específicas, vinculação com outros dados ou geração de informações agregadas?  
--	O design evita pontos de acesso quando você está inserindo novas entidades?  
--	Espere um atraso, se você quiser reutilizar o mesmo nome de tabela após a exclusão. É melhor sempre usar nomes de tabela exclusivos.  
--	Espere alguns limitação quando você usar pela primeira vez uma nova tabela enquanto o serviço Tabela aprende os padrões de acesso e distribui as partições entre os nós. Você deve considerar com que frequência precisa criar novas tabelas.  
+-	Seu design dá suporte a outras formas de uso dos dados pelo aplicativo, como pesquisa em entidades específicas, vinculação com outros dados ou geração de informações agregadas?
+-	O design evita pontos de acesso quando você está inserindo novas entidades?
+-	Espere um atraso, se você quiser reutilizar o mesmo nome de tabela após a exclusão. É melhor sempre usar nomes de tabela exclusivos.
+-	Espere alguns limitação quando você usar pela primeira vez uma nova tabela enquanto o serviço Tabela aprende os padrões de acesso e distribui as partições entre os nós. Você deve considerar com que frequência precisa criar novas tabelas.
 
 #### Quando usar esse padrão  
 
@@ -809,7 +809,7 @@ Use esse padrão quando tiver um alto volume de entidades que devem ser excluíd
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
 -	[Transações do Grupo de Entidades](#entity-group-transactions)
--	[Modificando entidades](#modifying-entities)  
+-	[Modificando entidades](#modifying-entities)
 
 ### Padrão de série de dados  
 
@@ -834,8 +834,8 @@ Com esse design, você pode usar uma operação de mesclagem para atualizar a co
 #### Problemas e considerações  
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
--	Se a sua série de dados completa não couber em uma única entidade (uma entidade pode ter até 252 propriedades), use um repositório de dados alternativo, como um blob.  
--	Caso você tenha vários clientes atualizando uma entidade simultaneamente, será necessário usar o **ETag** para implementar a simultaneidade otimista. Se você tiver muitos clientes, poderá enfrentar alta contenção.  
+-	Se a sua série de dados completa não couber em uma única entidade (uma entidade pode ter até 252 propriedades), use um repositório de dados alternativo, como um blob.
+-	Caso você tenha vários clientes atualizando uma entidade simultaneamente, será necessário usar o **Etag** para implementar a simultaneidade otimista. Se você tiver muitos clientes, poderá enfrentar alta contenção.
 
 #### Quando usar esse padrão  
 
@@ -845,9 +845,9 @@ Use esse padrão quando precisar atualizar e recuperar uma série de dados assoc
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Padrão de grandes entidades](#large-entities-pattern)  
--	[Mesclar ou substituir](#merge-or-replace)  
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) (se você estiver armazenando a série de dados em um blob)  
+-	[Padrão de grandes entidades](#large-entities-pattern)
+-	[Mesclar ou substituir](#merge-or-replace)
+-	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) (se você estiver armazenando a série de dados em um blob)
 
 ### Padrão de entidades longas  
 
@@ -869,7 +869,7 @@ Se você precisar fazer uma alteração que requer a atualização de ambas as e
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	A recuperação de uma entidade lógica completa envolve pelo menos duas transações de armazenamento: uma para recuperar cada entidade física.  
+-	A recuperação de uma entidade lógica completa envolve pelo menos duas transações de armazenamento: uma para recuperar cada entidade física.
 
 #### Quando usar esse padrão  
 
@@ -901,7 +901,7 @@ Se a entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm um
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
 -	Para manter a consistência eventual entre a entidade do serviço Tabela e os dados no serviço Blob, use o [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para manter suas entidades.
--	A recuperação de uma entidade completa envolve pelo menos duas transações de armazenamento: uma para recuperar a entidade e outra para recuperar os dados do blob.  
+-	A recuperação de uma entidade completa envolve pelo menos duas transações de armazenamento: uma para recuperar a entidade e outra para recuperar os dados do blob.
 
 #### Quando usar esse padrão  
 
@@ -911,7 +911,7 @@ Use esse padrão quando precisar armazenar entidades cujo tamanho excede os limi
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)  
+-	[Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern)
 -	[Padrão de entidades longas](#wide-entities-pattern)
 
 <a name="prepend-append-anti-pattern"></a>
@@ -937,8 +937,8 @@ Observe com este exemplo como **PartitionKey** e **RowKey** são chaves composta
 
 Considere os seguintes pontos ao decidir como implementar esse padrão:
 
--	A estrutura de chave alternativa que evita a criação de partições ativas em inserções dá suporte eficiente a consultas que o aplicativo cliente faz?  
--	O volume antecipado de transações significa que você tem probabilidade de atingir as metas de escalabilidade para uma partição individual e ser limitado pelo serviço de armazenamento?  
+-	A estrutura de chave alternativa que evita a criação de partições ativas em inserções dá suporte eficiente a consultas que o aplicativo cliente faz?
+-	O volume antecipado de transações significa que você tem probabilidade de atingir as metas de escalabilidade para uma partição individual e ser limitado pelo serviço de armazenamento?
 
 #### Quando usar esse padrão  
 
@@ -948,9 +948,9 @@ Evite o antipadrão prefixar/acrescentar quando o volume de transações tenha a
 
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:
 
--	[Padrão de chave composta](#compound-key-pattern)  
--	[Padrão de final do log](#log-tail-pattern)  
--	[Modificando entidades](#modifying-entities)  
+-	[Padrão de chave composta](#compound-key-pattern)
+-	[Padrão de final do log](#log-tail-pattern)
+-	[Modificando entidades](#modifying-entities)
 
 ### Antipadrão de dados de log  
 
@@ -988,9 +988,9 @@ Se você estiver implementando uma solução semelhante em seu próprio aplicati
 
 Considere os seguintes pontos ao decidir como armazenar dados de log:
 
--	Se você criar um design de tabela que evita potenciais partições ativas, verá que não pode acessar os dados do log com eficiência.  
--	Para processar dados de log, um cliente normalmente precisa carregar vários registros.  
--	Embora os dados de log sejam geralmente estruturados, o armazenamento de blobs pode ser uma solução melhor.  
+-	Se você criar um design de tabela que evita potenciais partições ativas, verá que não pode acessar os dados do log com eficiência.
+-	Para processar dados de log, um cliente normalmente precisa carregar vários registros.
+-	Embora os dados de log sejam geralmente estruturados, o armazenamento de blobs pode ser uma solução melhor.
 
 ### Considerações sobre a implementação  
 
@@ -1093,9 +1093,9 @@ O código c# a seguir trata os tokens de continuação explicitamente:
 
 Usando tokens de continuação explicitamente, você pode controlar quando o aplicativo recupera o próximo segmento de dados. Por exemplo, se seu aplicativo cliente habilitar os usuários a percorrer as entidades armazenadas em uma tabela, um usuário poderá decidir não percorrer todas as entidades recuperadas pela consulta para que seu aplicativo só use um token de continuação para recuperar o próximo segmento quando o usuário tive terminado a paginação de todas as entidades no segmento atual. Essa abordagem tem vários benefícios:
 
--	Ela permite que você limite a quantidade de dados a ser recuperada do serviço Tabela e mover pela rede.  
--	Ela permite que você execute E/s assíncrona no .NET.  
--	Ela permite que você serialize o token de acompanhamento para o armazenamento persistente para que você possa continuar caso um aplicativo falhe.  
+-	Ela permite que você limite a quantidade de dados a ser recuperada do serviço Tabela e mover pela rede.
+-	Ela permite que você execute E/s assíncrona no .NET.
+-	Ela permite que você serialize o token de acompanhamento para o armazenamento persistente para que você possa continuar caso um aplicativo falhe.
 
 >[AZURE.NOTE] Um token de continuação normalmente retorna um segmento que contém 1.000 entidades, embora possa ser menos. Este também será o caso se você limitar o número de entradas que uma consulta retorna, usando **Take** para retornar as primeiras n entidades que correspondem aos seus critérios de pesquisa: o serviço Tabela pode retornar um segmento contendo menos de n entidades, junto com um token de continuação para permitir que você recupere as entidades restantes.
 
@@ -1234,8 +1234,8 @@ O serviço Tabela é um armazenamento de tabela *sem esquema*, o que significa q
 
 Observe que cada entidade deve ter ainda os valores **PartitionKey**, **RowKey** e **Timestamp**, mas pode ter qualquer conjunto de propriedades. Além disso, não há nada para indicar o tipo de uma entidade, a menos que você opte por armazenar essa informação em algum lugar. Há duas opções para identificar o tipo de entidade:
 
--	Prefixe o tipo de entidade a **RowKey** (ou possivelmente **PartitionKey**). Por exemplo, **EMPLOYEE\_000123** ou **DEPARTMENT\_SALES** como valores **RowKey**.  
--	Use uma propriedade separada para registrar o tipo de entidade, conforme mostrado na tabela a seguir.  
+-	Prefixe o tipo de entidade a **RowKey** (ou possivelmente **PartitionKey**). Por exemplo, **EMPLOYEE\_000123** ou **DEPARTMENT\_SALES** como valores **RowKey**.
+-	Use uma propriedade separada para registrar o tipo de entidade, conforme mostrado na tabela a seguir.
 
 <table>
 <tr>
@@ -1344,7 +1344,7 @@ O restante desta seção descreve alguns dos recursos na Biblioteca de Cliente d
 
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidade.
 
-Se você conhece o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey**, poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity**: [Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).
+Se conhecer o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey**, você poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity**: [Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).
 
 A segunda opção é usar o tipo **DynamicTableEntity** (um recipiente de propriedades), em vez de um tipo concreto de entidade POCO (essa opção também pode melhorar o desempenho, porque não é necessário serializar e desserializar a entidade para tipos .NET). O código C# a seguir recupera potencialmente várias entidades de diferentes tipos de tabela, mas retorna todas as entidades como instâncias **DynamicTableEntity**. Ele usa a propriedade **EntityType** para determinar o tipo de cada entidade:
 
@@ -1443,11 +1443,11 @@ Você não precisa saber o tipo de uma entidade para excluí-la, e você sempre 
 
 Você pode usar tokens de SAS (Assinatura de Acesso Compartilhado) para habilitar aplicativos cliente a modificarem (e consultarem) diretamente, sem a necessidade de autenticação direta no serviço Tabela. Normalmente, há três benefícios principais para usar SAS em seu aplicativo:
 
--	Você não precisa distribuir sua chave de conta de armazenamento para uma plataforma insegura (como um dispositivo móvel) para permitir que esse dispositivo acesse e modifique entidades no serviço Tabela.  
--	Você pode descarregar parte do trabalho que as funções Web e de trabalho desempenham no gerenciamento de suas entidades em dispositivos clientes, como computadores de usuários finais e dispositivos móveis.  
--	Você pode atribuir um conjunto de permissões restrito e de tempo limitado a um cliente (como acesso somente leitura a recursos específicos).  
+-	Você não precisa distribuir sua chave de conta de armazenamento para uma plataforma insegura (como um dispositivo móvel) para permitir que esse dispositivo acesse e modifique entidades no serviço Tabela.
+-	Você pode descarregar parte do trabalho que as funções Web e de trabalho desempenham no gerenciamento de suas entidades em dispositivos clientes, como computadores de usuários finais e dispositivos móveis.
+-	Você pode atribuir um conjunto de permissões restrito e de tempo limitado a um cliente (como acesso somente leitura a recursos específicos).
 
-Para saber mais sobre como usar tokens SAS com o serviço Tabela, consulte [Assinaturas de acesso compartilhado, parte 1: noções básicas sobre o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
+Para obter mais informações sobre como usar tokens SAS com o serviço Tabela, consulte [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
 
 No entanto, você ainda deve gerar os tokens SAS que concedem a um aplicativo cliente para as entidades no serviço Tabela: você deve fazer isso em um ambiente com acesso seguro às chaves de conta de armazenamento. Geralmente, você usa uma função de trabalho ou Web para gerar tokens SAS e enviá-los aos aplicativos clientes que precisam acessar suas entidades. Como ainda há uma sobrecarga envolvida na geração e fornecimento de tokens SAS aos clientes, você deve considerar a melhor maneira de reduzir essa sobrecarga, especialmente em cenários de alto volume.
 
@@ -1504,8 +1504,8 @@ Você pode facilmente modificar esse código para que a consulta seja executada 
 
 Neste exemplo assíncrono, você pode ver as seguintes alterações da versão síncrona:
 
--	A assinatura do método agora inclui o modificador **async** e retorna uma instância **Task**.  
--	Em vez de chamar o método **ExecuteSegmented** para recuperar os resultados, agora o método chama o método **ExecuteSegmentedAsync** e usa o modificador **await** para recuperar resultados de forma assíncrona.  
+-	A assinatura do método agora inclui o modificador **async** e retorna uma instância **Task**.
+-	Em vez de chamar o método **ExecuteSegmented** para recuperar os resultados, agora o método chama o método **ExecuteSegmentedAsync** e usa o modificador **await** para recuperar resultados de forma assíncrona.
 
 O aplicativo cliente pode chamar esse método várias vezes (com valores diferentes para o parâmetro **department**) e cada consulta será executada em um thread separado.
 
@@ -1533,13 +1533,13 @@ Você pode modificar este código facilmente para que a atualização seja execu
 
 Neste exemplo assíncrono, você pode ver as seguintes alterações da versão síncrona:
 
--	A assinatura do método agora inclui o modificador **async** e retorna uma instância **Task**.  
--	Em vez de chamar o método **Execute** para atualizar a entidade, agora o método chama o método **ExecuteAsync** e usa o modificador **await** para recuperar resultados de modo assíncrono.  
+-	A assinatura do método agora inclui o modificador **async** e retorna uma instância **Task**.
+-	Em vez de chamar o método **Execute** para atualizar a entidade, agora o método chama o método **ExecuteAsync** e usa o modificador **await** para recuperar resultados de modo assíncrono.
 
 O aplicativo cliente pode chamar vários métodos assíncronos como esse, e cada invocação de método será executado em um thread separado.
 
 
-### Créditos
+### Credits
 Gostaríamos de agradecer os seguintes membros da equipe do Azure por suas contribuições: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, bem como Tom Hollander da Microsoft DX.
 
 Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valiosos comentários durante os ciclos de análise: Igor Papirov e Edward Bakker.
@@ -1577,4 +1577,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0928_2016-->

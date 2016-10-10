@@ -5,7 +5,7 @@
 	  keywords="Licenciamento do AD do Azure"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -140,4 +140,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

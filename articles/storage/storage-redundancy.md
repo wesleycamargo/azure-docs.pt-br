@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Replicação de Armazenamento do Azure
 
@@ -37,6 +37,8 @@ A tabela a seguir apresenta uma visão geral das diferenças entre LRS, ZRS, GRS
 | Número de cópias de dados mantidas em nós separados. | 3 | 3 | 6 | 6 |
 
 Consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para informações sobre preços para as opções de redundância diferentes.
+
+>[AZURE.NOTE] O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local). Para obter informações sobre o Armazenamento Premium, consulte [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](storage-premium-storage.md).
 
 ## Armazenamento com redundância local
 
@@ -117,4 +119,4 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Armazenamento com redundância geográfica com acesso de leitura e opções de redundância do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

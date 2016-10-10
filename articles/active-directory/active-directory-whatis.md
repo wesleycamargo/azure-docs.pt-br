@@ -55,7 +55,7 @@ Para obter mais detalhes, consulte [Contratos de Nível de Serviço](https://azu
 Sua organização pode usar o AD do Azure para melhorar a produtividade dos funcionários, simplificar os processos de TI, melhorar a segurança e reduzir custos de várias maneiras:
 
 -	Adote rapidamente os serviços de nuvem, fornecendo aos funcionários e parceiros uma experiência de logon único fácil da plataforma dos recursos de serviços de provisionamento e gerenciamento de acesso a aplicativos SaaS totalmente automatizados do AD do Azure.
--	Capacite os funcionários com acesso aos aplicativos na nuvem da mais alta qualidade e recursos de serviço e autoatendimento de onde quer que eles precisem para trabalharem nos dispositivos que adoram usar.
+-	Capacite os funcionários com acesso aos aplicativos na nuvem da mais alta qualidade e recursos de serviço de autoatendimento de onde quer que eles precisem para trabalharem nos dispositivos que adoram usar.
 -	Gerencie com facilidade e segurança o acesso de funcionários e fornecedores a suas contas de mídia social corporativa.
 -	Aprimore a segurança dos aplicativos com o acesso condicional e a autenticação multifator do AD do Azure.
 -	Implemente um gerenciamento de acesso de aplicativo de autoatendimento consistente, permitindo que os proprietários de negócios migrem rapidamente e, ao mesmo tempo, reduzam a sobrecarga e os custos de TI.
@@ -70,10 +70,10 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
 ## Como posso começar?
 -	Se você for administrador de TI:
  - [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
- - Leia nossa "Introdução ao AD do Azure" para obter dicas e truques sobre como colocar um locatário do AD do Azure em funcionamento rapidamente
+ - Leia "Introdução ao Azure AD" para obter dicas e truques sobre como colocar um locatário do Azure AD em funcionamento rapidamente
 -	Se você for um desenvolvedor:
  - Confira nosso [Guia de desenvolvedores](active-directory-developers-guide.md) para o Active Directory do Azure
- - [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo ao AD do Azure
+ - [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo ao Azure AD
 
 
 
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

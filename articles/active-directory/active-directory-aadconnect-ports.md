@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -81,4 +81,4 @@ Barramento de Serviço do Azure|5671 (TCP/UDP)| Saída
 ### 6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

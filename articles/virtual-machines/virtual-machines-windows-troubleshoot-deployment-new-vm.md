@@ -3,7 +3,7 @@
    description="Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure"
    services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>
@@ -45,13 +45,13 @@ Para iniciar a solução de problemas, colete os logs de auditoria para identifi
 
 **Resolução**
 
-Para resolver ambos os erros, use o [Add-AzureRMVhd para carregar o VHD original](https://msdn.microsoft.com/library/mt603554.aspx), disponível no local, com a mesma configuração usada para o sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
+Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original](https://msdn.microsoft.com/library/mt603554.aspx), disponível localmente, com a mesma configuração usada para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
 
 **Erros de captura:**
 
 **N<sup>3</sup>:** se o sistema operacional for Windows generalizado e ele for capturado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM original não será utilizável, já que estará marcada como generalizada.
 
-**N<sup>4</sup>:** se o sistema operacional for Windows especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
+**N<sup>4</sup>:** se o SO for especializado para Windows e for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
 
 **Resolução**
 
@@ -82,4 +82,4 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 ## Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

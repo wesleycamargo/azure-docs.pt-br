@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Entenda o relatório de insights do vendedor
@@ -92,7 +92,9 @@ Navegue para https://publish.windowsazure.com/ e entre com suas credenciais da c
 Selecione a guia **Editoras**. ![selectpublisherstab][8]
 
 
-Localizar a ID da editora na URL: - use essa ID como a senha para abrir o arquivo do Excel de insights do vendedor. Essa é sua senha até aviso prévio. - é recomendável usar o Microsoft Office 2013 com o Windows como o leitor de pasta de trabalho de escolha. Alguns usuários relataram problemas ao usar o Microsoft Office para Mac.
+Localize a ID do publicador na URL:
+- Use essa ID como a senha para abrir o arquivo do Excel de informações do vendedor. Esta será sua senha até outro aviso.
+- É recomendável usar o Microsoft Office 2013 com o Windows como o leitor da pasta de trabalho escolhido. Alguns usuários relataram problemas ao usar o Microsoft Office para Mac.
 
 ![publisherid][9]
 
@@ -118,4 +120,4 @@ Se você tiver perguntas relacionadas a relatórios e insights, entre em contato
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

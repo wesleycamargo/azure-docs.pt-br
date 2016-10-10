@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/22/2016"
 	ms.author="v-donglo"/>
 
 # Como implantar um serviço Web em várias regiões
@@ -49,4 +49,4 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 10. Na lista suspensa **Plano de preços**, selecione um plano na região que você selecionou na etapa 8.
 11. Clique em **Copiar**.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

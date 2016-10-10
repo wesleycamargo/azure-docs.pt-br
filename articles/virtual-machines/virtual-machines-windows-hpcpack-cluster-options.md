@@ -13,16 +13,15 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="06/17/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
-# Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) do Windows no Azure com o Microsoft HPC Pack
+# Opções com o HPC Pack para criar e gerenciar um cluster HPC do Windows no Azure
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de trabalho do Windows. Também há opções para executar [cargas de trabalho de HPC do Linux com o HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+Este artigo se concentra nas opções para criar clusters HPC Pack para executar cargas de trabalho do Windows. Também há opções para criar clusters para executar [cargas de trabalho de HPC do Linux com o HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Executar um cluster HPC Pack em VMs do Azure
 
@@ -64,10 +63,11 @@ Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de
 
 * [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
 
-
 * [Aumentar ou reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 * [Enviar trabalhos para um cluster HPC Pack no Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+
+* [Gerenciamento de trabalho no HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 
 
 ## Adicionar nós de função de trabalho a um cluster HPC Pack
@@ -79,7 +79,6 @@ Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de
 
 * [Adicionar nós de “disparo contínuo” do Azure a um nó de cabeçalho do HPC Pack no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
-* [Aumentar ou reduzir os recursos de computação do Azure em um cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 ## Integrar ao lote do Azure 
 
@@ -89,4 +88,4 @@ Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de
 
 * [Configurar um cluster de RDMA do Windows com o HPC Pack para executar aplicativos MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

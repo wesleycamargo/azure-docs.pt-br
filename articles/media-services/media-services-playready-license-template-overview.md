@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Visão geral do modelo de licença do PlayReady dos Serviços de Mídia" 
-	description="Este tópico fornece uma visão geral de um modelo de licença do PlayReady usado para configurar licenças do PlayReady." 
+	description="Este tópico fornece uma visão geral de um modelo de licença do PlayReady usado para configurar as licenças do PlayReady." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"  
+ 	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Visão geral do modelo de licença do PlayReady dos Serviços de Mídia
@@ -311,4 +311,4 @@ Para obter um exemplo de quais níveis de proteção o Silverlight dá suporte, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

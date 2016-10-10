@@ -27,7 +27,7 @@
 
 Saiba como gerenciar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando C&#x23;.
 
-Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplicativos clientes do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
+Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
 Os exemplos a seguir usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), portanto, você precisará instalar essa biblioteca antes de continuar se ela ainda não estiver instalada. É possível instalar a biblioteca executando o seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
@@ -108,7 +108,7 @@ As seguintes bibliotecas são necessárias para executar este exemplo. Você pod
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Registrar seu aplicativo e obter os valores do cliente necessários para conectar seu aplicativo ao Banco de Dados SQL](sql-database-client-id-keys.md).
+Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente e os valores relacionados necessários, consulte [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -430,4 +430,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [Quando um Pool de Banco de Dados Elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
 - Consulte [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas do banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

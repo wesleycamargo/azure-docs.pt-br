@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/27/2016"
    ms.author="larryfr"/>
 
 #Determine os tópicos mais populares do Twitter com o Apache Storm no HDInsight
@@ -140,4 +140,4 @@ Para obter mais exemplos do Storm para HDInsight:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

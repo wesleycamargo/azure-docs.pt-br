@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover dados de/para o banco de dados do SQL Server local ou em uma VM do Azure usando o Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,11 +14,25 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados para e do SQL Server local ou em IaaS (VM do Azure) usando o Azure Data Factory
-
 Este artigo descreve como é possível usar a Atividade de Cópia para mover dados do SQL Server para outro repositório de dados, e vice-versa. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados e dos repositórios de dados com suporte como fontes e coletores.
+
+## Com suporte de origens e coletores
+Confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver a lista dos armazenamentos de dados com suporte como origens e coletores da Atividade de Cópia. Você pode mover dados de qualquer repositório de dados de origem com suporte para o SQL Server ou do SQL Server para qualquer repositório de dados do coletor com suporte.
+
+## Criar um pipeline
+Você pode criar um pipeline com atividade de cópia que move dados de/para um banco de dados SQL Server local por meio de ferramentas/APIs diferentes.
+
+- Assistente de Cópia
+- Portal do Azure
+- Visual Studio
+- Azure PowerShell
+- API do .NET
+- API REST
+
+Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia de diferentes maneiras.
 
 ## Habilitando a conectividade
 
@@ -392,6 +406,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	}
 
 ## Propriedades do serviço vinculado do SQL Server
+Nos exemplos, você usou um serviço vinculado do tipo **OnPremisesSqlServer** para vincular um banco de dados SQL Server local a uma fábrica de dados. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server local.
 
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SQL Server.
 
@@ -444,16 +459,18 @@ Se o nome de usuário e a senha forem especificados, o gateway os usará para re
 Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do SQL Server.
 
 ## Propriedades de tipo de conjunto de dados do SQL Server
+Nos exemplos, você usou um conjunto de dados do tipo **SqlServerTable** para representar uma tabela em um banco de dados SQL Server.
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). Seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL Server, blob do Azure, tabela do Azure, etc.).
 
-A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as propriedades a seguir.
+A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | tableName | Nome da tabela na instância do banco de dados do SQL Server à qual o serviço vinculado se refere. | Sim |
 
 ## Propriedades de tipo de atividade de cópia do SQL Server
+Se você estiver movendo dados de um banco de dados SQL Server, defina o tipo de origem na atividade de cópia como **SqlSource**. Da mesma forma você estiver movendo dados para um banco de dados SQL Server, defina o tipo de coletor na atividade de cópia como **SqlSink**. Esta seção fornece uma lista das propriedades com suporte de SqlSource e SqlSink.
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
 
@@ -488,8 +505,8 @@ O **SqlSink** dá suporte às seguintes propriedades:
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. | timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). | Não |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. | Inteiro (número de linhas) | Não (padrão: 10000)
-| sqlWriterCleanupScript | Especifique a consulta para a Atividade de Cópia a ser executada para que os dados de uma fatia especifica sejam removidos. Consulte a seção de repetição para obter mais detalhes. | Uma instrução de consulta. | Não |
-| sliceIdentifierColumnName | Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. Consulte a seção de repetição para obter mais detalhes. | Nome de uma coluna com tipo de dados de binário (32). | Não |
+| sqlWriterCleanupScript | Especifique a consulta para a Atividade de Cópia a ser executada para que os dados de uma fatia especifica sejam removidos. Para saber mais, confira a seção de [repetição](#repeatability-during-copy). | Uma instrução de consulta. | Não |
+| sliceIdentifierColumnName | Especifique o nome de coluna para a Atividade de Cópia a ser preenchido com o identificador de fatia gerado automaticamente, que é usado para limpar dados de uma fatia específica quando executado novamente. Para saber mais, confira a seção de [repetição](#repeatability-during-copy). | Nome de uma coluna com tipo de dados de binário (32). | Não |
 | sqlWriterStoredProcedureName | Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. | Nome do procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros para o procedimento armazenado. | Pares de nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
 | sqlWriterTableType | Especifique o nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. | Um nome de tipo de tabela. | Não |
@@ -586,6 +603,8 @@ Observe que a tabela de destino tem uma coluna de identidade.
 
 Observe que sua tabela de origem e de destino têm um esquema diferente (a de destino tem uma coluna adicional com identidade). Nesse cenário, você precisa especificar a propriedade **structure** na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
 
+Em seguida, você pode mapear colunas de conjunto de dados de origem para colunas no conjunto de dados de destino. Confira a seção [Exemplos de mapeamento de coluna](#column-mapping-samples) para obter um exemplo.
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -650,4 +669,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

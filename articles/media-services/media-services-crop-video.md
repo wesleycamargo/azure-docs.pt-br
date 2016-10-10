@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/11/2016"  
+	ms.date="09/26/2016"  
 	ms.author="anilmur;juliako;"/>
 
 # Cortar vídeos com o Codificador de Mídia Padrão
@@ -146,4 +146,4 @@ Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

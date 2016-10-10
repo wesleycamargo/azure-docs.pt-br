@@ -18,6 +18,12 @@
 
 
 # Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local
+
+
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
 Monitoramento, detecção, diagnóstico e solução de problemas permitem dar continuidade aos serviços com mínima interrupção da experiência do usuário. Embora o monitoramento e o diagnóstico sejam essenciais em um ambiente de produção implantado, a eficácia dependerá da adoção de um modelo semelhante durante o desenvolvimento de serviços para garantir que eles funcionem quando você os mover para uma configuração real. O Service Fabric facilita para o desenvolvedor de serviço implementar diagnóstico que possa funcionar perfeitamente tanto em configurações de desenvolvimento local de computador único, quanto em configurações reais de cluster de produção.
 
 ## Os benefícios do Rastreamento de Eventos para Windows
@@ -60,4 +66,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Usando ElasticSearch como um repositório de rastreamento do aplicativo de Malha de Serviços](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

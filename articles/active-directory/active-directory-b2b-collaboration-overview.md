@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -58,4 +58,4 @@ Navegue por nossos outros artigos sobre colaboração B2B no Azure AD.
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

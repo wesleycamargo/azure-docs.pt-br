@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Como usar o log de auditoria no Azure AD Privileged Identity Management
 
-Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo.
+Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](active-directory-view-access-usage-reports.md)
 
 ## Navegar até o log de auditoria
 No painel do [portal do Azure](https://portal.azure.com), selecione o aplicativo **Azure AD Privileged Identity Management**. Lá, acesse o log de auditoria clicando em **Gerenciar funções com privilégios** > **Histórico de auditoria** no painel PIM.
@@ -60,4 +60,4 @@ Marque ou desmarque a caixa de seleção **Função** ao lado de cada função p
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

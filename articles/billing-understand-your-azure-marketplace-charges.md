@@ -3,7 +3,7 @@
 	description="Descreve como entender os encargos relacionados a seus pedidos no Marketplace."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing"
@@ -102,4 +102,4 @@ Para exibir os encargos reais, siga estas etapas:
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

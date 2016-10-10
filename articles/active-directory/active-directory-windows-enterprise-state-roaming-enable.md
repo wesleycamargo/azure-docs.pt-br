@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
 
 # Habilitar o Enterprise State Roaming no Active Directory do Azure
 
-O Enterprise State Roaming está disponível para todas as organizações com uma assinatura Premium do Active Directory do Azure (AD do Azure). Para obter mais detalhes sobre como obter uma assinatura do AD do Azure, veja a [página de produto do AD do Azure](https://azure.microsoft.com/services/active-directory).
+O Enterprise State Roaming está disponível para todas as organizações com uma assinatura Premium do Azure AD (Active Directory). Para obter mais detalhes sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
 
 Quando você habilita o Enterprise State Roaming, sua organização recebe automaticamente as licenças concedidas para uma assinatura gratuita de uso limitado do Azure Rights Management. Essa assinatura gratuita é limitada à criptografia e à descriptografia de dados de aplicativos e configurações empresariais sincronizadas pelo serviço Enterprise State Roaming. Você deverá ter uma assinatura paga para usar os recursos completos do Azure Rights Management.
 
@@ -51,15 +51,15 @@ Os dados sincronizados com o Azure por meio do Enterprise State Roaming serão m
 
 **Exclusão explícita:** os dados são excluídos quando um administrador do Azure exclui um usuário ou um diretório ou um administrador solicita explicitamente que dados devem ser excluídos.
 
-- **Exclusão de usuário**: quando um usuário é excluído do Azure AD, os dados de roaming da conta de usuário serão marcados para exclusão e serão excluídos entre 90 a 180 dias. 
-- **Exclusão de diretório**: a exclusão de um diretório inteiro no Azure AD é uma operação imediata. Todos os dados de configurações associados ao diretório serão marcados para exclusão e serão excluídos entre 90 a 180 dias. 
-- **Exclusão mediante solicitação**: se o administrador do Azure AD quiser excluir manualmente os dados de configuração de um usuário específico, poderá criar um [tíquete no suporte do Azure](https://azure.microsoft.com/support/). 
+- **Exclusão de usuário**: quando um usuário é excluído do Azure AD, os dados de roaming da conta de usuário serão marcados para exclusão e serão excluídos entre 90 a 180 dias.
+- **Exclusão de diretório**: a exclusão de um diretório inteiro no Azure AD é uma operação imediata. Todos os dados de configurações associados ao diretório serão marcados para exclusão e serão excluídos entre 90 a 180 dias.
+- **Exclusão mediante solicitação**: se o administrador do Azure AD quiser excluir manualmente os dados de configuração de um usuário específico, poderá criar um [tíquete no suporte do Azure](https://azure.microsoft.com/support/).
 
 **Exclusão de dados obsoletos**: os dados que não forem acessados para um ano ("o período de retenção") serão tratados como obsoletos e poderão ser excluídos do Azure. O período de retenção está sujeito a alterações, mas não será menos de 90 dias. Os dados obsoletos podem ser um conjunto específico de configurações do Windows/aplicativo ou todas as configurações para um usuário específico. Por exemplo:
  
-- Se nenhum dispositivo acessar uma coleção de configurações específicas (por exemplo, um aplicativo é removido do dispositivo ou um grupo de configurações, como "Tema", está desabilitado para todos os dispositivos do usuário), essa coleção se tornará obsoleta após o período de retenção e poderá ser excluída. 
-- Se um usuário tiver desativado a sincronização de configurações em todos os dispositivos, nenhum dos dados de configuração será acessado e todos os dados de configuração do usuário se tornarão obsoletos e poderão ser excluídos após o período de retenção. 
-- Se o administrador de diretório do AD do Azure desativar o Enterprise State Roaming para o diretório inteiro, todos os usuários desse diretório terão a sincronização de configurações interrompida, e todos os dados de configuração de todos os usuários se tornarão obsoletos e poderão ser excluídos após o período de retenção. 
+- Se nenhum dispositivo acessar uma coleção de configurações específicas (por exemplo, um aplicativo é removido do dispositivo ou um grupo de configurações, como "Tema", está desabilitado para todos os dispositivos do usuário), essa coleção se tornará obsoleta após o período de retenção e poderá ser excluída.
+- Se um usuário tiver desativado a sincronização de configurações em todos os dispositivos, nenhum dos dados de configuração será acessado e todos os dados de configuração do usuário se tornarão obsoletos e poderão ser excluídos após o período de retenção.
+- Se o administrador de diretório do AD do Azure desativar o Enterprise State Roaming para o diretório inteiro, todos os usuários desse diretório terão a sincronização de configurações interrompida, e todos os dados de configuração de todos os usuários se tornarão obsoletos e poderão ser excluídos após o período de retenção.
 
 **Recuperação de dados excluídos**: a política de retenção de dados não é configurável. Depois que os dados forem excluídos permanentemente, não poderão ser recuperados. No entanto, é importante observar que os dados de configuração só serão excluídos do Azure e não do dispositivo do usuário final. Se qualquer dispositivo se reconectar mais tarde ao serviço Enterprise State Roaming, as configurações serão novamente sincronizadas e armazenadas no Azure.
 
@@ -70,4 +70,4 @@ Os dados sincronizados com o Azure por meio do Enterprise State Roaming serão m
 - [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

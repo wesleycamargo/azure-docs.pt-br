@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="msStevenPo"
- 	manager="stevenpo"
+ 	manager="femila"
 	editor=""/>
 
  <tags
@@ -73,4 +73,4 @@ Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor
 - [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="rmcmurray"/>
+	ms.author="jwillis;rmcmurray"/>
 
 # Aplicativo local com armazenamento de blob
 
@@ -359,4 +359,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
 - [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Visão Geral dos Logs de Diagnóstico
@@ -69,15 +69,23 @@ Para habilitar os Logs de Diagnóstico via Cmdlets do Azure PowerShell, use os c
 
 Para habilitar o armazenamento dos Logs de Diagnóstico em uma Conta de Armazenamento, use este comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 A ID da Conta de Armazenamento é a ID de recurso da conta de armazenamento para a qual você deseja enviar os logs.
 
 Para habilitar o streaming dos Logs de Diagnóstico para um Hub de Eventos, use este comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`.
+
+Para habilitar o envio dos Logs de Diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+Você pode obter a ID do espaço de trabalho do Log Analytics no portal do Azure.
+
+Você pode combinar esses parâmetros para permitir várias opções de saída.
 
 Para habilitar os Logs de Diagnóstico via CLI do Azure, use os comandos a seguir:
 
@@ -93,7 +101,33 @@ Para habilitar o streaming dos Logs de Diagnóstico para um Hub de Eventos, use 
 
 A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
+Para habilitar o envio dos Logs de Diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+Você pode obter a ID do espaço de trabalho do Log Analytics no portal do Azure.
+
+Você pode combinar esses parâmetros para permitir várias opções de saída.
+
 Para alterar as Configurações de Diagnóstico usando a API REST do Insights, confira [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Gerenciar Configurações de Diagnóstico no portal
+
+Para verificar se todos os seus recursos estão corretamente definidos com as configurações de diagnóstico, você pode navegar para a folha **Monitoramento** no portal e abrir a folha **Logs de Diagnóstico** folha.
+
+![Folha Logs de Diagnóstico no portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+Você talvez tenha que clicar em "Mais serviços" para localizar a folha Monitoramento.
+
+Nessa folha, você pode exibir e filtrar todos os recursos que oferecem suporte aos Logs de Diagnóstico para ver se eles habilitaram o diagnóstico e para qual conta de armazenamento, hub de eventos e/ou espaço de trabalho do Log Analytics esses logs estão fluindo.
+
+![Resultados da folha Logs de Diagnóstico no portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+Clicar em um recurso mostrará todos os logs que foram colocados na conta de armazenamento e oferecem a opção para desativar ou modificar as configurações do diagnóstico. Clique no ícone de download para baixar os logs por um período de tempo específico.
+
+![Folha Logs de Diagnóstico com um recurso](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] Os logs de diagnóstico aparecerão apenas nesta exibição e estarão disponíveis para download se você definiu as configurações de diagnóstico para salvá-los em uma conta de armazenamento.
 
 ## Serviços e esquema com suporte para os Logs de Diagnóstico
 O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categoria do log. Abaixo estão os serviços com suporte e seu esquema.
@@ -133,10 +167,13 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
+|Microsoft.ServerManagement/nodes|RequestLogs|Logs de solicitação|
+|Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
+|Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 
 ## Próximas etapas
 - [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Alterar as Configurações de Diagnóstico usando a API REST do Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

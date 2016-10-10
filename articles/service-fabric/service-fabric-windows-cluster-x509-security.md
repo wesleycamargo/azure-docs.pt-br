@@ -53,8 +53,12 @@ Para começar, [baixe o pacote de clusters autônomos](service-fabric-cluster-cr
                 "CertificateIssuerThumbprint" : "[Thumbprint]",
                 "IsAdmin": true
             }]
+			"HttpApplicationGatewayCertificate":{
+                "Thumbprint": "[Thumbprint]",
+                "X509StoreName": "My"
+			}
         }
-    },
+    }
 
 Esta seção descreve os certificados necessários para proteger o cluster do Windows autônomo. Para habilitar a segurança baseada em certificado, defina os valores de **ClusterCredentialType** e **ServerCredentialType** para *X509*.
 
@@ -68,6 +72,7 @@ A tabela a seguir lista os certificados que serão necessárias na configuraçã
 |ServerCertificate|Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. Para sua conveniência, você pode optar por usar o mesmo certificado para *ClusterCertificate* e *ServerCertificate*. Você pode usar dois certificados de servidor diferentes, um principal e um secundário, para atualização. Defina a impressão digital do certificado principal na seção **Impressão Digital** e a do secundário nas variáveis **ThumbprintSecondary**. |
 |ClientCertificateThumbprints|Esse é um conjunto de certificados que você deseja instalar nos clientes autenticados. Você pode ter alguns certificados de cliente diferentes instalados nos computadores para os quais você deseja permitir o acesso ao cluster. Defina a impressão digital de cada certificado na variável **CertificateThumbprint**. Se você definir **IsAdmin** para *true*, o cliente com o certificado instalado poderá realizar atividades de gerenciamento de administrador no cluster. Se **IsAdmin** for *false*, o cliente com esse certificado só poderá executar as ações permitidas para direitos de acesso do usuário, normalmente, somente leitura. Para obter mais informações sobre funções, leia [RBAC (controle de acesso baseado em função)](service-fabric-cluster-security.md/#role-based-access-control-rbac) |
 |ClientCertificateCommonNames|Defina o nome comum do primeiro certificado do cliente para **CertificateCommonName**. A **CertificateIssuerThumbprint** é a impressão digital para o emissor deste certificado. Leia [Working with certificates (Trabalhando com certificados)](https://msdn.microsoft.com/library/ms731899.aspx) para saber mais sobre os nomes comuns e o emissor.|
+|HttpApplicationGatewayCertificate|Este é um certificado opcional que pode ser especificado se você deseja proteger seu Gateway de Aplicativo Http. Verifique se reverseProxyEndpointPort está definido em nodeTypes caso você esteja usando esse certificado.|
 
 Aqui está um exemplo de configuração de cluster em que os certificados de Cluster, Servidor e Cliente foram fornecidos.
 
@@ -262,4 +267,4 @@ Para remover o cluster, chame o seguinte comando:
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

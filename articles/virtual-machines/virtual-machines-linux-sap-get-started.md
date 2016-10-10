@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Usando o SAP em VMs (máquinas virtuais) do Linux | Microsoft Azure"
-   description="Saiba como usar o SAP em VMs (máquinas virtuais) do Linux no Microsoft Azure"
-   services="virtual-machines-linux,virtual-network,storage"
-   documentationCenter="saponazure"
-   authors="MSSedusch"
-   manager="juergent"
+   pageTitle="Introdução às soluções SAP | Microsoft Azure"
+   description="Saiba como executar as soluções SAP em VMs (máquinas virtuais) no Microsoft Azure"
+   services="virtual-machines-linux"
+   documentationCenter=""
+   authors="RicksterCDN"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="sedusch"/>
+   ms.workload="infrastructure-services"
+   ms.date="09/23/2016"
+   ms.author="rclaus"/>
 
-# Usando o SAP em VMs (máquinas virtuais) do Linux
+# Uso das soluções SAP em máquinas virtuais do Microsoft Azure
 
 [767598]: https://service.sap.com/sap/support/notes/767598
 [773830]: https://service.sap.com/sap/support/notes/773830
@@ -295,13 +295,57 @@
 [xplat-cli]: ../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]: ../xplat-cli-azure-resource-manager.md
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
+Ao escolher o Microsoft Azure como seu parceiro de nuvem pronta SAP, você poderá executar de forma confiável suas cargas de trabalho críticas da SAP em uma plataforma escalonável, compatível e comprovada na empresa. Obtenha a escalabilidade, a flexibilidade e a economia do Azure. Com a parceria expandida entre a Microsoft e a SAP, você pode executar aplicativos da SAP entre cenários de desenvolvimento/teste e produção no Azure, com suporte total. Do SAP NetWeaver ao SAP S4/HANA, do Linux ao Windows, do SAP HANA ao SQL, estamos com você.
 
-Computação em Nuvem é um termo amplamente usado que está adquirindo cada vez mais importância no setor de TI, de pequenas empresas até multinacionais e grandes corporações. O Microsoft Azure é a Plataforma de Serviços de Nuvem da Microsoft que oferece um amplo espectro de novas possibilidades. Agora, os clientes podem provisionar e desprovisionar com rapidez os aplicativos como Serviços de Nuvem, para que não sejam limitados por restrições técnicas ou orçamentárias. Em vez de investir tempo e dinheiro na infraestrutura de hardware, as empresas podem se concentrar no aplicativo, nos processos de negócios e em seus benefícios para clientes e usuários.
+Com os serviços de máquina virtual do Microsoft Azure e o SAP HANA em grandes instâncias do Azure, a Microsoft oferece uma plataforma abrangente de IaaS (Infraestrutura como Serviço). Como uma ampla gama de soluções SAP tem suporte no Azure, este "documento de introdução" servirá como um Sumário para nosso conjunto atual de documentos SAP. Conforme mais títulos são adicionados à nossa biblioteca de documentos, você os verá adicionados aqui.
 
-Com os Serviços de Máquina Virtual do Microsoft Azure, a Microsoft oferece uma plataforma abrangente de IaaS (Infraestrutura como Serviço). Os aplicativos baseados no SAP NetWeaver têm suporte em Máquinas Virtuais do Azure (IaaS). Os white papers abaixo descrevem como planejar e implementar aplicativos baseados no SAP NetWeaver no Microsoft Azure como a plataforma escolhida.
+## Certificações do SAP HANA no Microsoft Azure
+
+
+Produto SAP | SO com suporte | Ofertas do Azure 
+---------- | ------------ | ------------- 
+SAP HANA Developer Edition (incluindo o software cliente HANA formado por drivers SQLODBC, ODBO somente Windows, ODBC e JDBC, HANA Studio e banco de dados HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8
+HANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14\_v2 (mediante disponibilidade geral)
+SAP S/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilidade controlada para GS5, SAP HANA no Azure (instâncias grandes)
+Pacote no HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | SAP HANA no Azure (instâncias grandes)
+HANA Enterprise para BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para implantações de nó único, SAP HANA no Azure (instâncias grandes)
+SAP BW/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para implantações de nó único, SAP HANA no Azure (instâncias grandes)
+
+
+## Certificações SAP NetWeaver
+
+O Microsoft Azure está certificado para os produtos SAP a seguir, com total suporte da Microsoft e da SAP.
+
+Produto SAP | SO convidado | RDBMS | Tipos de máquina virtual 
+---------- | ------------ | ------------- | ------------- 
+Software SAP Business Suite | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 
+SAP Business All-in-One | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 
+SAP BusinessObjects BI | Windows | N/D | A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 
+SAP NetWeaver | Windows, SUSE Linux Enterprise | SQL Server, Oracle, DB2, SAP ASE | A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 
+
+
 
 [AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+
+## Introdução ao SAP HANA no Azure
+
+Título: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure
+
+Resumo: este guia de início rápido ajudará você a configurar uma instância única do sistema protótipo/demonstração SAP HANA em VMs do Azure por meio de uma instalação manual do SAP NetWeaver 7.5 e do SAP HANA SP12. O guia presume que o leitor já esteja familiarizado com conceitos básicos do Azure IaaS, por exemplo, implantar máquinas virtuais ou redes virtuais por meio do Portal do Azure ou do Powershell/CLI, incluindo a opção de usar modelos json. Além disso, espera-se que o leitor esteja familiarizado com o SAP HANA, com o SAP NetWeaver e como instalá-los localmente.
+
+Atualizado: setembro de 2016
+
+[Esse guia pode ser encontrado aqui](virtual-machines-linux-sap-hana-get-started.md)
+
+## Guia de início rápido para NetWeaver no SUSE Linux no Azure
+
+Título: Testando o SAP NetWeaver em VMs SUSE Linux no Microsoft Azure
+
+Resumo: este artigo descreve fatores que devem ser levados em consideração quando você estiver executando o SAP NetWeaver em VMs (máquinas virtuais) do SUSE Linux no Microsoft Azure. A partir de 19 de maio de 2016, o SAP NetWeaver tem suporte oficial em VMs do SUSE Linux no Azure. Todos os detalhes relativos a versões do Linux, versões de kernel do SAP e assim por diante podem ser encontrados na nota do SAP 1928533 "Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure".
+
+Atualizado: setembro de 2016
+
+[Esse guia pode ser encontrado aqui](virtual-machines-linux-sap-on-suse-quickstart.md)
 
 ##  <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planejamento e implementação
 
@@ -332,4 +376,4 @@ Atualização: março de 2016
 
 [Esse guia pode ser encontrado aqui][dbms-guide]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

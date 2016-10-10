@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Clássico do Azure](site-recovery-hyper-v-site-to-azure-classic.md)
-- [ARM do PowerShell](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell – Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [Portal clássico](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
 
@@ -88,7 +88,7 @@ Veja o que será necessário no local.
 **Pré-requisito** | **Detalhes**
 --- | ---
 **Hyper-V**| Um ou mais servidores locais executando o Windows Server 2012 R2 com a função de Hyper-V e as atualizações mais recentes.<br/><br/>O servidor Hyper-V deve conter uma ou mais máquinas virtuais.<br/><br/>Servidores Hyper-V devem estar conectados à Internet, diretamente ou por meio de um proxy.<br/><br/>Servidores Hyper-V devem ter correções mencionadas no [KB2961977](https://support.microsoft.com/pt-BR/kb/2961977 "KB2961977") instalado.
-**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o provedor do Azure Site Recovery. A instalação do Provedor também instalará o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V executando máquinas virtuais que deseja proteger. Todos os servidores Hyper-V em um cofre de Recuperação de Site devem ter as mesmas versões do Provedor e do agente.<br/><br/>O Provedor precisará se conectar ao Azure Site Recovery pela Internet. O tráfego pode ser enviado diretamente ou por meio de um proxy. Observe que o proxy com base em HTTPS não é suportado. O servidor proxy deve permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (433).<br/><br/>Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA.
+**Provedor e agente** | Durante a implantação do Azure Site Recovery, você instalará o provedor do Azure Site Recovery. A instalação do Provedor também instalará o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V executando máquinas virtuais que deseja proteger. Todos os servidores Hyper-V em um cofre de Recuperação de Site devem ter as mesmas versões do Provedor e do agente.<br/><br/>O Provedor precisará se conectar ao Azure Site Recovery pela Internet. O tráfego pode ser enviado diretamente ou por meio de um proxy. Observe que o proxy com base em HTTPS não é suportado. O servidor proxy deve permitir o acesso a: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>Se você tiver regras de firewall baseadas em endereço IP no servidor, verifique se as regras permitem a comunicação com o Azure. Você precisará permitir os [Intervalos de IPs de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).<br/><br/>Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA.
 
 ## Pré-requisitos de computadores protegidos
 
@@ -469,4 +469,4 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 Depois que a implantação estiver configurada e em funcionamento, [saiba mais](site-recovery-failover.md) sobre o os diferentes tipos de failover.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

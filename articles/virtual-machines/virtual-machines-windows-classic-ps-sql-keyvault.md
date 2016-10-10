@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)"
-	description="Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração da Chave do Cofre do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico."
+	description="Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre de Chaves do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/05/2016"
+	ms.date="09/26/2016"
 	ms.author="jroth"/>
 
 # Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
@@ -28,7 +28,7 @@ Há vários recursos de criptografia SQL Server, como [transparent data encrypti
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Se você estiver executando o SQL Server em máquinas locais, há [etapas para acessar o Cofre da Chave do Azure da máquina local com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso *Integração do Cofre da Chave do Azure*. Com alguns cmdlets do Azure PowerShell para habilitar esse recurso, você poderá automatizar a configuração necessária para que uma VM do SQL acesse seu cofre da chave.
+Se você estiver executando o SQL Server em máquinas locais, existirão [etapas a serem seguidas para acessar o Cofre de Chaves do Azure do computador local com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso *Integração do Cofre da Chave do Azure*. Com alguns cmdlets do Azure PowerShell para habilitar esse recurso, você poderá automatizar a configuração necessária para que uma VM do SQL acesse seu cofre da chave.
 
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
@@ -37,7 +37,11 @@ Quando esse recurso está habilitado, ele instala automaticamente o SQL Server C
 ## Configurar a integração de AKV
 Use o PowerShell para configurar a integração do Cofre da Chave do Azure. As seções a seguir oferecem uma visão geral dos parâmetros necessários e um exemplo de script do PowerShell.
 
-### Parâmetros de entrada
+### Instalar a Extensão IaaS do SQL Server
+
+Primeiro, [instale a extensão IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+
+### Compreender os parâmetros de entrada
 A tabela a seguir lista os parâmetros necessários para executar o script do PowerShell na próxima seção.
 
 |Parâmetro|Descrição|Exemplo|
@@ -70,4 +74,4 @@ A extensão do Agente IaaS do SQL atualizará a VM do SQL com essa nova configur
 
 [AZURE.INCLUDE [Próximas Etapas da Integração de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

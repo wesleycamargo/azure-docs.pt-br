@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Filtros e manifestos dinâmicos" 
+	pageTitle="Filtros e manifestos dinâmicos | Microsoft Azure" 
 	description="Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para arquivar esse streaming seletivo." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="cenkdin;juliako"/>
 
-#Filtros e manifestos dinâmicos
+# Filtros e manifestos dinâmicos
 
 A partir da versão 2.11, os Serviços de Mídia permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é arquivada por meio de **Manifestos Dinâmicos** criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
-Este tópico discute cenários comuns nos quais o uso de filtros é muito útil para seus clientes e tem links para tópicos que demonstram como criar filtros por meio de programação (no momento, você pode criar filtros somente com APIs REST).
+Este tópico analisa cenários os comuns nos quais o uso dos filtros seria muito útil para seus clientes e links para os tópicos que demonstram como criar os filtros por meio de programação (no momento, você pode criar filtros somente com as APIs REST).
 
 ##Visão geral
 
 Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para atingir essa meta, faça o seguinte:
 
 - codifique seu fluxo para múltiplas taxas de bits ([taxa de bits adaptável](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e
-- use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+- use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
 
 ###Arquivos de manifesto 
 
@@ -172,7 +172,7 @@ Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posiç
 
 ##Criar filtros por meio de programa
 
-O tópico a seguir discute entidades de serviços de mídia relacionadas a filtros. O tópico também mostra como criar filtros por meio de programa.
+O tópico a seguir analisa as entidades dos Serviços de Mídia relacionadas aos filtros. O tópico também mostra como criar filtros programaticamente.
 
 [Criar filtros com APIs REST](media-services-rest-dynamic-manifest.md).
 
@@ -236,4 +236,4 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

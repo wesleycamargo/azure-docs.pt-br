@@ -3,7 +3,7 @@
 	description="Saiba como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização. Conectar-se usando a cadeia de conexão do MongoDB." 
 	keywords="cadeia de conexão do mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
@@ -84,4 +84,4 @@ Como já mencionado, todas as contas do Banco de Dados de Documentos exigem aute
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

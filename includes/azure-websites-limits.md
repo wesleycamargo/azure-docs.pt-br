@@ -35,7 +35,7 @@ Contrato de Nível de Serviço||<p>|99,9%|99,95%<sup>10</sup>|99,95%<sup>10</sup
 <sup>6</sup>Esses recursos são limitados pelos recursos físicos nas instâncias dedicadas (o tamanho de instância e o número de instâncias).  
 <sup>7</sup>Ao escalar um aplicativo na camada Basic para duas instâncias, você tem 350 conexões simultâneas para cada uma das duas instâncias.  
 <sup>8</sup>A camada Premium permite que os intervalos de backup sejam reduzidos até a cada 5 minutos no uso de Ambientes do Serviço de Aplicativo; caso contrário, serão 50 vezes por dia  
-<sup>9</sup>Execute os executáveis personalizados e/ou os scripts sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano na instância do Serviço de Aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard. Não há nenhum limite predefinido no número de trabalhos da Web que pode ser executado em uma instância do Serviço de Aplicativo, mas há limites práticos que dependem do que o código do aplicativo está tentando fazer.  
+<sup>9</sup>Execute os executáveis personalizados e/ou os scripts sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano na instância do Serviço de Aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard. Não há nenhum limite predefinido na quantidade de WebJobs que podem ser executados em uma instância do Serviço de Aplicativo, mas há limites práticos que dependem do que o código do aplicativo está tentando fazer. 
 <sup>10</sup>SLA de 99,95% fornecido para implantações que usam várias instâncias com o Gerenciador de Tráfego do Azure configurado para failover.  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

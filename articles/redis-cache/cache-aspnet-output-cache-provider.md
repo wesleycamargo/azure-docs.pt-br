@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="na"
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor="tysonn" />
 <tags
 	ms.service="cache"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="sdanie" />
 
 # Provedor de Cache de Saída ASP.NET do Cache Redis do Azure
@@ -81,4 +81,4 @@ Após a execução dessas etapas, seu aplicativo será configurado para usar o P
 
 Confira [Provedor de estado de sessão ASP.NET para Cache Redis do Azure](cache-aspnet-session-state-provider.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->
