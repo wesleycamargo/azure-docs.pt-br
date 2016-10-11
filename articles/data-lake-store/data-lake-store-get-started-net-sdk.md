@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o SDK do .NET
@@ -112,9 +112,9 @@ Nas seções restantes do artigo, você pode ver como usar o métodos do .NET di
 
 ## Autenticação
 
-### Se você está usando a autenticação de usuário final
+### Se você estiver usando autenticação de usuário final (recomendada para este tutorial)
 
-Use-a com um aplicativo de cliente nativo do Azure AD existente. Fornecemos um abaixo para você.
+Use-a com um aplicativo de cliente nativo do Azure AD existente. Fornecemos um abaixo para você. Para ajudá-lo a concluir este tutorial mais rápido, recomendamos que use essa abordagem.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -124,7 +124,10 @@ Use-a com um aplicativo de cliente nativo do Azure AD existente. Fornecemos um a
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-No trecho de código acima, usamos uma ID de cliente e um domínio do Azure AD que está disponível por padrão para todas as assinaturas do Azure. Se você quiser usar sua própria ID de cliente de aplicativo e seu próprio domínio do Azure AD, crie um aplicativo nativo do Azure AD. Confira [Criar um aplicativo do Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) para obter instruções.
+Algumas coisas sobre o trecho acima.
+
+* Para ajudá-lo a concluir o tutorial mais rapidamente, esse trecho de código usa um domínio e uma ID de cliente do Azure AD que está disponível por padrão a todas as assinaturas do Azure. Portanto, você pode **usar o trecho de código como está em seu aplicativo**.
+* No entanto, se você quiser usar sua própria ID de cliente de aplicativo e o domínio do Azure AD, crie um aplicativo nativo Azure AD e use o domínio do Azure AD, a ID de cliente e o URI de redirecionamento para o aplicativo que você criou. Confira [Criar um aplicativo do Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) para obter instruções.
 
 >[AZURE.NOTE] As instruções nos links acima são para um aplicativo Web do Azure AD. No entanto, as etapas são exatamente as mesmas até quando você opta por criar um aplicativo de cliente nativo.
 
@@ -273,4 +276,4 @@ O trecho a seguir mostra um método `DownloadFile` que você pode usar para baix
 - [Referência do SDK do .NET do Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Referência do REST do Azure Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

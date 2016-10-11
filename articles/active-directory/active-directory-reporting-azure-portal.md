@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Relatórios do Azure Active Directory - visualização
+
+> [AZURE.SELECTOR]
+- [Portal do Azure](active-directory-reporting-azure-portal.md)
+- [Portal clássico do Azure](active-directory-reporting-guide.md)
 
 *Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
@@ -216,4 +220,4 @@ Outro método para filtrar as entradas de um log de auditoria é procurar itens 
 
 Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="09/29/2016" 
 	ms.author="raynew"/>
 
 #  O que é a Recuperação de Site?
@@ -28,9 +28,9 @@ A Recuperação de Site é um serviço do Azure que colabora com sua estratégia
 
 ## Recuperação de Site no portal do Azure
 
-O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: o modelo Azure Resource Manager e o modelo de gerenciamento de serviços clássico. O Azure também tem dois portais – o [portal clássico do Azure](https://manage.windowsazure.com/), que suporta o modelo de implantação clássico, e o [portal do Azure](https://portal.azure.com), com suporte para ambos os modelos de implantação.
+O Azure tem dois [modelos de implantação](../resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: o modelo Azure Resource Manager e o modelo de gerenciamento de serviços clássico. O Azure também tem dois portais: o [Portal Clássico do Azure](https://manage.windowsazure.com/), que dá suporte ao modelo de implantação clássico, e o [Portal do Azure](https://portal.azure.com), com suporte a ambos os modelos de implantação.
 
-A Recuperação de Site está disponível no portal clássico e no portal do Azure. No portal clássico do Azure, você pode dar suporte à Recuperação de Site com o modelo de gerenciamento de serviços clássico. No portal do Azure, você pode suportar o modelo clássico ou as implantações do Gerenciador de Recursos. [Ler mais](site-recovery-overview.md#site-recovery-in-the-azure-portal) sobre a implantação com o portal do Azure.
+A Recuperação de Site está disponível no Portal Clássico e no Portal do Azure. No Portal Clássico do Azure, você pode dar suporte à Recuperação de Site com o modelo de gerenciamento de serviços clássico. No portal do Azure, você pode dar suporte a implantações do modelo clássico ou do Resource Manager. [Ler mais](site-recovery-overview.md#site-recovery-in-the-azure-portal) sobre a implantação com o portal do Azure.
 
 As informações neste artigo se aplicam às implantações clássicas e do portal do Azure. As diferenças são indicadas onde aplicável.
 
@@ -81,4 +81,4 @@ A Recuperação de Site pode ajudar com BCDR com reconhecimento de aplicativos, 
 - Saiba mais sobre a arquitetura da Recuperação de Site em [Como funciona a Recuperação de Site?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

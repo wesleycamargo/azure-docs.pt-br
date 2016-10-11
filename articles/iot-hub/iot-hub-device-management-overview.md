@@ -1,9 +1,9 @@
 <properties
  pageTitle="Visão geral do gerenciamento de dispositivo | Microsoft Azure"
- description="Visão geral do gerenciamento de dispositivo Hub IoT do Azure: dispositivos gêmeos, consultas de dispositivo e trabalhos do dispositivo"
+ description="Visão geral do gerenciamento de dispositivos do Hub IoT do Azure"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,113 +13,107 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
+
+
 
 # Visão geral do gerenciamento de dispositivos do Hub IoT do Azure (preview)
 
-O gerenciamento de dispositivo Hub IoT do Azure permite o gerenciamento de dispositivo IoT baseado em padrões para que você possa gerenciar, configurar e atualizar os dispositivos remotamente.
+## A abordagem de gerenciamento de dispositivo do Azure IoT
 
-Há três principais conceitos de gerenciamento de dispositivo no IoT do Azure:
+O gerenciamento de dispositivo do Hub IoT do Azure fornece os recursos e o modelo de extensibilidade para os dispositivos e back-ends aproveitarem o gerenciamento de dispositivos IoT para a diversidade de dispositivos e protocolos em IoT. Os dispositivos na IoT variam de sensores muito restritos, microcontroladores com finalidade única, a gateways mais poderosos que capacitam outros dispositivos e protocolos. As soluções de IoT também variam consideravelmente em domínios verticais e aplicativos com casos de uso exclusivos dos operadores em cada domínio. As soluções de IoT podem aproveitar os recursos, padrões e bibliotecas de código de gerenciamento de dispositivo do Hub IoT, para habilitar um gerenciamento de dispositivo para seu conjunto diversificado de dispositivos e usuários.
 
-1.  **Dispositivo gêmeo:** a representação do dispositivo físico no Hub IoT.
+## Introdução
 
-2.  **Consultas de dispositivo**: permitem encontrar dispositivos gêmeos e gerar uma compreensão agregada de vários dispositivos gêmeos. Por exemplo, você poderia executar uma consulta para encontrar todos os dispositivos gêmeos com uma versão de firmware 1.0.
+Uma parte fundamental da criação de uma solução de IoT bem-sucedida é fornecer uma estratégia para os operadores lidarem com o gerenciamento contínuo de sua frota de dispositivos. Os operadores de IoT exigem ferramentas e aplicativos simples e confiáveis, e que os permitam se concentrar nos aspectos mais estratégicos de seus trabalhos. O Hub IoT do Azure fornece a você os blocos de construção para criar aplicativos de IoT que facilitam os padrões mais importantes de gerenciamento de dispositivo.
 
-3.  **Trabalhos do dispositivo**: uma ação a ser executada em um ou mais dispositivos físicos, como atualização de firmware, reinicialização e redefinição de fábrica.
+Considera-se que os dispositivos estão sendo gerenciados pelo Hub IoT quando eles executam um aplicativo simples, chamado de agente de gerenciamento de dispositivo, que conecta o dispositivo com segurança à nuvem. O código do agente permite que um operador do lado do aplicativo confirme remotamente o status do dispositivo e realize operações de gerenciamento, como aplicar alterações de configuração de rede ou implantar atualizações de firmware.
 
-## Dispositivo gêmeo
+## Princípios de gerenciamento de dispositivo IoT
 
-O dispositivo gêmeo é a representação de um dispositivo físico no IoT do Azure. O objeto **Microsoft.Azure.Devices.Device** é usado para representar o dispositivo gêmeo.
+O IoT traz com ele um conjunto exclusivo de desafios de gerenciamento e uma solução deve considerar os seguintes princípios de gerenciamento de dispositivo IoT:
 
-![][img-twin]
+![][img-dm_principles]
 
-O dispositivo gêmeo tem os seguintes componentes:
+- **Escala e automação**: o IoT exige ferramentas simples que podem automatizar tarefas de rotina e capacitar uma equipe de operações relativamente pequena a gerenciar milhões de dispositivos. Diariamente, os operadores esperam lidar com operações de dispositivo remotamente, em massa, e só receberem alertas quando surgirem problemas que exijam sua atenção direta.
 
-1.  **Campos de dispositivo:** campos de dispositivo são propriedades predefinidas usadas para o gerenciamento de dispositivo e mensagens do Hub IoT. Eles ajudam o Hub IoT a identificar e se conectar com dispositivos físicos. Os campos de dispositivo não são sincronizados com o dispositivo e são armazenados exclusivamente no dispositivo gêmeo. Os campos de dispositivo incluem as informações de autenticação e a ID do dispositivo.
+- **Abertura e compatibilidade**: o ecossistema de dispositivos do IoT é incrivelmente diverso. Ferramentas de gerenciamento devem ser personalizadas a fim de acomodar vários protocolos, classes e plataformas de dispositivos. Os operadores devem ser capazes de dar suporte a todos os dispositivos, desde os chips de processo único incorporados mais restritos, até computadores eficientes e totalmente funcionais.
 
-2.  **Propriedades de dispositivo:** propriedades de dispositivo são um dicionário predefinido de propriedades que descreve o dispositivo físico. O dispositivo físico é o mestre de cada propriedade do dispositivo e o repositório autoritativo de cada valor correspondente. Uma representação eventualmente consistente dessas propriedades é armazenada no dispositivo gêmeo na nuvem. A coerência e a atualização estão sujeitas a configurações de sincronização, descritas em [Tutorial: Como usar o dispositivo gêmeo][lnk-tutorial-twin]. Alguns exemplos de propriedades de dispositivo incluem a versão de firmware, o nível de bateria e o nome do fabricante.
+- **Reconhecimento de contexto**: os ambientes de IoT são dinâmicos e estão em constante mudança. A confiabilidade do serviço é fundamental. Operações de gerenciamento de dispositivo devem considerar as janelas de manutenção do SLA, os estados de energia e de rede, as condições em uso e a localização geográfica do dispositivo para garantir que esse tempo de inatividade para a manutenção não afete operações comerciais críticas ou crie condições perigosas.
 
-3.  **Propriedades de serviço:** as propriedades de serviço são pares de **&lt;chave e valor&gt;** que o desenvolvedor adiciona ao dicionário de propriedades de serviço. Essas propriedades estendem o modelo de dados para o dispositivo gêmeo, permitindo que você caracterize melhor seu dispositivo. As propriedades de dispositivo não são sincronizadas com o dispositivo e são armazenadas exclusivamente no dispositivo gêmeo, na nuvem. Um exemplo de uma propriedade de serviço é **&lt;NextServiceDate, 11/12/2017&gt;**, que pode ser usada para encontrar dispositivos por sua próxima data de serviço.
+- **Atende muitas funções**: o suporte aos fluxos de trabalho e processos exclusivos das funções de operações do IoT é crucial. A equipe de operações também deve trabalhar de forma harmoniosa com as restrições específicas de departamentos de TI internos, e divulgar informações relevantes sobre as operações do dispositivo para os supervisores e outras funções de gerenciamento.
 
-4.  **Marcas:** marcas são um subconjunto das propriedades de serviço que são cadeias de caracteres arbitrárias, em vez de propriedades de dicionário. Elas podem ser usadas para anotar dispositivos gêmeos ou organizar os dispositivos em grupos. As marcas não são sincronizadas com o dispositivo e são armazenadas exclusivamente no dispositivo gêmeo. Por exemplo, se o dispositivo gêmeo representar um caminhão físico, você poderá adicionar uma marca para cada tipo de carga no caminhão – **maçãs**, **laranjas** e **bananas**.
+## Ciclo de vida do dispositivo IoT 
 
-## Consultas do dispositivo
+Embora os projetos de IoT sejam bastante variados, há um conjunto de padrões comuns de gerenciamento de dispositivos. No Azure IoT, esses padrões são identificados dentro do ciclo de vida do dispositivo IoT, que é composto por cinco estágios distintos:
 
-Na seção anterior, você aprendeu sobre os diferentes componentes do dispositivo gêmeo. Agora, vamos explicar como encontrar dispositivos gêmeos no registro de dispositivo Hub IoT com base nas propriedades de dispositivo, propriedades de serviço ou marcas. Um exemplo de quando você usaria uma consulta é encontrar dispositivos que precisam ser atualizados. É possível consultar para todos os dispositivos com uma versão de firmware especificada e alimentar o resultado em uma ação específica (no Hub IoT, conhecido como um trabalho do dispositivo, explicado na próxima seção).
+![][img-device_lifecycle]
 
-É possível consultar usando marcas e propriedades:
+1. **Planejamento**: permita que os operadores criem um esquema de propriedade de dispositivo que os permita consultar de forma fácil e precisa, e selecionar um grupo de dispositivos para operações de gerenciamento em massa.
 
--   Para consultar dispositivos gêmeos usando marcas, você transmite uma matriz de cadeias de caracteres e a consulta retorna o conjunto de dispositivos marcados com todas essas cadeias de caracteres.
+    *Blocos de construção relacionados*: [Introdução ao gêmeos de dispositivo][lnk-twins-getstarted], [Como usar propriedades gêmeas][lnk-twin-properties]
 
--   Para consultar dispositivos gêmeos usando as propriedades do serviço ou do dispositivo, é necessário usar uma expressão de consulta JSON. O exemplo abaixo mostra como é possível consultar para todos os dispositivos com a propriedade de dispositivo e com a chave **FirmwareVersion** e o valor **1.0**. É possível ver que o **tipo** da propriedade é **dispositivo**, indicando que estamos consultando com base nas propriedades de dispositivo, não as propriedades de serviço:
+2. **Provisionamento**: autentique novos dispositivos com segurança no Hub IoT e permita que os operadores descubram imediatamente os recursos e o estado atual do dispositivo.
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
+    *Blocos de construção relacionados*: [Introdução ao Hub IoT][lnk-hub-getstarted], [Como usar propriedades gêmeas][lnk-twin-properties]
 
-## Trabalhos do dispositivo
+3. **Configurar**: facilite as alterações de configuração em massa e atualizações de firmware em dispositivos enquanto mantém a integridade e a segurança.
 
-O próximo conceito no gerenciamento de dispositivo são os trabalhos do dispositivo, que permitem a coordenação de orquestrações de várias etapas em vários dispositivos.
+    *Blocos de construção relacionados*: [Como usar propriedades gêmeas][lnk-twin-properties], [Métodos C2D][lnk-c2d-methods], [Trabalhos de transmissão/agendamento][lnk-jobs]
 
-No momento, existem seis tipos de trabalhos do dispositivo que são fornecidos pelo gerenciamento de dispositivo Hub IoT do Azure (adicionaremos outros trabalhos conforme as necessidades dos clientes):
+4. **Monitoramento**: monitore a integridade geral da frota de dispositivos e o status das implementações de atualização em andamento para alertar os operadores sobre problemas que possam exigir atenção.
 
-- **Atualização de firmware**: atualiza o firmware (ou a imagem do sistema operacional) no dispositivo físico.
-- **Reinicialização**: reinicia o dispositivo físico.
-- **Redefinição de fábrica**: reverte o firmware (ou a imagem do sistema operacional) do dispositivo físico para uma imagem de backup fornecida de fábrica armazenada no dispositivo.
-- **Atualização da configuração**: configura o agente cliente Hub IoT em execução no dispositivo físico.
-- **Ler propriedade de dispositivo**: obtém o valor mais recente de uma propriedade de dispositivo no dispositivo físico.
-- **Gravar propriedade de dispositivo:** altera uma propriedade de dispositivo no dispositivo físico.
+    *Blocos de construção relacionados*: [Como usar propriedades gêmeas][lnk-twin-properties]
 
-Para obter detalhes sobre como usar cada um desses trabalhos, confira a [documentação da API para C# e Node.js][lnk-apidocs].
+5. **Desativação**: substitua ou encerre os dispositivos após uma falha, ciclo de atualização ou ao final da vida útil do serviço.
 
-Um trabalho pode operar em vários dispositivos. Quando você inicia um trabalho, um trabalho filho associado é criado para cada um desses dispositivos. Um trabalho filho opera em um único dispositivo. Cada trabalho filho tem um ponteiro para seu trabalho pai. O trabalho pai é apenas um contêiner para os trabalhos filho; ele não implementa nenhuma lógica para distinguir entre os tipos de dispositivos (como atualização de um Intel Edison versus um Raspberry Pi). O diagrama a seguir ilustra a relação entre um trabalho pai, seu filho e os dispositivos físicos associados.
+    *Blocos de construção relacionados*:
+    
+## Padrões de gerenciamento de dispositivo do Hub IoT
 
-![][img-jobs]
+O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositivo (iniciais). Conforme exibido nos [tutoriais][lnk-get-started], você pode estender esses padrões para ajustar ao seu cenário exato e criar novos padrões para outros cenários com base nesses padrões principais.
 
-É possível consultar o histórico de trabalhos para entender o estado dos trabalhos que foram iniciados. Para obter algumas consultas de exemplo, confira [nossa biblioteca de consulta][lnk-query-samples].
+1. **Reinicialização** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma reinicialização foi iniciada. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de reinicialização do dispositivo.
 
-## Implementação de dispositivo
+    ![][img-reboot_pattern]
 
-Agora que abordamos os conceitos do lado do serviço, vamos discutir como criar um dispositivo físico gerenciado. A biblioteca do cliente do DM do Hub IoT do Azure permite que você gerencie seus dispositivos IoT com o IoT Hub do Azure. "Gerenciar" inclui as ações de reinicialização, a redefinição de fábrica e a atualização de firmware. Hoje, oferecemos uma biblioteca C independente de plataforma, mas adicionaremos suporte a outras linguagens em breve.
+2. **Reinicialização de fábrica** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma reinicialização de fábrica foi iniciada. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de reinicialização de fábrica do dispositivo.
 
-A biblioteca do cliente de DM terá duas responsabilidades principais no gerenciamento de dispositivos:
+    ![][img-facreset_pattern]
 
-- Sincronizar propriedades no dispositivo físico com seu dispositivo gêmeo correspondente no Hub IoT
-- Coreografar os trabalhos de dispositivo enviados pelo Hub IoT para o dispositivo
+3. **Configuração** - o aplicativo de back-end usa as propriedades do dispositivo gêmeo desejado para configurar o software em execução no dispositivo. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de configuração do dispositivo.
 
-Você pode saber mais sobre essas responsabilidades e a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+    ![][img-config_pattern]
+
+4. **Atualização de firmware** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma atualização de firmeware foi iniciada. O dispositivo inicia um processo de várias etapas para baixar o pacote de firmware, aplicar o pacote de firmware e finalmente se reconectar ao serviço do Hub IoT. Durante o processo com várias etapas, o dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o progresso e o status do dispositivo.
+
+    ![][img-fwupdate_pattern]
+
+5. **Relatório de progresso e status** - O back-end do aplicativo executa consultas do dispositivo gêmeo, em um conjunto de dispositivos, para reportar o status e o progresso das ações em execução no dispositivo.
+
+    ![][img-report_progress_pattern]
 
 ## Próximas etapas
 
-Para implementar aplicativos cliente em uma grande variedade de sistemas operacionais e plataformas de hardware do dispositivo, você pode usar os SDKs do dispositivo IoT. Os SDKs do dispositivo IoT incluem bibliotecas que facilitam o envio de telemetria para um hub IoT e o recebimento de comandos da nuvem para o dispositivo. Ao usar os SDKs, você poderá escolher entre vários protocolos de rede para comunicar-se com o Hub IoT. Para saber mais, confira as [informações sobre SDKs de dispositivo][lnk-device-sdks].
+Usando os blocos de construção fornecidos pelo Hub IoT do Azure, os desenvolvedores podem criar aplicativos de IoT que atendem os requisitos específicos de operador de IoT dentro em cada estágio do ciclo de vida de dispositivo.
 
 Para continuar a aprender sobre as funcionalidades de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Introdução ao gerenciamento de dispositivos do Hub IoT do Azure][lnk-get-started].
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
+[img-config_pattern]: media/iot-hub-device-management-overview/configuration-pattern.png
+[img-facreset_pattern]: media/iot-hub-device-management-overview/facreset-pattern.png
+[img-fwupdate_pattern]: media/iot-hub-device-management-overview/fwupdate-pattern.png
+[img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
+[img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-jobs]: iot-hub-schedule-jobs.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

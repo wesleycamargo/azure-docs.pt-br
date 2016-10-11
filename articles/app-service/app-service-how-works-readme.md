@@ -26,6 +26,7 @@ O Serviço de Aplicativo do Azure é um serviço de nuvem projetado para resolve
 * Implementar, implantar e publicar APIs com Aplicativos de API.
 * Reúna aplicativos de negócios em fluxos de trabalho e transforme dados com aplicativos lógicos.
 
+
 Todos os tipos de aplicativo contam com a plataforma de aplicativo Web escalonável e flexível que permite aos desenvolvedores uma experiência otimizada de ciclo de vida completo, do design à manutenção do aplicativo. As funcionalidades de ciclo de vida permitem:
 
 * Criação rápida de aplicativos - comecem do zero ou escolham um pacote de sistemas operacionais do Azure Marketplace.
@@ -39,4 +40,4 @@ Em conjunto, as funcionalidades do Serviço de Aplicativo permitem que os desenv
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

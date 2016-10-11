@@ -35,14 +35,14 @@ A CLI do Azure está disponível entre plataformas por meio de pacote npm, pacot
 	```
 
 - [Criar uma VM do Linux protegida usando um modelo do Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-	- O exemplo a seguir cria uma VM usando o modelo armazenado no GitHub:
+	- O exemplo a seguir cria uma VM usando um modelo armazenado no GitHub:
 
 	```bash
 	azure group create --name TestRG --location WestUS 
 		--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	```
 
-- [Criar um ambiente Linux completo com a CLI do Azure](virtual-machines-linux-create-cli-complete.md)
+- [Criar um ambiente Linux completo usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md)
 	- Inclui a criação de um balanceador de carga e várias VMs em um conjunto de disponibilidade.
 
 - [Adicionar um disco a uma VM do Linux](virtual-machines-linux-add-disk.md)
@@ -130,4 +130,4 @@ Se você precisar de personalizações específicas, poderá usar uma imagem com
 
 - Etapas rápidas para [redefinir uma senha ou chaves SSH e gerenciar os usuários](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

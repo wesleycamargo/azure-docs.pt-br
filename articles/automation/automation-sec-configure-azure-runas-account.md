@@ -55,7 +55,7 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 2. Selecione **Contas de Automação**.
 3. Na folha Contas de Automação, clique em **Adicionar**.<br>![Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
-    >[AZURE.NOTE] Se você vir o seguinte aviso na folha **Adicionar Conta de Automação**, sua conta não é um membro da função Administradores de Assinatura e coadministrador da assinatura.<br>![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+    >[AZURE.NOTE] Se você vir o seguinte aviso na folha **Adicionar Conta de Automação**, sua conta não será um membro da função Administradores de Assinatura e coadministrador da assinatura.<br>![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
 4. Na folha **Adicionar Conta de Automação**, na caixa **Nome**, digite um nome para a nova conta de Automação.
 5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
@@ -66,25 +66,25 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
     >![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br> Enquanto a entidade de serviço não for criada, a função Colaborador não será atribuída.
 
 
-7. Enquanto o Azure cria a conta de Automação, você poderá acompanhar o andamento em **Notificações** no menu.
+7. Enquanto o Azure cria a conta de Automação, você pode acompanhar o andamento em **Notificações** no menu.
 
 ### Recursos incluídos
 
-Quando a criação da conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você. A tabela a seguir resume os recursos para a conta Executar como.<br>
+Quando a conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você. A tabela a seguir resume os recursos para a conta Executar como.<br>
 
 Recurso|Descrição 
 --------|-----------
 Runbook AzureAutomationTutorial|Um exemplo de runbook do PowerShell que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager.
 Runbook do AzureAutomationTutorialScript|Um exemplo de runbook do PowerShell que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. 
-AzureRunAsCertificate|O ativo de certificado criado se você tiver optado pela criação da conta Executar como durante a criação da conta de Automação ou usando o script do PowerShell abaixo para uma conta existente. Ele permite autenticar com o Azure para que você possa gerenciar recursos do Azure Resource Manager de runbooks. Esse certificado tem um tempo de vida de um ano. 
+AzureRunAsCertificate|O ativo de certificado criado automaticamente durante a criação da conta Automação ou usando o script do PowerShell abaixo para uma conta existente. Ele permite autenticar com o Azure para que você possa gerenciar recursos do Azure Resource Manager de runbooks. Esse certificado tem um tempo de vida de um ano. 
 AzureRunAsConnection|O ativo de conexão automaticamente criado durante a criação da conta de Automação ou usando o script do PowerShell abaixo para uma conta existente.
 
 A tabela a seguir resume os recursos para a conta Executar como Clássica.<br>
 
 Recurso|Descrição 
 --------|-----------
-Runbook do AzureClassicAutomationTutorial|Um runbook de exemplo que obtém todas as VMs Clássicas em uma assinatura usando a conta clássica Executar como (certificado) e então exibe o nome e o status da VM.
-Runbook do script AzureClassicAutomationTutorial|Um runbook de exemplo que obtém todas as VMs Clássicas em uma assinatura usando a conta clássica Executar como (certificado) e então exibe o nome e o status da VM.
+Runbook do AzureClassicAutomationTutorial|Um runbook de exemplo que obtém todas as VMs Clássicas em uma assinatura usando a conta Executar como Clássica (certificado) e então exibe o nome e o status da VM.
+Runbook do script AzureClassicAutomationTutorial|Um runbook de exemplo que obtém todas as VMs Clássicas em uma assinatura usando a conta Executar como Clássica (certificado) e então exibe o nome e o status da VM.
 AzureClassicRunAsCertificate|Ativo de certificado criado automaticamente que é usado para autenticar no Azure para que você possa gerenciar recursos clássicos do Azure de runbooks. Esse certificado tem um tempo de vida de um ano. 
 AzureClassicRunAsConnection|Ativo de conexão criado automaticamente que é usado para autenticar no Azure para que você possa gerenciar recursos clássicos do Azure de runbooks.  
 
@@ -136,7 +136,7 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 
 ### Criar o script do PowerShell da conta Executar como
 
-O script do PowerShell abaixo irá configurar o seguinte:
+O script do PowerShell abaixo vai configurar o seguinte:
 
 - Um aplicativo do Azure AD que será autenticado com o certificado autoassinado, cria uma conta de entidade de serviço para esse aplicativo no Azure AD e atribui a função Colaborador (você pode alterar isso para o Proprietário ou para qualquer outra função) para essa conta em sua assinatura atual. Para saber mais, confira o artigo [Controle de acesso baseado em função na Automação do Azure](../automation/automation-role-based-access-control.md).
 - Um ativo de certificado de Automação na conta de automação especificada chamado **AzureRunAsCertificate**, que contém o certificado usado pela entidade de serviço.
@@ -239,12 +239,12 @@ Depois que o script for concluído com êxito, consulte o [código de exemplo](#
 
 ### Criar o script do PowerShell da conta Executar como Clássica
 
-O script do PowerShell abaixo irá configurar o seguinte:
+O script do PowerShell abaixo vai configurar o seguinte:
 
 - Um ativo de certificado de Automação na conta de automação especificada chamado **AzureClassicRunAsCertificate**, que contém o certificado usado para autenticar seus runbooks.
 - Um ativo de conexão de Automação na conta de automação especificada chamado **AzureClassicRunAsConnection**, que contém o nome da assinatura, a subscriptionId e o nome do ativo de certificado.
 
-O script criará um certificado de gerenciamento autoassinado e o salvará na pasta de arquivos temporários em seu computador sob o perfil do usuário usado para executar a sessão do PowerShell - *%USERPROFILE%\\AppData\\Local\\Temp*. Após a execução do script, você precisará carregar o certificado de gerenciamento do Azure no repositório de gerenciamento para a assinatura em que foi criada a conta de Automação. As etapas abaixo orientarão você pelo procedimento de execução do script e de carregamento do certificado.
+O script criará um certificado de gerenciamento autoassinado e o salvará na pasta de arquivos temporários em seu computador sob o perfil do usuário usado para executar a sessão do PowerShell – *%USERPROFILE%\\AppData\\Local\\Temp*. Após a execução do script, você precisará carregar o certificado de gerenciamento do Azure no repositório de gerenciamento para a assinatura em que foi criada a conta de Automação. As etapas abaixo orientarão você pelo procedimento de execução do script e de carregamento do certificado.
 
 1. Salve o script a seguir em seu computador. Neste exemplo, salve-o com o nome de arquivo **New-AzureClassicRunAsAccount.ps1**.
 
@@ -347,7 +347,7 @@ Você pode usar o código de exemplo atualizado abaixo, obtido do runbook **Azur
 
 O script inclui duas linhas adicionais de código para oferecer suporte à referência a um contexto de assinatura para que você possa trabalhar facilmente entre várias assinaturas. Um ativo de variável chamado SubscriptionId contém a ID da assinatura e, depois da instrução do cmdlet Add-AzureRmAccount, o [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) é declarado com o conjunto de parâmetros *-SubscriptionId*. Se o nome da variável for muito genérico, você poderá revisar o nome da variável para incluir um prefixo ou outra convenção de nomenclatura para facilitar a identificação para suas finalidades. Como alternativa, você pode usar o conjunto de parâmetros -SubscriptionName em vez de -SubscriptionId com um ativo de variável correspondente.
 
-Observe que o cmdlet usado para autenticar o runbook - **Add-AzureRmAccount**, usa o conjunto de parâmetros *ServicePrincipalCertificate*. Ele se autentica usando o certificado de entidade de serviço, não as credenciais.
+Observe que o cmdlet usado para autenticar o runbook – **Add-AzureRmAccount**, usa o conjunto de parâmetros *ServicePrincipalCertificate*. Ele se autentica usando o certificado de entidade de serviço, não as credenciais.
 
 ## Código de exemplo para autenticação em recursos do Gerenciamento de Serviços
 
@@ -384,4 +384,4 @@ Você pode usar o código de exemplo atualizado abaixo, obtido do runbook **Azur
 - Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, consulte [Controle de acesso baseado em função na Automação do Azure](../automation/automation-role-based-access-control.md).
 - Para saber mais sobre certificados e serviços do Azure, confira [Visão geral dos certificados de Serviços de Nuvem do Azure](../cloud-services/cloud-services-certs-create.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

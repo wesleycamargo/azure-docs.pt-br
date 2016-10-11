@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
@@ -33,12 +33,13 @@ Saiba como usar o Azure PowerShell para criar uma conta do Repositório Azure Da
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-##Instalar o Azure PowerShell 1.0 ou superior
+## Autenticação
 
-Confira a seção Pré-requisito em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Store, em que você é solicitado a inserir as credenciais da conta do Azure. O nível de acesso à conta do Data Lake Store e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Store, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como autenticar, confira [Autenticar com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -140,4 +141,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

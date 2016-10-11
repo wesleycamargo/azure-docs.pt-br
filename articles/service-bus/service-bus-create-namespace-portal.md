@@ -16,7 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
-# Criando um namespace de Barramento de Serviço usando o portal do Azure
+# Criar um namespace do Barramento de Serviço usando o Portal do Azure
 
 Um namespace é um contêiner comum para todos os componentes de mensagem. Várias filas e tópicos podem residir em um único namespace e os namespaces geralmente servem como contêineres de aplicativos. Atualmente, existem duas maneiras diferentes de criar um namespace do Barramento de Serviço.
 
@@ -24,7 +24,7 @@ Um namespace é um contêiner comum para todos os componentes de mensagem. Vári
 
 2.	[Modelos do Gerenciador de Recursos][create-namespace-using-arm]
 
-## Criando um namespace no portal do Azure
+## Criar um namespace no Portal do Azure
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -37,4 +37,4 @@ Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Sample
 [create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

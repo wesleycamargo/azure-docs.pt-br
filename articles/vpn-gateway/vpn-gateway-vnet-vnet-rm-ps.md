@@ -20,8 +20,8 @@
 # Configurar uma conexão de VNet com VNet para o Resource Manager usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell – Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Clássico - Portal Clássico](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 Este artigo explica as etapas para criar uma conexão entre redes virtuais no modelo de implantação do Resource Manager usando o Gateway de VPN. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes.
 
@@ -29,24 +29,23 @@ Este artigo explica as etapas para criar uma conexão entre redes virtuais no mo
 ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Ferramentas e modelos de implantação para conexões de rede virtual a rede virtual
+### Modelos de implantação e métodos para VNet a VNet
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Uma conexão de rede virtual para rede virtual pode ser configurada em ambos os modelos de implantação e usando várias ferramentas diferentes. Confira a tabela a seguir para saber mais. Podemos atualizar esta tabela conforme os novos artigos, novos modelos de implantação e ferramentas adicionais ficam disponíveis para esta configuração. Quando um artigo estiver disponível, o vincularemos diretamente da tabela.
+Uma conexão de rede virtual para rede virtual pode ser configurada em ambos os modelos de implantação e usando várias ferramentas diferentes. Atualizamos a tabela a seguir conforme os novos artigos, e ferramentas adicionais ficam disponíveis para esta configuração. Quando um artigo estiver disponível, o vincularemos diretamente da tabela.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-
 #### Emparelhamento VNet
 
-Você poderá usar o emparelhamento de Rede Virtual para criar sua conexão, desde que a configuração da rede virtual atenda a determinados requisitos. O emparelhamento de Rede Virtual não usa um gateway de rede virtual. O [emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) está em visualização no momento.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## Sobre conexões de rede virtual a rede virtual
 
-Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN do Azure para fornecer um túnel seguro usando IPsec/IKE. As redes virtuais que você conecta podem estar em diferentes regiões. Ou em assinaturas diferentes. Você pode até combinar a comunicação de rede virtual com rede virtual a configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir.
+Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN do Azure para fornecer um túnel seguro usando IPsec/IKE. As redes virtuais que você conecta podem estar em diferentes regiões. Ou em assinaturas diferentes. Você pode até combinar a comunicação de rede virtual com rede virtual a configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir:
 
 
 ![Sobre as conexões](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -413,11 +412,11 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
 
 ### Etapa 7: conectar os gateways
 
-Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos esta etapa em duas sessões do PowerShell marcadas como [Assinatura 1] e [Assinatura 5].
+Neste exemplo, como os gateways estão em assinaturas diferentes, dividimos esta etapa em duas sessões do PowerShell marcadas como [Assinatura 1] e [Assinatura 5].
 
 1. **[Assinatura 1]** Obter o gateway de rede virtual para a Assinatura 1
 
-	Certifique-se de fazer logon e se conectar à Assinatura 1.
+	Faça o logon e conecte-se à Assinatura 1.
 
 		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 
@@ -435,7 +434,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 2. **[Assinatura 5]** Obter o gateway de rede virtual para a Assinatura 5
 
-	Certifique-se de fazer logon e se conectar à Assinatura 5.
+	Faça o logon e conecte-se à Assinatura 5.
 
 		$vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
 
@@ -453,7 +452,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 3. **[Assinatura 1]** Criar a conexão TestVNet1 para TestVNet5
 
-	Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. A diferença aqui é que $vnet5gw não é possível de se obter diretamente, porque ele está em uma assinatura diferente. Você precisará criar um novo objeto do PowerShell com os valores comunicados na Assinatura 1 nas etapas acima. Substitua o Nome, a ID e a chave compartilhada por seus próprios valores. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
+	Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. A diferença aqui é que não é possível obter $vnet5gw diretamente, porque ele está em uma assinatura diferente. Você precisará criar um novo objeto do PowerShell com os valores comunicados na Assinatura 1 nas etapas acima. Use o exemplo abaixo. Substitua o Nome, a ID e a chave compartilhada por seus próprios valores. O importante é que a chave compartilhada deve corresponder em ambas as conexões. Criar uma conexão pode levar alguns minutos para ser concluída.
 
 	Conecte-se à Assinatura 1.
 	
@@ -484,4 +483,4 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 - Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

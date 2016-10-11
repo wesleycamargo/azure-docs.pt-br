@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando a linha de comando do Azure
@@ -37,38 +37,42 @@ A CLI do Azure é implementada no Node. js. Ela pode ser usada em qualquer plata
 Antes de começar este artigo, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 - **CLI do azure** - consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter informações de instalação e configuração. Certifique-se de reinicializar o computador depois de instalar a CLI.
+
+## Autenticação
+
+Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Store, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Store e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Store, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como autenticar, confira [Autenticar com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ##Faça logon em sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
+1. Siga as etapas documentadas em [Conectar a uma assinatura do Azure a partir da Interface de Linha de Comando do Azure (Azure CLI)](../xplat-cli-connect.md) e conectar à sua assinatura usando o método `azure login`.
+
+2. Liste as assinaturas associadas à sua conta usando o comando `azure account list`.
+
+		info:    Executing command account list
+		data:    Name              Id                                    Current
+		data:    ----------------  ------------------------------------  -------
+		data:    Azure-sub-1       ####################################  true
+		data:    Azure-sub-2       ####################################  false
+
+	Da saída acima, **Azure-sub-1** está habilitado no momento e a outra assinatura é **Azure-sub-2**.
+
+3. Selecione a assinatura com a qual deseja trabalhar. Se você quiser trabalhar com a assinatura Azure-sub-2, use o comando `azure account set`.
+
+		azure account set Azure-sub-2
 
 
 ## Criar uma conta do Repositório Azure Data Lake
 
 Abra uma sessão de prompt, shell ou terminal de comando e execute os comandos a seguir.
 
-1. Entre na sua assinatura do Azure:
-
-		azure login
-
-	Você precisará abrir uma página da Web e inserir um código de autenticação. Siga as instruções na página para entrar na assinatura do Azure.
-
 2. Alterne para modo Gerenciador de Recursos do Azure usando o seguinte comando:
 
 		azure config mode arm
 
 
-3. Liste as assinaturas do Azure para sua conta.
-
-		azure account list
-
-
-4. Se você tiver várias assinaturas do Azure, use o seguinte comando para definir a assinatura que os comandos da CLI do Azure vão usar:
-
-		azure account set <subscriptionname>
-
-5. Criar um novo grupo de recursos. No comando a seguir fornecem os valores de parâmetro que você deseja usar.
+5. Crie um novo grupo de recursos. No comando a seguir fornecem os valores de parâmetro que você deseja usar.
 
 		azure group create <resourceGroup> <location>
 
@@ -188,4 +192,4 @@ Quando solicitado, insira **Y** para excluir a conta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

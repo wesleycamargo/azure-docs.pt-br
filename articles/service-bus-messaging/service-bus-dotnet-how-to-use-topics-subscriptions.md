@@ -151,6 +151,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Você também pode criar assinaturas de tópico usando a classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
+> [AZURE.IMPORTANT] Para que as mensagens sejam recebidas por uma assinatura, você deve criar essa assinatura antes de enviar as mensagens ao tópico. Se não houver nenhuma assinatura em um tópico, o tópico descartará as mensagens.
+
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
 Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** será o padrão usado. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
@@ -327,4 +329,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço]: service-bus-brokered-tutorial-dotnet.md
   [Exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

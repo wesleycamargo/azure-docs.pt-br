@@ -262,7 +262,7 @@ Agora você está pronto para executar os aplicativos.
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Aplicativo de cliente do serviço do Hub IoT do Node.js para monitorar mensagens do dispositivo para a nuvem][7]
 
 2. Em um prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para iniciar o envio dos dados de telemetria para seu hub IoT:
 
@@ -270,11 +270,11 @@ Agora você está pronto para executar os aplicativos.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Aplicativo de cliente do dispositivo do Hub IoT do Node.js para enviar mensagens do dispositivo para a nuvem][8]
 
 3. O bloco **Uso** no [portal do Azure][lnk-portal] mostra o número de mensagens enviadas para o hub:
 
-    ![][43]
+    ![Bloco de Uso do Portal do Azure mostrando o número de mensagens enviadas ao Hub IoT][43]
 
 ## Próximas etapas
 
@@ -289,7 +289,6 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 Para saber como estender sua solução IoT e processar as mensagens entre o dispositivo e a nuvem em escala, consulte o tutorial [Processar as mensagens entre o dispositivo e a nuvem][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -298,13 +297,13 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -312,4 +311,4 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

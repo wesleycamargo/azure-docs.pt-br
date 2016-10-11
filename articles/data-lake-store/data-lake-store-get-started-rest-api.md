@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando APIs REST
@@ -34,17 +34,8 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 ## Pré-requisitos
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory: **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
-	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, é necessário criar um **aplicativo Cliente Nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
-		- Obter a **ID do cliente** e o **URI de redirecionamento** do aplicativo
-		- Definir permissões delegadas
 
-	* **Para a autenticação não interativa** - no Azure Active Directory, é necessário criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
-		- Obter a **ID do cliente**, o **segredo do cliente** e o **URI de redirecionamento** do aplicativo
-		- Definir permissões delegadas
-		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. Para obter instruções, confira [Atribuir um aplicativo a uma função](../resource-group-create-service-principal-portal.md#assign-application-to-role).
-
-	Veja [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
+- **Criar um aplicativo do Azure Active Directory**. Você pode usar o aplicativo Azure AD para autenticar o aplicativo Data Lake Store com o Azure AD. Há diferentes abordagens para autenticar com o Azure AD, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como autenticar, confira [Autenticar com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 - [cURL](http://curl.haxx.se/). Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Repositório Data Lake.
 
@@ -52,7 +43,7 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 
 Você pode usar duas abordagens para se autenticar usando o Azure Active Directory.
 
-### Interativa (autenticação do usuário)
+### Autenticação do usuário (interativa)
 
 Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações são executadas no contexto do usuário. Realize as seguintes etapas para a autenticação interativa.
 
@@ -60,7 +51,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> precisa ser codificado para uso em uma URL. Portanto, https://localhost, use `https%3A%2F%2Flocalhost`)
+	>[AZURE.NOTE] \<REDIRECT-URI> precisa ser codificado para uso em uma URL. Portanto, em https://localhost, use `https%3A%2F%2Flocalhost`)
 
 	Para os fins deste tutorial, é possível substituir os valores de espaço reservado na URL acima e colá-los na barra de endereços do navegador da Web. Você será redirecionado para autenticar usando seu logon do Azure. Depois de fazer logon com êxito, a resposta será exibida na barra de endereços do navegador. A resposta estará no seguinte formato:
 		
@@ -91,7 +82,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
  
 Para obter mais informações sobre a autenticação interativa de usuário, confira [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Não interativo
+### Autenticação serviço a serviço (não interativa)
 
 Nesse cenário, o aplicativo fornece suas próprias credenciais para executar as operações. Para isso, você deve emitir uma solicitação POST como a mostrada abaixo.
 
@@ -275,4 +266,4 @@ Você verá algo semelhante ao mostrado a seguir:
 - [Aplicativos de Big Data de software livre compatíveis com o Repositório Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->
