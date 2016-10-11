@@ -61,7 +61,7 @@ Quando um dispositivo primeiro se conecta ao Hub IoT na solução pré-configura
 - *Parar Telemetria*: instrui o dispositivo a parar o envio de telemetria.
 - *Alterar Ponto de Definição da Temperatura*: controla os valores de telemetria de temperatura simulados enviados pelo dispositivo. Isso é útil para testar a lógica de back-end:
 - *Diagnosticar Telemetria*: controla se o dispositivo deve enviar a temperatura externa como telemetria.
-- * Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
+- *Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
 
 Você pode adicionar mais dispositivos simulados à solução que emite a mesma telemetria e responde aos mesmos comandos.
 

@@ -100,6 +100,6 @@ Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de apr
 [redes virtuais]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Rota Expressa]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
-[mapa de aprendizagem]: https://azure.microsoft.com/pt-BR/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizagem]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
 <!---HONumber=AcomDC_1005_2016-->
