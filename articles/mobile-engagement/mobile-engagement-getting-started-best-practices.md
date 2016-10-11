@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="07/07/2016"
+	ms.date="10/04/2016"
 	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guia de introdução com práticas recomendadas
@@ -356,7 +356,7 @@ Teste completamente todos os tipos de comportamento de notificação incorporado
 
 #### Configuração
 
-A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface.md).
+A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface-home.md).
 
 Recomendamos que você comece definindo as funções certas e associações de função para os usuários de seu projeto. Isso ajuda com o gerenciamento do acesso apropriado à plataforma para todos os usuários. As funções podem incluir:
 
@@ -407,4 +407,4 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_1005_2016-->

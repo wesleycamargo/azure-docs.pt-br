@@ -169,7 +169,7 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 
 	![O status do comando Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Para saber mais sobre como excluir uma conta de armazenamento, consulte [Como excluir uma conta de armazenamento de uma assinatura do Azure].
+	> [AZURE.NOTE] Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Se ninguém mais está usando o repositório, convém excluí-lo.
 
 ## Próximas etapas
 
@@ -183,7 +183,6 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 [SDK do Azure para .NET 2.7]: http://www.microsoft.com/pt-BR/download/details.aspx?id=48178
 [Conecte o PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Como excluir uma conta de armazenamento de uma assinatura do Azure]: ../storage/how-to-manage-a-storage-account.md
 [Visão geral da criação de um serviço hospedado para o Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro de desenvolvedores do Node.js]: https://azure.microsoft.com/develop/nodejs/
 
@@ -193,9 +192,8 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

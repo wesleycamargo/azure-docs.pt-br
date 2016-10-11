@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Enviar notificações por push para aplicativos Chrome com os Hubs de Notificação do Azure
@@ -388,7 +388,7 @@ Para fins de teste, enviaremos notificações por push do Chrome usando um aplic
 
 1. No Visual Studio, no menu **Arquivo**, selecione **Novo** e **Projeto**. Em **Visual C#**, clique em **Windows** e **Aplicativo do Console** e depois clique em **OK**. Isso cria um novo projeto de aplicativo de console.
 
-2. No menu **Ferramentas**, clique em **Gerenciador de Pacotes de Biblioteca** e, em seguida, selecione **Console do Gerenciador de Pacotes**. Isso exibe a Console do Gerenciador de Pacotes.
+2. No menu **Ferramentas**, clique em **Gerenciador de Pacotes de Biblioteca** e, em seguida, selecione **Console do Gerenciador de Pacotes**. Isso exibe o Console do Gerenciador de Pacotes.
 
 3. Na janela da console, execute o seguinte comando:
 
@@ -474,7 +474,7 @@ Se desejar segmentar os usuários por grupos de interesse, você poderá seguir 
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging para Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Notificação de usuários nos Hubs de Notificação do Azure]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Notícias mais recentes dos Hubs de Notificação do Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Notificação de usuários nos Hubs de Notificação do Azure]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Notícias mais recentes dos Hubs de Notificação do Azure]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

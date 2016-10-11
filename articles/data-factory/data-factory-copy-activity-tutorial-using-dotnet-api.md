@@ -19,12 +19,13 @@
 # Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET
 > [AZURE.SELECTOR]
 - [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 - [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
+
 
 Este tutorial mostra como criar e monitorar um data factory do Azure usando a API .NET. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
 
@@ -458,4 +459,4 @@ Você deve ter quatro valores após estas etapas:
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

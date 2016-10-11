@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/18/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Adicionar um nome de domínio personalizado ao Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Portal do Azure](active-directory-domains-add-qzure-portal.md)
+- [Portal clássico do Azure](active-directory-add-domain.md)
 
 Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Agora que você está usando o Azure Active Directory (Azure AD), também poderá adicionar seu nome de domínio corporativo ao AD do Azure também. Isso permite que você atribua os nomes de usuário do seu diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
 
@@ -28,7 +32,7 @@ Você tem um ou mais nomes de domínio que sua organização usa para fazer neg�
 
 ## Adicionar um nome de domínio personalizado ao diretório
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) com uma conta de usuário que seja um administrador global do diretório do AD do Azure.
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) com uma conta de usuário que seja um administrador global do diretório do Azure AD.
 
 2. No **Active Directory**, abra o diretório e selecione a guia **Domínios**.
 
@@ -91,4 +95,4 @@ Se sua organização usa vários nomes de domínio personalizados, como 'contoso
 -   [Mostrar a identidade visual de sua empresa quando os usuários entrarem](active-directory-add-company-branding.md)
 -   [Usar o PowerShell para gerenciar os nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

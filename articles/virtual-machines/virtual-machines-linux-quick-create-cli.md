@@ -19,19 +19,19 @@
 
 # Criar uma VM do Linux no Azure usando a CLI
 
-Este artigo mostra como implantar rapidamente uma nova VM (máquina virtual) no Azure usando o comando `azure vm quick-create` na CLI (interface de linha de comando) do Azure. O comando `quick-create` implanta uma VM em uma infraestrutura básica e protegida que você pode usar para criar um protótipo ou testar um conceito rapidamente. O artigo requer
+Este artigo mostra como implantar rapidamente uma nova VM (máquina virtual) no Azure usando o comando `azure vm quick-create` na CLI (interface de linha de comando) do Azure. O comando `quick-create` implanta uma VM em uma infraestrutura básica e protegida que você pode usar para criar um protótipo ou testar um conceito rapidamente. O artigo exige:
 
-- uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/))
+- uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)).
 
-- a [CLI do Azure](../xplat-cli-install.md) conectada com o `azure login`.
+- a [CLI do Azure](../xplat-cli-install.md) conectada com o `azure login`
 
-- A CLI do Azure _precisa estar no_ modo Azure Resource Manager `azure config mode arm`.
+- A CLI do Azure _precisa estar no_ modo Azure Resource Manager `azure config mode arm`
 
 Você também pode implantar rapidamente uma VM do Linux usando o [portal do Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Comandos rápidos
 
-O exemplo a seguir mostra como implantar uma VM CoreOS e anexar sua chave SSH (Secure Shell) (seus argumentos podem ser diferentes).
+O exemplo a seguir mostra como implantar uma VM CoreOS e anexar sua chave SSH (Secure Shell) (seus argumentos podem ser diferentes):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -56,15 +56,15 @@ As seções a seguir usam o alias `UbuntuLTS` para a opção **ImageURN** (`-Q`)
 
 ## Passo a passo detalhado
 
-O exemplo de `quick-create` anterior somente chamou o sinalizador `-M` para identificar a chave pública SSH a ser carregada durante a desativação de senhas de SSH e, portanto, você é solicitado a fornecer o
+O exemplo de `quick-create` anterior somente chamou o sinalizador `-M` para identificar a chave pública SSH a ser carregada durante a desativação de senhas de SSH e, portanto, você receberá uma solicitação para fornecer os seguintes argumentos:
 
 - nome do grupo de recursos (qualquer cadeia de caracteres costuma funcionar bem para o primeiro grupo de recursos do Azure)
 - Nome da VM
-- local (westus ou westeurope são bons padrões)
+- local (`westus` ou `westeurope` são bons padrões)
 - Linux (para permitir que o Azure saiba qual é o sistema operacional desejado)
 - Nome de Usuário
 
-As opções a seguir especificam todos os valores para que nenhuma outra notificação seja necessária. Enquanto houver um `~/.ssh/id_rsa.pub` como arquivo de chave pública de formato ssh-rsa, ele funcionará como está.
+O exemplo a seguir especifica todos os valores para que nenhuma outra notificação seja necessária. Enquanto houver um `~/.ssh/id_rsa.pub` como arquivo de chave pública de formato ssh-rsa, ele funcionará como está:
 
 ```bash
 azure vm quick-create \
@@ -77,7 +77,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-A saída deve ser semelhante ao bloco de saída a seguir.
+A saída deve ser semelhante ao bloco de saída a seguir:
 
 ```bash
 info:    Executing command vm quick-create
@@ -155,13 +155,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Entre na VM usando o endereço IP público listado na saída. Você também pode usar o FQDN (nome de domínio totalmente qualificado) que está listado.
+Entre na VM usando o endereço IP público listado na saída. Você também pode usar o FQDN (nome de domínio totalmente qualificado) que está listado:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-O processo de logon deve ter uma aparência semelhante à seguinte:
+O processo de logon deve ter uma aparência semelhante ao seguinte bloco de saída:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -203,6 +203,6 @@ O comando `azure vm quick-create` é a maneira de implantar rapidamente uma VM p
 - [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md)
 - [Criar uma VM do Linux Protegida por SSH no Azure usando modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
-Você também pode [usar o `docker-machine` driver do Azure com vários comandos para também criar rapidamente uma VM do Linux como um host do docker](virtual-machines-linux-docker-machine.md).
+Você também pode [usar o `docker-machine` driver do Azure com vários comandos para criar rapidamente uma VM do Linux como um host do docker](virtual-machines-linux-docker-machine.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

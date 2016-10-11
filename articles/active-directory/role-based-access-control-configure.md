@@ -13,10 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/21/2016"
+	ms.date="09/30/2016"
 	ms.author="kgremban"/>
 
 # Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure
+
+> [AZURE.SELECTOR]
+- [Portal do Azure](role-based-access-control-azure-portal.md)
+- [Portal clássico do Azure](role-based-access-control-configure.md)
 
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Este artigo ajuda você a começar a usar o RBAC no portal do Azure. Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](role-based-access-control-what-is.md).
 
@@ -70,4 +74,4 @@ Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure
 - Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 - Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

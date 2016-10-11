@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar os Aplicativos Móveis do Azure para desenvolvimento Android Xamarin"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga" />
+	ms.date="10/01/2016"
+	ms.author="adrianha" />
 
 #Criar um Aplicativo Xamarin.Android
 
@@ -86,4 +86,4 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

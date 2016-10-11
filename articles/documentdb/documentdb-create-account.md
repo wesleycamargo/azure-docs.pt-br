@@ -20,7 +20,7 @@
 # Como criar uma conta do DocumentDB NoSQL usando o portal do Azure
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](documntdb-create-account.md)
+- [Portal do Azure](documentdb-create-account.md)
 - [CLI do Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Para criar um banco de dados com o Microsoft Azure DocumentDB, você deverá:
@@ -93,4 +93,4 @@ Para saber mais sobre o DocumentDB, explore estes recursos:
 -	[Roteiro de aprendizagem para o DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Conceitos e modelo de recursos hierárquico do DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

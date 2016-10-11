@@ -33,7 +33,7 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 
 ## Criar um aplicativo
 
-Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Nesse caso, aplicativo e a API Web são representados por uma única **ID do Aplicativo**, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
+Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao Azure AD as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Nesse caso, aplicativo e a API Web são representados por uma única **ID do Aplicativo**, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
 - Inclua um **dispositivo móvel** no aplicativo.
 - Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você também precisará dela mais tarde.
@@ -151,7 +151,7 @@ Vamos examinar esses detalhes.
 
 Para `authURL`, `loginURL`, `bhh`, `tokenURL`, você observará que precisa preencher o nome do locatário. Esse é o nome do locatário B2C que foi atribuído a você. Por exemplo, `kidventusb2c.onmicrosoft.com`. Se você usar as nossas Bibliotecas de Identidades do Microsoft Azure de software livre, obteremos esses dados para você usando nosso ponto de extremidade de metadados. Fizemos o trabalho pesado de extrair esses valores para você.
 
-Para saber mais sobre nomes de locatário B2C, confira: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 O valor `keychain` é o contêiner que a biblioteca NXOAuth2Client usará na criação de um conjunto de chaves para armazenar seus tokens. Se quiser obter SSO entre vários aplicativos, você poderá especificar o mesmo conjunto de chaves em cada um dos aplicativos, bem como solicitar o uso desse conjunto de chaves em seus direitos de XCode. Isso é abordado na documentação da Apple.
 
@@ -167,7 +167,7 @@ Agora que o arquivo `settings.plist` foi criado, precisamos de código para lê-
 
 Vamos criar um arquivo simples que analisa apenas nosso arquivo `settngs.plist` criado acima e torna as configurações disponíveis no futuro para qualquer classe. Como não queremos criar uma nova cópia dos dados sempre que uma classe a solicita, usaremos um padrão Singleton e retornaremos apenas a mesma instância cada vez que uma solicitação for feita para as configurações
 
-* Criar um arquivo `AppData.h`:
+* Crie um arquivo `AppData.h`:
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -190,7 +190,7 @@ Vamos criar um arquivo simples que analisa apenas nosso arquivo `settngs.plist` 
 @end
 ```
 
-* Criar um arquivo `AppData.m`:
+* Crie um arquivo `AppData.m`:
 
 ```objc
 #import "AppData.h"
@@ -646,4 +646,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode experi
 
 [Personalizar a experiência do usuário para um aplicativo B2C]()
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

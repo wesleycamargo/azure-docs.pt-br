@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 # Introdução à CLI do Lote do Azure
 
 A CLI (Interface de linha de comando) do Azure de plataforma cruzada permite que você gerencie suas contas e recursos do Lote, como pools, trabalhos e tarefas em shells de comando do Linux, Mac e Windows. Com a CLI do Azure, você pode executar e criar scripts para diversas tarefas que você executa com as APIs do Lote, com o Portal do Azure e com cmdlets de PowerShell do Lote.
 
-Este artigo tem base na CLI do Azure versão 0.10.3.
+Este artigo se baseia na CLI do Azure versão 0.10.5.
 
 ## Pré-requisitos
 
@@ -215,19 +215,39 @@ Para criar um novo aplicativo e adicionar uma versão de pacote:
 
 **Ativar** o pacote:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Defina a **versão padrão** para o aplicativo:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Implantar um pacote de aplicativos
 
 Você pode especificar um ou mais pacotes de aplicativos para implantação durante a criação de um novo pool. Quando você especifica um pacote no momento da criação do pool, ele é implantado em cada nó como o pool de junções de nó. Pacotes também são implantados quando um nó é reinicializado ou quando sua imagem é refeita.
 
-Esse comando especifica um pacote na criação do pool, e é implantado à medida que cada nó ingressa no novo pool:
+Especifique a opção `--app-package-ref` durante a criação de um pool para implantar um pacote de aplicativos nos nós do pool à medida que eles ingressarem no pool. A opção `--app-package-ref` aceita uma lista delimitada por ponto-e-vírgula de ids de aplicativo a ser implantada nos nós de computação.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Atualmente, não é possível especificar qual versão do pacote implantar usando opções de linha de comando. Primeiro, você precisa definir uma versão padrão para o aplicativo usando o Portal do Azure antes de poder atribuí-lo a um pool. Confira como definir uma versão padrão em [Implantação de aplicativo com pacotes de aplicativos do Lote do Azure](batch-application-packages.md). No entanto, você pode especificar uma versão padrão se usar um [arquivo JSON](#json-files) em vez das opções de linha de comando durante a criação de um pool.
+Quando você cria um pool usando as opções de linha de comando, não pode especificar atualmente *qual* versão do pacote de aplicativos será implantada nos nós de computação, por exemplo, "1.10-beta3". Portanto, primeiro você deve especificar uma versão padrão para o aplicativo com `azure batch application set [options] --default-version <version-id>` antes de criar o pool (veja a seção anterior). No entanto, você pode especificar uma versão do pacote para o pool se usar um [arquivo JSON](#json-files) em vez das opções de linha de comando durante a criação do pool.
+
+Veja mais informações sobre pacotes de aplicativo em [Implantação de aplicativos com pacotes de aplicativos do Lote do Azure](batch-application-packages.md).
 
 >[AZURE.IMPORTANT] Você deve [vincular uma conta de Armazenamento do Azure](#linked-storage-account-autostorage) à sua conta do Lote para usar os pacotes de aplicativos.
+
+### Atualizar pacotes de aplicativos de um pool
+
+Para atualizar os aplicativos atribuídos a um pool existente, emita o comando `azure batch pool set` com a opção `--app-package-ref`:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Para implantar o novo pacote de aplicativos nos nós de computação que já estejam em um pool existente, você deverá reinicializar ou refazer a imagem dos nós:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] Você pode obter uma lista de nós de um pool, juntamente com suas ids de nó, com `azure batch node list`.
+
+Tenha em mente que você já deve ter configurado o aplicativo com uma versão padrão antes da implantação (`azure batch application set [options] --default-version <version-id>`).
 
 ## Dicas de solução de problemas
 
@@ -254,4 +274,4 @@ Esta seção tem como intenção fornecer recursos a serem usados ao solucionar 
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

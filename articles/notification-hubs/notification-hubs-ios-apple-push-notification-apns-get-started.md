@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Como enviar notificações por push para iOS com Hubs de Notificação do Azure
@@ -502,10 +502,10 @@ Para obter informações gerais sobre os Hubs de Notificação, confira [Diretri
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Notificar usuários nos Hubs de Notificação do Azure para iOS com o back-end do .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Usar Hubs de Notificação para enviar as últimas notícias]: notification-hubs-ios-send-breaking-news.md
+[Notificar usuários nos Hubs de Notificação do Azure para iOS com o back-end do .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Usar Hubs de Notificação para enviar as últimas notícias]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->
