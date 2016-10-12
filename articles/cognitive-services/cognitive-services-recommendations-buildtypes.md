@@ -34,7 +34,7 @@ Se você treinar o modelo com base em compras feitas em sua loja de eletrônicos
 
 O build de recomendação tem duas funcionalidades que o tornam atraente:
 
-**A recomendação de compilação dá suporte ao posicionamento de *item sem interesse***
+**A recomendação de compilação dá suporte ao posicionamento de _item sem interesse_**
 
 Itens que não têm uso significativo são chamados de itens sem interesse. Por exemplo, se você receber uma remessa de um telefone que nunca vendeu antes, o sistema não poderá inferir recomendações para esse produto apenas em transações. Isso significa que o sistema deve aprender com informações sobre o produto em si.
 
