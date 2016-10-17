@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

@@ -22,7 +22,7 @@ Quando você readapta um Novo serviço Web, atualiza a definição do serviço W
 
 ### Pré-requisitos
 
-Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em Readaptar os modelos do Machine Learning de forma programática. Para obter informações sobre como criar Testes de Treinamento e Previsão, consulte [Readaptar os modelos de Machine Learning de forma programática] \(Readaptar os modelos de Machine Learning de forma programática.md).
+Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em Readaptar os modelos do Machine Learning de forma programática. Para obter informações sobre como criar Testes de Treinamento e Previsão, consulte [Readaptar os modelos de Machine Learning de forma programática](Readaptar os modelos de Machine Learning de forma programática.md).
 
 Esse processo exige que você tenha instalado os Cmdlets do Machine Learning do Azure. Para obter informações sobre como instalar os cmdlets do Machine Learning, consulte a referência [Cmdlets do Machine Learning do Azure](https://msdn.microsoft.com/library/azure/mt767952.aspx) no MSDN.
  

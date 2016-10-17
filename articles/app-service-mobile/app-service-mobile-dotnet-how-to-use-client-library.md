@@ -509,7 +509,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para i
 	* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia Domínio no Azure Active Directory no [portal clássico do Azure].
 	* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter a ID do cliente na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
 	* Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
-	* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_.
+	* Substitua **INSERT-REDIRECT-URI-HERE** pelo ponto de extremidade _/.auth/login/done_ do site, usando o esquema HTTPS. Esse valor deve ser similar a _https://contoso.azurewebsites.net/.auth/login/done_.
 	
 	Veja a seguir o código necessário para cada plataforma:
 	
@@ -926,7 +926,7 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [Sincronização de Dados Offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Adicionar notificações por push ao seu aplicativo]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Registrar seu aplicativo para usar um logon de conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Como configurar o Serviço de Aplicativo para logon no Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [Referência do cliente do .NET dos Aplicativos Móveis do Azure]: https://msdn.microsoft.com/pt-BR/library/azure/mt419521(v=azure.10).aspx
