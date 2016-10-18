@@ -293,7 +293,9 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 
 4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
 
-    > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br> '<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br> Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+    > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
+    '\<Nome 1 de Coleção de Saída de Banco de Dados de Documentos\>,\<Nome 2 de Coleção de Saída de Banco de Dados de Documentos\>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
+    Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -434,4 +436,4 @@ Para saber mais, consulte os seguintes artigos:
 
 [powershell-install-configure]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->
