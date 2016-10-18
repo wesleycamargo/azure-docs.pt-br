@@ -18,7 +18,9 @@
 
 # Como usar o Armazenamento de Arquivos do Azure do Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Visão geral
 
@@ -101,4 +103,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Arquivos, sig
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->
