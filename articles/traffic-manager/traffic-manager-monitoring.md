@@ -164,6 +164,34 @@ O cabeçalho host usado nas verificações de integridade HTTP e HTTPS é o nome
 
 Este valor faz parte da configuração do ponto de extremidade. O valor usado no cabeçalho do host não pode ser especificado separadamente da propriedade “target”.
 
+### Quais são os endereços IP dos quais as verificações de integridade se originam?
+
+A lista abaixo contém os endereços IP dos quais você pode esperar que as verificações de integridade do Gerenciador de Tráfego se originem. Você pode usar esta lista para garantir que as conexões de entrada desses endereços IP sejam permitidas nos pontos de extremidades para verificar o status de integridade.
+
+
+
+- 13\.75.153.124
+- 13\.75.152.253
+- 191\.232.214.62
+- 191\.232.208.52
+- 52\.172.155.168
+- 52\.172.158.37
+- 13\.75.124.254
+- 13\.75.127.63
+- 137\.135.82.249
+- 137\.135.80.149
+- 104\.41.190.203
+- 104\.41.187.209
+- 65\.52.217.19
+- 23\.96.236.252
+- 40\.87.147.10
+- 40\.87.151.34
+- 104\.215.91.84
+- 13\.84.222.37
+- 40\.68.30.66
+- 40\.68.31.178
+- 137\.135.47.215
+- 137\.135.46.163
 
 ## Próximas etapas
 
@@ -175,4 +203,4 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 
 [Solucionar problemas de status Degradado](traffic-manager-troubleshooting-degraded.md) em um ponto de extremidade do Gerenciador de Tráfego
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

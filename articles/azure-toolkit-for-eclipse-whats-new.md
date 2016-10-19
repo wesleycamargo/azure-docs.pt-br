@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -25,6 +25,18 @@
 Este artigo contém informações sobre as várias versões e atualizações mais recentes do Kit de Ferramentas do Azure para Eclipse.
 
 > [AZURE.NOTE] Há também um kit de ferramentas do Azure para o IDE do IntelliJ. Para obter mais informações, confira [Kit de Ferramentas do Azure para IntelliJ].
+
+### 26 de agosto de 2016
+
+O Kit de Ferramentas do Azure para Eclipse, versão de agosto de 2016, inclui os seguintes aprimoramentos:
+
+* **Distribuições personalizadas do JDK**. Agora, o Kit de Ferramentas do Azure para Eclipse oferece suporte à especificação e à implantação de uma versão do JDK arbitrária para o contêiner WebApp do Azure:
+  - Além dos JDKs fornecidos pelo Azure, também é possível escolher dentre uma ampla seleção de versões do Zulu OpenJDK disponibilizadas no Azure pelo Azul Systems.
+  - Você também pode especificar sua própria distribuição JDK se carregar um arquivo ZIP em sua conta de armazenamento.
+* **Aprimoramentos no modo de exibição do Azure Explorer**:
+  - Suporte para gerenciamento de máquinas virtuais usando o novo modelo de Resource Manager do Azure: você pode listar, criar e excluir máquinas virtuais baseadas no resource manager sem sair do IDE.
+  - Suporte para gerenciamento de blobs da Conta de armazenamento usando o Resource Manager do Azure, que complementa a funcionalidade existente para gerenciar contas de armazenamento "clássico".
+* **Microsoft JDBC Driver 6.0 para SQL Server**. Esta atualização inclui o driver JDBC do Microsoft SQL Server (v 6.0), que é agora incluído como uma biblioteca que você pode adicionar facilmente aos seus projetos Java, substituindo a versão mais antiga.
 
 ### 29 de junho de 2016
 
@@ -372,4 +384,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Enviar notificações por push com os Hubs de Notificação do Azure no Windows Phone
@@ -132,11 +132,11 @@ Para obter um exemplo de como enviar notificações por push usando as [APIs RES
 
    	![Visual Studio - Novo Projeto - Aplicativo de Console][6]
 
-	Isso adiciona um novo aplicativo de console do Visual C# à solução. Você também pode fazer isso em uma solução separada.
+	Isso adiciona um novo aplicativo do console do Visual C# à solução. Você também pode fazer isso em uma solução separada.
 
 4. Clique em **Ferramentas**, em **Gerenciador de Pacotes da Biblioteca** e em **Console do Gerenciador de Pacotes**.
 
-	Isso exibe a Console do Gerenciador de Pacotes.
+	Isso exibe o Console do Gerenciador de Pacotes.
 
 5.  Na janela do **Console do Gerenciador de Pacotes**, defina o **Projeto padrão** como o seu novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
 
@@ -214,9 +214,9 @@ Saiba mais sobre como usar Hubs de Notificação em [Diretrizes dos Hubs de Noti
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-phone-send-breaking-news.md
+[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [catálogo de notificações do sistema]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catálogo de blocos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [tutorial Hubs de Notificação - Silverlight para Windows Phone]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -33,6 +33,8 @@ Há algumas seções nessa folha que são úteis:
 	- **Histórico de Gatilho** lista todas as atividades de gatilho para esse aplicativo lógico. A atividade de gatilho pode ser uma verificação "Ignorada" para novos dados (por exemplo, verificando se um novo arquivo foi adicionado ao FTP), "Êxito", que significa que os dados foram retornados para disparar um aplicativo lógico ou "Falha" corresponde a um erro na configuração.
 - **Diagnóstico** permite que você exiba os detalhes de tempo de execução e eventos, e assine [Alertas do Azure](#adding-azure-alerts)
 
+>[AZURE.NOTE] Todos os eventos e os detalhes de tempo de execução são criptografados em repouso no serviço Aplicativo Lógico. Eles só serão descriptografados após uma solicitação de exibição de um usuário. O acesso a esses eventos também pode ser controlado pelo RBAC (Controle de Acesso Baseado em Função do Azure).
+
 ### Exibir os detalhes de execução
 
 Esta lista de execuções mostra a **Status**, a **Hora de Início** e a **Duração** da execução específica. Clique em qualquer linha para ver os detalhes da execução.
@@ -103,7 +105,7 @@ As duas propriedades especialmente úteis para controlar e monitorar são *clien
 
 #### ID de rastreamento do cliente
 
-A ID de rastreamento do cliente é um valor que correlacionará eventos em uma execução de aplicativo lógico, incluindo quaisquer fluxos de trabalho aninhados chamados como parte de um aplicativo lógico. Essa ID será gerada automaticamente se não for fornecida, mas você pode especificar manualmente a ID de rastreamento do cliente de um gatilho passando um cabeçalho `x-ms-client-tracking-id` com o valor da ID na solicitação do gatilho (gatilho de solicitação, gatilho HTTP ou gatilho webhook).
+A ID de rastreamento do cliente é um valor que correlacionará eventos em uma execução de aplicativo lógico, incluindo quaisquer fluxos de trabalho aninhados chamados como parte de um aplicativo lógico. Essa ID será gerada automaticamente se não for fornecida, mas você pode especificar manualmente a ID de rastreamento do cliente de um gatilho passando um cabeçalho `x-ms-client-tracking-id` com o valor da ID na solicitação do gatilho (gatilho de solicitação, gatilho HTTP ou gatilho de webhook).
 
 #### Propriedades rastreadas
 
@@ -138,4 +140,4 @@ Você pode aproveitar essa telemetria do Hub de Eventos ou Armazenamento em outr
 - [Criando um Modelo de Implantação do Aplicativo Lógico](app-service-logic-create-deploy-template.md)
 - [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

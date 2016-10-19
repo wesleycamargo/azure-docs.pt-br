@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover dados do HDFS local usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados do HDFS local usando o Azure Data Factory
 Esse artigo descreve como você pode usar a atividade de cópia em um Azure Data Factory para mover dados do HDFS local para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
@@ -266,12 +266,13 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-folderPath | Caminho para a pasta. Exemplo: minhapasta<br/><br/>Use o caractere de escape ' \\ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\\subpasta, especifique pasta\\subpasta e para d:\\pastadeexemplo, especifique d:\\pastadeexemplo.<br/><br/>Você pode combinar esta propriedade com **partitionBy** para ter caminhos de pasta baseados na fatia de data-horário de início/fim. | Sim
+folderPath | Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \\ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\\subpasta, especifique pasta\\subpasta e para d:\\pastadeexemplo, especifique d:\\pastadeexemplo.<br/><br/>Você pode combinar esta propriedade com **partitionBy** para ter caminhos de pasta baseados na fatia de data-horário de início/fim. | Sim
 fileName | Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estará no seguinte formato:<br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | Não
 partitionedBy | partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. | Não
-fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: * (vários caracteres) e ? (um único caractere).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Observação**: fileFilter é aplicável a um conjunto de dados FileShare de entrada | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não têm suporte para dados em **AvroFormat** ou **OrcFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** e **OrcFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), Especificando [JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. | Não 
+fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/>**Observação**: fileFilter é aplicável a um conjunto de dados FileShare de entrada | Não
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat) e [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. | Não 
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não têm suporte para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support). | Não |
+
 
 
 > [AZURE.NOTE] filename e fileFilter não podem ser usados simultaneamente.
@@ -281,7 +282,7 @@ fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de
 
 Conforme mencionado na seção anterior, você pode especificar um filename, folderPath dinâmico para dados de série temporal com partitionedBy. Você pode fazer isso com as macros de Data Factory e as variáveis de sistema SliceStart e SliceEnd que indicam o período de tempo lógico para uma determinada fatia de dados.
 
-Confira os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para obter mais detalhes sobre conjuntos de dados de série temporal, agendamentos e fatias.
+Confira os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para saber mais sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
 #### Exemplo 1:
 
@@ -331,4 +332,4 @@ Para a Atividade de Cópia quando a fonte for do tipo **FileSystemSource**, as p
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -18,7 +18,7 @@
    
 # Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 
-![Logotipo](./media/sql-database-case-study-daxko/csidaxkologo25.png)
+![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 A Daxko/CSI Software enfrentou um desafio: sua base de clientes dos centros de bem-estar e recreação foi aumentando rapidamente, graças ao sucesso de sua abrangente solução de software corporativo, mas manter as necessidade de infraestrutura de TI para esse aumento da base de clientes foi uma prova para a equipe de TI da empresa. A empresa era cada vez mais restringida pela sobrecarga de operações crescentes, especialmente pelo gerenciamento dos bancos de dados em expansão. Pior ainda, essa sobrecarga de operações foi minando os recursos de desenvolvimento para novas iniciativas, como novos recursos de mobilidade para o software da empresa.
 
@@ -75,7 +75,7 @@ O SpectrumNG usa funções web. Como o aplicativo é multilocatário, um serviç
 Para a camada Web de seu serviço, a CSI Software aproveita o dimensionamento automático do Azure, com base no dia e na hora. Os recursos disponíveis são aumentados automaticamente para o maior uso durante o horário comercial, de acordo com o fuso horário de cada datacenter regional. Os recursos também são definidos para redução vertical nos finais de semana, quando as necessidades dos clientes são menores.
 
      
-![A figura 1](./media/sql-database-case-study-daxko/figure1.png)
+![Arquitetura da Daxko/CSI](./media/sql-database-implementation-daxko/figure1.png)
 
 Figura 1. Uma função de trabalho dos serviços de nuvem extrai dados estruturados do Banco de Dados SQL do Azure e dados semiestruturados do armazenamento de tabelas. Os usuários do SpectrumNG interagem com esses dados por meio de uma função web dos serviços de nuvem.
 
@@ -105,4 +105,4 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 
 - Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

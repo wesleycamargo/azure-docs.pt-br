@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # Expandindo o Banco de Dados de Documentos para as redes sociais
@@ -41,7 +41,7 @@ Por que o SQL não é a melhor opção nesse cenário? Vamos dar uma olhada na e
 
 ## O caminho NoSQL
 
-Existem bancos de dados de gráfico especiais que podem ser [executados no Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure), mas eles não são baratos e exigem serviços de IaaS (Infraestrutura como Serviço, principalmente Máquinas Virtuais), bem como manutenção. Meu objetivo neste artigo é fornecer uma solução de custo mais baixo que funcionará para a maioria dos cenários e que é executada no banco de dados NoSQL do Azure, o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Existem bancos de dados de grafos especiais que podem ser [executados no Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure), mas eles não são baratos e exigem serviços de IaaS (Infraestrutura como Serviço, principalmente Máquinas Virtuais), bem como manutenção Meu objetivo neste artigo é fornecer uma solução de custo mais baixo que funcionará para a maioria dos cenários e que é executada no banco de dados NoSQL do Azure, o [DocumentDB](https://azure.microsoft.com/services/documentdb/). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -218,6 +218,8 @@ O [Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machin
 
 Para conseguir qualquer um desses cenários de Aprendizado de Máquina, podemos usar o [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para ingerir informações de fontes diferentes e usar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que possa ser processada pelo Aprendizado de Máquina do Azure.
 
+Outra opção disponível é usar os [Serviços Cognitivos da Microsoft](https://www.microsoft.com/cognitive-services) para analisar o conteúdo dos usuários. Não apenas podemos compreendê-los melhor (analisando o que eles escrevem com a [API de Análise de Texto](https://www.microsoft.com/cognitive-services/pt-BR/text-analytics-api)), mas também podemos detectar o conteúdo indesejado ou maduro e agir de acordo com a [API da Pesquisa Visual Computacional](https://www.microsoft.com/cognitive-services/pt-BR/computer-vision-api). Os Serviços Cognitivos incluem muitas soluções prontas para uso que não exigem qualquer tipo de dados de conhecimento de Machine Learning.
+
 ## Conclusão
 
 Este artigo tenta esclarecer as alternativas para a criação completa de redes sociais no Azure com serviços de baixo custo e para a entrega de excelentes resultados com o incentivo do uso de uma solução de armazenamento em várias camadas e da distribuição de dados chamada “Escada”.
@@ -228,8 +230,8 @@ A verdade é que não há nenhuma solução milagrosa para esses tipos de cenár
 
 ## Próximas etapas
 
-Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no Banco de Dados de Documentos](documentdb-modeling-data.md). Se estiver interessado em outros casos de uso do Banco de Dados de Documentos, veja [Casos de uso comuns do Banco de Dados de Documentos](documentdb-use-cases.md).
+Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no DocumentDB](documentdb-modeling-data.md). Se estiver interessado em outros casos de uso do DocumentDB, veja [Casos de uso comuns do DocumentDB](documentdb-use-cases.md).
 
-Caso contrário, saiba mais sobre o Banco de Dados de Documentos seguindo o [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
+Caso contrário, saiba mais sobre o DocumentDB seguindo o [Roteiro de aprendizagem do DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

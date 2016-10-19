@@ -27,7 +27,7 @@ Para cada nova versão do SDK, você deve primeiro substituir (remover e importa
 ### XCode 8
 O XCode 8 é obrigatório desde a versão 4.0.0 do SDK.
 
-> [AZURE.NOTE] Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API preterida `application:didReceiveRemoteNotification:` em seu aplicativo delegado da seguinte maneira:
+> [AZURE.NOTE] Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido no módulo de alcance nesta versão anterior durante a execução em dispositivos como iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -44,6 +44,42 @@ no Explorador de projeto, abra o painel de projeto e selecione o destino correto
 
 ### Capacidade de envio por push do aplicativo
 O XCode 8 pode redefinir a capacidade de envio por push do aplicativo. Verifique isso novamente na guia `capability` do destino selecionado.
+
+### Adicionar o novo código de registro de notificação do iOS 10
+O trecho de código anterior para registrar o aplicativo para as notificações ainda funciona, mas está usando as APIs desaprovadas durante a execução no iOS 10.
+
+Importe a estrutura `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h> 
+
+No seu método representante do aplicativo `application:didFinishLaunchingWithOptions`, substitua:
+
+	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+		[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		[application registerForRemoteNotifications];
+	}
+	else {
+
+    	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+	}
+
+por:
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 ### Se você já tiver sua própria implementação de UNUserNotificationCenterDelegate
 
@@ -104,7 +140,7 @@ Ou herdando da classe `AEUserNotificationHandler`
 
 	@end
 
-> [AZURE.NOTE] Você pode determinar se uma notificação vem do Engagement ou não, passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
+> [AZURE.NOTE] Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
 
 ##De 2.0.0 a 3.0.0
 Suporte removido para iOS 4.X. A partir de esta versão, o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
@@ -156,4 +192,4 @@ Exemplos:
 -   A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
 -   A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

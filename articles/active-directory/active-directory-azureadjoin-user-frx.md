@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configurar um novo dispositivo com o AD do Azure durante a instalação
@@ -25,7 +25,8 @@ No Windows 10, os usuários podem ingressar seus dispositivos no Azure AD (Azur
 
 
 1. Ao ligar o novo dispositivo e iniciar o processo de instalação, você deverá ver a mensagem **Preparando-se**. Siga os prompts para configurar o dispositivo.
-2. Inicie personalizando a região e o idioma. Em seguida, aceite os Termos de Licença para Software Microsoft. ![Personalizar a região](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+2. Inicie personalizando a região e o idioma. Em seguida, aceite os Termos de Licença para Software Microsoft. 
+![Personalizar a região](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Selecione a rede que deseja usar para se conectar à Internet.
 4. Selecione se está usando um dispositivo pessoal ou de propriedade da empresa. Se ele for de propriedade da empresa, clique em **Este dispositivo pertence à minha organização**. Isso inicia a experiência de junção do Azure AD. Apresentamos a seguir uma tela que será exibida se estiver usando o Windows 10 Professional.
 <center>
@@ -52,4 +53,4 @@ No Windows 10, os usuários podem ingressar seus dispositivos no Azure AD (Azur
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

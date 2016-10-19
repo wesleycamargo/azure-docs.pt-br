@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Referência de configurações de roaming do Windows 10
@@ -38,11 +38,11 @@ As configurações do Windows geralmente são sincronizadas por padrão, mas alg
 ## Visão geral das configurações do Windows
 Os grupos de configurações a seguir estão disponíveis para que os usuários finais habilitem/desabilitem a sincronização de configurações em dispositivos Windows 10.
 
-- Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc. 
-- Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc. 
-- Senhas: [cofre de credenciais do Windows](https://technet.microsoft.com/library/jj554668.aspx), incluindo perfis de Wi-Fi 
-- Preferências de Idioma: dicionário de ortografia, configurações de idioma do sistema 
-- Facilidade de Acesso: narrador, teclado virtual, lente de aumento 
+- Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc.
+- Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.
+- Senhas: [cofre de credenciais do Windows](https://technet.microsoft.com/library/jj554668.aspx), incluindo perfis de Wi-Fi
+- Preferências de Idioma: dicionário de ortografia, configurações de idioma do sistema
+- Facilidade de Acesso: narrador, teclado virtual, lente de aumento
 - Outras Configurações do Windows: veja Detalhes das configurações do Windows
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
@@ -176,4 +176,4 @@ As entradas internas na coluna Grupo de Configurações referem-se às configura
 
   
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

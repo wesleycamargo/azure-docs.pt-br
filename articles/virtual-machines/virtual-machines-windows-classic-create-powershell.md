@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Criar uma máquina virtual Windows com o PowerShell e o modelo de implantação clássico 
@@ -31,18 +31,18 @@
 
 Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShell que criam e pré-configuram uma máquina virtual do Azure baseada em Windows usando uma abordagem de bloco de construção. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Windows e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
 
-Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
+Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
 Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do Windows PowerShell.
 
 ## Etapa 1: adicionar sua conta
 
-1. No prompt do PowerShell, digite **Add-AzureAccount** e pressione **Enter**.
+1. No prompt do PowerShell, digite **Add-AzureAccount** e clique em **Enter**.
 2. Digite o endereço de email associado à sua assinatura do Azure e clique em **Continuar**.
 3. Digite a senha da sua conta.
 4. Clique em **Entrar**.
 
-## Etapa 2: definir a assinatura e a conta de armazenamento
+## Etapa 2: Definir a assinatura e a conta de armazenamento
 
 Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Windows PowerShell. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
@@ -51,7 +51,7 @@ Defina a assinatura e a conta de armazenamento do Azure executando estes comando
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome de assinatura correto na propriedade SubscriptionName na saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
+Você pode obter o nome de assinatura correto na propriedade SubscriptionName da saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
 
 ## Etapa 3: determinar a ImageFamily
 
@@ -108,7 +108,7 @@ Opcionalmente, para um computador Windows autônomo, especifique a conta de admi
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Opcionalmente, para adicionar o computador Windows a um domínio do Active Directory existente, especifique a conta e a senha de administrador local, o domínio e o nome e a senha de uma conta de domínio.
 
@@ -262,4 +262,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 Se precisar de um disco do sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

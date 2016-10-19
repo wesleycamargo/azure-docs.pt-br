@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação | Microsoft Azure"
    description="SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação"
-   services="virtual-machines-linux,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -981,4 +981,4 @@ Para ver uma completa e atualizada dos conhecidos problemas, consulte a Nota SAP
 
 Se a solução de problemas usando Nota SAP [1999351] não ajudar, execute novamente o script de configuração Set-AzureRmVMAEMExtension conforme descrito no capítulo [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte do cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,42 +13,43 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="09/27/2016" 
 	ms.author="juliako"/>
 
 #Visão geral sobre a proteção de conteúdo
 
 
-Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (usando chaves de criptografia de 128 bits) e CENC (criptografia comum) usando PlayReady e/ou Widevine DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças do PlayReady aos clientes autorizados. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem que você entregue o conteúdo ao vivo e sob demanda criptografado dinamicamente com o Standard de Criptografia Avançada (AES) (usando chaves de criptografia de 128 bits) ou quaisquer DRMs principais: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
 
-- A imagem a seguir demonstra o fluxo de trabalho de “criptografia comum dinâmica PlayReady e/ou Widevine DRM”. Para obter detalhes, consulte [Usando a PlayReady usando a criptografia comum dinâmica PlayReady e/ou Widevine DRM](media-services-protect-with-drm.md).
+A imagem a seguir demonstra os fluxos de trabalho de proteção de conteúdo que oferece suporte ao AMS.
 
-![Proteger com o PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
-
-
-- A imagem a seguir demonstra o fluxo de trabalho de "criptografia dinâmica AES-128". Para mais detalhes, consulte [Usando criptografia dinâmica AES-128 e serviço de distribuição de chaves](media-services-protect-with-aes128.md).
-
-![Proteger com o AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Proteger com o PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 >[AZURE.NOTE]Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo criptografado.
 
-##Opções de criptografia de ativos
+Este tópico explica os [conceitos e terminologia](media-services-content-protection-overview.md) relevantes para entender a proteção de conteúdo com o AMS. O tópico também contém [links](media-services-content-protection-overview.md#common-scenarios) para os tópicos que mostram como realizar as tarefas de proteção de conteúdo.
 
-Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
+##Criptografia dinâmica
 
-###Nenhum
+Os Serviços de Mídia do Microsoft Azure permitem que você forneça o conteúdo criptografado dinamicamente com a chave de limpeza do AES ou a criptografia DRM: Microsoft PlayReady, Google Widevine, Apple FairPlay.
 
-Nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
-Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
+Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
 
-###StorageEncrypted
+Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega de ativos.
 
-Use **StorageEncrypted** para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregue-o para o armazenamento do Azure no qual ele é armazenado, criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave de limpeza do AES ou a criptografia DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+
+>[AZURE.NOTE]Para tirar proveito da criptografia dinâmica, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo criptografado. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
+
+##Criptografia do armazenamento
+
+Use a criptografia de armazenamento para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits, em seguida, carregue-o no Armazenamento do Azure no qual é armazenado e criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 
 Para entregar um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para que o Serviços de Mídia saiba como você deseja distribuir seu conteúdo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de distribuição especificada (por exemplo, AES, criptografia comum ou sem criptografia).
 
-####Detalhes de implementação
+###Detalhes de implementação 
 
 A criptografia de armazenamento AMS aplica a criptografia do modo **AES-CTR** ao arquivo inteiro. O modo AES-CTR é uma codificação de bloco que pode criptografar dados de comprimento arbitrário sem necessidade de preenchimento. Ela funciona criptografando um bloco de contador com o algoritmo AES e aplicando XOR à saída do AES com os dados para criptografar ou descriptografar. O bloco de contador usado é construído copiando o valor do InitializationVector para bytes de 0 a 7 do valor do contador e 8 a 15 do valor do contador são definidos como zero. Do bloco de contador de 16 bytes, os bytes de 8 a 15 (ou seja, os bytes menos significativos) são usados como um inteiro sem sinal de 64 bits simples que é incrementado em um para cada bloco subsequente de dados processados e é mantido em ordem de byte da rede. Observe que, se esse número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), incrementá-lo redefinirá o contador de bloco para zero (bytes 8 a 15) sem afetar os 64 bits do contador (ou seja, bytes de 0 a 7). Para manter a segurança de criptografia de modo AES-CTR, o valor de InitializationVector para uma determinada CRIANÇA deve ser exclusivo para cada arquivo e os arquivos devem ser menor que 2^64 blocos em comprimento. Isso serve para garantir que um valor de contador jamais seja reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, consulte [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (artigo da wiki usa o termo "Nonce" em vez de "InitializationVector").
 
@@ -58,47 +59,21 @@ Se você quiser ver como o algoritmo básico funciona, exiba a implementação d
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected
+## Criptografia comum (CENC)
 
-Use **CommonEncryptionProtected** se você desejar criptografar conteúdo (ou carregar conteúdo que já foi criptografado) com criptografia comum. PlayReady e Widewine são criptografados de acordo com a especificação de criptografia comum (CENC) e têm suporte pelo AMS.
+A criptografia comum é usada ao criptografar o conteúdo com PlayReady e/ou Widewine.
 
-###EnvelopeEncryptionProtected
+## Usando a criptografia cbcs-aapl
 
-Use **EnvelopeEncryptionProtected** se você deseja proteger conteúdo (ou carregar conteúdo já protegido) HLS (HTTP Live Streaming) criptografado com AES. Observe que se você estiver carregando um HLS já criptografado com AES, ele deve ter sido criptografado com o Transform Manager.
+Cbcs-aapl é usado ao criptografar seu conteúdo com o FairPlay.
 
-##Criptografia dinâmica
+## Criptografia de envelope 
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES ( usando chaves de criptografia de 128 bits) e PlayReady e/ou Widevine DRM.
-
-Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
-
-Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
-
-Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega de ativos.
-
-Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou comum. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
-
->[AZURE.NOTE]Para tirar proveito da criptografia dinâmica, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo criptografado. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
+Use esta opção se quiser proteger seu conteúdo com a chave de limpeza AES-128. Se você quiser uma opção mais segura, escolha um dos DRMs listados neste tópico.
 
 ##Serviço de entrega de licenças e chaves
 
-Os Serviços de Mídia também fornecem um serviço de distribuição licenças de DRM (PlayReady e Widevine) e chaves AES não criptografadas aos clientes autorizados. Você pode usar o Portal Clássico do Azure, a API REST ou o SDK dos Serviços de Mídia para .NET para configurar políticas de autorização e autenticação para suas licenças e chaves.
-
-Observe que se você estiver usando o Portal, você pode configurar uma política AES (que será aplicada a todo o conteúdo criptografado do AES) e uma política do PlayReady (que será aplicada a todo o conteúdo PlayReady criptografado). Use o SDK dos Serviços de Mídia para .NET se quiser mais controle sobre as configurações.
-
-##Licenças DRM
-
-###Licença do PlayReady
-
-Os Serviços de Mídia fornecem um serviço de distribuição de licenças do PlayReady. Quando o player de usuário final (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para obtenção de uma. Se o serviço de licença aprova a solicitação, ele emite a licença que é enviada ao cliente e pode ser usada para descriptografar e reproduzir o conteúdo especificado.
-
-As licenças contêm os direitos e restrições que você deseja que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. Os Serviços de Mídia fornecem APIs que permitem que você configure suas licenças do PlayReady. Para obter mais informações, consulte [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia](media-services-playready-license-template-overview.md).
-
-###Licença do Widevine
-
-O AMS também permite distribuir DASH MPEG criptografado com Widevine DRM. PlayReady e Widewine são criptografados de acordo com a especificação de criptografia comum (CENC). Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
-
-A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia permitem configurar um [modelo de licença do Widevine](media-services-widevine-license-template-overview.md) e obter licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+Os Serviços de Mídia fornecem um serviço de distribuição de licenças DRM (PlayReady, Widevine e FairPlay) e chaves de limpeza AES para os clientes autorizados. Você pode usar o [portal do Azure](media-services-portal-protect-content.md), API REST ou SDK dos Serviços de Mídia para .NET para configurar políticas de autenticação e autorização para suas licenças e chaves.
 
 ##Restrição de token
 
@@ -106,30 +81,33 @@ A política de autorização de chave de conteúdo pode ter uma ou mais restriç
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
+##URLs de streaming
+
+Se o ativo foi criptografado com mais de um DRM, você deve usar uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').
+
+As seguintes considerações se aplicam:
+
+- Pode ser especificado apenas zero ou um tipo de criptografia.
+- O tipo de criptografia não precisa ser especificado na url se apenas uma criptografia foi aplicada no ativo.
+- O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
+- Os seguintes tipos de criptografia podem ser especificados:
+	- **cenc**: criptografia comum (Playready ou Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: criptografia de envelope AES.
+
 ##Cenários comuns
 
-###Proteger o conteúdo no armazenamento, fornecer mídia de streaming criptografada dinamicamente, usar chave AMS/serviço de entrega de licença
+Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entregar a mídia de streaming criptografada dinamicamente e usar o serviço de entrega de chaves/licenças do AMS
 
-1. Ingerir um arquivo mezzanine de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
-2. Configure os pontos de extremidade de streaming.
-1. Codifique para conjunto MP4 de taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
-1. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
-2. Configure a política de autorização de chave de conteúdo.
-1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
-1. Publicar o ativo criando um localizador OnDemand.
-1. Fluxo de conteúdo publicado.
+- [Proteger com o AES](media-services-protect-with-aes128.md)
+- [Proteger com o PlayReady e/ou Widevine ](media-services-protect-with-drm.md)
+- [Transmitir seu conteúdo HLS Protegido com o Apple FairPlay e/ou PlayReady](media-services-protect-hls-with-fairplay.md)
 
-Para obter mais informações, consulte: [Proteger com o AES](media-services-protect-with-aes128.md) e [Proteger com PlayReady e/ou Widevine ](media-services-protect-with-drm.md).
+### Cenários adicionais
 
-
-###Usar o serviço de entrega de chave e licença do Serviço de Mídia com seus próprios serviços de criptografia e fluxo
-
-Para obter mais informações, consulte [Como integrar o serviço de licença do Azure PlayReady a seu próprio criptografador/servidor de streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-
-###Integração com parceiros
-
-[Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
-
+- [Como integrar o serviço de Licença do Azure PlayReady em seu próprio servidor de criptografia/streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
+- [Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
+ 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -137,7 +115,6 @@ Para obter mais informações, consulte [Como integrar o serviço de licença do
 ##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 
 ##Links relacionados
 
@@ -155,4 +132,4 @@ Para obter mais informações, consulte [Como integrar o serviço de licença do
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

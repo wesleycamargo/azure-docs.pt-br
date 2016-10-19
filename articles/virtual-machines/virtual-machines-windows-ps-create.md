@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
 # Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell
@@ -25,7 +25,7 @@ Todas as etapas neste artigo são necessárias para criar uma máquina virtual e
 
 ## Etapa 1: instalar o PowerShell do Azure
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que deseja usar e entrar na sua conta do Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
         
 ## Etapa 2: criar um grupo de recursos
 
@@ -35,7 +35,7 @@ Primeiro, crie um grupo de recursos.
 
 	    Get-AzureRmLocation | sort Location | Select Location
         
-    Você deverá ver algo assim:
+    Você deverá ver algo como este exemplo:
     
         Location
         --------
@@ -98,7 +98,7 @@ Todas as máquinas virtuais fazem parte de uma [rede virtual](../virtual-network
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Você deve usar valores que fazem sentido para seu aplicativo e ambiente.
+    Use valores que fazem sentido para seu aplicativo e ambiente.
         
 ## Etapa 5: Criar um endereço IP público e interface de rede
 
@@ -122,7 +122,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Confira mais sobre os [requisitos de nome de usuário e senha](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    A senha deve ter entre 12 e 123 caracteres e ter pelo menos um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
         
 2. Substitua o valor **$vmName** por um nome para a máquina virtual. Crie a variável e a configuração da máquina virtual.
 
@@ -140,13 +140,13 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Consulte [Navegar e selecionar as imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines-windows-cli-ps-findimage.md) para obter mais informações sobre como selecionar as imagens a usar.
+    Para saber mais sobre como selecionar as imagens a usar, consulte [Navegar e selecionar as imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines-windows-cli-ps-findimage.md).
         
 5. Adicione a interface de rede que você criou à configuração.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Substitua o valor **$blobPath** por um caminho e nome de arquivo no armazenamento que o disco rígido virtual usará. Normalmente, o arquivo do disco rígido virtual é armazenado em um contêiner, por exemplo, **vhds/WindowsVMosDisk.vhd**. Crie as variáveis.
+6. Substitua o valor **$blobPath** por um caminho e nome de arquivo no armazenamento do disco rígido virtual. Normalmente, o arquivo do disco rígido virtual é armazenado em um contêiner, por exemplo, **vhds/WindowsVMosDisk.vhd**. Crie as variáveis.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -168,8 +168,8 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
                                   
 ## Próximas etapas
 
-- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
+- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+- Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 - Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Resource Manager](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Movendo dados para dentro e para fora do Armazenamento do Azure
 
@@ -46,7 +46,7 @@ O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cóp
 
 Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para saber mais.
 
-### PowerShell do Azure
+### Azure PowerShell
 
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar serviços no Azure. Trata-se de uma linguagem de scripts e shell de linha de comando baseada em tarefas projetada especialmente para administração do sistema.
 
@@ -82,4 +82,4 @@ Quando houver cargas de trabalho e aplicativos locais, você precisará de uma s
 
 Confira [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para saber mais.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/25/2016"
+     ms.author="andbuc"/>
 
 
 # SDK do Gateway IoT (beta) - Introdução usando o Windows
@@ -58,6 +58,13 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
           "module path" : "C:\\azure-iot-gateway-sdk\\build\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
           "args" : null
         }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
+        }
       ]
     }
     ```
@@ -74,4 +81,4 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0928_2016-->

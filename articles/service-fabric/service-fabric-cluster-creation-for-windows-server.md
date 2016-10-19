@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -25,15 +25,20 @@ Este artigo explica as etapas necessárias para criar um cluster usando o pacote
 
 >[AZURE.NOTE] Este pacote autônomo do Windows Server pode conter recursos que estejam em preview no momento e não tenham suporte para uso comercial. Para ver a lista de recursos que estão em preview, role para baixo até o final deste documento. [Clique aqui](http://go.microsoft.com/fwlink/?LinkID=733084) se quiser baixar uma cópia do EULA agora.
 
+
+<a id="getsupport"></a>
+## Obter suporte para o pacote autônomo do Service Fabric
+
+- Pergunte à comunidade sobre o pacote autônomo do Service Fabric para Windows Server no [Fórum do Service Fabric do Azure.](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=AzureServiceFabric?)
+
+- Abra um tíquete de [Suporte Profissional para Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146). Saiba mais sobre [Suporte Profissional da Microsoft](https://support.microsoft.com/pt-BR/gp/offerprophone?wa=wsignin1.0).
+
 <a id="downloadpackage"></a>
 ## Baixar o pacote autônomo do Service Fabric
 
 
 [Baixe o pacote autônomo do Service Fabric para Windows Server 2012 R2 e versões posteriores](http://go.microsoft.com/fwlink/?LinkId=730690), que se chama *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
->[AZURE.NOTE] Se você estiver usando os navegadores Internet Explorer ou Microsoft Edge para baixar esse pacote, adicione o site [http://download.microsoft.com](http://download.microsoft.com) aos sites confiáveis na intranet para impedir que a marcação Zonas seja gravada nos arquivos ao baixar o arquivo zip
-
- ![TrustedZone][TrustedZone]
 
 No pacote de download, você encontra os seguintes arquivos:
 
@@ -46,12 +51,15 @@ No pacote de download, você encontra os seguintes arquivos:
 |ClusterConfig.Windows.MultiMachine.json|Arquivo de exemplo de configuração de cluster que contém todas as configurações para um cluster de vários computadores/VMs protegido que use a segurança do Windows, incluindo as informações para cada computador no cluster protegido. O cluster é protegido usando [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
 |ClusterConfig.x509.DevCluster.json|Arquivo de exemplo de configuração de cluster que contém todas as configurações para um cluster de desenvolvimento de uma única VM/Máquina, de três nós, protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando certificados x509.|
 |ClusterConfig.x509.MultiMachine.json|Arquivo de exemplo de configuração de cluster que contém todas as configurações para um cluster de várias VM/computadores protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando certificados x509.|
-|EULA.txt|Os termos de licença para uso do pacote autônomo do Windows Server do Microsoft Azure Service Fabric. [Clique aqui](http://go.microsoft.com/fwlink/?LinkID=733084) se quiser baixar uma cópia do EULA agora.|
+|EULA\_ENU.txt|Os termos de licença para uso do pacote autônomo do Windows Server do Microsoft Azure Service Fabric. [Clique aqui](http://go.microsoft.com/fwlink/?LinkID=733084) se quiser baixar uma cópia do EULA agora.|
 |Readme. txt|Link para as notas de versão e instruções básicas de instalação. É um subconjunto das instruções encontradas nesta página.|
 |CreateServiceFabricCluster.ps1|Script do PowerShell que cria o cluster usando as configurações no arquivo ClusterConfig.json.|
 |RemoveServiceFabricCluster.ps1|Script do PowerShell que move um cluster usando as configurações no arquivo ClusterConfig.json.|
+|ThirdPartyNotice.rtf |Aviso de software de terceiros que está no pacote.|
 |AddNode.ps1|Script do PowerShell para adicionar um nó a um cluster implantado existente.|
 |RemoveNode.ps1|Script do PowerShell para remover um nó de um cluster implantado existente.|
+|CleanFabric.ps1|Script do PowerShell para limpeza de uma instalação autônoma do Service Fabric do computador atual. Instalações anteriores do MSI devem ser removidas usando seu próprio desinstalador associado.|
+|TestConfiguration.ps1|Script do PowerShell para analisar a infraestrutura conforme especificado no cluster.JSON.|
 
 
 ## Planejar e preparar para a implantação do cluster
@@ -64,13 +72,16 @@ Você está prestes a criar um cluster do Service Fabric em seus computadores. S
 ### Etapa 2: Preparar os computadores para atender os pré-requisitos
 Pré-requisitos para cada computador que você deseja adicionar ao cluster:
 
-- Um mínimo de 4 GB de memória é recomendado
+- Um mínimo de 16 GB de RAM é recomendado
+- Um mínimo de 40 GB de espaço em disco disponível é recomendado
+- Um mínimo de uma CPU de 4 Núcleos é recomendado
 - Conectividade da rede: verifique se os computadores estão em uma rede ou redes seguras.
 - Windows Server 2012 R2 ou Windows Server 2012 (você precisa ter o [KB2858668](https://support.microsoft.com/kb/2858668) instalado).
 - [.NET Framework 4.5.1 ou posterior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa.
 - [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
 - O administrador do cluster que implanta e configura o cluster deve ter [privilégios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) em cada um dos computadores.
 - O [serviço RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve estar em execução em todos os computadores.
+- Você não pode instalar o Service Fabric em um Controlador de Domínio
 
 ### Etapa 3: Determinar o tamanho inicial do cluster
 Cada nó em um cluster do Service Fabric autônomo tem a execução do Service Fabric implantada e é membro do cluster. Em uma implantação típica de produção, há um nó por instância de SO (física ou virtual). O tamanho do cluster é determinado por suas necessidades de negócios. No entanto, você precisa ter um tamanho mínimo de cluster de três nós (máquinas/VMs). Para fins de desenvolvimento, você pode ter mais de um nó em um determinado computador. Em um ambiente de produção, o Service Fabric dá suporte apenas a um nó por máquina virtual ou física.
@@ -111,10 +122,38 @@ O cluster está descrito em um arquivo *ClusterConfig.json*. Para obter detalhes
 
 |**Parâmetro de configuração**|**Descrição**|
 |-----------------------|--------------------------|
-|**NodeTypes**|Os tipos de nós permitem separar os nós do cluster em vários grupos. Um cluster precisa ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características comuns: <br> **Nome** – esse é o nome do tipo de nó. <br>**Portas do Ponto de Extremidade**: são vários pontos de extremidade (portas) nomeados que estão associados a esse tipo de nó. Você pode usar qualquer número de porta que desejar, desde que não entre em conflito com nada mais neste manifesto e já não esteja em uso por outro aplicativo em execução no computador/VM. <br> **Propriedades de Posicionamento**: descrevem as propriedades do tipo de nó utilizadas como restrições de posicionamento para os serviços do sistema ou seus serviços. Essas propriedades são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó incluem se o nó tem ou não um disco rígido ou uma placa de vídeo, o número de eixos no disco rígido, núcleos e outras propriedades físicas. <br> **Capacidades**: as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que tem capacidade para uma métrica chamada "MemoryInMb" e que tem 2048 MB de memória disponível por padrão. Essas capacidades são usadas no tempo de execução para garantir que os serviços que exigem quantidades específicas de recursos sejam colocados em nós que tenham esses recursos disponíveis nas quantidades necessárias.<br>**IsPrimary** – se você tiver mais de um NodeType definido, verifique se somente um está definido como principal com o valor *true*, que é onde os serviços do sistema são executados. Todos os outros tipos de nó devem ser definidos para o valor *false*|
+|**NodeTypes**|Os tipos de nós permitem separar os nós do cluster em vários grupos. Um cluster precisa ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características comuns: <br> **Nome** – esse é o nome do tipo de nó. <br>**Portas do Ponto de Extremidade**: são vários pontos de extremidade (portas) nomeados que estão associados a esse tipo de nó. Você pode usar qualquer número de porta que desejar, desde que não entre em conflito com nada mais neste manifesto e já não esteja em uso por outro aplicativo em execução no computador/VM. <br> **Propriedades de Posicionamento**: descrevem as propriedades do tipo de nó utilizadas como restrições de posicionamento para os serviços do sistema ou seus serviços. Essas propriedades são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó incluem se o nó temum disco rígido ou uma placa de vídeo, o número de eixos no disco rígido, núcleos e outras propriedades físicas. <br> **Capacidades**: as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que tem capacidade para uma métrica chamada "MemoryInMb" e que tem 2048 MB de memória disponível por padrão. Essas capacidades são usadas no tempo de execução para garantir que os serviços que exigem quantidades específicas de recursos sejam colocados em nós que tenham esses recursos disponíveis nas quantidades necessárias.<br>**IsPrimary** – se você tiver mais de um NodeType definido, verifique se somente um está definido como principal com o valor *true*, que é onde os serviços do sistema são executados. Todos os outros tipos de nó devem ser definidos para o valor *false*|
 |**Nós**|Esses são os detalhes de cada um dos nós que fazem parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com os endereços IP. <br> Se você usar o mesmo endereço IP para todos os nós, um cluster one-box será criado, que você pode usar para fins de teste. Não use clusters de uma caixa para implantar cargas de trabalho de produção.|
 
-### Etapa 2: Executar o script de criação de cluster
+### Etapa 5: executar o Script TestConfiguration
+
+Esse script testa sua infraestrutura, conforme definido no cluster.JSON, para certificar-se de que as permissões necessárias e os computadores estão conectados uns aos outros etc., para que a implantação pode ser bem-sucedida. Ele é basicamente um pequeno Analisador de Práticas Recomendadas. Continuaremos a adicionar validações a essa ferramenta ao longo do tempo para torná-la mais robusta.
+
+Esse script pode ser executado em qualquer computador que tenha o acesso de administrador para todos os computadores listados como nós no arquivo de configuração do cluster. O computador no qual esse script é executado pode ou não fazer parte do cluster.
+
+```powershell
+
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
+Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer.5.3.202.9494\DeploymentTraces
+Running Best Practices Analyzer...
+Best Practices Analyzer completed successfully.
+
+
+LocalAdminPrivilege        : True
+IsJsonValid                : True
+IsCabValid                 : True
+RequiredPortsOpen          : True
+RemoteRegistryAvailable    : True
+FirewallAvailable          : True
+RpcCheckPassed             : True
+NoConflictingInstallations : True
+FabricInstallable          : True
+Passed                     : True 
+
+
+```
+
+### Etapa 3: executar o script de criação de cluster
 Depois de ter modificado a configuração do cluster no documento JSON e adicionado todas as informações do nó a ela, execute o script do PowerShell de criação do cluster *CreateServiceFabricCluster.ps1* na pasta do pacote e transmita o caminho para o arquivo de configuração do JSON e aceite o EULA.
 
 Esse script pode ser executado em qualquer computador que tenha o acesso de administrador para todos os computadores listados como nós no arquivo de configuração do cluster. O computador no qual esse script é executado pode ou não fazer parte do cluster.
@@ -122,17 +161,17 @@ Esse script pode ser executado em qualquer computador que tenha o acesso de admi
 ```
 #Create an unsecured local development cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 ```
 #Create an unsecured multi-machine cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
 ```
 
 >[AZURE.NOTE] Os logs de implantação estão disponíveis localmente na VM/máquina em que você executou o PowerShell CreateServiceFabricCluster. Eles ficam em uma subpasta chamada "DeploymentTraces" sob a pasta na qual você executou o comando do PowerShell. Além disso, para ver se o Service Fabric foi implantado corretamente em um computador, você poderá encontrar os arquivos instalados no diretório C:\\ProgramData, e os processos FabricHost.exe e Fabric.exe poderão ser vistos em execução no Gerenciador de Tarefas.
 
-### Etapa 3: conectar-se ao cluster
+### Etapa 4: conectar-se ao cluster
 
 Consulte [este documento](service-fabric-connect-to-secure-cluster.md) para obter instruções para conectar-se a um cluster seguro.
 
@@ -145,7 +184,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 ```
-### Etapa 4: abrir o Service Fabric Explorer
+### Etapa 5: abrir o Service Fabric Explorer
 
 Agora, você pode conectar o cluster com o Service Fabric Explorer diretamente de um dos computadores com http://localhost:19080/Explorer/index.html ou remotamente com http://<*IPAddressofaMachine*>:19080/Explorer/index.html
 
@@ -166,9 +205,43 @@ Esse script pode ser executado em qualquer computador que tenha o acesso de admi
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   
 ```
 
+<a id="telemetry"></a>
+## Dados de telemetria coletados e como recusá-los
+
+Por padrão, o produto coleta a telemetria sobre o uso do Service Fabric para aprimorar o produto. O analisador de práticas recomendadas executado como parte da instalação verifica a conectividade para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Se ele não estiver acessível, a instalação falhará, a menos que você recuse telemetria.
+
+1) O pipeline de telemetria tenta carregar os dados a seguir para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) uma vez por dia. É um upload de melhor esforço não tinha nenhum impacto sobre a funcionalidade do cluster. A telemetria é enviada somente do nó que executa o gerenciador de failover primário. Nenhum outro nó envia telemetria.
+
+2) A Telemetria consiste no seguinte.
+
+1.            Número de serviços,
+1.            Número de ServiceTypes
+1.            Número de Aplicativos
+1.            Número de ApplicationUpgrades
+1.            Número de FailoverUnits
+1.            Número de InBuildFailoverUnits
+1.            Número de UnhealthyFailoverUnits
+1.            Número de Réplicas
+1.            Número de InBuildReplicas
+1.            Número de StandByReplicas
+1.            Número de OfflineReplicas
+1.            CommonQueueLength
+1.            QueryQueueLength
+1.            FailoverUnitQueueLength
+1.            CommitQueueLength
+1.            Número de Nós
+1.            IsContextComplete: True/False
+1.            ClusterId: esse é um GUID gerado aleatoriamente para cada cluster
+1.            ServiceFabricVersion
+1.             Endereço IP da VM/do Computador por meio do qual a telemetria é carregada
+
+
+Para desabilitar a telemetria, adicione ao elemento "propriedades" a seguir em sua configuração de cluster: "enableTelemetry": false
+
+<a id="previewfeatures"></a>
 ## Recursos de preview incluídos neste pacote
 
-O pacote inteiro está atualmente em preview.
+Nenhuma.
 
 ## Próximas etapas
 - [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
@@ -181,4 +254,4 @@ O pacote inteiro está atualmente em preview.
 <!--Image references-->
 [TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

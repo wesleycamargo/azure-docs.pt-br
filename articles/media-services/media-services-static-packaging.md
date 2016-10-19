@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas" 
-	description="Este tópico mostra várias tarefas realizadas com o Azure Media Packager." 
+	pageTitle="Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas | Microsoft Azure" 
+	description="Este tópico mostra várias tarefas que são realizadas com o Azure Media Packager." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -42,7 +42,7 @@ Você também pode usar o empacotamento estático para executar as tarefas a seg
 
 ## Validando MP4s com taxa de bits adaptável codificados com codificadores externos
 
-Se desejar usar um conjunto de arquivos MP4 com taxa de bits adaptável (várias taxas de bits) que não foi codificado com os codificadores dos Serviços de Mídia, você deverá validar seus arquivos antes de continuar o processamento. O Media Services Packager pode validar um ativo que contenha um conjunto de arquivos MP4 e verificar se o ativo pode ser empacotado para o Smooth Streaming ou o HLS. Se a tarefa de validação falhar, o trabalho que estava processando a tarefa será concluído com um erro. O XML que define a predefinição para a tarefa de validação pode ser encontrado no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Se desejar usar um conjunto de arquivos MP4 com taxa de bits adaptável (várias taxas de bits) que não foi codificado com os codificadores dos Serviços de Mídia, você deverá validar seus arquivos antes de continuar o processamento. O Media Services Packager pode validar um ativo que contenha um conjunto de arquivos MP4 e verificar se o ativo pode ser empacotado para o Smooth Streaming ou o HLS. Se a tarefa de validação falhar, o trabalho que estava processando a tarefa será concluído com um erro. O XML que define a predefinição para a tarefa de validação pode ser encontrado no tópico [Predefinição de Tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 >[AZURE.NOTE]Use o Codificador de Mídia Padrão para produzir ou o Empacotador dos Serviços de Mídia para validar o conteúdo e evitar problemas de tempo de execução. Se o servidor de Streaming Sob Demanda não for capaz de analisar seus arquivos de origem em tempo de execução, você receberá um erro HTTP 1.1 "415 Tipo de Mídia Sem Suporte". Fazer com que o servidor falhe repetidamente em analisar seus arquivos de origem afetará o desempenho do servidor de Streaming Sob Demanda e poderá reduzir a largura de banda disponível para servir outras solicitações. O Azure Media Services oferece um Contrato de Nível de Serviço (SLA) em seus serviços de Streaming Sob Demanda; no entanto, esse SLA não poderá ser cumprido se o servidor for mal utilizado da forma como descrita acima.
 
@@ -72,7 +72,7 @@ Para validar seus arquivos MP4 com o Media Services Packager, você deverá cria
 
 Assim que você tiver o MP4 de taxa de bits adaptável, poderá aproveitar a vantagem do Empacotamento Dinâmico. O Empacotamento Dinâmico permite distribuir fluxos no protocolo especificado sem empacotamento adicional. Para saber mais, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
-O exemplo de código a seguir usa Extensões do SDK do .NET dos Serviços de Mídia do Azure. Atualize o código para apontar para a pasta onde seus arquivos MP4 de entrada e o arquivo .ism estão localizados. E também onde o arquivo MediaPackager\_ValidateTask.xml está localizado. Esse arquivo XML é definido no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+O exemplo de código a seguir usa Extensões do SDK do .NET dos Serviços de Mídia do Azure. Atualize o código para apontar para a pasta onde seus arquivos MP4 de entrada e o arquivo .ism estão localizados. E também onde o arquivo MediaPackager\_ValidateTask.xml está localizado. Esse arquivo XML é definido no tópico [Predefinição de Tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 	
 	using Microsoft.WindowsAzure.MediaServices.Client;
 	using System;
@@ -246,12 +246,12 @@ O exemplo nesta seção codifica um arquivo mezzanine (neste caso, um MP4) em ar
 
 Os Serviços de Mídia agora fornecem um serviço de distribuição de licenças do Microsoft PlayReady. O exemplo neste artigo mostra como configurar o serviço de entrega de licença do PlayReady do Serviços de Mídia (consulte o método ConfigureLicenseDeliveryService definido no código a seguir). Para saber mais sobre o serviço de entrega de licença do PlayReady do Serviços de Mídia, consulte [Usando o serviço de entrega de licença e a criptografia dinâmica do PlayReady](media-services-protect-with-drm.md).
 
->[AZURE.NOTE]Para entregar MPEG DASH criptografado com o PlayReady, use as opções CENC ao definir as propriedades useSencBox e adjustSubSamples (descritas no tópico [Predefinição de tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) como verdadeiras.
+>[AZURE.NOTE]Para entregar o MPEG DASH criptografado com o PlayReady, use as opções CENC definindo as propriedades useSencBox e adjustSubSamples (descritas no tópico [Predefinição de Tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx)) para true.
 
 
 Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados.
 
-E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml e MediaEncryptor\_PlayReadyProtection.xml estão localizados. O MediaPackager\_MP4ToSmooth.xml é definido em [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e o MediaEncryptor\_PlayReadyProtection.xml é definido no tópico [Predefinição de tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).
+E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml e MediaEncryptor\_PlayReadyProtection.xml estão localizados. O MediaPackager\_MP4ToSmooth.xml é definido em [Predefinição de Tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e o MediaEncryptor\_PlayReadyProtection.xml é definido no tópico [Predefinição de Tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).
 
 O exemplo define o método UpdatePlayReadyConfigurationXMLFile que você pode usar para atualizar dinamicamente o arquivo MediaEncryptor\_PlayReadyProtection.xml. Se você tiver a propagação de chave disponível, poderá usar o método CommonEncryption.GeneratePlayReadyContentKey para gerar a chave de conteúdo com base nos valores keySeedValue e KeyId.
 
@@ -693,7 +693,7 @@ Se você deseja criptografar seu HLS com o AES-128, terá a opção de usar a cr
 
 >[AZURE.NOTE]Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming. Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager\_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização. O Serviços de Mídia criará um arquivo de chave e o posicionará no contêiner do ativo. Você deve copiar o arquivo /asset-containerguid/*.key para seu servidor (ou crie seu próprio arquivo de chave) e excluir o arquivo *.key do contêiner do ativo.
 
-O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arquivos MP4 de várias taxas de bits e então empacota MP4s no Smooth Streaming. Ele então empacota o Smooth Streaming em HTTP Live Streaming (HLS) criptografado com a criptografia de fluxo de 128 bits do Padrão de Criptografia Avançada (AES). Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados. E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml e MediaPackager\_SmoothToHLS.xml estão localizados. Você pode encontrar a definição desses arquivos no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arquivos MP4 de várias taxas de bits e então empacota MP4s no Smooth Streaming. Ele então empacota o Smooth Streaming em HTTP Live Streaming (HLS) criptografado com a criptografia de fluxo de 128 bits do Padrão de Criptografia Avançada (AES). Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados. E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml e MediaPackager\_SmoothToHLS.xml estão localizados. Você pode encontrar a definição desses arquivos no tópico [Predefinição de Tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 	
 	using System;
 	using System.Collections.Generic;
@@ -974,7 +974,7 @@ O exemplo nesta seção codifica um arquivo mezzanine (neste caso, um MP4) em ar
 
 Os Serviços de Mídia agora fornecem um serviço de distribuição de licenças do Microsoft PlayReady. O exemplo neste artigo mostra como configurar o serviço de entrega de licença do PlayReady do Serviços de Mídia (consulte o método **ConfigureLicenseDeliveryService** definido no código a seguir).
 
-Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados. E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml, MediaPackager\_SmoothToHLS.xml, e MediaEncryptor\_PlayReadyProtection.xml estão localizados. O MediaPackager\_MP4ToSmooth.xml e o MediaPackager\_SmoothToHLS.xml são definidos no tópico [Predefinição de tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e o MediaEncryptor\_PlayReadyProtection.xml é definido no tópico [Predefinição de tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).
+Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de entrada estão localizados. E também para onde os arquivos MediaPackager\_MP4ToSmooth.xml, MediaPackager\_SmoothToHLS.xml, e MediaEncryptor\_PlayReadyProtection.xml estão localizados. O MediaPackager\_MP4ToSmooth.xml e o MediaPackager\_SmoothToHLS.xml são definidos em [Predefinição de Tarefa para o Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e o MediaEncryptor\_PlayReadyProtection.xml é definido no tópico [Predefinição de Tarefa para o Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).
 	
 	using System;
 	using System.Collections.Generic;
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

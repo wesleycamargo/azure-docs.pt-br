@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="carlasab"/>
 
 
@@ -96,7 +96,7 @@ Se você estiver migrando para uma VM do Azure existente, as etapas de configura
 
 	![Configurações da Origem](./media/virtual-machines-windows-migrate-sql/source-settings.png)
 
-6. Clique em Avançar.
+6. Clique em Próximo.
 7. Na página de entrada do Microsoft Azure, clique em Entrar para entrar em sua conta do Azure.
 8. Selecione a assinatura que você deseja usar e clique em Avançar.
 
@@ -180,4 +180,4 @@ Para obter mais informações sobre como executar o SQL Server em Máquinas Virt
 
 Para obter instruções sobre como criar uma Máquina Virtual do Azure SQL Server a partir de uma imagem capturada, confira [Dicas e Truques ao 'clonar' as máquinas virtuais do Azure SQL a partir de imagens capturadas](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) no blog dos Engenheiros do CSS SQL Server.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2"
-	description="O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Preview do Indexador de Mídia do Azure 2."
+	pageTitle="Indexando os Arquivos de Mídia com a Visualização do Indexador de Mídia do Azure 2 | Microsoft Azure"
+	description="O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Visualização do Indexador de Mídia 2 ."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
@@ -25,7 +25,7 @@ O MP (processador de mídia) da **Preview do Indexador de Mídia do Azure 2** pe
 
 No momento, o MP da **Preview do Indexador de Mídia do Azure 2** está em Preview.
 
-Este tópico mostra como criar trabalhos de indexação com a **Preview do Indexador de Mídia do Azure 2**.
+Este tópico mostra como criar trabalhos de indexação com a **Visualização do Indexador de Mídia do Azure 2**.
 
 >[AZURE.NOTE]As seguintes considerações se aplicam:
 >
@@ -36,7 +36,7 @@ Este tópico mostra como criar trabalhos de indexação com a **Preview do Index
 >Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
 
 
-Este tópico fornece detalhes sobre a **Preview do Indexador de Mídia do Azure 2** e mostra como usá-la com o SDK dos Serviços de Mídia para .NET
+Este tópico fornece detalhes sobre a **Visualização do Indexador de Mídia do Azure 2** e mostra como usá-la com o SDK dos Serviços de Mídia para .NET
 
 ##Arquivos de entrada e saída
 
@@ -54,7 +54,7 @@ Um trabalho de indexação pode gerar arquivos de legenda oculta nos seguintes f
 
 Arquivos de CC (Legenda Oculta) nesses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
 
-##Configuração de tarefa (predefinida)
+##Configuração de tarefa (predefinição)
 
 Ao criar uma tarefa de indexação com a **Preview do Indexador de Mídia do Azure 2**, é necessário especificar uma predefinição de configuração.
 
@@ -289,4 +289,4 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

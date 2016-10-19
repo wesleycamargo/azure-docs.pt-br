@@ -1,7 +1,7 @@
 
-Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e serviços do Azure, cotas e restrições](../articles/azure-subscription-service-limits.md).
 
-Os tamanhos padrão consistem em várias séries: A, D, DS, F, Fs, G e GS. Entre as considerações sobre algumas dessas dimensões estão:
+
+Há vários tamanhos padrão para você escolher no Azure. Entre as considerações sobre algumas dessas dimensões estão:
 
 *   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
@@ -29,14 +29,17 @@ O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capaci
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 
-* Os tamanhos A8-A11 também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). Para obter informações detalhadas e considerações sobre o uso desses tamanhos, confira [Sobre as instâncias de computação intensiva A8, A9, A10 e A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+* Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Para obter informações detalhadas e considerações sobre o uso desses tamanhos, confira [Sobre VMs série H ou série A com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
-*	As séries Dv2, D e G e as equivalentes DS/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
+
+* As séries Dv2, D e G e as equivalentes DS/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 
 * As VMs série F são uma ótima opção para cargas de trabalho que exigem CPUs mais rápidas, mas não precisam de tanta memória ou SSD local por núcleo da CPU. Cargas de trabalho como análise, servidores de jogos, servidores Web e de processamento em lote serão beneficiados com o valor da série F.
 
 *   Alguns dos hosts físicos em data centers do Azure podem não aceitar tamanhos de máquina virtual maiores, como A5 – A11. Como resultado, você poderá ver a mensagem de erro **Falha ao configurar a máquina virtual <nome da máquina>** ou **Falha ao criar a máquina virtual <nome da máquina>** ao redimensionar uma máquina virtual existente para um novo tamanho, criar uma nova máquina virtual em uma rede virtual criada antes de 16 de abril de 2013 ou adicionar uma nova máquina virtual a um serviço de nuvem. Confira [Erro: "Falha ao configurar a máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte de soluções alternativas para cada cenário de implantação.
+
+* Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho. Para aumentar a cota, entre em contato com o Suporte do Azure.
 
 
 ## Considerações sobre o desempenho
@@ -61,6 +64,7 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 |[F1s-F16s](#fs-series) | 210-250*|
 |[G1-5](#g-series) |180 - 240*|
 |[GS1-5](#gs-series) |180 - 240*|
+|[H](#h-series) |290 – 300*|
 
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho. A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -95,15 +99,18 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 <br>
 ## Série A – Instâncias de computação intensiva
 
-Para obter informações e considerações sobre o uso desses tamanhos, confira [Sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Para obter informações e considerações sobre o uso desses tamanhos, confira [Sobre VMs série H ou série A com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+
 
 
 | Tamanho | Núcleos de CPU | Memória: GiB | Tamanho do disco local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
 |--------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard\_A8 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / alta |
-| Standard\_A9 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / muito alta |
+| Standard\_A8* | 8 | 56 | 382 | 16 | 16 x 500 | 2 / alta |
+| Standard\_A9* | 16 | 112 | 382 | 16 | 16 x 500 | 4 / muito alta |
 | Standard\_A10 | 8 | 56 | 382 | 16 | 16 x 500 | 2 / alta |
 | Standard\_A11 | 16 | 112 | 382 | 16 | 16 x 500 | 4 / muito alta |
+
+*Compatível com RDMA
 
 <br>
 ## Série D
@@ -142,7 +149,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 
 | Tamanho | Núcleos de CPU | Memória: GiB | Tamanho do disco local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | NICs máximas / largura de banda da rede |
 |---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
-| Standard\_DS1 | 1 | 3,5 | 7 | 2 | 4\.000 / 32 (42) | 3\.200 / 32 | 1 / moderada |
+| Standard\_DS1 | 1 | 3,5 | 7 | 2 | 4\.000 / 32 (43) | 3\.200 / 32 | 1 / moderada |
 | Standard\_DS2 | 2 | 7 | 14 | 4 | 8\.000 / 64 (86) | 6\.400 / 64 | 2 / alta |
 | Standard\_DS3 | 4 | 14 | 28 | 8 | 16\.000 / 128 (172) | 12\.800 / 128 | 4 / alta |
 | Standard\_DS4 | 8 | 28 | 56 | 16 | 32\.000 / 256 (344) | 25\.600 / 256 | 8 / alta |
@@ -151,7 +158,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 | Standard\_DS13 | 8 | 56 | 112 | 16 | 32\.000 / 256 (288) | 25\.600 / 256 | 8 / alta |
 | Standard\_DS14 | 16 | 112 | 224 | 32 | 64\.000 / 512 (576) | 51\.200 / 512 | 8 / muito alta |
 
-MBps = 10^6 bytes por segundo.
+MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 *A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
 
@@ -174,7 +181,7 @@ MBps = 10^6 bytes por segundo.
 | Standard\_DS14\_v2 | 16 | 112 | 224 | 32 | 64\.000 / 512 (576) | 51\.200 / 768 | 8 extremamente alta |
 | Standard\_DS15\_v2 | 20 | 140 GB | 280 | 40 | 80\.000 / 640 (720) | 64\.000 / 960 | 8 extremamente alta |
 
-MBps = 10^6 bytes por segundo.
+MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 *A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
 
@@ -202,7 +209,7 @@ MBps = 10^6 bytes por segundo.
 | Standard\_F8s | 8 | 16 | 32 | 16 | 32\.000 / 256 (96) | 25\.600 / 384 | 8 / alta |
 | Standard\_F16s | 16 | 32 | 64 | 32 | 64\.000 / 512 (192) | 51\.200 / 768 | 8 / extremamente alta |
 
-MBps = 10^6 bytes por segundo.
+MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 *A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série Fs pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
 
@@ -232,12 +239,31 @@ MBps = 10^6 bytes por segundo.
 | Standard\_GS4 | 16 | 224 | 2\.112 | 32 | 80\.000 / 800 (2.112) | 40\.000 / 1.000 | 8 / extremamente alta |
 | Standard\_GS5 | 32 | 448 | 4\.224 | 64 | 160\.000 / 1.600 (4.224) | 80\.000 / 2.000 | 8 / extremamente alta |
 
-MBps = 10^6 bytes por segundo.
+MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 *A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.
 
+<br>
+## Série H
+
+As máquinas virtuais da série H do Azure são a próxima geração de VMs de computação de alto desempenho voltadas para as necessidades computacionais de alto nível, como modelagem molecular e dinâmica de fluido computacional. Essas VMs de 8 e 16 núcleos baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento SSD local.
+
+Além de potência de CPU considerável, a série H oferece diversas opções para RDMA e rede de baixa latência usando FDR InfiniBand e várias configurações de memória para dar suporte a requisitos computacionais com uso intensivo de memória.
 
 
+| Tamanho | Núcleos de CPU | Memória: GiB | Tamanho do disco de SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | NICs máximas / largura de banda da rede |
+|----------------|-----------|-------------|--------------------------|----------------|---------------------------|------------------------------|
+| Standard\_H8 | 8 | 56 | 1000 | 16 | 16 x 500 | 8 / alta |
+| Standard\_H16 | 16 | 112 | 2000 | 32 | 32 x 500 | 8 / muito alta |
+| Standard\_H8m | 8 | 112 | 1000 | 16 | 16 x 500 | 8 / alta |
+| Standard\_H16m | 16 | 224 | 2000 | 32 | 32 x 500 | 8 / muito alta |
+| Standard\_H16r* | 16 | 112 | 2000 | 32 | 32 x 500 | 8 / muito alta |
+| Standard\_H16mr* | 16 | 224 | 2000 | 32 | 32 x 500 | 8 / muito alta |
+
+
+*Compatível com RDMA
+
+<br>
 ## Série N (visualização)
 
 Os tamanhos NC e NV também são conhecidos como instâncias habilitadas para GPU. Trata-se de máquinas virtuais especializadas que incluem as placas GPU da NVIDIA, otimizadas para diferentes cenários e casos de uso. Os tamanhos NV são otimizados e projetados para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX. Os tamanhos NC são mais otimizados para aplicativos que fazem uso intensivo de computação e da rede, algoritmos, incluindo aplicativos baseados em CUDA e OpenCL, e simulações.
@@ -268,6 +294,7 @@ As instâncias de NC têm a tecnologia Tesla K80 da NVIDIA. Agora, os usuários 
 
 
 
+<br>
 ## Observações: Standard A0 - A4 usando a CLI e o PowerShell 
 
 
@@ -283,6 +310,6 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 ## Próximas etapas
 
 - Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
-- Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
+- Saiba mais [sobre as VMs da série H e da série A com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

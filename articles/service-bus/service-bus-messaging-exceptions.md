@@ -137,8 +137,8 @@ Para obter a referência completa de Barramento de Serviço e a API do .NET de H
 
 Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/), veja os tópicos a seguir.
 
-- [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+- [Visão geral de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

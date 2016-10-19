@@ -3,7 +3,7 @@
 	description="Saiba como adicionar um diretório do Office 365 (locatário) a uma assinatura do Azure para fazer a associação."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -145,4 +145,4 @@ Para associar o locatário do Office 365 à assinatura do Azure, siga estas etap
 ## Próximas etapas
 Esses são cenários relacionados nos quais você já tem uma assinatura do Office 365 e está pronto para uma assinatura do Azure, mas deseja usar as contas de usuário existentes do Office 365 para sua assinatura do Azure. Outra opção seria se você é assinante do Azure e deseja obter uma assinatura do Office 365 para os usuários no Azure Active Directory existentes. Para saber como realizar essas tarefas, confira [Use sua conta existente do Office 365 com sua assinatura do Azure ou vice-versa](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

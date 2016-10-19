@@ -17,7 +17,7 @@
    ms.date="02/09/2016"
    ms.author="sewhee" />
 
-# Introdução à criação de um balanceador de carga para a Internet usando um modelo
+# Criar um balanceador de carga voltado para a Internet usando um modelo
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -70,4 +70,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

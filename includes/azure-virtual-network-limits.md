@@ -1,4 +1,4 @@
-Os limites a seguir se aplicam somente a recursos de rede gerenciados pelo modelo de implantação clássica por assinatura.
+Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura.
 
 Recurso| Limite padrão | Limite máximo
 --- | --- | --- 
@@ -18,9 +18,9 @@ VIP (ILB) privado por implantação | 1 | 1
 ACLs (Listas de Controle de Acesso de Pontos de Extremidade) | 50 | 50
 
 
-#### Limites de Rede - Gerenciador de Recursos do Azure
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
 
-Os limites a seguir aplicam-se apenas a recursos de rede administrados pelo Gerenciador de Recursos do Azure por região e por assinatura.
+Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
 
 Recurso| Limite padrão | Limite máximo
 --- | --- | ---
@@ -38,9 +38,9 @@ Endereços IP públicos (estático) | 20 | entre em contato com o suporte
 Balanceadores de carga (internos e para Internet) | 100 | entre em contato com o suporte
 Regras de balanceador de carga por balanceador de carga | 150 | 150
 IP público front-end por balanceador de carga | 5 | entre em contato com o suporte
-IP privado front-end por balanceador de carga | 1 | entre em contato com o suporte
+IP privado front-end por balanceador de carga | 30 | entre em contato com o suporte
 Application gateways | 50 | 50
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

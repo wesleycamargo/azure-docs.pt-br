@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 # Criar uma VNet com uma conexão Site a Site usando o Portal do Azure
@@ -54,23 +54,22 @@ Antes de começar a configurar, verifique se você tem os seguintes itens:
 
 Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo:
 
-- Nome da rede virtual: TestVNet1
-- Espaço de endereço: 10.11.0.0/16 e 10.12.0.0/16
-- Sub-redes:
+- **Nome da rede virtual:** TestVNet1
+- **Espaço de endereço:** 10.11.0.0/16 e 10.12.0.0/16
+- **Sub-redes:**
 	- FrontEnd: 10.11.0.0/24
 	- BackEnd: 10.12.0.0/24
 	- GatewaySubnet: 10.12.255.0/27
-- Grupo de recursos: TestRG1
-- Local: Leste dos EUA
-- Servidor DNS: 8.8.8.8
-- Nome do Gateway: VNet1GW
-- IP público: VNet1GWIP
-- Tipo de VPN: baseada em rota
-- Tipo de Conexão: site a site (IPsec)
-- Tipo de Gateway: VPN
-- Nome do Gateway de Rede Local: Site2
-- Nome da conexão: VNet1toSite2
-
+- **Grupo de recursos:** TestRG1
+- **Local:** Leste dos EUA
+- **Servidor DNS:** 8.8.8.8
+- **Nome do Gateway:** VNet1GW
+- **IP público:** VNet1GWIP
+- **Tipo de VPN:** baseada em rota
+- **Tipo de Conexão:** site a site (IPsec)
+- **Tipo de Gateway:** VPN
+- **Nome do Gateway de Rede Local:** Site2
+- **Nome da conexão:** VNet1toSite2
 
 
 ## 1\. Criar uma rede virtual 
@@ -89,29 +88,24 @@ Você pode adicionar um espaço de endereço e sub-redes adicionais para sua red
 
 ## <a name="dns"></a>3. Especificar um servidor DNS
 
-Se você estiver criando essa configuração como parte de um exercício, consulte estes [valores](#values) ao especificar o servidor DNS.
-
 ### Para especificar um servidor DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. Criar uma sub-rede de gateway
 
-Antes de conectar sua Rede Virtual a um gateway, você precisará criar a sub-rede de gateway para a Rede Virtual à qual você deseja se conectar. A sub-rede de gateway que você criar deve ser chamada de *GatewaySubnet* ou não funcionará corretamente.
-
-O prefixo de sub-rede de gateway para algumas configurações exige uma sub-rede de /28 ou maior a fim de acomodar a quantidade de endereços IP necessários no pool. Isso significa que o prefixo de sub-rede de gateway precisa ser /28, /27, /26 etc. Convém criar aqui uma sub-rede maior a fim de acomodar possíveis adições futuras nas configurações.
+Antes de conectar sua Rede Virtual a um gateway, você precisará criar a sub-rede de gateway para a Rede Virtual à qual você deseja se conectar. Se possível, é melhor criar uma sub-rede de gateway usando um bloco CIDR de /28 ou /27, a fim de fornecer endereços IP suficientes para acomodar requisitos futuros de configuração.
 
 Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao criar sua sub-rede de gateway.
 
 ### Para criar uma sub-rede de gateway
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Criar um gateway de rede virtual
 
-Se você estiver criando esta configuração como um exercício, consulte esses [valores](#values) ao criar seu gateway.
+Se você estiver criando esta configuração como um exercício, consulte estes [valores de exemplo de configuração](#values).
 
 ### Para criar um gateway da rede virtual
 
@@ -119,9 +113,9 @@ Se você estiver criando esta configuração como um exercício, consulte esses 
 
 ## 6\. Criar um gateway de rede local
 
-O *gateway de rede local* se refere ao seu local. Dê um nome ao gateway de rede local ao qual o Azure possa fazer referência.
+O 'gateway de rede local' se refere ao seu local. Dê um nome ao gateway de rede local ao qual o Azure possa fazer referência.
 
-Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao adicionar seu site local.
+Se você estiver criando esta configuração como um exercício, consulte estes [valores de exemplo de configuração](#values).
 
 ### Para criar um gateway de rede local
 
@@ -154,4 +148,4 @@ Você pode verificar a conexão VPN no portal ou usando o PowerShell.
 
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

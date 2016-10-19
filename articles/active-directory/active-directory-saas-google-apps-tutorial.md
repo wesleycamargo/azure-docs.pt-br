@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -22,7 +22,7 @@ Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Dire
 
 ##Pré-requisitos
 
-1. Para acessar o Active Directory do Azure por meio do [Portal clássico do Azure](https://manage.windowsazure.com), primeiro é preciso ter uma assinatura válida do Azure.
+1. Para acessar o Azure Active Directory usando o [portal clássico do Azure](https://manage.windowsazure.com), você precisará ter uma assinatura válida do Azure.
 
 2. É preciso ter um locatário válido para o [Google Apps for Work](https://www.google.com/work/apps/) ou o [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/). Você pode usar uma conta de avaliação gratuita para qualquer serviço.
 
@@ -100,7 +100,7 @@ Como habilitar o logon único no Google Apps em dois minutos:
 
 	> [AZURE.NOTE] Se você preferir configurar manualmente o logon único, consulte [Etapa opcional: configurar logon único manualmente](#optional-step-manually-configure-single-sign-on)
 
-5. Entre em sua conta de administrador do Google Apps. Em seguida, clique em **Permitir** para permitir que o Active Directory do Azure faça alterações de configuração em sua assinatura do Google Apps.
+5. Entre em sua conta de administrador do Google Apps. Em seguida, clique em **Permitir** para permitir que o Azure Active Directory faça alterações de configuração em sua assinatura do Google Apps.
 
 	![Digite seu nome de domínio e pressione Configurar.](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
 
@@ -313,4 +313,4 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

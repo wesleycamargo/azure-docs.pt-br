@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criando filtros com a API REST dos Serviços de Mídia do Azure" 
+	pageTitle="Criando Filtros com a API REST dos Serviços de Mídia do Azure | Microsoft Azure" 
 	description="Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para atingir esse streaming seletivo."
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Criando filtros com a API REST dos Serviços de Mídia do Azure
@@ -27,7 +27,7 @@ A partir da versão 2.11, os Serviços de Mídia permitem definir filtros para s
 
 Para obter mais informações relacionadas a filtros e ao Manifesto Dinâmico, consulte [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
 
-Este tópico mostra como usar APIs REST para criar, atualizar e excluir filtros.
+Este tópico mostra como usar APIs REST para criar, atualizar e excluir os filtros.
 
 ##Tipos usados para criar filtros
 
@@ -374,4 +374,4 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

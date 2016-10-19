@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -153,4 +153,4 @@ Use as etapas a seguir para adicionar uma declaração personalizada que dê sup
 ![Substituir declaração](./media/active-directory-multiple-domains/sub2.png)
 5.	Clique em OK. Clique em Aplicar. Clique em OK. Feche o gerenciamento do AD FS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

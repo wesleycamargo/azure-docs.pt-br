@@ -20,10 +20,13 @@
 
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante. Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft. O aplicativo Web obterá tokens de acesso OAuth 2.0 para uma API Web protegida pelo OAuth 2.0 que permite criar, ler e excluir itens de uma determinado “Lista de Tarefas Pendentes” do usuário.
 
-> [AZURE.NOTE]
-	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> [AZURE.WARNING]
+	Este tutorial usa uma biblioteca de cliente desatualizada e sem suporte, `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory` (ADAL Experimental). Estamos trabalhando para atualizar este tutorial para a MSAL (biblioteca de visualização do `Microsoft.Identity.Client`). Enquanto isso, recomendamos substituir o uso da ADAL Experimental neste tutorial pela MSAL. Mais informações sobre as opções de escolha de uma biblioteca de cliente estão disponíveis em nosso [artigo sobre limitações](active-directory-v2-limitations.md).
 
 Este tutorial se concentrará principalmente em usar ADAL para adquirir e usar tokens de acesso em um aplicativo Web, descrito por completo [aqui](active-directory-v2-flows.md#web-apps). Como pré-requisitos, talvez você queira aprender primeiro a [adicionar conexão básica a um aplicativo Web](active-directory-v2-devquickstarts-dotnet-web.md) ou a [proteger corretamente uma API Web](active-directory-v2-devquickstarts-dotnet-api.md).
+
+> [AZURE.NOTE]
+	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
 ## Baixar código de exemplo
 
@@ -201,4 +204,4 @@ Para obter recursos adicionais, consulte:
 
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

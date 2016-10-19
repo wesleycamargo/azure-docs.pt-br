@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/18/2016"
+	ms.date="10/04/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Adicionar seu nome de domínio personalizado ao Azure Active Directory
@@ -75,4 +75,4 @@ Se sua organização usa vários nomes de domínio personalizados, como 'contoso
 -   [Mostrar a identidade visual de sua empresa quando os usuários entrarem](active-directory-add-company-branding.md)
 -   [Usar o PowerShell para gerenciar os nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

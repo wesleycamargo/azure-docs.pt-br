@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando imagens do cliente do Windows para cenários de desenvolvimento/teste | Microsoft Azure"
    description="Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7/8/10 no Azure em cenários de desenvolvimento/teste"
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
@@ -57,4 +57,4 @@ Você também pode exibir a ID de oferta na [guia “Assinaturas”](http://acco
 ## Próximas etapas
 Agora você pode implantar suas VMs usando o [PowerShell](virtual-machines-windows-ps-create.md), os [modelos do Resource Manager](virtual-machines-windows-ps-template.md) ou o [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

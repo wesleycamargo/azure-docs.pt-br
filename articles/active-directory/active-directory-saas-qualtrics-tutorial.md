@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o Qualtrics
@@ -96,7 +96,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Qualtrics. Quando um usuário atribuído tenta fazer logon no Qualtrics usando o painel de acesso, o Qualtrics verifica se o usuário existe. Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Qualtrics.
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao Qualtrics, execute as seguintes etapas:
 
@@ -112,4 +112,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -143,4 +143,4 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 Saiba mais sobre [Azure AD Connect: conceitos de design](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

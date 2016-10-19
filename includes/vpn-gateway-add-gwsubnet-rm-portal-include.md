@@ -2,12 +2,14 @@
 
 2. Na seção **Configurações** da folha de sua rede virtual, clique em **Sub-redes** para expandir a folha Sub-redes.
 
-3. Na folha **Sub-redes**, clique em **+Sub-rede de gateway** na parte superior. Isso abrirá a folha **Adicionar sub-rede**. O **nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway.
+3. Na folha **Sub-redes**, clique em **+Sub-rede de gateway** na parte superior. Isso abrirá a folha **Adicionar sub-rede**.
 
-	![Adicionar a sub-rede de gateway](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
+	![Adicionar a sub-rede de gateway](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Adicionar a sub-rede de gateway")
 
-4. Você pode alterar o bloco CIDR do intervalo de endereço, se necessário. Verifique os requisitos específicos para que a configuração confirme o bloco CIDR recomendado.
+4. O **nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway. Ajuste os valores preenchidos automaticamente de **ntervalo de endereços** para corresponder aos seus requisitos de configuração.
 
-5. Clique em **OK** na parte inferior da folha para criar a sub-rede.
+	![Adicionar a sub-rede](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adicionar a sub-rede")
 
-<!----HONumber=AcomDC_0810_2016-->
+6. Clique em **OK** na parte inferior da folha para criar a sub-rede.
+
+<!---HONumber=AcomDC_1005_2016-->

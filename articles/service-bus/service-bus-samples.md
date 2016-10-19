@@ -130,8 +130,8 @@ Os exemplos a seguir demonstram vários outros recursos do serviço.
 
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
-- [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+- [Visão geral de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

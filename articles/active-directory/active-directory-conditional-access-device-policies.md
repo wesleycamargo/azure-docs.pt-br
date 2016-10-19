@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 # Políticas de dispositivo de acesso condicional para serviços do Office 365
 
@@ -44,4 +44,4 @@ P: Quando a política de acesso condicional para serviços do Office 365 será e
 
 R: No momento, o acesso condicional aos serviços do Office365 é limitado aos aplicativos sofisticados no dispositivo. Está prevista a extensão da política de acesso condicional a usuários que acessam serviços de navegadores.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

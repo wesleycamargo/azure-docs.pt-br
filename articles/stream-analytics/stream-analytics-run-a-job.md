@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Como executar um trabalho de streaming no Stream Analytics do Azure
@@ -27,7 +27,7 @@ Para iniciar o trabalho:
 
     ![Botão Iniciar trabalho](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
 
-    No portal do Azure, clique em **Iniciar** na parte superior da página do seu trabalho.
+    No portal do Azure, clique em **Iniciar** na parte superior da página de trabalho.
 
     ![Botão Iniciar trabalho no Portal do Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Configurações e perguntas frequentes sobre o roaming de dados
@@ -136,4 +136,4 @@ Se sua organização já estiver usando o roaming no Windows 10 com a assinatura
 - [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

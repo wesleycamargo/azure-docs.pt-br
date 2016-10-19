@@ -1,31 +1,42 @@
-Para criar uma rede virtual usando o Portal do Azure, execute as etapas abaixo. Observe que as capturas de tela são fornecidas como exemplos. Substitua os valores pelos seus próprios. Para saber mais sobre como trabalhar com as redes virtuais, consulte a [Visão Geral da Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
+Para criar uma rede virtual usando o Portal do Azure, execute as etapas abaixo. As capturas de tela são fornecidas como exemplos. Substitua os valores pelos seus próprios. Para saber mais sobre como trabalhar com as redes virtuais, consulte a [Visão Geral da Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
 
-1. Em um navegador, navegue até o [portal do Azure](http://portal.azure.com) e, se necessário, entre com sua conta do Azure.
+1. Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e, se necessário, entre com sua conta do Azure.
 
-2. Clique em **Nova** **>** **Rede** **>** **Rede Virtual**.
+2. Clique em **Novo**. No campo **Pesquisar no marketplace**, digite "Rede Virtual". Localize **Rede Virtual** na lista retornada e clique para abrir a folha **Rede Virtual**.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
+	![Localizar a folha de Recursos de rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Localizar a folha de Recursos de rede Virtual")
 
 3. Perto da parte inferior da folha Rede Virtual, na lista **Selecionar um modelo de implantação**, selecione **Resource Manager** e clique em **Criar**.
 
 
-	![Selecione Gerenciador de Recursos](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
+	![Selecione Gerenciador de Recursos](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Selecione Gerenciador de Recursos")
 
-4. Na folha **Criar rede virtual**, defina as configurações da VNet. Nesta folha, você adicionará o primeiro espaço de endereço e um único intervalo de endereços de sub-rede. Depois de terminar a criação da rede virtual, você poderá voltar e adicionar espaços de endereço e sub-redes adicionais. Esta é uma limitação atual do portal. Você sempre pode voltar para atualizar esses valores, editando as propriedades da rede virtual no portal ou usando o PowerShell. Os valores que você usa dependerão da configuração que você deseja criar. Lembre-se de consultar os valores de configuração planejados.
+4. Na folha **Criar rede virtual**, defina as configurações de rede virtual. Durante o preenchimento dos campos, o ponto de exclamação vermelho se tornará um ponto de seleção verde quando os caracteres digitados no campo forem válidos.
 
-	![Criar folha de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
+	![Validação do campo](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Validação do campo")
 
-5. Verifique se a **Assinatura** é a correta. Você pode alterar as assinaturas usando o menu suspenso.
+5. A folha **Criar rede virtual** é semelhante ao exemplo a seguir. Talvez alguns valores sejam preenchidos automaticamente. Se forem, substitua os valores pelos seus próprios.
 
-6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
+	![Criar folha de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Criar folha de rede virtual")
 
-7. Em seguida, selecione as configurações do **Local** para sua VNet. Observe que o local determinará onde ficarão os recursos que você implanta para essa rede virtual. Você não pode alterar isso posteriormente sem reimplantar seus recursos.
+6. **Nome**: insira o nome de sua Rede Virtual.
 
-8. Selecione **Fixar no painel** se quiser ser capaz de encontrar sua VNet facilmente no painel, em seguida, clique em **Criar**.
+7. **Espaço de endereço**: insira o espaço de endereço. Se houver vários espaços de endereço para adicionar, adicione seu espaço de endereço primeiro. Você pode adicionar outros espaços de endereço posteriormente, depois de criar a rede virtual.
+ 
+8. **Nome da sub-rede**: adicione o nome da sub-rede e o intervalo de endereços de sub-rede. Você pode adicionar outras sub-redes posteriormente, depois de criar a rede virtual.
+
+10. **Assinatura**: verifique se a assinatura listada é a correta. Você pode alterar as assinaturas usando o menu suspenso.
+
+11. **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
+
+12. **Local**: selecione o local de sua rede virtual. O local determina onde ficarão os recursos que você implanta nessa rede virtual.
+
+13. Selecione **Fixar no painel** se quiser ser capaz de encontrar sua VNet facilmente no painel, em seguida, clique em **Criar**.
 	
-	![Fixar no painel](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+	![Fixar no painel](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "fixar no painel")
 
+14. Depois de clicar em **Criar**, você verá um bloco em seu painel refletir o progresso de sua rede virtual. O bloco muda à medida que a rede virtual é criada.
 
-9. Depois de clicar em Criar, você verá um bloco em seu painel refletir o progresso de sua rede virtual. O bloco mudará à medida que a rede virtual é criada.
+	![Criar bloco de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Criar bloco de rede virtual")
 
-	![Criar bloco de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+<!---HONumber=AcomDC_1005_2016-->

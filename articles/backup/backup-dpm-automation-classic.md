@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/27/2016"
 	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
@@ -340,4 +340,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 - Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

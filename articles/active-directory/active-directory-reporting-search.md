@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -39,7 +39,7 @@ Entradas de endereços IP com atividade suspeita | Não
 Entradas de dispositivos possivelmente infectados | Não
 Atividades de entrada irregulares | Não
 Usuários com atividade de entrada anômala | Não
-Usuários com credenciais insuficientes | Não
+Usuários com credenciais vazadas | Não
 Relatório de auditoria | Sim
 Atividade de redefinição de senha | Sim
 Atividade de registro de redefinição de senha | Sim
@@ -58,4 +58,4 @@ Uso de dispositivo do RMS | Não
  - [Relatórios do Active Directory do Azure](active-directory-view-access-usage-reports.md)
  - [Eventos de Auditoria de Relatórios do Active Directory do Azure](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

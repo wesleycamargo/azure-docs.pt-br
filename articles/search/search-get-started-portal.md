@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure | Introdução à Pesquisa do Azure | Banco de Dados de Documentos | Serviço de pesquisa na nuvem" 
-	description="Crie sua primeira solução de Pesquisa do Azure usando este tutorial passo a passo. Saiba como criar um índice de Pesquisa do Azure usando dados do Banco de Dados de Documentos. Este é um exercício sem código baseado no portal, usando o assistente para Importação de dados." 
+	pageTitle="Introdução ao Azure Search | Microsoft Azure | DocumentDB | Serviço de pesquisa na nuvem" 
+	description="Aprenda a criar seu primeiro índice do Azure Search usando este tutorial passo a passo e os dados de exemplo do DocumentDB. Este é um exercício sem código e baseado no portal, que usa o Assistente para Importação de Dados." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="08/29/2016" 
+	ms.date="10/03/2016" 
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure no portal
@@ -23,7 +23,7 @@ Esta introdução sem código ajuda você a começar a usar a Pesquisa do Micros
 
 Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Documentos do Azure](#apdx-sampledata) simples para criar usando nossos dados e instruções, mas também é possível adaptar estas etapas aos dados existentes no Banco de Dados de Documentos ou no Banco de Dados SQL.
 
-> [AZURE.NOTE] Este tutorial requer uma [Assinatura do Azure](../../includes/free-trial-note.md) e um [serviço Azure Search](search-create-service-portal.md).
+> [AZURE.NOTE] Este tutorial requer uma [Assinatura do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço Azure Search](search-create-service-portal.md).
  
 ## Localizar o serviço
 
@@ -35,15 +35,15 @@ Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Docu
 
 ## Verificar o espaço
 
-Muitos clientes começam com o serviço gratuito. Essa versão é limitada a três índices, três fontes de dados e três indexadores. Verifique se há espaço para itens extras antes de começar. Este passo a passo criará um de cada objeto.
+Muitos clientes começam com o serviço gratuito. Essa versão é limitada a três índices, três fontes de dados e três indexadores. Verifique se há espaço para itens extras antes de começar. Este passo a passo cria um de cada objeto.
 
 ## Criar um índice e carregar dados
 
-Consultas de pesquisa são iteradas em um *índice* que contém os dados pesquisáveis, metadados e construções usados para otimizar certos comportamentos de pesquisa. Como primeira etapa, você precisará definir e popular um índice.
+Consultas de pesquisa são iteradas em um *índice* que contém os dados pesquisáveis, metadados e construções usados para otimizar certos comportamentos de pesquisa. Como primeira etapa, você precisa definir e popular um índice.
 
 Há várias maneiras de criar um índice. Se os dados estiverem em um repositório que a Pesquisa do Azure pode rastrear - como o Banco de Dados SQL, SQL Server em uma VM do Azure ou Banco de Dados de Documentos - você poderá criar e preencher um índice muito facilmente usando um *indexador*.
 
-Para mantermos essa tarefa baseada no portal, iremos supor que os dados do Banco de Dados de Documentos podem ser rastreados com um indexador via assistente **Importar dados**.
+Para mantermos essa tarefa baseada no portal, supomos que os dados do DocumentDB possam ser rastreados com um indexador via assistente **Importar dados**.
 
 Antes de continuar, crie um [banco de dados de exemplo do Banco de Dados de Documentos](#apdx-sampledata) a ser usado com este tutorial e volte para esta seção para concluir as etapas abaixo.
 
@@ -52,13 +52,13 @@ Antes de continuar, crie um [banco de dados de exemplo do Banco de Dados de Docu
 
 1. No painel de serviço de Pesquisa do Azure, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e preenche um índice.
 
-  ![][7]
+    ![][7]
 
 2. No assistente, clique em **Fonte de Dados** > **Banco de Dados de Documentos** > **Nome** e digite um nome para a fonte de dados. Uma fonte de dados é um objeto de conexão na Pesquisa do Azure que pode ser usado com outros indexadores. Após ser criado, ele se torna disponível como uma "fonte de dados existente" em seu serviço.
 
 3. Escolha sua conta existente do Banco de Dados de Documentos e o banco de dados e a coleção. Se você estiver usando os dados de exemplo que fornecemos, a definição de fonte de dados terá esta aparência:
 
-  ![][2]
+    ![][2]
 
 Observe que estamos pulando a consulta. Isso ocorre porque não estamos implementando o acompanhamento de alterações em nosso conjunto de dados desta vez. Se o conjunto de dados incluir um campo que acompanha quando um registro é atualizado, você poderá configurar um indexador de Pesquisa do Azure para usar o acompanhamento de alterações para atualizações seletivas no índice.
 
@@ -141,14 +141,14 @@ Para saber mais sobre outros recursos mencionados neste artigo, acesse estes lin
 
 Você pode experimentar esse mesmo fluxo de trabalho usando o assistente para importação de dados para outras fontes de dados, como um Banco de Dados SQL ou o SQL Server em máquinas virtuais do Azure.
 
-> [AZURE.NOTE] O suporte do indexador para rastrear o Armazenamento de Blobs do Azure foi recém-lançado, mas esse recurso está em visualização e ainda não é uma opção do portal. Para testar o indexador, você precisará escrever código. Consulte [Indexação do armazenamento de Blobs do Azure na Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) para saber mais. <a id="apdx-sampledata"></a>
+> [AZURE.NOTE] O suporte do indexador para rastrear o Armazenamento de Blobs do Azure foi recém-lançado, mas esse recurso está em visualização e ainda não é uma opção do portal. Para testar o indexador, você precisa escrever código. Consulte [Indexação do armazenamento de Blobs do Azure na Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) para saber mais. <a id="apdx-sampledata"></a>
 
 
 ## Apêndice: Criar dados de exemplo no Banco de Dados de Documentos
 
 Esta seção cria um pequeno banco de dados no Banco de dados de Documentos que pode ser usado para concluir as tarefas deste tutorial.
 
-As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se precisar de ajuda com tarefas ou navegação do portal do Banco de Dados de Documentos, você poderá consultar a documentação do Banco de Dados de Documentos, mas a maioria dos comandos de que precisará está na barra de comandos de serviço na parte superior do painel ou na folha de banco de dados.
+As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se precisar de ajuda com tarefas ou navegação do portal do DocumentDB, você poderá consultar a documentação do DocumentDB, mas a maioria dos comandos de que precisará está na barra de comandos de serviço na parte superior do painel ou na folha de banco de dados.
 
   ![][1]
 
@@ -156,7 +156,7 @@ As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se
 
 1. [Clique aqui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para baixar um arquivo ZIP com os arquivos de dados JSON do repositório de músicas. Fornecemos 246 documentos JSON para este conjunto de dados.
 2. Adicione o DocumentDB à sua assinatura e abra o painel de serviço.
-2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparecerá em um bloco de banco de dados mais abaixo na página, após sua criação.
+2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparece em um bloco de banco de dados mais abaixo na página, após sua criação.
 2. Clique no nome do banco de dados para abrir a folha de banco de dados.
 3. Clique em **Adicionar Coleção** para criar uma coleção com a ID `musicstorecoll`.
 3. Clique em **Gerenciador de Documentos**.
@@ -169,7 +169,7 @@ As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se
 6. Repita para obter o próximo lote de arquivos até que você tenha carregado o último, 669.json.
 7. Clique em **Gerenciador de Consultas** para verificar se os dados são carregados para atender aos requisitos de carregamento do Gerenciador de Documentos.
 
-Uma maneira fácil de fazer isso é usar a consulta padrão, mas você pode modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados).
+Uma maneira fácil de fazer isso é usar a consulta padrão, mas você também pode modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados).
 
 Você deve obter a saída JSON, começando pelo documento número 386 e terminando com o documento 669. Depois dos dados serem carregados, você poderá [voltar para as etapas neste passo a passo](#defineDS) para criar um índice usando o **Assistente de importação de dados**.
 
@@ -183,4 +183,4 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

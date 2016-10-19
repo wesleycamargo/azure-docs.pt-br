@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -51,7 +51,7 @@ Esta seção descreve como permitir que os usuários autentiquem no Evidence.com
 
 **Para configurar o logon único, execute as seguintes etapas:**
 
-1.	Depois de adicionar o Evidence.com no Portal Clássico do Azure, clique em **Configurar Logon Único**. 
+1.	Depois de adicionar o Evidence.com no Portal Clássico do Azure, clique em **Configurar Logon Único**.
  
 2.	Na tela seguinte, escolha **Logon Único do AD do Azure** e clique em **Próximo**.
 
@@ -107,4 +107,4 @@ Para que os usuários provisionados do AAD possam ver o Evidence.com em seus Pai
  
 4.	No rodapé da página, clique no botão **Atribuir**.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0928_2016-->

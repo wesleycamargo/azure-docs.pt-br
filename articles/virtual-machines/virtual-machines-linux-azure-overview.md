@@ -18,7 +18,7 @@
 
 # Azure e Linux
 
-O Microsoft Azure é uma coleção crescente de serviços de nuvem públicos integrados, incluindo análise, Máquinas Virtuais, bancos de dados, mobilidade, rede, armazenamento, e Web, ideais para hospedar suas soluções. O Microsoft Azure fornece uma plataforma de computação dimensionável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local. O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
+O Microsoft Azure é uma coleção crescente de serviços de nuvem públicos integrados, incluindo análise, Máquinas Virtuais, bancos de dados, mobilidade, rede, armazenamento, e Web, ideais para hospedar suas soluções. O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local. O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
 
 Se você estiver familiarizado com os diversos recursos do AWS da Amazon, examine o [documento de mapeamento de definição do Azure versus AWS](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
@@ -112,8 +112,8 @@ Agora você tem uma conta do Azure, o Portal da Web do Azure e a CLI do Azure. A
 ## Introdução ao Linux no Microsoft Azure
 Com a configuração da conta do Azure, a CLI do Azure instalada e as chaves SSH criadas, agora você está pronto para começar a criar uma infraestrutura na Nuvem do Azure. A primeira tarefa é criar duas VMs.
 
-## Criar uma VM na CLI
-Criar uma VM do Linux na CLI é uma maneira rápida de implantar uma VM sem sair do terminal no qual você está trabalhando. Tudo o que você pode especificar no portal da Web está disponível por meio de um sinalizador ou opção de linha de comando.
+## Criar uma VM usando a CLI
+Criar uma VM do Linux usando a CLI é uma maneira rápida de implantar uma VM sem sair do terminal no qual você está trabalhando. Tudo o que você pode especificar no portal da Web está disponível por meio de um sinalizador ou opção de linha de comando.
 
 - [Criar uma VM Linux usando a CLI](virtual-machines-linux-quick-create-cli.md)
 
@@ -123,7 +123,7 @@ Criar uma VM do Linux no Portal da Web do Azure é uma maneira fácil de apontar
 - [Criar uma VM Linux usando o portal](virtual-machines-linux-quick-create-portal.md)
 
 ## Fazer logon usando SSH sem uma senha
-Agora, a VM está em execução no Azure e você está pronto para fazer logon. Usar senhas para logon via SSH é inseguro e demorado. Usar chaves SSH é a maneira mais segura, e também a mais rápida, de fazer logon. Quando você cria sua VM do Linux por meio do portal ou da CLI, você tem duas opções de autenticação. Se você escolher uma senha para o SSH, o Azure configurará a VM para permitir logons por meio de senhas. Se você optar por usar uma chave pública SSH, o Azure configurará a VM para permitir somente os logons por meio de chaves SSH, e desabilita logons com senha. Para proteger sua VM do Linux, permitindo apenas logons com chave SSH, use a opção de chave pública SSH durante a criação da VM no portal ou CLI.
+Agora, a VM está em execução no Azure e você está pronto para fazer logon. Usar senhas para fazer logon via SSH é inseguro e demorado. Usar chaves SSH é a maneira mais segura, e também a mais rápida, de fazer logon. Quando você cria sua VM do Linux por meio do portal ou da CLI, você tem duas opções de autenticação. Se você escolher uma senha para o SSH, o Azure configurará a VM para permitir logons por meio de senhas. Se você optar por usar uma chave pública SSH, o Azure configurará a VM para permitir somente os logons por meio de chaves SSH, e desabilita logons com senha. Para proteger sua VM do Linux, permitindo apenas logons com chave SSH, use a opção de chave pública SSH durante a criação da VM no portal ou na CLI.
 
 - [Desabilitar senhas SSH na sua VM Linux configurando o SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
@@ -158,10 +158,10 @@ Agora, a VM está em execução no Azure e você está pronto para fazer logon. 
 
 ## Próximas etapas
 
-Agora você tem uma visão geral do Linux no Azure. A próxima etapa é mergulhar de cabeça e criar algumas VM!
+Agora você tem uma visão geral do Linux no Azure. A próxima etapa é mergulhar de cabeça e criar algumas VMs!
 
 - [Criar uma VM do Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md)
 
 - [Criar uma VM do Linux no Azure usando a CLI](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

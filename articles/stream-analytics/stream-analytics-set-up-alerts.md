@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ As regras podem ser configuradas em métricas por meio do portal ou [de modo pro
 
 ## Configurar alertas por meio do Portal Clássico do Azure
 
-Há duas maneiras de configurar alertas no portal de Gerenciamento do Azure:
+Há duas maneiras de configurar alertas no Portal Clássico do Azure:
 
 1.	Na guia **Monitorar** do seu trabalho do Stream Analytics
 2.	No Log de Operações nos Serviços de gerenciamento
@@ -64,15 +64,15 @@ Há duas maneiras de configurar alertas no portal de Gerenciamento do Azure:
 
 No portal do Azure, navegue até o trabalho do Stream Analytics do qual você deseja receber alertas e clique na seção **Monitoramento**. Na folha **Métrica** que é aberta, clique no comando **Adicionar alerta**.
 
-  ![Configuração do Portal do Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+  ![Configuração do portal do Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
 Você pode nomear a regra de alerta e escolher uma descrição que aparecerá no email de notificação.
 
 Ao selecionar Métricas, você escolherá uma condição e um valor de limite para a métrica.
 
-  ![Métrica de seleção do Portal do Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+  ![Seleção de métrica no portal do Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
-Para obter mais detalhes sobre como configurar alertas no portal do Azure, veja [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md).
+Para obter mais detalhes sobre como configurar alertas no portal do Azure, consulte [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md).
 
 ## Obter ajuda
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
@@ -85,4 +85,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

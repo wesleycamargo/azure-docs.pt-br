@@ -64,12 +64,12 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 	- **GatewaySubnet**. A sub-rede de conexão híbrida do Azure necessária para o Gateway de VPN e a Rota Expressa para fornecer conectividade entre VNets do Azure e outras redes.
 - Há 3 dispositivos virtuais de firewall na rede **azurevnet**.
 	- **AZF1**. Firewall externo exposto à Internet pública usando um recurso de endereço IP público do Azure. Você precisa garantir que tem um modelo do Marketplace, ou diretamente do seu fornecedor de dispositivo, que provisiona um dispositivo virtual de 3 NICs.
-	- **AZF2**. Firewall interno usado para tráfego de controle entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
+	- **AZF2**. Firewall interno usado para controlar o tráfego entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
 	- **AZF3**. O firewall de gerenciamento acessível aos administradores do datacenter local e conectado a uma sub-rede de gerenciamento usada para gerenciar todos os dispositivos de firewall. Você pode encontrar modelos de dispositivo virtual de 2 NICs no Marketplace ou solicitar uma diretamente do seu fornecedor de dispositivo.
 
 ## Roteamento definido pelo usuário (UDR)
 
-Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?
+Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Para garantir a comunicação seja feita por meio do dispositivo de firewall correto, com base no último requisito acima, você precisará criar a seguinte tabela de rotas contendo UDRs em **azurevnet**.
 
@@ -178,4 +178,4 @@ Para implantar este cenário, siga as etapas de alto nível abaixo.
 4.	Provisionar o túnel de **onpremvnet** para **azurevnet**.
 5.	Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

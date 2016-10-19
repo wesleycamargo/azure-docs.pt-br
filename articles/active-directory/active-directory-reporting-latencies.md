@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -30,7 +30,7 @@ Entradas de várias geografias | 2 horas | 4 horas | 8 horas
 Entradas de endereços IP com atividade suspeita | 2 horas | 4 horas | 8 horas
 Entradas de dispositivos possivelmente infectados | 2 horas | 4 horas | 8 horas
 Usuários com atividade de entrada anômala | 2 horas | 4 horas | 8 horas
-Usuários com credenciais insuficientes | 2 horas | 4 horas | 8 horas
+Usuários com credenciais vazadas | 2 horas | 4 horas | 8 horas
 **Relatórios de aplicativo** | | |
 Atividade de provisionamento de conta | 2 horas | 4 horas | 8 horas
 Erros de provisionamento de conta | 2 horas | 4 horas | 8 horas
@@ -52,4 +52,4 @@ Uso de aplicativos habilitados para RMS | 2 horas | 4 horas | 8 horas
 **Relatórios de visualização particular** | | |
 Toda atividade de entrada do usuário | 2 horas | 4 horas | 8 horas
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

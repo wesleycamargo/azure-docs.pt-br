@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -31,7 +31,7 @@ Entradas de endereços IP com atividade suspeita | 30 dias
 Entradas de dispositivos possivelmente infectados | 30 dias
 Atividades de entrada irregulares | 30 dias
 Usuários com atividade de entrada anômala | 30 dias
-Usuários com credenciais insuficientes | 30 dias
+Usuários com credenciais vazadas | 30 dias
 Relatório de auditoria | 180 dias
 Atividade de redefinição de senha (Azure AD) | 30 dias
 Atividade de redefinição de senha (Identity Manager) | 30 dias
@@ -48,4 +48,4 @@ Usuários RMS mais ativos | 30 dias
 Uso de dispositivo do RMS | 30 dias
 Uso de aplicativos habilitados para RMS | 30 dias
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

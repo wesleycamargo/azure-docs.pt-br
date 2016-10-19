@@ -18,7 +18,7 @@
 
 # Com o Azure, a SnelStart expandiu rapidamente seus serviços comerciais a uma taxa de 1.000 novos Bancos de Dados SQL do Azure por mês
 
-![Logotipo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+![Logotipo da SnelStart](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 A SnelStart torna populares programas de software de gerenciamento financeiro e comercial para SMBs (pequenas e médias empresas) nos Países Baixos. Seus 55.000 clientes são atendidos por uma equipe de 110 funcionários, incluindo uma equipe de TI de 35 pessoas. Ao passar do software de desktop para uma oferta de SaaS (software como serviço) criada no Azure, a SnelStart aproveita ao máximo os serviços internos, automatizando o gerenciamento usando ambiente familiar no C#, bem como otimizando o desempenho e a escalabilidade sem provisionamento em excesso ou escasso às empresas usando pools de bancos de dados elásticos. Usando o Azure, a SnelStart tem a fluidez de mover os clientes entre o local e a nuvem.
 
@@ -80,7 +80,7 @@ Usando o Azure, a SnelStart pode atender aos seus clientes e contadores mais ade
 
 Além disso, os serviços Web da SnelStart permitem que clientes e contadores acessem facilmente os dados em pools elásticos do Banco de Dados SQL do Azure. Esse modelo de SaaS, aliado à elasticidade do banco de dados e ao Azure Resource Manager, fornece a SnelStart recursos de escalabilidade que complementam cada implantação do Azure. A implementação é totalmente automatizada usando bibliotecas de gerenciamento do C#.
 
-![A figura 1](./media/sql-database-case-study-snelstart/figure1.png)
+![Arquitetura da SnelStart](./media/sql-database-implementation-snelstart/figure1.png)
 
 Figura 1. Desde junho de 2016, a SnelStart tem mais de 11.000 bancos de dados e mais de 50 pools de banco de dados elásticos
  
@@ -105,4 +105,4 @@ A SnelStart também está satisfeita com a forte parceria desenvolvida com a equ
 
 - Para saber mais sobre a SnelStart, confira [SnelStart](http://www.snelstart.nl).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

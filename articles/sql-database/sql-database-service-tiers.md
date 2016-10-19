@@ -19,7 +19,7 @@
 
 # Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
 
-O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece três camadas de serviço com vários níveis de desempenho a fim de lidar com cargas de trabalho diferentes. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, projetado para fornecer uma taxa de transferência crescente. Você pode gerenciar cada banco de dados em sua própria [camada de serviço](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) com seu próprio nível de desempenho. Você também pode gerenciar vários bancos de dados em um [pool Elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) com um conjunto compartilhado de recursos. Os recursos disponíveis para bancos de dados autônomos são expressos em termos de DTUs (Unidades de transação de banco de dados), e para pools elásticos em termos de DTUs elásticos, ou eDTUs. Para saber mais sobre DTUs e eDTUs, confira [O que é um DTU](sql-database-what-is-a-DTU.md).
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece três camadas de serviço com vários níveis de desempenho a fim de lidar com cargas de trabalho diferentes. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, projetado para fornecer uma taxa de transferência crescente. Você pode gerenciar cada banco de dados em sua própria [camada de serviço](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) com seu próprio nível de desempenho. Você também pode gerenciar vários bancos de dados em um [pool Elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) com um conjunto compartilhado de recursos. Os recursos disponíveis para bancos de dados autônomos são expressos em termos de DTUs (Unidades de transação de banco de dados), e para pools elásticos em termos de DTUs elásticos, ou eDTUs. Para saber mais sobre DTUs e eDTUs, confira [O que é um DTU](sql-database-what-is-a-dtu.md).
 
 Nos dois casos, as camadas de serviço incluem **Básico**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados autônomos e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados autônomos e pools elásticos.
 
@@ -88,4 +88,4 @@ Depois de determinar a camada de serviço para o pool, você estará pronto para
 
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!----HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

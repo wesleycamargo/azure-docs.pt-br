@@ -20,7 +20,7 @@
 
 Você deve seguir o procedimento de integração descrito em [Como integrar o Engagement no documento iOS](mobile-engagement-ios-integrate-engagement.md) antes de seguir este guia.
 
-Esta documentação requer o XCode 8. Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido nesta versão anterior durante a execução em dispositivos com iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API preterida `application:didReceiveRemoteNotification:` em seu aplicativo delegado da seguinte maneira:
+Esta documentação requer o XCode 8. Se você realmente depende do XCode 7, pode usar o [SDK do iOS Engagement v3.2.4](https://aka.ms/r6oouh). Há um bug conhecido nesta versão anterior durante a execução em dispositivos com iOS 10: as notificações de sistema não são acionadas. Para corrigir isso, você terá que implementar a API desaprovada `application:didReceiveRemoteNotification:` no representante do aplicativo da seguinte maneira:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -101,15 +101,29 @@ Siga o guia: [Como preparar seu aplicativo para notificações por push da Apple
 
 *Nesse ponto seu aplicativo deve ter um certificado de push Apple registrado no front-end do Engagement.*
 
-Se ele já não foi feito, você precisa registrar seu aplicativo para receber notificações por push. Adicione a seguinte linha na inicialização do aplicativo (normalmente em `application:didFinishLaunchingWithOptions:`):
+Se ele já não foi feito, você precisa registrar seu aplicativo para receber notificações por push.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* Importe a estrutura `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* Adicione a seguinte linha na inicialização do aplicativo (normalmente em `application:didFinishLaunchingWithOptions:`):
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 Em seguida, você precisa fornecer ao Engagement o token de dispositivo retornado pelos servidores da Apple. Isso é feito no método chamado `application:didRegisterForRemoteNotificationsWithDeviceToken:` no seu representante de aplicativo:
 
@@ -230,7 +244,7 @@ Ou herdando da classe `AEUserNotificationHandler`
 
 	@end
 
-> [AZURE.NOTE] Você pode determinar se uma notificação vem do Engagement ou não, passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
+> [AZURE.NOTE] Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
 
 ##Como personalizar campanhas
 
@@ -486,4 +500,4 @@ Como para personalização da notificação avançada, é recomendável examinar
 
 	@end
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

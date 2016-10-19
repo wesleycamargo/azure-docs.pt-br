@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Arquitetura de referência: processamento de eventos em tempo real com o Stream Analytics do Microsoft Azure
@@ -63,4 +63,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

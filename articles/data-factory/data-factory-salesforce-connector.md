@@ -3,7 +3,7 @@
 	description="Saiba mais sobre como mover os dados do Salesforce usando o Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
-	ms.author="spelluru"/>
+	ms.date="09/26/2016"
+	ms.author="jingwang"/>
 
 # Mover dados do Salesforce usando o Azure Data Factory
 Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Factory para copiar os dados do Salesforce para qualquer armazenamento de dados listado na coluna Coletores tabela de [fontes de dados e coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores). Este artigo se baseia no artigo de [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a Atividade de Cópia e combinações de armazenamentos de dados com suporte.
@@ -194,7 +194,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 ## Propriedades do conjunto de dados Salesforce
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como a estrutura, disponibilidade e política de um JSON do conjunto de dados são parecidas para todos os tipos de conjuntos de dados (SQL do Azure, blob do Azure, tabela do Azure etc.).
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure e outros).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
@@ -209,20 +209,20 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 ## Propriedades do tipo RelationalSource
 Para obter uma lista completa das seções e propriedades disponíveis para definir as atividades, veja o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades como o nome, descrição, tabelas de entrada e saída, e várias políticas estão disponíveis para todos os tipos de atividades.
 
-As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam com cada tipo de atividade e, no caso da Atividade de Cópia, variam dependendo dos tipos de origens e coletores.
+As propriedades que estão disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a Atividade de Cópia, elas variam de acordo com os tipos de fonte e coletor.
 
-No caso da Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
+Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| query | Utiliza a consulta personalizada para ler os dados. | Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.pt-BR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: select * from MyTable\_\_c. | Não (se **tableName** do **conjunto de dados** for especificado) |
+| query | Utiliza a consulta personalizada para ler os dados. | Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.pt-BR.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. | Não (se **tableName** do **conjunto de dados** for especificado) |
 
-> [AZURE.IMPORTANT] A parte "\_\_c" do Nome da API é necessária para qualquer objeto personalizado.<br> Quando você especificar uma consulta que inclui a cláusula **where** na coluna DateTime, use SOQL. Por exemplo: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd) ou a consulta SQL, por exemplo, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
+> [AZURE.IMPORTANT] A parte "\_\_c" do Nome da API é necessária para qualquer objeto personalizado.<br> Quando você especificar uma consulta que inclui a cláusula **where** na coluna DateTime, use SOQL. Por exemplo: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
 
 ![Data Factory — conexão Salesforce — nome da API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Recuperando dados do relatório do Salesforce
-É possível recuperar dados dos relatórios do Salesforce especificando a consulta como {call "<nome do relatório>"}, por exemplo, "query": "{call "RelatórioDeTeste"}".
+Você pode recuperar dados de relatórios do Salesforce especificando a consulta como `{call "<report name>"}`, por exemplo, `"query": "{call "TestReport"}"`.
 
 ## Limites da solicitação Salesforce
 O Salesforce tem limites para o total de solicitações de API e as solicitações simultâneas de API. Veja a seção "Limites de Solicitações da API" no artigo [Limites do Desenvolvedor Salesforce](http://resources.docs.salesforce.com/200/20/pt-BR/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) para obter detalhes.
@@ -261,4 +261,4 @@ URL | Cadeia de caracteres
 ## Desempenho e ajuste  
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação dos dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

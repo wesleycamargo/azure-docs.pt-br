@@ -3,7 +3,7 @@
    description="Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Windows no Azure"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -41,7 +41,7 @@ No portal do Azure, clique em **Procurar** > **Máquinas virtuais** > *sua máqu
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM estará paralisada na tela do OOBE.
+**N<sup>1</sup>:** se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento, com a VM paralisada na tela do OOBE.
 
 **N<sup>2</sup>:** se o sistema operacional for Windows especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento com a VM paralisada na tela do OOBE, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
 
@@ -84,4 +84,4 @@ Dependendo das restrições do serviço de nuvem usado para criar a nova VM, voc
 ## Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

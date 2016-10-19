@@ -22,7 +22,7 @@ Os Aplicativos Lógicos fornecem um conjunto de ferramentas e padrões avançado
 
 ## Políticas de repetição
 
-O tipo mais básico de exceção e de tratamento de erros é uma política de repetição. Essa política define se a ação deve tentar novamente quando a solicitação inicial atingiu o tempo limite ou falhou (qualquer solicitação que resultou em uma resposta 429 ou 5xx). Por padrão, todas as ações tentam novamente por mais três vezes em intervalos de 20 segundos. Portanto, se a primeira solicitação recebeu uma resposta `500 Internal Server Error`, o mecanismo de fluxo de trabalho pausa por 20 segundos e tenta a solicitação novamente. Se depois de todas as novas tentativas a resposta ainda for uma exceção ou falha, o fluxo de trabalho prosseguirá e marcará o status da ação como `Failed`.
+O tipo mais básico de exceção e de tratamento de erros é uma política de repetição. Essa política define se a ação deve tentar novamente quando a solicitação inicial atingiu o tempo limite ou falhou (qualquer solicitação que resultou em uma resposta 429 ou 5xx). Por padrão, todas as ações tentam novamente por mais quatro vezes em intervalos de 20 segundos. Portanto, se a primeira solicitação recebeu uma resposta `500 Internal Server Error`, o mecanismo de fluxo de trabalho pausa por 20 segundos e tenta a solicitação novamente. Se depois de todas as novas tentativas a resposta ainda for uma exceção ou falha, o fluxo de trabalho prosseguirá e marcará o status da ação como `Failed`.
 
 Você pode configurar políticas de repetição nas **entradas** de uma ação específica. Uma política de repetição pode ser configurada para testar intervalos de até quatro vezes em uma hora. Os detalhes completos sobre as propriedades de entrada podem ser [encontrados no MSDN][retryPolicyMSDN].
 
@@ -207,4 +207,4 @@ Os padrões acima são uma ótima maneira de identificar erros e exceções dent
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como resolver problemas quando seu cartão de crédito ou débito é recusado quando você tenta inscrever-se no Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
@@ -74,4 +74,4 @@ Se você quiser atualizar detalhes do cartão, alterar ou remover um cartão, sa
 
 > [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

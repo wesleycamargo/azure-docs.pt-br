@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -22,7 +22,7 @@ Este tutorial mostrará como conectar o ambiente Salesforce ao Active Directory 
 
 ##Pré-requisitos
 
-1. Para acessar o Active Directory do Azure por meio do [Portal clássico do Azure](https://manage.windowsazure.com), primeiro é preciso ter uma assinatura válida do Azure.
+1. Para acessar o Azure Active Directory usando o [portal clássico do Azure](https://manage.windowsazure.com), você precisará ter uma assinatura válida do Azure.
 
 2. Você deve ter um locatário válido em [Salesforce.com](https://www.salesforce.com/).
 
@@ -256,4 +256,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

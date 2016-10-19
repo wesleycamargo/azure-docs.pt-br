@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure" 
+	pageTitle="CENC com Vários DRMs e Controle de Acesso: um Design e Implementação de Referência no Azure e nos Serviços de Mídia do Azure | Microsoft Azure" 
 	description="Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente do Microsoft® Smooth Streaming." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
@@ -33,7 +33,7 @@ Os tópicos a seguir são abordados neste artigo:
 - [Implementação](media-services-cenc-with-multidrm-access-control.md#implementation)
 	- [Procedimentos de implementação](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
 	- [Algumas pegadinhas na implementação](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-- [Tópicos adicionais para implementação](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+- [Tópicos Adicionais para Implementação](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
 	- [HTTP ou HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
 	- [Substituição de chave de assinatura do Active Directory do Azure](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
 	- [Onde está o Token de Acesso?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
@@ -70,7 +70,7 @@ O objetivo deste artigo inclui o seguinte:
 
 1. Fornece um design de referência do subsistema DRM usando CENC com vários DRM;
 1. Fornece uma implementação de referência na plataforma Microsoft Azure/Serviços de Mídia do Azure;
-1. Discute alguns tópicos de design e implementação.
+1. Analisa alguns tópicos de design e implementação.
 
 No artigo, "várias DRM" abordam o seguinte:
 
@@ -159,11 +159,11 @@ Elas têm impacto direto no custo de entrega de licença se você usa a nuvem p�
 
 
 
-1. Assinatura mensal: usar licença persistente e mapeamento chave-para-ativo de conteúdo 1-para-vários. Por exemplo, para todos os filmes de crianças, usamos uma única chave de conteúdo para criptografia. Nesse caso:
+1. Assinatura mensal: use a licença persistente e o mapeamento de chaves para ativos com conteúdo de um para muitos. Por exemplo, para todos os filmes de crianças, usamos uma única chave de conteúdo para criptografia. Nesse caso:
 
 	Número total de licenças solicitadas para todos os filmes de criança/dispositivo = 1
 
-1. Assinatura mensal: usar licença não persistente e mapeamento 1-para-1 entre a chave de conteúdo e o ativo. Nesse caso:
+1. Assinatura mensal: use a licença não persistente e o mapeamento de um para um entre a chave e o ativo do conteúdo. Nesse caso:
 
 	Número total de licenças solicitadas para todos os filmes de criança/dispositivo = [# de filmes observados] x [# de sessões]
 
@@ -178,8 +178,8 @@ A tabela abaixo mostra o mapeamento:
 **Bloco de construção**|**Tecnologia**
 ------|-------
 **Player**|[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/)
-**IDP (Provedor de identidade)**|Active Directory do Azure
-**STS (Serviço de Token Seguro)**|Active Directory do Azure
+**IDP (Provedor de identidade)**|Azure Active Directory
+**STS (Serviço de Token Seguro)**|Azure Active Directory
 **Fluxo de trabalho de proteção de DRM**|Proteção dinâmica dos Serviços de Mídia do Azure
 **Entrega de licença do DRM**|1\. Entrega de licença dos Serviços de Mídia do Azure (PlayReady, Widevine, FairPlay) ou <br/>2. Servidor de licença Axinom <br/>3. Servidor de licença do PlayReady personalizado
 **Origem**|Ponto de extremidade dos Serviços de Mídia do Azure
@@ -255,7 +255,7 @@ Para obter informações sobre o Active Directory do Azure:
 
 Há algumas "pegadinhas" na implementação. Esperamos que a lista de “pegadinhas” a seguir possa ajudar você a solucionar problemas caso eles apareçam.
 
-1. A URL do **emissor** deve terminar com **"/"**.  
+1. A URL do **emissor** deve terminar com **"/"**.
 
 	**Audience** deve ser a ID de cliente do aplicativo de player; você também deve adicionar **"/"** no fim da URL do emissor.
 
@@ -292,8 +292,8 @@ Há algumas "pegadinhas" na implementação. Esperamos que a lista de “pegadin
 
 	Com a adição do suporte de JWT (AAD) além de SWT (ACS), o TokenType padrão é TokenType.JWT. Se você usar SWT/ACS, deverá definir como TokenType.SWT.
 
-## Tópicos adicionais para implementação
-Em seguida, discutiremos alguns tópicos adicionais de nosso design e implementação.
+## Tópicos Adicionais para Implementação
+Em seguida, iremos analisar alguns tópicos adicionais em nosso design e implementação.
 
 ###HTTP ou HTTPS?
 
@@ -361,15 +361,15 @@ Precisamos registrar e configurar o aplicativo "ponteiro" no AD do Azure seguind
 
 1.	No locatário do AD do Azure
 
-	- adicione um aplicativo (recurso) com a URL de logon: 
+	- adicione um aplicativo (recurso) com a URL de logon:
 
 	https://[resource_name].azurewebsites.net/ e
 
-	- URL da ID do aplicativo: 
+	- URL da ID do aplicativo:
 	
-	https://[aad_tenant_name].onmicrosoft.com/[resource_name]; 
+	https://[aad_tenant_name].onmicrosoft.com/[resource_name];
 2.	Adicionar uma nova chave para o aplicativo de recurso;
-3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",  
+3.	Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o seguinte valor: "groupMembershipClaims": "All",
 4.	No aplicativo Azure AD que aponta para o aplicativo Web player, na seção "permissões para outros aplicativos", adicione o aplicativo de recurso que foi adicionado na etapa 1 acima. Em "permissões delegadas", verifique a marca de seleção de "Acessar [nome\_recurso]". Isso dá ao aplicativo Web permissão para criar tokens de acesso a fim de acessar o aplicativo de recurso. Você deverá fazer isso para a versão local e a implantada do aplicativo Web se estiver desenvolvendo com Visual Studio e aplicativo Web do Azure.
 	
 Portanto, o token JWT emitido pelo AD do Azure é, de fato, o token de acesso para acessar esse recurso de "ponteiro".
@@ -507,7 +507,7 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 - Um design de referência é apresentado contendo todos os componentes necessários a um subsistema DRM/CENC;
 - Uma implementação de referência no Azure, nos Serviços de Mídia do Azure e no Azure Media Player.
-- Alguns tópicos envolvidos diretamente no design e na implementação também são discutidos.
+- Alguns tópicos envolvidos diretamente no design e na implementação também são analisados.
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -522,4 +522,4 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

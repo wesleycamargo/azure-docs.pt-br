@@ -17,7 +17,7 @@
    ms.date="08/31/2016"
    ms.author="sewhee" />
 
-# Introdução à criação de um balanceador de carga interno usando a CLI do Azure
+# Criar um balanceador de carga interno usando a CLI do Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -306,4 +306,4 @@ Em que **nrprg** é o grupo de recursos e **nrplb** é o nome do balanceador de 
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

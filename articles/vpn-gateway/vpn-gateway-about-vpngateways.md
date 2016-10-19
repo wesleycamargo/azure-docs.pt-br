@@ -34,7 +34,7 @@ Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway
 
 ## SKUs de gateway
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] Para saber mais sobre os SKUs de gateway, consulte [SKUs de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
@@ -148,4 +148,4 @@ Planeje sua configuração de gateway VPN. Consulte [Design e Planejamento do Ga
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

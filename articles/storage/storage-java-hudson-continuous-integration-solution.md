@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+	ms.author="dinesh;robmcm"/>
 
 # Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 
@@ -182,4 +182,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

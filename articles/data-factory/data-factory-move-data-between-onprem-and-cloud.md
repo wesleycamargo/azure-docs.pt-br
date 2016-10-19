@@ -4,7 +4,7 @@
     keywords="gateway de dados, integração de dados, mover dados, credenciais de gateway"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 Este artigo fornece uma visão geral da integração de dados entre os armazenamentos de dados locais e os armazenamentos de dados na nuvem usando o Data Factory. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md) e em outros artigos de conceitos principais de data factory: [conjuntos de dados](data-factory-create-datasets.md) e [pipelines](data-factory-create-pipelines.md).
@@ -94,18 +94,18 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 	2. **Nome do gateway** está definido como **adftutorialgateway**.
 	4. A barra de status inferior exibe a mensagem **Conectado ao serviço de nuvem** junto com uma **marca de seleção verde**.
 
-	Na guia **Início**, você também pode fazer o seguinte: - **Registrar** um gateway com uma chave do Portal do Azure usando o botão Registrar. - **Parar** o Serviço de Host do Gateway de Gerenciamento de Dados em execução no computador do gateway. - **Agendar atualizações** para serem instaladas em uma hora específica do dia. - Exibir quando o gateway foi **atualizado pela última vez**.
+	Na guia **Início**, você também pode fazer as seguintes operações: - **Registrar** um gateway com uma chave do Portal do Azure usando o botão Registrar. - **Parar** o Serviço de Host do Gateway de Gerenciamento de Dados em execução no computador do gateway. - **Agendar atualizações** para serem instaladas em uma hora específica do dia. - Exibir quando o gateway foi **atualizado pela última vez**.
 
 8. Alterne para a guia **Configurações**. O certificado especificado na seção **Certificado** é usado para criptografar/descriptografar as credenciais do armazenamento de dados local que você especifica no portal. (opcional) Como alternativa, clique em **Alterar** para usar seu próprio certificado. Por padrão, o gateway usa o certificado que é gerado automaticamente pelo serviço de Data Factory.
 
 	![Configuração do certificado do gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-	Você também pode fazer o seguinte na guia Configurações: - Exibir ou exportar o certificado que está sendo usado pelo gateway. - Alterar o ponto de extremidade HTTPS usado pelo gateway -
+	Você também pode fazer as seguintes operações na guia Configurações: - Exibir ou exportar o certificado que está sendo usado pelo gateway. - Alterar o ponto de extremidade HTTPS usado pelo gateway -
 9. (opcional) Mude para a guia **Diagnóstico** e marque a opção **Habilitar log detalhado** se você quiser habilitar o log detalhado que pode ser usado para solucionar problemas com o gateway. As informações de log podem ser encontradas no **Visualizador de Eventos** em **Logs de Aplicativos e Serviços** -> nó **Gateway de Gerenciamento de Dados**.
 
 	![Guia Diagnósticos](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-	Você também pode fazer o seguinte na guia **Diagnósticos**:
+	Você também pode executar as seguintes ações na guia **Diagnóstico**:
 	
 	- Use a seção **Testar Conexão** para uma fonte de dados local usando o gateway.
 	- Clique em **Exibir Logs** para ver o log de Gateway de Gerenciamento de Dados em uma janela do Visualizador de Eventos.
@@ -121,7 +121,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService**
 1.	No **Editor do Data Factory**, clique em **Novo armazenamento de dados** na barra de ferramentas e selecione **SQL Server**.
 
 	![Serviço vinculado do SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-3.	No **Editor JSON**, faça o seguinte:
+3.	No **Editor JSON**, siga estas etapas:
 	1. Em **gatewayName**, especifique **adftutorialgateway**.
 	2. Se você está usando a Autenticação do Windows:
 		1. Em **connectionString**, defina a **Segurança Integrada** como **true**, especifique o banco de dados **nome do servidor** e **nome do banco de dados** e remova **ID de usuário** e **Senha**.
@@ -157,7 +157,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService**
    
  
 ## Criar conjuntos de dados
-Nesta etapa, você cria conjuntos de dados de entrada e saída que representam dados de entrada e saída da operação de cópia (banco de dados SQL Server local = > armazenamento de blobs do Azure). Antes de criar conjuntos de dados ou tabelas (conjuntos de dados retangulares), você precisa fazer o seguinte (etapas detalhadas seguem a lista):
+Nesta etapa, você cria conjuntos de dados de entrada e saída que representam dados de entrada e saída da operação de cópia (banco de dados SQL Server local = > armazenamento de blobs do Azure). Antes de criar conjuntos de dados ou tabelas (conjuntos de dados retangulares), você precisa fazer seguir estas etapas (etapas detalhadas seguem a lista):
 
 - Criar uma tabela chamada **emp** no banco de dados SQL Server adicionado como um serviço vinculado à data factory e inserir alguns exemplos de entradas na tabela.
 - Crie um contêiner de blob chamado **adftutorial** na conta de armazenamento de blob do Azure que você adicionou como um serviço vinculado à data factory.
@@ -213,7 +213,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 		  }
 		}
 
-	Observe o seguinte:
+	Observe os seguintes pontos:
 	
 	- **type** é definido como **SqlServerTable**.
 	- **tableName** está definido como **emp**.
@@ -249,7 +249,7 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 		  }
 		}
   
-	Observe o seguinte:
+	Observe os seguintes pontos:
 	
 	- **tipo** é definido como **AzureBlob**.
 	- O **linkedServiceName** é definido como **AzureStorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
@@ -331,7 +331,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 			  }
 			}
 
-	Observe o seguinte:
+	Observe os seguintes pontos:
  
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
@@ -358,7 +358,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 	![Link do diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
-2. Você deverá ver o diagrama semelhante ao seguinte:
+2. Você deverá ver o diagrama semelhante à imagem abaixo:
 
 	![Exibição de diagrama](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
@@ -414,4 +414,4 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
 - Confira o artigo [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway de Gerenciamento de Dados) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados.
 - Confira [Copiar dados do Blob do Azure para o SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como usar a Atividade de Cópia para mover dados de um repositório de dados de origem para um repositório de dados de coletor.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

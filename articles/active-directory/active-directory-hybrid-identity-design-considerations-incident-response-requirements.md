@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -63,4 +63,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás de resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

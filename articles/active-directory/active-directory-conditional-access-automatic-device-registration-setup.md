@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -30,8 +30,6 @@ Atualize de modo a permitir o uso da conta corporativa ou de estudante para obte
 Há suporte para registro nas versões anteriores do Windows, incluindo:
 
 - Windows 8.1
-
-- Windows 8.0
 
 - Windows 7
 
@@ -212,9 +210,6 @@ Para isso, você precisa ter uma regra de transformação de emissão que transm
 
 O **<RPObjectName>** é o nome do objeto de terceira parte confiável para seu objeto de confiança de terceira parte confiável do Azure Active Directory. Esse objeto é normalmente nomeado como Plataforma de Identidade do Microsoft Office 365.
 
-
-
-
  
 
 ## Implantação e distribuição 
@@ -223,15 +218,15 @@ Depois que os pré-requisitos estiverem cumpridos, os computadores ingressados e
 
 Computadores ingressados no domínio executando a Atualização de Aniversário do Windows 10 e Windows Server 2016 serão registrados automaticamente no Azure AD na próxima reinicialização ou entrada do usuário no Windows. Novos computadores que ingressaram no domínio serão registrados com o Azure AD na reinicialização após a operação de ingresso no domínio.
 
-> [AZURE.NOTE] Computadores ingressados no domínio executando a Atualização de novembro de 2015 do Windows 10 serão registrados automaticamente no Azure AD somente se o Objeto de Política de Grupo de distribuição estiver definido. Para obter mais informações, consulte a seção a seguir.
+> [AZURE.NOTE] Computadores ingressados no domínio executando a Atualização do Windows 10 serão registrados automaticamente no Azure AD somente se o Objeto de Política de Grupo de distribuição estiver definido. Para obter mais informações, consulte a seção a seguir.
 
 Há um objeto de Política de Grupo que você pode usar para a finalidade de controlar a distribuição de registro automático de computadores ingressados no domínio executando Windows 10/Windows Server 2016. Há um pacote do Windows Installer que você pode implantar nos computadores selecionados a fim de realizar a distribuição do registro automático de computadores não Windows 10 ingressados no domínio.
 
-> [AZURE.NOTE] A Política de Grupo para controle de distribuição também dispara o registro de computadores com Windows 8.1 ingressados no domínio. Você poderá optar por usar a política para registro de computadores com Windows 8.1 ingressados no domínio ou, se você tiver uma mistura de versões do Windows, incluindo 7 ou 8.0 ou versões do Windows Server, você poderá optar por habilitar o registro de todos os seus computadores não Windows 10/Windows Server 2016 usando o pacote do Windows Installer.
+> [AZURE.NOTE] A Política de Grupo para controle de distribuição também dispara o registro de computadores com Windows 8.1 ingressados no domínio. Você poderá optar por usar a política para registro de computadores com Windows 8.1 ingressados no domínio ou, se você tiver uma mistura de versões do Windows, incluindo 7 ou versões do Windows Server, você poderá optar por habilitar o registro de todos os seus computadores não Windows 10/Windows Server 2016 usando o pacote do Windows Installer.
 
 ### Objeto de Política de Grupo para controlar a distribuição de registro automático 
 
-Para controlar a distribuição de registro automático de computadores ingressados no domínio com o Azure AD, você pode implantar a Política de Grupo Registrar computadores ingressados no domínio como dispositivos aos computadores que você deseja registrar, por exemplo, você pode implantar a política com base em um grupo de segurança ou a uma UO (unidade organizacional).
+Para controlar a distribuição de registro automático de computadores ingressados no domínio com o Azure AD, você pode implantar a Política de Grupo Registrar computadores ingressados no domínio como dispositivos aos computadores que você deseja registrar. Por exemplo, você pode implantar a política com base em um grupo de segurança ou em uma unidade organizacional (UO).
 
 Para definir a política, execute as seguintes etapas:
 
@@ -257,7 +252,7 @@ Para definir a política, execute as seguintes etapas:
 
 ## Pacote MSI para computadores não Windows 10  
 
-Para registrar computadores ingressados no domínio executando o Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2, um pacote do Windows Installer (.msi) está disponível para download:
+Para registrar computadores ingressados no domínio executando o Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2, um pacote do Windows Installer (.msi) está disponível para download:
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
@@ -272,4 +267,4 @@ O instalador cria uma Tarefa Agendada no sistema que é executada no contexto do
 
 - [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Script do PowerShell para identificar bancos de dados individuais adequados para um pool"
+	pageTitle="Script do PowerShell para identificar bancos de dados individuais adequados para um pool | Microsoft Azure"
 	description="Um pool de bancos de dados elástico é um conjunto de recursos disponíveis compartilhados por um grupo de bancos de dados elásticos. Este documento fornece um script do PowerShell para ajudar a avaliar a adequação do uso de um pool de banco de dados elástico para um grupo de bancos de dados."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,7 +28,7 @@ Esse script é particularmente útil para avaliar os bancos de dados em servidor
 
 Instale o seguinte antes de executar o script:
 
-- A versão mais recente das [ferramentas de linha de comando do Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- O Azure PowerShell mais recente. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 - O [Feature Pack do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Detalhes do script
@@ -266,4 +266,4 @@ Quando o script for concluído, ele produzirá o número estimado de eDTUs neces
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

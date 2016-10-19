@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure | Microsoft Azure" 
-    description="Saiba como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure" 
+    description="Saiba como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -34,4 +34,4 @@ Você pode exibir o token SAML selecionando essa linha e, em seguida, selecionan
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gerenciar o acesso de leitura anônimo aos contêineres e blobs | Microsoft Azure" 
-	description="Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="Gerenciar o acesso de leitura anônimo aos contêineres e blobs | Microsoft Azure"
+	description="Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/27/2016"
+	ms.author="michaelhauss;jwillis;tamram"/>
 
 # Gerenciar o acesso de leitura anônimo aos contêineres e blobs
 
@@ -47,11 +47,11 @@ Você pode definir permissões de contêiner das seguintes maneiras:
 Para definir permissões de contêiner no [Portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. Navegue até o painel da sua conta de armazenamento.
-2. Selecione o nome do contêiner na lista. Observe que você deve clicar à direita da coluna Nome para selecionar o nome do contêiner. Clicar no nome detalha o contêiner para mostrar seus blobs.
-3. Selecione **Editar** na barra de ferramentas.
-4. Na caixa de diálogo **Editar Metadados do Contêiner**, selecione o nível desejado de permissões no campo **Acesso**, conforme mostrado na captura de tela abaixo.
+2. Selecione o nome do contêiner na lista. Clicar no nome expõe os blobs no contêiner escolhido
+3. Selecione **Política de acesso** na barra de ferramentas.
+4. No campo **Tipo de acesso**, selecione o nível desejado de permissões conforme mostrado na captura de tela abaixo.
 
-	![Caixa de diálogo Editar Metadados do Contêiner](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+	![Caixa de diálogo Editar Metadados do Contêiner](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Definindo permissões do contêiner de maneira programática usando .NET
 
@@ -155,4 +155,4 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 - [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

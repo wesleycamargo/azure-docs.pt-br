@@ -35,14 +35,16 @@ Há quatro áreas principais nas quais é possível solucionar problemas de aces
 	- O próprio aplicativo está sendo executado corretamente?
 2.	A máquina virtual do Azure.
 	- É a própria máquina virtual que está sendo executada corretamente e respondendo às solicitações?
-3.	Pontos de extremidade do Azure para o serviço de nuvem que contém a máquina virtual (para as máquinas virtuais no modelo de implantação clássica), regras de entrada NAT (para máquinas virtuais no modelo de implantação Resource Manager) e Grupos de Segurança de Rede.
+3.	Pontos de extremidade de rede do Azure.
+	- Pontos de extremidade de serviço de nuvem para máquinas virtuais no modelo de implantação clássico.
+	- Grupos de segurança de rede e regras NAT de entrada para máquinas virtuais no modelo de implantação do Resource Manager.
 	- O tráfego pode fluir dos usuários para a VM/aplicativo tráfego fluxo dos usuários para o aplicativo/VMs nas portas esperados?
 4.	Seu dispositivo de borda da Internet.
 	- As regras de firewall estão impedindo o tráfego de fluir corretamente?
 
 Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou da Rota Expressa, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure. Para determinar a origem do problema e sua correção, siga estas etapas.
 
-## Etapa 1: Você consegue acessar o aplicativo na VM de destino?
+## Etapa 1: Acessar o aplicativo da VM de destino
 
 Tente acessar o aplicativo com o programa cliente apropriado na VM em que ele está sendo executado. Use o nome de host local, o endereço IP local ou o endereço de loopback (127.0.0.1).
 
@@ -52,14 +54,14 @@ Por exemplo, se o aplicativo for um servidor Web, abra um navegador na VM e tent
 
 Se você conseguir acessar o aplicativo, vá para a [Etapa 2](#step2).
 
-Se não conseguir acessar o aplicativo, verifique o seguinte:
+Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 - O aplicativo está em execução na máquina virtual de destino.
 - O aplicativo está escutando nas portas TCP e UDP esperadas.
 
 Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat -a** para mostrar as portas de escuta ativas. Examine a saída para as portas esperadas no qual seu aplicativo deve estar escutando. Reinicie o aplicativo ou configure-o para usar as portas esperadas, como necessário e tente acessar o aplicativo localmente outra vez.
 
-## <a id="step2"></a>Etapa 2: você consegue acessar o aplicativo em outra máquina virtual na mesma rede virtual?
+## <a id="step2"></a>Etapa 2: Acessar o aplicativo de outra VM na mesma rede virtual
 
 Tente acessar o aplicativo de uma VM diferente, mas na mesma rede virtual, usando o nome de host da VM ou seu endereço IP público, privado ou do provedor atribuído ao Azure. Em máquinas virtuais criadas usando o modelo de implantação clássica, não use o endereço IP público do serviço de nuvem.
 
@@ -69,7 +71,7 @@ Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da W
 
 Se você conseguir acessar o aplicativo, vá para a [Etapa 3](#step3).
 
-Se não conseguir acessar o aplicativo, verifique o seguinte:
+Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 - O firewall do host na VM de destino está permitindo o tráfego de solicitação de entrada e de resposta de saída.
 - O software de detecção de invasão ou de monitoramento de rede em execução na VM de destino está permitindo o tráfego.
@@ -80,15 +82,15 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 
 Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segurança avançada para determinar se as regras de firewall excluem o tráfego de entrada e de saída do seu aplicativo.
 
-## <a id="step3"></a>Etapa 3: você consegue acessar o aplicativo em um computador que está fora da rede virtual, mas não conectado à mesma rede que o seu computador?
+## <a id="step3"></a>Etapa 3: Acessar o aplicativo de fora da rede virtual
 
-Tente acessar o aplicativo em um computador fora da rede virtual em que está a VM na qual o aplicativo está sendo executado, mas que não esteja na mesma rede que o computador cliente original.
+Tente acessar o aplicativo em um computador fora da rede virtual em que está a VM na qual o aplicativo está sendo executado. Use uma rede diferente do computador cliente original.
 
 ![Iniciar o aplicativo em um computador fora da rede virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da Web em um navegador em execução em um computador que não está na rede virtual.
 
-Se não conseguir acessar o aplicativo, verifique o seguinte:
+Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
 
 - Para VMs criadas com o modelo de implantação clássico:
 	- A configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
@@ -98,7 +100,7 @@ Se não conseguir acessar o aplicativo, verifique o seguinte:
 - Para VMs criadas com o modelo de implantação do Resource Manager:
 	- A configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
 	- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações.
-	- Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../articles/virtual-network/virtual-networks-nsg.md).
+	- Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../articles/virtual-network/virtual-networks-nsg.md)
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 
@@ -118,4 +120,4 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -45,4 +45,4 @@ Para adicionar um diretório do Active Directory do Azure no portal de clássico
 
 Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as práticas recomendadas, consulte [O que é o licenciamento do Active Directory do Azure?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

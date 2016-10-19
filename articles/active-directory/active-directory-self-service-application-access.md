@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -29,7 +29,7 @@ O acesso a aplicativo de autoatendimento é um recurso do [Azure Active Director
 
 Atualmente, essa funcionalidade tem suporte para todos os aplicativos pré-integrados e personalizados que oferecem suporte a logon único federado ou com base em senha na [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/marketplace/active-directory/all/), incluindo aplicativos como Salesforce, Dropbox, Google e muito mais. Este artigo descreve como:
 
-* Configurar acesso de aplicativo de autoatendimento para usuários finais, incluindo a configuração de um fluxo de trabalho de aprovação opcional 
+* Configurar acesso de aplicativo de autoatendimento para usuários finais, incluindo a configuração de um fluxo de trabalho de aprovação opcional
 * Delegar gerenciamento de acesso a aplicativos específicos às pessoas mais apropriados na organização e habilitá-las a usar o painel de acesso do AD do Azure para aprovar solicitações de acesso, atribuir diretamente o acesso a usuários selecionados ou, (opcionalmente), definir credenciais para acesso ao aplicativo quando o logon único baseado em senha estiver configurado
 
 
@@ -109,4 +109,4 @@ O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo a
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

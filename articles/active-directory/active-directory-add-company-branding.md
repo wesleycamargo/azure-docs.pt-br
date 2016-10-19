@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2016"
+	ms.date="09/30/2016"
 	ms.author="curtand"/>
 
 # Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
@@ -86,14 +86,33 @@ Você pode personalizar os seguintes elementos na página de entrada:
 
 ![][5]
 
- Elemento de página | Local na página
-	------------- | -------------
-Logotipo de faixa | Mostrado na parte superior direita da página. Substitua o logotipo exibido pelo site de destino no qual você está entrando (por exemplo, Office 365 ou Azure).
-Ilustração grande/cor da tela de fundo | Mostrado à esquerda da página. Substitua o logotipo exibido pelo site de destino no qual você está entrando. A Cor da Tela de Fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda ou em telas estreitas.
-Texto da página de entrada | Mostrado acima do rodapé da página quando você precisa transmitir informações úteis antes de uma entrada com uma conta corporativa ou de estudante. Por exemplo, você pode querer incluir o número de telefone da assistência técnica ou uma instrução legal.
+
+
+| Elemento de página | Local na página |
+|:--            | ---                  |
+|Logotipo de faixa | Mostrado na parte superior direita da página. Substitua o logotipo exibido pelo site de destino no qual você está entrando (por exemplo, Office 365 ou Azure).|
+|Ilustração grande/cor da tela de fundo | Mostrado à esquerda da página. Substitua o logotipo exibido pelo site de destino no qual você está entrando. A Cor da Tela de Fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda ou em telas estreitas.|
+|Mantenha-me conectado | Mostrado abaixo da caixa de texto Senha. |
+|Texto da página de entrada | Mostrado acima do rodapé da página quando você precisa transmitir informações úteis antes de uma entrada com uma conta corporativa ou de estudante. Por exemplo, você pode querer incluir o número de telefone da assistência técnica ou uma instrução legal.|
+
 
 > [AZURE.NOTE]
 Todos os elementos são opcionais. Por exemplo, se você especificar um logotipo de faixa, mas nenhuma ilustração grande, a página de entrada mostrará o logotipo e ilustração do site de destino (ou seja, a imagem da autoestrada da Califórnia do Office 365).
+
+
+Na sua página de entrada, a caixa de seleção **Mantenha-me conectado** permite que o usuário permaneça conectado ao fechar e reabrir o navegador. Ela não afeta o tempo de vida da sessão. Você pode ocultar a caixa de seleção na página de entrada do Azure Active Directory.
+
+A exibição da caixa de seleção depende da configuração de **Ocultar KMSI**.
+
+![][9]
+
+
+Para ocultar a caixa de seleção, defina essa configuração como **Oculta**.
+
+> [AZURE.NOTE] Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários marcarem essa caixa de seleção. Se você definir essa configuração como oculta, os usuários poderão ver avisos adicionais e inesperados para entrar.
+
+
+
 
 Você também pode localizar todos os elementos desta página. Depois de configurar um elemento “padrão” de personalização, você pode configurar mais versões para localidades diferentes. Você também pode misturar e combinar vários elementos. Por exemplo, você pode:
 
@@ -218,5 +237,6 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

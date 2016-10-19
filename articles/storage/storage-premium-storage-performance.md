@@ -4,7 +4,7 @@
     services="storage"
     documentationCenter="na"
     authors="aungoo-msft"
-    manager=""
+    manager="tadb"
 	editor="tysonn" />
 
 <tags
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/19/2016"
-    ms.author="aungoo-msft"/>
+    ms.author="aungoo;robinsh"/>
 
 # Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -542,4 +542,4 @@ Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de de
 - [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

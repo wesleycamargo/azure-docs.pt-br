@@ -253,7 +253,7 @@ Essas ferramentas de BI podem ajudar sua análise de Big Data de diversas formas
 
 * [Conectar o Excel ao Hadoop com o Power Query](hdinsight-connect-excel-power-query.md): aprenda a conectar o Excel à conta de Armazenamento do Azure que armazena os dados associados ao seu cluster HDInsight usando o Microsoft Power Query para Excel. Estação de trabalho do Windows necessária. Funciona com cluster baseado em Windows ou Linux.
 
-* [Conectar o Excel ao Hadoop com o Driver de ODBC do Microsoft Hive](hdinsight-connect-excel-hive-ODBC-driver.md): aprenda a importar dados do HDInsight com o Driver de ODBC do Microsoft Hive. Estação de trabalho do Windows necessária. Funciona com cluster baseado em Windows ou Linux.
+* [Conectar o Excel ao Hadoop com o Driver de ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md): aprenda a importar dados do HDInsight com o Driver de ODBC do Microsoft Hive. Estação de trabalho do Windows necessária. Funciona com cluster baseado em Windows ou Linux.
 
 * [Plataforma de nuvem da Microsoft](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): saiba mais sobre o Power BI para Office 365, baixe a avaliação do SQL Server e configure o SharePoint Server 2013 e o SQL Server BI.
 
@@ -268,4 +268,4 @@ Essas ferramentas de BI podem ajudar sua análise de Big Data de diversas formas
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@ Você deve instalar o Python antes de instalar blocos de notas Jupyter. Python e
 
 ## Instalar os kernels e a mágica do Spark
 
-Nesta seção, você instala a mágica do Spark, os kernels PySpark e Spark e configura os kernels para se conectarem a um cluster Apache Spark em execução no Azure HDInsight.
-
-1. Baixe a versão de visualização pública mais recente da mágica do Spark no [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
-
-2. Descompacte o arquivo baixado em um local no disco. Nestas instruções, nós nos referimos a esse caminho como `$SPARKMAGIC_PATH`.
-
-2. Execute o comando a seguir
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. Execute o comando a seguir para instalar a mágica do Spark.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. Instale os kernels PySpark e Spark. Execute os seguintes comandos:
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Para obter instruções sobre como instalar a mágica do Spark, os kernels PySpark e Spark, confira a [documentação do sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) no GitHub.
 
 ## Configurar a mágica do Spark para acessar o cluster HDInsight Spark
 
@@ -97,7 +80,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@ Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no 
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

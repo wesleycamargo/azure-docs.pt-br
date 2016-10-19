@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Visão geral do modelo de licença do Widevine" 
-	description="Este tópico fornece uma visão geral de um modelo de licença do Widevine usado para configurar licenças do Widevine." 
+	pageTitle="Visão geral do modelo de licença do Widevine | Microsoft Azure" 
+	description="Este tópico fornece uma visão geral de um modelo de licença do Widevine usado para configurar as licenças do Widevine." 
 	authors="juliako" 
 	manager="erikre" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Visão geral do modelo de licença do Widevine
@@ -210,4 +210,4 @@ O exemplo a seguir mostra como usar as APIs do .NET para configurar uma licença
 
 [Usando a PlayReady e/ou a Criptografia Comum Dinâmica Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

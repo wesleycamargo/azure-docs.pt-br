@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor="curtand"/>
 
 <tags
@@ -23,7 +23,7 @@ Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure A
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas que você precisará.
 
 ### AD do Azure
-- Uma assinatura do Azure ou uma [Assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/) Isso é necessário apenas para acessar o portal do Azure, não para utilizar o Azure AD Connect. Se estiver usando o PowerShell ou o Office 365, você não precisará de uma assinatura do Azure para usar o Azure AD Connect. Se você tiver uma licença do Office 365, também pode usar o portal do Office 365. Com uma licença do Office 365 paga, você também pode entrar no portal do Azure a partir do portal do Office 365.
+- Uma assinatura do Azure ou uma [Assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/). Isso é necessário apenas para acessar o portal do Azure, não para utilizar o Azure AD Connect. Se estiver usando o PowerShell ou o Office 365, você não precisará de uma assinatura do Azure para usar o Azure AD Connect. Se você tiver uma licença do Office 365, também pode usar o portal do Office 365. Com uma licença do Office 365 paga, você também pode entrar no portal do Azure a partir do portal do Office 365.
 - [Adicione e verifique o domínio](active-directory-add-domain.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
 - Um diretório do AD do Azure por padrão permitirá 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se você precisar de mais objetos no AD do Azure, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, AD do Azure Básico, AD do Azure Premium ou Enterprise Mobility Suite.
 
@@ -197,4 +197,4 @@ Os requisitos mínimos para computadores que executam o AD FS ou servidores de a
 ## Próximas etapas
 Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

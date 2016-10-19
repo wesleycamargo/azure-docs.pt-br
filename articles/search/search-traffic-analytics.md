@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/19/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
@@ -25,26 +25,26 @@ A análise de tráfego de pesquisa é um recurso de pesquisa do Azure que permit
 
 ## Como habilitar a análise de tráfego de pesquisa
 
-Você precisará de uma Conta de armazenamento na mesma região e assinatura do serviço de pesquisa.
+Você precisa de uma conta de armazenamento na mesma região e assinatura do serviço de pesquisa.
 
 > [AZURE.IMPORTANT] Os encargos padrão se aplicam para essa conta de armazenamento
 
-Uma vez habilitados, os dados começarão a fluir para sua conta de armazenamento no prazo de 5 a 10 minutos nesses dois contêineres de blobs:
+Você pode habilitar a análise de tráfego de pesquisa no portal ou por meio do PowerShell. Uma vez habilitados, os dados começam a fluir para sua conta de armazenamento no prazo de 5 a 10 minutos nesses dois contêineres de blobs:
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1\. Usando o portal
-Abra o serviço de Pesquisa do Azure no [Portal do Azure](http://portal.azure.com). Em Configurações, você encontrará a opção Análise de tráfego de pesquisa.
+### R. Usando o portal
+Abra o serviço Azure Search no [portal do Azure](http://portal.azure.com). Em Configurações, você encontra a opção Análise de tráfego de pesquisa.
 
 ![][1]
 
-Selecione esta opção e uma nova folha será aberta. Altere o status para **Ativado**, selecione a conta de armazenamento do Azure para a qual seus dados serão copiados e escolha os dados que você deseja copiar: logs, métricas ou ambos. É recomendável copiar os logs e as métricas. Você tem a opção de definir a política de retenção de dados de 1 a 365 dias. Se você não desejar aplicar qualquer política de retenção e reter os dados por tempo indeterminado, defina a retenção (dias) como 0.
+Altere o Status para **Ativado**, selecione a conta de armazenamento do Azure a ser usada e escolha os dados que você deseja copiar: Logs, Métricas ou ambos. É recomendável copiar os logs e as métricas. Você tem a opção de definir a política de retenção de dados de 1 a 365 dias. Se você não deseja manter os dados indefinidamente, defina a retenção (dias) para 0.
 
 ![][2]
 
-### 2\. Usando o PowerShell
+### B. Usando o PowerShell
 
 Primeiro, verifique se você tem a versão mais recente dos [cmdlets do Azure PowerShell](https://github.com/Azure/azure-powershell/releases) instalada.
 
@@ -69,30 +69,30 @@ Exemplo de caminho: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<
 
 ### Logs
 
-Os blobs de logs contêm seus logs de tráfego do serviço de pesquisa. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos de log. Cada blob contem registros sobre todas as operações realizadas durante a mesma hora.
+Os blobs de logs contêm seus logs de tráfego do serviço de pesquisa. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log. Cada blob tem registros na operação que ocorrem durante a mesma hora.
 
 ####Esquema do log
 
 Nome |Tipo |Exemplo |Observações 
 ------|-----|----|-----
 tempo real |datetime |"2015-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação
-resourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId
-operationName |cadeia de caracteres |"Query.Search" |O nome da operação
-operationVersion |cadeia de caracteres |"2015-02-28"|A api-version usada
-categoria |cadeia de caracteres |"OperationLogs" |constante 
-resultType |cadeia de caracteres |"Success" |Valores possíveis: Success ou Failure 
+resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId
+operationName |string |"Query.Search" |O nome da operação
+operationVersion |string |"2015-02-28"|A api-version usada
+categoria |string |"OperationLogs" |constante 
+resultType |string |"Success" |Valores possíveis: Success ou Failure 
 resultSignature |int |200 |Código do resultado HTTP 
 durationMS |int |50 |Duração da operação em milissegundos 
-propriedades |objeto |veja abaixo |Objeto que contém os dados específicos da operação
+propriedades |objeto |confira a seguinte tabela |Objeto que contém os dados específicos da operação
 
 ####Esquema de propriedades
 
 |Nome |Tipo |Exemplo |Observações|
 |------|-----|----|-----|
-|Descrição|cadeia de caracteres |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
-|Consultar |cadeia de caracteres |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parâmetros da consulta |
+|Descrição|string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
+|Consultar |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parâmetros da consulta |
 |Documentos |int |42 |Número de documentos processados|
-|IndexName |cadeia de caracteres |"testindex"|Nome do índice associado à operação |
+|IndexName |string |"testindex"|Nome do índice associado à operação |
 
 ### Métricas
 
@@ -110,21 +110,21 @@ Métricas disponíveis:
 
 |Nome |Tipo |Exemplo |Observações|
 |------|-----|----|-----|
-|resourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
-|metricName |cadeia de caracteres |"Latency" |o nome da métrica |
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
+|metricName |string |"Latency" |o nome da métrica |
 |tempo real|datetime |"2015-12-07T00:00:43.6872559Z" |carimbo de data/hora da operação |
 |média |int |64|O valor médio das amostras brutas no intervalo de agregação da métrica |
 |mínimo |int |37 |O valor mínimo das amostras brutas no intervalo de agregação da métrica |
 |máximo |int |78 |O valor máximo das amostras brutas no intervalo de agregação da métrica |
 |total |int |258 |O valor total das amostras brutas no intervalo de agregação da métrica |
 |count |int |4 |O número de amostras brutas usadas para gerar a métrica |
-|intervalo de tempo |cadeia de caracteres |"PT1M" |O intervalo de agregação da métrica no ISO 8601|
+|intervalo de tempo |string |"PT1M" |O intervalo de agregação da métrica no ISO 8601|
 
-Todas as métricas são reportadas em intervalos de um minuto. Isso significa que cada uma das métricas irá expor os valores mínimo, máximo e médio por minuto.
+Todas as métricas são reportadas em intervalos de um minuto. Cada métrica expõe valores mínimo, máximo e médios por minuto.
 
-No caso da métrica SearchQueriesPerSecond, o valor mínimo será o valor mais baixo para consultas de pesquisa por segundo que foram registradas durante esse minuto. O mesmo se aplica ao valor máximo. O valor médio será a agregação durante todo o minuto. Considere este cenário: durante um minuto, você pode ter um segundo com uma carga muito alta, que será seu valor máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga mediana, e um segundo com apenas uma consulta, que será o valor mínimo.
+Para a métrica SearchQueriesPerSecond, o valor mínimo é o valor mais baixo para consultas de pesquisa por segundo que foram registradas durante esse minuto. O mesmo se aplica ao valor máximo. O valor médio é a agregação durante todo o minuto. Considere este cenário durante um minuto, um segundo com uma carga muito alta, que é o valor máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga mediana, e, por fim, um segundo com apenas uma consulta, que será o valor mínimo.
 
-Para ThrottledSearchQueriesPercentage, os valores mínimo, máximo, médio e total serão iguais: a porcentagem de consultas de pesquisa que foram limitadas, com base no número total de consultas de pesquisa durante um minuto.
+Para ThrottledSearchQueriesPercentage, os valores mínimo, máximo, médio e total possuem o mesmo valor: a porcentagem de consultas de pesquisa que foram limitadas, a partir do no número total de consultas de pesquisa durante um minuto.
 
 ## Análise dos dados
 
@@ -140,7 +140,7 @@ Como ponto de partida, recomendamos o uso do [Power BI](https://powerbi.microsof
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/pt-BR/desktop): explore seus dados e crie suas próprias visualizações de dados. Fornecemos abaixo uma consulta inicial para ajudar você.
+[Power BI Desktop](https://powerbi.microsoft.com/pt-BR/desktop): explore seus dados e crie suas próprias visualizações de dados. Veja a consulta inicial na seção a seguir:
 
 1. Abra um novo relatório do Power BI Desktop
 2. Selecione Obter Dados -> Mais...
@@ -153,11 +153,11 @@ Como ponto de partida, recomendamos o uso do [Power BI](https://powerbi.microsof
 
 4. Inserir o Nome e a Chave da Conta de sua conta de armazenamento
 5. Selecione "insight-logs-operationlogs" e "insights-metrics-pt1m" e clique em Editar
-6. O Editor de Consultas abrirá. Verifique se "insight-logs-operationlogs" está selecionado à esquerda. Agora, abra o Editor Avançado selecionando Exibir -> Editor Avançado.
+6. Quando Editor de Consultas for aberto, verifique se "insight-logs-operationlogs" está selecionado à esquerda. Agora, abra o Editor Avançado selecionando Exibir -> Editor Avançado.
 
 	![][7]
 
-7. Mantenha as duas primeiras linhas e substitua o restante com a seguinte consulta:
+7. Mantenha as duas primeiras linhas e substitua o restante pela seguinte consulta:
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
@@ -188,7 +188,7 @@ Como ponto de partida, recomendamos o uso do [Power BI](https://powerbi.microsof
 
 8. Clique em Concluído
 
-9. Selecione agora "insights-metrics-pt1m" na última das consultas à esquerda e abra o editor Avançado novamente. Mantenha as duas primeiras linhas e substitua o restante com a seguinte consulta:
+9. Selecione agora "insights-metrics-pt1m" na última das consultas à esquerda e abra o editor Avançado novamente. Mantenha as duas primeiras linhas e substitua o restante pela seguinte consulta:
 
 	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
@@ -228,4 +228,4 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

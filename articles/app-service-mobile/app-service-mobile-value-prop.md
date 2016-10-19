@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
 
@@ -98,8 +98,8 @@ Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de apr
 [opções de implantação]: ../app-service-web/web-sites-deploy.md
 [conexões híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [redes virtuais]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Rota Expressa]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[Rota Expressa]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
-[mapa de aprendizagem]: https://azure.microsoft.com/pt-BR/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizagem]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -13,7 +13,7 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet" />
+      ms.author="minet;robinsh" />
 
 
 # Como usar o Armazenamento de Arquivos do Azure com o Linux
@@ -64,7 +64,7 @@ Lembre-se de que 0777 aqui representa um código de permissão de arquivo/diret�
 
 Também para manter um compartilhamento de arquivos montado após a reinicialização, é possível adicionar uma configuração como a abaixo em /etc/fstab:
 
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
 Por exemplo, se você criou uma VM do Azure usando a imagem Ubuntu Server 15.04 do Linux (que está disponível na galeria de imagens do Azure), é possível montar o arquivo como mostrado abaixo:
 
@@ -140,4 +140,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

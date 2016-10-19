@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -23,7 +23,7 @@ O Azure AD Connect permite configurar a federação com o AD FS e o Azure AD loc
 
 Este tópico é a base das informações sobre funcionalidades relacionadas à Federação para o Azure AD Connect e relaciona links para todos os outros tópicos relacionados a ela. Para obter links para o Azure AD Connect, confira Integrando suas identidades locais ao Azure Active Directory.
 
-## Azure AD Connect - tópicos sobre federação
+## Azure AD Connect – Tópicos sobre federação
 
 | Tópico | O que ele abrange e quando deve ser lido |
 |:------|:-----------|
@@ -48,4 +48,4 @@ Este tópico é a base das informações sobre funcionalidades relacionadas à F
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

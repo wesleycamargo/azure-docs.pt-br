@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -118,7 +118,7 @@ A permissão é concedida se um usuário final tem acesso no nível do diretóri
 #### Etapa 1: Selecione o escopo de acesso apropriado
 Para permitir a um usuário o acesso no nível *todas as instâncias de serviço* no Azure AD Connect Health, abra a folha principal no Azure AD Connect Health.<br>
 #### Etapa 2: Adicione usuários, grupos e atribua funções
-1. Clique na parte "Usuários" na seção Configurar.<br> 
+1. Clique na parte "Usuários" na seção Configurar.<br>
 ![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selecione "Adicionar"
 3. Selecione a "Função", por exemplo, "Proprietário"<br>
@@ -159,4 +159,4 @@ Você pode remover um usuário ou grupo adicionado à parte de controle de acess
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -18,6 +18,12 @@
 
 # Implantar e remover aplicativos usando o PowerShell
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+<br/>
+
 Assim que um [tipo de aplicativo é empacotado][10], ele está pronto para implantação em um cluster da Malha do Serviço do Azure. A implantação envolve as três etapas a seguir:
 
 1. Carregar o pacote de aplicativo
@@ -239,4 +245,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

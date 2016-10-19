@@ -1,31 +1,34 @@
-1. No portal, vá para **Novo** > **Rede** > **Gateway de rede virtual**. Isso abrirá a folha **Criar gateway de rede virtual**.
+1. No portal, acesse **Novo**. Digite “Gateway de Rede Virtual” em pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Isso abrirá a folha **Criar gateway de rede virtual**.
+2. Clique em **Criar** na parte inferior da folha **Gateway de rede virtual**. A folha **Criar gateway de rede virtual** será aberta. Preencha os valores para seu gateway de rede virtual.
 
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
+	![Campos da folha Criar gateway de rede virtual](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Campos da folha Criar gateway de rede virtual")
 
-2. Na folha **Criar gateway de rede virtual**, no campo **Nome**, nomeie seu gateway. Isso não é igual a nomear uma sub-rede de gateway. É o nome do objeto de gateway que será criado.
+3. **Nome**: nomeie o seu gateway. Isso não é igual a nomear uma sub-rede de gateway. É o nome do objeto de gateway que você está criando.
 
-3. Ajuste o campo **Local** para apontar para o local onde se encontra sua rede virtual. Se você não fizer isso, a lista de rede virtual não mostrará a sua rede virtual.
+4. **Tipo de gateway**: selecione **VPN**. Gateways VPN usam o tipo de gateway de rede virtual **VPN**.
+
+5. **Tipo de VPN**: selecione o Tipo de VPN especificado para sua configuração. A maioria das configurações exige um tipo de VPN baseado em rota.
+
+6. **SKU**: selecione o SKU de gateway no menu suspenso. As SKUs listadas na lista suspensa dependem do tipo de VPN selecionado.
+
+7. **Local**: ajuste o campo **Local** para apontar para o local onde está sua rede virtual.
  
-4. Em seguida, escolha a rede virtual à qual você deseja adicionar este gateway. Clique em **Rede virtual** para abrir a folha **Escolher uma rede virtual**. Selecione a rede virtual. Para que a rede virtual apareça na lista, ela já deve ter uma sub-rede de gateway válida.
+8. Escolha a rede virtual à qual você deseja adicionar este gateway. Clique em **Rede virtual** para abrir a folha **Escolher uma rede virtual**. Selecione a rede virtual. Se você não vir a sua rede virtual, verifique se o campo **Local** está apontando para a região na qual sua rede virtual está localizada.
 
-5. Escolha um endereço IP público. Clique em **Endereço IP público** para abrir a folha **Escolher endereço IP público**. Clique em **+Criar Novo** para abrir a folha **Criar endereço IP público**. Dê um nome para o seu endereço IP público. Isso criará um objeto de endereço IP público para o qual um endereço IP público será atribuído dinamicamente. <br>Clique em **OK** para salvar as alterações.
+9. Escolha um endereço IP público. Clique em **Endereço IP público** para abrir a folha **Escolher endereço IP público**. Clique em **+Criar Novo** para abrir a folha **Criar endereço IP público**. Dê um nome para o seu endereço IP público. Esta folha cria um objeto de endereço IP público para o qual um endereço IP público será atribuído dinamicamente.<br>Clique em **OK** para salvar as alterações nessa folha.
 
-5. Para **Tipo de gateway**, selecione o Tipo de gateway especificado para sua configuração.
+10. **Assinatura**: verifique se a assinatura correta foi selecionada.
 
-6. Para **Tipo de VPN**, selecione o Tipo de VPN especificado para sua configuração.
+11. **Grupo de recursos**: essa configuração é determinada pela Rede virtual selecionada.
 
-7. Para **Assinatura**, verifique se a assinatura correta foi selecionada.
+12. Não ajuste o **Local** depois de especificar as configurações acima.
 
-8. O **Grupo de recursos** é determinado pela rede virtual selecionada.
+13. Verifique as configurações. Você pode selecionar **Fixar no painel** na parte inferior da folha se quer que seu gateway apareça no painel.
 
-9. Não ajuste o **local** depois de especificar as configurações acima.
+14. Clique em **Criar** para começar a criar o gateway. As configurações serão validadas e você verá o bloco "Gateway de rede virtual implantado" no painel. A criação de um gateway pode levar até 45 minutos. Talvez seja necessário atualizar a página do portal para ver o status concluído.
 
-10. Neste ponto, sua folha se parecerá com o gráfico na etapa 1. Verifique se as configurações correspondem às definições da sua própria configuração. Você pode selecionar **Fixar no painel** na parte inferior da folha se quer que seu gateway apareça no painel.
-
-11. Clique em **Criar** para começar a criar o gateway. As configurações serão validadas e você verá o bloco "Gateway de rede virtual implantado" no painel. A criação de um gateway pode levar até 45 minutos. Talvez seja necessário atualizar a página do portal para ver o status concluído.
-
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
+	![Implantar gateway de rede virtual](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Implantar gateway de rede virtual")
 
 11. Depois de criar o gateway você pode exibir, observando a Rede Virtual no portal, o endereço IP que foi atribuído a esse gateway. O gateway será exibido como um dispositivo conectado. Você pode clicar no dispositivo conectado (seu gateway de rede virtual) para exibir mais informações.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -16,7 +16,7 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Introdução às Filas do Barramento de Serviço
+# Introdução às filas do Barramento de Serviço
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -192,4 +192,4 @@ Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Sample
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

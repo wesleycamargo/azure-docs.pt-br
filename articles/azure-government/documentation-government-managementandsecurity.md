@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/23/2016"
 	ms.author="ryansoc"/>
 
 
@@ -32,6 +32,49 @@ O Cofre de Chaves está disponível no Azure Governamental. Assim como no públi
 
 Para saber mais, confira a [documentação pública do Cofre de Chaves do Azure](/key-vault-get-started).
 
+## Log Analytics
+
+O Log Analytics está em visualização no Azure Governamental.
+
+### Diferenças do Azure público
+
+Os recursos e as soluções do Log Analytics a seguir não estão disponíveis atualmente no Azure Governamental. Essa lista é atualizada quando o status dos recursos/das soluções muda.
+
++ Métricas quase em tempo real
+  - Ao exibir gráficos de métricas com um intervalo de menos de seis horas, o gráfico não será atualizado automaticamente com os novos valores de métrica
++ Exportação de dados para o Power BI
++ Solução de monitoramento de rede
++ Solução do Office 365
++ Solução de Análise de Atualização do Windows 10
++ Monitoramento da Dependência de Aplicativos
++ Avaliação de Atualização
++ Integração ao portal do Azure
+  - A seleção de contas de armazenamento do Azure para serem monitoradas deve ser feita pelo PowerShell ou por modelos do Resource Manager
+  - A seleção de máquinas virtuais para habilitar o agente do Log Analytics deve ser feita pelo PowerShell ou por modelos do Resource Manager
++ Monitoramento do Linux
++ Aplicativos móveis do OMS
++ Extensão de VM do Microsoft Monitoring Agent
++ Extensão de VM do agente Linux OMS
++ Dados de uso
++ Emails de alerta e correção usando a Automação do Azure
+
+Os seguintes recursos do Log Analytics têm um comportamento diferente no Azure Governamental:
+
++ O agente do Windows deve ser baixado no portal do Log Analytics para o Azure Governamental.
++ A solução de Segurança e Auditoria não tem suporte para detecção de IP mal-intencionado.
++ O carregamento de dados usando a API do Coletor de Dados requer o uso da URL do Azure Governamental.
+
+### Perguntas frequentes
+
++ Posso migrar dados do Log Analytics no Azure público para o Azure Governamental?
+  - Não. Não é possível mover os dados ou seu espaço de trabalho do Azure público para o Azure Governamental.
++ Posso alternar entre espaços de trabalho do Azure público e do Azure Governamental no portal do Log Analytics do OMS?
+  - Não. Os portais do Azure público e do Azure Governamental são separados e não compartilham informações.
+
+Para saber mais, confira [Documentação pública do Log Analytics](../log-analytics/log-analytics-overview.md).
+
+## Próximas etapas
+
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
-- [Detecção de ameaças](sql-data-warehouse-security-threat-detection.md)
-- [Visão Geral da Auditoria](sql-data-warehouse-auditing-overview.md)
-- [Clientes de nível inferior da auditoria](sql-data-warehouse-auditing-downlevel-clients.md)
-- [Transparent Data Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Autenticação](sql-data-warehouse-authentication.md)
+- [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Este artigo apresenta os conceitos básicos da proteção do banco de dados do SQL Data Warehouse do Azure. Especificamente, este artigo apresentará a você recursos para limitar acesso, proteger dados e monitorar atividades em um banco de dados.
 
@@ -83,18 +81,9 @@ O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico d
 
 ## Criptografia
 
-O SQL Data Warehouse do Azure pode ajudar a proteger seus dados criptografando-os quando estiverem “em repouso” ou armazenados em arquivos e backups de banco de dados usando a [Transparent Data Encryption][]. Você deve ser um administrador ou um membro da função dbmanager no banco de dados mestre para habilitar a TDE. Para criptografar o banco de dados, conecte-se ao banco de dados mestre em seu servidor e execute:
+A TDE (Transparent Data Encryption) do SQL Data Warehouse do Azure ajuda a proteger contra a ameaça de atividades mal-intencionadas por meio da execução de criptografia e descriptografia de seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. No Banco de Dados SQL, a chave de criptografia do banco de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor de Banco de Dados SQL. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado pelo SQL Data Warehouse é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption][].
 
-
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-Você também pode habilitar a Transparent Data Encryption nas configurações do banco de dados no [Portal do Azure][]. Para obter mais informações, consulte [Introdução ao TDE (Transparent Data Encryption)][].
-
-## Auditoria
-
-A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a manter a conformidade normativa e a identificar atividades suspeitas. A Auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua conta de armazenamento do Azure. A Auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL][].
+Você pode criptografar o banco de dados usando o [Portal do Azure][Encryption with Portal] ou o [T-SQL][Encryption with TSQL].
 
 ## Próximas etapas
 
@@ -104,8 +93,8 @@ Para obter detalhes e exemplos sobre como se conectar o SQL Data Warehouse com p
 
 <!--Article references-->
 [Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-auditing-overview.md
-[Introdução ao TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -116,10 +105,10 @@ Para obter detalhes e exemplos sobre como se conectar o SQL Data Warehouse com p
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissões]: https://msdn.microsoft.com/library/ms191291.aspx
 [Procedimentos armazenados]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: https://go.microsoft.com/fwlink/?LinkId=526242
-[Portal do Azure]: https://portal.azure.com/
+[Transparent Data Encryption]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controle de acesso baseado em função no Portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

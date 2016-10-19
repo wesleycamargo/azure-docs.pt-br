@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="07/18/2016"
+ ms.date="09/22/2016"
  ms.author="danlep"/>
 
 # Pontuações de parâmetro de comparação de computação de VMs do Windows
@@ -59,6 +59,17 @@ Standard\_G3, Standard\_GS3 | 8 | 1 | Intel Xeon E5-2698B v3 a 2 GHz | 6 | 242\.
 Standard\_G4, Standard\_GS4 | 16 | 1 | Intel Xeon E5-2698B v3 a 2 GHz | 15 | 398\.9 | 6,0
 Standard\_G5, Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B v3 a 2 GHz | 22 | 762\.8 | 3\.7
 
+## Série H
+
+Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Iterações/s | StdDev
+------- | ------ | ---- | -------| ---- | ---- | -----
+Standard\_H8 | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 297,4 | 0\.9
+Standard\_H16 | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 575,8 | 6,8
+Standard\_H8m | 8 | 1 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 297 | 1\.2
+Standard\_H16m | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 572,2 | 3\.9
+Standard\_H16r | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 5 | 573,2 | 2,9
+Standard\_H16mr | 16 | 2 | Intel Xeon E5-2667 v3 a 3,2 GHz | 7 | 569,6 | 2\.8
+
 ## Sobre o SPECint
 
 Os números do Windows foram calculados executando o [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. O SPECint foi executado usando a opção de taxa base (SPECint\_rate2006), com uma cópia por núcleo. O SPECint consiste em 12 testes separados, cada um deles executado três vezes, usando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Em seguida, eles foram executados em várias VMs para fornecer as pontuações médias mostradas.
@@ -68,4 +79,4 @@ Os números do Windows foram calculados executando o [SPECint 2006](https://www.
 
 * Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -161,7 +161,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no Portal cl
     e. Clique em **Salvar**.
 
 
-6. No Portal Clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
 
 	![Logon único do AD do Azure][10]
 
@@ -193,7 +193,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png)
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png)
 
@@ -203,7 +203,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     c. Clique em **Avançar**.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png)
  
@@ -215,11 +215,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Avançar**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png)
  
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png)
   
@@ -325,4 +325,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

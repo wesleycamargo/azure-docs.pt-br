@@ -65,13 +65,7 @@ Você pode redimensionar um SKU de gateway. O exemplo de PowerShell a seguir mos
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>
-
-
-###  <a name="aggthroughput"></a>Taxa de transferência agregada estimada por SKU e tipo de gateway
-
-
-A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+<br> A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -164,4 +158,4 @@ Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) para obter m
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

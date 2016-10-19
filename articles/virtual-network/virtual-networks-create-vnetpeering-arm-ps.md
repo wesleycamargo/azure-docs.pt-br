@@ -29,7 +29,7 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-        > [AZURE.NOTE] PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] Cmdlet do PowerShell para gerenciar o emparelhamento VNet acompanha o [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Ler objetos de rede virtual:
 
@@ -47,7 +47,8 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
-        ProvisioningState		: Succeeded
+        PeeringState		: Initiated
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -69,7 +70,8 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet2
-        ProvisioningState		: Succeeded
+        PeeringState		: Connected
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -91,7 +93,8 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 		Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ResourceGroupName	: vnet101
 		VirtualNetworkName	: vnet1
-		ProvisioningState		: Succeeded
+		PeeringState		: Connected
+		ProvisioningState	: Succeeded
 		RemoteVirtualNetwork	: {
 		                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
 		                                }
@@ -124,6 +127,7 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
+        PeeringState		: Connected
         ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -234,4 +238,4 @@ Para criar um emparelhamento de VNet entre uma rede virtual clássica e uma rede
 
 2. Assim que você remover um link em um emparelhamento VNet, o estado do link de emparelhamento será desconectado. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos remover os dois links antes de recriar o emparelhamento VNet.
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

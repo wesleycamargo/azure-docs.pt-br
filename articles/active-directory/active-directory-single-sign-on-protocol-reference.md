@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Protocolo SAML de Logon Único
 
-Neste artigo, conheceremos a solicitações e respostas de autenticação SAML 2.0 a que o Azure AD (Azure Active Directory) dá suporte para Logon Único.
+Este artigo trata das solicitações e respostas de autenticação SAML 2.0 a que o Azure AD (Azure Active Directory) dá suporte para Logon Único.
 
 O diagrama de protocolo abaixo descreve a sequência de logon único. O serviço de nuvem (o provedor de serviço) usa uma associação de redirecionamento HTTP para passar um elemento `AuthnRequest` (solicitação de autenticação) para o Azure AD (o provedor de identidade). Em seguida, o Azure AD usa uma associação HTTP post a fim de postar um elemento `Response` para o serviço de nuvem.
 
@@ -52,7 +52,7 @@ Todos os outros atributos `AuthnRequest`, como Consent, Destination, AssertionCo
 
 O Azure AD também ignora o elemento `Conditions` na `AuthnRequest`.
 
-### Issuer
+### Emissor
 
 O elemento `Issuer` em uma `AuthnRequest` deve corresponder exatamente a um dos **ServicePrincipalNames** no serviço de nuvem no Azure AD. Normalmente, isso é definido como o **URI da ID do aplicativo** que é especificado durante o registro do aplicativo.
 
@@ -145,7 +145,7 @@ Quando um logon solicitado for concluído com êxito, o Azure AD postará uma re
 </samlp:Response>
 ```
 
-### Response
+### Resposta
 
 O elemento `Response` inclui os resultados da solicitação de autorização. O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `Response`. Ele também define os seguintes atributos:
 
@@ -160,22 +160,6 @@ Por exemplo, uma resposta de exemplo com o elemento Issuer poderia ser assim:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-```
-
-### Signature
-
-O Azure AD assina o elemento `Response` após o logon bem-sucedido. O elemento `Signature` contém uma assinatura digital que o aplicativo pode usar para autenticar a fonte e verificar a integridade da resposta.
-
-O Azure AD usa a chave de assinatura especificada no elemento `IDPSSODescriptor` do documento de metadados. Para saber mais, confira [Documento de Metadados Federados](active-directory-federation-metadata.md).
-
-O Azure AD também assina o elemento `Assertion`, mas os dois elementos de assinatura são independentes.
-
-Um exemplo de elemento `Signature` na resposta poderia ter esta aparência:
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
 ```
 
 ### Status
@@ -301,4 +285,4 @@ Esse elemento declara que o assunto de asserção foi autenticado por um meio es
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

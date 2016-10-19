@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de planejamento e implementação | Microsoft Azure"
    description="SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de planejamento e implementação"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -1945,4 +1945,4 @@ Os pontos principais de alta disponibilidade para sistemas SAP no Azure são:
 * Fazer backup de instâncias de caixas de diálogo SAP não faz muito sentido, já que é normalmente mais rápido reimplantar instâncias de caixa de diálogo simples.
 * Fazer backup da VM que contém o diretório global do sistema SAP e com ela todos os perfis das diferentes instâncias faz sentido e deve ser executado com o Backup do Windows ou, por exemplo, tar no Linux. Como há diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2) que facilitam o backup usando versões mais recentes do Windows Server, é recomendável executar o Windows Server 2012 (R2) como sistema operacional convidado Windows.
 
-<!----HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->
