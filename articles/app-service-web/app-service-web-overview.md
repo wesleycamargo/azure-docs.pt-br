@@ -24,6 +24,7 @@ O vídeo de 5 minutos a seguir apresenta os Aplicativos Web do Serviço de Aplic
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
+
 ## O que é um aplicativo Web no Serviço de Aplicativo?
 
 No Serviço de Aplicativo, um *aplicativo Web* consiste nos recursos de computação que o Azure fornece para hospedar um site ou aplicativo Web.
@@ -62,4 +63,4 @@ Para começar com a implantação do código de exemplo para um novo aplicativo 
 
 Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

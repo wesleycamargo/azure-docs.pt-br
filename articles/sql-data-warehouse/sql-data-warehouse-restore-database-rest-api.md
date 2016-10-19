@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Recuperar um SQL Data Warehouse do Azure (API REST)
@@ -38,7 +38,7 @@ Para restaurar um banco de dados:
 2. Comece sua restauração usando a operação [Criar solicitação de restauração do banco de dados][].
 3. Acompanhe o status de sua restauração usando a operação [Status de operações do banco de dados][].
 
->[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
+>[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][].
 
 ## Restaurar um banco de dados excluído
 
@@ -49,18 +49,18 @@ Para restaurar um banco de dados excluído:
 3.	Comece sua restauração usando a operação [Criar solicitação de restauração do banco de dados][].
 4.	Acompanhe o status de sua restauração usando a operação [Status de operações do banco de dados][].
 
->[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
+>[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][].
 
 
 ## Próximas etapas
-Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
+Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
+[Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: ./sql-database-business-continuity.md
 [Solicitar uma alteração de cota de DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Finalizar um banco de dados recuperado]: ./sql-database-recovered-finalize.md
+[Configurar o banco de dados após a recuperação]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Visão geral]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

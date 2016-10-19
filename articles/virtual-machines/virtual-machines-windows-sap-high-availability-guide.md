@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de alta disponibilidade | Microsoft Azure"
    description="SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide (SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de alta disponibilidade)"
-   services="virtual-machines-windows,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-windows"
+   documentationCenter=""
    authors="goraco"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="goraco"/>
 
@@ -1432,4 +1432,4 @@ O disco compartilhado agora é montado no nó B do cluster. O SIOS DataKeeper es
 
 _**Figura 62:** SIOS DataKeeper: replicando o volume local do nó B do cluster para o nó A do cluster_
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

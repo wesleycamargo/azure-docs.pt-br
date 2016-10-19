@@ -13,7 +13,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="gusapost;robmcm"/>
 
 
 # Como usar o Armazenamento de Tabela do Azure por meio do Ruby
@@ -165,4 +165,4 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [SDK do Azure para repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-<!---HONumber=AcomDC_0817_2016--->
+<!---HONumber=AcomDC_0928_2016-->

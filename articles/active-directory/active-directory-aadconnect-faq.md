@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -72,4 +72,4 @@ Você também pode configurar o Azure AD para permitir que o mecanismo de sincro
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

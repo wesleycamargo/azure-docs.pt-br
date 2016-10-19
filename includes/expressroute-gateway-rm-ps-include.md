@@ -5,7 +5,7 @@ Lista de referência de configuração:
 - Nome da Rede Virtual = “TestVNet”
 - Espaço de endereço da Rede Virtual = 192.168.0.0/16
 - Grupo de recursos = “TestRG”
-- Nome de Subnet1 = “FrontEnd” 
+- Nome de Subnet1 = “FrontEnd”
 - Espaço de endereço de Subnet1 = “192.168.0.0/16”
 - Nome da Sub-rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
 - Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
@@ -19,7 +19,7 @@ Lista de referência de configuração:
 
 ## Adicionar um gateway
 
-1. Conecte-se à sua Assinatura do Azure. 
+1. Conecte-se à sua Assinatura do Azure.
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
@@ -70,7 +70,9 @@ Use o comando abaixo para verificar se o gateway foi criado.
 
 ## Redimensionar um gateway
 
-Há três [SKUs de gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Você pode usar o comando a seguir para alterar a SKU de gateway a qualquer momento.
+Há uma série de [SKUs de Gateway](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Você pode usar o comando a seguir para alterar a SKU de gateway a qualquer momento.
+
+>[AZURE.IMPORTANT] Esse comando não funciona para o gateway UltraPerformance. Para alterar o gateway para um gateway UltraPerformance, primeiro remova o gateway do ExpressRoute existente e crie um novo gateway UltraPerformance. Para fazer downgrade do gateway de um gateway UltraPerformance, primeiro remova o gateway UltraPerformance e crie um novo gateway.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -81,4 +83,4 @@ Use o comando a seguir para remover um gateway
 
 	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

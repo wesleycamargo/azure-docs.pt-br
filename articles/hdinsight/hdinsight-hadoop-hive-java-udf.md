@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/07/2016"
+ms.date="09/27/2016"
 ms.author="larryfr"/>
 
 #Usar um Java UDF com o Hive no HDInsight
@@ -67,7 +67,61 @@ O Hive é ótimos para trabalhar com dados no HDInsight, mas algumas vezes você
 
     Essas entradas especificam a versão do Hadoop e do Hive que acompanham os clusters do HDInsight 3.3 e 3.4. Você pode encontrar informações sobre as versões do Hadoop e do Hive fornecidas com o HDInsight no documento [Controle de versão de componente do HDInsight](hdinsight-component-versioning.md).
 
-    Salve o arquivo depois de fazer essa alteração.
+    Adicione uma seção `<build>` antes da linha `</project>` no final do arquivo. Esta seção deve conter o seguinte:
+
+        <build>
+            <plugins>
+                <!-- build for Java 1.7, even if you're on a later version -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <!-- build an uber jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <!-- Keep us from getting a can't overwrite file error -->
+                        <transformers>
+                            <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                            </transformer>
+                        </transformers>
+                        <!-- Keep us from getting a bad signature error -->
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/*.SF</exclude>
+                                    <exclude>META-INF/*.DSA</exclude>
+                                    <exclude>META-INF/*.RSA</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    
+    Essas entradas definem como compilar o projeto. Especificamente, a versão do Java que o projeto usa e como criar um uberjar para implantação no cluster.
+
+    Salve o arquivo depois que as alterações forem feitas.
 
 4. Renomeie __exampleudf/src/main/java/com/microsoft/examples/App.java__ como __ExampleUDF.java__ e, em seguida, abra o arquivo em seu editor.
 
@@ -136,7 +190,7 @@ O Hive é ótimos para trabalhar com dados no HDInsight, mas algumas vezes você
 
 2. Quando você chegar ao prompt `jdbc:hive2://localhost:10001/>`, digite o seguinte para adicionar o UDF no Hive e expô-lo como uma função.
 
-        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Use o UDF para converter valores recuperados de uma tabela em cadeias de caracteres de letras minúsculas.
@@ -166,4 +220,4 @@ Para ver outras maneiras de trabalhar com o Hive, consulte [Usar o Hive com o HD
 
 Para obter mais informações sobre funções definidas pelo usuário do Hive, consulte a seção [Operadores e funções definidas pelo usuário do Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) do wiki Hive em apache.org.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

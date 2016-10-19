@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Entrar e sair de aplicativo Web com o AD do Azure
+# Entrar e sair do aplicativo Web NodeJS com o Azure AD
 
 
 Aqui usaremos o Passport para:
@@ -72,7 +72,7 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
 ## 3\. Configurar seu aplicativo para usar a estratégia passport-node-js
-Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect. O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
+Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 -	Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
     -	`clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
@@ -283,15 +283,15 @@ app.get('/logout', function(req, res){
     - O `/logout` simplesmente chamará logout.ejs (e a rota), o que limpa os cookies e, em seguida, retorna o usuário para index. ejs
 
 
-- Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account` acima.
+- Para a última parte do `app.js`, vamos adicionar o método EnsureAuthenticated que é usado em `/account`  acima.
 
 ```JavaScript
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
-// Use esse middleware de roteiro em qualquer recurso que precise ser protegido.  Se
-//   a solicitação for autenticada (normalmente por meio de uma sessão de logon persistente),
-//   ela continuará. Caso contrário, o usuário será redirecionado para
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -415,4 +415,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

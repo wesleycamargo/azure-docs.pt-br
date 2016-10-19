@@ -18,6 +18,12 @@
 
 # Publicar um aplicativo em um cluster remoto usando o Visual Studio
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+<br/>
+
 A extensão do Service Fabric do Azure para Visual Studio permite facilmente repetir e executar por script a publicação de um aplicativo em um cluster do Service Fabric.
 
 ## Os artefatos necessários para publicação
@@ -28,7 +34,7 @@ Este é um script do PowerShell que usa um caminho de perfil de publicação com
 
 ### Perfis de publicação
 
-Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles** contém arquivos XML que armazenam informações essenciais à publicação de aplicativos, como:
+Uma pasta no projeto de aplicativo do Service Fabric chamada **PublishProfiles** contém arquivos XML que armazenam informações essenciais para a publicação de aplicativos, como:
 
 - Parâmetros de conexão de cluster do Service Fabric
 - Caminho para um arquivo de parâmetros de aplicativo
@@ -52,9 +58,9 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
 
     O arquivo selecionado na lista suspensa **Perfil de destino** é onde todas as configurações, exceto as **Versões do manifesto**, são salvas. Você pode reutilizar um perfil existente ou criar um novo escolhendo **<Gerenciar Perfis... >** na lista suspensa **Perfil de destino**. Quando você escolhe um perfil de publicação, seu conteúdo aparece nos campos correspondentes da caixa de diálogo. Para salvar suas alterações a qualquer momento, escolha o link **Salvar Perfil**.
 
-2. Na seção **Ponto de extremidade da conexão**, especifique um ponto de extremidade de publicação local ou remoto de cluster do Service Fabric. Para adicionar ou alterar o ponto de extremidade de conexão, clique na lista suspensa **Ponto de Extremidade de Conexão**. A lista mostra os pontos de extremidade de conexão do cluster do Service Fabric disponíveis nos quais você pode publicar baseada em suas assinaturas do Azure. Você deve se conectar ao Visual Studio se já não estiver.
+2. Na seção **Ponto de extremidade da conexão**, especifique um ponto de extremidade de publicação local ou remoto de cluster do Service Fabric. Para adicionar ou alterar o ponto de extremidade de conexão, clique na lista suspensa **Ponto de Extremidade de Conexão**. A lista mostra os pontos de extremidade de conexão do cluster do Service Fabric disponíveis nos quais você pode publicar com base em suas assinaturas do Azure. Você deve se conectar ao Visual Studio se já não estiver.
 
-    Use a caixa de diálogo de seleção de cluster permite que você escolha o conjunto de assinaturas e clusters disponíveis.
+    Use a caixa de diálogo de seleção de cluster para escolher o conjunto de assinaturas e os clusters disponíveis.
 
     ![A caixa de diálogo **Selecionar Cluster do Service Fabric**][1]
 
@@ -66,9 +72,9 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
 
     ![A caixa de diálogo **Editar Parâmetros**][2]
 
-4. Use a caixa de seleção **Atualizar o Aplicativo** para especificar se essa ação de publicação é ou não uma atualização. Ações de publicação de atualização são diferentes das ações de publicação normais. Confira [Atualização de Aplicativo do Service Fabric](service-fabric-application-upgrade.md) para obter uma lista das diferenças. Para definir as configurações de atualização, escolha o link **Definir Configurações de Atualização**. O editor de parâmetros de atualização é exibido. Confira [Configurar a atualização de um aplicativo do Service Fabric](service-fabric-visualstudio-configure-upgrade.md) para saber mais sobre os parâmetros de atualização.
+4. Use a caixa de seleção **Atualizar o Aplicativo** para especificar se esta ação de publicação é uma atualização. Ações de publicação de atualização são diferentes das ações de publicação normais. Confira [Atualização de Aplicativo do Service Fabric](service-fabric-application-upgrade.md) para obter uma lista das diferenças. Para definir as configurações de atualização, escolha o link **Definir Configurações de Atualização**. O editor de parâmetros de atualização é exibido. Confira [Configurar a atualização de um aplicativo do Service Fabric](service-fabric-visualstudio-configure-upgrade.md) para saber mais sobre os parâmetros de atualização.
 
-5. Escolha o botão **Versões do Manifesto...** para exibir a caixa de diálogo **Editar Versões**. Você precisa atualizar as versões do aplicativo e do serviço para que uma atualização ocorra. Confira [Tutorial de atualização de aplicativo do Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber como as versões do aplicativo e do manifesto do serviço afetam um processo de atualização.
+5. Escolha o botão **Versões do Manifesto...** para exibir a caixa de diálogo **Editar Versões**. Você precisa atualizar as versões do aplicativo e do serviço para que uma atualização ocorra. Confira o [Tutorial de atualização do aplicativo Service Fabric](service-fabric-application-upgrade-tutorial.md) para saber como as versões do aplicativo e do manifesto do serviço afetam um processo de atualização.
 
     ![A caixa de diálogo **Editar Versões**][3]
 
@@ -80,7 +86,7 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
 
 ## Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
 
-A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, dois perfis de publicação são fornecidos por padrão, **Local.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
+A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, dois perfis de publicação são fornecidos por padrão, o **Local.xml** e o **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
 
 Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
 
@@ -88,7 +94,7 @@ Se você está se conectando a um cluster não seguro, tudo de que precisa é o 
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  Se você estiver se conectando a um cluster protegido, precisará também fornecer os detalhes do certificado de cliente do repositório local para ser usado na autenticação. Para obter mais detalhes, confira [Configurando conexões seguras para um cluster do Service Fabric](service-fabric-visualstudio-configure-secure-connections.md).
+  Se você estiver se conectando a um cluster protegido, precisará também fornecer os detalhes do certificado de cliente do repositório local para ser usado na autenticação. Para obter mais detalhes, confira [Configurar conexões seguras para um cluster do Service Fabric](service-fabric-visualstudio-configure-secure-connections.md).
 
   Depois de configurar o seu perfil de publicação, você pode referenciá-lo na caixa de diálogo de publicação, conforme mostrado abaixo.
 
@@ -98,7 +104,7 @@ Se você está se conectando a um cluster não seguro, tudo de que precisa é o 
 
 ## Próximas etapas
 
-Para saber como automatizar o processo de publicação em um ambiente de Integração Contínua, confira [Configurar a integração contínua no Service Fabric](service-fabric-set-up-continuous-integration.md).
+Para saber como automatizar o processo de publicação em um ambiente de integração contínua, confira [Set up Service Fabric continuous integration](service-fabric-set-up-continuous-integration.md) (Configurar a integração contínua no Service Fabric).
 
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
@@ -107,4 +113,4 @@ Para saber como automatizar o processo de publicação em um ambiente de Integra
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

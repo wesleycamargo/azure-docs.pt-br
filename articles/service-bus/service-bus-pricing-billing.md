@@ -17,13 +17,13 @@
 
 # Barramento de Serviço, preços e cobrança
 
-O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). Você pode escolher um nível de serviço para cada namespace do Barramento de Serviço criado por você e essa seleção de camada aplica-se a todas as filas, tópicos/assinaturas, retransmissões e Hubs de eventos criado dentro desse namespace.
+O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](../service-bus-messaging/service-bus-premium-messaging.md). Você pode escolher um nível de serviço para cada namespace do Barramento de Serviço criado por você e essa seleção de camada aplica-se a todas as filas, tópicos/assinaturas, retransmissões e Hubs de eventos criado dentro desse namespace.
 
 >[AZURE.NOTE] Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, veja [Página de preços do Barramento de Serviço do Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#service-bus-pricing).
 
 O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
 
-1. **Operações de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substituirá as mensagens enviadas ou recebidas como a principal unidade de uso cobrável para filas e tópicos/assinaturas.
+1. **Operações de sistema de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substituirá as mensagens enviadas ou recebidas como a principal unidade de uso cobrável para filas e tópicos/assinaturas.
 
 2. **Conexões orientadas**: definido como o número máximo de conexões persistentes abertas em filas, tópicos/assinaturas ou Hubs de eventos durante um período de amostragem de uma hora determinada. Esse medidor se aplicará somente na camada Standard, no qual você pode abrir conexões adicionais (anteriormente, as conexões eram limitadas a 100 por fila/tópico/assinatura) por uma taxa nominal por conexão.
 
@@ -42,7 +42,7 @@ A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Stan
 |Hubs de Eventos|Sim|Sim|
 |Filas|Sim|Sim|
 |Mensagens agendadas|Sim|Sim|
-|Tópicos/assinaturas|Não|Sim|
+|Tópicos/Assinaturas|Não|Sim|
 |Retransmissão|Não|Sim|
 |Transações|Não|Sim|
 |Eliminação de duplicação|Não|Sim|
@@ -121,7 +121,7 @@ Retransmissões estão disponíveis apenas nos namespaces de camada Standard. Ca
 
 ### Como é calculado o medidor de horas de retransmissão?
 
-Veja [Neste tópico](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+Consulte [este tópico](../service-bus-messaging/service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### O que são conexões orientadas e como serei cobrado para elas?
 
@@ -147,8 +147,8 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 - Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- Veja as [Perguntas frequentes do Barramento de Serviço](service-bus-faq.md#service-bus-pricing) para obter algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
+- Veja as [Perguntas frequentes do Barramento de Serviço](../service-bus-messaging/service-bus-faq.md#service-bus-pricing) para obter algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

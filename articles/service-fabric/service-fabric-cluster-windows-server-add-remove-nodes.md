@@ -32,20 +32,24 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
 6. Execute o PowerShell *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo a seguir adiciona um novo nó chamado VM5, com tipo NodeType0, endereço IP 182.17.34.52 em UD1 e FD1. O *ExistingClusterConnectionEndPoint* é um ponto de extremidade de conexão para um nó em um cluster existente. Para esse ponto de extremidade, você pode escolher o endereço IP de *qualquer* nó no cluster.
 
 ```
-.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA
+
 ```
 
 ## Remover nós do cluster
 
-1. RDP (área de trabalho remota) na VM/computador que você deseja remover do cluster.
+1. Dependendo do nível de Confiabilidade escolhido para o cluster, você não pode remover os primeiros nós n (3/5/7/9) do tipo de nó principal
+2. Não há suporte para executar o comando RemoveNode em um cluster de desenvolvimento.
+2. RDP (área de trabalho remota) na VM/computador que você deseja remover do cluster.
 2. Copie ou [baixe o pacote autônomo do Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) e descompacte o pacote para esta VM/computador.
 3. Execute o Powershell como administrador e navegue até o local do pacote descompactado.
-4. Execute o PowerShell *RemoveNode.ps1*. O exemplo a seguir remove o nó atual do cluster. O *ExistingClusterConnectionEndPoint* é um ponto de extremidade de conexão para um nó em um cluster existente. Para esse ponto de extremidade, você pode escolher o endereço IP de *qualquer* nó no cluster.
+4. Execute o PowerShell *RemoveNode.ps1*. O exemplo a seguir remove o nó atual do cluster. O *ExistingClusterConnectionEndPoint* é um ponto de extremidade de conexão para um nó em um cluster existente. Para esse ponto de extremidade, você pode escolher o endereço IP de *qualquer* **outro nó** no cluster.
 
 ```
 .\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
+Defeito conhecido sendo corrigido na próxima versão – mesmo após a remoção de um nó, o nó aparece como sendo pressionado em consultas e SFX.
 
 ## Próximas etapas
 - [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
@@ -53,4 +57,4 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
 - [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
 - [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="bsiva"/>
 
 # Replicar entre máquinas virtuais locais do Hyper-V e o Azure usando o PowerShell e o Azure Resource Manager
@@ -75,7 +75,7 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
     	Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-3.  Verifique se sua assinatura está registrada para usar os provedores do Azure para os Serviços de Recuperação e a Recuperação de Site usando os seguintes comandos:
+3.  Verifique se sua assinatura está registrada para usar os provedores do Azure para os Serviços de Recuperação e o Site Recovery usando os seguintes comandos:
 
 	- `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 	-  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
@@ -257,4 +257,4 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 [Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

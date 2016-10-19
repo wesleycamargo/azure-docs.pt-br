@@ -60,7 +60,7 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 	![adicionar um registro de zona](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
-	* Ao adicionar um **registro A (host)** - você deve definir o campo **Host** como **@** (isso representa o nome do domínio raiz, como **contoso.com**), * (um caractere curinga para corresponder a vários subdomínios) ou o subdomínio que você deseja usar (por exemplo, **www**). Você deve definir o campo **Aponta para* como o endereço IP do seu aplicativo Web do Azure.
+	* Ao adicionar um **registro A (host)** – você deve definir o campo **Host** como **@** (isso representa o nome do domínio raiz, como **contoso.com**), * (um caractere curinga para corresponder a vários subdomínios) ou o subdomínio que você deseja usar (por exemplo, **www**). Você deve definir o campo **Aponta para** como o endereço IP do seu aplicativo Web do Azure.
 
 	* Ao adicionar um **registro CNAME (alias)** - você deve definir o campo **Host** como o subdomínio que deseja usar. Por exemplo, **www**. Você deve definir o campo **Aponta para** como o nome do domínio **.azurewebsites.net** do aplicativo Web do Azure. Por exemplo, **contoso.azurewebsites.net**.
 
@@ -81,4 +81,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

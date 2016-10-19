@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1
 
 Você pode usar uma Política de Grupo do Active Directory para configurar os dispositivos associados ao domínio do Windows 8.1 para registro automático com o AD do Azure. Para configurar a Política de Grupo, você deve ter pelo menos um computador unido ao domínio do Windows Server 2012 R2 ou Windows 8.1 com o recurso de Gerenciamento de Política de Grupo instalado. Quando essa Política de Grupo for habilitada para seu domínio, qualquer usuário que fizer logon no computador do domínio será registrado de forma automática e silenciosa com um objeto de dispositivo no Azure AD. Haverá um objeto de dispositivo no AD do Azure para todos os usuários registrados do dispositivo físico. Certifique-se de ler e concluir os pré-requisitos do Registro Automático de Dispositivo com Active Directory do Azure para dispositivos ingressados no domínio do Windows.
+
+>[AZURE.NOTE]
+ Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+
+
 
 ## Configurar a Política de Grupo para dispositivos ingressados no domínio do Windows 8.1
 
@@ -61,4 +66,4 @@ A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

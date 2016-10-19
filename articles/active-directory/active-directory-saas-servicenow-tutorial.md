@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o ServiceNow
   
-O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow.
- O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao ServiceNow. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário em ServiceNow, versão Calgary ou superior
@@ -74,11 +73,11 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 1.  No portal clássico do Azure AD, na página de integração de aplicativos do **ServiceNow**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurar o logon único")
 
 2.  Na página **Como você deseja que os usuários façam logon no ServiceNow**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurar o logon único")
 
 3.  Na página **Definir Configurações do Aplicativo**, execute as seguintes etapas:
 
@@ -98,7 +97,7 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 5.  Na página **Configurar logon único no ServiceNow**, clique em **Baixar certificado**, salve o arquivo de certificado no computador e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurar o logon único")
 
 1. Entre no seu aplicativo ServiceNow como administrador.
 
@@ -123,17 +122,17 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 1. No painel de navegação à esquerda, clique em **Certificados x509**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694973.png "Configurar o logon único")
 
 
 1. No diálogo **Certificados x. 509**, clique em **Novo**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configurar o logon único")
 
 
 1. No diálogo **Certificados x. 509**, execute as seguintes etapas:
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar o logon único")
 
     a. Clique em **Novo**.
 
@@ -156,21 +155,21 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 1. No painel de navegação à esquerda, clique em **Provedores de Identidade**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694976.png "Configurar o logon único")
 
 1. No diálogo **Provedores de Identidade**, clique em **Novo**:
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurar o logon único")
 
 
 1. No diálogo **Provedores de Identidade**, clique em **SAML2 Atualização1?**:
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurar o logon único")
 
 
 1. No diálogo Propriedades de SAML2 Atualização1, execute as seguintes etapas:
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configurar o logon único")
 
 
     Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: **SAML 2.0**).
@@ -214,11 +213,11 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
 6. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**.
 
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar o logon único")
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**.
  
-    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configurar logon único")
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configurar o logon único")
 
 
 
@@ -264,7 +263,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 ##Atribuindo usuários
   
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
 ###Para atribuir usuários ao ServiceNow, execute as seguintes etapas:
 
@@ -286,4 +285,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

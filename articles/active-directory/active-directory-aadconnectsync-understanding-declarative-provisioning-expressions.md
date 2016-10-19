@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -92,4 +92,4 @@ Por exemplo: `Trim([proxyAddresses])` Faz um corte de todos os valores no atribu
 
 - [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

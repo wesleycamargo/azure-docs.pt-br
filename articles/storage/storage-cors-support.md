@@ -3,7 +3,7 @@
 	description="Saiba como habilitar o suporte de CORS para os serviços de armazenamento do Microsoft Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="cbrooks"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
 
@@ -195,4 +195,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

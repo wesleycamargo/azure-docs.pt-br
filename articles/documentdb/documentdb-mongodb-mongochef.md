@@ -3,7 +3,7 @@
 	description="Saiba como usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização." 
 	keywords="mongochef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
@@ -132,4 +132,4 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

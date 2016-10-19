@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="dineshm;tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
 
@@ -163,4 +163,4 @@ Por exemplo, sua cadeia de conexão deve ser semelhante à seguinte cadeia de co
 - [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
 - [Pesquisadores de armazenamento do Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

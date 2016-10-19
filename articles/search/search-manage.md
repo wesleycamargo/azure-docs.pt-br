@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gerencie o seu serviço de Pesquisa no Microsoft Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
-	description="Gerenciar a Pesquisa do Azure, serviço de pesquisa de nuvem hospedado do Microsoft Azure" 
+	pageTitle="Administração do serviço do Azure Search no portal do Azure" 
+	description="Gerenciar o Azure Search, um serviço de nuvem hospedado no Microsoft Azure, usando o portal do Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,100 +14,102 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/17/2016" 
+	ms.date="09/26/2016" 
 	ms.author="heidist"/>
 
-# Gerenciar seu serviço de Pesquisa no Microsoft Azure
+# Administração do serviço do Azure Search no portal do Azure
 > [AZURE.SELECTOR]
 - [Portal](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
 - [API REST](search-get-started-management-api.md)
 
-A Pesquisa do Azure é um serviço baseado em nuvem com uma API baseada em HTTP que pode ser usado em aplicativos de pesquisa personalizados. Nosso serviço de Pesquisa fornece o mecanismo para análise de texto de pesquisa em texto completo, recursos de pesquisa avançada, armazenamento de dados de pesquisa e uma sintaxe de comandos de consulta.
+O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciado usado para criar uma experiência avançada de pesquisa em aplicativos personalizados. Este artigo aborda as tarefas *administração de serviço* que você pode executar no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa que você já tenha provisionado. A *administração de serviço* é leve por design, limitada às seguintes tarefas:
 
-Este artigo explica como administrar um serviço da Pesquisa no [Portal do Azure](https://portal.azure.com). Você também pode usar o novo recurso de análise de tráfego de pesquisa para obter informações sobre as atividades no nível do índice. Visite [Análise de Tráfego de Pesquisa para a Pesquisa do Azure](search-traffic-analytics.md) para começar a usar.
+- Gerenciar e proteger o acesso para as *chaves de api* usadas para acesso de leitura ou gravação para o serviço.
+- Ajuste a capacidade de serviço, alterando a alocação de partições e réplicas.
+- Monitorar o uso de recursos, em relação aos limites máximos da sua camada de serviço.
 
-Como alternativa, você pode usar a API REST de gerenciamento. Confira [Introdução à API REST de Gerenciamento de Pesquisa do Azure](search-get-started-management-api.md) e [referência da API REST do Gerenciamento de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obter detalhes.
+**Não está no escopo**
 
-<a id="sub-1"></a>
-## Adicionar o serviço de pesquisa à sua assinatura
+*Gerenciamento de conteúdo* (ou gerenciamento de índice) refere-se a operações, como análise de tráfego de pesquisa para entender o volume de consultas, descobrir quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedida são para a orientação dos clientes para documentos específicos no índice. Gerenciamento de conteúdo está além do escopo deste artigo. Para obter instruções sobre como obter informações sobre operações internas no nível do índice, consulte [Análise de tráfego de pesquisa para o Azure Search](search-traffic-analytics.md).
 
-Como o administrador configura um Serviço de Pesquisa, uma das primeiras decisões é escolher uma faixa de preço. As opções incluem gratuito e níveis de preços padrão.
+O *desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
-Sem custos adicionais para assinantes atuais, você pode escolher um serviço compartilhado, recomendado para fins de aprendizado, testes de prova de conceito e pequenos projetos de desenvolvimento. O serviço compartilhado é limitado a 50 MB de armazenamento, três índices e contagem de documentos - um limite de 10.000 documentos, ainda que o consumo de armazenamento seja inferior aos 50 MB disponibilizados. Não há garantias de desempenho do serviço compartilhado, ou seja, se você for criar um aplicativo de pesquisa de produção, considere usar a pesquisa padrão.
+O Azure Search não oferece soluções integradas para recuperação de desastres ou backup e restauração. Para clientes que enviam objetos e dados por push e dados para o seu serviço, o código-fonte para criar e preencher um índice é a opção de restauração de fato, se você excluir um índice por engano. Para recuperação de desastres, os clientes optam por redundância por meio de um serviço adicional em um data center regional diferente. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
-As pesquisas Básica e Padrão são faturáveis, pois você se inscreve para os recursos dedicados e a infraestrutura usada apenas por sua assinatura. As pesquisas Básica e Standard são alocadas em pacotes de partições (armazenamento) e réplicas (cargas de trabalho do serviço) definidos pelo usuário, e o preço é definido por unidade de pesquisa. Você pode expandir as partições ou réplicas de maneira independente, adicionando o recurso que for necessário.
+<a id="admin-rights"></a>
+## Direitos de administrador no Azure Search
 
-Para se planejar quanto à capacidade e compreender o impacto da cobrança, recomendamos estes links:
+O provisionamento ou encerramento do serviço em si podem ser feitos por um administrador ou coadministrador de assinatura do Azure.
 
-+	[Limites e restrições](search-limits-quotas-capacity.md)
-+	[Detalhes de preços](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
+Em um serviço, qualquer pessoa com acesso à URL do serviço e uma chave de api de administração tem acesso de leitura e gravação para o serviço, com capacidade proporcional para adicionar, excluir ou modificar objetos de servidor, como chaves de api, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementado por meio de [funções definidas pelo RBAC](#rbac).
 
-Quando você estiver pronto para se inscrever, confira [Criar um serviço de Pesquisa no portal](search-create-service-portal.md).
+Todas as interações do usuário com o Azure Search se enquadram em um destes modos: acesso de leitura e gravação para o serviço (direitos de administrador) ou acesso somente de leitura ao serviço (direitos de consulta). Para obter mais informações, consulte [Gerenciar as chaves de api](#manage-keys).
 
-##Análise de Pesquisa
+<a id="sys-info"></a>
+## Registro no Azure Search e informações do sistema
 
-Você pode habilitar a coleta de dados sobre a atividade de pesquisa do usuário para verificar o desempenho do seu serviço de pesquisa, quais termos estão sendo usados e se esses termos retornaram visitas. A melhor maneira de analisar e visualizar esses dados é por meio de um pacote de conteúdo do Power BI. A primeira etapa é habilitar a análise do tráfego de pesquisa. Veja [Analisando o tráfego da Pesquisa do Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para saber como.
+O Azure Search não expõe os arquivos de log para um serviço individual por meio do portal ou interfaces programáticas. Na camada Básica e acima, a Microsoft monitora todos os serviços do Azure Search para disponibilidade de 99,9% por contratos de nível de serviço (SLA). Se o serviço estiver lento ou a taxa de transferência de solicitação estiver abaixo dos limites de SLA, as equipes de suporte analisam os arquivos de log disponíveis para resolver o problema.
 
-<a id="sub-2"></a>
-## Tarefas administrativas
+Em termos de informações gerais sobre o serviço, você pode obter informações das seguintes maneiras:
 
-Embora alguns serviços possam ter coadministradores, um serviço Azure Search pode ter somente um administrador por assinatura. Você precisa ser um administrador para executar as tarefas descritas nesta seção. Além de adicionar Pesquisa à assinatura, o administrador é responsável por estas tarefas adicionais:
+- No portal, no painel de serviço, por meio de notificações, propriedades e mensagens de status.
+- Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) para [obter propriedades do serviço](https://msdn.microsoft.com/library/azure/dn832694.aspx), ou status no uso de recursos do índice.
+- Por meio de [análise de tráfego de pesquisa](search-traffic-analytics.md), conforme observado anteriormente.
 
-+	Distribuição da URL do serviço (definida durante o provisionamento do serviço).
-+	Gerenciamento e distribuição das chaves de API.
-+	Monitorar o uso de recursos
-+	Expandir ou reduzir (aplica-se apenas à pesquisa padrão)
-+	Definir funções para controlar o acesso administrativo
-
-<a id="sub-3"></a>
-## URL do Serviço
-
-A URL do serviço é definida como uma propriedade fixa quando você cria o serviço e não pode ser alterada mais tarde.
-
-Os desenvolvedores que estiverem compilando aplicativos de pesquisa precisarão conhecer a URL do serviço para as solicitações HTTP. É possível localizar a URL do serviço rapidamente por meio do painel do serviço.
-
-Para obter a URL do serviço do painel de serviço:
-
-1.	Entre no [Portal do Azure](https://portal.azure.com).
-2.	Clique em **Navegar** | **Tudo** | **Serviços de pesquisa**.
-3.	Clique no nome do seu serviço de pesquisa para abrir o painel.
-4.	Clique em **PROPRIEDADES** para abrir uma página de propriedades. A URL do serviço está no topo da página. Você pode fixar esta página para acessá-la rapidamente mais tarde.
-
-    ![][8]
-
-Os desenvolvedores podem solicitar também a versão da API. Um requisito de codificação da API de Pesquisa do Azure é sempre especificar a versão da API na solicitação. Este requisito existe para que os desenvolvedores possam continuar usando uma versão anterior e passar a uma versão posterior quando for o momento certo.
-
-A versão da API não é exibida nas páginas do portal, de modo que não se trata de uma informação que você possa fornecer. Para obter informações sobre versões atuais e anteriores da API, consulte [API REST de Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkdID=509922).
-
-
-<a id="sub-4"></a>
+<a id="manage-keys"></a>
 ## Gerenciar as chaves de API
 
-Desenvolvedores que estiverem compilando aplicativos de pesquisa precisarão ter uma chave de API para acessar a Pesquisa. Toda solicitação HTTP para seu serviço de pesquisa precisará de uma chave de API gerada especificamente para seu serviço. Esta chave de API é o único mecanismo para autenticar a URL do seu serviço.
+Todas as solicitações para um serviço de pesquisa precisam de uma chave de api gerada especificamente para o seu serviço. Esta chave de API é o único mecanismo para autenticar o acesso ao ponto de extremidade do seu serviço de pesquisa.
+
+Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. Ela é gerado exclusivamente pelo seu serviço. Por meio de [permissões RBAC](#rbac), você pode excluir ou ler as chaves, mas você não pode substituir uma chave gerada por uma cadeia de caracteres definida pelo usuário (especificamente, se você tiver as senhas que costuma usar, você não pode substituir uma chave de api por uma senha definida pelo usuário).
 
 Dois tipos de chaves são usados para acessar seu serviço de pesquisa:
 
-+	Admin (válida para qualquer operação)
-+	Consulta (válida somente para solicitações de consulta)
++	Admin (válida para qualquer operação de leitura e gravação em relação ao serviço)
++	Consulta (válida para operações somente leitura, como consultas em um índice)
 
-Uma chave de API admin é criada com o serviço. Há uma chave primária e uma secundária. Você pode usá-las da mesma forma; nenhuma das duas indica um nível mais alto ou mais baixo de acesso, o que é útil caso você queira sobrepor chaves. Você pode gerar novamente as duas chaves admin, mas não pode aumentar a contagem total de chaves admin. Pode haver no máximo duas chaves admin por serviço de pesquisa.
+Uma chave de api admin é criada quando o serviço é provisionado. Há duas chaves admin, designadas como *primária* e *secundária* para mantê-las de forma linear, mas na verdade elas são intercambiáveis. Cada serviço tem duas chaves admin para que você possa derrubar uma sem perder o acesso ao seu serviço. Você pode gerar novamente as duas chaves admin, mas não pode aumentar a contagem total de chaves admin. Pode haver no máximo duas chaves admin por serviço de pesquisa.
 
-Chaves de consulta foram criadas para uso em aplicativos cliente que chamam a Pesquisa diretamente. Você pode criar até 50 chaves de consulta.
+Chaves de consulta foram criadas para aplicativos cliente que chamam a Pesquisa diretamente. Você pode criar até 50 chaves de consulta. No código do aplicativo, você pode especificar a URL de pesquisa e uma chave de api de consulta para permitir o acesso somente leitura para o serviço. O código do aplicativo também especifica o índice usado pelo seu aplicativo. Juntos, o ponto de extremidade, uma chave de api para acesso somente leitura e um índice de destino definem o nível de acesso e escopo da conexão de seu aplicativo cliente.
 
-Para obter ou gerar chaves de API novamente, abra o painel do serviço. Clique em **CHAVES** para abrir a página de gerenciamento de chaves. Os comandos para gerar novamente ou criar chaves estão no topo da página.
+Para obter ou gerar chaves de API novamente, abra o painel do serviço. Clique em **CHAVES** para abrir a página de gerenciamento de chaves. Os comandos para gerar novamente ou criar chaves estão no topo da página. Por padrão, somente as chaves admin são criadas. As chaves de api de consulta devem ser criadas manualmente.
 
  ![][9]
 
+<a id="rbac"></a>
+## Definir funções RBAC com acesso administrativo para o Azure Search
+
+O Azure fornece um [modelo global de autorização baseado em funções](../active-directory/role-based-access-control-configure.md) para todos os serviços gerenciados por meio do portal ou nas APIs do Gerenciador de Recursos. Funções de Leitor, Colaborador e Proprietário determinam o nível de administração do serviço para usuários, grupos e entidades de segurança do Active Directory, que você atribui a cada função.
+
+Para o Azure Search, as permissões de RBAC determinam as seguintes tarefas administrativas:
+
+Função|Tarefa
+---|---
+Proprietário|Criar ou excluir o serviço ou qualquer objeto no serviço, incluindo chaves de api, índices, indexadores, fontes de dados do indexador e agendas do indexador.<p>Exibir o status do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de assinatura e proprietários de serviço possuem associação automática na função Proprietários.
+Colaborador|Mesmo nível de acesso como Proprietário, menos gerenciamento de funções RBAC. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função.
+Leitor|Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem alterar a configuração do serviço, nem exibir chaves admin.
+
+Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
+
+
+<a id="secure-keys"></a>
+## Proteger as chaves de api
+
+A chave de segurança é protegida restringindo o acesso por meio do portal ou interfaces do Gerenciador de Recursos (PowerShell ou interface de linha de comando). Conforme observado, os administradores de assinatura podem exibir e gerar novamente todas as chaves de api. Como precaução, revise as atribuições de função para entender quem tem acesso às chaves admin.
+
+1. No painel de serviço, clique no ícone de acesso para abrir a folha de Usuários. ![][7]
+2. Em Usuários, analise as atribuições de função existentes. Conforme o esperado, os administradores de Assinatura já possuem acesso total ao serviço por meio da função Proprietário.
+3. Para analisar mais, clique em **Administradores de assinatura** e, em seguida, expanda a lista de atribuição de função para ver quem tem direitos de coadministração no seu serviço de pesquisa.
+
+Outra maneira de exibir permissões de acesso é clicar em **Funções** na folha de Usuários. Isso exibe funções disponíveis e o número de usuários ou grupos atribuídos a cada função.
 
 <a id="sub-5"></a>
 ## Monitorar o uso de recursos
 
-Nesta visualização pública, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e a algumas métricas que você pode obter ao consultar o serviço.
+No painel, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e a algumas métricas que você pode obter ao consultar o serviço. No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
-
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Veja [Limites de serviço da Pesquisa](search-limits-quotas-capacity.md) para obter detalhes.
+Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Para saber mais, confira [Limites de serviço de pesquisa](search-limits-quotas-capacity.md).
 
 +	[Obter estatísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Contar documentos](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -115,18 +117,18 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 > [AZURE.NOTE] Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite.
 
 
-<a id="sub-6"></a>
+<a id="scale"></a>
 ## Expandir ou reduzir
 
-Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você tiver se inscrito em recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), será possível clicar no bloco **ESCALA** no painel de serviço para reajustar o número de partições e réplicas usadas pelo serviço.
+Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você tiver se inscrito em recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), será possível clicar no bloco **ESCALA** no painel de serviço para ajustar o número de partições e réplicas usadas pelo serviço.
 
-Quando você adiciona capacidade por meio de um recurso, o serviço as utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar os recursos adicionais.
+Quando você adiciona capacidade por meio de qualquer recurso, o serviço as utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
 
  ![][10]
 
 ### Adicionar réplicas
 
-O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Atualmente, a regra geral é que você precisará de, pelo menos, três réplicas para ter alta disponibilidade (veja [Planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
+O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Um mínimo de 3 réplicas são necessários para alta disponibilidade (consulte [Planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
 
 Um serviço de pesquisa com mais réplicas é capaz de balancear a carga das solicitações de consulta em um número maior de índices. Em um determinado nível de volume de consultas, a produtividade das consultas será maior quando houver mais cópias do índice disponíveis para atender à solicitação. Caso esteja ocorrendo latência nas consultas, você pode esperar um impacto positivo quando as réplicas adicionais entrarem em atividade.
 
@@ -134,59 +136,44 @@ Embora a produtividade das consultas aumente conforme você adiciona réplicas, 
 
 ### Adicionar partições
 
-A maioria dos aplicativos de serviços tem a necessidade de mais réplicas do que de partições, uma vez que a maioria dos aplicativos que utiliza pesquisas cabe facilmente em uma única partição que pode suportar até 15 milhões de documentos.
+A maioria dos aplicativos de serviço possui uma necessidade integrada de mais réplicas em vez de partições. Nos casos em que seja necessária uma contagem maior de documentos, é possível adicionar partições se você se inscreveu no serviço Standard. A camada Básica não fornece partições adicionais.
 
-Nos casos em que seja necessária uma contagem maior de documentos, é possível adicionar partições se você se inscreveu no serviço Standard. A camada Básica não fornece partições adicionais.
-
-Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Trata-se de um artifício de fragmentação; um índice é criado em 12 fragmentos, que podem todos ser armazenados em uma partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
+Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Isso é um artefato de fragmentação. Um índice é criado em 12 fragmentos, que podem todos ser armazenados em 1 partição ou divididos igualmente em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
 
 ### Remover réplicas
 
-Após períodos de grandes volumes de consulta, é mais provável que você remova réplicas quando as cargas de consulta tiverem se normalizado (por exemplo, após as vendas de final de ano).
+Após períodos de grandes volumes de consulta, é mais provável que você reduza réplicas quando as cargas de consulta tiverem se normalizado (por exemplo, após as vendas de final de ano).
 
-Para fazer isso, basta mover o controle deslizante de réplicas para um número mais baixo. Não são necessárias mais medidas de sua parte. Reduzir o número de réplicas libera máquinas virtuais no datacenter. Suas operações de consulta e ingestão de dados passarão a ser executadas em menos VMs do que antes. O limite mínimo é uma réplica.
+Para fazer isso, mova o controle deslizante de réplicas para um número mais baixo. Não são necessárias mais medidas de sua parte. Reduzir o número de réplicas libera máquinas virtuais no datacenter. Suas operações de consulta e ingestão de dados passarão a ser executadas em menos VMs do que antes. O limite mínimo é uma réplica.
 
 ### Remover partições
 
-Em contraste com a remoção de réplicas, que não requer nenhum esforço extra da sua parte, você pode precisar tomar algumas medidas se estiver usando armazenamento a mais que pode ser reduzido. Por exemplo, se a sua solução estiver usando três partições, tentar reduzir uma ou duas partições gerará um erro se você estiver usando mais espaço de armazenamento do que pode ser armazenado no número reduzido de partições. Neste caso, suas opções são excluir índices ou documentos dentro de um índice associado para liberar espaço ou manter a configuração atual.
+Em contraste com a remoção de réplicas, que não requer nenhum esforço extra da sua parte, você pode precisar tomar algumas medidas se estiver usando armazenamento a mais que pode ser reduzido. Por exemplo, se a sua solução estiver usando três partições, fazendo o downsizing de uma ou duas partições gerará um erro se o novo espaço de armazenamento é menor do que o necessário. Como é de se esperar, suas opções são excluir índices ou documentos dentro de um índice associado para liberar espaço ou manter a configuração atual.
 
 Não há um método de detecção que informe quais fragmentos de índices estão armazenados em quais partições. Cada partição fornece cerca de 25 GB de armazenamento, de modo que você precisará reduzir o armazenamento para um tamanho que possa ser acomodado pelo número de partições que possui. Caso queira reverter para uma partição, os 12 fragmentos precisarão se encaixar.
 
 Para se planejar para o futuro, talvez você queira conferir o armazenamento (usando [Obter Estatísticas do Índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver o quanto você realmente usou.
 
-### Práticas recomendadas sobre escala e implantação de serviço em vários datacenters (vídeo)
+<a id="advanced-deployment"></a>
+## Práticas recomendadas em escala e implantação (vídeo)
+
+Este vídeo de 30 minutos examina as práticas recomendadas para cenários de implantação avançados, incluindo cargas de trabalho distribuídas geograficamente. Você também pode consultar [Desempenho e otimização no Azure Search](search-performance-optimization.md) para páginas de ajuda que abrangem os mesmos pontos.
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
+<a id="next-steps"></a>
+## Próximas etapas
 
-<a id="sub-8"></a>
-## Definir funções sobre o acesso administrativo
+Depois de compreender os tipos de operações relativas à administração do serviço, considere as diversas abordagens para o gerenciamento de serviço:
 
-O Azure fornece um modelo global de autorização baseado em funções para todos os serviços gerenciados por meio do portal ou na API do Gerenciador de Recursos do Azure, se você estiver usando uma ferramenta de administração personalizada. Funções de Leitor, Colaborador e Proprietário definem o nível de administração para usuários do Active Directory, grupos e entidades de segurança que você atribui a cada função. Consulte o [Controle de acesso baseado em função no Portal clássico do Azure](../active-directory/role-based-access-control-configure.md) para obter detalhes sobre a associação de função.
+- [PowerShell](search-manage-powershell.md)
+- [API REST de gerenciamento](search-get-started-management-api.md)
 
-Em termos de Pesquisa do Azure, controles de acesso baseados em função determinam as seguintes tarefas administrativas:
+Além disso, se você ainda não fez isso, examine o [artigo de desempenho e otimização](search-performance-optimization.md), e, opcionalmente, assista ao vídeo observado na seção anterior para obter mais detalhes e demonstrações técnicas recomendadas.
 
-
-Função|Tarefa
----|---
-Proprietário|Iniciar, interromper ou excluir o serviço.<p>Gerar e exibir as chaves do administrador e as chaves de consulta.<p>Exibir o status do serviço, incluindo a contagem de índice, nomes de índice, contagem de documentos e tamanho de armazenamento.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de serviço e assinatura têm associação automática na função Proprietários.
-Colaborador|Tem o mesmo nível de acesso que o Proprietário, com exceção de gerenciamento de função. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função.
-Leitor|Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem iniciar ou parar um serviço, nem exibir chaves de administração.
-
-Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [Controle de acesso baseado em função no Portal do Azure](../active-directory/role-based-access-control-configure.md) para obter mais informações.
-
-As funções fornecem controle de acesso depois da criação do serviço. Apenas os gerentes de assinatura podem adicionar um serviço de Pesquisa a uma assinatura.
-
-<!--Anchors-->
-[Add search service to your subscription]: #sub-1
-[Administrative tasks]: #sub-2
-[Service URL]: #sub-3
-[Manage the api-keys]: #sub-4
-[Monitor resource usage]: #sub-5
-[Scale up or down]: #sub-6
-[Set roles to control administrative access]: #sub-8
 
 <!--Image references-->
+[7]: ./media/search-manage/rbac-icon.png
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
@@ -194,4 +181,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -127,7 +127,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 	d. Clique em **Próximo**.
 
-	> [AZURE.NOTE] Observe que você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Para obter esses valores, entre em contato com a equipe de suporte de Software de RH Cezanne via < mailto:info@cezannehr.com>.
+	> [AZURE.NOTE] Observe que você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Para obter esses valores, entre em contato com a equipe de suporte de Software de RH Cezanne via <mailto:info@cezannehr.com>.
 
 4. Na página **Configurar logon único no Cezanne HR Software**, execute as seguintes etapas e clique em **Avançar**:
 
@@ -348,4 +348,4 @@ Quando clicar no bloco Cezanne HR Software no Painel de Acesso, você deverá fa
 [204]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

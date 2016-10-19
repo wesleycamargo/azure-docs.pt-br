@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/03/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>
 
 # Visão geral da Malha do Serviço
@@ -41,7 +41,7 @@ Para saber mais sobre a abordagem de microsserviços, leia o artigo [Por que usa
 ## Criar clusters de Service Fabric em qualquer lugar
 Você pode criar clusters do Service Fabric em muitos ambientes, incluindo o Azure ou no local, no Windows Server ou no Linux. Além disso, o ambiente de desenvolvimento no SDK é idêntico ao ambiente de produção, sem nenhum emulador envolvido. Em outras palavras, se ele for executado no cluster de desenvolvimento local, ele será implantado no mesmo cluster em outros ambientes.
 
-Para obter mais informações sobre a criação de clusters no local, leia [criar um cluster no Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou para criar um cluster do Azure [por meio do Portal do Azure](service-fabric-cluster-creation-via-portal.md).
+Para obter mais informações sobre a criação de clusters locais, leia sobre como [criar um cluster no Windows Server ou no Linux](service-fabric-deploy-anywhere.md) ou, para o Azure, como criar um cluster [por meio do Portal do Azure](service-fabric-cluster-creation-via-portal.md).
 
 ![Plataforma Service Fabric][Image1]
 
@@ -110,4 +110,4 @@ Ao usar a Malha do Serviço, você pode:
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -32,6 +32,8 @@ Para clientes Android que precisam acessar recursos protegidos, o AD do Azure fo
 
 Para começar, você precisará de um locatário do AD do Azure no qual você possa criar usuários e registrar um aplicativo. Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
 
+> [AZURE.TIP] Experimente a demonstração do nosso novo [portal do desenvolvedor](https://identity.microsoft.com/Docs/Android) que ajudará você a executar o Azure Active Directory em apenas alguns minutos! O portal do desenvolvedor orientará você pelo processo de registro de um aplicativo e integração do Azure AD em seu código. Quando terminar, você terá um aplicativo simples que pode autenticar os usuários em seu locatário e um back-end que pode aceitar tokens e executar a validação.
+
 ## Etapa 1: Baixe e execute o servidor de exemplo da API REST TODO do Node. js
 
 Este exemplo é escrito especificamente para funcionar em nosso exemplo existente para criar uma API REST de tarefas de locatário único para o Active Directory do Microsoft Azure. Este é um pré-requisito para o início rápido.
@@ -271,7 +273,7 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
     ```
 
 11. **Agente**: 
-  o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
+o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente se houver uma conta de usuário criada nesse autenticador e o Desenvolvedor optar por não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -457,4 +459,4 @@ Saiba [como habilitar o SSO entre aplicativos no Android usando a ADAL](active-d
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

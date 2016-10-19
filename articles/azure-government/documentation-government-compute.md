@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="ryansoc"/>
 
 
@@ -22,6 +22,7 @@
 
 ##  Máquinas Virtuais
 
+###  Considerações de dados
 
 As informações a seguir identificam o limite do Azure Governamental para o máquinas virtuais do Azure:
 
@@ -33,4 +34,4 @@ Para saber mais, consulte a <a href=https://azure.microsoft.com/documentation/se
 
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

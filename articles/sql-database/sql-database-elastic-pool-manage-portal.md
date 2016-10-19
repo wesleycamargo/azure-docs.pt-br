@@ -31,10 +31,10 @@ Você pode usar o Portal do Azure para monitorar e gerenciar um pool de banco de
 
 O gráfico a seguir mostra um exemplo do pool elástico. A exibição inclui:
 
-*  Gráficos para monitorar o uso do recurso de pool elástico e os bancos de dados contidos no pool. 
-*  O botão do pool **Configurar** para fazer alterações ao pool elástico. 
+*  Gráficos para monitorar o uso do recurso de pool elástico e os bancos de dados contidos no pool.
+*  O botão do pool **Configurar** para fazer alterações ao pool elástico.
 *  O botão **Criar banco de dados** que cria um novo banco de dados e o adiciona ao pool elástico atual.
-*  Trabalhos elásticos que ajudam a gerenciam muitos bancos de dados executando scripts Transact SQL em todos os bancos de dados em uma lista. 
+*  Trabalhos elásticos que ajudam a gerenciam muitos bancos de dados executando scripts Transact SQL em todos os bancos de dados em uma lista.
 
 ![Exibição de pool][2]
 
@@ -56,14 +56,16 @@ Você pode ir para um determinado pool para ver sua utilização de recursos. Po
 ### Para personalizar a exibição do gráfico
 
 Você pode editar o gráfico e a folha de métrica para exibir outras métricas como percentual da CPU, percentual de E/S de dados e percentual de E/S de log usado.
- 
+
 2. Na folha de métricas, clique em **Editar**.
 
 	![Clique em editar][6]
 
-- Na folha **Editar Gráfico**, selecione um novo intervalo (última hora, hoje ou semana passada) ou clique em **personalizado** para selecionar qualquer intervalo de datas nas duas últimas semanas. Selecione o tipo de gráfico (barra ou linhas) e selecione os recursos a serem monitorados. 
+- Na folha **Editar Gráfico**, selecione um novo intervalo (última hora, hoje ou semana passada) ou clique em **personalizado** para selecionar qualquer intervalo de datas nas duas últimas semanas. Selecione o tipo de gráfico (barra ou linhas) e selecione os recursos a serem monitorados.
 
-	![Clique em editar](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+> Observação: somente métricas com a mesma unidade de medida podem ser exibidas no gráfico ao mesmo tempo. Por exemplo, se selecionar "percentual de eDTU", você só poderá selecionar outras métricas com porcentagem como a unidade de medida.
+
+	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 - Em seguida, clique em **OK**.
 
@@ -99,7 +101,7 @@ Bancos de dados individuais também podem ser monitorados para identificar poten
 Na lista de banco de dados da folha **Utilização de Recursos do Banco de Dados**, você pode localizar bancos de dados específicos examinando as páginas na lista ou digitando o nome de um banco de dados. Use a caixa de seleção para escolher o banco de dados.
 
 ![Pesquisar por bandos de dados a serem monitorados][7]
-  
+
 
 ## Adicionar um alerta a um recurso de pool
 
@@ -132,7 +134,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
 
 	![Clique em Adicionar ao pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-	
+
 3. Na folha **Adicionar bancos de dados**, escolha os bancos de dados para adicionar ao pool. Em seguida, clique em **Selecionar**.
 
 	![Selecione os bancos de dados a serem adicionados](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
@@ -156,7 +158,7 @@ Você pode adicionar ou remover bancos de dados de um pool existente. Os bancos 
     ![lista de bancos de dados](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
 
     Agora, a folha **Configurar pool** lista o banco de dados que você escolheu para remoção, com o status definido como **Pendente**.
-    
+
     ![visualização de adição ou remoção de banco de dados](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
 
 3. Na folha **Configurar pool**, clique em **Salvar**.
@@ -213,4 +215,4 @@ Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-databa
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

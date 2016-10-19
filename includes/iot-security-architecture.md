@@ -4,7 +4,7 @@ Durante a criação de um sistema, é importante compreender as ameaças potenci
 
 ## A segurança começa com um modelo de risco
  
-A Microsoft há muito tempo utiliza os modelos de risco para seus produtos e tornou o processo de modelagem de risco da empresa publicamente disponível. A experiência da empresa demonstra que a modelagem tem benefícios inesperados além da compreensão imediata de quais ameaças são os mais preocupantes. Por exemplo, ela também cria uma avenida para uma discussão aberta com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
+Há muito tempo, a Microsoft utiliza os modelos de risco para seus produtos e tornou o processo de modelagem de risco da empresa publicamente disponível. A experiência da empresa demonstra que a modelagem tem benefícios inesperados além da compreensão imediata de quais ameaças são os mais preocupantes. Por exemplo, ela também cria uma avenida para uma discussão aberta com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
   
 O objetivo da modelagem de risco é entender como um invasor pode ser capaz de comprometer um sistema e verificar se as mitigações apropriadas estão em vigor. A modelagem de risco força a equipe de design a considerar mitigações conforme o sistema é projetado em vez de depois que um sistema é implantado. Esse fato é extremamente importante, porque a modernização de defesas de segurança para uma grande variedade de dispositivos no campo é inviável, sujeita a erros e deixa os clientes em risco.
 
@@ -153,7 +153,7 @@ Em cada uma das categorias de descritas na arquitetura e IoT do Azure, tentamos 
 
 **D (Negação de Serviço)**: um dispositivo pode ficar incapaz de funcionar ou se comunicar interferindo com frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relatará dados, de nenhuma maneira.
 
-**T (Violação)**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia que mantêm os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los com dados falsos que são autenticados com o material da chave roubado.
+**T (Violação)**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia que mantêm os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material da chave roubado.
 
 **I (Divulgação não autorizada de informação)**: se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
 
@@ -218,7 +218,9 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Falsificação**: um invasor pode interceptar ou parcialmente substituir a difusão e falsificar o originador (intermediário)
 
-**Violação**: um invasor pode interceptar ou parcialmente substituir a difusão e enviar informações falsas. Divulgação não autorizada de informação: o invasor pode espionar uma transmissão e obter informações sem autorização. Negação de Serviço: o invasor pode congestionar o sinal de difusão e negar a distribuição de informações
+**Violação**: um invasor pode interceptar ou substituir parcialmente a difusão e enviar informações falsas
+
+**Divulgação não autorizada de informação:** um invasor pode escutar uma difusão e obter informações sem autorização **Negação de serviço:** um invasor pode obstruir o sinal de difusão e negar a distribuição de informações
 
 #### Armazenamento
 
@@ -252,4 +254,4 @@ Consulte os seguintes artigos para obter informações adicionais:
 - [Microsoft Azure IoT reference architecture (Arquitetura de referência da IoT do Microsoft Azure)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -60,7 +60,7 @@ Nesta tarefa, você vai se inscrever no serviço da API de Recomendações e cri
 
 1. Em **Tipo de API**, selecione **Recomendações**.
 
-1. Em **Tipo de preço**, você pode selecionar um plano. Você pode escolher a camada **Gratuita**, que corresponde a 10.000 transações/mês**. Trata-se de um plano gratuito e, sendo assim, de uma boa maneira de começar a experimentar o sistema. Quando passar para a produção, recomendamos que você leve em consideração seu volume de solicitações e altere o tipo de plano adequadamente.
+1. Em **Tipo de preço**, você pode selecionar um plano. Você pode escolher a camada **gratuita** para 10.000 transações/mês. Trata-se de um plano gratuito e, sendo assim, de uma boa maneira de começar a experimentar o sistema. Quando passar para a produção, recomendamos que você leve em consideração seu volume de solicitações e altere o tipo de plano adequadamente. (Observação: você pode ter apenas uma assinatura de camada gratuita por vez)
 
 1. Selecione um **Grupo de Recursos** ou crie um novo se ainda não tiver um.
 
@@ -168,4 +168,4 @@ Confira a [Documentação sobre a obtenção de recomendações de item](http://
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

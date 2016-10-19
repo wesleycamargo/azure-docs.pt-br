@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="jwillis;tamram"/>
 
 
 # Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs
@@ -130,4 +130,4 @@ Para cancelar o registro de um domínio personalizado, siga estas etapas:
 
 -   [Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
  
 #Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital 
@@ -350,4 +350,4 @@ O programa a seguir mostra como:
 
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

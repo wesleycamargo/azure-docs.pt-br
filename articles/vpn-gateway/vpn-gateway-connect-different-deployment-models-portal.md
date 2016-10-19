@@ -41,15 +41,15 @@ Antes de iniciar, verifique o seguinte:
 
 ### <a name="values"></a>Configurações de exemplo
 
-Você pode usar as configurações de exemplo como referência ao usar os cmdlets do PowerShell nas etapas a seguir.
+Você pode usar as configurações de exemplo como referência ao usar os cmdlets do PowerShell nas etapas a seguir:
 
 **Configurações da Rede Virtual clássica**
 
-Nome da Rede Virtual = ClassicVNet <br> Local = Oeste dos EUA <br> Espaços de endereço de Rede Virtual = 10.0.0.0/8 <br> Subnet-1 = 10.0.0.0/11 <br> GatewaySubnet = 10.32.0.0/29 <br> Nome da Rede Local = RMVNetLocal <br>
+Nome da VNet = ClassicVNet <br> Localização = Oeste dos EUA <br> Espaços de endereço da Rede Virtual = 10.0.0.0/24 <br> Subnet-1 = 10.0.0.0/27 <br> GatewaySubnet = 10.0.0.32/29 <br> Nome da Rede Local = RMVNetLocal <br>
 
 **Configurações de Rede Virtual do Resource Manager**
 
-Nome da Rede Virtual = RMVNet <br> Grupo de Recursos = RG1 <br> Espaços de endereço de IP de rede Virtual = 192.168.1.0/16 <br> Subnet-1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Local = Leste dos EUA <br> Nome do gateway de rede Virtual = RMGateway <br> Nome IP público do gateway = gwpip <br> Tipo de Gateway = VPN <br> Tipo de VPN = Baseada em rota <br> Gateway de rede Local = ClassicVNetLocal <br>
+Nome da VNet = RMVNet <br> Grupo de recursos = RG1 <br> Espaços de endereço IP da Rede Virtual = 192.168.0.0/16 <br> Subnet-1 = 192.168.1.0/24 <br> GatewaySubnet = 192.168.0.0/26 <br> Localização = Leste dos EUA <br> Nome do gateway de rede virtual = RMGateway <br> Nome do IP público do gateway = gwpip <br> Tipo de gateway = VPN <br> Tipo de VPN = baseada em rota <br> Gateway de rede Local = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>Seção 1: Definir configurações de Rede Virtual clássica
 
@@ -156,7 +156,7 @@ Nesta seção, criamos a conexão entre as redes virtuais. As etapas exigem o Po
 		Set-AzureVNetGatewayKey -VNetName ClassicVNet `
 		-LocalNetworkSiteName RMVNetLocal -SharedKey abc123
 
-4. Crie a conexão VPN executando os comandos a seguir.
+4. Crie a conexão VPN executando os comandos a seguir:
 	
 	**Defina as variáveis**
 
@@ -182,4 +182,4 @@ Exiba os detalhes de perguntas frequentes para obter informações adicionais so
 
 [AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -26,4 +26,4 @@ Este artigo contém as restrições de uso e outros limites de serviço para o s
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 - [Como as assinaturas do Azure estão associadas ao Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

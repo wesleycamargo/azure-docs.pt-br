@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar Hubs de Eventos do Azure enviando eventos em C# e recebendo-os em um cluster do Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/06/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Introdução aos Hubs de Eventos
 
@@ -72,4 +72,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

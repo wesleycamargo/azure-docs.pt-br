@@ -131,7 +131,6 @@ As senhas devem ter de 8 a 123 caracteres e atender a três dos quatro requisito
 
 As seguintes senhas não são permitidas:
 
-As seguintes senhas não são permitidas
 <table>
 	<tr>
 		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
@@ -141,4 +140,4 @@ As seguintes senhas não são permitidas
 	</tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="Encontre exemplos de suporte de protocolo do Banco de Dados de Documentos para MongoDB." 
 	keywords="exemplos do mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Exemplos de suporte de protocolo do Banco de Dados de Documentos para MongoDB
 Para usar estes exemplos, você deve:
@@ -175,4 +175,4 @@ Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao M
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

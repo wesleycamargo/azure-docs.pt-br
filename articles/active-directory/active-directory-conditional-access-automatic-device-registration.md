@@ -3,7 +3,7 @@
 	description="Administradores de TI podem optar para que seus dispositivos Windows ingressados no domínio registrem-se automaticamente e silenciosamente com o AD do Azure (Active Directory do Azure)."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows
 
 Como um administrador de TI, você pode escolher registrar automaticamente e silenciosamente seus dispositivos do Windows ingressados no domínio com o AD do Azure (Active Directory do Azure). Isso pode ser útil se você tiver configurado acesso condicional do dispositivo com base em políticas para aplicativos do Office365 ou aplicativos gerenciados localmente pelo AD FS. Você pode aprender mais sobre os cenários de registro de dispositivo lendo a [Visão geral de registro de dispositivo do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md).
+
+>AZURE.OBSERVAÇÃO Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 O Registro Automático de Dispositivo com o Active Directory do Azure está disponível para computadores com Windows 7 e Windows 8.1 que ingressaram em um domínio do Active Directory. Esses computadores são normalmente máquinas corporativas fornecidas para os operadores de informações.
 
@@ -105,4 +107,4 @@ Você pode saber mais sobre como implantar o registro de dispositivos com o AD F
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

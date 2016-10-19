@@ -13,17 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Drivers do Azure SQL Data Warehouse
-
-> [AZURE.SELECTOR]
-- [Visão geral](sql-data-warehouse-connect-overview.md)
-- [Autenticação](sql-data-warehouse-authentication.md)
-- [Drivers](sql-data-warehouse-connection-strings.md)
-
 
 Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, como o [ADO.NET][], o [ODBC][], o [PHP][] e o [JDBC][]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para compilar sua cadeia de conexão. Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
@@ -55,12 +49,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Próximas etapas
 
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, confira [Query with Visual Studio][] \(Consulta com o Visual Studio).
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Consulta com o Visual Studio][].
 
 <!--Image references-->
 
 <!--Azure.com references-->
- [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+ [Consulta com o Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
  
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -70,4 +64,4 @@ Para começar a consultar o data warehouse com o Visual Studio e outros aplicati
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

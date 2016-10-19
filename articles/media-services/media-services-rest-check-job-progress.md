@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como verificar o andamento do trabalho usando a API REST" 
+	pageTitle="Como verificar o andamento do trabalho usando a API REST | Microsoft Azure" 
 	description="Aprenda a controlar o andamento do trabalho." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
 
 #Como verificar o andamento do trabalho
@@ -64,4 +64,4 @@ Resposta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

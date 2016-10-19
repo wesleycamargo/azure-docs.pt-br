@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # Implantar um novo serviço Web
 
-O Aprendizado de Máquina do Microsoft Azure fornece serviços Web baseados no [Azure Resource Manager](../azure-portal/resource-group-overview.md) permitindo novas opções de plano de faturamento e implantar seu serviço Web em várias regiões.
+O Microsoft Azure Machine Learning fornece serviços Web baseados no [Azure Resource Manager](../resource-group-overview.md) permitindo novas opções do plano de faturamento e implantando seu serviço Web em várias regiões.
 
 O fluxo de trabalho geral para implantar um serviço Web usando serviços Web do Aprendizado de Máquina do Microsoft Azure é:
 
@@ -87,6 +87,13 @@ Na página Consumo, você pode encontrar:
 
 Para saber mais sobre serviços Web de consumo, veja [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
+## Próximas etapas
+
+Para obter mais informações sobre o consumo dos serviços Web, consulte:
+
+[Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi implantado por meio de um teste de Aprendizado de Máquina](machine-learning-consume-web-services.md)
+
+[Serviços Web do Azure Machine Learning: implantação e consumo](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
@@ -94,4 +101,4 @@ Para saber mais sobre serviços Web de consumo, veja [Como consumir um serviço 
 
 <!--links-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

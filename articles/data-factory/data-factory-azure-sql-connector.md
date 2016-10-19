@@ -3,7 +3,7 @@
 	description="Saiba como mover dados para/do Banco de Dados SQL do Azure usando o Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,11 +14,25 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Mover dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory
-
 Este artigo descreve como você pode usar a Atividade de Cópia em um Azure Data Factory para mover os dados de/para o Banco de Dados SQL de/para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
+
+## Com suporte de origens e coletores
+Confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver a lista dos armazenamentos de dados com suporte como origens e coletores da Atividade de Cópia. Você pode mover dados de qualquer armazenamento de dados de origem com suporte para o Banco de Dados SQL do Azure ou do Banco de Dados SQL do Azure para qualquer armazenamento de dados do coletor com suporte.
+
+## Criar um pipeline
+Você pode criar um pipeline com uma atividade de cópia que mova dados de um banco de dados SQL do Azure usando ferramentas/APIs diferentes.
+
+- Assistente de Cópia
+- Portal do Azure
+- Visual Studio
+- Azure PowerShell
+- API do .NET
+- API REST
+
+Veja o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma atividade de cópia de diferentes maneiras.
 
 ## Assistente de cópia de dados
 A maneira mais fácil de criar um pipeline que copia dados de/para o Banco de Dados SQL do Azure é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
@@ -397,17 +411,17 @@ Consulte a seção [SqlSink](#sqlsink) e [BlobSource](data-factory-azure-blob-co
 
 
 ## Propriedades do serviço vinculado do SQL do Azure
-
-A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado de SQL Azure.
+Nos exemplos, você usou um serviço vinculado do tipo **AzureSqlDatabase** para vincular um banco de dados SQL do Azure a um data factory. A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço de vinculado de SQL Azure.
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| type | A propriedade type deve ser definida como: AzureSqlDatabase | Sim |
+| type | A propriedade type deve ser definida como: **AzureSqlDatabase** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL Azure para a propriedade connectionString. | Sim |
 
 > [AZURE.NOTE] Configure o [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) do servidor de banco de dados para [permitir que os Serviços do Azure acessem o servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se você estiver copiando os dados para o Banco de Dados SQL do Azure de fora do Azure, inclusive a partir das fontes de dados locais com o gateway do data factory, configure o devido intervalo de endereços IP do computador que está enviando os dados para o Banco de Dados SQL do Azure.
 
 ## Propriedades de tipo do conjunto de dados do SQL do Azure
+Nos exemplos, você usou um conjunto de dados do tipo **AzureSqlTable** para representar uma tabela em um banco de dados SQL do Azure.
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
@@ -418,12 +432,13 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 | tableName | Nome da tabela na instância do Banco de Dados SQL Azure à qual o serviço vinculado se refere. | Sim |
 
 ## Propriedades de tipo de atividade de cópia do SQL do Azure
-
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
 > [AZURE.NOTE] A Atividade de cópia usa apenas uma entrada e produz apenas uma saída.
 
-As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+
+Se você estiver movendo dados de um banco de dados SQL do Azure, defina o tipo de origem na atividade de cópia como **SqlSource**. Da mesma forma você estiver movendo dados para um banco de dados SQL do Azure, defina o tipo de coletor na atividade de cópia como **SqlSink**. Esta seção fornece uma lista das propriedades com suporte de SqlSource e SqlSink.
 
 ### SqlSource
 
@@ -527,7 +542,6 @@ Observe que a tabela de destino tem uma coluna de identidade.
 	{
 	    "name": "SampleSource",
 	    "properties": {
-	        "published": false,
 	        "type": " SqlServerTable",
 	        "linkedServiceName": "TestIdentitySQL",
 	        "typeProperties": {
@@ -551,7 +565,6 @@ Observe que a tabela de destino tem uma coluna de identidade.
 	            { "name": "name" },
 	            { "name": "age" }
 	        ],
-	        "published": false,
 	        "type": "AzureSqlTable",
 	        "linkedServiceName": "TestIdentitySQLSource",
 	        "typeProperties": {
@@ -568,6 +581,8 @@ Observe que a tabela de destino tem uma coluna de identidade.
 
 
 Observe que sua tabela de origem e de destino têm um esquema diferente (a de destino tem uma coluna adicional com identidade). Nesse cenário, você precisa especificar a propriedade **structure** na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
+
+Em seguida, você pode mapear colunas de conjunto de dados de origem para colunas no conjunto de dados de destino. Confira a seção [Exemplos de mapeamento de coluna](#column-mapping-samples) para obter um exemplo.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -630,4 +645,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

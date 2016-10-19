@@ -16,7 +16,7 @@
 	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
-# Entrar e sair de aplicativo Web com o AD do Azure
+# Entrar e sair do aplicativo Web ASP.NET com o Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -179,4 +179,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

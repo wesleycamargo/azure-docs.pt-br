@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Preview dos Serviços de Domínio do Azure Active Directory: entre em contato conosco | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: entre em contato conosco | Microsoft Azure"
 	description="Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
-# Serviços de Domínio do Azure AD (Preview): entre em contato conosco
+# Azure AD Domain Services: entre em contato conosco
 
-## Entre em contato
+## Entre em contato com a equipe do produto
 Se você tiver problemas com seu domínio gerenciado, verifique se as etapas descritas no [Guia de solução de problemas](active-directory-ds-troubleshooting.md) resolvem o problema. Se você ainda tiver problemas, fique à vontade para falar conosco.
 
 Você também pode nos enviar um email para: [Comentários sobre os Serviços de Domínio do Azure AD](mailto:aaddsfb@microsoft.com).
 
 Certifique-se de incluir o seguinte, para que possamos investigar o problema.
 
-- A **ID do locatário** do diretório do Azure AD. A ID do locatário é o GUID que você observará na barra de endereços do navegador ao navegar para a página na qual você habilita os Serviços de Domínio do AAD para seu diretório.
+- A **ID do locatário** do diretório do Azure AD. A ID do locatário é o GUID que você observa na barra de endereços do navegador ao navegar para a página na qual habilita o AAD Domain Services para seu diretório.
 
 - O **nome do domínio DNS** que você configurou para seu domínio gerenciado dos Serviços de Domínio do AAD.
 
@@ -36,4 +36,4 @@ Apreciamos seus comentários sobre os Serviços de Domínio do Azure AD por meio
 
 Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'** para que chegue até nós.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

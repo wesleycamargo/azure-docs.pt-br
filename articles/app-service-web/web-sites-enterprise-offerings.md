@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # White paper Ofertas de Aplicativos Web do Serviço de Aplicativo do Azure para Enterprise #
@@ -116,7 +116,7 @@ Ao migrar um aplicativo de um ambiente local, convém ter em mente algumas restr
 -	Uso de bibliotecas COM – o Aplicativos Web não permite o registro de componentes COM na plataforma. Portanto, se o aplicativo usa componentes COM, eles precisam ser regravados no código gerenciado e implantados com o aplicativo.
 -	Filtros ISAPI – os Filtros ISAPI podem ter suporte no Aplicativos Web. Eles precisam ser implantados como parte do aplicativo e registrados no arquivo web.config do aplicativo Web. Para saber mais, confira [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md).
 
-Depois de esses tópicos serem considerados, seu aplicativo Web deve estar pronto para a nuvem. E não se preocupe se alguns tópicos não forem totalmente atendidos, a ferramenta de migração fornecerá o melhor esforço de migração.
+Depois de esses tópicos serem considerados, seu aplicativo Web deverá estar pronto para a nuvem. E não se preocupe se alguns tópicos não forem totalmente atendidos, a ferramenta de migração fornecerá o melhor esforço de migração.
 
 As próximas etapas no processo de migração são para criar um aplicativo Web do Serviço de Aplicativo e um Banco de Dados SQL do Azure. Há vários tamanhos de instâncias do Aplicativos Web com vários núcleos de CPU e quantidades de RAM disponíveis para seleção com base em suas necessidades de aplicativos Web. Para saber mais, confira [http://aka.ms/azurewebsitesskus](/pricing/details/websites/). Da mesma forma, o Banco de Dados SQL do Microsoft Azure atenta para todas as necessidades de uma empresa com vários níveis de serviço e níveis de desempenho para atender aos requisitos. Informações adicionais podem ser encontradas em [http://aka.ms/azuresqldbskus](/pricing/details/sql-database/). Depois de criado, o aplicativo é carregado no Aplicativos Web do Serviço de Aplicativo, por meio de FTP ou WebDeploy e, em seguida, é movido para o banco de dados.
 
@@ -159,4 +159,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

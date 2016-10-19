@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="09/25/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -69,7 +69,7 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 |[Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)|Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas.|
 |[Aplicar atualizações do sistema](security-center-apply-system-updates.md)|Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para VMs.|
 |[Reinicializar após as atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates)|Recomenda que você reinicialize uma VM para concluir o processo de aplicação de atualizações de sistema.|
-|[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica).|
+|[Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)|Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica). A Central de Segurança recomendará que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em VMs e no ASE (Ambiente do Serviço de Aplicativo). Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md). |
 |[Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection)|Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, serão concluídas as alterações de configuração necessárias.|
 |[Adicionar um Firewall de Última Geração](security-center-add-next-generation-firewall.md)|Recomenda que você adicione um Firewall de Última Geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança.|
 |[Rotear o tráfego apenas através do NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recomenda que você configure regras para o grupo de segurança de rede (NSG) que forcem o tráfego de entrada em sua VM a passar pelo NGFW.|
@@ -84,6 +84,8 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 | [Aplicar a criptografia de disco](security-center-apply-disk-encryption.md) |Recomenda de que você criptografe os discos de VM usando o Azure Disk Encryption (VMs do Windows e do Linux). A criptografia é recomendada para volumes de dados e do sistema operacional em sua VM.|
 |[Fornecer detalhes de contato de segurança](security-center-provide-security-contact-details.md) | Recomenda que você forneça informações de contato de segurança para cada uma das suas assinaturas. Informações de contato são um número de telefone e um endereço de email. As informações serão usadas para contatá-lo se nossa equipe de segurança acreditar que os recursos estão comprometidos. |
 | [Atualizar a versão do sistema operacional](security-center-update-os-version.md) | Recomenda que você atualize a versão do SO (sistema operacional) de seu Serviço de Nuvem para a versão mais recente disponível para a família do SO. Para saber mais sobre os Serviços de Nuvem, confira a [Visão geral dos serviços de nuvem](../cloud-services/cloud-services-choose-me.md). |
+| [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md) | Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
+| [Corrigir vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-recommendation) | Permite que você veja as vulnerabilidades do sistema e dos aplicativos detectadas pela solução de avaliação de vulnerabilidade instalada na VM. |
 
 Você pode filtrar e ignorar as recomendações.
 
@@ -115,4 +117,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

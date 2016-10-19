@@ -147,7 +147,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
     e. No portal clássico do Azure, copie a **URL de Alteração de Senha** e cole-a na caixa de texto **URL de Alteração de Senha**.
 
-    e. Clique em **Salvar**.
+    f. Clique em **Salvar**.
 
 6. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.
 
@@ -314,4 +314,4 @@ Quando você clica no bloco @Task no Painel de Acesso, você deve ser conectado 
 [204]: ./media/active-directory-saas-attask-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-attask-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

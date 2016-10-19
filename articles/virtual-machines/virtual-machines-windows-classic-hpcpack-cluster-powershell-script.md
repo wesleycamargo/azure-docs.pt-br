@@ -30,7 +30,7 @@ Nos exemplos a seguir, substitua seus próprios valores para a ID de assinatura 
 
 ### Exemplo 1
 
-O arquivo de configuração a seguir implanta um cluster de Pacote HPC que tem um nó principal com os bancos de dados locais e cinco nós de computação executando o sistema operacional do Windows Server 2012 R2. Todos os serviços de nuvem são criados diretamente no local do Oeste dos EUA. O nó principal atua como controlador de domínio da floresta de domínio.
+O arquivo de configuração a seguir implanta um cluster de Pacote HPC que tem um nó de cabeçalho com os bancos de dados locais e cinco nós de computação executando o sistema operacional do Windows Server 2012 R2. Todos os serviços de nuvem são criados diretamente no local do Oeste dos EUA. O nó principal atua como controlador de domínio da floresta de domínio.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,7 +68,7 @@ O arquivo de configuração a seguir implanta um cluster de Pacote HPC que tem u
 
 ### Exemplo 2
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais e 12 nós de computação com a extensão de VM BGInfo aplicada. A instalação automática de atualizações do Windows está desabilitada para todas as VMs na floresta de domínio. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação são criados em três serviços de nuvem e três contas de armazenamento (ou seja, _MyHPCCN-0001_ para _MyHPCCN-0005_ em _MyHPCCNService01_ e _mycnstorage01_; _MyHPCCN-0006_ para _MyHPCCN0010_ em _MyHPCCNService02_ e _mycnstorage02_; e _MyHPCCN-0011_ para _MyHPCCN-0012_ em _MyHPCCNService03_ e _mycnstorage03_). Os nós de computação são criados de uma imagem privada existente capturada de um nó de computação. O serviço de aumento e encolhimento automático está habilitado com intervalos padrão de aumentar e encolher.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com bancos de dados locais e 12 nós de computação com a extensão de VM BGInfo aplicada. A instalação automática de atualizações do Windows está desabilitada para todas as VMs na floresta de domínio. Todos os serviços de nuvem são criados diretamente no local na Ásia Oriental. Os nós de computação são criados em três serviços de nuvem e três contas de armazenamento: _MyHPCCN-0001_ a _MyHPCCN-0005_ em _MyHPCCNService01_ e _mycnstorage01_; _MyHPCCN-0006_ a _MyHPCCN0010_ em _MyHPCCNService02_ e _mycnstorage02_; e _MyHPCCN-0011_ a _MyHPCCN-0012_ em _MyHPCCNService03_ e _mycnstorage03_). Os nós de computação são criados de uma imagem privada existente capturada de um nó de computação. O serviço de aumento e encolhimento automático está habilitado com intervalos padrão de aumentar e encolher.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -132,7 +132,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 ### Exemplo 3
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster contém um nó principal, um servidor de banco de dados com um disco de dados de 500GB, dois nós agentes executando o sistema operacional Windows Server 2012 R2 e cinco nós de computação executando o sistema operacional Windows Server 2012 R2. O serviço de nuvem MyHPCCNService é criado no grupo de afinidades *MyIBAffinityGroup* e todos os outros serviços de nuvem são criados no grupo de afinidades *MyAffinityGroup*. A API REST do Agendador de trabalho do HPC e o portal da Web do HPC estão habilitados no nó principal.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster contém um nó de cabeçalho, um servidor de banco de dados com um disco de dados de 500 GB, dois nós agentes executando o sistema operacional Windows Server 2012 R2 e cinco nós de computação executando o sistema operacional Windows Server 2012 R2. O serviço de nuvem MyHPCCNService é criado no grupo de afinidades *MyIBAffinityGroup* e os outros serviços de nuvem são criados no grupo de afinidades *MyAffinityGroup*. A API REST do Agendador de trabalho do HPC e o portal da Web do HPC estão habilitados no nó principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -188,7 +188,7 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 ### Exemplo 4
 
-O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó principal com os bancos de dados locais, dois modelos de nós do Azure são criados e três nós Médios do Azure são criados para o modelo de nó do Azure _AzureTemplate1_. Um arquivo de script será executado no nó principal depois que este for configurado.
+O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma floresta de domínio existente. O cluster tem um nó de cabeçalho com os bancos de dados locais, dois modelos de nós do Azure são criados e três nós de tamanho Médio do Azure são criados para o modelo de nó do Azure _AzureTemplate1_. Um arquivo de script será executado no nó de cabeçalho depois que este for configurado.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -257,13 +257,13 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 ## Solucionar problemas
 
 
-* **Erro "VNet não existe"**: se você executar o script de implantação do Pacote HPC IaaS para implantar vários clusters no Azure simultaneamente em uma assinatura, uma ou mais implantações podem falhar com o erro "VNet *Nome\_VNet* não existe". Se esse erro ocorrer, execute novamente o script para a implantação com falha.
+* **Erro "VNet não existe"**: se você executar o script para implantar vários clusters no Azure simultaneamente em uma assinatura, uma ou mais implantações poderão falhar com o erro "VNet *Nome\_VNet* não existe". Se esse erro ocorrer, execute novamente o script para a implantação com falha.
 
-* **Problema ao acessar a Internet na rede virtual do Azure** - Se você criar um cluster de Pacote HPC com um novo controlador de domínio usando o script de implantação ou se promover manualmente uma VM do nó principal ao controlador de domínio, poderá ter problemas ao conectar as VMs na rede virtual do Azure à Internet. Isso pode ocorrer se um servidor DNS encaminhador for configurado automaticamente no controlador de domínio e não resolver corretamente.
+* **Problema ao acessar a Internet na rede virtual do Azure** – Se você criar um cluster com um novo controlador de domínio usando o script de implantação ou se promover manualmente uma VM do nó de cabeçalho ao controlador de domínio, poderá ter problemas ao conectar as VMs à Internet. Esse problema poderá ocorrer se um servidor DNS encaminhador for configurado automaticamente no controlador de domínio e não resolver corretamente.
 
-    Para contornar esse problema, faça logon no controlador de domínio e remova a configuração do encaminhador ou configure um servidor DNS encaminhador válido. Para fazer isso, no Server Manager, clique em **Ferramentas** > **DNS** para abrir o Gerenciador DNS e clique duas vezes em **Encaminhadores**.
+    Para contornar esse problema, faça logon no controlador de domínio e remova a configuração do encaminhador ou configure um servidor DNS encaminhador válido. Para definir essa configuração, no Gerenciador do Servidor, clique em **Ferramentas** > **DNS** para abrir o Gerenciador DNS e clique duas vezes em **Encaminhadores**.
 
-* **Problemas de acesso à rede RDMA de VMs tamanho A8 ou A9**: se você adicionar VMs de tamanho A8 ou A9 com nós de computação ou nós agentes do Windows Server usando o script de implantação, poderá enfrentar problemas para se conectar essas VMs à rede RDMA do aplicativo. Um dos motivos pode ser a extensão HpcVmDrivers não estar instalada corretamente quando as VMs de tamanho A8 ou A9 são adicionadas ao cluster. Por exemplo, a extensão pode estar presa no estado de instalação.
+* **Problemas de acesso à rede RDMA de VMs com computação intensiva** – se você adicionar VMs de nó de agente ou de computação do Windows Server usando um tamanho com capacidade para RDMA como A8 ou A9, você poderá enfrentar problemas para se conectar essas VMs à rede RDMA do aplicativo. Um dos motivos pelos quais esse problema ocorre é a extensão HpcVmDrivers não estar corretamente instalada quando as VMs são adicionadas ao cluster. Por exemplo, a extensão pode estar presa no estado de instalação.
 
     Para contornar esse problema, verifique primeiro o estado da extensão nas VMs. Se a extensão não estiver instalada corretamente, tente remover os nós do cluster de HPC e adicioná-los novamente. Por exemplo, você pode adicionar VMs de nó de computação executando o script Add-HpcIaaSNode.ps1 no nó principal.
     
@@ -271,10 +271,10 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 * Tente executar uma carga de trabalho de teste no cluster. Para obter um exemplo, consulte o [guia de Introdução](https://technet.microsoft.com/library/jj884144) do Pacote HPC.
 
-* Para ver um tutorial que usa o script para criar um cluster e executar uma carga de trabalho do HPC, consulte [Introdução a um cluster de Pacote HPC no Azure para executar cargas de trabalho do Excel e da SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
+* Para ver um tutorial sobre como usar script para implantação de um cluster e executar uma carga de trabalho do HPC, veja [Introdução a um cluster de Pacote HPC no Azure para executar cargas de trabalho do Excel e da SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
 
 * Experimente as ferramentas do Pacote HPC para iniciar, parar, adicionar e remover nós de computação de um cluster que você queira criar. Consulte [Gerenciar nós de computação em um cluster de Pacote HPC no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
 
 * Para se preparar para enviar trabalhos para o cluster a partir de um computador local, confira [Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC no Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

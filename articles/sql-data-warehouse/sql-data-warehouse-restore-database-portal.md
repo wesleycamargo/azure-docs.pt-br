@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Restaurar um Azure SQL Data Warehouse (Portal)
@@ -60,7 +60,7 @@ Para restaurar um banco de dados:
 8. Clique em **OK**
 9. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**
 
->[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
+>[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][].
 
 
 ## Restaurar um banco de dados excluído
@@ -92,8 +92,7 @@ Para restaurar um banco de dados excluído:
 8. Clique em **OK**
 9. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**
 
->[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
-
+>[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][].
 
 ## Próximas etapas
 Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][].
@@ -106,7 +105,7 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Finalizar um banco de dados recuperado]: ./sql-database-recovered-finalize.md
+[Configurar o banco de dados após a recuperação]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Solicitar uma alteração de cota de DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
@@ -116,4 +115,4 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 <!--Other Web references-->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

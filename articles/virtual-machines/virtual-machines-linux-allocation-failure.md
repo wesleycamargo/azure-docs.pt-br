@@ -3,7 +3,7 @@
 	description="Solucionar problemas de falhas de alocação ao criar, reiniciar ou redimensionar uma VM do Linux no Azure"
 	services="virtual-machines-linux, azure-resource-manager"
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="top-support-issue,azure-resourece-manager,azure-service-management"/>
@@ -13,7 +13,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
+	ms.topic="article"
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
@@ -24,4 +24,4 @@ Quando você cria uma VM, reinicia VMs paradas (desalocadas) ou redimensiona uma
 
 [AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0928_2016-->

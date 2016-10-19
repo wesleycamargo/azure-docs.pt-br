@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -211,4 +211,4 @@ Para ter apenas o domínio raiz no valor de declaração do emissor, altere a re
 
 Saiba mais sobre as [opções de entrada do usuário](active-directory-aadconnect-user-signin.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -24,7 +24,7 @@ Este tutorial mostra como criar um aplicativo Java e implantá-lo em aplicativos
 
 ## Pré-requisitos
 
-1. [Java Developer's Kit 8] \(ou posterior)
+1. [Java Developer's Kit 8] (ou posterior)
 1. O [Maven] instalado na máquina de desenvolvimento
 1. O [Git] instalado na máquina de desenvolvimento
 1. Uma assinatura paga ou de [avaliação gratuita] para o [Microsoft Azure]
@@ -338,4 +338,4 @@ Para obter mais informações sobre como usar o Java no Azure, consulte o [Centr
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

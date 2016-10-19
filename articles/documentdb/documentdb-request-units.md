@@ -2,7 +2,7 @@
 	pageTitle="Unidades de solicitação no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre como entender, especificar e estimar os requisitos de unidades de solicitação no Banco de Dados de Documentos." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Unidades de Solicitação no Banco de Dados de Documentos
 Agora disponível: [calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner) do Banco de Dados de Documentos. Saiba mais em [Estimativa das necessidades de produção](documentdb-request-units.md#estimating-throughput-needs).
@@ -220,4 +220,4 @@ Para começar os testes de desempenho e de escalabilidade com o Banco de Dados d
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

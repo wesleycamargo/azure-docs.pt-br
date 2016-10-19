@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/08/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte" />
 
 # Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics (OMS)
@@ -55,7 +55,7 @@ Para localizar os valores para *AutomationAccountName*, no portal do Azure, sele
 
 ## Configurar a integração com o Log Analytics
 
-1. Em seu computador, inicie o ** Windows PowerShell** na tela **Inicial**.
+1. Em seu computador, inicie o **Windows PowerShell** na tela **Inicial**.
 2. No shell de linha de comando do PowerShell, navegue até a pasta que contém o script baixado e execute-o alterando os valores dos parâmetros *- AutomationAccountName* e *- LogAnalyticsWorkspaceName*.
 
     >[AZURE.NOTE] Você deverá se autenticar com o Azure depois de executar o script. Você **deve** fazer logon com uma conta que seja membro da função Administradores de Assinatura e coadministrador da assinatura.
@@ -76,6 +76,41 @@ Para confirmar se o script configurou sua conta de Automação e o espaço de tr
     Login-AzureRmAccount Get-AzureRmSubscription -SubscriptionName 'SubscriptionName' | Set-AzureRmContext Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName "OMSResourceGroupName" ` -Workspace "OMSWorkspaceName"
 
     Isso retornará a percepção de armazenamento para o espaço de trabalho do OMS especificado. Queremos confirmar se a percepção de armazenamento para a conta de Automação que especificamos anteriormente existe e se o objeto **Estado** mostra o valor **OK**.<br> ![Resultados do cmdlet Get-AzureRmOperationalInsightsStorageInsights](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
+
+
+## Registros do Log Analytics
+
+A Automação cria dois tipos de registros no repositório do OMS.
+
+### Logs de trabalho
+
+Propriedade | Descrição|
+----------|----------|
+Hora | Data e hora da execução do trabalho de runbook.|
+resourceId | Especifica o tipo de recurso no Azure. Para a Automação, o valor é a conta da Automação associada ao runbook.|
+operationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor será Trabalho.|
+resultType | O status do trabalho de runbook. Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falha<br>- Êxito|
+resultDescription | Descreve o estado de resultado do trabalho de runbook. Os valores possíveis são:<br>- Trabalho Iniciado<br>- Falha no Trabalho<br>- Trabalho Concluído|
+CorrelationId | O GUID que é a Id de correlação do trabalho de runbook.|
+Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobLogs.|
+RunbookName | O nome do runbook.|
+JobId | GUID que é a Id do trabalho de runbook.|
+Chamador | Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+
+### Transmissões de trabalho
+Propriedade | Descrição|
+----------|----------|
+Hora | Data e hora da execução do trabalho de runbook.|
+resourceId | Especifica o tipo de recurso no Azure. Para a Automação, o valor é a conta da Automação associada ao runbook.|
+operationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor será Trabalho.|
+resultType | O status do trabalho de runbook. Os valores possíveis são:<br>- InProgress|
+resultDescription | Inclui o fluxo de saída do runbook.|
+CorrelationId | O GUID que é a Id de correlação do trabalho de runbook.|
+Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobStreams.|
+RunbookName | O nome do runbook.|
+JobId | GUID que é a Id do trabalho de runbook.|
+Chamador | Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.| 
+StreamType | O tipo de fluxo de trabalho. Os valores possíveis são:<br>-Progresso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Detalhado|
 
 ## Exibir Logs de Automação no Log Analytics 
 
@@ -114,6 +149,7 @@ Finalmente, talvez você queira visualizar o histórico de trabalho ao longo do 
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day` <br> ![Gráfico de status de trabalho histórico do OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+
 ## Resumo
 
 Enviando seus dados de status e fluxo de trabalho de Automação para Log Analytics, você pode obter uma noção melhor do status de seus trabalhos de Automação, configurar alertas para notificá-lo quando houver um problema e painéis personalizados usando consultas avançadas para visualizar os resultados de runbook, o status do trabalho de runbook e outros indicadores-chave ou métricas relacionados. Isso ajudará a fornecer maior visibilidade operacional e os incidentes serão tratados mais rapidamente.
@@ -126,4 +162,4 @@ Enviando seus dados de status e fluxo de trabalho de Automação para Log Analyt
 - Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 - Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Como configurar um conjunto de disponibilidades para as máquinas virtuais do Windows no modelo de implantação clássico
@@ -27,4 +27,4 @@
 
 Para obter artigos adicionais sobre as implantações clássicas, confira os [Artigos técnicos para as VMs do Windows no modelo de implantação clássico](virtual-machines-windows-index.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

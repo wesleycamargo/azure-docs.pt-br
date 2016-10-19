@@ -86,6 +86,9 @@ Para qualquer tempo de execução interno do PHP, é possível alterar qualquer 
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
+		
+		; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+		; log_errors=On
 
 3. Implante seu aplicativo Web.
 4. Reinicie o aplicativo Web. (É necessário reiniciar, pois a frequência com a qual o PHP lê arquivos `.user.ini` é regida pela configuração`user_ini.cache_ttl`, que é uma configuração de nível de sistema e é, por padrão, 300 segundos (5 minutos). Reiniciar o aplicativo Web força o PHP a ler as novas configurações no arquivo `.user.ini`).
@@ -177,7 +180,7 @@ Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se voc
     
 3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
 
-    Agora, a folha **Extensões instaladas** mostrará a extensão do Criador. ![Aceite os termos legais para habilitar a automação do Criador no Azure](./media/web-sites-php-configure/composer-extension-view.png)
+    Agora, a folha **Extensões instaladas** mostrará a Extensão do criador. ![Aceite os termos legais para habilitar a automação do Criador no Azure](./media/web-sites-php-configure/composer-extension-view.png)
     
 4. Agora, execute `git add`, `git commit` e `git push` como na seção anterior. Agora, você verá que o Compositor está instalando dependências definidas no composer.json.
 
@@ -209,4 +212,4 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

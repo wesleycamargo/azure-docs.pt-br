@@ -41,22 +41,23 @@ Para criar uma atribuição de função, adicione o esquema a seguir à seção 
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Valor |
-| ---- | ---- |
-| type | Enum<br />Obrigatório<br />**Microsoft.Authorization/roleAssignments**<br /><br />O tipo de recurso a ser criado. |
-| apiVersion | Enum<br />Obrigatório<br />**2014-10-01-preview**<br /><br />A versão da API a ser usada para criar o recurso. |  
-| name | String<br />Obrigatório<br />**Identificador-global-exclusivo**<br /><br />Um identificador para a nova atribuição de função. |
-| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse bloqueio depende. Se atribuir uma função com escopo a um recurso e esse recurso for implantado no mesmo modelo, inclua esse nome de recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
-| propriedades | Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que identifica o escopo, a entidade e a definição de função. |  
+| Nome | Valor | Descrição |
+| ---- | ---- | ---- |
+| type | Enum<br />Obrigatório<br />**Microsoft.Authorization/roleAssignments** | O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2014-10-01-preview** | A versão da API a ser usada para criar o recurso. |  
+| name | String<br />Obrigatório<br />**Identificador global exclusivo** | Um identificador para a nova atribuição de função. |
+| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. | A coleção de recursos da qual esta atribuição de função depende. Se atribuir uma função com escopo a um recurso e esse recurso for implantado no mesmo modelo, inclua esse nome de recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
+| propriedades | Object<br />Obrigatório<br />[objeto de propriedades](#properties) | Um objeto que identifica o escopo, a entidade e a definição de função. |  
 
 <a id="properties" />
-### properties object
 
-| Nome | Valor |
-| ------- | ---- |
-| roleDefinitionId | String<br />Obrigatório<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />O identificador de uma definição de função existente a ser usada na atribuição de função. |
-| principalId | String<br />Obrigatório<br />**Identificador-global-exclusivo**<br /><br />O identificador de uma entidade existente. Isso mapeia para a ID dentro do diretório e pode apontar para um usuário, uma entidade de serviço ou um grupo de segurança. |
-| scope | String<br />Obrigatório<br />**/subscriptions/{id-da-assinatura}/resourceGroups/{resource-group-name}** (para grupos de recursos) ou <br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}}** (para recursos)<br /><br />O escopo ao qual esta atribuição de função se aplica. |
+### Objeto de propriedades
+
+| Nome | Value1 | Descrição |
+| ---- | ---- | ---- |
+| roleDefinitionId | String <br />Obrigatório <br /><br /> **/subscriptions/{id-assinatura}/providers/Microsoft.Authorization/roleDefinitions/{id-definição-função}** | O identificador de uma definição de função existente a ser usado na atribuição de função. |
+| principalId | String<br />Obrigatório <br /><br /> **Identificador global exclusivo** | O identificador de uma entidade existente. Isso mapeia para a ID dentro do diretório e pode apontar para um usuário, uma entidade de serviço ou um grupo de segurança. |
+| scope | String<br />Obrigatório <br /><br /> **/subscriptions/{id-assinatura}/resourceGroups/{nome-grupo-recursos}** (para grupos de recursos)<br /> ou<br />**/subscriptions/{id-assinatura}/resourceGroups/{nome-grupo-recursos}/providers/{provider-namespace}/{tipo-recurso}/{nome-recurso}** (para recursos) | O escopo ao qual essa atribuição de função se aplica. |
 
 
 ## Como usar o recurso de atribuição de função
@@ -131,6 +132,6 @@ Os modelos a seguir mostram como usar o recurso de atribuição de função:
 ## Próximas etapas
 
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Active Directory do Azure](active-directory/role-based-access-control-configure.md).
+- Para saber mais sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0928_2016-->

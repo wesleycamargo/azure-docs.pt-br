@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento" 
+	pageTitle="Gerenciando os Ativos dos Serviços de Mídia em Várias Contas de Armazenamento | Microsoft Azure" 
 	description="Este artigo orienta sobre como gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compil
 
 ##Para anexar uma conta de armazenamento com a API REST do Gerenciamento de Serviços do Azure
 
-Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). O exemplo de código no tópico [Como: Usar a API REST de gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento a conta de Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails**, que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
+Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). O exemplo de código no tópico [Como: Usar a API REST de Gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento à conta dos Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails**, que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
 
 
 ##Gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento
@@ -259,4 +259,4 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

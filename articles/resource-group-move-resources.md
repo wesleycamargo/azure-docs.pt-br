@@ -61,6 +61,7 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Cache Redis
 - Agendador
 - Pesquisar
+- Barramento de Serviço
 - Armazenamento
 - Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 - Servidor do Banco de Dados SQL - O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
@@ -257,4 +258,4 @@ No corpo da solicitação, especifique o grupo de recursos de destino e os recur
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

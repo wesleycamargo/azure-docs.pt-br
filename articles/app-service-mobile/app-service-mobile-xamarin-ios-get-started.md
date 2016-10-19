@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar os Aplicativos Móveis para desenvolvimento do Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="normesta"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 
 #Criar um aplicativo Xamarin.iOS
@@ -99,4 +99,4 @@ Siga as etapas abaixo para configurar o projeto de servidor para usar o back-end
 <!-- URLs. -->
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

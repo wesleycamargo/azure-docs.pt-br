@@ -132,7 +132,7 @@ O script do PowerShell a seguir cria um banco de dados SQL e todos os seus recur
 ## Próximas etapas
 Depois de criar um banco de dados SQL e de realizar tarefas básicas de configuração de banco de dados, você estará pronto para o seguinte:
 
-- [Gerenciar o Banco de Dados SQL com o PowerShell](sql-database-command-line-tools.md)
+- [Gerenciar o Banco de Dados SQL com o PowerShell](sql-database-manage-powershell.md)
 - [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
 
 
@@ -140,4 +140,4 @@ Depois de criar um banco de dados SQL e de realizar tarefas básicas de configur
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -49,4 +49,4 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

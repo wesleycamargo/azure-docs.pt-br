@@ -318,7 +318,7 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Ciclo de vida de inicialização de função do Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (postagem de blog)
 - [Ciclo de vida da função de Serviços de Nuvem do Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (vídeo)
 - [Introdução ao SDK de Trabalhos Web do Azure](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

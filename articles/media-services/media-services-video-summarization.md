@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo"
+	pageTitle="Usar as Miniaturas de Vídeo de Mídia do Azure para Criar um Resumo de vídeo | Microsoft Azure"
 	description="O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo
@@ -23,7 +23,7 @@ O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** per
 
 No momento, o MP da **Miniatura de Vídeo de Mídia do Azure** está em Preview.
 
-Este tópico fornece detalhes sobre a **Miniatura de Vídeo de Mídia do Azure** e mostra como usá-las com o SDK dos Serviços de Mídia para .NET
+Este tópico fornece detalhes sobre a **Miniatura de Vídeo de Mídia do Azure** e mostra como usá-la com o SDK dos Serviços de Mídia para .NET
 
 ##Exemplo de resumo de vídeo 
 
@@ -37,7 +37,7 @@ Apresentamos abaixo alguns exemplos do que o processador de mídia das Miniatura
 
 [Resultado da miniatura de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##Configuração de tarefa (predefinida)
+##Configuração de tarefa (predefinição)
 
 Ao criar uma tarefa de miniatura de vídeo com as **Miniaturas de Vídeo de Mídia do Azure**, é necessário especificar uma predefinição de configuração. O exemplo de miniatura acima foi criado com a seguinte configuração básica do JSON:
 
@@ -273,4 +273,4 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

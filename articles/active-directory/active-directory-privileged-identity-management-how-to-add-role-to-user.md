@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
@@ -26,7 +26,7 @@ O aplicativo Azure AD Privileged Identity Management permite que os administrado
 
 Na sua organização, você pode atribuir usuários a diferentes funções administrativas no Azure AD, Office 365 e outros serviços e aplicativos Microsoft. É possível encontrar mais detalhes sobre as funções disponíveis em [Roles in Azure AD PIM](active-directory-privileged-identity-management-roles.md) (Funções no Azure AD PIM).
 
-Para adicionar ou remover um usuário de uma função usando o Privileged Identity Management, abra o painel PIM e, em seguida, clique no botão **Usuários em funções de administrador** ou selecione uma função específica (como Administrador Global) da tabela de funções.
+Para adicionar ou remover um usuário em uma função usando o Privileged Identity Management, abra o painel PIM. Em seguida, clique no botão **Usuários em Funções de Administrador** ou selecione uma função específica (como Administrador Global) na tabela de funções.
 
 > [AZURE.NOTE] Se você ainda não habilitou o PIM no portal do Azure, acesse [Get started with Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) (Introdução ao Azure AD PIM) para obter detalhes.
 
@@ -58,11 +58,11 @@ Siga estas etapas para remover um usuário específico de uma função:
 3. Clique em **Remover**. Uma mensagem solicitará que você confirme.
 4. Clique em **Sim** para remover a função do usuário.
 
-Se não tiver certeza de quais os usuários ainda precisam de suas atribuições de função, você poderá [iniciar uma revisão de segurança para a função](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Se não tiver certeza de quais os usuários ainda precisam de suas atribuições de função, você poderá [iniciar uma revisão de acesso para a função](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

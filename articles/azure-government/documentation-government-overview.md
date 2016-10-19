@@ -90,10 +90,7 @@ Para saber mais, confira [Cofre de Chaves para o Azure Governamental](/azure-gov
 Isolamento se resume ao uso de limites, segmentação e contêineres para limitar o acesso aos dados somente aos usuários, serviços e aplicativos autorizados. Por exemplo, a separação entre locatários é um mecanismo de segurança essencial para plataformas de nuvem com vários locatários, como o Microsoft Azure. O isolamento lógico ajuda a impedir que um locatário interfira com as operações de qualquer outro locatário.
 
 ### <a name="Overview"></a>Isolamento de ambiente
-O ambiente do Azure Governamental é uma instância física, isolada da rede e separada do restante da rede da Microsoft. O isolamento é obtido por meio de uma série de controles físicos e lógicos que incluem o seguinte:
-* Proteção de barreiras físicas usando câmeras e dispositivos biométricos.
-* Uso de credenciais específicas e autenticação multifator por funcionários da Microsoft que precisam de acesso lógico ao ambiente de produção.
-* Toda a infraestrutura de serviço para o Azure Governamental está localizada nos Estados Unidos.
+O ambiente do Azure Governamental é uma instância física separada do restante da rede da Microsoft. Isso é obtido com uma série de controles físicos e lógicos que incluem o seguinte: proteção de barreiras físicas usando dispositivos biométricos e câmeras. Uso de credenciais específicas e autenticação multifator por funcionários da Microsoft que precisam de acesso lógico ao ambiente de produção. Toda a infraestrutura de serviço para o Azure Governamental está localizada nos Estados Unidos.
 
 #### <a name="Overview"></a>Isolamento por cliente
 O Azure implementa o controle de acesso à rede e a segregação por meio do isolamento de VLAN, ACLs, filtros IP e balanceadores de carga
@@ -104,4 +101,4 @@ Para saber mais sobre o isolamento no Microsoft Azure, confira a [Seção Isolam
 
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

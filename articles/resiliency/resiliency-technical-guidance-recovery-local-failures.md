@@ -160,7 +160,7 @@ Os aplicativos criados no Azure se beneficiam dos recursos de plataforma para se
 
 ###Barramento de Serviço
 
-Para atenuar uma interrupção temporária do Barramento de Serviço do Azure, considere a criação de uma fila durável do lado do cliente. Isso usa temporariamente um mecanismo de armazenamento local alternativo para armazenar mensagens que não podem ser adicionadas à fila de Barramento de Serviço. O aplicativo pode decidir como lidar com as mensagens armazenadas temporariamente depois que o serviço for restaurado. Para saber mais, confira [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](../service-bus/service-bus-performance-improvements.md) e [Barramento de Serviço (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
+Para atenuar uma interrupção temporária do Barramento de Serviço do Azure, considere a criação de uma fila durável do lado do cliente. Isso usa temporariamente um mecanismo de armazenamento local alternativo para armazenar mensagens que não podem ser adicionadas à fila de Barramento de Serviço. O aplicativo pode decidir como lidar com as mensagens armazenadas temporariamente depois que o serviço for restaurado. Para saber mais, confira [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](../service-bus-messaging/service-bus-performance-improvements.md) e [Barramento de Serviço (recuperação de desastre)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Serviços Móveis
 
@@ -223,4 +223,4 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

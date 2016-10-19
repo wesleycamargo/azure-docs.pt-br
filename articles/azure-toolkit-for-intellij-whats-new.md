@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 # Novidades no Kit de Ferramentas do Azure para IntelliJ
 
@@ -22,7 +22,19 @@
 
 Este artigo contém informações sobre as várias versões e atualizações mais recentes do Kit de Ferramentas do Azure para IntelliJ.
 
-> [AZURE.NOTE] Há também um kit de ferramentas do Azure para o Eclipse IDE. Para obter mais informações, confira [Kit de Ferramentas do Azure para Eclipse].
+> [AZURE.NOTE] Há também um kit de ferramentas do Azure para o Eclipse IDE. Para saber mais, confira [Kit de ferramentas do Azure para Eclipse].
+
+### 26 de agosto de 2016
+
+O Kit de Ferramentas do Azure para IntelliJ, versão de agosto de 2016, inclui as seguintes melhorias:
+
+* **Distribuições personalizadas do JDK**. Agora, o Kit de Ferramentas do Azure para IntelliJ oferece suporte a especificação e implantação de uma versão JDK arbitrária para o contêiner WebApp do Azure:
+  - Além dos JDKs fornecidos pelo Azure, também é possível escolher dentre uma ampla seleção de versões do Zulu OpenJDK disponibilizadas no Azure pelo Azul Systems.
+  - Você também pode especificar sua própria distribuição JDK se carregar um arquivo ZIP em sua conta de armazenamento.
+* **Aprimoramentos no modo de exibição do Azure Explorer**:
+  - Suporte para gerenciamento de máquinas virtuais usando o novo modelo de Resource Manager do Azure: você pode listar, criar e excluir máquinas virtuais baseadas no resource manager sem sair do IDE.
+  - Suporte para gerenciamento de blobs da Conta de armazenamento usando o Resource Manager do Azure, que complementa a funcionalidade existente para gerenciar contas de armazenamento "clássico".
+* **Microsoft JDBC Driver 6.0 para SQL Server**. Esta atualização inclui o driver JDBC do Microsoft SQL Server (v 6.0), que é agora incluído como uma biblioteca que você pode adicionar facilmente aos seus projetos Java, substituindo a versão mais antiga.
 
 ### 29 de junho de 2016
 
@@ -60,7 +72,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 <!-- URL List -->
 
-[Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -73,4 +85,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 [Plug-in das Ferramentas do HDInsight para IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

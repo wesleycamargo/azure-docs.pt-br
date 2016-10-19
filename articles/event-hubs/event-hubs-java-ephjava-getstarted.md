@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure enviando eventos com Java e recebendo-os usando o EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="jtaubensee"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>
 
-# Introdução aos Hubs de Evento
+# Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
@@ -74,4 +74,4 @@ Para obter mais informações, confira a [Central de desenvolvimento Java](/deve
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

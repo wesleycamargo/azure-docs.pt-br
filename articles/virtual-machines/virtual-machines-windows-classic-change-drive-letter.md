@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tornar a unidade D de uma VM um disco de dados | Microsoft Azure"
+	pageTitle="Tornar a unidade D: de uma VM um disco de dados | Microsoft Azure"
 	description="Descreve como alterar letras de unidade de uma VM do Windows para que seja possível usar a unidade D: como uma unidade de dados."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Usar a unidade D como uma unidade de dados em uma VM do Windows 
+# Usar a unidade D: como uma unidade de dados em uma VM do Windows 
 
 Se seu aplicativo precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma letra da unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar os dados que você precisa manter.
 
@@ -111,4 +111,4 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 ## Próximas etapas
 - É possível aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

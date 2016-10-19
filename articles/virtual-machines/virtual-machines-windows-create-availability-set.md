@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre como criar e usar conjuntos de disponibilida
 	- **Nome**: o nome deve ter de 1 a 80 caracteres compostos por números, letras, pontos, sublinhados e traços. O primeiro caractere deve ser uma letra ou um número. O último caractere deve ser uma letra, um número ou um sublinhado.
 	- **Domínios de falha**: os domínios de falha definem o grupo de máquinas virtuais que compartilham uma fonte de energia e um comutador de rede comuns. Por padrão, as VMs são separadas em até três domínios de falha e podem ser mudadas para entre 1 e 3.
 	- **Domínios de atualização**: cinco domínios de atualização são atribuídos por padrão e isso pode ser definido como entre 1 e 20. Os domínios de atualização indicam grupos de máquinas virtuais e hardware físico subjacente que podem ser reinicializados ao mesmo tempo. Por exemplo, se especificarmos cinco domínios de atualização, quando mais do que cinco máquinas virtuais forem configuradas em um único conjunto de disponibilidade, a sexta máquina virtual será colocada no mesmo domínio de atualização que a primeira máquina virtual, a sétima no mesmo UD que a segunda e assim por diante. A ordem da reinicialização poderá não ser sequencial, mas apenas um domínio de atualização será reinicializado por vez.
-	- **Assinatura**: selecione a assinatura a ser usada, caso tenha mais de uma.
+	- **Assinatura** – selecione a assinatura a ser usada, caso tenha mais de uma.
 	- **Grupo de recursos**: selecione um grupo de recursos existente, clicando na seta e selecionando um grupo de recursos no menu suspenso. Você também pode criar um novo grupo de recursos digitando um nome. O nome pode conter qualquer um dos seguintes caracteres: letras, números, pontos, traços, sublinhados e parênteses de abertura ou fechamento. O nome não pode terminar em um ponto. Todas as VMs no grupo de disponibilidade precisam ser criadas no mesmo grupo de recursos do conjunto de disponibilidade.
 	- **Localização**: selecione uma localização na lista suspensa.
 
@@ -79,4 +79,4 @@ Para obter mais informações, consulte [New-AzureRmAvailabilitySet](https://msd
 
 Adicione armazenamento adicional à sua VM incluindo um [disco de dados](virtual-machines-windows-attach-disk-portal.md) adicional.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

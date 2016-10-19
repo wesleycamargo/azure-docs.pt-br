@@ -31,7 +31,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico](virtual-machines-windows-classic-faq.md)
 
-[Compare VMs, sites e serviços de nuvem](../app-service-web/choose-web-site-cloud-service-vm.md)
+[Comparar VMs, sites e serviços de nuvem](../app-service-web/choose-web-site-cloud-service-vm.md)
 
 [Máquinas virtuais e contêineres no Azure](virtual-machines-windows-containers.md)
 
@@ -62,7 +62,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md)
 
-[Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-windows-a8-a9-a10-a11-specs.md)
+[Sobre VMs série H ou série A com computação intensiva](virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
 [Manutenção planejada para máquinas virtuais do Azure](virtual-machines-windows-planned-maintenance.md)
 
@@ -192,4 +192,4 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

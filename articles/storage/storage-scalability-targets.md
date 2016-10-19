@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Metas de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Azure"
-   description="Saiba mais sobre as metas de desempenho e escalabilidade para Armazenamento do Azure, incluindo a capacidade, taxa de solicitação e largura de banda de entrada e saída, tanto para contas de armazenamento standard quanto premium. Entender as metas de desempenho para partições em de cada um dos serviços do Armazenamento do Azure."
-   services="storage"
-   documentationCenter="na"
-   authors="robinsh"
-   manager="carmonm"
-   editor="tysonn" />
+	pageTitle="Metas de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Azure"
+	description="Saiba mais sobre as metas de desempenho e escalabilidade para Armazenamento do Azure, incluindo a capacidade, taxa de solicitação e largura de banda de entrada e saída, tanto para contas de armazenamento standard quanto premium. Entender as metas de desempenho para partições em de cada um dos serviços do Armazenamento do Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn" />
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="08/03/2016"
-   ms.author="robinsh" />
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="08/03/2016"
+	ms.author="jahogg;robinsh" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
 
@@ -83,4 +83,4 @@ Recomendações detalhadas para a criação de estratégias de particionamento d
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

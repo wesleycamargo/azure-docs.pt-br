@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="sdanie" />
 
 # Como administrar o Cache Redis do Azure
@@ -92,12 +92,15 @@ A folha **Agendar atualizações** permite designar uma janela de manutenção p
 
 ![Agendar atualizações](./media/cache-administration/redis-schedule-updates.png)
 
-Para especificar uma janela de manutenção, marque os dias desejados, especifique o horário de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC.
+Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o horário da janela de manutenção é em UTC.
+
+>[AZURE.NOTE] A janela de manutenção padrão para atualizações é de 5 horas. Esse valor não é configurável no portal do Azure, mas você pode configurá-lo no PowerShell usando o parâmetro `MaintenanceWindow` do cmdlet [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx). Para saber mais, veja [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 ## Perguntas frequentes sobre agendamento de atualizações
 
 -	[Quando as atualizações ocorrerão se eu não usar o recurso de agendamento de atualizações?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 -	[Que tipos de atualizações são feitas durante a janela de manutenção agendada?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+-	[Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 -	[Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### Quando as atualizações ocorrerão se eu não usar o recurso de agendamento de atualizações?
@@ -108,6 +111,15 @@ Se você não especificar uma janela de manutenção, as atualizações poderão
 
 Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção agendada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
 
+### Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
+
+Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do PowerShell a seguir.
+
+-	[Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
+-	[New-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763834.aspx)
+-	[New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
+-	[Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
+
 ### Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?
 
 As atualizações de agenda estão disponíveis apenas no tipo de preços premium.
@@ -116,4 +128,4 @@ As atualizações de agenda estão disponíveis apenas no tipo de preços premiu
 
 -	Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

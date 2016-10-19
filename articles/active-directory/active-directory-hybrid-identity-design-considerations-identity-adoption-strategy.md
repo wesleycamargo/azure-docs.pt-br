@@ -4,7 +4,7 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -48,7 +48,7 @@ Confira as vantagens e as desvantagens de cada uma das estratégias na tabela ab
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Identidades de nuvem** | Mais fácil de gerenciar para as organizações de pequeno porte. <br>Nada a instalar no local. Não é necessário nenhum hardware adicional<br>Fácil de desabilitar, caso o usuário deixe a empresa | Os usuários devem se conectar para acessar cargas de trabalho na nuvem <br>As senhas podem ser as mesmas para as identidades locais ou de nuvem |
 | **Identidades sincronizadas** | As senhas locais são autenticadas nos diretórios locais e na nuvem <br>Mais fácil de gerenciar para as organizações de pequeno, médio e grande porte <br>Os usuários podem fazer logon único (SSO) para alguns recursos <br>É a forma de sincronização preferencial da Microsoft <br>Mais fácil de gerenciar | Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
-| **Federado** | Os usuários podem fazer SSO <br>Quando um usuário é demitido ou deixa a empresa, a conta pode ser desabilitada e o acesso revogado imediatamente <br>Tem suporte para cenários avançados que não podem ser realizados com identidades sincronizadas | Há mais etapas de ajuste e configuração <br>Manutenção mais frequente <br>Pode exigir outros hardwares para atender à infraestrutura de STS <br>Pode exigir outros hardwares para instalar um servidor de federação. Caso use o AD FS, é necessário usar um software adicional <br>Exige uma configuração extensa para o SSO <br>Ponto de falha crítico se o servidor de federação ficar inoperante: os usuários não poderão se autenticar |
+| **Federado** | Os usuários podem fazer SSO <br>Quando um usuário é demitido ou deixa a empresa, a conta pode ser desabilitada e o acesso revogado imediatamente <br>Tem suporte para cenários avançados que não podem ser realizados com identidades sincronizadas | Mais etapas de ajuste e configuração <br> Manutenção mais frequente <br> Pode exigir hardware adicional para atender à infraestrutura de STS <br> Pode exigir hardware adicional para instalar um servidor de federação. Caso use o AD FS, é obrigatório usar um software adicional <br> Exige uma configuração extensa para o SSO <br> Ponto de falha crítico se o servidor de federação ficar inoperante: os usuários não poderão se autenticar |
 
 ### Experiência do cliente
 A estratégia adotada define a experiência de entrada do usuário. A tabela a seguir dá informações sobre a experiência de entrada do usuário. Observe que nem todos os provedores de identidades federadas tem suporte para todos os cenários de SSO.
@@ -200,4 +200,4 @@ Você deve garantir que a opção de design de autenticação multifator selecio
 ## Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

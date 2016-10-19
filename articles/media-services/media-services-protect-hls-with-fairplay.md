@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay" 
+	pageTitle="Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady | Microsoft Azure" 
 	description="Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o FairPlay da Apple. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay 
+# Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady
 
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:
 
-- **Chave não criptografada de envelope do AES-128** - A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
+- **Chave de limpeza do envelope AES-128**
 
-- **Apple FairPlay** - As amostras de áudio e vídeo individuais são criptografadas usando o modo **AES-128 CBC**. O **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface de EME (Extensões de Mídia Criptografada).
+	A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
 
-A imagem a seguir mostra o fluxo de trabalho da "criptografia dinâmica do FairPlay".
+- **Apple FairPlay**
+
+	Os exemplos de áudio e vídeo individuais são criptografadas usando o modo **AES-128 CBC**. O **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface de EME (Extensões de Mídia Criptografada).
+- **Microsoft PlayReady**
+
+A imagem a seguir mostra o fluxo de trabalho da **criptografia dinâmica do HLS + FairPlay e/ou PlayReady**.
 
 ![Proteja com o FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 Este tópico demonstra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o conteúdo de HLS com o FairPlay da Apple. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes.
+
+>[AZURE.NOTE] Se você quiser criptografar o conteúdo do HLS com o PlayReady, precisará criar uma chave comum e associá-la ao seu ativo. Você também precisa configurar a política de autorização da chave de conteúdo, como descrito no tópico [sando a criptografia comum e dinâmica do PlayReady](media-services-protect-with-drm.md).
 
 	
 ## Requisitos e considerações
@@ -109,12 +116,26 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 
 ##Usando a entrega de chaves do FairPlay por aplicativos de player/cliente
 
-Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licença não é especificado pela Apple. Depende de cada aplicativo o modo de enviar solicitações de distribuição de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada por URL de formato www da seguinte forma:
+Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licença não é especificado pela Apple. Depende de cada aplicativo o modo de enviar solicitações de distribuição de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada como www-form-url da seguinte forma:
 
 	spc=<Base64 encoded SPC>
 
 >[AZURE.NOTE] O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Os clientes precisam obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX.
  
+##URLs de streaming
+
+Se o ativo foi criptografado com mais de um DRM, você deve usar uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').
+
+As seguintes considerações se aplicam:
+
+- Pode ser especificado apenas zero ou um tipo de criptografia.
+- O tipo de criptografia não precisa ser especificado na url se apenas uma criptografia foi aplicada no ativo.
+- O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
+- Os seguintes tipos de criptografia podem ser especificados:
+	- **cenc**: criptografia comum (Playready ou Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: criptografia de envelope AES.
+
 
 ##Exemplo de .NET
 
@@ -550,4 +571,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

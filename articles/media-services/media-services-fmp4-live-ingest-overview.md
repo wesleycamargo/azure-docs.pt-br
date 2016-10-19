@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure" 
+	pageTitle="Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure | Microsoft Azure" 
 	description="Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"     
+	ms.date="09/26/2016"     
 	ms.author="cenkdin;juliako"/>
 
-#Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure
+#Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure
 
 Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
 
@@ -221,4 +221,4 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->
