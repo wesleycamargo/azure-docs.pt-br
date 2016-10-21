@@ -20,7 +20,7 @@
 # Bibliotecas de autenticação do Azure AD (Active Directory) v2.0
 O ponto de extremidade do v2.0 do Azure AD dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Várias bibliotecas da Microsoft e de outras fontes podem ser usadas com o ponto de extremidade v2.0.
 
-Ao criar um aplicativo que usa o ponto de extremidade v2.0, recomendamos que você use bibliotecas escritas por especialistas de domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), [como a seguida pela Microsoft]\[Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga o SDL e pondere com cuidado as considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
+Ao criar um aplicativo que usa o ponto de extremidade v2.0, recomendamos que você use bibliotecas escritas por especialistas de domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), [como a seguida pela Microsoft](Microsoft-SDL). Se você codificar suporte para os protocolos manualmente, recomendamos que você siga o SDL e pondere com cuidado as considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
 
 ## Tipos de bibliotecas
 Há dois tipos de bibliotecas que funcionam com v2.0:

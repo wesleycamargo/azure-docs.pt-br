@@ -306,9 +306,12 @@ Pontos importantes a serem considerados:
 
 ### Monitorar o pipeline usando a Exibição de Diagrama
 6. Faça logon no [Portal do Azure](http://portal.azure.com/), faça o seguinte:
-	1. Clique em **Procurar** e selecione **Data factories**. 
+	1. Clique em **Procurar** e selecione **Data factories**.  
 		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
+
+		![Select your data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
+
 7. Na home page do seu data factory, clique em **Diagrama**.
   
 	![Bloco do diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
