@@ -260,7 +260,8 @@ caso ocorra um problema com a conexão de RDP, tente reiniciar (talvez de uma ja
 
 caso a reinicialização xrdp mencionada acima não funcione, verifique se há um arquivo .pid e remova-o:
 
-  verifique /var/run e procure xrdp.pid, remova-o e, em seguida, tente novamente a reinicialização
+  verifique /var/run e procure xrdp.pid,   
+  remova-o e, em seguida, tente novamente a reinicialização
 
 
 
@@ -484,4 +485,4 @@ E, finalmente, após a instalação do servidor de aplicativo SAP e do SAP GUI, 
 
 * Baixe o HANA SP12 Platform Edition no SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->

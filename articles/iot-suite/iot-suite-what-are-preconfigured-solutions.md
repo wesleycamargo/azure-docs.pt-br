@@ -34,7 +34,8 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - | | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
+| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - |
+| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
 - *Identidade do dispositivo*: gerenciar identidades exclusivas de cada dispositivo conectado.
@@ -130,4 +131,4 @@ Agora você sabe o que é uma solução pré-configurada, poderá começar pela 
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1005_2016-->
+<!----HONumber=AcomDC_1005_2016-->
