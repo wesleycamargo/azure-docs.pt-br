@@ -142,7 +142,25 @@ A tabela a seguir mapeia os tipos de propriedades .NET para os tipos de propried
 
 | Tipo de propriedade .NET | Tipo de propriedade Python | Observações |
 |--------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | int | - | | sbyte | int | - | | char | char | Proton-Python class | | short | int | - | | ushort | int | - | | int | int | - | | uint | int | - | | long | int | - | | ulong | long | Proton-Python class | | float | float | - | | double | float | - | | decimal | String | No momento, não há suporte para Decimal com o Proton. | | bool | bool | - | | Guid | uuid | Proton-Python class | | string | string | - | | DateTime | timestamp | Proton-Python class | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapeado para AMQP type:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks mapeado para AMQP type:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri mapeado para AMQP type:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | int | - |
+| sbyte | int | - |
+| char | char | Proton-Python class |
+| short | int | - |
+| ushort | int | - |
+| int | int | - |
+| uint | int | - |
+| long | int | - |
+| ulong | long | Proton-Python class |
+| float | float | - |
+| double | float | - |
+| decimal | String | No momento, não há suporte para Decimal com o Proton. |
+| bool | bool | - |
+| Guid | uuid | Proton-Python class |
+| string | string | - |
+| DateTime | timestamp | Proton-Python class |
+| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks mapeado para AMQP type:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
+| TimeSpan | DescribedType | Timespan.Ticks mapeado para AMQP type:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
+| Uri | DescribedType | Uri.AbsoluteUri mapeado para AMQP type:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Propriedades padrões
 
@@ -155,11 +173,36 @@ As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padr�
 | durável | n/d | O Barramento de Serviço só oferece suporte a mensagens duráveis. |
 | prioridade | n/d | O Barramento de serviço suporta apenas uma única prioridade de mensagem. |
 | Ttl | Message.TimeToLive | Conversão, o TTL do Proton-Python é definido em milissegundos. |
-| first\_acquirer | n/a | - | | delivery\_count | n/a | - | | Id | Message.MessageID | - | | user\_id | n/a | - | | address | Message.To | - | | subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationID | - | | content\_type | Message.ContentType | - | | content\_encoding | n/a | - | | expiry\_time | n/a | - | | creation\_time | n/a | - | | group\_id | Message.SessionId | - | | group\_sequence | n/a | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | format | n/a | - |
+| first\_acquirer | n/a | - |
+| delivery\_count | n/a | - |
+| Id | Message.MessageID | - |
+| user\_id | n/a | - |
+| address | Message.To | - |
+| subject | Message.Label | - |
+| reply\_to | Message.ReplyTo | - |
+| correlation\_id | Message.CorrelationID | - |
+| content\_type | Message.ContentType | - |
+| content\_encoding | n/a | - |
+| expiry\_time | n/a | - |
+| creation\_time | n/a | - |
+| group\_id | Message.SessionId | - |
+| group\_sequence | n/a | - |
+| reply\_to\_group\_id | Message.ReplyToSessionId | - |
+| format | n/a | - |
 
 | Barramento de Serviço do .NET | Proton | Observações |
 |-------------------------|------------------------------|-----------------------------------------------------------|
-| ContentType | Message.content\_type | - | | CorrelationId | Message.correlation\_id | - | | EnqueuedTimeUtc | n/a | - | | Label | Message.subject | - | | MessageId | Message.id | - | | ReplyTo | Message.reply\_to | - | | ReplyToSessionId | Message.reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | n/a | - | | SessionId | Message.group\_id | - | | TimeToLive | Message.ttl | Conversão, TTL do Proton-Python é definido em milisegundos. | | To | Message.address | - |
+| ContentType | Message.content\_type | - |
+| CorrelationId | Message.correlation\_id | - |
+| EnqueuedTimeUtc | n/a | - |
+| Label | Message.subject | - |
+| MessageId | Message.id | - |
+| ReplyTo | Message.reply\_to | - |
+| ReplyToSessionId | Message.reply\_to\_group\_id | - |
+| ScheduledEnqueueTimeUtc | n/a | - |
+| SessionId | Message.group\_id | - |
+| TimeToLive | Message.ttl | Conversão, TTL do Proton-Python é definido em milisegundos. |
+| To | Message.address | - |
 
 ## Próximas etapas
 
@@ -173,4 +216,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 [Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
