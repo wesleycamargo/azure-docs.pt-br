@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gerenciar NSGs usando a CLI do Azure no Resource Manager | Microsoft Azure"
-   description="Saiba como gerenciar NSGs existentes usando a CLI do Azure no Resource Manager"
+   pageTitle="Manage NSGs using the Azure CLI in Resource Manager | Microsoft Azure"
+   description="Learn how to manage existing NSGs using the Azure CLI in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,326 +17,330 @@
    ms.date="03/14/2016"
    ms.author="jdial" />
 
-# Gerenciar NSGs usando a CLI do Azure
+
+# <a name="manage-nsgs-using-the-azure-cli"></a>Manage NSGs using the Azure CLI
 
 [AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Recuperar informações
-
-Você pode exibir seus NSGs existentes, recuperar regras para um NSG existente e descobrir a quais recursos um NSG está associado.
-
-### Exibir NSGs existentes
-
-Para exibir a lista de NSGs em um grupo de recursos específico, execute o comando `azure network nsg list`, como mostrado abaixo.
-
-	azure network nsg list --resource-group RG-NSG
-
-Saída esperada:
-
-	info:    Executing command network nsg list
-	+ Getting the network security groups
-	data:    Name          Location
-	data:    ------------  --------
-	data:    NSG-BackEnd   westus
-	data:    NSG-FrontEnd  westus
-	info:    network nsg list command OK
-		 
-### Listar todas as regras de um NSG
-
-Para exibir as regras de um NSG chamado **NSG-FrontEnd**, execute o comando `azure network nsg show`, como mostrado abaixo.
-
-	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
-
-Saída esperada:
-	
-	info:    Executing command network nsg show
-	+ Looking up the network security group "NSG-FrontEnd"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-	data:    Name                            : NSG-FrontEnd
-	data:    Type                            : Microsoft.Network/networkSecurityGroups
-	data:    Location                        : westus
-	data:    Provisioning state              : Succeeded
-	data:    Tags                            : displayName=NSG - Front End
-	data:    Security group rules:
-	data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
-	data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
-	data:    rdp-rule                       Internet           *            *               3389              Tcp       Inbound    Allow   100
-	data:    web-rule                       Internet           *            *               80                Tcp       Inbound    Allow   101
-	data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                 *         Inbound    Allow   65000
-	data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *               *                 *         Inbound    Allow   65001
-	data:    DenyAllInBound                 *                  *            *               *                 *         Inbound    Deny    65500
-	data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000
-	data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001
-	data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500
-	info:    network nsg show command OK
-
->[AZURE.NOTE] Você também pode usar `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` para listar as regras do NSG **NSG-FrontEnd**.
-
-### Exibir associações de NSG
-
-Para ver a quais recursos o NSG **NSG-FrontEnd** está associado, execute o comando `azure network nsg show`, como mostrado abaixo. Observe que a única diferença é o uso do parâmetro **--json**.
-
-	azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
-
-Procure as propriedades **networkInterfaces** e **subnets**, como mostrado abaixo:
-
-	"networkInterfaces": [],
-	...
-	"subnets": [
-		{
-			"id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-		}
-	],
-	...
-
-No exemplo acima, o NSG não está associado a nenhuma NIC (interface de rede) e está associado a uma sub-rede denominada **FrontEnd**.
-
-## Gerenciar regras
-
-Você pode adicionar regras a um NSG existente, editar regras existentes e remover regras.
-
-### Adicionar uma regra
-
-Para adicionar uma regra permitindo o tráfego de **entrada** na porta **443** de qualquer computador para o NSG **NSG-FrontEnd**, execute o comando `azure network nsg rule create`, como mostrado abaixo.
-
-	azure network nsg rule create --resource-group RG-NSG \
-		--nsg-name NSG-FrontEnd \
-		--name allow-https \
-		--description "Allow access to port 443 for HTTPS" \
-		--protocol Tcp \
-		--source-address-prefix * \
-		--source-port-range * \
-		--destination-address-prefix * \
-		--destination-port-range 443 \
-		--access Allow \
-		--priority 102 \
-		--direction Inbound		
-
-Saída esperada:
-
-	info:    Executing command network nsg rule create
-	+ Looking up the network security rule "allow-https"
-	+ Creating a network security rule "allow-https"
-	+ Looking up the network security group "NSG-FrontEnd"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
-	data:    Name                            : allow-https
-	data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-	data:    Provisioning state              : Succeeded
-	data:    Description                     : Allow access to port 443 for HTTPS
-	data:    Source IP                       : *
-	data:    Source Port                     : *
-	data:    Destination IP                  : *
-	data:    Destination Port                : 443
-	data:    Protocol                        : Tcp
-	data:    Direction                       : Inbound
-	data:    Access                          : Allow
-	data:    Priority                        : 102
-	info:    network nsg rule create command OK
-
-### Alterar uma regra
-
-Para alterar a regra criada acima para permitir o tráfego de entrada apenas da **Internet**, execute o comando `azure network nsg rule set`, como mostrado abaixo.
-
-	azure network nsg rule set --resource-group RG-NSG \
-		--nsg-name NSG-FrontEnd \
-		--name allow-https \
-		--source-address-prefix Internet
-
-Saída esperada:
-
-	info:    Executing command network nsg rule set
-	+ Looking up the network security group "NSG-FrontEnd"
-	+ Setting a network security rule "allow-https"
-	+ Looking up the network security group "NSG-FrontEnd"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
-	data:    Name                            : allow-https
-	data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-	data:    Provisioning state              : Succeeded
-	data:    Description                     : Allow access to port 443 for HTTPS
-	data:    Source IP                       : Internet
-	data:    Source Port                     : *
-	data:    Destination IP                  : *
-	data:    Destination Port                : 443
-	data:    Protocol                        : Tcp
-	data:    Direction                       : Inbound
-	data:    Access                          : Allow
-	data:    Priority                        : 102
-	info:    network nsg rule set command OK
-
-### Excluir uma regra
-
-Para excluir a regra criada acima, execute o comando `azure network nsg rule delete`, como mostrado abaixo.
-
-	azure network nsg rule delete --resource-group RG-NSG \
-		--nsg-name NSG-FrontEnd \
-		--name allow-https \
-		--quiet
-
->[AZURE.NOTE] O parâmetro **-quiet** garante que você não precisa confirmar a exclusão.
-
-Saída esperada:
-
-	info:    Executing command network nsg rule delete
-	+ Looking up the network security group "NSG-FrontEnd"
-	+ Deleting network security rule "allow-https"
-	info:    network nsg rule delete command OK
-
-## Gerenciar associações
-
-É possível associar um NSG a sub-redes e NICs. Você também pode desassociar um NSG de qualquer recurso ao qual ele esteja associado.
-
-### Associar um NSG a uma NIC
-
-Para associar o NSG **NSG-FrontEnd** à NIC **TestNICWeb1**, execute o comando `azure network nic set`, como mostrado abaixo.
-
-	azure network nic set --resource-group RG-NSG \
-		--name TestNICWeb1 \
-		--network-security-group-name NSG-FrontEnd
-
-Saída esperada:
-
-	info:    Executing command network nic set
-	+ Looking up the network interface "TestNICWeb1"
-	+ Looking up the network security group "NSG-FrontEnd"
-	+ Updating network interface "TestNICWeb1"
-	+ Looking up the network interface "TestNICWeb1"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
-	data:    Name                            : TestNICWeb1
-	data:    Type                            : Microsoft.Network/networkInterfaces
-	data:    Location                        : westus
-	data:    Provisioning state              : Succeeded
-	data:    MAC address                     : 00-0D-3A-30-A1-F8
-	data:    Enable IP forwarding            : false
-	data:    Tags                            : displayName=NetworkInterfaces - Web
-	data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-	data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
-	data:    IP configurations:
-	data:      Name                          : ipconfig1
-	data:      Provisioning state            : Succeeded
-	data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
-	data:      Private IP address            : 192.168.1.5
-	data:      Private IP Allocation Method  : Dynamic
-	data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-	data:
-	info:    network nic set command OK
-
-### Desassociar um NSG de uma NIC
-
-Para desassociar o NSG **NSG-FrontEnd** da NIC **TestNICWeb1**, execute o comando `azure network nic set`, como mostrado abaixo.
-
-	azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
-
->[AZURE.NOTE] Observe o valor "" (vazio) do parâmetro **network-security-group-id**. É assim que se remove uma associação de um NSG. Não é possível fazer o mesmo com o parâmetro **network-security-group-name**.
-
-Resultado esperado:
-
-	info:    Executing command network nic set
-	+ Looking up the network interface "TestNICWeb1"
-	+ Updating network interface "TestNICWeb1"
-	+ Looking up the network interface "TestNICWeb1"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
-	data:    Name                            : TestNICWeb1
-	data:    Type                            : Microsoft.Network/networkInterfaces
-	data:    Location                        : westus
-	data:    Provisioning state              : Succeeded
-	data:    MAC address                     : 00-0D-3A-30-A1-F8
-	data:    Enable IP forwarding            : false
-	data:    Tags                            : displayName=NetworkInterfaces - Web
-	data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
-	data:    IP configurations:
-	data:      Name                          : ipconfig1
-	data:      Provisioning state            : Succeeded
-	data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
-	data:      Private IP address            : 192.168.1.5
-	data:      Private IP Allocation Method  : Dynamic
-	data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-	data:
-	info:    network nic set command OK
-
-### Desassociar um NSG de uma sub-rede
-
-Para desassociar o NSG **NSG-FrontEnd** da sub-rede **FrontEnd**, execute o comando `azure network vnet subnet set`, como mostrado abaixo.
-
-	azure network vnet subnet set --resource-group RG-NSG \
-		--vnet-name TestVNet \
-		--name FrontEnd \
-		--network-security-group-id ""
-
-Saída esperada:
-
-	info:    Executing command network vnet subnet set
-	+ Looking up the subnet "FrontEnd"
-	+ Setting subnet "FrontEnd"
-	+ Looking up the subnet "FrontEnd"
-	data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-	data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-	data:    ProvisioningState               : Succeeded
-	data:    Name                            : FrontEnd
-	data:    Address prefix                  : 192.168.1.0/24
-	data:    IP configurations:
-	data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-	data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
-	data:
-	info:    network vnet subnet set command OK
-
-### Associar um NSG a uma sub-rede
-
-Para associar o NSG **NSG-FrontEnd** à sub-rede **FronEnd** novamente, execute o comando `azure network vnet subnet set`, como mostrado abaixo.
-
-	azure network vnet subnet set --resource-group RG-NSG \
-		--vnet-name TestVNet \
-		--name FrontEnd \
-		--network-security-group-name NSG-FronEnd
-
->[AZURE.NOTE] O comando acima funciona apenas porque o NSG **NSG-FrontEnd** está no mesmo grupo de recursos que a rede virtual **TestVNet**. Se o NSG estiver em outro grupo de recursos, você precisará usar o parâmetro **-network-security-group-id** e fornecer a ID completa do NSG. Você pode recuperar a ID executando **azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json** e procurando a propriedade **id**.
-
-Saída esperada:
-
-		info:    Executing command network vnet subnet set
-		+ Looking up the subnet "FrontEnd"
-		+ Looking up the network security group "NSG-FrontEnd"
-		+ Setting subnet "FrontEnd"
-		+ Looking up the subnet "FrontEnd"
-		data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-		data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-		data:    ProvisioningState               : Succeeded
-		data:    Name                            : FrontEnd
-		data:    Address prefix                  : 192.168.1.0/24
-		data:    Network security group          : [object Object]
-		data:    IP configurations:
-		data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-		data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
-		data:
-		info:    network vnet subnet set command OK
-
-## Excluir um NSG
-
-Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso. Para excluir um NSG, siga as etapas abaixo.
-
-1. Para verificar os recursos associados a um NSG, execute `azure network nsg show` conforme mostrado em [Exibir associações de NSGs](#View-NSGs-associations).
-2. Se o NSG estiver associado a alguma NIC, execute `azure network nic set` para cada NIC, conforme mostrado em [Desassociar um NSG de uma NIC](#Dissociate-an-NSG-from-a-NIC).
-3. Se o NSG estiver associado a alguma sub-rede, execute `azure network vnet subnet set` para cada sub-rede, conforme mostrado em [Desassociar um NSG de uma sub-rede](#Dissociate-an-NSG-from-a-subnet).
-4. Para excluir o NSG, execute o comando `azure network nsg delete`, como mostrado abaixo.
-
-		azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
-
-	Saída esperada:
-
-		info:    Executing command network nsg delete
-		+ Looking up the network security group "NSG-FrontEnd"
-		+ Deleting network security group "NSG-FrontEnd"
-		info:    network nsg delete command OK
-
-## Próximas etapas
-
-- [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
-
-<!---HONumber=AcomDC_0810_2016-->
+## <a name="retrieve-information"></a>Retrieve Information
+
+You can view your existing NSGs, retrieve rules for an existing NSG, and find out what resources an NSG is associated to.
+
+### <a name="view-existing-nsgs"></a>View existing NSGs
+
+To view the list of NSGs in a specific resource group, run the `azure network nsg list` command as shown below. 
+
+    azure network nsg list --resource-group RG-NSG
+
+Expected output:
+
+    info:    Executing command network nsg list
+    + Getting the network security groups
+    data:    Name          Location
+    data:    ------------  --------
+    data:    NSG-BackEnd   westus
+    data:    NSG-FrontEnd  westus
+    info:    network nsg list command OK
+         
+### <a name="list-all-rules-for-an-nsg"></a>List all rules for an NSG
+
+To view the rules of an NSG named **NSG-FrontEnd**, run the `azure network nsg show` command as shown below. 
+
+    azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
+
+Expected output:
+    
+    info:    Executing command network nsg show
+    + Looking up the network security group "NSG-FrontEnd"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    data:    Name                            : NSG-FrontEnd
+    data:    Type                            : Microsoft.Network/networkSecurityGroups
+    data:    Location                        : westus
+    data:    Provisioning state              : Succeeded
+    data:    Tags                            : displayName=NSG - Front End
+    data:    Security group rules:
+    data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
+    data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
+    data:    rdp-rule                       Internet           *            *               3389              Tcp       Inbound    Allow   100
+    data:    web-rule                       Internet           *            *               80                Tcp       Inbound    Allow   101
+    data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                 *         Inbound    Allow   65000
+    data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *               *                 *         Inbound    Allow   65001
+    data:    DenyAllInBound                 *                  *            *               *                 *         Inbound    Deny    65500
+    data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000
+    data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001
+    data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500
+    info:    network nsg show command OK
+
+>[AZURE.NOTE] You can also use `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` to list the rules from the **NSG-FrontEnd** NSG.
+
+### <a name="view-nsg-associations"></a>View NSG associations
+
+To view what resources the **NSG-FrontEnd** NSG is associate with, run the `azure network nsg show` command as shown below. Notice that the only difference is the use of the **--json** parameter.
+
+    azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
+
+Look for the **networkInterfaces** and **subnets** properties as shown below:
+
+    "networkInterfaces": [],
+    ...
+    "subnets": [
+        {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+        }
+    ],
+    ...
+
+In the example above, the NSG is not associated to any network interfaces (NICs), and it is associated to a subnet named **FrontEnd**.
+
+## <a name="manage-rules"></a>Manage rules
+
+You can add rules to an existing NSG, edit existing rules, and remove rules.
+
+### <a name="add-a-rule"></a>Add a rule
+
+To add a rule allowing **inbound** traffic to port **443** from any machine to the **NSG-FrontEnd** NSG, run the `azure network nsg rule create` command as shown below.
+
+    azure network nsg rule create --resource-group RG-NSG \
+        --nsg-name NSG-FrontEnd \
+        --name allow-https \
+        --description "Allow access to port 443 for HTTPS" \
+        --protocol Tcp \
+        --source-address-prefix * \
+        --source-port-range * \
+        --destination-address-prefix * \
+        --destination-port-range 443 \
+        --access Allow \
+        --priority 102 \
+        --direction Inbound     
+
+Expected output:
+
+    info:    Executing command network nsg rule create
+    + Looking up the network security rule "allow-https"
+    + Creating a network security rule "allow-https"
+    + Looking up the network security group "NSG-FrontEnd"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
+    data:    Name                            : allow-https
+    data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
+    data:    Provisioning state              : Succeeded
+    data:    Description                     : Allow access to port 443 for HTTPS
+    data:    Source IP                       : *
+    data:    Source Port                     : *
+    data:    Destination IP                  : *
+    data:    Destination Port                : 443
+    data:    Protocol                        : Tcp
+    data:    Direction                       : Inbound
+    data:    Access                          : Allow
+    data:    Priority                        : 102
+    info:    network nsg rule create command OK
+
+### <a name="change-a-rule"></a>Change a rule
+
+To change the rule created above to allow inbound traffic from the **Internet** only, run the `azure network nsg rule set` command as shown below.
+
+    azure network nsg rule set --resource-group RG-NSG \
+        --nsg-name NSG-FrontEnd \
+        --name allow-https \
+        --source-address-prefix Internet
+
+Expected output:
+
+    info:    Executing command network nsg rule set
+    + Looking up the network security group "NSG-FrontEnd"
+    + Setting a network security rule "allow-https"
+    + Looking up the network security group "NSG-FrontEnd"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
+    data:    Name                            : allow-https
+    data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
+    data:    Provisioning state              : Succeeded
+    data:    Description                     : Allow access to port 443 for HTTPS
+    data:    Source IP                       : Internet
+    data:    Source Port                     : *
+    data:    Destination IP                  : *
+    data:    Destination Port                : 443
+    data:    Protocol                        : Tcp
+    data:    Direction                       : Inbound
+    data:    Access                          : Allow
+    data:    Priority                        : 102
+    info:    network nsg rule set command OK
+
+### <a name="delete-a-rule"></a>Delete a rule
+
+To delete the rule created above, run the `azure network nsg rule delete` command as shown below.
+
+    azure network nsg rule delete --resource-group RG-NSG \
+        --nsg-name NSG-FrontEnd \
+        --name allow-https \
+        --quiet
+
+>[AZURE.NOTE] The **--quiet** parameter ensures you don't need to confirm the deletion.
+
+Expected output:
+
+    info:    Executing command network nsg rule delete
+    + Looking up the network security group "NSG-FrontEnd"
+    + Deleting network security rule "allow-https"
+    info:    network nsg rule delete command OK
+
+## <a name="manage-associations"></a>Manage associations
+
+You can associate an NSG to subnets and NICs. You can also dissociate an NSG from any resource it's associated to.
+
+### <a name="associate-an-nsg-to-a-nic"></a>Associate an NSG to a NIC
+
+To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, run the `azure network nic set` command as shown below.
+
+    azure network nic set --resource-group RG-NSG \
+        --name TestNICWeb1 \
+        --network-security-group-name NSG-FrontEnd
+
+Expected output:
+
+    info:    Executing command network nic set
+    + Looking up the network interface "TestNICWeb1"
+    + Looking up the network security group "NSG-FrontEnd"
+    + Updating network interface "TestNICWeb1"
+    + Looking up the network interface "TestNICWeb1"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
+    data:    Name                            : TestNICWeb1
+    data:    Type                            : Microsoft.Network/networkInterfaces
+    data:    Location                        : westus
+    data:    Provisioning state              : Succeeded
+    data:    MAC address                     : 00-0D-3A-30-A1-F8
+    data:    Enable IP forwarding            : false
+    data:    Tags                            : displayName=NetworkInterfaces - Web
+    data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
+    data:    IP configurations:
+    data:      Name                          : ipconfig1
+    data:      Provisioning state            : Succeeded
+    data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
+    data:      Private IP address            : 192.168.1.5
+    data:      Private IP Allocation Method  : Dynamic
+    data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:
+    info:    network nic set command OK
+
+### <a name="dissociate-an-nsg-from-a-nic"></a>Dissociate an NSG from a NIC
+
+To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, run the `azure network nic set` command as shown below.
+
+    azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
+
+>[AZURE.NOTE] Notice the "" (empty) value for the **network-security-group-id** parameter. That is how you remove an association to an NSG. You can't do the same with the **network-security-group-name** parameter.
+
+Expected result:
+
+    info:    Executing command network nic set
+    + Looking up the network interface "TestNICWeb1"
+    + Updating network interface "TestNICWeb1"
+    + Looking up the network interface "TestNICWeb1"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
+    data:    Name                            : TestNICWeb1
+    data:    Type                            : Microsoft.Network/networkInterfaces
+    data:    Location                        : westus
+    data:    Provisioning state              : Succeeded
+    data:    MAC address                     : 00-0D-3A-30-A1-F8
+    data:    Enable IP forwarding            : false
+    data:    Tags                            : displayName=NetworkInterfaces - Web
+    data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
+    data:    IP configurations:
+    data:      Name                          : ipconfig1
+    data:      Provisioning state            : Succeeded
+    data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
+    data:      Private IP address            : 192.168.1.5
+    data:      Private IP Allocation Method  : Dynamic
+    data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:
+    info:    network nic set command OK
+
+### <a name="dissociate-an-nsg-from-a-subnet"></a>Dissociate an NSG from a subnet
+
+To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, run the `azure network vnet subnet set` command as shown below.
+
+    azure network vnet subnet set --resource-group RG-NSG \
+        --vnet-name TestVNet \
+        --name FrontEnd \
+        --network-security-group-id ""
+
+Expected output:
+
+    info:    Executing command network vnet subnet set
+    + Looking up the subnet "FrontEnd"
+    + Setting subnet "FrontEnd"
+    + Looking up the subnet "FrontEnd"
+    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+    data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+    data:    ProvisioningState               : Succeeded
+    data:    Name                            : FrontEnd
+    data:    Address prefix                  : 192.168.1.0/24
+    data:    IP configurations:
+    data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
+    data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
+    data:
+    info:    network vnet subnet set command OK
+
+### <a name="associate-an-nsg-to-a-subnet"></a>Associate an NSG to a subnet
+
+To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, run the `azure network vnet subnet set` command as shown below.
+
+    azure network vnet subnet set --resource-group RG-NSG \
+        --vnet-name TestVNet \
+        --name FrontEnd \
+        --network-security-group-name NSG-FronEnd
+
+>[AZURE.NOTE] The command above only works because the **NSG-FrontEnd** NSG is in the same resource group as the virtual network **TestVNet**. If the NSG is in a different resource group, you need to use the **--network-security-group-id** parameter instead, and provide the full id for the NSG. You can retrieve the id by running **azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json** and looking for the **id** property. 
+
+Expected output:
+
+        info:    Executing command network vnet subnet set
+        + Looking up the subnet "FrontEnd"
+        + Looking up the network security group "NSG-FrontEnd"
+        + Setting subnet "FrontEnd"
+        + Looking up the subnet "FrontEnd"
+        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+        data:    ProvisioningState               : Succeeded
+        data:    Name                            : FrontEnd
+        data:    Address prefix                  : 192.168.1.0/24
+        data:    Network security group          : [object Object]
+        data:    IP configurations:
+        data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
+        data:      /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
+        data:
+        info:    network vnet subnet set command OK
+
+## <a name="delete-an-nsg"></a>Delete an NSG
+
+You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.
+
+1. To check the resources associated to an NSG, run the `azure network nsg show` as shown in [View NSGs associations](#View-NSGs-associations).
+2. If the NSG is associated to any NICs, run the `azure network nic set` as shown in [Dissociate an NSG from a NIC](#Dissociate-an-NSG-from-a-NIC) for each NIC. 
+3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet) for each subnet.
+4. To delete the NSG, run the `azure network nsg delete` command as shown below.
+
+        azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
+
+    Expected output:
+
+        info:    Executing command network nsg delete
+        + Looking up the network security group "NSG-FrontEnd"
+        + Deleting network security group "NSG-FrontEnd"
+        info:    network nsg delete command OK
+
+## <a name="next-steps"></a>Next steps
+
+- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

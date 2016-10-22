@@ -1,46 +1,51 @@
 <properties
-	pageTitle="O que são Hubs de Eventos do Azure? | Microsoft Azure"
-	description="Visão geral e descrição dos Hubs de Eventos do Azure"
-	services="event-hubs"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="What is Azure Event Hubs? | Microsoft Azure"
+    description="Overview and description of Azure Event Hubs"
+    services="event-hubs"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/17/2016"
-	ms.author="sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/17/2016"
+    ms.author="sethm"/>
 
-# O que é Hub de Eventos do Azure?
 
-Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Os Hub de Eventos agem como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um Hub de Eventos, eles podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma. Para obter mais informações e detalhes técnicos, confira a [Visão geral de Hubs de Eventos](event-hubs-overview.md).
+# <a name="what-is-azure-event-hubs?"></a>What is Azure Event Hubs?
 
-## Recursos de Hub de Eventos
+Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information and technical details, see the [Event Hubs overview](event-hubs-overview.md).
 
-Hubs de Eventos é um serviço de processamento de eventos que fornece processamento de telemetria e eventos na nuvem em grande escala, com baixa latência e alta confiabilidade. Esse serviço é especialmente útil para:
+## <a name="event-hubs-capabilities"></a>Event Hubs capabilities
 
-- Instrumentação de aplicativos
-- Experiência do usuário ou o processamento de fluxo de trabalho
-- Cenários de IoT (Internet das coisas)
+Event Hubs is an event processing service that provides event and telemetry processing at massive scale, with low latency and high reliability. This service is especially useful for:
 
-Alguns outros recursos dos Hubs de Eventos importantes incluem o comportamento de rastreamento de aplicativos móveis, informações do tráfego de web farms, captura de eventos de jogos em jogos de console ou telemetria coletada de máquinas industriais ou veículos conectados.
+- Application instrumentation
+- User experience or workflow processing
+- Internet of Things (IoT) scenarios
 
-## Próximas etapas
+Some other key Event Hubs capabilities include behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
 
-Para obter informações detalhadas sobre Hubs de Eventos, consulte os tópicos a seguir.
+## <a name="next-steps"></a>Next steps
 
-- [Visão geral de Hubs de Evento](event-hubs-overview.md)
-- [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
-- [Perguntas frequentes sobre disponibilidade e suporte dos Hubs de Eventos](event-hubs-availability-and-support-faq.md)
-- Introdução a um [Tutorial de Hub de Eventos][]
-- Um [aplicativo de exemplo completo que usa Hub de Eventos][].
+For detailed information about Event Hubs, see the following topics.
 
-[Tutorial de Hub de Eventos]: event-hubs-csharp-ephcs-getstarted.md
-[aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+- [Event Hubs overview](event-hubs-overview.md)
+- [Event Hubs programming guide](event-hubs-programming-guide.md)
+- [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
+- Get started with an [Event Hubs tutorial][]
+- A complete [sample application that uses Event Hubs][]
 
-<!---HONumber=AcomDC_0907_2016-->
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,39 +1,44 @@
-## O que é o armazenamento de arquivos do Azure?
+## <a name="what-is-azure-file-storage?"></a>What is Azure File storage?
 
-O armazenamento de arquivos oferece armazenamento compartilhado para aplicativos que usem o protocolo padrão SMB 2.1 ou SMB 3.0. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo.
+File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
-Aplicativos executados em máquinas virtuais do Azure ou em serviços de nuvem podem montar um compartilhamento de armazenamento de arquivo para acessar dados de arquivos, assim como um aplicativo de área de trabalho montaria um compartilhamento SMB típico. Qualquer quantidade de máquinas virtuais ou funções do Azure podem montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
-Como um compartilhamento de Armazenamento de arquivos é um compartilhamento de arquivo padrão no Azure que usa o protocolo SMB, os aplicativos executados no Azure poderão acessar os dados no compartilhamento por meio das APIs de E/S de arquivo. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Os profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de arquivos como parte da administração de aplicativos do Azure. Este guia mostrará exemplos de ambos os casos.
+Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
 
-Os usos comuns do armazenamento de arquivos incluem:
+Common uses of File storage include:
 
-- Migrar aplicativos locais que dependem dos compartilhamentos de arquivos para serem executados em máquinas virtuais ou em serviços de nuvem do Azure, sem regravações caras
-- Armazenar configurações de aplicativos compartilhados, por exemplo, em arquivos de configuração
-- Armazenar dados de diagnóstico, como logs, métricas e despejos de falha em um local compartilhado 
-- Armazenar ferramentas e utilitários necessários para desenvolver ou administrar máquinas virtuais ou serviços de nuvem do Azure
+- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+- Storing shared application settings, for example in configuration files
+- Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+- Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
 
-## Conceitos do armazenamento de arquivo
+## <a name="file-storage-concepts"></a>File storage concepts
 
-O armazenamento de arquivos contém os seguintes componentes:
+File storage contains the following components:
 
 ![files-concepts][files-concepts]
 
--   **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
+-   **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
 
--   **Compartilhamento**: um compartilhamento do armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TB do armazenamento de arquivos.
+-   **Share:** A File storage share is an SMB file share in Azure. 
+    All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 
--   **Diretório:** uma hierarquia opcional de diretórios.
+-   **Directory:** An optional hierarchy of directories. 
 
--	**Arquivo:** um arquivo no compartilhamento. Um arquivo pode ter até 1 TB de tamanho.
+-   **File:** A file in the share. A file may be up to 1 TB in size.
 
--   **Formato de URL:** os arquivos são endereçáveis usando o seguinte formato de URL: https://`<storage
-    account>`.file.core.windows.net/`<share>`/`<diretório/diretórios>`/`<file>`
+-   **URL format:** Files are addressable using the following URL format:   
+    https://`<storage
+    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
-    A URL de exemplo a seguir poderia ser usada para endereçar um dos arquivos no diagrama acima: `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
+    The following example URL could be used to address one of the files in the diagram above:  
+    `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos, consulte [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados](http://msdn.microsoft.com/library/azure/dn167011.aspx).
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!----HONumber=AcomDC_0204_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

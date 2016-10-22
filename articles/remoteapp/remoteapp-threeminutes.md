@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos | Microsoft Azure"
-    description="Faça um test drive da funcionalidade do RemoteApp do Azure sem instalar o serviço."
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Azure"
+    description="Test drive Azure RemoteApp functionality without installing the service."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,29 @@
 
 
 
-# Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos
+
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Try Azure RemoteApp on your device in 3 minutes or less
 
 > [AZURE.IMPORTANT]
-O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Deseja ver o RemoteApp do Azure em seu dispositivo? Você pode acessar nossa implantação de demonstração por 10 minutos, desde que tenha uma conta da Microsoft. Temos o Office e alguns outros aplicativos disponíveis. Essa é uma ótima maneira de avaliar a experiência do usuário para o RemoteApp do Azure em menos de 3 minutos.
+Want to see Azure RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.
 
-Interessado?
+Interested?
 
-1. Acesse [http://remoteapp.azure.com](http://remoteapp.azure.com).
-2. Clique em **Instalar Cliente** no canto superior direito.
-3. O sistema automaticamente detecta o dispositivo e você é levado para o cliente para o seu dispositivo. Instale o cliente.
-4. Retorne para [http://remoteapp.azure.com](http://remoteapp.azure.com) e entre com sua conta da Microsoft.
+1. Go to to [http://remoteapp.azure.com](http://remoteapp.azure.com).
+2. Click **Install Client** in the upper right corner.  
+3. The system automatically detects your device and will take you to the client for your device. Install the client.
+4. Go back [http://remoteapp.azure.com](http://remoteapp.azure.com) and  sign in with your Microsoft account.
 
-Agora você pode acessar aplicativos em execução em tempo real no RemoteApp do Azure.
+You can now access applications running in real time on Azure RemoteApp.
 
-Sua opinião é importante. No final de cada sessão, você verá uma caixa de diálogo para seus comentários. Se você tiver um minuto, conte-nos suas ideias e diga se gostaria que a Microsoft entrasse em contato com você para obter informações adicionais.
+Your opinion matters. At the end of each session, you will see a dialog box for your feedback. If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.
 
->[AZURE.NOTE] Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
+>[AZURE.NOTE] Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
