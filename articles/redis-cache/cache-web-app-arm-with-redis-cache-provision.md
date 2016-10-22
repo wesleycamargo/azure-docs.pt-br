@@ -1,49 +1,50 @@
 <properties 
-	pageTitle="Provisionar o aplicativo Web com o Cache Redis" 
-	description="Use o modelo do Gerenciador de Recursos do Azure para implantar o aplicativo Web com o Cache Redis." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erickson-doug" 
-	editor=""/>
+    pageTitle="Provision Web App with Redis Cache" 
+    description="Use Azure Resource Manager template to deploy web app with Redis Cache." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erickson-doug" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/09/2016" 
+    ms.author="sdanie"/>
 
-# Criar um aplicativo Web mais o Cache Redis usando um modelo
 
-Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web do Azure com o Cache Redis. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+# <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Create a Web App plus Redis Cache using a template
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-Para obter o modelo completo, consulte [Aplicativo Web com o modelo do Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-## O que você implantará
+For the complete template, see [Web App with Redis Cache template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
-Neste modelo, você implantará:
+## <a name="what-you-will-deploy"></a>What you will deploy
 
-- Aplicativo Web do Azure
-- Cache Redis do Azure.
+In this template, you will deploy:
 
-Para executar a implantação automaticamente, clique no seguinte botão:
+- Azure Web App
+- Azure Redis Cache.
 
-[![Implantar no Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+To run the deployment automatically, click the following button:
 
-## Parâmetros para especificar
+[![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+
+## <a name="parameters-to-specify"></a>Parameters to specify
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 [AZURE.INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
-## Nomes de variáveis
+## <a name="variables-for-names"></a>Variables for names
 
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../resource-group-template-functions.md#uniquestring) para construir um valor com base na ID de grupo de recursos.
+This template uses variables to construct names for the resources. It uses the [uniqueString](../resource-group-template-functions.md#uniquestring) function to construct a value based on the resource group id.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -52,15 +53,15 @@ Este modelo usa variáveis para construir nomes para os recursos. Ele usa a fun�
     },
 
 
-## Recursos a implantar
+## <a name="resources-to-deploy"></a>Resources to deploy
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Cache Redis
+### <a name="redis-cache"></a>Redis Cache
 
-Cria o Cache Redis do Azure que é usado com o aplicativo Web. O nome do cache é especificado na variável **cacheName**.
+Creates the Azure Redis Cache that is used with the web app. The name of the cache is specified in the **cacheName** variable.
 
-O modelo cria o cache no mesmo local que o grupo de recursos.
+The template creates the cache in the same location as the resource group. 
 
     {
       "name": "[variables('cacheName')]",
@@ -81,11 +82,11 @@ O modelo cria o cache no mesmo local que o grupo de recursos.
     }
 
 
-### Aplicativo Web
+### <a name="web-app"></a>Web app
 
-Cria o aplicativo Web com o nome especificado na variável **webSiteName**.
+Creates the web app with name specified in the **webSiteName** variable.
 
-Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
+Notice that the web app is configured with app setting properties that enable it to work with the Redis Cache. This app settings are dynamically created based on values provided during deployment.
         
     {
       "apiVersion": "2015-08-01",
@@ -120,16 +121,22 @@ Observe que o aplicativo Web está configurado com as propriedades de configura�
       ]
     }
 
-## Comandos para executar a implantação
+## <a name="commands-to-run-deployment"></a>Commands to run deployment
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

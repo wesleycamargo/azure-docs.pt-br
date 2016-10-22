@@ -1,297 +1,302 @@
 <properties
-	pageTitle="Tutorial: Integração do Active Directory do Azure com o Questetra BPM Suite | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Questetra BPM Suite."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Aure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="jeedes"/>
-
-
-# Tutorial: Integração do Active Directory do Azure com o Questetra BPM Suite
-
-O objetivo desse tutorial é mostrar como integrar o Questetra BPM Suite ao Azure AD (Azure Active Directory). A integração do Questetra BPM Suite ao Azure AD oferece os seguintes benefícios:
-
-- Você pode controlar, no AD do Azure, quem tem acesso ao Questetra BPM Suite
-- Você pode habilitar seus usuários a fazerem logon automaticamente no Questetra BPM Suite (logon único) com suas contas do AD do Azure
-- Gerenciar suas contas em um único local: o Portal clássico do Azure
-
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
-
-## Pré-requisitos 
-
-Para configurar a integração do AD do Azure com o Questetra BPM Suite, você precisa dos seguintes itens:
-
-- Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/)
-
-
-> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
- 
-## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
-
-1. Adicionar um Questetra BPM Suite da galeria
-2. Configurar e testar o logon único do Azure AD
-
-
-## Adicionar um Questetra BPM Suite da galeria
-Para configurar a integração do Questetra BPM Suite com o AD do Azure, você precisa adicionar o Questetra BPM Suite, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
-
-**Para adicionar o Questetra BPM Suite por meio da galeria, execute as seguintes etapas:**
-
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
-
-	![Active Directory][1]
-
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-
-	![Aplicativos][2]
-
-4. Clique em **Adicionar** na parte inferior da página.
-
-	![Aplicativos][3]
-
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-
-	![Aplicativos][4]
-
-6. Na caixa de pesquisa, digite **Questetra BPM Suite**.
-
-	![Aplicativos][5]
-
-7. No painel de resultados, selecione **Questetra BPM Suite** e clique em **Concluir** para adicionar o aplicativo.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="jeedes"/>
 
 
 
-##  configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o Questetra BPM Suite, com base em um usuário de teste chamado "Britta Simon".
+# <a name="tutorial:-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Azure Active Directory integration with Questetra BPM Suite
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Questetra BPM Suite é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Questetra BPM Suite. Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure ao valor de **Nome de usuário** no Questetra BPM Suite.
- 
-Para configurar e testar o logon único do AD do Azure com o Questetra BPM Suite, você precisa concluir os seguintes blocos de construção:
+The objective of this tutorial is to show you how to integrate Questetra BPM Suite with Azure Active Directory (Azure AD).  
+Integrating Questetra BPM Suite with Azure AD provides you with the following benefits: 
 
-1. **[Configurar o Logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** - para habilitar seus usuários para usar esse recurso.
-2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Questetra BPM Suite](#creating-a-questetra-bpm-suite-test-user)** - para ter um equivalente de Britta Simon no Questetra BPM Suite que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+- You can control in Azure AD who has access to Questetra BPM Suite 
+- You can enable your users to automatically get signed-on to Questetra BPM Suite (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-### Configuração do logon único do AD do Azure
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Questetra BPM Suite.
+## <a name="prerequisites"></a>Prerequisites 
 
-**Para configurar o logon único do AD do Azure com o Questetra BPM Suite, execute as seguintes etapas:**
+To configure Azure AD integration with Questetra BPM Suite, you need the following items:
 
-1. No portal clássico do Azure, na página de integração de aplicativos do **Questetra BPM Suite**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-
-	![Configurar o logon único][8]
-
-2. Na página **Como você deseja que os usuários façam logon no Questetra BPM Suite**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
-
-	![Logon único do AD do Azure][9]
+- An Azure AD subscription
+- An [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) single-sign on enabled subscription
 
 
-3. Em outra janela do navegador da Web, faça logon em seu site de empresa **Questetra BPM Suite** como administrador.
-
-4. No menu na parte superior, clique em **Configurações do Sistema**.
-
-	![Logon único do AD do Azure][10]
-
-5. Para abrir a página **SingleSignOnSAML**, clique em **SSO (SAML)**.
-
-	![Logon único do AD do Azure][11]
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-6. No portal clássico do Azure, na página de diálogo **Definir Configurações de Aplicativo**, execute estas etapas:
+To test the steps in this tutorial, you should follow these recommendations:
 
-	![Definir configurações de aplicativo][13]
- 
-    a. No seu site da empresa **Questetra BPM Suite**, na seção de Informações de SP, copie a **URL de ACS** e cole-a na caixa de texto **URL de Logon**.
-
-    b. No seu site da empresa **Questetra BPM Suite**, na seção de Informações de SP, copie a **ID da Entidade** e cole-a na caixa de texto **URL do Emissor**.
-
-    c. No seu site da empresa **Questetra BPM Suite**, na seção de Informações de SP, copie a **URL de ACS** e cole-a na caixa de texto **URL de Resposta**.
-
-    d. Clique em **Avançar**.
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
-7. Na página **Configurar logon único no Questetra BPM Suite**, clique em **Baixar certificado** e salve o arquivo de certificado localmente em seu computador.
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of three main building blocks:
 
-	![Configurar o logon único][14]
+1. Adding Questetra BPM Suite from the gallery 
+2. Configuring and testing Azure AD single sign-on
 
 
-8. No seu site da empresa **Questetra BPM Suite**, execute as seguintes etapas:
+## <a name="adding-questetra-bpm-suite-from-the-gallery"></a>Adding Questetra BPM Suite from the gallery
+To configure the integration of Questetra BPM Suite into Azure AD, you need to add Questetra BPM Suite from the gallery to your list of managed SaaS apps.
 
-	![Configurar o logon único][15]
+**To add Questetra BPM Suite from the gallery, perform the following steps:**
 
-    a. Selecione **Habilitar Logon Único**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Questetra BPM Suite**.
+
+    ![Applications][5]
+
+7. In the results pane, select **Questetra BPM Suite**, and then click **Complete** to add the application.
+
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Questetra BPM Suite based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Questetra BPM Suite to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Questetra BPM Suite needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Questetra BPM Suite.
+ 
+To configure and test Azure AD single sign-on with Questetra BPM Suite, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Questetra BPM Suite test user](#creating-a-questetra-bpm-suite-test-user)** - to have a counterpart of Britta Simon in Questetra BPM Suite that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Questetra BPM Suite application.
+
+**To configure Azure AD single sign-on with Questetra BPM Suite, perform the following steps:**
+
+1. In the Azure classic portal, on the **Questetra BPM Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][8]
+
+2. On the **How would you like users to sign on to Questetra BPM Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Azure AD Single Sign-On][9]
+
+
+3. In a different web browser window, log into your **Questetra BPM Suite** company site as an administrator.
+
+4. In the menu on the top, click **System Settings**. 
+
+    ![Azure AD Single Sign-On][10]
+
+5. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. 
+
+    ![Azure AD Single Sign-On][11]
+
+
+6. In the Azure classic portal, on the **Configure App Settings** dialog page, perform the following steps: 
+
+    ![Configure App Settings][13]
+ 
+    a. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Sign On URL** textbox.
+
+    b. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **Entity ID**, and then paste it into the **Issuer URL** textbox.
+
+    c. On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Reply URL** textbox.
+
+    d. Click **Next**.
+
+ 
+7. On the **Configure single sign-on at Questetra BPM Suite** page, click **Download certificate**, and then save the certificate file locally on your computer.
+
+    ![Configure Single Sign-On][14]
+
+
+8. On you **Questetra BPM Suite** company site, perform the following steps: 
+
+    ![Configure Single Sign-On][15]
+
+    a. Select **Enable Single Sign-On**.
      
-    b. No portal clássico do Azure, copie o valor de **URL do Emissor** e cole-o na caixa de texto **ID da Entidade**.
+    b. On the Azure classic portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.
 
-    c. No portal clássico do Azure, copie o valor de **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL da página de entrada**.
+    c. On the Azure classic portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.
 
-    d. No portal clássico do Azure, copie o valor de **URL do Serviço de Saída Único** e cole-o na caixa de texto **URL da página de saída**.
+    d. On the Azure classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.
 
-    e. Na caixa de texto **Formato da NameID**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
-
-
-    f. Crie um arquivo codificado em base 64 usando o certificado baixado.
-
-    >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
-
-    g. Abra seu certificado codificado em base-64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado de validação**.
-
-    h. Clique em **Salvar**.
+    e. In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
-9. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.
+    f. Create a base-64 encoded file from your downloaded certificate. 
 
-	![O que é o Azure AD Connect][17]
+    >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
+    g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox. 
 
-10. Na página **Confirmação de logon único**, clique em **Concluir**.
-
-	![O que é o Azure AD Connect][18]
-
+    h. Click **Save**.
 
 
+9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 
-### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+    ![What is Azure AD Connect][17]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+10. On the **Single sign-on confirmation** page, click **Complete**.  
 
-	![Criar um usuário de teste do AD do Azure][100]
+    ![What is Azure AD Connect][18]
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-	![Criar um usuário de teste do AD do Azure][101]
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-	![Criar um usuário de teste do AD do Azure][102]
+**To create a test user in Azure AD, perform the following steps:**
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Criar um usuário de teste do AD do Azure][103]
+    ![Create Azure AD test user][100] 
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To display the list of users, in the menu on the top, click **Users**.
+
+    ![Create Azure AD test user][101] 
+
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
+
+    ![Create Azure AD test user][102] 
+
+5. On the **Tell us about this user** dialog page, perform the following steps:
+
+    ![Create Azure AD test user][103]
  
-    a. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
+    a. As **Type Of User**, select **New user in your organization**.
   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Clique em Avançar.
+    c. Click Next.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  On the **User Profile** dialog page, perform the following steps: 
 
-	![Criar um usuário de teste do AD do Azure][104]
+    ![Create Azure AD test user][104] 
   
-    a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. In the **First Name** textbox, type **Britta**. 
  
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. Na lista **Função**, selecione **Usuário**.
+    d. In the **Role** list, select **User**.
 
-    e. Clique em **Avançar**.
+    e. Click **Next**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Criar um usuário de teste do AD do Azure][105]
+    ![Create Azure AD test user][105]  
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Criar um usuário de teste do AD do Azure][106]
+    ![Create Azure AD test user][106]   
   
-    a. Anote o valor da **Nova Senha**.
+    a. Write down the value of the **New Password**.
   
-    b. Clique em **Concluído**.
+    b. Click **Complete**.   
   
  
-### Criar um usuário de teste do Questetra BPM Suite
+### <a name="creating-a-questetra-bpm-suite-test-user"></a>Creating a Questetra BPM Suite test user
 
-O objetivo desta seção é criar um usuário chamado Britta Simon no Questetra BPM Suite.
+The objective of this section is to create a user called Britta Simon in Questetra BPM Suite.
 
-**Para criar um usuário chamado Brenda Fernandes no Questetra BPM Suite, execute as seguintes etapas:**
+**To create a user called Britta Simon in Questetra BPM Suite, perform the following steps:**
 
-1.	Faça logon no site da sua empresa do Questetra BPM Suite como um administrador.
-2.	Vá para **Configurações do Sistema > Lista de Usuários > Novo Usuário**.
-3.	Na caixa de diálogo Novo Usuário, execute as seguintes etapas:
+1.  Sign-on to your Questetra BPM Suite company site as an administrator.
+2.  Go to **System Settings > User List > New User**. 
+3.  On the New User dialog, perform the following steps: 
 
-	![Criar um usuário de teste][300]
+    ![Create test user][300] 
 
-    a. Na caixa de texto **Nome**, digite o nome de usuário Britta no Azure AD.
+    a. In the **Name** textbox, type Britta's user name in Azure AD.
 
-    b. Na caixa de texto **Email**, digite o nome de usuário Britta no Azure AD.
+    b. In the **Email** textbox, type Britta's user name in Azure AD.
 
-    c. Na caixa de texto **Senha**, digite uma senha.
+    c. In the **Password** textbox, type a password.
 
-4.	Clique em **Adicionar novo usuário**.
-
-
-
-### Atribuição do usuário de teste do AD do Azure
-
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Questetra BPM Suite.
-
-![O que é o Azure AD Connect][200]
-
-**Para atribuir Britta Simon ao Questetra BPM Suite, execute as seguintes etapas:**
-
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
-
-	![O que é o Azure AD Connect][201]
-
-2. Na lista de aplicativos, selecione **Questetra BPM Suite**.
-
-	![O que é o Azure AD Connect][205]
-
-1. No menu na parte superior, clique em **Usuários**.
-
-	![O que é o Azure AD Connect][202]
-
-1. Na lista de usuários, selecione **Brenda Fernandes**.
-
-	![O que é o Azure AD Connect][203]
-
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
-
-	![O que é o Azure AD Connect][204]
+4.  Click **Add new user**.
 
 
 
-### Teste do logon único
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando clica no bloco Questetra BPM Suite no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Questetra BPM Suite.
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Questetra BPM Suite.
+
+![What is Azure AD Connect][200]
+
+**To assign Britta Simon to Questetra BPM Suite, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![What is Azure AD Connect][201]
+
+2. In the applications list, select **Questetra BPM Suite**.
+
+    ![What is Azure AD Connect][205]
+
+1. In the menu on the top, click **Users**.
+
+    ![What is Azure AD Connect][202]
+
+1. In the Users list, select **Britta Simon**.
+
+    ![What is Azure AD Connect][203]
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![What is Azure AD Connect][204]
 
 
-## Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Questetra BPM Suite tile in the Access Panel, you should get automatically signed-on to your Questetra BPM Suite application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_01.png
@@ -314,22 +319,25 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [18]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_08.png
 
 
-[100]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_09.png
-[101]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_10.png
-[102]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_11.png
-[103]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_12.png
-[104]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_13.png
-[105]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_14.png
-[106]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_15.png
+[100]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_09.png 
+[101]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_10.png 
+[102]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_11.png 
+[103]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_12.png 
+[104]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_13.png 
+[105]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_14.png 
+[106]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_15.png 
 
 
-[200]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_16.png
-[201]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_17.png
+[200]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_16.png 
+[201]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_17.png 
 [202]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_18.png
 [203]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_19.png
 [204]: ./media/active-directory-saas-questetra-bpm-suite/tutorial_general_20.png
 [205]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_12.png
 
-[300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
+[300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

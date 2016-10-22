@@ -1,49 +1,54 @@
 <properties
-	pageTitle="O que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure | Microsoft Azure"
-	description="Saiba o que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="adamglick"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
+    description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
+    services="key-vault"
+    documentationCenter=""
+    authors="adamglick"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="key-vault"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="sumedhb;aglick"/>
+    ms.service="key-vault"
+    ms.workload="key-vault"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/26/2016"
+    ms.author="sumedhb;aglick"/>
 
 
-# Redundância e disponibilidade de Cofre de Chaves do Azure
 
-O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garantir que seus segredos e chaves permaneçam disponíveis para seu aplicativo até mesmo se os componentes individuais do serviço falharem.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault availability and redundancy
 
-O conteúdo de seu cofre de chaves é replicado na região, bem como em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica. Isso mantém a alta durabilidade de seus segredos e chaves.
+Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-Se os componentes individuais dentro do serviço de Cofre de Chaves falharem, componentes alternativos dentro da região interferem para atender à sua solicitação, de modo a garantir que não haja degradação da funcionalidade. Você não precisa executar qualquer ação para disparar esse recurso. Ele ocorrerá automaticamente de modo transparente para você.
+The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
 
-No eventual caso de uma região inteira do Azure ficar indisponível, as solicitações que você faz do Cofre de Chaves do Azure nessa região são roteadas automaticamente ("failover") para uma região secundária. Quando a região primária estiver disponível novamente, as solicitações serão roteadas de volta ("failback") para a região primária. Novamente, você não precisa executar qualquer ação, pois isso acontecerá de modo automático.
+If individual components within the Key Vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It will happen automatically and will be transparent to you.
 
-Há algumas advertências às quais você deve estar atento:
+In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (“failed over”) to a secondary region. When the primary region is available again, requests are routed back (“failed back”) to the primary region. Again, you do not need to take any action because this will happen automatically.
 
-* No caso de um failover de região, pode levar alguns minutos para o serviço executar failover. Solicitações feitas durante esse período podem falhar até que o failover seja concluído.
-* Após a conclusão de um failover, o cofre de chaves estará no modo ___somente leitura___. As solicitações permitidas nesse modo são:
- * listar cofres de chave
- * obter propriedades de cofres de chave
- * listar segredos
- * obter segredos
- * listar chaves
- * obter (propriedades das) chaves
+There are a few caveats that you should be aware of:
+
+* In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the fail-over completes.
+* After a fail-over is complete, your key vault is in ___read-only___ mode. Requests that are supported in this mode are:
+ * list key vaults
+ * get properties of key vaults
+ * list secrets
+ * get secrets
+ * list keys
+ * get (properties of) keys
  * encrypt
- * descriptografar
- * encapsular
- * desencapsular
- * verificar
- * assinar
+ * decrypt
+ * wrap
+ * unwrap
+ * verify
+ * sign
  * backup
-* Após o failback de um failover, todos os tipos de solicitação (ou seja, solicitações de leitura ___e___ de gravação) são disponibilizados.
+* After a failover is failed back, all request types (i.e. read ___and___ write requests) are available.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

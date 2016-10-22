@@ -1,197 +1,213 @@
 <properties 
-	pageTitle="Atividade Pig" 
-	description="Saiba como usar a Atividade Pig em uma data factory do Azure para executar scripts Pig em um cluster sob demanda/próprio do HDInsight." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Pig Activity" 
+    description="Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/31/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/31/2016" 
+    ms.author="shlo"/>
 
-# Atividade Pig
 
-A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.md) de Data Factory executa consultas de Pig em [seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no cluster [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do HDInsight baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
+# <a name="pig-activity"></a>Pig Activity
+> [AZURE.SELECTOR]
+[Hive](data-factory-hive-activity.md)  
+[Pig](data-factory-pig-activity.md)  
+[MapReduce](data-factory-map-reduce.md)  
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+[Stored Procedure](data-factory-stored-proc-activity.md)
+[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[.NET custom](data-factory-use-custom-activities.md)
 
-## Sintaxe
+The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Pig queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-	{
-		"name": "HiveActivitySamplePipeline",
-	  	"properties": {
-	    "activities": [
-	    	{
-	        	"name": "Pig Activity",
-	        	"description": "description",
-	        	"type": "HDInsightPig",
-	        	"inputs": [
-	          		{
-	            		"name": "input tables"
-	          		}
-	        	],
-	        	"outputs": [
-	          		{
-	            		"name": "output tables"
-	          		}
-        		],
-	        	"linkedServiceName": "MyHDInsightLinkedService",
-	        	"typeProperties": {
-	          		"script": "Pig script",
-	          		"scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
-	          		"defines": {
-	            		"param1": "param1Value"
-	          		}
-	        	},
-       			"scheduler": {
-          			"frequency": "Day",
-          			"interval": 1
-        		}
-	      	}
-	    ]
-	  }
-	}
+## <a name="syntax"></a>Syntax
 
-## Detalhes da sintaxe
+    {
+        "name": "HiveActivitySamplePipeline",
+        "properties": {
+        "activities": [
+            {
+                "name": "Pig Activity",
+                "description": "description",
+                "type": "HDInsightPig",
+                "inputs": [
+                    {
+                        "name": "input tables"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "output tables"
+                    }
+                ],
+                "linkedServiceName": "MyHDInsightLinkedService",
+                "typeProperties": {
+                    "script": "Pig script",
+                    "scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
+                    "defines": {
+                        "param1": "param1Value"
+                    }
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                }
+            }
+        ]
+      }
+    }
 
-Propriedade | Descrição | Obrigatório
+## <a name="syntax-details"></a>Syntax details
+
+Property | Description | Required
 -------- | ----------- | --------
-name | Nome da atividade | Sim
-description | Texto que descreve qual a utilidade da atividade | Não
-type | HDinsightPig | Sim
-inputs | Uma ou mais entradas consumidas pela atividade Pig | Não
-outputs | Uma ou mais saídas produzidas pela atividade Pig | Sim
-linkedServiceName | Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory | Sim
-script | Especificar o script de Pig embutido | Não
-caminho do script | Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. | Não
-define | Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig | Não
+name | Name of the activity | Yes
+description | Text describing what the activity is used for | No
+type | HDinsightPig | Yes
+inputs | One or more inputs consumed by the Pig activity | No
+outputs | One or more outputs produced by the Pig activity | Yes
+linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes
+script | Specify the Pig script inline | No
+script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. | No
+defines | Specify parameters as key/value pairs for referencing within the Pig script | No
 
-## Exemplo
+## <a name="example"></a>Example
 
-Vamos considerar um exemplo de análises de logs de jogos nos quais você deseja identificar o tempo gasto pelos jogadores em jogos lançados por sua empresa.
+Let’s consider an example of game logs analytics where you want to identify the time spent by players playing games launched by your company.
  
-O log de jogo de exemplo a seguir é um arquivo separado por vírgulas (,). Ele contém os seguintes campos: ProfileID, SessionStart, Duration, SrcIPAddress e GameType.
+The following sample game log is a comma (,) separated file. It contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
-	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
-	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
-	1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
-	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
-	.....
+    1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
+    1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
+    1703,2014-05-04 10:21:57.3290000,10,199.118.18.179,CaptureFlag
+    1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
+    .....
 
-O **script Pig** para processar esses dados:
+The **Pig script** to process this data:
 
-	PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
-	
-	GroupProfile = Group PigSampleIn all;
-	
-	PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);
-	
-	Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
+    PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
+    
+    GroupProfile = Group PigSampleIn all;
+    
+    PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);
+    
+    Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 
-Para executar esse script Pig em um pipeline do Data Factory, siga este procedimento:
+To execute this Pig script in a Data Factory pipeline, do the following:
 
-1. Criar um serviço vinculado para registrar [seu próprio cluster de computação HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de cálculo HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado de **HDInsightLinkedService**.
-2.	Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o armazenamento de blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado de **StorageLinkedService**.
-3.	Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de **PigSampleIn** e o conjunto de dados de saída de **PigSampleOut**.
-4.	Copie a consulta Pig em um arquivo do Armazenamento de Blobs do Azure configurado na etapa 2. Se o armazenamento do Azure que hospeda os dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado do Armazenamento do Azure separado. Confira o serviço vinculado na configuração de atividade. Use **scriptPath **de modo a especificar o caminho para o arquivo de script pig e **scriptLinkedService**.
-	
-	> [AZURE.NOTE] Você também pode fornecer o script Pig embutido na definição da atividade usando a propriedade **script**. No entanto, não incentivamos o uso dessa abordagem, pois os caracteres especiais no script precisam de escape e podem causar problemas de depuração. A prática recomendada é seguir a etapa 4.
-5. Crie o pipeline com a atividade HDInsightPig. Essa atividade processa os dados de entrada executando o script Pig no cluster HDInsight.
+1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service **HDInsightLinkedService**.
+2.  Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service **StorageLinkedService**.
+3.  Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset **PigSampleIn** and the output dataset **PigSampleOut**.
+4.  Copy the Pig query in a file the Azure Blob Storage configured in step #2. If the Azure storage that hosts the data is different from the one that hosts the query file, create a separate Azure Storage linked service. Refer to the linked service in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService**. 
+    
+    > [AZURE.NOTE] You can also provide the Pig script inline in the activity definition by using the **script** property. However, we do not recommend this approach as all special characters in the script needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
+5. Create the pipeline with the HDInsightPig activity. This activity processes the input data by running Pig script on HDInsight cluster.
 
-		{
-		  "name": "PigActivitySamplePipeline",
-		  "properties": {
-		    "activities": [
-		      {
-		        "name": "PigActivitySample",
-		        "type": "HDInsightPig",
-		        "inputs": [
-		          {
-		            "name": "PigSampleIn"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "PigSampleOut"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "typeproperties": {
-		          "scriptPath": "adfwalkthrough\\scripts\\enrichlogs.pig",
-		          "scriptLinkedService": "StorageLinkedService"
-		        },
-       			"scheduler": {
-          			"frequency": "Day",
-          			"interval": 1
-        		}
-		      }
-		    ]
-		  }
-		} 
-6. Implante o pipeline. Consulte o artigo [Criando pipelines](data-factory-create-pipelines.md) para obter detalhes.
-7. Monitore o pipeline usando as exibições de gerenciamento e monitoramento de data factory. Consulte o artigo [Monitoramento e gerenciando pipelines do Data Factory](data-factory-monitor-manage-pipelines.md) para obter detalhes.
+        {
+          "name": "PigActivitySamplePipeline",
+          "properties": {
+            "activities": [
+              {
+                "name": "PigActivitySample",
+                "type": "HDInsightPig",
+                "inputs": [
+                  {
+                    "name": "PigSampleIn"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "PigSampleOut"
+                  }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                  "scriptPath": "adfwalkthrough\\scripts\\enrichlogs.pig",
+                  "scriptLinkedService": "StorageLinkedService"
+                },
+                "scheduler": {
+                    "frequency": "Day",
+                    "interval": 1
+                }
+              }
+            ]
+          }
+        } 
+6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
+7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details.
 
-## Especificando parâmetros para um script Pig 
+## <a name="specifying-parameters-for-a-pig-script"></a>Specifying parameters for a Pig script 
 
-Considere o seguinte exemplo: os logs de jogos são ingeridos diariamente no Armazenamento de Blobs do Azure e armazenados em uma pasta particionada com base na data e na hora. Convém parametrizar o script Pig e passar o local da pasta entrada dinamicamente durante a execução, além de produzir a saída particionada com data e hora.
+Consider the following example: game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned based on date and time. You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
  
-Para usar os scripts Pig parametrizado, faça o seguinte:
+To use parameterized Pig script, do the following:
 
-- Defina os parâmetros em **defines**.
+- Define the parameters in **defines**.
 
-		{
-			"name": "PigActivitySamplePipeline",
-		  	"properties": {
-		    "activities": [
-		    	{
-		        	"name": "PigActivitySample",
-		        	"type": "HDInsightPig",
-		        	"inputs": [
-		          		{
-		            		"name": "PigSampleIn"
-		          		}
-		        	],
-		        	"outputs": [
-		          		{
-		            		"name": "PigSampleOut"
-		          		}
-		        	],
-		        	"linkedServiceName": "HDInsightLinkedService",
-		        	"typeproperties": {
-		          		"scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
-		          		"scriptLinkedService": "StorageLinkedService",
-		          		"defines": {
-		            		"Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
-				            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-		          		}
-		        	},
-       				"scheduler": {
-          				"frequency": "Day",
-	          			"interval": 1
-    	    		}
-		      	}
-		    ]
-		  }
-		}  
-	  
-- No Script Pig, consulte os parâmetros usando '**$parameterName**', como mostra o exemplo a seguir:
+        {
+            "name": "PigActivitySamplePipeline",
+            "properties": {
+            "activities": [
+                {
+                    "name": "PigActivitySample",
+                    "type": "HDInsightPig",
+                    "inputs": [
+                        {
+                            "name": "PigSampleIn"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "PigSampleOut"
+                        }
+                    ],
+                    "linkedServiceName": "HDInsightLinkedService",
+                    "typeproperties": {
+                        "scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
+                        "scriptLinkedService": "StorageLinkedService",
+                        "defines": {
+                            "Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
+                            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                        }
+                    },
+                    "scheduler": {
+                        "frequency": "Day",
+                        "interval": 1
+                    }
+                }
+            ]
+          }
+        }  
+      
+- In the Pig Script, refer to the parameters using '**$parameterName**' as shown in the following example:
 
-		PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);	
-		GroupProfile = Group PigSampleIn all;		
-		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
-		Store PigSampleOut into '$Output' USING PigStorage (','); 
+        PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);   
+        GroupProfile = Group PigSampleIn all;       
+        PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);      
+        Store PigSampleOut into '$Output' USING PigStorage (','); 
 
 
-## Consulte também
-- [Atividade de Hive](data-factory-hive-activity.md)
-- [Atividade MapReduce](data-factory-map-reduce.md)
-- [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
-- [Invocar programas Spark](data-factory-spark.md)
-- [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## <a name="see-also"></a>See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke Spark programs](data-factory-spark.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

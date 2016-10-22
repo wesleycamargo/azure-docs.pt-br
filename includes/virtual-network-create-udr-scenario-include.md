@@ -1,16 +1,19 @@
-## Cenário
+## <a name="scenario"></a>Scenario
 
-Para ilustrar melhor como criar UDRs, este documento usará o cenário abaixo.
+To better illustrate how to create UDRs, this document will use the scenario below.
 
-![DESCRIÇÃO DA IMAGEM](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-Neste cenário, você criará um UDR para a *Sub-rede de front-end* e outro UDR para a *Sub-rede de back-end*, como descrito abaixo:
+In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
 
-- **UDR-FrontEnd**. O UDR de front-end será aplicado à sub-rede *FrontEnd* e contém uma rota:	
-	- **RouteToBackend**. Essa rota enviará todo o tráfego à sub-rede de back-end para a máquina virtual **FW1**.
-- **UDR-BackEnd**. O UDR de back-end será aplicado à sub-rede *BackEnd* e contém uma rota:	
-	- **RouteToFrontend**. Essa rota enviará todo o tráfego à sub-rede de front-end para a máquina virtual **FW1**.
+- **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:  
+    - **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
+- **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route: 
+    - **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
 
-A combinação dessas rotas garantirá que todo o tráfego destinado de uma sub-rede a outra será roteado para a máquina virtual **FW1**, que está sendo usada como um dispositivo virtual. Você também precisa ativar o encaminhamento IP para essa VM para garantir que ela possa receber o tráfego destinado a outras VMs.
+The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

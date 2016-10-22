@@ -1,23 +1,25 @@
-## Etapas rápidas 
+## <a name="quick-steps"></a>Quick steps 
 
-No artigo, presumimos que você se conectou à sua assinatura no portal e criou uma máquina virtual com as imagens disponíveis, usando o modelo de implantação do Gerenciador de Recursos. Siga estas etapas assim que a máquina virtual começar a ser executada.
+The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images using the Resource Manager deployment model. Follow these steps once your virtual machine starts running.
 
-1.  Exiba as configurações da máquina virtual no portal e clique no endereço IP Público.
+1.  View the virtual machine settings on the portal and click the Public IP address.
 
-    ![localizar recurso ip](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+    ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Observe que o nome DNS para o IP público está em branco. Clique em **Configuração** na folha do IP Público.
+2.  Note that the DNS name for the Public IP is blank. Click **Configuration** for the Public IP blade.
 
-    ![ip de configurações](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
+    ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Insira o rótulo do nome DNS desejado e **Salve** essa configuração.
+3.  Enter the desired DNS name label and **Save** this configuration.
 
-    ![inserir rótulo do nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    O recurso IP Público agora mostra essa nova etiqueta DNS em sua folha.
+    The Public IP resource now shows this new DNS label on its blade.
 
-4.  Feche as folhas de IP Público e volte até a folha da máquina virtual no portal. Verifique se o nome DNS/FQDN aparece ao lado do endereço IP para o recurso IP Público.
+4.  Close the Public IP blades and go back to the virtual machine blade in the portal. Verify that the DNS name/FQDN appears next to the IP address for the Public IP resource.
 
-    ![O FQDN é criado](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+    ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,33 +1,33 @@
-## Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Create an IoT hub
 
-Crie um hub IoT ao qual o dispositivo simulado se conectará. As etapas a seguir mostram como concluir esta tarefa usando o portal do Azure.
+Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
 
-1. Entre no [Portal do Azure][lnk-portal].
+1. Sign in to the [Azure portal][lnk-portal].
 
-2. Na Barra de Navegação, clique em **Novo** > **Internet das Coisas** > **Hub IoT do Azure**.
+2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
 
-    ![Barra de Navegação do portal do Azure][1]
+    ![Azure portal Jumpbar][1]
 
-3. Na folha **Hub IoT**, escolha a configuração para o hub IoT.
+3. In the **IoT hub** blade, choose the configuration for your IoT hub.
 
-    ![Folha Hub IoT][2]
+    ![IoT hub blade][2]
 
-    * Na caixa **Nome**, insira um nome para identificar seu hub IoT. Se o **Nome** for válido e se estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
-    * Selecione um [tipo de preço e de dimensionamento][lnk-pricing]. Este tutorial não requer uma camada específica. Para este tutorial, use a camada F1 gratuita.
-    * No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][lnk-resource-groups].
-    * Em **Local**, selecione o local para hospedar o hub IoT. Para este tutorial, escolha o local mais próximo.
+    * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
+    * Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
+    * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
+    * In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
 
-4. Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**. O Azure poderá demorar alguns minutos para criar seu hub IoT. Para verificar o status, você pode monitorar o progresso no quadro inicial ou no painel Notificações.
+4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
 
-    ![Novo status do Hub IoT do Azure][3]
+    ![New IoT hub status][3]
 
-5. Quando o Hub IoT tiver sido criado com êxito, clique no novo bloco para o Hub IoT no portal para abrir a folha do novo Hub IoT. Anote o **Nome do host** e clique em **Políticas de acesso compartilhado**.
+5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
 
-    ![Nova folha Hub IoT][4]
+    ![New IoT hub blade][4]
 
-6. Na folha **Políticas de acesso compartilhado**, clique na política **iothubowner**, então, copie e anote a cadeia de conexão na folha **iothubowner**. Para saber mais, confira [Controle de acesso][lnk-access-control] no "Guia do desenvolvedor do Hub IoT do Azure".
+6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "Azure IoT Hub developer guide."
 
-    ![Folha Políticas de acesso compartilhado][5]
+    ![Shared access policies blade][5]
 
 
 <!-- Images. -->
@@ -43,4 +43,7 @@ Crie um hub IoT ao qual o dispositivo simulado se conectará. As etapas a seguir
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+
